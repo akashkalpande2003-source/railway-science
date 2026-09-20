@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 9 Chapter 1 | Railway PYQ</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f4f7fb;
+  color:#1f2937;
+  line-height:1.6;
+}
+
+/* HEADER */
+
+header{
+  background:#123b6d;
+  color:white;
+  padding:17px 15px;
+}
+
+.header{
+  max-width:900px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:19px;
+  font-weight:bold;
+}
+
+.home{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#123b6d,#2563a6);
+  color:white;
+  text-align:center;
+  padding:35px 15px;
+}
+
+.hero h1{
+  font-size:28px;
+  margin-bottom:6px;
+}
+
+.hero p{
+  font-size:14px;
+}
+
+/* CONTAINER */
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:25px 15px;
+}
+
+/* SCORE */
+
+.score-box{
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  margin-bottom:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.score{
+  color:#123b6d;
+  font-weight:bold;
+}
+
+.progress{
+  color:#666;
+  font-size:14px;
+}
+
+/* QUESTION CARD */
+
+.question-card{
+  background:white;
+  padding:22px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.question-number{
+  color:#2563a6;
+  font-size:14px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.question{
+  font-size:19px;
+  font-weight:bold;
+  color:#123b6d;
+  margin-bottom:20px;
+}
+
+/* OPTIONS */
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+}
+
+.option{
+  width:100%;
+  padding:13px 15px;
+  border:2px solid #e5e7eb;
+  border-radius:10px;
+  background:#fff;
+  text-align:left;
+  font-size:15px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.option:hover{
+  border-color:#2563a6;
+  background:#f5f9ff;
+}
+
+/* RIGHT ANSWER */
+
+.option.correct{
+  background:#dcfce7;
+  border-color:#16a34a;
+  color:#166534;
+  font-weight:bold;
+}
+
+/* WRONG ANSWER */
+
+.option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626;
+  color:#991b1b;
+  font-weight:bold;
+}
+
+/* DISABLED */
+
+.option.disabled{
+  cursor:not-allowed;
+}
+
+/* EXPLANATION */
+
+.explanation{
+  display:none;
+  margin-top:20px;
+  padding:16px;
+  background:#eff6ff;
+  border-left:5px solid #2563a6;
+  border-radius:8px;
+}
+
+.explanation h3{
+  color:#123b6d;
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.explanation p{
+  font-size:14px;
+}
+
+/* NEXT BUTTON */
+
+.next-btn{
+  display:none;
+  margin:20px auto 0;
+  padding:12px 22px;
+  border:none;
+  border-radius:9px;
+  background:#123b6d;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.next-btn:hover{
+  background:#2563a6;
+}
+
+/* RESULT */
+
+.result{
+  display:none;
+  background:white;
+  padding:30px 20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.result h2{
+  color:#123b6d;
+  margin-bottom:10px;
+}
+
+.result-score{
+  font-size:30px;
+  font-weight:bold;
+  color:#15803d;
+  margin:15px 0;
+}
+
+.restart-btn{
+  padding:11px 20px;
+  border:none;
+  border-radius:8px;
+  background:#2563a6;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* BACK */
+
+.back{
+  display:block;
+  width:max-content;
+  margin:20px auto 0;
+  padding:10px 18px;
+  background:#555;
+  color:white;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+  margin-top:35px;
+  background:#123b6d;
+  color:white;
+  text-align:center;
+  padding:18px;
+  font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+  .hero h1{
+    font-size:24px;
+  }
+
+  .question{
+    font-size:17px;
+  }
+
+  .question-card{
+    padding:17px;
+  }
+
+  .option{
+    font-size:14px;
+    padding:12px;
+  }
+
+  .score-box{
+    padding:12px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="header">
+
+    <div class="logo">
+      🚆 Railway Science
+    </div>
+
+    <a href="science.html" class="home">
+      ← Back
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <h1>❓ Class 9 — Chapter 1 Railway PYQ</h1>
+
+  <p>
+    Exploration: Entering the World of Secondary Science
+  </p>
+
+</section>
+
+
+<div class="container">
+
+
+  <!-- SCORE -->
+
+  <div class="score-box">
+
+    <div class="score">
+      🏆 Score: <span id="score">0</span>
+    </div>
+
+    <div class="progress">
+      Question <span id="currentQuestion">1</span> / 10
+    </div>
+
+  </div>
+
+
+  <!-- QUIZ -->
+
+  <div id="quiz">
+
+
+    <div class="question-card">
+
+      <div class="question-number" id="questionNumber">
+        प्रश्न 1
+      </div>
+
+      <div class="question" id="question">
+      </div>
+
+
+      <div class="options" id="options">
+      </div>
+
+
+      <!-- EXPLANATION -->
+
+      <div class="explanation" id="explanation">
+
+        <h3>
+          💡 Explanation
+        </h3>
+
+        <p id="explanationText"></p>
+
+      </div>
+
+
+      <!-- NEXT -->
+
+      <button class="next-btn" id="nextBtn" onclick="nextQuestion()">
+        Next Question →
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- RESULT -->
+
+  <div class="result" id="result">
+
+    <h2>🎉 Quiz Complete!</h2>
+
+    <p>
+      आपने Chapter 1 के सभी 10 questions attempt किए।
+    </p>
+
+    <div class="result-score">
+      <span id="finalScore">0</span> / 10
+    </div>
+
+    <p id="resultMessage"></p>
+
+    <br>
+
+    <button class="restart-btn" onclick="restartQuiz()">
+      🔄 Restart Quiz
+    </button>
+
+  </div>
+
+
+  <!-- BACK BUTTON -->
+
+  <a href="science.html" class="back">
+    ← Back to Chapter List
+  </a>
+
+
+</div>
+
+
+<footer>
+
+  © 2026 Railway Science
+
+</footer>
+
+
+<script>
+
+
+/* =========================
+   QUESTIONS
+========================= */
+
+const questions = [
+
+  {
+    question:
+      "विज्ञान का आरंभ सामान्यतः किससे हुआ माना जाता है?",
+
+    options: [
+      "केवल गणितीय गणनाओं से",
+      "जिज्ञासा और विस्मय से",
+      "केवल प्रयोगशाला के प्रयोगों से",
+      "औद्योगिक क्रांति से"
+    ],
+
+    answer: 1,
+
+    explanation:
+      "सही! प्रकृति और ब्रह्मांड को देखकर मन में उत्पन्न जिज्ञासा और विस्मय ही विज्ञान के आरंभ का आधार बने हैं।"
+  },
+
+
+  {
+    question:
+      "शून्यता (Vacuum) में प्रकाश का वेग (Speed of Light) कितना होता है?",
+
+    options: [
+      "3 × 10⁸ km/s",
+      "186282 m/s",
+      "299792458 m/s",
+      "150000000 m/s"
+    ],
+
+    answer: 2,
+
+    explanation:
+      "सही! शून्यता में प्रकाश का मानक वेग 299792458 m/s होता है।"
+  },
+
+
+  {
+    question:
+      "वैज्ञानिक मेहनाद साह के अनुसार तारों का रंग किससे जुड़ा होता है?",
+
+    options: [
+      "उनके ताप से",
+      "उनकी पृथ्वी से दूरी से",
+      "उनके आकार और द्रव्यमान से",
+      "उनकी आयु से"
+    ],
+
+    answer: 0,
+
+    explanation:
+      "सही! कम तापमान से अधिक तापमान की ओर जाने पर तारों के रंगों में परिवर्तन होता है, जो उनके ताप से जुड़ा है।"
+  },
+
+
+  {
+    question:
+      "मौसम निम्नलिखित में से किन प्रमुख घटकों के संयोजन पर निर्भर करता है?",
+
+    options: [
+      "केवल तापमान और वायु",
+      "दाब और आर्द्रता मात्र",
+      "केवल वर्षा और वायुदाब",
+      "ताप + दाब + आर्द्रता + वायु"
+    ],
+
+    answer: 3,
+
+    explanation:
+      "सही! मौसम इन चारों — तापमान, वायुमंडलीय दाब, आर्द्रता और वायु — के सम्मिलित प्रभाव पर निर्भर करता है।"
+  },
+
+
+  {
+    question:
+      "मास्क बनाने की प्रक्रिया में भौतिकी (Physics) के किस विशिष्ट ज्ञान या अवधारणा का उपयोग किया जाता है?",
+
+    options: [
+      "बहुलक रेशो के गुणधर्म",
+      "कणीय गति",
+      "जीवाणु की आमाप और प्रकृति",
+      "वायुप्रवाह और निस्पंदन दक्षता के प्रतिरूपण"
+    ],
+
+    answer: 1,
+
+    explanation:
+      "सही! हवा के साथ आने वाले सूक्ष्म कणों की गति (Particle motion) को रोकने के लिए भौतिकी के कणीय गति के सिद्धांत का उपयोग होता है।"
+  },
+
+
+  {
+    question:
+      "विज्ञान में 'नियम' (Law) का मुख्य कार्य क्या परिभाषित करना है?",
+
+    options: [
+      "पैटर्न क्यों उत्पन्न होते हैं, इसका कारण बताना",
+      "भविष्य में होने वाली घटनाओं की भविष्यवाणी करना",
+      "नियमित पैटर्न का वर्णन",
+      "सूक्ष्म अवलोकन करना"
+    ],
+
+    answer: 2,
+
+    explanation:
+      "सही! नियम (जैसे न्यूटन के गति के नियम) प्रकृति में पाए जाने वाले नियमित पैटर्न का सटीक वर्णन करते हैं।"
+  },
+
+
+  {
+    question:
+      "विज्ञान की वह कौन सी अत्यधिक सराहनीय विशेषता है जो हमें भविष्य के बारे में आंकलन करने में मदद करती है?",
+
+    options: [
+      "इसकी 'पूर्वानुमान' करने की सशक्त क्षमता",
+      "केवल पुराने इतिहास का अध्ययन करना",
+      "जटिल उपकरणों का संग्रह करना",
+      "केवल प्रत्यक्ष प्रमाण देना"
+    ],
+
+    answer: 0,
+
+    explanation:
+      "सही! विज्ञान की एक सशक्त विशेषता इसका पूर्वानुमान (Prediction) लगाने की क्षमता है, जिससे भविष्य की संभावनाओं का पता चलता है।"
+  },
+
+
+  {
+    question:
+      "मास्क निर्माण में वैद्युत (Electricity/Electrostatics) के किस सिद्धांत का प्रयोग धूल या कण रोकने में होता है?",
+
+    options: [
+      "कणीय गति",
+      "बहुलक रेशो के गुणधर्म",
+      "वायुप्रवाह दक्षता",
+      "स्थैतिक आकर्षण"
+    ],
+
+    answer: 3,
+
+    explanation:
+      "सही! वैद्युत के अंतर्गत 'स्थैतिक आकर्षण' (Static attraction) के कारण सूक्ष्म कण मास्क की परतों पर चिपक जाते हैं।"
+  },
+
+
+  {
+    question:
+      "दिशा सूचक यंत्र (Compass) का विज्ञान में मुख्य प्रतीक के रूप में क्या महत्व है?",
+
+    options: [
+      "सूक्ष्म अवलोकन का प्रतीक",
+      "अन्वेषण के लिए सही दिशा",
+      "तापमान मापने का प्रतीक",
+      "ऊर्जा संरक्षण का प्रतीक"
+    ],
+
+    answer: 1,
+
+    explanation:
+      "सही! दिशा सूचक यंत्र अन्वेषण (Exploration) के लिए सही दिशा और सही लक्ष्य का प्रतीक माना गया है।"
+  },
+
+
+  {
+    question:
+      "मास्क के डिजाइन और कार्यकुशलता में गणित (Mathematics) की क्या भूमिका दर्शाई गई है?",
+
+    options: [
+      "जीवाणु की आमाप ज्ञात करना",
+      "कणीय गति का अध्ययन",
+      "वायुप्रवाह और निस्पंदन दक्षता के प्रतिरूपण",
+      "स्थैतिक आकर्षण पैदा करना"
+    ],
+
+    answer: 2,
+
+    explanation:
+      "सही! गणितीय समीकरणों और मॉडलिंग (प्रतिरूपण) द्वारा वायुप्रवाह (Airflow) और फिल्ट्रेशन दक्षता की गणना की जाती है।"
+  }
+
+];
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+
+/* =========================
+   LOAD QUESTION
+========================= */
+
+function loadQuestion(){
+
+  answered = false;
+
+  const q = questions[current];
+
+  document.getElementById("questionNumber").textContent =
+    "प्रश्न " + (current + 1);
+
+  document.getElementById("currentQuestion").textContent =
+    current + 1;
+
+  document.getElementById("question").textContent =
+    q.question;
+
+
+  const optionsContainer =
+    document.getElementById("options");
+
+  optionsContainer.innerHTML = "";
+
+
+  q.options.forEach((option,index)=>{
+
+    const button = document.createElement("button");
+
+    button.className = "option";
+
+    button.textContent =
+      String.fromCharCode(65 + index) + ") " + option;
+
+    button.onclick = function(){
+
+      selectAnswer(index,button);
+
+    };
+
+    optionsContainer.appendChild(button);
+
+  });
+
+
+  document.getElementById("explanation").style.display =
+    "none";
+
+  document.getElementById("nextBtn").style.display =
+    "none";
+
+}
+
+
+/* =========================
+   SELECT ANSWER
+========================= */
+
+function selectAnswer(selected,selectedButton){
+
+  if(answered) return;
+
+  answered = true;
+
+  const q = questions[current];
+
+  const buttons =
+    document.querySelectorAll(".option");
+
+
+  if(selected === q.answer){
+
+    selectedButton.classList.add("correct");
+
+    score++;
+
+    document.getElementById("score").textContent =
+      score;
+
+  }else{
+
+    selectedButton.classList.add("wrong");
+
+    buttons[q.answer].classList.add("correct");
+
+  }
+
+
+  /* Disable all options */
+
+  buttons.forEach(button=>{
+
+    button.classList.add("disabled");
+    button.disabled = true;
+
+  });
+
+
+  /* Explanation */
+
+  document.getElementById("explanationText").textContent =
+    q.explanation;
+
+  document.getElementById("explanation").style.display =
+    "block";
+
+
+  /* Next button */
+
+  document.getElementById("nextBtn").style.display =
+    "block";
+
+}
+
+
+/* =========================
+   NEXT QUESTION
+========================= */
+
+function nextQuestion(){
+
+  current++;
+
+  if(current < questions.length){
+
+    loadQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }else{
+
+    showResult();
+
+  }
+
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+function showResult(){
+
+  document.getElementById("quiz").style.display =
+    "none";
+
+  document.querySelector(".score-box").style.display =
+    "none";
+
+  document.getElementById("result").style.display =
+    "block";
+
+  document.getElementById("finalScore").textContent =
+    score;
+
+
+  let message = "";
+
+  if(score === 10){
+
+    message =
+      "🔥 शानदार! सभी questions सही हैं।";
+
+  }else if(score >= 7){
+
+    message =
+      "👏 बहुत अच्छा! आपकी तैयारी अच्छी है।";
+
+  }else if(score >= 5){
+
+    message =
+      "👍 अच्छा प्रयास! थोड़ा और revision करें।";
+
+  }else{
+
+    message =
+      "📚 Chapter को एक बार फिर revise करें।";
+
+  }
+
+  document.getElementById("resultMessage").textContent =
+    message;
+
+}
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartQuiz(){
+
+  current = 0;
+  score = 0;
+  answered = false;
+
+  document.getElementById("score").textContent =
+    "0";
+
+  document.getElementById("quiz").style.display =
+    "block";
+
+  document.querySelector(".score-box").style.display =
+    "flex";
+
+  document.getElementById("result").style.display =
+    "none";
+
+  loadQuestion();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadQuestion();
+
+</script>
+
+
+</body>
+</html>

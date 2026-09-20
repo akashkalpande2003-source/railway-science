@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Class 9 & 10</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f7fb;
+  color:#1f2937;
+  line-height:1.6;
+}
+
+header{
+  background:#123b6d;
+  color:white;
+  padding:17px 15px;
+}
+
+.header{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.home{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#123b6d,#2563a6);
+  color:white;
+  text-align:center;
+  padding:42px 15px;
+}
+
+.hero h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  font-size:15px;
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:25px 15px;
+}
+
+/* INFO */
+
+.info{
+  background:#fff8e1;
+  border-left:5px solid #f59e0b;
+  padding:16px;
+  border-radius:10px;
+  margin-bottom:25px;
+}
+
+.info b{
+  color:#92400e;
+}
+
+/* CLASS BUTTONS */
+
+.class-menu{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-bottom:30px;
+}
+
+.class-card{
+  background:white;
+  padding:25px 20px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  cursor:pointer;
+  border-top:5px solid #2563a6;
+  transition:.2s;
+}
+
+.class-card:hover{
+  transform:translateY(-3px);
+}
+
+.class-card .icon{
+  font-size:42px;
+  margin-bottom:8px;
+}
+
+.class-card h2{
+  color:#123b6d;
+  margin-bottom:5px;
+}
+
+.class-card p{
+  color:#666;
+  font-size:14px;
+}
+
+/* SCIENCE SECTION */
+
+.science-section{
+  display:none;
+}
+
+.section-heading{
+  background:#123b6d;
+  color:white;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:18px;
+}
+
+.section-heading h2{
+  font-size:21px;
+}
+
+/* CHAPTERS */
+
+.chapter-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.chapter{
+  background:white;
+  padding:18px;
+  border-radius:13px;
+  box-shadow:0 2px 8px rgba(0,0,0,.07);
+  border-left:5px solid #2563a6;
+}
+
+.chapter-number{
+  font-size:13px;
+  color:#2563a6;
+  font-weight:bold;
+  margin-bottom:5px;
+}
+
+.chapter h3{
+  color:#123b6d;
+  font-size:18px;
+  margin-bottom:9px;
+}
+
+.chapter p{
+  color:#666;
+  font-size:14px;
+  margin-bottom:15px;
+}
+
+.buttons{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:9px 12px;
+  border-radius:8px;
+  color:white;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.notes{
+  background:#2563a6;
+}
+
+.pyq{
+  background:#15803d;
+}
+
+.back{
+  display:block;
+  width:max-content;
+  margin:20px auto 0;
+  padding:10px 18px;
+  background:#555;
+  color:white;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+  margin-top:35px;
+  background:#123b6d;
+  color:white;
+  text-align:center;
+  padding:18px;
+  font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+  .class-menu{
+    grid-template-columns:1fr;
+  }
+
+  .chapter-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:25px;
+  }
+
+  .logo{
+    font-size:17px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="header">
+
+    <div class="logo">
+      🚆 Railway Science
+    </div>
+
+    <a href="index.html" class="home">
+      ← Home
+    </a>
+
+  </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <h1>🔬 Railway Science</h1>
+
+  <p>
+    Class 9 & Class 10 • Railway Exam Preparation
+  </p>
+
+</section>
+
+
+<div class="container">
+
+
+  <!-- INTRO -->
+
+  <div class="info">
+
+    <b>🎯 Railway Science Preparation</b>
+
+    <p>
+      यहाँ Railway exams के लिए Class 9 और Class 10
+      Science को सरल और exam-oriented तरीके से पढ़ाया जाएगा।
+    </p>
+
+    <p>
+      हर chapter में आगे
+      <b>📘 PDF Notes</b> और
+      <b>❓ Railway PYQ</b> उपलब्ध होंगे।
+    </p>
+
+  </div>
+
+
+  <!-- CLASS SELECTION -->
+
+  <div class="class-menu">
+
+
+    <!-- CLASS 9 -->
+
+    <div class="class-card"
+         onclick="showClass('class9')">
+
+      <div class="icon">📘</div>
+
+      <h2>Class 9 Science</h2>
+
+      <p>
+        13 Chapters
+      </p>
+
+    </div>
+
+
+    <!-- CLASS 10 -->
+
+    <div class="class-card"
+         onclick="showClass('class10')">
+
+      <div class="icon">📗</div>
+
+      <h2>Class 10 Science</h2>
+
+      <p>
+        13 Chapters
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= CLASS 9 ================= -->
+
+  <section id="class9" class="science-section">
+
+    <div class="section-heading">
+
+      <h2>📘 Class 9 Science — 13 Chapters</h2>
+
+    </div>
+
+
+    <div class="chapter-grid">
+
+
+      <!-- CHAPTER 1 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 01
+        </div>
+
+<h3>
+  Exploration: Entering the World of Secondary Science
+</h3>
+
+        <p>
+          Secondary Science की शुरुआत और
+          scientific exploration से जुड़े concepts.
+        </p>
+
+        <div class="buttons">
+
+<a href="class9-ch1-infographic.jpg" class="btn notes" target="_blank">
+  📘 PDF Notes
+</a>
+          
+          <a href="class9-ch1-pyq.html" class="btn pyq">
+  ❓ Railway PYQ
+</a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 2 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 02
+        </div>
+
+        <h3>
+          Cell: The Building Block of Life
+        </h3>
+
+        <p>
+          Cell, cell structure और
+          cell organelles से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 3 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 03
+        </div>
+
+        <h3>
+          Tissues in Action
+        </h3>
+
+        <p>
+          Plant और animal tissues तथा
+          उनके functions.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 4 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 04
+        </div>
+
+        <h3>
+          Descriding Motion Around Us
+        </h3>
+
+        <p>
+          Motion और objects की movement
+          से संबंधित Science concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 5 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 05
+        </div>
+
+        <h3>
+          Exploring Mixtures and their Separation
+        </h3>
+
+        <p>
+          Mixtures और उनके separation methods
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 6 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 06
+        </div>
+
+        <h3>
+          How Forces Affect Motion
+        </h3>
+
+        <p>
+          Force और motion के बीच संबंध
+          तथा उनके प्रभाव.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 7 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 07
+        </div>
+
+        <h3>
+          Work, Energy, and Simple Machines
+        </h3>
+
+        <p>
+          Work, energy और simple machines
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 8 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 08
+        </div>
+
+        <h3>
+          Journey Inside the Atom
+        </h3>
+
+        <p>
+          Atom की structure और atomic particles
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 9 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 09
+        </div>
+
+        <h3>
+          Atomic foundations of Matter
+        </h3>
+
+        <p>
+          Matter की atomic foundation और
+          संबंधित scientific concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 10 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 10
+        </div>
+
+        <h3>
+          Sound Waves: Characteristics and Applications
+        </h3>
+
+        <p>
+          Sound waves, characteristics और
+          उनके applications.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 11 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 11
+        </div>
+
+        <h3>
+          Reproduction: How Life Continues
+        </h3>
+
+        <p>
+          Reproduction और life continuity
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 12 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 12
+        </div>
+
+        <h3>
+          Patterns in Life: Diversity and Classification
+        </h3>
+
+        <p>
+          Diversity और classification
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 13 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 13
+        </div>
+
+        <h3>
+          Earth as a System: Energy, Matter, and Life
+        </h3>
+
+        <p>
+          Energy, matter, environment और
+          life से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <button class="back" onclick="showHome()">
+      ← Back to Classes
+    </button>
+
+  </section>
+
+
+  <!-- ================= CLASS 10 ================= -->
+
+  <section id="class10" class="science-section">
+
+    <div class="section-heading">
+
+      <h2>📗 Class 10 Science — 13 Chapters</h2>
+
+    </div>
+
+
+    <div class="chapter-grid">
+
+
+      <!-- CHAPTER 1 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 01
+        </div>
+
+        <h3>
+          Chemical Reactions and Equations
+        </h3>
+
+        <p>
+          Chemical reactions और equations
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 2 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 02
+        </div>
+
+        <h3>
+          Acids, Bases and Salts
+        </h3>
+
+        <p>
+          Acids, bases और salts के
+          properties और reactions.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 3 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 03
+        </div>
+
+        <h3>
+          Metals and Non-metals
+        </h3>
+
+        <p>
+          Metals और non-metals के
+          properties और reactions.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 4 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 04
+        </div>
+
+        <h3>
+          Carbon and its Compounds
+        </h3>
+
+        <p>
+          Carbon compounds और
+          उनके properties.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 5 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 05
+        </div>
+
+        <h3>
+          Life Processes
+        </h3>
+
+        <p>
+          Nutrition, respiration, transportation
+          और excretion.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 6 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 06
+        </div>
+
+        <h3>
+          Control and Coordination
+        </h3>
+
+        <p>
+          Nervous system, hormones और
+          coordination.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 7 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 07
+        </div>
+
+        <h3>
+          How do Organisms Reproduce?
+        </h3>
+
+        <p>
+          Asexual और sexual reproduction
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 8 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 08
+        </div>
+
+        <h3>
+          Heredity
+        </h3>
+
+        <p>
+          Heredity, traits और variation
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 9 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 09
+        </div>
+
+        <h3>
+          Light - Reflection and Refraction
+        </h3>
+
+        <p>
+          Light, reflection और refraction
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 10 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 10
+        </div>
+
+        <h3>
+          The Human Eye and the Colourful World
+        </h3>
+
+        <p>
+          Human eye और colourful world
+          से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 11 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 11
+        </div>
+
+        <h3>
+          Electricity
+        </h3>
+
+        <p>
+          Electric current, circuits और
+          electricity से संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 12 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 12
+        </div>
+
+        <h3>
+          Magnetic Effects of Electric Current
+        </h3>
+
+        <p>
+          Electric current के magnetic effects
+          और संबंधित concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- CHAPTER 13 -->
+
+      <div class="chapter">
+
+        <div class="chapter-number">
+          CHAPTER 13
+        </div>
+
+        <h3>
+          Our Environment
+        </h3>
+
+        <p>
+          Ecosystem, food chain, food web और
+          environmental concepts.
+        </p>
+
+        <div class="buttons">
+
+          <a href="#" class="btn notes">
+            📘 PDF Notes
+          </a>
+
+          <a href="#" class="btn pyq">
+            ❓ Railway PYQ
+          </a>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <button class="back" onclick="showHome()">
+      ← Back to Classes
+    </button>
+
+  </section>
+
+
+</div>
+
+
+<footer>
+
+  © 2026 Railway Science
+
+</footer>
+
+
+<script>
+
+function showClass(className){
+
+  document.getElementById("class9").style.display="none";
+  document.getElementById("class10").style.display="none";
+
+  document.getElementById(className).style.display="block";
+
+  window.scrollTo({
+    top:document.getElementById(className).offsetTop - 20,
+    behavior:"smooth"
+  });
+
+}
+
+
+function showHome(){
+
+  document.getElementById("class9").style.display="none";
+  document.getElementById("class10").style.display="none";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>
