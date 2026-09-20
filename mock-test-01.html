@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science Mock Test 01</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f4f6f8;
+  color:#222;
+  overflow-x:hidden;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  height:45px;
+  background:#111827;
+  color:#fff;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:0 10px;
+
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+.logo{
+  font-size:14px;
+  font-weight:bold;
+}
+
+header a{
+  color:#fff;
+  text-decoration:none;
+  font-size:11px;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+
+  padding:0 7px 95px;
+}
+
+/* ================= TOP BAR ================= */
+
+.test-topbar{
+  position:sticky;
+  top:45px;
+  z-index:90;
+
+  height:43px;
+
+  background:#fff;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:4px 6px;
+
+  margin:0 -7px;
+
+  border-bottom:1px solid #ddd;
+
+  box-shadow:0 1px 4px rgba(0,0,0,.06);
+}
+
+.brand-small{
+  font-size:12px;
+  font-weight:bold;
+  line-height:14px;
+}
+
+.mock-name{
+  font-size:8px;
+  color:#777;
+  line-height:10px;
+}
+
+.test-actions{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.timer{
+  min-width:55px;
+
+  background:#111827;
+  color:#fff;
+
+  font-size:11px;
+  font-weight:bold;
+
+  padding:6px;
+
+  border-radius:5px;
+
+  text-align:center;
+}
+
+.palette-mini{
+  border:0;
+
+  background:#2563eb;
+  color:#fff;
+
+  font-size:9px;
+  font-weight:bold;
+
+  padding:6px 7px;
+
+  border-radius:5px;
+
+  cursor:pointer;
+}
+
+/* ================= PROGRESS ================= */
+
+.compact-progress{
+  height:25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  padding:1px 2px;
+
+  font-size:11px;
+  font-weight:bold;
+}
+
+.review-status{
+  color:#7c3aed;
+  font-size:10px;
+}
+
+/* ================= QUESTION ================= */
+
+.question-card{
+  background:#fff;
+
+  border:1px solid #e0e4e8;
+
+  border-radius:7px;
+
+  padding:8px;
+
+  margin:0;
+
+  box-shadow:0 1px 4px rgba(0,0,0,.03);
+
+  height:auto;
+}
+
+.question-number{
+  display:inline-block;
+
+  background:#eef2ff;
+  color:#3730a3;
+
+  padding:2px 5px;
+
+  border-radius:4px;
+
+  font-size:10px;
+  font-weight:bold;
+
+  margin-bottom:4px;
+}
+
+/* QUESTION FONT SIZE INCREASED */
+
+.question{
+  font-size:16px;
+
+  line-height:1.4;
+
+  font-weight:600;
+
+  margin:0 0 6px;
+}
+
+/* ANSWER / OPTION FONT SIZE INCREASED */
+
+.option{
+  display:flex;
+  align-items:flex-start;
+
+  gap:7px;
+
+  border:1px solid #d8dde3;
+
+  border-radius:5px;
+
+  padding:7px 8px;
+
+  margin:3px 0;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  line-height:1.35;
+
+  background:#fff;
+}
+
+.option:active{
+  background:#f1f5f9;
+}
+
+.option input{
+  margin:2px 0 0;
+
+  flex-shrink:0;
+}
+
+/* ================= FIXED BOTTOM ================= */
+
+.bottom-bar{
+  position:fixed;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  z-index:150;
+
+  background:rgba(255,255,255,.98);
+
+  border-top:1px solid #ddd;
+
+  padding:4px 7px calc(4px + env(safe-area-inset-bottom));
+
+  margin:0;
+
+  backdrop-filter:blur(8px);
+}
+
+.navigation{
+  width:100%;
+  max-width:900px;
+
+  margin:auto;
+
+  display:grid;
+
+  grid-template-columns:.82fr 1.35fr .82fr;
+
+  gap:4px;
+}
+
+.btn{
+  border:0;
+
+  border-radius:5px;
+
+  background:#2563eb;
+  color:#fff;
+
+  font-size:10px;
+  font-weight:bold;
+
+  padding:6px 3px;
+
+  cursor:pointer;
+}
+
+.btn:disabled{
+  background:#cbd5e1;
+  cursor:not-allowed;
+}
+
+.review-next{
+  background:#7c3aed;
+}
+
+.submit{
+  width:100%;
+  max-width:900px;
+
+  display:block;
+
+  margin:3px auto 0;
+
+  background:#111827;
+
+  padding:6px;
+}
+
+/* ================= DRAWER ================= */
+
+.overlay{
+  display:none;
+
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.45);
+
+  z-index:200;
+}
+
+.overlay.show{
+  display:block;
+}
+
+.drawer{
+  position:fixed;
+
+  top:0;
+  right:-320px;
+
+  width:300px;
+  max-width:85vw;
+
+  height:100vh;
+
+  background:#fff;
+
+  z-index:210;
+
+  padding:14px;
+
+  box-shadow:-5px 0 20px rgba(0,0,0,.2);
+
+  transition:.22s;
+}
+
+.drawer.open{
+  right:0;
+}
+
+.drawer-head{
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:12px;
+}
+
+.drawer-head h3{
+  margin:0;
+  font-size:16px;
+}
+
+.close-btn{
+  border:0;
+
+  background:#eee;
+
+  border-radius:5px;
+
+  padding:5px 8px;
+}
+
+.palette-grid{
+  display:grid;
+
+  grid-template-columns:repeat(5,1fr);
+
+  gap:6px;
+}
+
+.palette-item{
+  height:35px;
+
+  border:1px solid #d1d5db;
+
+  border-radius:5px;
+
+  background:#f3f4f6;
+
+  font-size:11px;
+  font-weight:bold;
+
+  cursor:pointer;
+}
+
+.palette-item.current{
+  outline:3px solid #111827;
+}
+
+.palette-item.answered{
+  background:#bfdbfe;
+}
+
+.palette-item.review{
+  background:#ddd6fe;
+}
+
+.palette-item.answered-review{
+  background:#93c5fd;
+  border:3px solid #8b5cf6;
+}
+
+.palette-item.unattempted{
+  background:#f3f4f6;
+}
+
+.palette-item.correct{
+  background:#dcfce7;
+  border-color:#22c55e;
+  color:#166534;
+}
+
+.palette-item.wrong{
+  background:#fee2e2;
+  border-color:#ef4444;
+  color:#991b1b;
+}
+
+/* ================= RESULT ================= */
+
+#resultArea{
+  display:none;
+}
+
+.result-card{
+  background:#fff;
+
+  border-radius:8px;
+
+  padding:12px;
+
+  margin-top:8px;
+
+  border:1px solid #ddd;
+
+  text-align:center;
+}
+
+.score{
+  font-size:29px;
+
+  font-weight:bold;
+
+  color:#2563eb;
+
+  margin-top:4px;
+}
+
+.stats{
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:5px;
+
+  margin-top:8px;
+}
+
+.stat{
+  background:#f3f4f6;
+
+  border-radius:5px;
+
+  padding:6px 2px;
+}
+
+.stat b{
+  display:block;
+
+  font-size:16px;
+}
+
+.stat span{
+  font-size:9px;
+
+  color:#666;
+}
+
+.solution-topbar{
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  background:#fff;
+
+  padding:7px;
+
+  margin-top:7px;
+
+  border:1px solid #ddd;
+
+  border-radius:7px;
+}
+
+.solution-title{
+  font-size:13px;
+  font-weight:bold;
+}
+
+.solution-card{
+  background:#fff;
+
+  border:1px solid #ddd;
+
+  border-radius:8px;
+
+  padding:9px;
+
+  margin-top:6px;
+}
+
+.answer-label{
+  font-size:10px;
+
+  font-weight:bold;
+
+  color:#666;
+
+  margin-bottom:5px;
+}
+
+.solution-option{
+  padding:7px;
+
+  border-radius:5px;
+
+  border:1px solid #ddd;
+
+  margin:3px 0;
+
+  font-size:13.5px;
+
+  line-height:1.35;
+}
+
+.solution-option.correct{
+  background:#dcfce7;
+
+  border-color:#22c55e;
+
+  color:#166534;
+}
+
+.solution-option.wrong{
+  background:#fee2e2;
+
+  border-color:#ef4444;
+
+  color:#991b1b;
+}
+
+.explanation{
+  background:#f8fafc;
+
+  border-left:3px solid #2563eb;
+
+  padding:6px;
+
+  margin-top:7px;
+
+  font-size:11.5px;
+
+  line-height:1.45;
+}
+
+.solution-nav{
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:5px;
+
+  margin-top:6px;
+}
+
+.formula-box{
+  background:#fff;
+
+  border:1px solid #ddd;
+
+  border-radius:8px;
+
+  padding:10px;
+
+  margin-top:7px;
+}
+
+.formula-box h3{
+  margin:0 0 6px;
+
+  font-size:14px;
+}
+
+.formula-box p{
+  font-size:11px;
+
+  line-height:1.35;
+
+  margin:3px 0;
+}
+
+/* ================= DESKTOP ================= */
+
+@media(min-width:700px){
+
+  .container{
+    padding-left:12px;
+    padding-right:12px;
+    padding-bottom:100px;
+  }
+
+  .test-topbar{
+    margin:0;
+    border-radius:0 0 8px 8px;
+  }
+
+  .question-card{
+    padding:12px;
+  }
+
+  .question{
+    font-size:17px;
+  }
+
+  .option{
+    font-size:14.5px;
+    padding:8px;
+  }
+
+  .btn{
+    font-size:11px;
+    padding:7px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:380px){
+
+  header{
+    height:43px;
+  }
+
+  .test-topbar{
+    top:43px;
+    height:42px;
+  }
+
+  .brand-small{
+    font-size:11px;
+  }
+
+  .mock-name{
+    font-size:7px;
+  }
+
+  .timer{
+    min-width:53px;
+    font-size:10px;
+    padding:5px;
+  }
+
+  .palette-mini{
+    font-size:8.5px;
+    padding:5px 6px;
+  }
+
+  /* MOBILE QUESTION */
+
+  .question{
+    font-size:15px;
+    line-height:1.38;
+  }
+
+  /* MOBILE ANSWERS */
+
+  .option{
+    font-size:13.5px;
+    padding:6px 7px;
+    margin:3px 0;
+    line-height:1.3;
+  }
+
+  .btn{
+    font-size:9.5px;
+    padding:6px 2px;
+  }
+
+  .bottom-bar{
+    padding:3px 6px calc(3px + env(safe-area-inset-bottom));
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🚆 Railway Science</div>
+  <a href="index.html">Home</a>
+</header>
+
+<div class="container">
+
+<div id="examArea">
+
+  <div class="test-topbar">
+
+    <div>
+      <div class="brand-small">
+        🚆 Railway Science
+      </div>
+
+      <div class="mock-name">
+        Mock Test 01
+      </div>
+    </div>
+
+    <div class="test-actions">
+
+      <div class="timer" id="timer">
+        25:00
+      </div>
+
+      <button
+        class="palette-mini"
+        onclick="openDrawer('test')">
+        ☰ Palette
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="compact-progress">
+
+    <span id="progress">
+      Q 1 / 40
+    </span>
+
+    <span
+      id="reviewStatus"
+      class="review-status">
+    </span>
+
+  </div>
+
+  <div id="questionArea"></div>
+
+  <div class="bottom-bar">
+
+    <div class="navigation">
+
+      <button
+        class="btn"
+        id="previousBtn"
+        onclick="previousQuestion()">
+        ← Previous
+      </button>
+
+      <button
+        class="btn review-next"
+        onclick="markReviewNext()">
+        🔖 Review & Next
+      </button>
+
+      <button
+        class="btn"
+        id="nextBtn"
+        onclick="nextQuestion()">
+        Next →
+      </button>
+
+    </div>
+
+    <button
+      class="btn submit"
+      onclick="submitTest()">
+      Submit Test
+    </button>
+
+  </div>
+
+</div>
+
+<div id="resultArea">
+
+  <div class="result-card">
+
+    <div style="font-size:12px;font-weight:bold;">
+      🚆 Railway Science Mock Test 01
+    </div>
+
+    <div
+      class="score"
+      id="score">
+      0 / 40
+    </div>
+
+    <div id="percentage">
+      0%
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <b id="correctCount">0</b>
+        <span>Correct</span>
+      </div>
+
+      <div class="stat">
+        <b id="wrongCount">0</b>
+        <span>Wrong</span>
+      </div>
+
+      <div class="stat">
+        <b id="unattemptedCount">0</b>
+        <span>Unattempted</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="solution-topbar">
+
+    <div class="solution-title">
+      📖 View Solutions
+    </div>
+
+    <button
+      class="palette-mini"
+      onclick="openDrawer('solution')">
+      ☰ Palette
+    </button>
+
+  </div>
+
+  <div id="solutionArea"></div>
+
+  <div class="formula-box">
+
+    <h3>📚 Quick Formula Revision</h3>
+
+    <p><b>Ohm's Law:</b> V = IR</p>
+    <p><b>Resistance:</b> R = ρL/A</p>
+    <p><b>Work:</b> W = F × s</p>
+    <p><b>Power:</b> P = W/t</p>
+    <p><b>Momentum:</b> p = mv</p>
+    <p><b>Force:</b> F = ma</p>
+    <p><b>Lens Formula:</b> 1/f = 1/v − 1/u</p>
+    <p><b>Magnification:</b> m = v/u</p>
+
+  </div>
+
+</div>
+
+</div>
+
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeDrawer()">
+</div>
+
+<div
+  class="drawer"
+  id="drawer">
+
+  <div class="drawer-head">
+
+    <h3 id="drawerTitle">
+      Question Palette
+    </h3>
+
+    <button
+      class="close-btn"
+      onclick="closeDrawer()">
+      ✕
+    </button>
+
+  </div>
+
+  <div
+    class="palette-grid"
+    id="paletteGrid">
+  </div>
+
+</div>
+
+<script>
+
+/* =====================================================
+   QUESTIONS
+===================================================== */
+
+const questions = [
+
+{
+q:"कोशिकीय श्वसन के संबंध में निम्नलिखित में से कौन-सा तथ्य गलत है?",
+options:[
+"अवायु श्वसन ऑक्सीजन की अनुपस्थिति में होता है",
+"यीस्ट में अवायु श्वसन से मुख्य अंतिम उत्पाद के रूप में जल उत्पन्न होता है",
+"वायवीय श्वसन में ग्लूकोज का पूर्ण ऑक्सीकरण होता है",
+"श्वसन से ऊर्जा मुक्त होती है"
+],
+answer:1,
+exp:"यीस्ट में अवायु श्वसन से मुख्य उत्पाद एथेनॉल और कार्बन डाइऑक्साइड बनते हैं, जल मुख्य अंतिम उत्पाद नहीं है।"
+},
+
+{
+q:"समानांतर प्रकाश किरणों को एक बिंदु पर एकत्रित करने के लिए किस लेंस का उपयोग किया जाता है?",
+options:[
+"अवतल लेंस",
+"उत्तल लेंस",
+"समतल दर्पण",
+"उत्तल दर्पण"
+],
+answer:1,
+exp:"उत्तल लेंस समानांतर प्रकाश किरणों को मुख्य फोकस पर एकत्रित करता है।"
+},
+
+{
+q:"Seaborgium का रासायनिक प्रतीक क्या है?",
+options:["Sb","Sg","Se","Sr"],
+answer:1,
+exp:"Seaborgium का प्रतीक Sg है, जबकि Sb Antimony का प्रतीक है।"
+},
+
+{
+q:"नाइट्रोजन अणु (N₂) का आणविक द्रव्यमान 28 है। एक नाइट्रोजन परमाणु का परमाणु द्रव्यमान कितना होगा?",
+options:["7","14","28","56"],
+answer:1,
+exp:"N₂ में दो नाइट्रोजन परमाणु होते हैं। इसलिए 28 ÷ 2 = 14।"
+},
+
+{
+q:"कार्बन यौगिकों के दहन से सामान्यतः क्या उत्पन्न होता है?",
+options:["ऊष्मा और प्रकाश","केवल ऑक्सीजन","केवल जल","नाइट्रोजन"],
+answer:0,
+exp:"कार्बन यौगिकों के दहन में सामान्यतः ऊष्मा और प्रकाश निकलते हैं।"
+},
+
+{
+q:"शुक्राणु : वृषण :: अंडाणु : ?",
+options:["गर्भाशय","फैलोपियन ट्यूब","अंडाशय","योनि"],
+answer:2,
+exp:"शुक्राणु वृषण में बनते हैं और अंडाणु अंडाशय में बनते हैं।"
+},
+
+{
+q:"ध्वनि की पिच मुख्यतः किस पर निर्भर करती है?",
+options:["आयाम","वेग","आवृत्ति","तीव्रता"],
+answer:2,
+exp:"ध्वनि की पिच उसकी आवृत्ति पर निर्भर करती है।"
+},
+
+{
+q:"पौधों में भोजन निर्माण की प्रक्रिया क्या कहलाती है?",
+options:["श्वसन","पाचन","प्रकाश संश्लेषण","उत्सर्जन"],
+answer:2,
+exp:"प्रकाश संश्लेषण में पौधे सूर्य के प्रकाश की सहायता से भोजन बनाते हैं।"
+},
+
+{
+q:"एथीन (C₂H₄) के एक अणु में कुल कितने सहसंयोजक बंध होते हैं?",
+options:["5","6","7","8"],
+answer:1,
+exp:"C₂H₄ में C=C के दो बंध तथा चार C-H बंध होते हैं। कुल 6 सहसंयोजक बंध।"
+},
+
+{
+q:"पूर्ण पाचन तंत्र की प्रमुख विशेषता क्या है?",
+options:["केवल एक छिद्र","दो अलग-अलग छिद्र—मुख और गुदा","कोई छिद्र नहीं","केवल गुदा"],
+answer:1,
+exp:"पूर्ण पाचन तंत्र में भोजन के प्रवेश और अपशिष्ट के बाहर निकलने के लिए अलग-अलग छिद्र होते हैं।"
+},
+
+{
+q:"पशु कोशिकाओं में कोशिका झिल्ली का लचीलापन किस गुण से संबंधित है?",
+options:["कोशिका भित्ति","कोशिका झिल्ली","क्लोरोप्लास्ट","रिक्तिका"],
+answer:1,
+exp:"पशु कोशिका में कठोर कोशिका भित्ति नहीं होती, इसलिए कोशिका झिल्ली लचीली होती है।"
+},
+
+{
+q:"यदि दूरी-समय ग्राफ सीधी रेखा में समान धनात्मक ढाल दिखाता है, तो वस्तु की गति कैसी होगी?",
+options:["असमान","समान","शून्य","ऋणात्मक"],
+answer:1,
+exp:"समान ढाल का अर्थ समान गति है।"
+},
+
+{
+q:"तांबे के तार का प्रतिरोध लोहे के तार की तुलना में सामान्यतः कम क्यों होता है?",
+options:["तांबा भारी है","तांबे की प्रतिरोधकता कम है","तांबा गर्म है","तांबा लंबा है"],
+answer:1,
+exp:"तांबे की विद्युत प्रतिरोधकता कम होती है।"
+},
+
+{
+q:"मानव मादा में अंडाणु किस अंग में बनता है?",
+options:["गर्भाशय","अंडाशय","योनि","फैलोपियन ट्यूब"],
+answer:1,
+exp:"अंडाणु का निर्माण अंडाशय में होता है।"
+},
+
+{
+q:"यदि किसी वस्तु पर बल लगाया जाता है लेकिन वस्तु में कोई विस्थापन नहीं होता, तो किया गया यांत्रिक कार्य कितना होगा?",
+options:["अधिकतम","शून्य","ऋणात्मक","अनंत"],
+answer:1,
+exp:"W = F × s. विस्थापन शून्य होने पर कार्य शून्य होगा।"
+},
+
+{
+q:"मृत जैविक पदार्थों को विघटित करने वाले जीव कौन होते हैं?",
+options:["उत्पादक","उपभोक्ता","परजीवी","अपघटक"],
+answer:3,
+exp:"बैक्टीरिया और कवक जैसे अपघटक मृत पदार्थों को विघटित करते हैं।"
+},
+
+{
+q:"दो न्यूरॉनों के बीच आवेग का संचार किस स्थान पर होता है?",
+options:["डेंड्राइट","सिनैप्स","नाभिक","माइलिन"],
+answer:1,
+exp:"दो न्यूरॉनों के बीच के अंतराल को सिनैप्स कहते हैं।"
+},
+
+{
+q:"निम्नलिखित में से सही कथन चुनिए।",
+options:[
+"परमाणु संख्या हमेशा द्रव्यमान संख्या से अधिक होती है",
+"परमाणु संख्या और द्रव्यमान संख्या हमेशा समान होती है",
+"द्रव्यमान संख्या हमेशा शून्य होती है",
+"सामान्यतः द्रव्यमान संख्या परमाणु संख्या से अधिक होती है"
+],
+answer:3,
+exp:"द्रव्यमान संख्या = प्रोटॉन + न्यूट्रॉन। इसलिए सामान्यतः यह परमाणु संख्या से अधिक होती है।"
+},
+
+{
+q:"दो तारों में एक पतला और लंबा तथा दूसरा मोटा और छोटा है। समान पदार्थ होने पर किस तार का प्रतिरोध अधिक होगा?",
+options:["मोटे और छोटे तार का","पतले और लंबे तार का","दोनों का समान","किसी का नहीं"],
+answer:1,
+exp:"R = ρL/A. लंबाई बढ़ने और क्षेत्रफल घटने पर प्रतिरोध बढ़ता है।"
+},
+
+{
+q:"एक पदार्थ X अम्लीय तथा Y क्षारीय है। निम्नलिखित में से सही कथन कौन-सा है?",
+options:["दोनों समान होंगे","X अम्लीय और Y क्षारीय हो सकते हैं","X और Y दोनों उदासीन होंगे","दोनों हमेशा अम्लीय होंगे"],
+answer:1,
+exp:"अम्लीय और क्षारीय पदार्थों की पहचान सूचकों द्वारा की जा सकती है।"
+},
+
+{
+q:"यदि किसी उत्तल लेंस की आवर्धन क्षमता -2 है, तो इसका क्या अर्थ है?",
+options:["प्रतिबिंब सीधा और छोटा है","प्रतिबिंब उल्टा और वस्तु से दोगुना है","प्रतिबिंब सीधा और दोगुना है","प्रतिबिंब समान आकार का है"],
+answer:1,
+exp:"ऋणात्मक आवर्धन उल्टे प्रतिबिंब को दर्शाता है और 2 का परिमाण बताता है कि प्रतिबिंब दोगुना है।"
+},
+
+{
+q:"DNA के अध्ययन से जीवों के पुनर्वर्गीकरण में किस प्रकार की जानकारी मिलती है?",
+options:["आनुवंशिक संबंध","केवल रंग","केवल आकार","केवल आवास"],
+answer:0,
+exp:"DNA की समानताएँ जीवों के आनुवंशिक और विकासीय संबंधों की जानकारी देती हैं।"
+},
+
+{
+q:"न्यूरॉन का कौन-सा भाग सामान्यतः अन्य कोशिकाओं से आवेग ग्रहण करता है?",
+options:["डेंड्राइट","अक्षतंतु","सिनैप्स","नाभिक"],
+answer:0,
+exp:"डेंड्राइट सामान्यतः संकेत या आवेग ग्रहण करते हैं।"
+},
+
+{
+q:"जब वस्तु उत्तल लेंस के 2F से परे रखी जाती है, तो प्रतिबिंब कहाँ बनता है?",
+options:["F और 2F के बीच","2F के बाहर","F पर","लेंस के उसी ओर"],
+answer:0,
+exp:"वस्तु 2F से बाहर होने पर प्रतिबिंब F और 2F के बीच वास्तविक, उल्टा और छोटा बनता है।"
+},
+
+{
+q:"स्थितिज ऊर्जा किन राशियों पर निर्भर करती है?",
+options:["केवल वेग","द्रव्यमान और ऊँचाई","केवल समय","केवल तापमान"],
+answer:1,
+exp:"गुरुत्वीय स्थितिज ऊर्जा PE = mgh होती है।"
+},
+
+{
+q:"भारी बाल्टी को ऊपर उठाने में मुख्यतः कौन-सी मांसपेशियाँ कार्य करती हैं?",
+options:["हृदय की मांसपेशियाँ","कंकालीय मांसपेशियाँ","केवल चिकनी मांसपेशियाँ","कोई मांसपेशी नहीं"],
+answer:1,
+exp:"इच्छानुसार किए जाने वाले शरीर के आंदोलनों में कंकालीय मांसपेशियाँ कार्य करती हैं।"
+},
+
+{
+q:"जीवन प्रक्रियाओं का प्रमुख उद्देश्य क्या है?",
+options:["केवल वृद्धि","केवल गति","केवल प्रजनन","शरीर में आवश्यक क्रियाओं को बनाए रखना और ऊर्जा उपलब्ध कराना"],
+answer:3,
+exp:"जीवन प्रक्रियाएँ जीव के रखरखाव, ऊर्जा और आंतरिक संतुलन के लिए आवश्यक होती हैं।"
+},
+
+{
+q:"विद्युत परिपथ में फ्यूज का मुख्य कार्य क्या है?",
+options:["वोल्टेज बढ़ाना","धारा बढ़ाना","प्रकाश बढ़ाना","अधिक धारा होने पर परिपथ को तोड़ना"],
+answer:3,
+exp:"अत्यधिक धारा होने पर फ्यूज तार गर्म होकर पिघल जाता है और परिपथ को तोड़ देता है।"
+},
+
+{
+q:"छोटे कणों द्वारा प्रकाश के प्रकीर्णन में कौन-सी तरंगदैर्ध्य अधिक प्रकीर्णित होती है?",
+options:["लंबी तरंगदैर्ध्य","सभी समान","केवल रेडियो तरंग","छोटी तरंगदैर्ध्य"],
+answer:3,
+exp:"छोटी तरंगदैर्ध्य का प्रकाश अधिक प्रकीर्णित होता है।"
+},
+
+{
+q:"अवायवीय श्वसन में यीस्ट द्वारा मुख्य रूप से कौन-सा पदार्थ बनाया जाता है?",
+options:["ऑक्सीजन","जल","एथेनॉल","नाइट्रोजन"],
+answer:2,
+exp:"यीस्ट में अवायवीय श्वसन के दौरान एथेनॉल और CO₂ बनते हैं।"
+},
+
+{
+q:"कोलॉइड के कणों की एक विशेषता क्या है?",
+options:["वे तुरंत नीचे बैठ जाते हैं","वे स्थिर रहने पर सामान्यतः नीचे नहीं बैठते","वे केवल गैस होते हैं","वे हमेशा शुद्ध विलयन होते हैं"],
+answer:1,
+exp:"कोलॉइड कण छोटे होते हैं और सामान्यतः गुरुत्व के कारण तुरंत नीचे नहीं बैठते।"
+},
+
+{
+q:"यदि किसी वस्तु पर 150 N का बल 5 m की दूरी तक लगाया जाए, तो किया गया कार्य कितना होगा?",
+options:["30 J","155 J","500 J","750 J"],
+answer:3,
+exp:"W = F × s = 150 × 5 = 750 J."
+},
+
+{
+q:"पानी में हाइड्रोजन आयन किस प्रकार उत्पन्न होते हैं?",
+options:["Na⁺ द्वारा","Cl⁻ द्वारा","O₂ द्वारा","अम्ल के आयनीकरण से H⁺ आयन उत्पन्न होते हैं"],
+answer:3,
+exp:"अम्ल पानी में आयनीकृत होकर H⁺ आयन उत्पन्न करते हैं।"
+},
+
+{
+q:"थैलोफाइटा में सामान्यतः किस प्रकार के जीवों को रखा जाता था?",
+options:["केवल पक्षी","केवल स्तनधारी","शैवाल जैसे सरल पादप","केवल बैक्टीरिया"],
+answer:2,
+exp:"पुराने वर्गीकरण में Thallophyta में मुख्यतः शैवाल जैसे सरल पादप रखे जाते थे।"
+},
+
+{
+q:"द्रव्यमान संरक्षण का नियम क्या कहता है?",
+options:["द्रव्यमान हमेशा बढ़ता है","द्रव्यमान हमेशा घटता है","द्रव्यमान केवल गैसों में रहता है","रासायनिक अभिक्रिया में कुल द्रव्यमान संरक्षित रहता है"],
+answer:3,
+exp:"रासायनिक अभिक्रिया में अभिकारकों का कुल द्रव्यमान उत्पादों के कुल द्रव्यमान के बराबर रहता है।"
+},
+
+{
+q:"मांसपेशियाँ मुख्यतः किससे बनी होती हैं?",
+options:["न्यूरॉन्स","रक्त कोशिकाएँ","मांसपेशी तंतु","हड्डियाँ"],
+answer:2,
+exp:"मांसपेशियाँ अनेक muscle fibres से मिलकर बनी होती हैं।"
+},
+
+{
+q:"कथन I: सभी सूक्ष्मजीव रोग पैदा करते हैं। कथन II: कुछ सूक्ष्मजीव हमारे लिए उपयोगी होते हैं। सही विकल्प चुनिए।",
+options:["दोनों कथन सही हैं","दोनों कथन गलत हैं","कथन I सही, II गलत","कथन I गलत, II सही"],
+answer:3,
+exp:"सभी सूक्ष्मजीव रोगकारी नहीं होते। अनेक सूक्ष्मजीव उपयोगी भी होते हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा पदार्थ उच्च विद्युत चालकता वाला होने की सबसे कम संभावना रखता है?",
+options:["तांबा","चांदी","एल्युमिनियम","रबर"],
+answer:3,
+exp:"रबर विद्युत का कुचालक है।"
+},
+
+{
+q:"यदि समान समय में किसी वस्तु पर अधिक बल लगाया जाए, तो संवेग में परिवर्तन कैसा होगा?",
+options:["कम होगा","शून्य होगा","समान रहेगा","अधिक होगा"],
+answer:3,
+exp:"आवेग = बल × समय और संवेग में परिवर्तन आवेग के बराबर होता है।"
+},
+
+{
+q:"एक वस्तु 20 m/s की समान गति से 5 सेकंड चलती है। वह कितनी दूरी तय करेगी?",
+options:["25 m","50 m","100 m","200 m"],
+answer:2,
+exp:"दूरी = गति × समय = 20 × 5 = 100 m."
+}
+
+];
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let current = 0;
+let answers = new Array(questions.length).fill(null);
+let markedForReview = new Array(questions.length).fill(false);
+let submitted = false;
+let paletteMode = "test";
+let solutionCurrent = 0;
+let timeLeft = 25 * 60;
+let timerInterval;
+
+/* =====================================================
+   LOAD QUESTION
+===================================================== */
+
+function loadQuestion(){
+
+  const q = questions[current];
+
+  let html = `
+    <div class="question-card">
+
+      <div class="question-number">
+        Question ${current + 1}
+      </div>
+
+      <div class="question">
+        ${q.q}
+      </div>
+  `;
+
+  q.options.forEach((option,index)=>{
+
+    const checked =
+      answers[current] === index ? "checked" : "";
+
+    html += `
+      <label class="option">
+
+        <input
+          type="radio"
+          name="answer"
+          value="${index}"
+          ${checked}
+          onchange="selectAnswer(${index})"
+        >
+
+        <span>
+          <b>${String.fromCharCode(65+index)}.</b>
+          ${option}
+        </span>
+
+      </label>
+    `;
+  });
+
+  html += `</div>`;
+
+  document.getElementById("questionArea").innerHTML = html;
+
+  document.getElementById("progress").innerText =
+    `Q ${current + 1} / ${questions.length}`;
+
+  document.getElementById("reviewStatus").innerText =
+    markedForReview[current] ? "🔖 Marked" : "";
+
+  document.getElementById("previousBtn").disabled =
+    current === 0;
+
+  document.getElementById("nextBtn").disabled =
+    current === questions.length - 1;
+
+  updatePalette();
+}
+
+/* SELECT ANSWER */
+
+function selectAnswer(index){
+  answers[current] = index;
+  updatePalette();
+}
+
+/* NEXT */
+
+function nextQuestion(){
+
+  if(current < questions.length - 1){
+
+    current++;
+
+    loadQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  }
+}
+
+/* PREVIOUS */
+
+function previousQuestion(){
+
+  if(current > 0){
+
+    current--;
+
+    loadQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  }
+}
+
+/* REVIEW */
+
+function markReviewNext(){
+
+  markedForReview[current] =
+    !markedForReview[current];
+
+  if(current < questions.length - 1){
+    current++;
+  }
+
+  loadQuestion();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+/* =====================================================
+   DRAWER
+===================================================== */
+
+function openDrawer(mode){
+
+  paletteMode = mode;
+
+  document.getElementById("drawer").classList.add("open");
+  document.getElementById("overlay").classList.add("show");
+
+  document.getElementById("drawerTitle").innerText =
+    mode === "test"
+    ? "Question Palette"
+    : "Solution Palette";
+
+  updatePalette();
+}
+
+function closeDrawer(){
+
+  document.getElementById("drawer").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
+}
+
+/* =====================================================
+   PALETTE
+===================================================== */
+
+function updatePalette(){
+
+  const grid =
+    document.getElementById("paletteGrid");
+
+  if(!grid) return;
+
+  grid.innerHTML = "";
+
+  questions.forEach((q,index)=>{
+
+    const button =
+      document.createElement("button");
+
+    button.className =
+      "palette-item";
+
+    if(paletteMode === "test"){
+
+      if(index === current){
+        button.classList.add("current");
+      }
+
+      if(
+        answers[index] !== null &&
+        markedForReview[index]
+      ){
+
+        button.classList.add("answered-review");
+
+      }
+      else if(markedForReview[index]){
+
+        button.classList.add("review");
+
+      }
+      else if(answers[index] !== null){
+
+        button.classList.add("answered");
+
+      }
+      else{
+
+        button.classList.add("unattempted");
+      }
+
+      button.innerText = index + 1;
+
+      button.onclick = function(){
+
+        current = index;
+
+        loadQuestion();
+
+        closeDrawer();
+
+        window.scrollTo({
+          top:0,
+          behavior:"smooth"
+        });
+      };
+
+    }
+    else{
+
+      if(index === solutionCurrent){
+        button.classList.add("current");
+      }
+
+      if(
+        answers[index] ===
+        questions[index].answer
+      ){
+
+        button.classList.add("correct");
+
+      }
+      else if(
+        answers[index] !== null
+      ){
+
+        button.classList.add("wrong");
+
+      }
+      else{
+
+        button.classList.add("unattempted");
+      }
+
+      button.innerText = index + 1;
+
+      button.onclick = function(){
+
+        solutionCurrent = index;
+
+        loadSolution();
+
+        closeDrawer();
+
+        window.scrollTo({
+          top:0,
+          behavior:"smooth"
+        });
+      };
+    }
+
+    grid.appendChild(button);
+
+  });
+}
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+function submitTest(){
+
+  if(submitted) return;
+
+  const unanswered =
+    answers.filter(x => x === null).length;
+
+  if(
+    !confirm(
+      `Test submit karein?\n\nUnattempted: ${unanswered}`
+    )
+  ){
+    return;
+  }
+
+  submitted = true;
+
+  clearInterval(timerInterval);
+
+  calculateResult();
+}
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+function calculateResult(){
+
+  let correct = 0;
+  let wrong = 0;
+  let unattempted = 0;
+
+  questions.forEach((q,index)=>{
+
+    if(answers[index] === null){
+
+      unattempted++;
+
+    }
+    else if(
+      answers[index] === q.answer
+    ){
+
+      correct++;
+
+    }
+    else{
+
+      wrong++;
+
+    }
+
+  });
+
+  const percentage =
+    ((correct / questions.length) * 100).toFixed(2);
+
+  document.getElementById("examArea").style.display = "none";
+
+  document.getElementById("resultArea").style.display = "block";
+
+  document.getElementById("score").innerText =
+    `${correct} / ${questions.length}`;
+
+  document.getElementById("percentage").innerText =
+    `${percentage}%`;
+
+  document.getElementById("correctCount").innerText =
+    correct;
+
+  document.getElementById("wrongCount").innerText =
+    wrong;
+
+  document.getElementById("unattemptedCount").innerText =
+    unattempted;
+
+  solutionCurrent = 0;
+  paletteMode = "solution";
+
+  loadSolution();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+/* =====================================================
+   SOLUTION
+===================================================== */
+
+function loadSolution(){
+
+  const q =
+    questions[solutionCurrent];
+
+  let html = `
+
+    <div class="solution-card">
+
+      <div class="question-number">
+        Question ${solutionCurrent + 1}
+      </div>
+
+      <div class="question">
+        ${q.q}
+      </div>
+
+      <div class="answer-label">
+        Options
+      </div>
+  `;
+
+  q.options.forEach((option,index)=>{
+
+    let cls = "";
+    let label = "";
+
+    if(index === q.answer){
+
+      cls = "correct";
+      label = " ✓ Correct Answer";
+    }
+
+    if(
+      answers[solutionCurrent] === index &&
+      index !== q.answer
+    ){
+
+      cls = "wrong";
+      label = " ✗ Your Answer";
+    }
+
+    html += `
+
+      <div class="solution-option ${cls}">
+
+        <b>${String.fromCharCode(65+index)}.</b>
+        ${option}
+
+        <b>${label}</b>
+
+      </div>
+
+    `;
+
+  });
+
+  const yourAnswer =
+    answers[solutionCurrent] === null
+    ? "Not Attempted"
+    : String.fromCharCode(
+        65 + answers[solutionCurrent]
+      );
+
+  html += `
+
+      <div class="answer-label">
+        आपका उत्तर:
+        <b>${yourAnswer}</b>
+      </div>
+
+      <div class="explanation">
+
+        <b>💡 Explanation:</b><br>
+
+        ${q.exp}
+
+      </div>
+
+    </div>
+
+    <div class="solution-nav">
+
+      <button
+        class="btn"
+        onclick="previousSolution()"
+        ${solutionCurrent === 0 ? "disabled" : ""}>
+        ← Previous
+      </button>
+
+      <button
+        class="btn"
+        onclick="nextSolution()"
+        ${solutionCurrent === questions.length-1 ? "disabled" : ""}>
+        Next →
+      </button>
+
+    </div>
+  `;
+
+  document.getElementById("solutionArea").innerHTML = html;
+
+  updatePalette();
+}
+
+/* SOLUTION NEXT */
+
+function nextSolution(){
+
+  if(
+    solutionCurrent <
+    questions.length - 1
+  ){
+
+    solutionCurrent++;
+
+    loadSolution();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  }
+}
+
+/* SOLUTION PREVIOUS */
+
+function previousSolution(){
+
+  if(solutionCurrent > 0){
+
+    solutionCurrent--;
+
+    loadSolution();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+  }
+}
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+function startTimer(){
+
+  timerInterval =
+    setInterval(()=>{
+
+      timeLeft--;
+
+      const minutes =
+        Math.floor(timeLeft / 60);
+
+      const seconds =
+        timeLeft % 60;
+
+      document.getElementById("timer").innerText =
+        `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+
+      if(timeLeft <= 0){
+
+        clearInterval(timerInterval);
+
+        alert(
+          "⏰ Time Up! Test automatically submitted."
+        );
+
+        autoSubmit();
+      }
+
+    },1000);
+}
+
+/* =====================================================
+   AUTO SUBMIT
+===================================================== */
+
+function autoSubmit(){
+
+  if(submitted) return;
+
+  submitted = true;
+
+  calculateResult();
+}
+
+/* =====================================================
+   START
+===================================================== */
+
+loadQuestion();
+startTimer();
+
+</script>
+
+</body>
+</html>
