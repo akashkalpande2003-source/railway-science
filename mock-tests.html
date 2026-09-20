@@ -1,186 +1,256 @@
 <!DOCTYPE html>
-<html lang="hi">
-
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+  <title>Full Mock Tests | Railway Science</title>
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
+  <style>
 
-<title>Railway Full Mock Tests</title>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+      line-height: 1.5;
+    }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    header {
+      background: #0b2d4d;
+      color: white;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-body{
-  font-family:Arial,sans-serif;
-  background:#f4f7fb;
-  color:#222;
-}
+    header h1 {
+      font-size: 21px;
+    }
 
-header{
-  background:#0b2d4d;
-  color:white;
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-  padding:15px;
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 15px 40px;
+    }
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+    .page-title {
+      text-align: center;
+      color: #0b2d4d;
+      margin-bottom: 8px;
+      font-size: 30px;
+    }
 
-  position:sticky;
-  top:0;
-  z-index:10;
-}
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
 
-header h1{
-  font-size:20px;
-}
+    /* TEST CARD */
 
-header a{
-  color:white;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:14px;
-}
+    .test-card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
 
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:25px 15px;
-}
+    .test-card h2 {
+      color: #0b2d4d;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
 
-.title{
-  text-align:center;
-  color:#0b2d4d;
-  font-size:28px;
-  margin-bottom:8px;
-}
+    .test-info {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
 
-.subtitle{
-  text-align:center;
-  color:#666;
-  font-size:14px;
-  margin-bottom:25px;
-}
+    .info {
+      background: #eef4f9;
+      padding: 7px 11px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: bold;
+      color: #0b2d4d;
+    }
 
-.mock-grid{
-  display:grid;
+    .start-btn {
+      display: inline-block;
+      background: #d35400;
+      color: white;
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
 
-  grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+    .start-btn:hover {
+      background: #b84300;
+    }
 
-  gap:18px;
-}
+    .coming {
+      background: #eee;
+      color: #777;
+      display: inline-block;
+      padding: 9px 15px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: bold;
+    }
 
-.mock-card{
-  background:white;
+    /* INSTRUCTIONS */
 
-  padding:20px;
+    #instructionsPage {
+      display: none;
+    }
 
-  border-radius:14px;
+    .instruction-box {
+      background: white;
+      border-radius: 15px;
+      padding: 22px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
 
-  box-shadow:
-    0 3px 12px rgba(0,0,0,.08);
+    .instruction-box h2 {
+      color: #0b2d4d;
+      margin-bottom: 15px;
+      text-align: center;
+    }
 
-  border-left:5px solid #1769aa;
-}
+    .instruction-list {
+      padding-left: 22px;
+      margin-bottom: 20px;
+    }
 
-.mock-card h2{
-  color:#0b2d4d;
-  font-size:19px;
-  margin-bottom:8px;
-}
+    .instruction-list li {
+      margin-bottom: 10px;
+    }
 
-.mock-card p{
-  color:#666;
-  font-size:13px;
-  margin-bottom:12px;
-}
+    .important {
+      background: #fff4e8;
+      border-left: 4px solid #d35400;
+      padding: 12px;
+      margin: 18px 0;
+      border-radius: 5px;
+    }
 
-.info{
-  display:flex;
-  gap:6px;
-  flex-wrap:wrap;
-  margin-bottom:14px;
-}
+    .checkbox-area {
+      background: #f4f7fb;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
 
-.info span{
-  background:#eef4f8;
-  color:#0b2d4d;
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-  padding:5px 7px;
+    .checkbox-label input {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
 
-  border-radius:5px;
+    .begin-btn {
+      width: 100%;
+      margin-top: 18px;
+      padding: 13px;
+      border: none;
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      background: #aaa;
+      color: white;
+    }
 
-  font-size:11px;
+    .begin-btn.enabled {
+      background: #1769aa;
+      cursor: pointer;
+    }
 
-  font-weight:bold;
-}
+    .begin-btn.enabled:hover {
+      background: #0b2d4d;
+    }
 
-.start{
-  display:inline-block;
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #0b2d4d;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-  background:#0b2d4d;
-  color:white;
+    footer {
+      margin-top: 30px;
+      background: #0b2d4d;
+      color: white;
+      text-align: center;
+      padding: 18px;
+    }
 
-  text-decoration:none;
+    @media (max-width: 600px) {
 
-  padding:10px 15px;
+      header h1 {
+        font-size: 18px;
+      }
 
-  border-radius:7px;
+      .page-title {
+        font-size: 25px;
+      }
 
-  font-size:13px;
+      .test-card {
+        padding: 17px;
+      }
 
-  font-weight:bold;
-}
+      .instruction-box {
+        padding: 17px;
+      }
 
-.start:hover{
-  background:#1769aa;
-}
+      .instruction-list {
+        padding-left: 20px;
+      }
 
-.coming{
-  display:inline-block;
+    }
 
-  background:#e5e7eb;
-  color:#777;
-
-  padding:10px 15px;
-
-  border-radius:7px;
-
-  font-size:13px;
-
-  font-weight:bold;
-}
-
-@media(max-width:600px){
-
-  .title{
-    font-size:24px;
-  }
-
-  .mock-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-</style>
-
+  </style>
 </head>
-
 
 <body>
 
+
+<!-- HEADER -->
 
 <header>
 
@@ -193,75 +263,75 @@ header a{
 </header>
 
 
-<div class="container">
+<!-- ================================================= -->
+<!-- MOCK TEST LIST -->
+<!-- ================================================= -->
 
-  <h1 class="title">
-    📝 Full Mock Test Series
-  </h1>
+<div id="testList">
 
-  <p class="subtitle">
-    Railway Technician Grade 3 & Group D Science
-  </p>
+  <div class="container">
 
+    <h1 class="page-title">
+      📝 Full Mock Tests
+    </h1>
 
-  <div class="mock-grid">
+    <p class="subtitle">
+      Railway Technician Grade 3 • Science Mock Test Series
+    </p>
 
 
     <!-- MOCK TEST 01 -->
 
-    <div class="mock-card">
+    <div class="test-card">
 
       <h2>
-        🚀 Mock Test 01
+        📝 Mock Test 01
       </h2>
 
-      <p>
-        Railway Science Full Mock Test
-      </p>
+      <div class="test-info">
 
-      <div class="info">
+        <span class="info">
+          📚 40 Questions
+        </span>
 
-        <span>📚 40 Questions</span>
+        <span class="info">
+          ⏱️ 25 Minutes
+        </span>
 
-        <span>⏱️ 25 Minutes</span>
-
-        <span>🎯 Full Test</span>
+        <span class="info">
+          🔬 Science
+        </span>
 
       </div>
 
-      <a
-        href="mock-test-01.html"
-        class="start">
+      <p style="margin-bottom:14px;">
+        Railway Technician Grade 3 / Group D Science Practice Test
+      </p>
 
+      <button
+        class="start-btn"
+        onclick="showInstructions()">
         🚀 Start Mock Test
-
-      </a>
+      </button>
 
     </div>
 
 
     <!-- MOCK TEST 02 -->
 
-    <div class="mock-card">
+    <div class="test-card">
 
-      <h2>
-        🔒 Mock Test 02
-      </h2>
+      <h2>📝 Mock Test 02</h2>
 
-      <p>
-        Railway Science Full Mock Test
-      </p>
+      <div class="test-info">
 
-      <div class="info">
-
-        <span>📚 40 Questions</span>
-
-        <span>⏱️ 25 Minutes</span>
+        <span class="info">📚 40 Questions</span>
+        <span class="info">⏱️ 25 Minutes</span>
 
       </div>
 
       <span class="coming">
-        Coming Soon
+        🔒 Coming Soon
       </span>
 
     </div>
@@ -269,26 +339,19 @@ header a{
 
     <!-- MOCK TEST 03 -->
 
-    <div class="mock-card">
+    <div class="test-card">
 
-      <h2>
-        🔒 Mock Test 03
-      </h2>
+      <h2>📝 Mock Test 03</h2>
 
-      <p>
-        Railway Science Full Mock Test
-      </p>
+      <div class="test-info">
 
-      <div class="info">
-
-        <span>📚 40 Questions</span>
-
-        <span>⏱️ 25 Minutes</span>
+        <span class="info">📚 40 Questions</span>
+        <span class="info">⏱️ 25 Minutes</span>
 
       </div>
 
       <span class="coming">
-        Coming Soon
+        🔒 Coming Soon
       </span>
 
     </div>
@@ -296,36 +359,280 @@ header a{
 
     <!-- MOCK TEST 04 -->
 
-    <div class="mock-card">
+    <div class="test-card">
 
-      <h2>
-        🔒 Mock Test 04
-      </h2>
+      <h2>📝 Mock Test 04</h2>
 
-      <p>
-        Railway Science Full Mock Test
-      </p>
+      <div class="test-info">
 
-      <div class="info">
-
-        <span>📚 40 Questions</span>
-
-        <span>⏱️ 25 Minutes</span>
+        <span class="info">📚 40 Questions</span>
+        <span class="info">⏱️ 25 Minutes</span>
 
       </div>
 
       <span class="coming">
-        Coming Soon
+        🔒 Coming Soon
       </span>
 
     </div>
 
+
+    <!-- MOCK TEST 05 -->
+
+    <div class="test-card">
+
+      <h2>📝 Mock Test 05</h2>
+
+      <div class="test-info">
+
+        <span class="info">📚 40 Questions</span>
+        <span class="info">⏱️ 25 Minutes</span>
+
+      </div>
+
+      <span class="coming">
+        🔒 Coming Soon
+      </span>
+
+    </div>
+
+
+    <div style="text-align:center; margin-top:25px;">
+
+      <a href="index.html"
+         style="color:#0b2d4d; text-decoration:none; font-weight:bold;">
+        ← Back to Home
+      </a>
+
+    </div>
 
   </div>
 
 </div>
 
 
-</body>
+<!-- ================================================= -->
+<!-- INSTRUCTIONS PAGE -->
+<!-- ================================================= -->
 
+<div id="instructionsPage">
+
+  <div class="container">
+
+    <div class="instruction-box">
+
+      <h2>
+        📋 General Instructions
+      </h2>
+
+
+      <ol class="instruction-list">
+
+        <li>
+          इस Mock Test में कुल <strong>40 प्रश्न</strong> हैं।
+        </li>
+
+        <li>
+          Test पूरा करने के लिए <strong>25 मिनट</strong> का समय दिया गया है।
+        </li>
+
+        <li>
+          प्रत्येक प्रश्न के लिए दिए गए विकल्पों में से
+          <strong>केवल एक सही उत्तर</strong> चुनें।
+        </li>
+
+        <li>
+          आप किसी भी प्रश्न को बाद में बदल सकते हैं।
+        </li>
+
+        <li>
+          <strong>Mark for Review</strong> का उपयोग उन प्रश्नों के लिए करें
+          जिन्हें आप बाद में दोबारा देखना चाहते हैं।
+        </li>
+
+        <li>
+          Test के दौरान सही या गलत उत्तर का रंग नहीं दिखाया जाएगा।
+        </li>
+
+        <li>
+          <strong>Submit</strong> करने के बाद आपका Score,
+          Percentage, Correct, Wrong और Unattempted दिखाया जाएगा।
+        </li>
+
+        <li>
+          Submit के बाद आप प्रत्येक प्रश्न का
+          <strong>Solution</strong> देख सकेंगे।
+        </li>
+
+        <li>
+          समय समाप्त होने पर Test अपने आप Submit हो जाएगा।
+        </li>
+
+      </ol>
+
+
+      <div class="important">
+
+        <strong>⚠️ Important:</strong>
+
+        <br>
+
+        Test शुरू करने के बाद timer चालू हो जाएगा।
+        इसलिए शुरू करने से पहले सभी instructions ध्यान से पढ़ लें।
+
+      </div>
+
+
+      <!-- CHECKBOX -->
+
+      <div class="checkbox-area">
+
+        <label class="checkbox-label">
+
+          <input
+            type="checkbox"
+            id="agreeCheckbox"
+            onchange="toggleStartButton()">
+
+          <span>
+            मैंने सभी instructions पढ़ लिए हैं और
+            मैं Mock Test शुरू करने के लिए तैयार हूँ।
+          </span>
+
+        </label>
+
+      </div>
+
+
+      <!-- START BUTTON -->
+
+      <button
+        id="beginButton"
+        class="begin-btn"
+        disabled
+        onclick="startTest()">
+
+        🚀 I am Ready to Begin
+
+      </button>
+
+
+      <!-- BACK -->
+
+      <a
+        class="back-btn"
+        onclick="backToTests()">
+
+        ← Back to Mock Tests
+
+      </a>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <p>🚆 Railway Science</p>
+
+  <p>
+    Railway Competitive Exam Preparation
+  </p>
+
+</footer>
+
+
+<script>
+
+
+/* SHOW INSTRUCTIONS */
+
+function showInstructions() {
+
+  document.getElementById("testList").style.display = "none";
+
+  document.getElementById("instructionsPage").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+/* ENABLE / DISABLE START BUTTON */
+
+function toggleStartButton() {
+
+  const checkbox =
+    document.getElementById("agreeCheckbox");
+
+  const button =
+    document.getElementById("beginButton");
+
+
+  if (checkbox.checked) {
+
+    button.disabled = false;
+
+    button.classList.add("enabled");
+
+  } else {
+
+    button.disabled = true;
+
+    button.classList.remove("enabled");
+
+  }
+
+}
+
+
+/* START MOCK TEST */
+
+function startTest() {
+
+  const checkbox =
+    document.getElementById("agreeCheckbox");
+
+
+  if (!checkbox.checked) {
+
+    return;
+
+  }
+
+
+  window.location.href =
+    "mock-test-01.html";
+
+}
+
+
+/* BACK TO TEST LIST */
+
+function backToTests() {
+
+  document.getElementById("instructionsPage").style.display = "none";
+
+  document.getElementById("testList").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+</script>
+
+
+</body>
 </html>
