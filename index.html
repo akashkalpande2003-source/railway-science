@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Railway Science | Railway Exam Preparation</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b2d4d;
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 22px;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0b2d4d, #1769aa);
+      color: white;
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 17px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 18px;
+    }
+
+    .intro {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .intro h3 {
+      color: #0b2d4d;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .class-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    button {
+      border: none;
+      background: #0b2d4d;
+      color: white;
+      padding: 13px 25px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1769aa;
+    }
+
+    .class-section {
+      display: none;
+    }
+
+    .class-section.active {
+      display: block;
+    }
+
+    .class-title {
+      text-align: center;
+      color: #0b2d4d;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .chapters {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .chapter {
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      transition: 0.2s;
+    }
+
+    .chapter:hover {
+      transform: translateY(-3px);
+    }
+
+    .chapter h3 {
+      color: #0b2d4d;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 9px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: white;
+      font-size: 13px;
+      margin: 3px 2px;
+      font-weight: bold;
+    }
+
+    .notes {
+      background: #1769aa;
+    }
+
+    .pyq {
+      background: #d35400;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #0b2d4d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .hero {
+        padding: 40px 15px;
+      }
+
+      .chapters {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚆 Railway Science</h1>
+  <a href="#" onclick="showHome()">Home</a>
+</header>
+
+<section class="hero">
+  <h2>🔬 Railway Science</h2>
+  <p>Class 9 & Class 10 • Railway Exam Preparation</p>
+</section>
+
+<div class="container">
+
+  <div id="home">
+
+    <div class="intro">
+      <h3>Welcome to Railway Science</h3>
+      <p>
+        Class 9 और Class 10 Science को Railway Technician,
+        Group D और अन्य competitive exams के लिए आसान तरीके से पढ़ें।
+      </p>
+      <p>
+        📚 Notes • ❓ Railway PYQ • 🧠 Revision
+      </p>
+    </div>
+
+    <div class="class-buttons">
+      <button onclick="showClass('class9')">📘 Class 9 Science</button>
+      <button onclick="showClass('class10')">📗 Class 10 Science</button>
+    </div>
+
+  </div>
+
+
+  <!-- CLASS 9 -->
+
+  <section id="class9" class="class-section">
+
+    <h2 class="class-title">📘 Class 9 Science</h2>
+
+    <div class="chapters">
+
+      <div class="chapter">
+        <h3>Chapter 1: Exploration: Entering the World of Secondary Science</h3>
+
+        <a href="class9-ch1-infographic.jpg"
+           class="btn notes"
+           target="_blank">
+          📘 PDF Notes
+        </a>
+
+        <a href="class9-ch1-pyq.html"
+           class="btn pyq">
+          ❓ Railway PYQ
+        </a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 2: Cell - The Fundamental Unit of Life</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 3: Tissues</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 4: Motion</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 5: Force and Laws of Motion</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 6: Gravitation</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 7: Work and Energy</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 8: Sound</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 9: Matter in Our Surroundings</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 10: Is Matter Around Us Pure?</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 11: Atoms and Molecules</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 12: Structure of the Atom</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 13: Improvement in Food Resources</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CLASS 10 -->
+
+  <section id="class10" class="class-section">
+
+    <h2 class="class-title">📗 Class 10 Science</h2>
+
+    <div class="chapters">
+
+      <div class="chapter">
+        <h3>Chapter 1: Chemical Reactions and Equations</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 2: Acids, Bases and Salts</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 3: Metals and Non-metals</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 4: Carbon and Its Compounds</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 5: Life Processes</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 6: Control and Coordination</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 7: How do Organisms Reproduce?</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 8: Heredity</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 9: Light - Reflection and Refraction</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 10: Human Eye and Colourful World</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 11: Electricity</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 12: Magnetic Effects of Electric Current</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+      <div class="chapter">
+        <h3>Chapter 13: Our Environment</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<footer>
+  <p>🚆 Railway Science</p>
+  <p>Science Preparation for Railway Competitive Exams</p>
+</footer>
+
+
+<script>
+
+function showClass(className) {
+
+  document.getElementById("home").style.display = "none";
+
+  document.querySelectorAll(".class-section").forEach(function(section) {
+    section.classList.remove("active");
+  });
+
+  document.getElementById(className).classList.add("active");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+
+function showHome() {
+
+  document.getElementById("home").style.display = "block";
+
+  document.querySelectorAll(".class-section").forEach(function(section) {
+    section.classList.remove("active");
+  });
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+</script>
+
+</body>
+</html>
