@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Current Affairs 2026 | Railway Science</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b2d4d;
+      color: white;
+      padding: 16px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 21px;
+    }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 25px 15px 40px;
+    }
+
+    .page-title {
+      text-align: center;
+      color: #0b2d4d;
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    /* MONTH LIST */
+
+    .months {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .month-card {
+      background: white;
+      border-radius: 13px;
+      padding: 20px 15px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .month-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .month-icon {
+      font-size: 28px;
+      margin-bottom: 7px;
+    }
+
+    .month-name {
+      color: #0b2d4d;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .month-status {
+      font-size: 12px;
+      color: #777;
+      margin-top: 4px;
+    }
+
+    /* CURRENT AFFAIRS PAGE */
+
+    #affairsPage {
+      display: none;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: #0b2d4d;
+      color: white;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .month-title {
+      background: white;
+      padding: 18px;
+      border-radius: 13px;
+      text-align: center;
+      color: #0b2d4d;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .affair-card {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 13px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+
+    .affair-card h3 {
+      color: #0b2d4d;
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .affair-card p {
+      font-size: 15px;
+    }
+
+    .fact {
+      margin-top: 8px;
+      background: #eef5fa;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .coming-soon {
+      background: white;
+      padding: 25px;
+      border-radius: 13px;
+      text-align: center;
+      color: #777;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    footer {
+      background: #0b2d4d;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 650px) {
+
+      .months {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .page-title {
+        font-size: 26px;
+      }
+
+      .month-card {
+        padding: 17px 10px;
+      }
+
+      .month-name {
+        font-size: 16px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+<header>
+
+  <h1>📰 Current Affairs 2026</h1>
+
+  <a href="index.html">
+    🏠 Home
+  </a>
+
+</header>
+
+
+<!-- ================================================= -->
+<!-- MONTH PAGE -->
+<!-- ================================================= -->
+
+<div id="monthPage">
+
+  <div class="container">
+
+    <h1 class="page-title">
+      📰 Current Affairs 2026
+    </h1>
+
+    <p class="subtitle">
+      Railway Technician • Group D • NTPC • Competitive Exams
+    </p>
+
+
+    <div class="months">
+
+
+      <!-- JANUARY -->
+
+      <div class="month-card"
+           onclick="showMonth('January 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          January 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- FEBRUARY -->
+
+      <div class="month-card"
+           onclick="showMonth('February 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          February 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- MARCH -->
+
+      <div class="month-card"
+           onclick="showMonth('March 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          March 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- APRIL -->
+
+      <div class="month-card"
+           onclick="showMonth('April 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          April 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- MAY -->
+
+      <div class="month-card"
+           onclick="showMonth('May 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          May 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- JUNE -->
+
+      <div class="month-card"
+           onclick="showMonth('June 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          June 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- JULY -->
+
+      <div class="month-card"
+           onclick="showMonth('July 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          July 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- AUGUST -->
+
+      <div class="month-card"
+           onclick="showMonth('August 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          August 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- SEPTEMBER -->
+
+      <div class="month-card"
+           onclick="showMonth('September 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          September 2026
+        </div>
+
+        <div class="month-status">
+          Current Affairs
+        </div>
+
+      </div>
+
+
+      <!-- OCTOBER -->
+
+      <div class="month-card"
+           onclick="showMonth('October 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          October 2026
+        </div>
+
+        <div class="month-status">
+          Coming Soon
+        </div>
+
+      </div>
+
+
+      <!-- NOVEMBER -->
+
+      <div class="month-card"
+           onclick="showMonth('November 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          November 2026
+        </div>
+
+        <div class="month-status">
+          Coming Soon
+        </div>
+
+      </div>
+
+
+      <!-- DECEMBER -->
+
+      <div class="month-card"
+           onclick="showMonth('December 2026')">
+
+        <div class="month-icon">📅</div>
+
+        <div class="month-name">
+          December 2026
+        </div>
+
+        <div class="month-status">
+          Coming Soon
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- DIRECT MONTH CURRENT AFFAIRS -->
+<!-- ================================================= -->
+
+<div id="affairsPage">
+
+  <div class="container">
+
+    <a class="back-btn"
+       onclick="backToMonths()">
+      ← All Months
+    </a>
+
+
+    <div class="month-title">
+
+      <h2 id="selectedMonth">
+        January 2026
+      </h2>
+
+      <p>
+        Railway Exam Current Affairs
+      </p>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div id="affairsContent">
+
+      <!-- January content will appear here -->
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  <p>🚆 Railway Science</p>
+
+  <p>
+    Current Affairs 2026 • Railway Competitive Exams
+  </p>
+
+</footer>
+
+
+<script>
+
+
+function showMonth(month) {
+
+  document.getElementById("monthPage").style.display = "none";
+
+  document.getElementById("affairsPage").style.display = "block";
+
+  document.getElementById("selectedMonth").innerText = month;
+
+  const content =
+    document.getElementById("affairsContent");
+
+
+  /* =========================================
+     JANUARY
+     ========================================= */
+
+  if (month === "January 2026") {
+
+    content.innerHTML = `
+
+      <div class="affair-card">
+
+        <h3>
+          📰 January 2026 Current Affairs
+        </h3>
+
+        <p>
+          जनवरी 2026 के महत्वपूर्ण Current Affairs
+          यहाँ Railway और अन्य competitive exams
+          के लिए उपलब्ध होंगे।
+        </p>
+
+        <div class="fact">
+          📌 Monthly Current Affairs
+        </div>
+
+      </div>
+
+
+      <div class="affair-card">
+
+        <h3>
+          ❓ January 2026 MCQ
+        </h3>
+
+        <p>
+          जनवरी महीने के महत्वपूर्ण घटनाक्रमों से
+          संबंधित MCQs यहाँ जोड़े जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     FEBRUARY
+     ========================================= */
+
+  else if (month === "February 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📰 February 2026</h2>
+
+        <br>
+
+        <p>
+          February 2026 Current Affairs
+          जल्द यहाँ जोड़े जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     MARCH
+     ========================================= */
+
+  else if (month === "March 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📰 March 2026</h2>
+
+        <br>
+
+        <p>
+          March 2026 Current Affairs
+          जल्द यहाँ जोड़े जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     APRIL
+     ========================================= */
+
+  else if (month === "April 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📰 April 2026</h2>
+
+        <br>
+
+        <p>
+          April 2026 Current Affairs
+          जल्द यहाँ जोड़े जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     MAY
+     ========================================= */
+
+  else if (month === "May 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📰 May 2026</h2>
+
+        <br>
+
+        <p>
+          May 2026 Current Affairs
+          जल्द यहाँ जोड़े जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     JUNE
+     ========================================= */
+
+  else if (month === "June 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📰 June 2026</h2>
+
+        <br>
+
+        <p>
+          June 2026 Current Affairs
+          जल्द यहाँ जोड़े जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     JULY
+     ========================================= */
+
+  else if (month === "July 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📰 July 2026</h2>
+
+        <br>
+
+        <p>
+          July 2026 Current Affairs
+          जल्द यहाँ जोड़े जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     AUGUST
+     ========================================= */
+
+  else if (month === "August 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📰 August 2026</h2>
+
+        <br>
+
+        <p>
+          August 2026 Current Affairs
+          जल्द यहाँ जोड़े जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     SEPTEMBER
+     ========================================= */
+
+  else if (month === "September 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📰 September 2026</h2>
+
+        <br>
+
+        <p>
+          September 2026 Current Affairs
+        </p>
+
+        <br>
+
+        <p>
+          September 2026 के current affairs
+          नियमित रूप से update किए जाएंगे।
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     OCTOBER
+     ========================================= */
+
+  else if (month === "October 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📅 October 2026</h2>
+
+        <br>
+
+        <p>
+          Coming Soon
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     NOVEMBER
+     ========================================= */
+
+  else if (month === "November 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📅 November 2026</h2>
+
+        <br>
+
+        <p>
+          Coming Soon
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  /* =========================================
+     DECEMBER
+     ========================================= */
+
+  else if (month === "December 2026") {
+
+    content.innerHTML = `
+
+      <div class="coming-soon">
+
+        <h2>📅 December 2026</h2>
+
+        <br>
+
+        <p>
+          Coming Soon
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+function backToMonths() {
+
+  document.getElementById("affairsPage").style.display = "none";
+
+  document.getElementById("monthPage").style.display = "block";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+</script>
+
+
+</body>
+</html>
