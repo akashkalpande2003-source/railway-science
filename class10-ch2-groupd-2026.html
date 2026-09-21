@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 10 Science Chapter 2 MCQ Test</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f4f6f9;
+  color:#222;
+}
+
+.header{
+  background:#172554;
+  color:white;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,.18);
+}
+
+.header h1{
+  font-size:18px;
+}
+
+.menu-btn{
+  width:42px;
+  height:38px;
+  border:0;
+  border-radius:7px;
+  background:white;
+  color:#172554;
+  font-size:25px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.timer{
+  font-size:17px;
+  font-weight:bold;
+  background:#fff;
+  color:#172554;
+  padding:8px 13px;
+  border-radius:7px;
+  min-width:82px;
+  text-align:center;
+}
+
+/* SIDE PALETTE */
+.palette{
+  position:fixed;
+  top:0;
+  right:-330px;
+  width:310px;
+  max-width:90%;
+  height:100vh;
+  background:#fff;
+  z-index:2000;
+  box-shadow:-4px 0 15px rgba(0,0,0,.25);
+  transition:.3s ease;
+  overflow-y:auto;
+  padding:70px 15px 20px;
+}
+
+.palette.open{
+  right:0;
+}
+
+.palette-title{
+  font-weight:bold;
+  font-size:18px;
+  margin-bottom:12px;
+  color:#172554;
+}
+
+.palette-info{
+  font-size:13px;
+  margin-bottom:15px;
+  line-height:1.7;
+}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.p-btn{
+  height:38px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  background:#f5f5f5;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.p-btn.current{
+  border:3px solid #172554;
+}
+
+.p-btn.answered{
+  background:#16a34a;
+  color:white;
+  border-color:#16a34a;
+}
+
+.p-btn.wrong{
+  background:#dc2626;
+  color:white;
+  border-color:#dc2626;
+}
+
+.close-palette{
+  position:absolute;
+  top:14px;
+  right:15px;
+  border:0;
+  background:#172554;
+  color:white;
+  width:35px;
+  height:35px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:18px;
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  z-index:1500;
+  display:none;
+}
+
+.overlay.show{
+  display:block;
+}
+
+/* MAIN */
+.container{
+  max-width:900px;
+  margin:20px auto;
+  padding:0 14px 50px;
+}
+
+.test-heading{
+  background:white;
+  border-radius:10px;
+  padding:18px;
+  box-shadow:0 2px 7px rgba(0,0,0,.08);
+  margin-bottom:15px;
+}
+
+.test-heading h2{
+  color:#172554;
+  font-size:21px;
+  margin-bottom:8px;
+}
+
+.test-heading p{
+  color:#555;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.negative{
+  display:inline-block;
+  margin-top:8px;
+  padding:5px 9px;
+  border-radius:5px;
+  background:#fff1f2;
+  color:#be123c;
+  font-weight:bold;
+}
+
+.question-card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 2px 7px rgba(0,0,0,.08);
+}
+
+.question-number{
+  color:#172554;
+  font-weight:bold;
+  margin-bottom:12px;
+  font-size:16px;
+}
+
+.question{
+  font-size:18px;
+  line-height:1.65;
+  margin-bottom:18px;
+  font-weight:600;
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.option{
+  border:1px solid #d1d5db;
+  border-radius:8px;
+  padding:13px;
+  cursor:pointer;
+  background:#fff;
+  transition:.15s;
+  line-height:1.5;
+}
+
+.option:hover{
+  background:#f8fafc;
+}
+
+.option.selected{
+  border:2px solid #172554;
+  background:#e8edff;
+}
+
+.option input{
+  display:none;
+}
+
+.option-label{
+  font-weight:bold;
+  margin-right:6px;
+}
+
+.navigation{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:18px;
+}
+
+.nav-btn{
+  border:0;
+  border-radius:7px;
+  padding:11px 18px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.prev{
+  background:#e5e7eb;
+  color:#111827;
+}
+
+.next{
+  background:#172554;
+  color:white;
+}
+
+.submit{
+  background:#b91c1c;
+  color:white;
+}
+
+.nav-btn:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+/* RESULT */
+.result{
+  display:none;
+  background:white;
+  border-radius:10px;
+  padding:22px;
+  margin-top:18px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.result h2{
+  color:#172554;
+  margin-bottom:15px;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.result-box{
+  border:1px solid #ddd;
+  border-radius:7px;
+  padding:12px;
+  background:#fafafa;
+}
+
+.result-box span{
+  display:block;
+  font-size:13px;
+  color:#666;
+}
+
+.result-box strong{
+  font-size:20px;
+}
+
+.final-score{
+  margin-top:15px;
+  padding:15px;
+  background:#eef2ff;
+  border-radius:8px;
+  text-align:center;
+}
+
+.final-score strong{
+  font-size:28px;
+  color:#172554;
+}
+
+/* SOLUTIONS */
+.solutions{
+  display:none;
+  margin-top:18px;
+}
+
+.solutions h2{
+  margin-bottom:12px;
+  color:#172554;
+}
+
+.solution-card{
+  background:white;
+  border-radius:8px;
+  padding:16px;
+  margin-bottom:12px;
+  border-left:4px solid #172554;
+  box-shadow:0 1px 5px rgba(0,0,0,.08);
+}
+
+.solution-card.correct{
+  border-left-color:#16a34a;
+}
+
+.solution-card.wrong{
+  border-left-color:#dc2626;
+}
+
+.solution-card.unattempted{
+  border-left-color:#6b7280;
+}
+
+.solution-q{
+  font-weight:bold;
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+.answer{
+  color:#15803d;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.user-answer{
+  color:#555;
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.explanation{
+  color:#444;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.restart{
+  margin-top:15px;
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:7px;
+  background:#172554;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+@media(max-width:600px){
+  .header h1{
+    font-size:14px;
+    max-width:190px;
+  }
+
+  .timer{
+    font-size:14px;
+    min-width:72px;
+  }
+
+  .container{
+    margin-top:12px;
+  }
+
+  .question-card{
+    padding:15px;
+  }
+
+  .question{
+    font-size:16px;
+  }
+
+  .result-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+  <button class="menu-btn" onclick="openPalette()">☰</button>
+
+  <h1>Class 10 Science • Chapter 02 MCQ Test</h1>
+
+  <div class="timer" id="timer">30:00</div>
+
+</header>
+
+<div class="overlay" id="overlay" onclick="closePalette()"></div>
+
+<aside class="palette" id="palette">
+
+  <button class="close-palette" onclick="closePalette()">✕</button>
+
+  <div class="palette-title">Question Palette</div>
+
+  <div class="palette-info">
+    🟢 Attempted<br>
+    ⚪ Not Attempted<br>
+    🔵 Current Question
+  </div>
+
+  <div class="palette-grid" id="paletteGrid"></div>
+
+</aside>
+
+<main class="container">
+
+<section class="test-heading">
+
+  <h2>अध्याय 02 : अम्ल, क्षारक एवं लवण</h2>
+
+  <p>
+    कुल प्रश्न: <strong>53</strong> &nbsp; | &nbsp;
+    प्रत्येक प्रश्न: <strong>1 अंक</strong>
+  </p>
+
+  <span class="negative">
+    गलत उत्तर पर −1/3 अंक (Negative Marking)
+  </span>
+
+</section>
+
+
+<section class="question-card" id="questionCard">
+
+  <div class="question-number" id="questionNumber"></div>
+
+  <div class="question" id="questionText"></div>
+
+  <div class="options" id="options"></div>
+
+  <div class="navigation">
+
+    <button class="nav-btn prev" id="prevBtn" onclick="previousQuestion()">
+      ← Previous
+    </button>
+
+    <button class="nav-btn next" id="nextBtn" onclick="nextQuestion()">
+      Next →
+    </button>
+
+  </div>
+
+  <div class="navigation">
+
+    <button class="nav-btn submit"
+      style="width:100%"
+      onclick="submitTest()">
+      Submit Test
+    </button>
+
+  </div>
+
+</section>
+
+
+<section class="result" id="result">
+
+  <h2>📊 Test Result</h2>
+
+  <div class="result-grid">
+
+    <div class="result-box">
+      <span>Total Questions</span>
+      <strong id="totalResult">53</strong>
+    </div>
+
+    <div class="result-box">
+      <span>Attempted</span>
+      <strong id="attemptedResult">0</strong>
+    </div>
+
+    <div class="result-box">
+      <span>Correct</span>
+      <strong id="correctResult">0</strong>
+    </div>
+
+    <div class="result-box">
+      <span>Wrong</span>
+      <strong id="wrongResult">0</strong>
+    </div>
+
+    <div class="result-box">
+      <span>Unattempted</span>
+      <strong id="unattemptedResult">0</strong>
+    </div>
+
+    <div class="result-box">
+      <span>Positive Marks</span>
+      <strong id="positiveResult">0</strong>
+    </div>
+
+    <div class="result-box">
+      <span>Negative Marks</span>
+      <strong id="negativeResult">0</strong>
+    </div>
+
+    <div class="result-box">
+      <span>Accuracy</span>
+      <strong id="accuracyResult">0%</strong>
+    </div>
+
+  </div>
+
+  <div class="final-score">
+
+    <div>Final Score</div>
+
+    <strong id="scoreResult">0 / 53</strong>
+
+  </div>
+
+  <button class="restart" onclick="restartTest()">
+    🔄 Test Again
+  </button>
+
+</section>
+
+
+<section class="solutions" id="solutions">
+
+  <h2>📖 Solutions & Explanations</h2>
+
+  <div id="solutionContainer"></div>
+
+</section>
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   QUESTIONS
+===================================================== */
+
+const questions = [
+
+{
+q:`जब एक तनु अम्ल, धातु कार्बोनेट के साथ अभिक्रिया करता है, तो कौन-सी गैस निर्मुक्त होती है?`,
+o:[
+`कार्बन डाइऑक्साइड गैस`,
+`ऑक्सीजन गैस`,
+`हाइड्रोजन गैस`,
+`नाइट्रोजन गैस`
+],
+a:0,
+s:`अम्ल और धातु कार्बोनेट की अभिक्रिया में लवण, जल तथा कार्बन डाइऑक्साइड बनते हैं।<br><br>
+<strong>अम्ल + धातु कार्बोनेट → लवण + CO₂ + H₂O</strong><br><br>
+उदाहरण: <strong>2HCl + Na₂CO₃ → 2NaCl + CO₂ + H₂O</strong>`
+},
+
+{
+q:`<strong>अभिकथन (A):</strong> जब अम्ल, धातु कार्बोनेट के साथ अभिक्रिया करते हैं, तो कार्बन डाइऑक्साइड गैस बनती है।<br><br>
+<strong>कारण (R):</strong> धातु कार्बोनेट क्षारीय प्रकृति के होते हैं और अम्लों को उदासीन करके लवण, जल और CO₂ बनाते हैं।`,
+o:[
+`A और R दोनों सत्य हैं तथा R, A की सही व्याख्या है।`,
+`A असत्य है, लेकिन R सत्य है।`,
+`A सत्य है, लेकिन R असत्य है।`,
+`A और R दोनों सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है।`
+],
+a:0,
+s:`अम्ल और कार्बोनेट की अभिक्रिया में CO₂, जल और लवण बनते हैं। कार्बोनेट अम्ल के साथ अभिक्रिया करके अम्लीय गुण को कम करते हैं।`
+},
+
+{
+q:`कॉपर ऑक्साइड और हाइड्रोक्लोरिक अम्ल की अभिक्रिया में विलयन किस कारण नीला-हरा हो जाता है?`,
+o:[
+`ऑक्सीजन के निर्गमन के कारण`,
+`जल निर्माण के कारण`,
+`हाइड्रोजन गैस के कारण`,
+`कॉपर(II) क्लोराइड के कारण नीला-हरा`
+],
+a:3,
+s:`<strong>CuO + 2HCl → CuCl₂ + H₂O</strong><br><br>
+बनने वाला कॉपर(II) क्लोराइड विलयन को नीला-हरा रंग देता है।`
+},
+
+{
+q:`फिनॉल्फ्थेलिन क्षारीय विलयन में कौन-सा रंग परिवर्तन दर्शाता है?`,
+o:[
+`पीला से लाल`,
+`रंगहीन से गुलाबी`,
+`सफेद से हरा`,
+`नीला से रंगहीन`
+],
+a:1,
+s:`फिनॉल्फ्थेलिन अम्लीय माध्यम में रंगहीन तथा क्षारीय माध्यम में गुलाबी होता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा पदार्थ सामान्यतः गंधीय सूचक (Olfactory Indicator) के रूप में प्रयोग किया जाता है?`,
+o:[
+`लिटमस`,
+`फिनॉल्फ्थेलिन`,
+`प्याज`,
+`मेथिल ऑरेंज`
+],
+a:2,
+s:`प्याज, वैनिला तथा लौंग का तेल गंधीय सूचक के उदाहरण हैं।`
+},
+
+{
+q:`लौंग के तेल का उपयोग गंधीय सूचक के रूप में किया जाता है। यदि इसकी गंध विलयन X में बनी रहती है लेकिन विलयन Y में मंद पड़ जाती है, तो दोनों विलयनों की प्रकृति क्या हो सकती है?`,
+o:[
+`X क्षारीय और Y अम्लीय`,
+`X और Y दोनों अम्लीय`,
+`X अम्लीय और Y क्षारीय`,
+`X और Y दोनों क्षारीय`
+],
+a:2,
+s:`लौंग के तेल की गंध अम्लीय माध्यम में बनी रहती है, जबकि क्षारीय माध्यम में इसकी गंध मंद या समाप्त हो सकती है।`
+},
+
+{
+q:`किसी प्रयोगशाला नमूने में क्षारीय विलयन की पहचान के लिए निम्नलिखित में से कौन-सी प्रक्रिया उपयुक्त है?`,
+o:[
+`फिनॉल्फ्थेलिन की एक बूंद डालकर गुलाबी रंग का अवलोकन करना`,
+`नीला लिटमस पेपर डुबोकर यह देखना कि वह नीला ही रहता है`,
+`विलयन को सूंघना`,
+`मेथिल ऑरेंज डालकर लाल रंग देखना`
+],
+a:0,
+s:`फिनॉल्फ्थेलिन क्षारीय विलयन में गुलाबी रंग देता है।`
+},
+
+{
+q:`मेथिल ऑरेंज अम्लीय माध्यम में किस रंग का हो जाता है?`,
+o:[
+`अम्ल और क्षारक दोनों में लाल`,
+`उदासीन विलयन में लाल`,
+`केवल अम्लीय विलयन में लाल`,
+`केवल क्षारीय विलयन में लाल`
+],
+a:2,
+s:`मेथिल ऑरेंज अम्लीय माध्यम में लाल तथा क्षारीय माध्यम में पीला होता है।`
+},
+
+{
+q:`किसी क्षारीय विलयन में अम्ल मिलाने पर फिनॉल्फ्थेलिन के रंग में परिवर्तन का क्या कारण है?`,
+o:[
+`विलयन तनुकृत हो जाता है`,
+`तापमान बढ़ जाता है`,
+`विलयन वाष्पित हो जाता है`,
+`विलयन उदासीन या अम्लीय हो जाता है`
+],
+a:3,
+s:`क्षारीय विलयन में फिनॉल्फ्थेलिन गुलाबी होता है। अम्ल मिलाने पर क्षारीयता कम होती है और पर्याप्त अम्ल मिलाने पर विलयन उदासीन या अम्लीय हो सकता है।`
+},
+
+{
+q:`अम्ल केवल जलीय विलयन में ही अम्लीय व्यवहार क्यों प्रदर्शित करते हैं?`,
+o:[
+`शुष्क अवस्था में अम्ल के अणु पूरी तरह आयनित रहते हैं।`,
+`हाइड्रोजन आयन (H⁺) जल में अम्ल के आयनीकरण से उत्पन्न होते हैं।`,
+`जल अम्लों के आयनीकरण को रोक देता है।`,
+`अम्ल जल की अनुपस्थिति में भी H⁺ आयन खो देता है।`
+],
+a:1,
+s:`अम्ल जल में घुलकर आयन उत्पन्न करते हैं। H⁺ आयनों की उपस्थिति अम्लीय गुणों के लिए जिम्मेदार होती है।`
+},
+
+{
+q:`अग्निशामकों में सोडियम कार्बोनेट की तुलना में बेकिंग सोडा को क्यों प्राथमिकता दी जाती है?`,
+o:[
+`क्योंकि यह अविलेय अवशेष बनाता है`,
+`क्योंकि यह तीव्रता से अभिक्रिया करके ऊष्मा पैदा करता है`,
+`क्योंकि यह हाइड्रोजन गैस बनाता है`,
+`क्योंकि यह अम्ल के साथ आसानी से CO₂ मुक्त करता है`
+],
+a:3,
+s:`बेकिंग सोडा अम्ल के साथ अभिक्रिया करके CO₂ गैस उत्पन्न करता है। CO₂ आग बुझाने में सहायता करती है।`
+},
+
+{
+q:`बेकिंग सोडा का उपयोग अग्निशामक यंत्रों में किया जाता है क्योंकि यह एक गैस मुक्त करता है। कौन-सी गैस और वह आग बुझाने में कैसे सहायता करती है?`,
+o:[
+`SO₂; ज्वाला से अभिक्रिया करती है`,
+`CO₂; ऑक्सीजन को विस्थापित करके दहन रोकती है`,
+`N₂; जलती वस्तु को ठंडा करती है`,
+`O₂; आग बुझाती है`
+],
+a:1,
+s:`CO₂ दहन को समर्थन नहीं देती और आग के आसपास ऑक्सीजन की उपलब्धता कम करती है।`
+},
+
+{
+q:`विरंजक चूर्ण की विरंजन और रोगाणुनाशक क्रिया के लिए मुख्य रूप से कौन-सी गैस उत्तरदायी है?`,
+o:[
+`क्लोरीन (Cl₂)`,
+`हाइड्रोजन क्लोराइड (HCl)`,
+`ऑक्सीजन (O₂)`,
+`कार्बन डाइऑक्साइड (CO₂)`
+],
+a:0,
+s:`विरंजक चूर्ण से उपलब्ध सक्रिय क्लोरीन विरंजन तथा रोगाणुनाशन में महत्वपूर्ण भूमिका निभाता है।`
+},
+
+{
+q:`निम्नलिखित में से विरंजक चूर्ण का उपयोग नहीं है?`,
+o:[
+`जल की कठोरता को दूर करना`,
+`क्लोरोफॉर्म का विनिर्माण`,
+`कपास और लिनेन को विरंजित करना`,
+`पेयजल को विसंक्रमित करना`
+],
+a:0,
+s:`विरंजक चूर्ण का उपयोग वस्त्रों एवं कागज के विरंजन तथा पेयजल के विसंक्रमण में किया जाता है। जल की कठोरता दूर करने के लिए इसका उपयोग नहीं किया जाता।`
+},
+
+{
+q:`लवण-जल (Brine) के विद्युत अपघटन के दौरान कैथोड पर कौन-सा उत्पाद बनता है?`,
+o:[
+`सोडियम धातु`,
+`हाइड्रोजन गैस`,
+`ऑक्सीजन गैस`,
+`क्लोरीन गैस`
+],
+a:1,
+s:`क्लोर-क्षार प्रक्रिया में कैथोड पर H₂ तथा एनोड पर Cl₂ गैस प्राप्त होती है।`
+},
+
+{
+q:`अम्लों को सावधानीपूर्वक तनुकृत क्यों करना चाहिए?`,
+o:[
+`अभिक्रिया को तीव्र करने के लिए`,
+`छींटों से बचने के लिए`,
+`सांद्रता कम करने के लिए`,
+`अम्लता बढ़ाने के लिए`
+],
+a:1,
+s:`सांद्र अम्ल को जल में मिलाने पर काफी ऊष्मा निकल सकती है। गलत तरीके से मिलाने पर अम्ल के छींटे पड़ सकते हैं। इसलिए अम्ल को सावधानीपूर्वक जल में धीरे-धीरे मिलाया जाता है।`
+},
+
+{
+q:`सोडियम हाइड्रॉक्साइड को जल में घोलने पर कौन-से आयन विलयन को क्षारीय बनाने के लिए मुख्य रूप से उत्तरदायी होते हैं?`,
+o:[
+`CO₃²⁻`,
+`H⁺`,
+`Na⁺`,
+`OH⁻`
+],
+a:3,
+s:`NaOH जल में घुलकर Na⁺ और OH⁻ आयन देता है। OH⁻ आयन क्षारीय गुणों के लिए उत्तरदायी हैं।`
+},
+
+{
+q:`विभिन्न अम्लों के रासायनिक गुण समान होते हैं क्योंकि वे जलीय विलयन में कौन-से आयन उत्पन्न करते हैं?`,
+o:[
+`हाइड्रोजन आयन`,
+`हाइड्रॉक्साइड आयन`,
+`क्लोरीन आयन`,
+`सोडियम आयन`
+],
+a:0,
+s:`जलीय विलयन में अम्ल H⁺ आयन उत्पन्न करते हैं।`
+},
+
+{
+q:`जलीय विलयन में अम्ल और क्षारक दोनों विद्युत का चालन करते हैं क्योंकि—`,
+o:[
+`वे सहसंयोजी आबंध बनाते हैं।`,
+`वे जल में आयन उत्पन्न करते हैं।`,
+`उनमें मुक्त इलेक्ट्रॉन होते हैं।`,
+`वे ऑक्सीजन गैस मुक्त करते हैं।`
+],
+a:1,
+s:`जलीय विलयन में उपस्थित गतिशील आयन विद्युत धारा के वाहक होते हैं।`
+},
+
+{
+q:`क्षारीय विलयन विद्युत का चालन क्यों करते हैं?`,
+o:[
+`ऊष्मा ऊर्जा से विद्युत धारा उत्पन्न होती है।`,
+`क्षार से मुक्त इलेक्ट्रॉन निकलते हैं।`,
+`क्षार बिना आयनों के पूर्णतः घुल जाते हैं।`,
+`हाइड्रॉक्साइड आयन आवेश वाहक के रूप में कार्य करते हैं।`
+],
+a:3,
+s:`क्षारीय विलयन में उपस्थित आयन, विशेषकर OH⁻, विद्युत के आवेश वाहक होते हैं।`
+},
+
+{
+q:`HCl और NaOH विलयनों की कौन-सी सामान्य विशेषता उनके pH को प्रभावित करने और विद्युत का चालन करने की क्षमता को समझाती है?`,
+o:[
+`दोनों का pH 7 से कम होता है।`,
+`दोनों नीले लिटमस को लाल करते हैं।`,
+`दोनों का स्वाद खट्टा होता है।`,
+`दोनों जलीय विलयन में आयन उत्पन्न करते हैं।`
+],
+a:3,
+s:`HCl जल में H⁺ तथा NaOH जल में Na⁺ और OH⁻ आयन उत्पन्न करता है।`
+},
+
+{
+q:`जब हाइड्रोक्लोरिक अम्ल सोडियम हाइड्रॉक्साइड के साथ अभिक्रिया करता है, तो क्या बनता है?`,
+o:[
+`केवल क्षार`,
+`केवल गैस`,
+`लवण और जल`,
+`धातु और गैस`
+],
+a:2,
+s:`<strong>HCl + NaOH → NaCl + H₂O</strong><br><br>यह उदासीनीकरण अभिक्रिया है।`
+},
+
+{
+q:`यदि HCl, NaOH के साथ अभिक्रिया करता है, तो जल बनाने में कौन-से आयन भाग लेते हैं?`,
+o:[
+`HCl से Cl⁻ और NaOH से Na⁺`,
+`HCl से H⁺ और NaOH से OH⁻`,
+`NaOH से H⁺ और HCl से OH⁻`,
+`NaOH से Na⁺ और HCl से Cl⁻`
+],
+a:1,
+s:`मुख्य आयनिक अभिक्रिया:<br><br><strong>H⁺ + OH⁻ → H₂O</strong>`
+},
+
+{
+q:`कथन I: उदासीनीकरण अभिक्रियाएँ सदैव लवण, जल और हाइड्रोजन गैस उत्पन्न करती हैं।<br><br>
+कथन II: उदासीनीकरण अभिक्रिया एक प्रकार की द्विविस्थापन अभिक्रिया है।`,
+o:[
+`केवल कथन I सही है।`,
+`केवल कथन II सही है।`,
+`दोनों कथन सही हैं।`,
+`दोनों कथन गलत हैं।`
+],
+a:1,
+s:`उदासीनीकरण में सामान्यतः लवण और जल बनते हैं, H₂ गैस नहीं।`
+},
+
+{
+q:`तनु सल्फ्यूरिक अम्ल प्रयोगशाला की मेज पर गिर जाता है। उसे उदासीन करने के लिए सोडियम बाइकार्बोनेट डाला जाता है। कौन-से उत्पाद इस अभिक्रिया की पुष्टि करते हैं?`,
+o:[
+`हाइड्रोजन गैस`,
+`धातु ऑक्साइड`,
+`ऑक्सीजन गैस`,
+`कार्बन डाइऑक्साइड और लवण`
+],
+a:3,
+s:`अम्ल और NaHCO₃ की अभिक्रिया में लवण, CO₂ और जल बनते हैं। CO₂ के कारण बुदबुदाहट दिखाई देती है।`
+},
+
+{
+q:`यदि कोई विद्यार्थी ऐसीटिक अम्ल को NaOH के साथ मिलाता है और बुदबुदाहट देखता है, तो इसका संभावित कारण क्या हो सकता है?`,
+o:[
+`केवल जल बन रहा है।`,
+`अभिक्रिया पूर्ण हो चुकी है।`,
+`अभिक्रिया बहुत धीमी है।`,
+`कार्बोनेट जैसा संदूषक उपस्थित है।`
+],
+a:3,
+s:`ऐसीटिक अम्ल और NaOH की सामान्य उदासीनीकरण अभिक्रिया में गैस नहीं बनती:<br><br>
+<strong>CH₃COOH + NaOH → CH₃COONa + H₂O</strong><br><br>
+बुदबुदाहट कार्बोनेट/हाइड्रोजनकार्बोनेट संदूषक के कारण हो सकती है।`
+},
+
+{
+q:`निम्नलिखित अभिक्रिया को किस प्रकार की रासायनिक अभिक्रिया के रूप में वर्गीकृत किया जाता है?<br><br>
+<strong>HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)</strong>`,
+o:[
+`वियोजन अभिक्रिया`,
+`विस्थापन अभिक्रिया`,
+`संयोजन अभिक्रिया`,
+`उदासीनीकरण अभिक्रिया`
+],
+a:3,
+s:`अम्ल HCl और क्षारक NaOH की अभिक्रिया से लवण NaCl और जल बनते हैं।`
+},
+
+{
+q:`अम्ल और क्षारक के बीच अभिक्रिया से क्या उत्पन्न होता है?`,
+o:[
+`लवण और जल`,
+`केवल लवण`,
+`केवल जल`,
+`हाइड्रोजन गैस और धातु`
+],
+a:0,
+s:`<strong>अम्ल + क्षारक → लवण + जल</strong>`
+},
+
+{
+q:`पूर्ण उदासीनीकरण अभिक्रिया के दौरान सामान्यतः कौन-से उत्पाद बनते हैं?`,
+o:[
+`लवण और जल`,
+`गैस और लवण`,
+`अम्ल और क्षारक`,
+`धातु और गैस`
+],
+a:0,
+s:`उदासीनीकरण का सामान्य परिणाम लवण और जल का निर्माण है।`
+},
+
+{
+q:`अस्थिभंग हुई भुजा के लिए कास्ट तैयार करने में प्लास्टर ऑफ पेरिस को क्यों प्रयोग किया जाता है?`,
+o:[
+`यह शीघ्रता से सेट होकर कठोर, सहारा देने वाला ढाँचा बनाता है।`,
+`यह सीमेंट से भारी होता है।`,
+`यह जल के साथ मिलाने पर केवल ऊष्मा उत्पन्न करता है।`,
+`यह अधिक रंगीन होता है।`
+],
+a:0,
+s:`POP जल के साथ अभिक्रिया करके जिप्सम बनाता है और कठोर हो जाता है। इसलिए इसे प्लास्टर/कास्ट के लिए उपयोग किया जाता है।`
+},
+
+{
+q:`जब प्लास्टर ऑफ पेरिस को जल के साथ मिलाया जाता है, तो यह कठोर हो जाता है। इसके लिए कौन-सा प्रक्रम उत्तरदायी है?`,
+o:[
+`जिप्सम निर्माण के लिए पुनर्जलीकरण`,
+`अम्ल-क्षार उदासीनीकरण`,
+`कैल्शियम आयनों का ऑक्सीकरण`,
+`कैल्शियम सल्फेट का निर्जलीकरण`
+],
+a:0,
+s:`POP जल ग्रहण करके पुनः जिप्सम बनाता है:<br><br>
+<strong>CaSO₄·½H₂O + 1½H₂O → CaSO₄·2H₂O</strong>`
+},
+
+{
+q:`प्रयोगशाला में बेकिंग सोडा तैयार करने के दौरान अमोनिया और जल के साथ कौन-सी गैस आवश्यक है?`,
+o:[
+`ऑक्सीजन`,
+`कार्बन डाइऑक्साइड`,
+`नाइट्रोजन`,
+`हाइड्रोजन`
+],
+a:1,
+s:`सॉल्वे प्रक्रिया में NaCl, NH₃, H₂O और CO₂ से NaHCO₃ बनता है।`
+},
+
+{
+q:`अम्ल और क्षारक त्वचा पर अपने प्रभाव के संबंध में किस प्रकार समान हैं?`,
+o:[
+`दोनों क्षोभ या दग्ध का कारण बन सकते हैं।`,
+`दोनों बिना क्षति के त्वचा साफ करते हैं।`,
+`दोनों मॉइस्चराइजर का कार्य करते हैं।`,
+`दोनों त्वचा को राहत देते हैं।`
+],
+a:0,
+s:`प्रबल अम्ल और प्रबल क्षारक दोनों त्वचा के लिए संक्षारक हो सकते हैं और जलन/दग्ध पैदा कर सकते हैं।`
+},
+
+{
+q:`एक विद्यार्थी NaHCO₃ में HCl मिलाता है। कौन-सा प्रेक्षण अभिक्रिया को दर्शाता है?`,
+o:[
+`गैस के बुलबुले निकलना`,
+`कोई परिवर्तन न होना`,
+`केवल रंग बदलना`,
+`धातु का जमना`
+],
+a:0,
+s:`HCl और NaHCO₃ की अभिक्रिया में CO₂ गैस निकलती है। इसलिए बुलबुले दिखाई देते हैं।`
+},
+
+{
+q:`अम्ल की किसी सक्रिय धातु के साथ अभिक्रिया करने पर सामान्यतः कौन-सी गैस निकलती है?`,
+o:[
+`हाइड्रोजन`,
+`ऑक्सीजन`,
+`नाइट्रोजन`,
+`कार्बन डाइऑक्साइड`
+],
+a:0,
+s:`अम्ल और उपयुक्त सक्रिय धातु की अभिक्रिया में हाइड्रोजन गैस बनती है।<br><br>
+<strong>Zn + 2HCl → ZnCl₂ + H₂</strong>`
+},
+
+{
+q:`निम्नलिखित में से कौन-सी धातु प्रबल क्षार के साथ अभिक्रिया करके हाइड्रोजन गैस उत्पन्न कर सकती है?`,
+o:[
+`तांबा`,
+`जस्ता`,
+`सोना`,
+`चाँदी`
+],
+a:1,
+s:`जस्ता NaOH जैसे प्रबल क्षार के साथ अभिक्रिया करके सोडियम जिंकेट और H₂ बनाता है:<br><br>
+<strong>2NaOH + Zn → Na₂ZnO₂ + H₂</strong>`
+},
+
+{
+q:`किसी अधातु ऑक्साइड को क्षारक के साथ अभिक्रिया कराने पर सामान्यतः क्या होता है?`,
+o:[
+`क्षारीयता बढ़ती है`,
+`हाइड्रोजन गैस बनती है`,
+`धातु बनती है`,
+`लवण बनता है और क्षारीयता कम होती है`
+],
+a:3,
+s:`अधातु ऑक्साइड सामान्यतः अम्लीय प्रकृति के होते हैं और क्षारकों के साथ अभिक्रिया करके लवण तथा जल बनाते हैं।`
+},
+
+{
+q:`निम्नलिखित में से अधातु ऑक्साइड की सामान्य प्रकृति क्या होती है?`,
+o:[
+`क्षारीय`,
+`उदासीन`,
+`अम्लीय`,
+`धात्विक`
+],
+a:2,
+s:`अधातु ऑक्साइड सामान्यतः अम्लीय प्रकृति के होते हैं।`
+},
+
+{
+q:`कार्बन डाइऑक्साइड को सोडियम हाइड्रॉक्साइड विलयन में प्रवाहित करने पर सामान्यतः क्या बनता है?`,
+o:[
+`NaCl`,
+`NaOH`,
+`Na₂CO₃ और H₂O`,
+`H₂ और O₂`
+],
+a:2,
+s:`CO₂ एक अम्लीय अधातु ऑक्साइड है और NaOH के साथ अभिक्रिया करता है:<br><br>
+<strong>CO₂ + 2NaOH → Na₂CO₃ + H₂O</strong>`
+},
+
+{
+q:`अधातु ऑक्साइड और क्षारक की अभिक्रिया के बारे में सही कथन कौन-सा है?`,
+o:[
+`अधातु ऑक्साइड सामान्यतः अम्लीय होते हैं और क्षारकों के साथ लवण बना सकते हैं।`,
+`अधातु ऑक्साइड हमेशा क्षारीय होते हैं।`,
+`अधातु ऑक्साइड क्षारकों के साथ कभी अभिक्रिया नहीं करते।`,
+`इस अभिक्रिया में हमेशा हाइड्रोजन गैस बनती है।`
+],
+a:0,
+s:`अधातु ऑक्साइड सामान्यतः अम्लीय प्रकृति के होते हैं और क्षारकों के साथ अभिक्रिया करके लवण और जल बना सकते हैं।`
+},
+
+{
+q:`धातु ऑक्साइड की अम्ल के साथ अभिक्रिया में सामान्यतः क्या बनता है?`,
+o:[
+`लवण और जल`,
+`केवल हाइड्रोजन`,
+`कार्बन डाइऑक्साइड`,
+`ऑक्सीजन और जल`
+],
+a:0,
+s:`धातु ऑक्साइड सामान्यतः क्षारीय होते हैं और अम्ल के साथ अभिक्रिया करके लवण तथा जल बनाते हैं।`
+},
+
+{
+q:`सोडियम कार्बोनेट और हाइड्रोक्लोरिक अम्ल की अभिक्रिया में कौन-सी गैस निकलती है?`,
+o:[
+`ऑक्सीजन`,
+`हाइड्रोजन`,
+`कार्बन डाइऑक्साइड`,
+`नाइट्रोजन`
+],
+a:2,
+s:`<strong>Na₂CO₃ + 2HCl → 2NaCl + H₂O + CO₂</strong><br><br>
+इस अभिक्रिया में CO₂ गैस निकलती है।`
+},
+
+{
+q:`प्रबल अम्ल और प्रबल क्षारक की उचित मात्रा में पूर्ण उदासीनीकरण के बाद बनने वाला विलयन सामान्यतः कैसा होता है?`,
+o:[
+`उदासीन`,
+`अत्यधिक अम्लीय`,
+`अत्यधिक क्षारीय`,
+`हमेशा गैसीय`
+],
+a:0,
+s:`प्रबल अम्ल और प्रबल क्षारक की उचित मात्रा में पूर्ण उदासीनीकरण से सामान्यतः उदासीन लवणीय विलयन प्राप्त होता है।`
+},
+
+{
+q:`धुलाई का सोडा (Washing Soda) मुख्यतः किन उद्योगों में उपयोग किया जाता है?`,
+o:[
+`काँच, साबुन और कागज उद्योग`,
+`केवल पेट्रोलियम उद्योग`,
+`केवल कपड़ा रंगाई`,
+`केवल खाद्य उद्योग`
+],
+a:0,
+s:`धुलाई का सोडा काँच, साबुन और कागज उद्योगों में महत्वपूर्ण कच्चे पदार्थ के रूप में प्रयोग किया जाता है।`
+},
+
+{
+q:`पेट में pH का उचित स्तर बनाए रखना क्यों आवश्यक है?`,
+o:[
+`यह केवल पानी को अवशोषित करता है।`,
+`यह केवल रक्त का रंग बदलता है।`,
+`यह पेप्सिन जैसे पाचन एंजाइम की क्रिया के लिए आवश्यक है।`,
+`यह ऑक्सीजन का उत्पादन करता है।`
+],
+a:2,
+s:`पेट में अम्लीय माध्यम पेप्सिन जैसे पाचन एंजाइमों की उचित क्रिया के लिए आवश्यक होता है।`
+},
+
+{
+q:`मानव पेट में हाइड्रोक्लोरिक अम्ल की उपस्थिति के कारण पेट का pH सामान्यतः किस सीमा में होता है?`,
+o:[
+`1.5–3.5`,
+`6.5–7.5`,
+`8.5–9.5`,
+`10–12`
+],
+a:0,
+s:`पेट में HCl अम्लीय माध्यम बनाता है। सामान्यतः पेट का pH लगभग 1.5–3.5 के आसपास माना जाता है।`
+},
+
+{
+q:`दिए गए विकल्पों में गैस्ट्रिक जूस का लगभग pH किसके निकट है?`,
+o:[
+`0.9–1.2`,
+`5.5–6.5`,
+`7.0–7.5`,
+`9.0–10.0`
+],
+a:0,
+s:`गैस्ट्रिक जूस अत्यधिक अम्लीय होता है और उसका pH लगभग 0.9–1.2 के आसपास हो सकता है।`
+},
+
+{
+q:`अधिकांश पौधों के लिए मिट्टी का कौन-सा pH उपयुक्त माना जाता है?`,
+o:[
+`6–7.5`,
+`1–2`,
+`3–4`,
+`10–12`
+],
+a:0,
+s:`अधिकांश पौधों के लिए लगभग 6 से 7.5 के बीच का pH उपयुक्त माना जाता है।`
+},
+
+{
+q:`स्कूली पाठ्यक्रम के अनुसार मधुमक्खी के डंक से होने वाली अम्लीय जलन को कम करने के लिए कौन-सा पदार्थ उपयोगी हो सकता है?`,
+o:[
+`बेकिंग सोडा`,
+`हाइड्रोक्लोरिक अम्ल`,
+`सल्फ्यूरिक अम्ल`,
+`सांद्र NaOH`
+],
+a:0,
+s:`मधुमक्खी के डंक से होने वाली अम्लीय जलन को क्षारीय बेकिंग सोडा जैसे पदार्थ से उदासीन करने की पाठ्यपुस्तकीय अवधारणा दी जाती है।`
+},
+
+{
+q:`यदि किसी लवण के जलीय विलयन का pH लगभग 9 है, तो वह लवण किससे बन सकता है?`,
+o:[
+`प्रबल अम्ल और दुर्बल क्षारक`,
+`प्रबल अम्ल और प्रबल क्षारक`,
+`दुर्बल अम्ल और प्रबल क्षारक`,
+`केवल प्रबल अम्ल`
+],
+a:2,
+s:`दुर्बल अम्ल और प्रबल क्षारक से बने लवण का जलीय विलयन सामान्यतः क्षारीय हो सकता है।`
+},
+
+{
+q:`यदि किसी विलयन में H⁺ आयनों की सांद्रता बढ़ जाती है, तो उसके pH पर क्या प्रभाव पड़ेगा?`,
+o:[
+`pH बढ़ेगा`,
+`pH घटेगा`,
+`pH हमेशा 7 होगा`,
+`कोई प्रभाव नहीं`
+],
+a:1,
+s:`pH, H⁺ आयन की सांद्रता से संबंधित है। H⁺ की सांद्रता बढ़ने पर pH घटता है।`
+},
+
+{
+q:`निम्नलिखित में से किस विलयन में H⁺ आयनों की सांद्रता सबसे कम होगी?`,
+o:[
+`pH = 2`,
+`pH = 5`,
+`pH = 7`,
+`pH = 8.2`
+],
+a:3,
+s:`pH जितना अधिक होता है, H⁺ आयनों की सांद्रता उतनी कम होती है। इसलिए pH 8.2 वाले विलयन में दिए गए विकल्पों में H⁺ की सांद्रता सबसे कम होगी।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा विलयन सबसे अधिक क्षारीय है?`,
+o:[
+`pH = 5`,
+`pH = 7`,
+`pH = 8`,
+`pH = 9`
+],
+a:3,
+s:`pH 7 से अधिक होने पर विलयन क्षारीय होता है। दिए गए विकल्पों में pH 9 सबसे अधिक है, इसलिए यह सबसे अधिक क्षारीय है।`
+}
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let currentQuestion = 0;
+let answers = new Array(questions.length).fill(null);
+let testSubmitted = false;
+
+let timeLeft = 30 * 60;
+let timerInterval;
+
+
+/* =====================================================
+   PALETTE
+===================================================== */
+
+function createPalette(){
+
+  const grid = document.getElementById("paletteGrid");
+
+  grid.innerHTML = "";
+
+  questions.forEach((question,index)=>{
+
+    const button = document.createElement("button");
+
+    button.className = "p-btn";
+
+    button.textContent = index + 1;
+
+    button.onclick = function(){
+
+      currentQuestion = index;
+
+      renderQuestion();
+
+      closePalette();
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    };
+
+    grid.appendChild(button);
+
+  });
+
+  updatePalette();
+
+}
+
+
+function updatePalette(){
+
+  const buttons =
+    document.querySelectorAll(".p-btn");
+
+  buttons.forEach((button,index)=>{
+
+    button.classList.remove(
+      "current",
+      "answered",
+      "wrong"
+    );
+
+    if(index === currentQuestion){
+
+      button.classList.add("current");
+
+    }
+
+    if(answers[index] !== null){
+
+      button.classList.add("answered");
+
+    }
+
+  });
+
+}
+
+
+/* =====================================================
+   PALETTE OPEN/CLOSE
+===================================================== */
+
+function openPalette(){
+
+  document
+    .getElementById("palette")
+    .classList.add("open");
+
+  document
+    .getElementById("overlay")
+    .classList.add("show");
+
+}
+
+
+function closePalette(){
+
+  document
+    .getElementById("palette")
+    .classList.remove("open");
+
+  document
+    .getElementById("overlay")
+    .classList.remove("show");
+
+}
+
+
+/* =====================================================
+   RENDER QUESTION
+===================================================== */
+
+function renderQuestion(){
+
+  const question =
+    questions[currentQuestion];
+
+  document.getElementById("questionNumber")
+    .textContent =
+    `Question ${currentQuestion + 1} of ${questions.length}`;
+
+  document.getElementById("questionText")
+    .innerHTML = question.q;
+
+  const options =
+    document.getElementById("options");
+
+  options.innerHTML = "";
+
+  const labels = ["A","B","C","D"];
+
+  question.o.forEach((option,index)=>{
+
+    const div =
+      document.createElement("div");
+
+    div.className = "option";
+
+    if(answers[currentQuestion] === index){
+
+      div.classList.add("selected");
+
+    }
+
+    div.innerHTML =
+      `<span class="option-label">
+        ${labels[index]}.
+      </span>
+      ${option}`;
+
+    div.onclick = function(){
+
+      if(testSubmitted) return;
+
+      answers[currentQuestion] = index;
+
+      renderQuestion();
+
+    };
+
+    options.appendChild(div);
+
+  });
+
+
+  document.getElementById("prevBtn")
+    .disabled =
+    currentQuestion === 0;
+
+  document.getElementById("nextBtn")
+    .disabled =
+    currentQuestion === questions.length - 1;
+
+  updatePalette();
+
+}
+
+
+/* =====================================================
+   NEXT / PREVIOUS
+===================================================== */
+
+function nextQuestion(){
+
+  if(currentQuestion < questions.length - 1){
+
+    currentQuestion++;
+
+    renderQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+
+function previousQuestion(){
+
+  if(currentQuestion > 0){
+
+    currentQuestion--;
+
+    renderQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+function startTimer(){
+
+  clearInterval(timerInterval);
+
+  timerInterval =
+    setInterval(function(){
+
+      if(testSubmitted){
+
+        clearInterval(timerInterval);
+
+        return;
+
+      }
+
+      timeLeft--;
+
+      if(timeLeft <= 0){
+
+        timeLeft = 0;
+
+        clearInterval(timerInterval);
+
+        document.getElementById("timer")
+          .textContent = "00:00";
+
+        submitTest(true);
+
+        return;
+
+      }
+
+      updateTimer();
+
+    },1000);
+
+}
+
+
+function updateTimer(){
+
+  const minutes =
+    Math.floor(timeLeft / 60);
+
+  const seconds =
+    timeLeft % 60;
+
+  document.getElementById("timer")
+    .textContent =
+    String(minutes).padStart(2,"0")
+    + ":" +
+    String(seconds).padStart(2,"0");
+
+}
+
+
+/* =====================================================
+   SUBMIT TEST
+===================================================== */
+
+function submitTest(autoSubmit=false){
+
+  if(testSubmitted) return;
+
+  if(!autoSubmit){
+
+    const attempted =
+      answers.filter(
+        answer => answer !== null
+      ).length;
+
+    const unattempted =
+      questions.length - attempted;
+
+    const confirmSubmit =
+      confirm(
+        `क्या आप Test Submit करना चाहते हैं?\n\n` +
+        `Attempted: ${attempted}\n` +
+        `Unattempted: ${unattempted}`
+      );
+
+    if(!confirmSubmit){
+
+      return;
+
+    }
+
+  }
+
+  testSubmitted = true;
+
+  clearInterval(timerInterval);
+
+  calculateResult();
+
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+function calculateResult(){
+
+  let correct = 0;
+  let wrong = 0;
+  let attempted = 0;
+
+  questions.forEach((question,index)=>{
+
+    if(answers[index] === null){
+
+      return;
+
+    }
+
+    attempted++;
+
+    if(answers[index] === question.a){
+
+      correct++;
+
+    }else{
+
+      wrong++;
+
+    }
+
+  });
+
+
+  const unattempted =
+    questions.length - attempted;
+
+  const positiveMarks =
+    correct;
+
+  const negativeMarks =
+    wrong / 3;
+
+  const finalScore =
+    correct - (wrong / 3);
+
+  let accuracy = 0;
+
+  if(attempted > 0){
+
+    accuracy =
+      (correct / attempted) * 100;
+
+  }
+
+
+  document.getElementById("totalResult")
+    .textContent =
+    questions.length;
+
+  document.getElementById("attemptedResult")
+    .textContent =
+    attempted;
+
+  document.getElementById("correctResult")
+    .textContent =
+    correct;
+
+  document.getElementById("wrongResult")
+    .textContent =
+    wrong;
+
+  document.getElementById("unattemptedResult")
+    .textContent =
+    unattempted;
+
+  document.getElementById("positiveResult")
+    .textContent =
+    positiveMarks.toFixed(2);
+
+  document.getElementById("negativeResult")
+    .textContent =
+    negativeMarks.toFixed(2);
+
+  document.getElementById("accuracyResult")
+    .textContent =
+    accuracy.toFixed(2) + "%";
+
+  document.getElementById("scoreResult")
+    .textContent =
+    finalScore.toFixed(2)
+    + " / "
+    + questions.length;
+
+
+  document.getElementById("questionCard")
+    .style.display = "none";
+
+  document.getElementById("result")
+    .style.display = "block";
+
+  showSolutions();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   SOLUTIONS
+===================================================== */
+
+function showSolutions(){
+
+  const container =
+    document.getElementById(
+      "solutionContainer"
+    );
+
+  container.innerHTML = "";
+
+  const labels = ["A","B","C","D"];
+
+  questions.forEach((question,index)=>{
+
+    const card =
+      document.createElement("div");
+
+    let statusClass =
+      "unattempted";
+
+    if(answers[index] !== null){
+
+      if(answers[index] === question.a){
+
+        statusClass = "correct";
+
+      }else{
+
+        statusClass = "wrong";
+
+      }
+
+    }
+
+    card.className =
+      `solution-card ${statusClass}`;
+
+    let userAnswer =
+      "Not Attempted";
+
+    if(answers[index] !== null){
+
+      userAnswer =
+        `${labels[answers[index]]}. ${question.o[answers[index]]}`;
+
+    }
+
+    card.innerHTML = `
+
+      <div class="solution-q">
+        Q.${index + 1}. ${question.q}
+      </div>
+
+      <div class="user-answer">
+        <strong>Your Answer:</strong>
+        ${userAnswer}
+      </div>
+
+      <div class="answer">
+        Correct Answer:
+        ${labels[question.a]}.
+        ${question.o[question.a]}
+      </div>
+
+      <div class="explanation">
+        <strong>Explanation:</strong><br>
+        ${question.s}
+      </div>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+  document.getElementById("solutions")
+    .style.display = "block";
+
+}
+
+
+/* =====================================================
+   RESTART
+===================================================== */
+
+function restartTest(){
+
+  const confirmRestart =
+    confirm(
+      "क्या आप Test फिर से शुरू करना चाहते हैं?"
+    );
+
+  if(!confirmRestart){
+
+    return;
+
+  }
+
+  currentQuestion = 0;
+
+  answers =
+    new Array(questions.length)
+      .fill(null);
+
+  testSubmitted = false;
+
+  timeLeft = 30 * 60;
+
+  document.getElementById("questionCard")
+    .style.display = "block";
+
+  document.getElementById("result")
+    .style.display = "none";
+
+  document.getElementById("solutions")
+    .style.display = "none";
+
+  updateTimer();
+
+  renderQuestion();
+
+  startTimer();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+createPalette();
+
+renderQuestion();
+
+updateTimer();
+
+startTimer();
+
+</script>
+
+</body>
+</html>
