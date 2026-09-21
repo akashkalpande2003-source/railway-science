@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>कक्षा 9 विज्ञान अध्याय 2 | कोशिका: जीवन की मूल इकाई</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+      background:#f3f7fc;
+      color:#172033;
+      line-height:1.65;
+    }
+
+    .container{
+      width:min(1050px,94%);
+      margin:auto;
+    }
+
+    header{
+      background:linear-gradient(135deg,#075985,#0f766e);
+      color:white;
+      padding:30px 18px;
+      text-align:center;
+      box-shadow:0 3px 12px rgba(0,0,0,.12);
+    }
+
+    header h1{
+      font-size:clamp(25px,5vw,40px);
+      margin-bottom:6px;
+    }
+
+    header p{
+      font-size:16px;
+      opacity:.95;
+    }
+
+    .back-btn{
+      display:inline-block;
+      margin-top:18px;
+      padding:9px 18px;
+      border-radius:20px;
+      background:white;
+      color:#075985;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .intro{
+      margin:22px 0;
+      background:white;
+      border-radius:16px;
+      padding:20px;
+      border-left:5px solid #0f766e;
+      box-shadow:0 3px 12px rgba(0,0,0,.07);
+    }
+
+    .toc{
+      background:white;
+      border-radius:16px;
+      padding:20px;
+      margin-bottom:22px;
+      box-shadow:0 3px 12px rgba(0,0,0,.07);
+    }
+
+    .toc h2{
+      color:#075985;
+      margin-bottom:12px;
+    }
+
+    .toc-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:8px;
+    }
+
+    .toc a{
+      display:block;
+      text-decoration:none;
+      color:#075985;
+      background:#eff6ff;
+      padding:9px 12px;
+      border-radius:9px;
+      font-size:14px;
+    }
+
+    .section{
+      background:white;
+      border-radius:16px;
+      padding:22px;
+      margin-bottom:20px;
+      box-shadow:0 3px 12px rgba(0,0,0,.07);
+    }
+
+    .section h2{
+      color:#075985;
+      border-bottom:2px solid #dbeafe;
+      padding-bottom:8px;
+      margin-bottom:15px;
+      font-size:23px;
+    }
+
+    .section h3{
+      color:#0f766e;
+      margin:18px 0 8px;
+      font-size:18px;
+    }
+
+    .point{
+      background:#f8fafc;
+      border-left:4px solid #38bdf8;
+      padding:12px 14px;
+      margin:10px 0;
+      border-radius:8px;
+    }
+
+    .important{
+      background:#fff7ed;
+      border-left:5px solid #f97316;
+      padding:14px;
+      margin:13px 0;
+      border-radius:9px;
+    }
+
+    .formula{
+      background:#ecfdf5;
+      border-left:5px solid #10b981;
+      padding:13px;
+      margin:12px 0;
+      border-radius:9px;
+      font-weight:600;
+    }
+
+    .warning{
+      background:#fef2f2;
+      border-left:5px solid #ef4444;
+      padding:13px;
+      margin:13px 0;
+      border-radius:9px;
+    }
+
+    ul{
+      padding-left:24px;
+    }
+
+    li{
+      margin:5px 0;
+    }
+
+    .image-box{
+      text-align:center;
+      margin:18px auto;
+      padding:12px;
+      background:#f8fafc;
+      border-radius:12px;
+      max-width:850px;
+    }
+
+    .image-box img{
+      display:block;
+      max-width:100%;
+      width:auto;
+      max-height:480px;
+      height:auto;
+      margin:auto;
+      border-radius:8px;
+    }
+
+    .image-caption{
+      font-size:14px;
+      color:#475569;
+      margin-top:8px;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:15px 0;
+      font-size:14px;
+    }
+
+    th,td{
+      border:1px solid #cbd5e1;
+      padding:10px;
+      text-align:left;
+      vertical-align:top;
+    }
+
+    th{
+      background:#e0f2fe;
+      color:#075985;
+    }
+
+    tr:nth-child(even){
+      background:#f8fafc;
+    }
+
+    .quick-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .quick-card{
+      background:#f0fdfa;
+      border:1px solid #99f6e4;
+      border-radius:11px;
+      padding:12px;
+    }
+
+    .quick-card b{
+      color:#0f766e;
+    }
+
+    .unit-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:10px;
+      margin:15px 0;
+    }
+
+    .unit{
+      background:#eff6ff;
+      border-radius:10px;
+      padding:13px;
+      text-align:center;
+      font-weight:bold;
+      color:#075985;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+    }
+
+    footer{
+      text-align:center;
+      background:#0f172a;
+      color:white;
+      padding:22px 15px;
+      margin-top:25px;
+      font-size:14px;
+    }
+
+    .top{
+      display:block;
+      text-align:center;
+      margin-top:12px;
+      color:#bae6fd;
+      text-decoration:none;
+    }
+
+    @media(max-width:650px){
+      .section{
+        padding:16px;
+      }
+
+      .section h2{
+        font-size:20px;
+      }
+
+      .two-col{
+        grid-template-columns:1fr;
+      }
+
+      table{
+        font-size:12px;
+      }
+
+      th,td{
+        padding:7px;
+      }
+
+      .image-box img{
+        max-height:350px;
+      }
+    }
+
+    @media print{
+      body{
+        background:white;
+      }
+
+      header{
+        box-shadow:none;
+      }
+
+      .back-btn,
+      .toc{
+        display:none;
+      }
+
+      .section{
+        box-shadow:none;
+        border:1px solid #ddd;
+        break-inside:avoid;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+<header>
+  <div class="container">
+    <h1>अध्याय 02</h1>
+    <h2>कोशिका: जीवन की मूल इकाई</h2>
+    <p>कक्षा 9 विज्ञान • Railway Technician / Group D / NTPC परीक्षा उपयोगी नोट्स</p>
+
+    <a href="index.html" class="back-btn">← मुख्य पृष्ठ</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="intro">
+    <b>📘 अध्याय का सार:</b>
+    कोशिका सभी जीवों की संरचनात्मक एवं क्रियात्मक इकाई है।
+    इस अध्याय में कोशिका की संरचना, कोशिका अंगक, परासरण, विसरण,
+    प्रोकैरियोटिक एवं यूकैरियोटिक कोशिका तथा कोशिका विभाजन का अध्ययन किया जाता है।
+  </div>
+
+  <!-- TABLE OF CONTENTS -->
+
+  <section class="toc">
+    <h2>📑 विषय-सूची</h2>
+
+    <div class="toc-grid">
+      <a href="#intro">1. कोशिका का परिचय</a>
+      <a href="#microscope">2. सूक्ष्मदर्शी एवं मापन</a>
+      <a href="#membrane">3. प्लाज्मा झिल्ली</a>
+      <a href="#diffusion">4. विसरण</a>
+      <a href="#osmosis">5. परासरण</a>
+      <a href="#cellwall">6. कोशिका भित्ति</a>
+      <a href="#organization">7. आंतरिक संगठन</a>
+      <a href="#pro-euk">8. प्रोकैरियोटिक/यूकैरियोटिक</a>
+      <a href="#virus">9. वायरस, वायरोइड, प्रायॉन</a>
+      <a href="#cytoskeleton">10. साइटोस्केलेटन</a>
+      <a href="#nucleus">11. केंद्रक</a>
+      <a href="#ribosome">12. राइबोसोम</a>
+      <a href="#er">13. एंडोप्लाज्मिक रेटिकुलम</a>
+      <a href="#golgi">14. गोल्जी तंत्र</a>
+      <a href="#lysosome">15. लाइसोसोम</a>
+      <a href="#mitochondria">16. माइटोकॉन्ड्रिया</a>
+      <a href="#plastid">17. प्लास्टिड एवं क्लोरोप्लास्ट</a>
+      <a href="#vacuole">18. रिक्तिका</a>
+      <a href="#division">19. कोशिका विभाजन</a>
+      <a href="#celltheory">20. कोशिका सिद्धांत</a>
+      <a href="#quick">21. त्वरित पुनरावृत्ति</a>
+    </div>
+  </section>
+
+
+  <!-- 1 INTRO -->
+
+  <section class="section" id="intro">
+    <h2>1. 🔬 कोशिका का परिचय</h2>
+
+    <p>
+      कोशिका सभी जीवों की <b>संरचनात्मक एवं क्रियात्मक इकाई</b> है।
+      अर्थात जीवों के शरीर की रचना तथा उनकी अधिकांश जीवन-क्रियाएँ कोशिकाओं पर आधारित होती हैं।
+    </p>
+
+    <div class="point">
+      <b>एककोशिकीय जीव:</b> जिनका शरीर केवल एक कोशिका से बना होता है।
+      उदाहरण — बैक्टीरिया, यीस्ट।
+    </div>
+
+    <div class="point">
+      <b>बहुकोशिकीय जीव:</b> जिनका शरीर अनेक कोशिकाओं से बना होता है।
+      उदाहरण — पौधे, मछली, पक्षी और मनुष्य।
+    </div>
+
+    <h3>🔗 कोशिका से जीव तक संगठन</h3>
+
+    <div class="formula">
+      कोशिकाएँ → ऊतक → अंग → अंग तंत्र → जीव
+    </div>
+
+    <p>
+      उदाहरण के लिए मानव शरीर में विभिन्न अंग मिलकर श्वसन तंत्र जैसे अंग तंत्र का निर्माण करते हैं।
+    </p>
+
+    <h3>🌡️ गर्म जलस्रोत और जीवाणु</h3>
+
+    <p>
+      कुछ जीवाणु गर्म जलस्रोतों में भी पाए जाते हैं। ऐसे जीवों को
+      <b>तापप्रिय (Thermophilic) जीव</b> कहा जाता है।
+      गर्म जलस्रोतों के आसपास कैल्शियम कार्बोनेट तेजी से जम सकता है।
+    </p>
+
+    <h3>👨‍🔬 रॉबर्ट हुक</h3>
+
+    <div class="important">
+      <b>1665 में रॉबर्ट हुक</b> ने कॉर्क की पतली काट को सूक्ष्मदर्शी से देखा
+      और छोटे-छोटे कक्ष जैसे भागों को देखा। उन्होंने इन्हें
+      <b>Cell (कोशिका)</b> नाम दिया।
+      कॉर्क की कोशिकाएँ मृत कोशिकाएँ थीं।
+    </div>
+  </section>
+
+
+  <!-- 2 MICROSCOPE -->
+
+  <section class="section" id="microscope">
+    <h2>2. 🔍 सूक्ष्मदर्शी एवं मापन</h2>
+
+    <p>
+      विद्यालयों में सामान्यतः वस्तुओं और कोशिकाओं को देखने के लिए
+      <b>प्रकाश सूक्ष्मदर्शी (Light Microscope)</b> का प्रयोग किया जाता है।
+    </p>
+
+    <div class="unit-box">
+      <div class="unit">1 mm = 1000 µm</div>
+      <div class="unit">1 µm = 1000 nm</div>
+      <div class="unit">1 nm = 10⁻⁹ m</div>
+    </div>
+
+    <div class="point">
+      <b>प्रकाश सूक्ष्मदर्शी:</b> सामान्यतः माइक्रोमीटर स्तर की वस्तुओं को देखने में उपयोगी।
+    </div>
+
+    <div class="point">
+      <b>इलेक्ट्रॉन सूक्ष्मदर्शी:</b> नैनोमीटर स्तर की बहुत छोटी संरचनाओं को देखने में सक्षम।
+    </div>
+
+    <h3>सूक्ष्मदर्शी की प्रमुख विशेषताएँ</h3>
+
+    <ul>
+      <li><b>Magnification:</b> वस्तु को कितना बड़ा दिखाया जा सकता है।</li>
+      <li><b>Resolution:</b> दो बहुत पास-पास स्थित बिंदुओं को अलग-अलग पहचानने की क्षमता।</li>
+      <li><b>Contrast:</b> वस्तु और पृष्ठभूमि के बीच अंतर स्पष्ट करने की क्षमता।</li>
+    </ul>
+
+    <div class="important">
+      👁️ मानव आँख की विभेदन क्षमता लगभग <b>0.1 mm</b> के आसपास मानी जाती है।
+    </div>
+  </section>
+
+
+  <!-- 3 MEMBRANE -->
+
+  <section class="section" id="membrane">
+    <h2>3. 🧫 प्लाज्मा झिल्ली</h2>
+
+    <p>
+      <b>प्लाज्मा झिल्ली</b> कोशिका की बाहरी सीमा होती है।
+      यह कोशिका के अंदर और बाहर पदार्थों के आवागमन को नियंत्रित करती है।
+    </p>
+
+    <div class="important">
+      <b>मुख्य गुण:</b> प्लाज्मा झिल्ली <b>चयनात्मक पारगम्य (Selectively Permeable)</b> होती है।
+    </div>
+
+    <p>
+      यह कुछ पदार्थों को कोशिका के अंदर आने या बाहर जाने देती है,
+      जबकि कुछ पदार्थों को रोकती है।
+    </p>
+
+    <h3>🧪 संरचना</h3>
+
+    <ul>
+      <li>मुख्यतः लिपिड और प्रोटीन से बनी होती है।</li>
+      <li>लिपिड दोहरी परत अर्थात <b>Lipid Bilayer</b> बनाते हैं।</li>
+      <li>इसकी संरचना को समझाने के लिए <b>Fluid Mosaic Model</b> दिया गया है।</li>
+    </ul>
+
+    <div class="image-box">
+      <img src="class9-ch2-cell-membrane.png"
+           alt="प्लाज्मा झिल्ली का चित्र">
+      <div class="image-caption">
+        प्लाज्मा झिल्ली — लिपिड द्विपरत
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 4 DIFFUSION -->
+
+  <section class="section" id="diffusion">
+    <h2>4. 💨 विसरण (Diffusion)</h2>
+
+    <p>
+      कणों की गति सामान्यतः अधिक सांद्रता वाले क्षेत्र से
+      कम सांद्रता वाले क्षेत्र की ओर स्वतः होती है।
+      इस प्रक्रिया को <b>विसरण</b> कहते हैं।
+    </p>
+
+    <div class="formula">
+      अधिक सांद्रता → कम सांद्रता
+    </div>
+
+    <div class="important">
+      ⚠️ विसरण के लिए प्लाज्मा झिल्ली का होना आवश्यक नहीं है।
+    </div>
+  </section>
+
+
+  <!-- 5 OSMOSIS -->
+
+  <section class="section" id="osmosis">
+    <h2>5. 💧 परासरण (Osmosis)</h2>
+
+    <p>
+      चयनात्मक पारगम्य झिल्ली के माध्यम से जल के अणुओं का
+      अधिक जल-सांद्रता वाले क्षेत्र से कम जल-सांद्रता वाले क्षेत्र की ओर
+      जाना <b>परासरण</b> कहलाता है।
+    </p>
+
+    <div class="image-box">
+      <img src="class9-ch2-osmosis.png"
+           alt="परासरण का चित्र">
+      <div class="image-caption">
+        परासरण — Hypotonic, Isotonic और Hypertonic स्थितियाँ
+      </div>
+    </div>
+
+    <h3>परासरण की तीन स्थितियाँ</h3>
+
+    <table>
+      <tr>
+        <th>स्थिति</th>
+        <th>बाहरी माध्यम</th>
+        <th>जल की गति</th>
+        <th>कोशिका पर प्रभाव</th>
+      </tr>
+
+      <tr>
+        <td><b>Isotonic</b></td>
+        <td>जल की सांद्रता लगभग समान</td>
+        <td>शुद्ध जल गति लगभग नहीं</td>
+        <td>आकार लगभग समान</td>
+      </tr>
+
+      <tr>
+        <td><b>Hypotonic</b></td>
+        <td>बाहर जल अधिक</td>
+        <td>जल कोशिका में प्रवेश करता है</td>
+        <td>कोशिका फूल सकती है</td>
+      </tr>
+
+      <tr>
+        <td><b>Hypertonic</b></td>
+        <td>बाहर जल कम</td>
+        <td>जल कोशिका से बाहर जाता है</td>
+        <td>कोशिका सिकुड़ सकती है</td>
+      </tr>
+    </table>
+  </section>
+
+
+  <!-- 6 CELL WALL -->
+
+  <section class="section" id="cellwall">
+    <h2>6. 🧱 कोशिका भित्ति</h2>
+
+    <p>
+      कोशिका भित्ति पौधों, कवकों और अधिकांश बैक्टीरिया में पाई जाती है।
+    </p>
+
+    <ul>
+      <li>पादप कोशिका भित्ति मुख्यतः <b>सेलुलोज</b> से बनी होती है।</li>
+      <li>यह कठोर होती है।</li>
+      <li>कोशिका को आकार और मजबूती प्रदान करती है।</li>
+      <li>पौधे को खड़े रहने में सहायता करती है।</li>
+    </ul>
+
+    <div class="important">
+      🌾 मनुष्य में सेलुलोज पाचन नहीं होता। यह आहार में
+      <b>रेशा (Roughage/Dietary Fibre)</b> के रूप में कार्य करता है।
+    </div>
+  </section>
+
+
+  <!-- 7 INTERNAL ORGANIZATION -->
+
+  <section class="section" id="organization">
+    <h2>7. 🧬 कोशिका का आंतरिक संगठन</h2>
+
+    <p>एक सामान्य यूकैरियोटिक कोशिका में प्रमुख रूप से:</p>
+
+    <div class="quick-grid">
+      <div class="quick-card"><b>1.</b> प्लाज्मा झिल्ली</div>
+      <div class="quick-card"><b>2.</b> कोशिका द्रव्य (Cytoplasm)</div>
+      <div class="quick-card"><b>3.</b> केंद्रक (Nucleus)</div>
+    </div>
+
+    <div class="image-box">
+      <img src="class9-ch2-plant-cell.png"
+           alt="पादप कोशिका का चित्र">
+      <div class="image-caption">
+        पादप कोशिका — प्रमुख कोशिकांग
+      </div>
+    </div>
+
+    <div class="image-box">
+      <img src="class9-ch2-animal-cell.png"
+           alt="जंतु कोशिका का चित्र">
+      <div class="image-caption">
+        जंतु कोशिका — प्रमुख कोशिकांग
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 8 PRO EUK -->
+
+  <section class="section" id="pro-euk">
+    <h2>8. 🔬 प्रोकैरियोटिक एवं यूकैरियोटिक कोशिका</h2>
+
+    <table>
+      <tr>
+        <th>विशेषता</th>
+        <th>प्रोकैरियोटिक कोशिका</th>
+        <th>यूकैरियोटिक कोशिका</th>
+      </tr>
+
+      <tr>
+        <td>केंद्रक</td>
+        <td>सुस्पष्ट वास्तविक केंद्रक नहीं</td>
+        <td>सुस्पष्ट केंद्रक उपस्थित</td>
+      </tr>
+
+      <tr>
+        <td>DNA</td>
+        <td>न्यूक्लॉइड क्षेत्र में</td>
+        <td>केंद्रक में</td>
+      </tr>
+
+      <tr>
+        <td>झिल्ली-बद्ध कोशिकांग</td>
+        <td>अनुपस्थित</td>
+        <td>उपस्थित</td>
+      </tr>
+
+      <tr>
+        <td>आकार</td>
+        <td>लगभग 1–10 µm</td>
+        <td>लगभग 10–100 µm</td>
+      </tr>
+
+      <tr>
+        <td>जीव</td>
+        <td>मुख्यतः एककोशिकीय</td>
+        <td>एककोशिकीय या बहुकोशिकीय</td>
+      </tr>
+
+      <tr>
+        <td>उदाहरण</td>
+        <td>बैक्टीरिया</td>
+        <td>पौधे और जंतु</td>
+      </tr>
+    </table>
+
+    <div class="important">
+      ⭐ <b>याद रखें:</b> प्रोकैरियोट्स में वास्तविक केंद्रक नहीं होता।
+      उनका DNA <b>न्यूक्लॉइड</b> क्षेत्र में पाया जाता है।
+    </div>
+  </section>
+
+
+  <!-- 9 VIRUS -->
+
+  <section class="section" id="virus">
+    <h2>9. 🦠 वायरस, वायरोइड और प्रायॉन</h2>
+
+    <table>
+      <tr>
+        <th>नाम</th>
+        <th>मुख्य संरचना</th>
+      </tr>
+
+      <tr>
+        <td><b>Virus</b></td>
+        <td>आनुवंशिक पदार्थ + प्रोटीन आवरण</td>
+      </tr>
+
+      <tr>
+        <td><b>Viroid</b></td>
+        <td>छोटा RNA, प्रोटीन आवरण नहीं</td>
+      </tr>
+
+      <tr>
+        <td><b>Prion</b></td>
+        <td>असामान्य रूप से मुड़ा हुआ संक्रामक प्रोटीन; आनुवंशिक पदार्थ नहीं</td>
+      </tr>
+    </table>
+
+    <div class="warning">
+      ⚠️ वायरस, वायरोइड और प्रायॉन सामान्य कोशिकीय संरचनाएँ नहीं हैं।
+    </div>
+  </section>
+
+
+  <!-- 10 CYTOSKELETON -->
+
+  <section class="section" id="cytoskeleton">
+    <h2>10. 🕸️ साइटोस्केलेटन</h2>
+
+    <p>
+      साइटोस्केलेटन मुख्यतः यूकैरियोटिक कोशिकाओं में पाया जाने वाला
+      आंतरिक ढाँचा है।
+    </p>
+
+    <ul>
+      <li>कोशिका को आकार प्रदान करता है।</li>
+      <li>कोशिका की स्थिरता बनाए रखने में सहायता करता है।</li>
+      <li>कोशिका के अंदर संरचनाओं के संगठन में सहायता करता है।</li>
+    </ul>
+
+    <h3>📦 Cell Inclusions</h3>
+
+    <p>
+      कोशिकाओं में कुछ पदार्थ संग्रहित रूप में पाए जाते हैं।
+      इन्हें <b>Cell Inclusions</b> कहा जाता है।
+    </p>
+
+    <ul>
+      <li>स्टार्च</li>
+      <li>वसा</li>
+      <li>कैल्शियम ऑक्सालेट</li>
+      <li>सिलिका</li>
+    </ul>
+  </section>
+
+
+  <!-- 11 NUCLEUS -->
+
+  <section class="section" id="nucleus">
+    <h2>11. 🧠 केंद्रक (Nucleus)</h2>
+
+    <p>
+      केंद्रक कोशिका की गतिविधियों को नियंत्रित करने वाला प्रमुख कोशिकांग है।
+    </p>
+
+    <h3>केंद्रक की संरचना</h3>
+
+    <ul>
+      <li><b>नाभिकीय आवरण:</b> दोहरी झिल्ली से बना होता है।</li>
+      <li><b>नाभिकीय छिद्र:</b> केंद्रक और कोशिका द्रव्य के बीच पदार्थों के आदान-प्रदान में सहायता करते हैं।</li>
+      <li><b>न्यूक्लियोलस:</b> राइबोसोम निर्माण में महत्वपूर्ण।</li>
+      <li><b>DNA:</b> आनुवंशिक सूचना रखता है।</li>
+    </ul>
+
+    <div class="important">
+      🧬 <b>Gene (जीन)</b> DNA का एक कार्यात्मक खंड है।
+    </div>
+
+    <h3>Chromatin और Chromosome</h3>
+
+    <p>
+      कोशिका विभाजन के समय DNA संघनित होकर स्पष्ट
+      <b>गुणसूत्र (Chromosomes)</b> के रूप में दिखाई देता है।
+    </p>
+
+    <p>
+      विभाजन न करने वाली कोशिका में DNA मुख्यतः
+      <b>क्रोमैटिन (Chromatin)</b> के रूप में रहता है।
+    </p>
+
+    <h3>🔴 मानव लाल रक्त कोशिका</h3>
+
+    <div class="point">
+      परिपक्व मानव RBC में केंद्रक नहीं होता।
+      इससे हीमोग्लोबिन के लिए अधिक स्थान उपलब्ध होता है।
+    </div>
+
+    <ul>
+      <li>RBC का औसत जीवनकाल लगभग <b>120 दिन</b> होता है।</li>
+      <li>केंद्रक न होने के कारण इसकी स्वयं की मरम्मत और प्रोटीन निर्माण की क्षमता सीमित होती है।</li>
+    </ul>
+  </section>
+
+
+  <!-- 12 RIBOSOME -->
+
+  <section class="section" id="ribosome">
+    <h2>12. 🧪 राइबोसोम</h2>
+
+    <div class="formula">
+      राइबोसोम = प्रोटीन संश्लेषण का प्रमुख स्थल
+    </div>
+
+    <p>
+      राइबोसोम को कोशिका की <b>Protein Factory</b> भी कहा जाता है।
+    </p>
+
+    <ul>
+      <li>कुछ राइबोसोम कोशिका द्रव्य में स्वतंत्र रूप से पाए जाते हैं।</li>
+      <li>कुछ राइबोसोम RER से जुड़े होते हैं।</li>
+    </ul>
+  </section>
+
+
+  <!-- 13 ER -->
+
+  <section class="section" id="er">
+    <h2>13. 🧵 एंडोप्लाज्मिक रेटिकुलम (ER)</h2>
+
+    <p>
+      एंडोप्लाज्मिक रेटिकुलम नाभिकीय झिल्ली के बाहरी भाग से जुड़ा
+      झिल्लीदार तंत्र है। यह पदार्थों के निर्माण और परिवहन में महत्वपूर्ण है।
+    </p>
+
+    <table>
+      <tr>
+        <th>प्रकार</th>
+        <th>विशेषता</th>
+        <th>मुख्य कार्य</th>
+      </tr>
+
+      <tr>
+        <td><b>RER</b></td>
+        <td>राइबोसोम उपस्थित</td>
+        <td>प्रोटीन का संश्लेषण एवं परिवहन</td>
+      </tr>
+
+      <tr>
+        <td><b>SER</b></td>
+        <td>राइबोसोम अनुपस्थित</td>
+        <td>लिपिड संश्लेषण; कुछ कोशिकाओं में विषहरण</td>
+      </tr>
+    </table>
+
+    <div class="quick-grid">
+      <div class="quick-card">
+        <b>RER → Protein</b>
+      </div>
+
+      <div class="quick-card">
+        <b>SER → Lipid</b>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 14 GOLGI -->
+
+  <section class="section" id="golgi">
+    <h2>14. 📦 गोल्जी तंत्र (Golgi Apparatus)</h2>
+
+    <p>गोल्जी तंत्र के प्रमुख कार्य:</p>
+
+    <ul>
+      <li>प्रोटीन और लिपिड में संशोधन करना।</li>
+      <li>पदार्थों को छाँटना (Sorting)।</li>
+      <li>पदार्थों की पैकेजिंग करना।</li>
+      <li>उन्हें उनके उचित स्थान तक पहुँचाने में सहायता करना।</li>
+      <li>लाइसोसोम के निर्माण में भूमिका।</li>
+    </ul>
+
+    <div class="formula">
+      Golgi = Modification + Sorting + Packaging
+    </div>
+  </section>
+
+
+  <!-- 15 LYSOSOME -->
+
+  <section class="section" id="lysosome">
+    <h2>15. 🧹 लाइसोसोम</h2>
+
+    <p>
+      लाइसोसोम में पाचन करने वाले एंजाइम पाए जाते हैं।
+    </p>
+
+    <ul>
+      <li>अपशिष्ट पदार्थों को तोड़ता है।</li>
+      <li>पुराने या क्षतिग्रस्त कोशिकीय भागों को तोड़ता है।</li>
+      <li>कोशिका की सफाई में सहायता करता है।</li>
+    </ul>
+
+    <div class="important">
+      ⭐ लाइसोसोम को अक्सर <b>“Suicidal Bags of Cell”</b> कहा जाता है।
+    </div>
+  </section>
+
+
+  <!-- 16 MITOCHONDRIA -->
+
+  <section class="section" id="mitochondria">
+    <h2>16. ⚡ माइटोकॉन्ड्रिया</h2>
+
+    <div class="formula">
+      माइटोकॉन्ड्रिया = कोशिका का Powerhouse
+    </div>
+
+    <ul>
+      <li>दोहरी झिल्ली से घिरा होता है।</li>
+      <li>बाहरी झिल्ली अपेक्षाकृत चिकनी होती है।</li>
+      <li>आंतरिक झिल्ली अंदर की ओर मुड़ी होती है।</li>
+      <li>इन मोड़ों को <b>Cristae</b> कहते हैं।</li>
+      <li>यहाँ कोशिकीय श्वसन से ऊर्जा मुक्त होती है।</li>
+      <li>ऊर्जा मुख्यतः <b>ATP</b> के रूप में उपलब्ध होती है।</li>
+      <li>माइटोकॉन्ड्रिया में अपना DNA और राइबोसोम भी पाए जाते हैं।</li>
+    </ul>
+  </section>
+
+
+  <!-- 17 PLASTID -->
+
+  <section class="section" id="plastid">
+    <h2>17. 🌿 प्लास्टिड एवं क्लोरोप्लास्ट</h2>
+
+    <p>
+      प्लास्टिड मुख्यतः पादप कोशिकाओं में पाए जाते हैं।
+      ये भोजन के निर्माण तथा पदार्थों के भंडारण में महत्वपूर्ण हैं।
+    </p>
+
+    <h3>🌱 क्लोरोप्लास्ट</h3>
+
+    <div class="formula">
+      Chloroplast = Photosynthesis
+    </div>
+
+    <ul>
+      <li>प्रकाश संश्लेषण का प्रमुख स्थल है।</li>
+      <li>इसमें <b>क्लोरोफिल</b> पाया जाता है।</li>
+      <li>क्लोरोफिल सूर्य के प्रकाश को अवशोषित करता है।</li>
+      <li>यह दोहरी झिल्ली से घिरा होता है।</li>
+      <li>अंदर के द्रव भाग को <b>Stroma</b> कहते हैं।</li>
+      <li>थायलाकोइड झिल्लियाँ समूह बनाकर <b>Grana</b> बनाती हैं।</li>
+      <li>क्लोरोप्लास्ट में अपना DNA और राइबोसोम पाए जाते हैं।</li>
+    </ul>
+
+    <h3>प्लास्टिड के प्रकार</h3>
+
+    <table>
+      <tr>
+        <th>प्लास्टिड</th>
+        <th>मुख्य कार्य</th>
+      </tr>
+
+      <tr>
+        <td><b>Chromoplast</b></td>
+        <td>फूलों और फलों को रंग प्रदान करने में सहायक।</td>
+      </tr>
+
+      <tr>
+        <td><b>Leucoplast</b></td>
+        <td>रंगहीन; स्टार्च, तेल और प्रोटीन का भंडारण।</td>
+      </tr>
+
+      <tr>
+        <td><b>Chloroplast</b></td>
+        <td>प्रकाश संश्लेषण।</td>
+      </tr>
+    </table>
+  </section>
+
+
+  <!-- 18 VACUOLE -->
+
+  <section class="section" id="vacuole">
+    <h2>18. 💧 रिक्तिका (Vacuole)</h2>
+
+    <p>
+      रिक्तिका कोशिका में पदार्थों के भंडारण और आंतरिक दाब बनाए रखने में महत्वपूर्ण है।
+    </p>
+
+    <ul>
+      <li>परिपक्व पादप कोशिका में बड़ी केंद्रीय रिक्तिका पाई जाती है।</li>
+      <li>इसमें जल, खनिज, शर्करा और अपशिष्ट पदार्थ संग्रहीत हो सकते हैं।</li>
+      <li>यह कोशिका में <b>Turgidity</b> बनाए रखने में सहायता करती है।</li>
+    </ul>
+
+    <div class="formula">
+      Vacuole = Storage + Turgidity
+    </div>
+  </section>
+
+
+  <!-- 19 CELL DIVISION -->
+
+  <section class="section" id="division">
+    <h2>19. 🧬 कोशिका विभाजन</h2>
+
+    <h3>🔵 समसूत्री विभाजन (Mitosis)</h3>
+
+    <ul>
+      <li>शरीर की वृद्धि में महत्वपूर्ण।</li>
+      <li>ऊतकों की मरम्मत में सहायता करता है।</li>
+      <li>कुछ जीवों में अलैंगिक प्रजनन में भूमिका निभाता है।</li>
+      <li>एक कोशिका से सामान्यतः दो आनुवंशिक रूप से समान पुत्री कोशिकाएँ बनती हैं।</li>
+      <li>गुणसूत्र संख्या सामान्यतः समान रहती है।</li>
+    </ul>
+
+    <div class="formula">
+      Mitosis → 1 कोशिका → 2 समान पुत्री कोशिकाएँ
+    </div>
+
+    <h3>🟣 अर्धसूत्री विभाजन (Meiosis)</h3>
+
+    <ul>
+      <li>लैंगिक प्रजनन के लिए आवश्यक युग्मक निर्माण में महत्वपूर्ण।</li>
+      <li>गुणसूत्र संख्या आधी हो जाती है।</li>
+      <li>द्विगुणित कोशिका से चार अगुणित कोशिकाएँ बनती हैं।</li>
+      <li>आनुवंशिक विविधता उत्पन्न करने में महत्वपूर्ण भूमिका निभाता है।</li>
+    </ul>
+
+    <div class="formula">
+      Meiosis → 1 द्विगुणित कोशिका → 4 अगुणित कोशिकाएँ
+    </div>
+  </section>
+
+
+  <!-- 20 CELL THEORY -->
+
+  <section class="section" id="celltheory">
+    <h2>20. 📜 कोशिका सिद्धांत</h2>
+
+    <table>
+      <tr>
+        <th>वैज्ञानिक</th>
+        <th>वर्ष</th>
+        <th>योगदान</th>
+      </tr>
+
+      <tr>
+        <td><b>Matthias Schleiden</b></td>
+        <td>1838</td>
+        <td>पौधों का शरीर कोशिकाओं से बना है, यह निष्कर्ष दिया।</td>
+      </tr>
+
+      <tr>
+        <td><b>Theodor Schwann</b></td>
+        <td>1839</td>
+        <td>जंतुओं का शरीर कोशिकाओं से बना है, यह निष्कर्ष दिया।</td>
+      </tr>
+
+      <tr>
+        <td><b>Rudolf Virchow</b></td>
+        <td>1855</td>
+        <td>नई कोशिकाएँ पहले से मौजूद कोशिकाओं से बनती हैं।</td>
+      </tr>
+    </table>
+
+    <div class="important">
+      ⭐ <b>Cell Theory का मुख्य विचार:</b>
+      सभी जीव कोशिकाओं से बने हैं और कोशिका जीवन की मूल संरचनात्मक एवं क्रियात्मक इकाई है।
+    </div>
+
+    <h3>🌱 Gottlieb Haberlandt</h3>
+
+    <p>
+      गॉटलिब हैबरलैंड्ट एक ऑस्ट्रियाई वनस्पति विज्ञानी थे।
+      उनके विचारों ने पादप ऊतक संवर्धन (Plant Tissue Culture) के विकास में योगदान दिया।
+    </p>
+
+    <div class="warning">
+      📌 परीक्षा में किसी वैज्ञानिक के नाम/योगदान से जुड़े प्रश्नों में
+      नाम और योगदान को ध्यान से पढ़ें।
+    </div>
+  </section>
+
+
+  <!-- QUICK REVISION -->
+
+  <section class="section" id="quick">
+    <h2>21. ⚡ त्वरित पुनरावृत्ति — परीक्षा के लिए महत्वपूर्ण</h2>
+
+    <div class="quick-grid">
+
+      <div class="quick-card">
+        <b>1 mm</b><br>
+        = 1000 µm
+      </div>
+
+      <div class="quick-card">
+        <b>1 µm</b><br>
+        = 1000 nm
+      </div>
+
+      <div class="quick-card">
+        <b>1 nm</b><br>
+        = 10⁻⁹ m
+      </div>
+
+      <div class="quick-card">
+        <b>Plasma Membrane</b><br>
+        चयनात्मक पारगम्य
+      </div>
+
+      <div class="quick-card">
+        <b>Cell Wall</b><br>
+        कठोरता एवं सहारा
+      </div>
+
+      <div class="quick-card">
+        <b>Ribosome</b><br>
+        प्रोटीन संश्लेषण
+      </div>
+
+      <div class="quick-card">
+        <b>RER</b><br>
+        प्रोटीन
+      </div>
+
+      <div class="quick-card">
+        <b>SER</b><br>
+        लिपिड
+      </div>
+
+      <div class="quick-card">
+        <b>Golgi</b><br>
+        संशोधन, छँटाई, पैकेजिंग
+      </div>
+
+      <div class="quick-card">
+        <b>Lysosome</b><br>
+        अपशिष्ट/पुराने भागों का विघटन
+      </div>
+
+      <div class="quick-card">
+        <b>Mitochondria</b><br>
+        ATP / ऊर्जा
+      </div>
+
+      <div class="quick-card">
+        <b>Chloroplast</b><br>
+        प्रकाश संश्लेषण
+      </div>
+
+      <div class="quick-card">
+        <b>Vacuole</b><br>
+        भंडारण एवं तुर्गidity
+      </div>
+
+      <div class="quick-card">
+        <b>Nucleus</b><br>
+        कोशिका की गतिविधियों का नियंत्रण
+      </div>
+
+      <div class="quick-card">
+        <b>Gene</b><br>
+        DNA का कार्यात्मक खंड
+      </div>
+
+      <div class="quick-card">
+        <b>Mitosis</b><br>
+        2 समान पुत्री कोशिकाएँ
+      </div>
+
+      <div class="quick-card">
+        <b>Meiosis</b><br>
+        4 अगुणित कोशिकाएँ
+      </div>
+
+      <div class="quick-card">
+        <b>RBC</b><br>
+        परिपक्व RBC में केंद्रक नहीं
+      </div>
+
+    </div>
+
+    <div class="important" style="margin-top:20px;">
+      🎯 <b>Railway Exam Focus:</b>
+      Cell organelles के कार्य, Prokaryotic vs Eukaryotic,
+      Diffusion, Osmosis, Cell Theory, Mitosis-Meiosis और
+      mm–µm–nm conversion से प्रश्न अवश्य तैयार करें।
+    </div>
+  </section>
+
+</main>
+
+
+<footer>
+  <div>
+    📚 Class 9 Science — Chapter 2
+    <br>
+    <b>कोशिका: जीवन की मूल इकाई</b>
+    <br><br>
+    Railway Technician Grade 3 • Group D • NTPC Preparation
+  </div>
+
+  <a href="#top" class="top">⬆️ ऊपर जाएँ</a>
+</footer>
+
+</body>
+</html>
