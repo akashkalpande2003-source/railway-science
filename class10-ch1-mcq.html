@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science Chapter 1 MCQ</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f3f6f9;
+  color:#222;
+}
+
+header{
+  background:#0d47a1;
+  color:white;
+  padding:14px 15px;
+  text-align:center;
+  font-size:21px;
+  font-weight:bold;
+}
+
+.top{
+  background:white;
+  padding:12px;
+  text-align:center;
+  border-bottom:1px solid #ddd;
+}
+
+.top a{
+  text-decoration:none;
+  color:#0d47a1;
+  font-weight:bold;
+}
+
+.container{
+  max-width:750px;
+  margin:auto;
+  padding:15px;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:12px;
+}
+
+.title h2{
+  margin:5px 0;
+  color:#0d47a1;
+  font-size:22px;
+}
+
+.title p{
+  margin:5px 0;
+  color:#555;
+}
+
+.progress{
+  background:#e0e0e0;
+  border-radius:20px;
+  height:9px;
+  overflow:hidden;
+  margin:15px 0;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#0d47a1;
+  transition:.3s;
+}
+
+.question-card{
+  background:white;
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 2px 10px rgba(0,0,0,.10);
+}
+
+.question-number{
+  color:#0d47a1;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.question{
+  font-size:18px;
+  font-weight:bold;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+.option{
+  border:2px solid #ddd;
+  border-radius:9px;
+  padding:12px;
+  margin:10px 0;
+  cursor:pointer;
+  background:#fff;
+  font-size:16px;
+  line-height:1.5;
+  transition:.2s;
+}
+
+.option:hover{
+  background:#f5f8ff;
+}
+
+.option.correct{
+  background:#d9f7df;
+  border-color:#16a34a;
+  color:#116b2f;
+  font-weight:bold;
+}
+
+.option.wrong{
+  background:#ffe0e0;
+  border-color:#dc2626;
+  color:#a31313;
+  font-weight:bold;
+}
+
+.option.disabled{
+  cursor:default;
+}
+
+.explanation{
+  display:none;
+  margin-top:15px;
+  padding:14px;
+  border-left:5px solid #0d47a1;
+  background:#eef5ff;
+  border-radius:6px;
+  line-height:1.7;
+  font-size:15px;
+}
+
+.explanation strong{
+  color:#0d47a1;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+}
+
+button{
+  flex:1;
+  border:none;
+  padding:12px;
+  border-radius:8px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.prev{
+  background:#757575;
+  color:white;
+}
+
+.next{
+  background:#0d47a1;
+  color:white;
+}
+
+button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.result{
+  display:none;
+  background:white;
+  border-radius:12px;
+  padding:25px 15px;
+  text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.10);
+}
+
+.result h2{
+  color:#0d47a1;
+}
+
+.score{
+  font-size:30px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.restart{
+  background:#0d47a1;
+  color:white;
+  width:100%;
+}
+
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:13px;
+  padding:20px;
+}
+
+@media(max-width:600px){
+  .container{
+    padding:10px;
+  }
+
+  .question{
+    font-size:17px;
+  }
+
+  .option{
+    font-size:15px;
+    padding:11px;
+  }
+
+  header{
+    font-size:19px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+🚆 Railway Science
+</header>
+
+<div class="top">
+  <a href="index.html">🏠 Home</a>
+  &nbsp; | &nbsp;
+  <a href="class10-ch1-notes.pdf" target="_blank">📘 Chapter Notes</a>
+</div>
+
+<div class="container">
+
+  <div class="title">
+    <h2>Class 10 Science – Chapter 1</h2>
+    <p>रासायनिक अभिक्रियाएँ एवं समीकरण</p>
+    <p><b>59 MCQ Practice</b></p>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <div id="quizBox" class="question-card"></div>
+
+  <div class="result" id="resultBox">
+    <h2>🎉 Test Completed!</h2>
+    <div class="score" id="score"></div>
+    <p id="resultMessage"></p>
+    <button class="restart" onclick="restartQuiz()">🔄 Restart Test</button>
+  </div>
+
+</div>
+
+<div class="footer">
+  Railway Science | Class 10 Science Chapter 1
+</div>
+
+<script>
+
+const questions = [
+
+{
+q:"मैग्नीशियम रिबन को वायु में जलाने पर सफेद चूर्ण बनता है। यह किसका होता है?",
+options:[
+"मैग्नीशियम सल्फेट",
+"मैग्नीशियम ऑक्साइड",
+"मैग्नीशियम क्लोराइड",
+"मैग्नीशियम कार्बोनेट"
+],
+answer:1,
+explanation:"मैग्नीशियम ऑक्सीजन के साथ अभिक्रिया करके मैग्नीशियम ऑक्साइड बनाता है।<br><br><b>समीकरण:</b> 2Mg + O₂ → 2MgO"
+},
+
+{
+q:"रासायनिक अभिक्रिया होने पर इनमें से क्या परिवर्तन हो सकता है?",
+options:[
+"रंग में परिवर्तन",
+"अवस्था में परिवर्तन",
+"तापमान में परिवर्तन",
+"उपरोक्त सभी"
+],
+answer:3,
+explanation:"रासायनिक अभिक्रिया के दौरान रंग, अवस्था और तापमान में परिवर्तन हो सकता है तथा नया पदार्थ भी बन सकता है।"
+},
+
+{
+q:"रासायनिक अभिक्रिया में भाग लेने वाले पदार्थ कहलाते हैं—",
+options:[
+"उत्पाद",
+"अभिकारक",
+"उत्प्रेरक",
+"अवक्षेप"
+],
+answer:1,
+explanation:"रासायनिक अभिक्रिया में प्रारंभिक पदार्थों को <b>अभिकारक (Reactants)</b> कहा जाता है।"
+},
+
+{
+q:"रासायनिक अभिक्रिया में बनने वाले नए पदार्थ कहलाते हैं—",
+options:[
+"अभिकारक",
+"विलायक",
+"उत्पाद",
+"उत्प्रेरक"
+],
+answer:2,
+explanation:"रासायनिक अभिक्रिया के बाद बनने वाले नए पदार्थों को <b>उत्पाद (Products)</b> कहते हैं।"
+},
+
+{
+q:"रासायनिक अभिक्रिया के दौरान कौन-सा नियम लागू होता है?",
+options:[
+"ऊर्जा संरक्षण का नियम",
+"द्रव्यमान संरक्षण का नियम",
+"गुरुत्वाकर्षण का नियम",
+"गैसों का नियम"
+],
+answer:1,
+explanation:"द्रव्यमान संरक्षण के नियम के अनुसार कुल द्रव्यमान न तो उत्पन्न होता है और न नष्ट होता है।"
+},
+
+{
+q:"रासायनिक अभिक्रिया में उत्पादों का कुल द्रव्यमान अभिकारकों के कुल द्रव्यमान के—",
+options:[
+"कम",
+"अधिक",
+"बराबर",
+"आधा"
+],
+answer:2,
+explanation:"द्रव्यमान संरक्षण के नियम के अनुसार उत्पादों का कुल द्रव्यमान अभिकारकों के कुल द्रव्यमान के बराबर होता है।"
+},
+
+{
+q:"रासायनिक अभिक्रिया के पहले और बाद में प्रत्येक तत्व के परमाणुओं की संख्या—",
+options:[
+"बढ़ती",
+"घटती",
+"बराबर रहती",
+"समाप्त"
+],
+answer:2,
+explanation:"रासायनिक अभिक्रिया में परमाणु न तो नष्ट होते हैं और न उत्पन्न होते हैं। वे केवल पुनर्व्यवस्थित होते हैं।"
+},
+
+{
+q:"कंकाली रासायनिक समीकरण क्या होता है?",
+options:[
+"संतुलित",
+"असंतुलित",
+"आयनिक",
+"शब्द समीकरण"
+],
+answer:1,
+explanation:"कंकाली रासायनिक समीकरण सामान्यतः असंतुलित होता है, अर्थात दोनों ओर परमाणुओं की संख्या समान नहीं होती।"
+},
+
+{
+q:"CaO + H₂O से बनता है—",
+options:[
+"CaCO₃",
+"CaCl₂",
+"Ca(OH)₂",
+"CaSO₄"
+],
+answer:2,
+explanation:"कैल्शियम ऑक्साइड जल के साथ अभिक्रिया करके कैल्शियम हाइड्रॉक्साइड बनाता है।<br><br><b>CaO + H₂O → Ca(OH)₂</b>"
+},
+
+{
+q:"बिना बुझा चूना किसे कहते हैं?",
+options:[
+"CaCO₃",
+"CaO",
+"Ca(OH)₂",
+"CaCl₂"
+],
+answer:1,
+explanation:"CaO को <b>बिना बुझा चूना (Quick Lime)</b> कहा जाता है।"
+},
+
+{
+q:"बुझा हुआ चूना किसे कहते हैं?",
+options:[
+"CaO",
+"CaCO₃",
+"Ca(OH)₂",
+"CaSO₄"
+],
+answer:2,
+explanation:"CaO जल के साथ अभिक्रिया करके Ca(OH)₂ बनाता है। Ca(OH)₂ को बुझा हुआ चूना (Slaked Lime) कहते हैं।"
+},
+
+{
+q:"दीवारों की सफेदी के लिए किसके विलयन का उपयोग किया जाता है?",
+options:[
+"CaO",
+"Ca(OH)₂",
+"CaCO₃",
+"NaOH"
+],
+answer:1,
+explanation:"दीवारों की सफेदी के लिए <b>बुझे हुए चूने Ca(OH)₂</b> का उपयोग किया जाता है।"
+},
+
+{
+q:"संयोजन अभिक्रिया का उदाहरण है—",
+options:[
+"CaCO₃ → CaO + CO₂",
+"C + O₂ → CO₂",
+"AgCl → Ag + Cl₂",
+"Fe + CuSO₄ → FeSO₄ + Cu"
+],
+answer:1,
+explanation:"C और O₂ दो अभिकारक मिलकर एक ही उत्पाद CO₂ बनाते हैं। इसलिए यह संयोजन अभिक्रिया है।"
+},
+
+{
+q:"उत्पाद के निर्माण के साथ ऊष्मा उत्पन्न होने वाली अभिक्रिया कहलाती है—",
+options:[
+"ऊष्माशोषी",
+"ऊष्माक्षेपी",
+"विस्थापन",
+"वियोजन"
+],
+answer:1,
+explanation:"जिस अभिक्रिया में ऊष्मा बाहर निकलती है उसे <b>ऊष्माक्षेपी (Exothermic)</b> अभिक्रिया कहते हैं।"
+},
+
+{
+q:"ऊष्माक्षेपी अभिक्रिया का उदाहरण है—",
+options:[
+"प्रकाश संश्लेषण",
+"श्वसन",
+"AgCl का वियोजन",
+"जल का विद्युत अपघटन"
+],
+answer:1,
+explanation:"श्वसन में ग्लूकोज का ऑक्सीकरण होता है और ऊर्जा मुक्त होती है। इसलिए यह ऊष्माक्षेपी अभिक्रिया है।"
+},
+
+{
+q:"श्वसन में ग्लूकोज के ऑक्सीकरण से मुख्यतः क्या बनता है?",
+options:[
+"केवल O₂",
+"CO₂, H₂O और ऊर्जा",
+"केवल CO₂",
+"H₂ और O₂"
+],
+answer:1,
+explanation:"श्वसन में ग्लूकोज ऑक्सीजन के साथ अभिक्रिया करके CO₂, H₂O और ऊर्जा बनाता है।"
+},
+
+{
+q:"एकल अभिकारक टूटकर दो या अधिक उत्पाद बनाए तो यह कौन-सी अभिक्रिया है?",
+options:[
+"संयोजन",
+"विस्थापन",
+"वियोजन/अपघटन",
+"द्विविस्थापन"
+],
+answer:2,
+explanation:"जब एक अभिकारक टूटकर दो या अधिक उत्पाद बनाता है तो उसे <b>वियोजन या अपघटन अभिक्रिया</b> कहते हैं।"
+},
+
+{
+q:"फेरस सल्फेट के एक सूत्र इकाई में जल के कितने अणु होते हैं?",
+options:[
+"3",
+"5",
+"7",
+"10"
+],
+answer:2,
+explanation:"क्रिस्टलीय फेरस सल्फेट का सूत्र <b>FeSO₄·7H₂O</b> है। इसमें 7 जल अणु होते हैं। इसे Green Vitriol भी कहा जाता है।"
+},
+
+{
+q:"फेरस सल्फेट गर्म करने पर कौन-सी गैसें निकलती हैं?",
+options:[
+"H₂ और O₂",
+"SO₂ और SO₃",
+"CO₂ और O₂",
+"Cl₂ और SO₂"
+],
+answer:1,
+explanation:"फेरस सल्फेट को गर्म करने पर फेरिक ऑक्साइड, सल्फर डाइऑक्साइड और सल्फर ट्राइऑक्साइड बनते हैं।<br><br><b>2FeSO₄ → Fe₂O₃ + SO₂ + SO₃</b>"
+},
+
+{
+q:"CaCO₃ के तापीय अपघटन से क्या बनता है?",
+options:[
+"CaO + CO₂",
+"Ca(OH)₂ + O₂",
+"CaCl₂ + CO₂",
+"CaO + H₂"
+],
+answer:0,
+explanation:"कैल्शियम कार्बोनेट को गर्म करने पर कैल्शियम ऑक्साइड और कार्बन डाइऑक्साइड बनते हैं।<br><br><b>CaCO₃ → CaO + CO₂</b>"
+},
+
+{
+q:"लेड नाइट्रेट को गर्म करने पर भूरी गैस कौन-सी होती है?",
+options:[
+"SO₂",
+"NO₂",
+"CO₂",
+"O₂"
+],
+answer:1,
+explanation:"लेड नाइट्रेट के तापीय अपघटन में <b>NO₂ (नाइट्रोजन डाइऑक्साइड)</b> की भूरी गैस निकलती है।"
+},
+
+{
+q:"लेड नाइट्रेट के तापीय अपघटन से क्या बनता है?",
+options:[
+"PbO, NO₂, O₂",
+"Pb, N₂, O₂",
+"PbO₂, N₂",
+"PbCO₃, O₂"
+],
+answer:0,
+explanation:"<b>2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂</b>"
+},
+
+{
+q:"जल के विद्युत अपघटन से क्या प्राप्त होता है?",
+options:[
+"H₂ और O₂",
+"N₂ और O₂",
+"H₂ और Cl₂",
+"CO₂ और H₂"
+],
+answer:0,
+explanation:"जल के विद्युत अपघटन से हाइड्रोजन और ऑक्सीजन प्राप्त होते हैं।<br><br><b>2H₂O → 2H₂ + O₂</b>"
+},
+
+{
+q:"AgCl का रंग कैसा होता है?",
+options:[
+"पीला",
+"हरा",
+"सफेद",
+"काला"
+],
+answer:2,
+explanation:"सिल्वर क्लोराइड (AgCl) एक <b>सफेद ठोस/अवक्षेप</b> होता है।"
+},
+
+{
+q:"AgCl प्रकाश की उपस्थिति में अपघटित होकर क्या बनाता है?",
+options:[
+"Cu + Cl₂",
+"Ag + Cl₂",
+"Ag₂O + Cl₂",
+"AgBr + Cl₂"
+],
+answer:1,
+explanation:"सिल्वर क्लोराइड प्रकाश में अपघटित होकर चाँदी और क्लोरीन बनाता है।<br><br><b>2AgCl → 2Ag + Cl₂</b>"
+},
+
+{
+q:"परंपरागत ब्लैक एंड व्हाइट फोटोग्राफी में किस पदार्थ का उपयोग किया जाता था?",
+options:[
+"AgCl",
+"AgBr",
+"NaCl",
+"CuSO₄"
+],
+answer:1,
+explanation:"सिल्वर ब्रोमाइड (AgBr) प्रकाश के प्रति संवेदनशील होता है और पारंपरिक फोटोग्राफी में उपयोग किया जाता था।"
+},
+
+{
+q:"ऊष्मा अवशोषित करने वाली अभिक्रिया कहलाती है—",
+options:[
+"ऊष्माक्षेपी",
+"ऊष्माशोषी",
+"संयोजन",
+"विस्थापन"
+],
+answer:1,
+explanation:"जो अभिक्रिया वातावरण से ऊष्मा अवशोषित करती है उसे <b>ऊष्माशोषी (Endothermic)</b> अभिक्रिया कहते हैं।"
+},
+
+{
+q:"CuSO₄ विलयन का रंग कैसा होता है?",
+options:[
+"हरा",
+"नीला",
+"पीला",
+"लाल"
+],
+answer:1,
+explanation:"कॉपर सल्फेट (CuSO₄) का जलीय विलयन <b>नीले रंग</b> का होता है।"
+},
+
+{
+q:"लोहे की कील को CuSO₄ विलयन में डालने पर कौन-सी अभिक्रिया होती है?",
+options:[
+"संयोजन",
+"अपघटन",
+"विस्थापन",
+"द्विविस्थापन"
+],
+answer:2,
+explanation:"लोहा कॉपर से अधिक अभिक्रियाशील है और CuSO₄ से कॉपर को विस्थापित करता है।<br><br><b>Fe + CuSO₄ → FeSO₄ + Cu</b>"
+},
+
+{
+q:"CuSO₄ से Cu को कौन-सी धातु विस्थापित कर सकती है?",
+options:[
+"सोना",
+"चाँदी",
+"जिंक",
+"कॉपर"
+],
+answer:2,
+explanation:"जिंक, कॉपर से अधिक अभिक्रियाशील है। इसलिए Zn, CuSO₄ से Cu को विस्थापित कर सकता है।<br><br><b>Zn + CuSO₄ → ZnSO₄ + Cu</b>"
+},
+
+{
+q:"जिस अभिक्रिया में जल में अघुलनशील ठोस बनता है, उसे क्या कहते हैं?",
+options:[
+"संयोजन",
+"अवक्षेपण",
+"अपघटन",
+"ऊष्माशोषी"
+],
+answer:1,
+explanation:"जल में बनने वाले अघुलनशील ठोस को <b>अवक्षेप (Precipitate)</b> कहते हैं और ऐसी अभिक्रिया अवक्षेपण अभिक्रिया कहलाती है।"
+},
+
+{
+q:"आयनों के आदान-प्रदान वाली अभिक्रिया कहलाती है—",
+options:[
+"संयोजन",
+"अपघटन",
+"द्विविस्थापन",
+"एकल विस्थापन"
+],
+answer:2,
+explanation:"द्विविस्थापन अभिक्रिया में दो यौगिकों के आयनों का आदान-प्रदान होता है।"
+},
+
+{
+q:"निम्नलिखित में से द्विविस्थापन अभिक्रिया कौन-सी है?",
+options:[
+"Zn + CuSO₄ → ZnSO₄ + Cu",
+"CaO + H₂O → Ca(OH)₂",
+"Na₂SO₄ + BaCl₂ → BaSO₄ + 2NaCl",
+"C + O₂ → CO₂"
+],
+answer:2,
+explanation:"इस अभिक्रिया में दोनों यौगिकों के आयनों का आदान-प्रदान होता है तथा BaSO₄ का अवक्षेप बनता है।"
+},
+
+{
+q:"कॉपर पाउडर को गर्म करने पर उस पर काली परत किसकी बनती है?",
+options:[
+"Cu₂O",
+"CuO",
+"CuCO₃",
+"CuSO₄"
+],
+answer:1,
+explanation:"कॉपर ऑक्सीजन के साथ अभिक्रिया करके काला कॉपर(II) ऑक्साइड बनाता है।<br><br><b>2Cu + O₂ → 2CuO</b>"
+},
+
+{
+q:"कॉपर के ऑक्सीकरण की सही अभिक्रिया है—",
+options:[
+"2Cu + O₂ → 2CuO",
+"CuO → Cu + O₂",
+"Cu + H₂ → CuH₂",
+"Cu + Cl₂ → CuO"
+],
+answer:0,
+explanation:"ऑक्सीकरण की पारंपरिक परिभाषा के अनुसार ऑक्सीजन का जुड़ना ऑक्सीकरण है। इसलिए 2Cu + O₂ → 2CuO सही है।"
+},
+
+{
+q:"ऑक्सीजन का जुड़ना कहलाता है—",
+options:[
+"अपचयन",
+"ऑक्सीकरण",
+"उदासीनीकरण",
+"अपघटन"
+],
+answer:1,
+explanation:"किसी पदार्थ में ऑक्सीजन का जुड़ना <b>ऑक्सीकरण (Oxidation)</b> कहलाता है।"
+},
+
+{
+q:"हाइड्रोजन का जुड़ना कहलाता है—",
+options:[
+"ऑक्सीकरण",
+"अपचयन",
+"विस्थापन",
+"संयोजन"
+],
+answer:1,
+explanation:"किसी पदार्थ में हाइड्रोजन का जुड़ना <b>अपचयन (Reduction)</b> कहलाता है।"
+},
+
+{
+q:"एक अभिकारक का ऑक्सीकरण और दूसरे का अपचयन एक साथ हो तो इसे क्या कहते हैं?",
+options:[
+"संयोजन",
+"रेडॉक्स",
+"अपघटन",
+"उदासीनीकरण"
+],
+answer:1,
+explanation:"जिस अभिक्रिया में ऑक्सीकरण और अपचयन दोनों एक साथ होते हैं उसे <b>रेडॉक्स अभिक्रिया</b> कहते हैं।"
+},
+
+{
+q:"निम्नलिखित में से रेडॉक्स अभिक्रिया कौन-सी है?",
+options:[
+"CuO + H₂ → Cu + H₂O",
+"NaOH + HCl → NaCl + H₂O",
+"AgNO₃ + NaCl → AgCl + NaNO₃",
+"CaO + H₂O → Ca(OH)₂"
+],
+answer:0,
+explanation:"इस अभिक्रिया में CuO का अपचयन होकर Cu बनता है और H₂ का ऑक्सीकरण होकर H₂O बनता है। इसलिए यह रेडॉक्स अभिक्रिया है।"
+},
+
+{
+q:"वसायुक्त खाद्य पदार्थों के ऑक्सीकरण से स्वाद और गंध में परिवर्तन होने की प्रक्रिया कहलाती है—",
+options:[
+"संक्षारण",
+"विकृतगंधिता",
+"अवक्षेपण",
+"उदासीनीकरण"
+],
+answer:1,
+explanation:"वसा और तेलों के ऑक्सीकरण से खराब स्वाद और गंध उत्पन्न होने की प्रक्रिया को <b>विकृतगंधिता (Rancidity)</b> कहते हैं।"
+},
+
+{
+q:"तैलीय या वसायुक्त खाद्य पदार्थों को ऑक्सीकरण से बचाने वाले पदार्थ कहलाते हैं—",
+options:[
+"उत्प्रेरक",
+"अपचायक",
+"प्रतिऑक्सीकारक",
+"अम्ल"
+],
+answer:2,
+explanation:"प्रतिऑक्सीकारक (Antioxidants) वसा और तेलों के ऑक्सीकरण को धीमा करते हैं और विकृतगंधिता को रोकने में मदद करते हैं।"
+},
+
+{
+q:"चिप्स के पैकेट में ऑक्सीजन की जगह कौन-सी गैस भरी जाती है?",
+options:[
+"ऑक्सीजन",
+"हाइड्रोजन",
+"नाइट्रोजन",
+"क्लोरीन"
+],
+answer:2,
+explanation:"चिप्स के पैकेट में सामान्यतः <b>नाइट्रोजन</b> भरी जाती है। यह अपेक्षाकृत अक्रिय गैस है और खाद्य पदार्थों के ऑक्सीकरण को कम करती है।"
+},
+
+{
+q:"2PbO + C → 2Pb + CO₂ में निम्नलिखित में से कौन-सा कथन गलत है?",
+options:[
+"लेड ऑक्साइड का अपचयन हुआ",
+"कार्बन का ऑक्सीकरण हुआ",
+"कार्बन डाइऑक्साइड का ऑक्सीकरण हुआ",
+"लेड ऑक्साइड का अपचयन हुआ"
+],
+answer:2,
+explanation:"इस अभिक्रिया में PbO का अपचयन और कार्बन का ऑक्सीकरण होता है। CO₂ उत्पाद है, इसलिए इसका ऑक्सीकरण नहीं हुआ।"
+},
+
+{
+q:"Fe₂O₃ + 2Al → Al₂O₃ + 2Fe किस प्रकार की अभिक्रिया है?",
+options:[
+"संयोजन",
+"अपघटन",
+"विस्थापन",
+"द्विविस्थापन"
+],
+answer:2,
+explanation:"एल्युमिनियम, आयरन को उसके ऑक्साइड से विस्थापित करता है। इसलिए यह <b>विस्थापन अभिक्रिया</b> है।"
+},
+
+{
+q:"लोहे के चूर्ण की तनु HCl के साथ अभिक्रिया से क्या बनता है?",
+options:[
+"FeCl₂ + H₂",
+"FeCl₃ + O₂",
+"FeO + H₂O",
+"Fe₂O₃ + H₂"
+],
+answer:0,
+explanation:"लोहा तनु हाइड्रोक्लोरिक अम्ल से अभिक्रिया करके फेरस क्लोराइड और हाइड्रोजन गैस बनाता है।<br><br><b>Fe + 2HCl → FeCl₂ + H₂↑</b>"
+},
+
+{
+q:"सोना और प्लेटिनम आसानी से संक्षारित नहीं होते क्योंकि वे—",
+options:[
+"अत्यधिक अभिक्रियाशील हैं",
+"कम अभिक्रियाशील धातुएँ हैं",
+"गैसें हैं",
+"अम्लीय हैं"
+],
+answer:1,
+explanation:"सोना और प्लेटिनम बहुत कम अभिक्रियाशील धातुएँ हैं, इसलिए वे आसानी से संक्षारित नहीं होते।"
+},
+
+{
+q:"निम्नलिखित में से ऊष्माशोषी अभिक्रिया का उदाहरण है—",
+options:[
+"श्वसन",
+"ईंधन का दहन",
+"फेरस सल्फेट का अपघटन",
+"अम्ल का तनुकरण"
+],
+answer:2,
+explanation:"फेरस सल्फेट का अपघटन करने के लिए गर्म करना आवश्यक होता है, इसलिए यह ऊष्माशोषी अभिक्रिया का उदाहरण है।"
+},
+
+{
+q:"निम्नलिखित में से ऊष्माशोषी प्रक्रिया कौन-सी है?",
+options:[
+"सल्फ्यूरिक अम्ल का तनुकरण",
+"NaOH का जल में घुलना",
+"अमोनियम क्लोराइड का जल में घुलना",
+"प्राकृतिक गैस का दहन"
+],
+answer:2,
+explanation:"अमोनियम क्लोराइड (NH₄Cl) को जल में घोलने पर ऊष्मा अवशोषित होती है, इसलिए यह ऊष्माशोषी प्रक्रिया है।"
+},
+
+{
+q:"प्रकाश के कारण होने वाली रासायनिक अभिक्रियाओं के अध्ययन को क्या कहते हैं?",
+options:[
+"विद्युत रसायन",
+"प्रकाश रसायन",
+"जैव रसायन",
+"भौतिक रसायन"
+],
+answer:1,
+explanation:"प्रकाश के कारण होने वाली रासायनिक अभिक्रियाओं का अध्ययन <b>Photochemistry (प्रकाश रसायन)</b> कहलाता है।"
+},
+
+{
+q:"निम्नलिखित में से प्रकाश-रासायनिक अभिक्रिया कौन-सी है?",
+options:[
+"HCl + NaOH",
+"AgCl का प्रकाश में अपघटन",
+"CaO + H₂O",
+"Fe + CuSO₄"
+],
+answer:1,
+explanation:"AgCl प्रकाश की उपस्थिति में अपघटित होता है।<br><br><b>2AgCl → 2Ag + Cl₂</b>"
+},
+
+{
+q:"लोहे में जंग लगने के लिए आवश्यक है—",
+options:[
+"केवल ऑक्सीजन",
+"केवल जल",
+"ऑक्सीजन और नमी",
+"केवल CO₂"
+],
+answer:2,
+explanation:"लोहे में जंग लगने के लिए <b>ऑक्सीजन और नमी</b> दोनों आवश्यक होते हैं।"
+},
+
+{
+q:"लोहे में जंग लगना किसका उदाहरण है?",
+options:[
+"ऑक्सीकरण और संक्षारण",
+"अपचयन",
+"संयोजन",
+"अपघटन"
+],
+answer:0,
+explanation:"जंग लगने में लोहा ऑक्सीकरण होता है। यह धातु के संक्षारण का भी उदाहरण है।"
+},
+
+{
+q:"जंग की भूरी परत मुख्यतः किसकी होती है?",
+options:[
+"फेरस ऑक्साइड",
+"जलयोजित फेरिक ऑक्साइड",
+"कॉपर ऑक्साइड",
+"कैल्शियम ऑक्साइड"
+],
+answer:1,
+explanation:"जंग को सामान्यतः <b>Fe₂O₃·xH₂O</b>, अर्थात जलयोजित फेरिक ऑक्साइड के रूप में दर्शाया जाता है।"
+},
+
+{
+q:"N₂ + H₂ → NH₃ अभिक्रिया है—",
+options:[
+"ऊष्माशोषी",
+"ऊष्माक्षेपी",
+"अपघटन",
+"द्विविस्थापन"
+],
+answer:1,
+explanation:"अमोनिया बनने की अभिक्रिया में ऊष्मा मुक्त होती है।<br><br><b>N₂ + 3H₂ ⇌ 2NH₃ + Heat</b>"
+},
+
+{
+q:"N₂ + O₂ → NO अभिक्रिया है—",
+options:[
+"ऊष्माक्षेपी",
+"ऊष्माशोषी",
+"अवक्षेपण",
+"उदासीनीकरण"
+],
+answer:1,
+explanation:"नाइट्रोजन और ऑक्सीजन की अभिक्रिया के लिए उच्च तापमान/ऊर्जा की आवश्यकता होती है, इसलिए यह ऊष्माशोषी है।"
+},
+
+{
+q:"C + S → CS₂ को किस प्रकार की अभिक्रिया माना जाता है?",
+options:[
+"केवल अपघटन",
+"संयोजन और ऊष्माशोषी",
+"केवल विस्थापन",
+"द्विविस्थापन"
+],
+answer:1,
+explanation:"कार्बन और सल्फर मिलकर एक उत्पाद CS₂ बनाते हैं, इसलिए यह संयोजन अभिक्रिया है और इसके लिए ऊष्मा की आवश्यकता होती है।"
+},
+
+{
+q:"ऑक्सीकारक (Oxidizing Agent) वह पदार्थ है जो—",
+options:[
+"दूसरे पदार्थ का ऑक्सीकरण करता है",
+"दूसरे पदार्थ का अपचयन करता है",
+"कभी अभिक्रिया नहीं करता",
+"केवल ऊष्मा देता है"
+],
+answer:0,
+explanation:"ऑक्सीकारक वह पदार्थ है जो दूसरे पदार्थ का ऑक्सीकरण करता है और स्वयं सामान्यतः अपचयित हो जाता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा पदार्थ ऑक्सीकारक और अपचायक दोनों के रूप में कार्य कर सकता है?",
+options:[
+"H₂S",
+"H₂O₂",
+"N₂O",
+"HCl"
+],
+answer:1,
+explanation:"<b>H₂O₂ (हाइड्रोजन पेरॉक्साइड)</b> परिस्थितियों के अनुसार ऑक्सीकारक और अपचायक दोनों के रूप में कार्य कर सकता है।"
+},
+
+{
+q:"निम्नलिखित में से सही युग्म कौन-सा है?",
+options:[
+"K₂Cr₂O₇ — पोटैशियम डाइक्रोमेट",
+"KMnO₄ — पोटैशियम परमैंगनेट",
+"H₂O₂ — हाइड्रोजन पेरॉक्साइड",
+"उपरोक्त सभी"
+],
+answer:3,
+explanation:"तीनों युग्म सही हैं:<br><br>• K₂Cr₂O₇ — Potassium Dichromate<br>• KMnO₄ — Potassium Permanganate<br>• H₂O₂ — Hydrogen Peroxide"
+}
+
+];
+
+let currentQuestion = 0;
+let score = 0;
+let answered = new Array(questions.length).fill(false);
+let selectedAnswers = new Array(questions.length).fill(null);
+
+const quizBox = document.getElementById("quizBox");
+const resultBox = document.getElementById("resultBox");
+const progressBar = document.getElementById("progressBar");
+
+function loadQuestion(){
+
+  const data = questions[currentQuestion];
+
+  let html = "";
+
+  html += `
+    <div class="question-number">
+      Question ${currentQuestion + 1} of ${questions.length}
+    </div>
+
+    <div class="question">
+      Q${currentQuestion + 1}. ${data.q}
+    </div>
+  `;
+
+  data.options.forEach((option,index)=>{
+
+    let cls = "";
+
+    if(answered[currentQuestion]){
+
+      if(index === data.answer){
+        cls = "correct";
+      }
+
+      if(
+        index === selectedAnswers[currentQuestion] &&
+        index !== data.answer
+      ){
+        cls = "wrong";
+      }
+
+      cls += " disabled";
+    }
+
+    html += `
+      <div
+        class="option ${cls}"
+        onclick="selectAnswer(${index})"
+      >
+        ${String.fromCharCode(65 + index)}. ${option}
+      </div>
+    `;
+  });
+
+  if(answered[currentQuestion]){
+
+    html += `
+      <div class="explanation" style="display:block;">
+        <strong>💡 Explanation:</strong><br>
+        ${data.explanation}
+      </div>
+    `;
+
+  }
+
+  html += `
+    <div class="buttons">
+
+      <button
+        class="prev"
+        onclick="previousQuestion()"
+        ${currentQuestion === 0 ? "disabled" : ""}
+      >
+        ← Previous
+      </button>
+
+      <button
+        class="next"
+        onclick="nextQuestion()"
+      >
+        ${
+          currentQuestion === questions.length - 1
+          ? "🏁 Finish"
+          : "Next →"
+        }
+      </button>
+
+    </div>
+  `;
+
+  quizBox.innerHTML = html;
+
+  let progress =
+    ((currentQuestion + 1) / questions.length) * 100;
+
+  progressBar.style.width = progress + "%";
+
+}
+
+function selectAnswer(index){
+
+  if(answered[currentQuestion]){
+    return;
+  }
+
+  selectedAnswers[currentQuestion] = index;
+  answered[currentQuestion] = true;
+
+  if(index === questions[currentQuestion].answer){
+    score++;
+  }
+
+  loadQuestion();
+}
+
+function nextQuestion(){
+
+  if(!answered[currentQuestion]){
+    alert("पहले एक option select करें।");
+    return;
+  }
+
+  if(currentQuestion < questions.length - 1){
+
+    currentQuestion++;
+    loadQuestion();
+
+  }else{
+
+    showResult();
+
+  }
+
+}
+
+function previousQuestion(){
+
+  if(currentQuestion > 0){
+
+    currentQuestion--;
+    loadQuestion();
+
+  }
+
+}
+
+function showResult(){
+
+  quizBox.style.display = "none";
+  resultBox.style.display = "block";
+
+  document.getElementById("score").innerHTML =
+    score + " / " + questions.length;
+
+  let percentage =
+    Math.round((score / questions.length) * 100);
+
+  document.getElementById("resultMessage").innerHTML =
+    "आपका Score: <b>" + percentage + "%</b><br><br>" +
+    "📚 सभी प्रश्न पूरे हो गए हैं।";
+
+  progressBar.style.width = "100%";
+
+}
+
+function restartQuiz(){
+
+  currentQuestion = 0;
+  score = 0;
+
+  answered = new Array(questions.length).fill(false);
+  selectedAnswers = new Array(questions.length).fill(null);
+
+  resultBox.style.display = "none";
+  quizBox.style.display = "block";
+
+  loadQuestion();
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
