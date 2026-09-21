@@ -201,15 +201,18 @@ body{
   bottom:0;
   left:0;
   right:0;
+  width:100%;
   background:white;
   border-top:1px solid #d1d5db;
   box-shadow:0 -2px 8px rgba(0,0,0,.12);
   z-index:900;
   padding:8px 12px;
+  overflow:hidden;
 }
 
 .action-inner{
   max-width:1200px;
+  width:100%;
   margin:auto;
   display:flex;
   gap:8px;
@@ -224,6 +227,7 @@ body{
   font-size:13px;
   cursor:pointer;
   white-space:nowrap;
+  min-width:0;
 }
 
 .previous{
@@ -533,7 +537,8 @@ body{
 @media(max-width:800px){
 
   body{
-    padding-bottom:105px;
+    padding-bottom:115px;
+    overflow-x:hidden;
   }
 
   .header{
@@ -542,16 +547,21 @@ body{
 
   .menu-btn{
     display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
   }
 
   .header h1{
     font-size:14px;
+    min-width:0;
   }
 
   .timer{
     font-size:14px;
     min-width:70px;
     padding:8px 7px;
+    flex-shrink:0;
   }
 
   .exam-layout{
@@ -575,18 +585,34 @@ body{
     font-size:13px;
   }
 
+  /* ===== FIXED MOBILE BOTTOM BUTTONS ===== */
+
   .bottom-actions{
-    padding:7px;
+    padding:7px 6px;
+    overflow:hidden;
   }
 
   .action-inner{
-    overflow-x:auto;
-    justify-content:flex-start;
+    width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px;
+    overflow:hidden;
   }
 
   .action-btn{
-    padding:9px 11px;
-    font-size:12px;
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    padding:10px 5px;
+    font-size:11px;
+    white-space:normal;
+    line-height:1.25;
+    overflow:hidden;
+  }
+
+  .submit{
+    grid-column:1 / -1;
   }
 
   .result-grid{
@@ -652,13 +678,21 @@ body{
     grid-template-columns:1fr 1fr;
   }
 
+  /* Extra-small screens */
+  .action-inner{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .action-btn{
+    font-size:10.5px;
+    padding:9px 4px;
+  }
+
 }
 </style>
 </head>
 
 <body>
-
-<!-- ================= HEADER ================= -->
 
 <header class="header">
 
@@ -676,17 +710,11 @@ body{
 
 </header>
 
-
-<!-- ================= MOBILE PALETTE OVERLAY ================= -->
-
 <div
   class="palette-overlay"
   id="paletteOverlay"
   onclick="closeMobilePalette()">
 </div>
-
-
-<!-- ================= MOBILE PALETTE ================= -->
 
 <aside class="palette-mobile" id="mobilePalette">
 
@@ -755,10 +783,7 @@ body{
 
 </aside>
 
-
 <main class="container">
-
-<!-- ================= TEST HEADING ================= -->
 
 <section class="test-heading">
 
@@ -780,9 +805,6 @@ body{
 
 </section>
 
-
-<!-- ================= EXAM LAYOUT ================= -->
-
 <div class="exam-layout">
 
   <section class="question-area">
@@ -799,7 +821,6 @@ body{
 
     </div>
 
-
     <section class="question-card">
 
       <div
@@ -815,9 +836,6 @@ body{
     </section>
 
   </section>
-
-
-  <!-- ================= DESKTOP PALETTE ================= -->
 
   <aside class="palette-box desktop-palette">
 
@@ -881,9 +899,6 @@ body{
   </aside>
 
 </div>
-
-
-<!-- ================= RESULT ================= -->
 
 <section class="result" id="result">
 
@@ -951,9 +966,6 @@ body{
 
 </section>
 
-
-<!-- ================= SOLUTIONS ================= -->
-
 <section
   class="solutions"
   id="solutions">
@@ -967,9 +979,6 @@ body{
 </section>
 
 </main>
-
-
-<!-- ================= FIXED ACTION BAR ================= -->
 
 <div class="bottom-actions">
 
