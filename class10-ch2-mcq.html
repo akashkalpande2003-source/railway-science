@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Railway PYQ - अम्ल, क्षारक एवं लवण</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  width:100%;
+  overflow-x:hidden;
+}
+
+body{
+  font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+  background:#f1f5f9;
+  color:#172033;
+  line-height:1.65;
+}
+
+header{
+  background:linear-gradient(135deg,#075985,#0f766e);
+  color:white;
+  padding:20px 15px;
+  text-align:center;
+  box-shadow:0 3px 12px rgba(0,0,0,.15);
+}
+
+header h1{
+  margin:0;
+  font-size:24px;
+}
+
+header p{
+  margin:5px 0 0;
+  font-size:14px;
+  opacity:.95;
+}
+
+.container{
+  width:min(850px,94%);
+  margin:20px auto 40px;
+}
+
+/* TOP INFO */
+.info-box{
+  background:white;
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+  border-left:5px solid #0f766e;
+}
+
+.info-box b{
+  color:#075985;
+}
+
+/* PROGRESS */
+.progress-box{
+  background:white;
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.progress{
+  width:100%;
+  height:9px;
+  background:#e2e8f0;
+  border-radius:20px;
+  margin-top:8px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#0284c7,#0f766e);
+  transition:.3s;
+}
+
+/* QUESTION CARD */
+.question-card{
+  background:white;
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.question-number{
+  display:inline-block;
+  background:#e0f2fe;
+  color:#075985;
+  padding:5px 10px;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.question{
+  font-size:18px;
+  font-weight:700;
+  margin:5px 0 18px;
+}
+
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  width:100%;
+  border:2px solid #e2e8f0;
+  background:#fff;
+  border-radius:11px;
+  padding:12px;
+  margin:10px 0;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.option:hover{
+  border-color:#38bdf8;
+  background:#f0f9ff;
+}
+
+.option.selected{
+  border-color:#0284c7;
+  background:#e0f2fe;
+}
+
+.option input{
+  margin-top:5px;
+  flex-shrink:0;
+}
+
+.option-label{
+  font-weight:600;
+  word-break:break-word;
+}
+
+/* RESULT */
+.feedback{
+  display:none;
+  margin-top:18px;
+  padding:15px;
+  border-radius:12px;
+}
+
+.feedback.correct{
+  display:block;
+  background:#ecfdf5;
+  border:2px solid #22c55e;
+}
+
+.feedback.wrong{
+  display:block;
+  background:#fef2f2;
+  border:2px solid #ef4444;
+}
+
+.feedback-title{
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:7px;
+}
+
+.solution{
+  background:#f8fafc;
+  border-left:4px solid #0284c7;
+  padding:12px;
+  margin-top:12px;
+  border-radius:8px;
+}
+
+.solution-title{
+  font-weight:bold;
+  color:#075985;
+  margin-bottom:5px;
+}
+
+/* BUTTONS */
+.button-row{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+}
+
+.btn{
+  border:none;
+  border-radius:10px;
+  padding:12px 17px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.submit-btn{
+  width:100%;
+  background:#075985;
+  color:white;
+}
+
+.submit-btn:hover{
+  background:#064e70;
+}
+
+.nav-btn{
+  flex:1;
+  background:#e2e8f0;
+  color:#172033;
+}
+
+.nav-btn:hover{
+  background:#cbd5e1;
+}
+
+.restart-btn{
+  background:#0f766e;
+  color:white;
+  width:100%;
+  margin-top:15px;
+}
+
+/* PALETTE TOGGLE */
+.palette-toggle{
+  position:fixed;
+  right:0;
+  top:45%;
+  z-index:1001;
+  width:48px;
+  height:48px;
+  border:none;
+  border-radius:12px 0 0 12px;
+  background:#075985;
+  color:white;
+  font-size:25px;
+  cursor:pointer;
+  box-shadow:0 3px 12px rgba(0,0,0,.25);
+}
+
+/* PALETTE */
+.palette{
+  position:fixed;
+  right:-310px;
+  top:0;
+  width:290px;
+  max-width:85vw;
+  height:100vh;
+  background:white;
+  z-index:1000;
+  box-shadow:-5px 0 18px rgba(0,0,0,.2);
+  transition:right .3s ease;
+  padding:20px;
+  overflow-y:auto;
+}
+
+.palette.open{
+  right:0;
+}
+
+.palette-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:2px solid #e2e8f0;
+  padding-bottom:12px;
+  margin-bottom:15px;
+}
+
+.palette-header h2{
+  margin:0;
+  color:#075985;
+  font-size:19px;
+}
+
+.close-palette{
+  border:none;
+  background:#fee2e2;
+  color:#991b1b;
+  width:35px;
+  height:35px;
+  border-radius:8px;
+  font-size:20px;
+  cursor:pointer;
+}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.palette-btn{
+  height:40px;
+  border:1px solid #cbd5e1;
+  background:#f8fafc;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.palette-btn:hover{
+  border-color:#0284c7;
+}
+
+.palette-btn.current{
+  background:#0284c7;
+  color:white;
+  border-color:#0284c7;
+}
+
+.palette-btn.answered{
+  background:#dcfce7;
+  color:#166534;
+  border-color:#22c55e;
+}
+
+.palette-btn.wrong{
+  background:#fee2e2;
+  color:#991b1b;
+  border-color:#ef4444;
+}
+
+/* OVERLAY */
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  z-index:999;
+}
+
+.overlay.show{
+  display:block;
+}
+
+/* FINAL RESULT */
+.final-result{
+  display:none;
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+
+.score-circle{
+  width:125px;
+  height:125px;
+  border-radius:50%;
+  margin:10px auto 20px;
+  background:#e0f2fe;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:#075985;
+}
+
+.score-number{
+  font-size:30px;
+  font-weight:bold;
+}
+
+.review{
+  text-align:left;
+  margin-top:20px;
+}
+
+.review-item{
+  background:#f8fafc;
+  border-radius:10px;
+  padding:12px;
+  margin:9px 0;
+  border-left:4px solid #cbd5e1;
+}
+
+.review-item.correct{
+  border-left-color:#22c55e;
+}
+
+.review-item.wrong{
+  border-left-color:#ef4444;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#64748b;
+  font-size:13px;
+  padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+  header{
+    padding:16px 10px;
+  }
+
+  header h1{
+    font-size:20px;
+  }
+
+  .container{
+    width:94%;
+    margin-top:14px;
+  }
+
+  .question-card{
+    padding:15px;
+  }
+
+  .question{
+    font-size:16px;
+  }
+
+  .option{
+    padding:11px;
+    font-size:14px;
+  }
+
+  .button-row{
+    gap:7px;
+  }
+
+  .nav-btn{
+    padding:10px 7px;
+    font-size:13px;
+  }
+
+  .palette{
+    width:275px;
+  }
+
+  .palette-grid{
+    grid-template-columns:repeat(5,1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>अम्ल, क्षारक एवं लवण</h1>
+  <p>Railway PYQ Based Mock Test</p>
+</header>
+
+<button class="palette-toggle" onclick="togglePalette()">☰</button>
+
+<div class="overlay" id="overlay" onclick="togglePalette()"></div>
+
+<div class="palette" id="palette">
+
+  <div class="palette-header">
+    <h2>Question Palette</h2>
+    <button class="close-palette" onclick="togglePalette()">×</button>
+  </div>
+
+  <div class="palette-grid" id="paletteGrid"></div>
+
+  <div style="margin-top:18px;font-size:13px;color:#64748b;">
+    <p>🔵 वर्तमान प्रश्न</p>
+    <p>🟢 उत्तर दिया गया</p>
+    <p>🔴 गलत उत्तर</p>
+  </div>
+
+</div>
+
+<main class="container">
+
+  <div class="info-box">
+    <b>📚 अध्याय:</b> अम्ल, क्षारक एवं लवण<br>
+    <b>📝 प्रश्न:</b> 32 Railway PYQ Based Questions<br>
+    <b>⏱️ प्रकार:</b> Exam Practice
+  </div>
+
+  <div class="progress-box">
+    <div class="progress-top">
+      <span id="progressText">प्रश्न 1 / 32</span>
+      <span id="answeredText">हल किए: 0</span>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+
+  <div id="testArea">
+
+    <div class="question-card">
+
+      <div class="question-number" id="questionNumber">
+        प्रश्न 1
+      </div>
+
+      <div class="question" id="questionText"></div>
+
+      <div id="options"></div>
+
+      <button class="btn submit-btn" id="submitBtn" onclick="submitAnswer()">
+        ✓ Submit Answer
+      </button>
+
+      <div id="feedback" class="feedback"></div>
+
+      <div class="button-row">
+        <button class="btn nav-btn" onclick="previousQuestion()">
+          ← Previous
+        </button>
+
+        <button class="btn nav-btn" onclick="nextQuestion()">
+          Next →
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="final-result" id="finalResult">
+
+    <h2>🎉 Test Complete</h2>
+
+    <div class="score-circle">
+      <div class="score-number" id="finalScore">0/32</div>
+      <div>Score</div>
+    </div>
+
+    <h3 id="percentage"></h3>
+
+    <p id="resultMessage"></p>
+
+    <button class="btn restart-btn" onclick="restartTest()">
+      🔄 Restart Test
+    </button>
+
+    <div class="review">
+      <h3>📋 Answer Review</h3>
+      <div id="reviewList"></div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  Railway Science Preparation • PYQ Practice
+</footer>
+
+
+<script>
+
+const questions = [
+
+{
+q:"कैल्सियम कार्बोनेट (CaCO₃) के विविध रूप कौन-कौन से हैं?",
+options:[
+"चूना पत्थर, खड़िया, संगमरमर",
+"जिप्सम, संगमरमर, बेकिंग सोडा",
+"खड़िया, जिप्सम, वाशिंग सोडा",
+"संगमरमर, प्लास्टर ऑफ पेरिस, जिप्सम"
+],
+answer:0,
+solution:"CaCO₃ के प्राकृतिक रूपों में चूना पत्थर (Limestone), खड़िया (Chalk) और संगमरमर (Marble) शामिल हैं।"
+},
+
+{
+q:"धातु ऑक्साइड की अम्ल के साथ अभिक्रिया से क्या बनता है?",
+options:[
+"केवल जल",
+"लवण और जल",
+"केवल लवण",
+"अम्ल और जल"
+],
+answer:1,
+solution:"धातु ऑक्साइड सामान्यतः क्षारकीय होते हैं और अम्ल के साथ अभिक्रिया करके लवण तथा जल बनाते हैं।"
+},
+
+{
+q:"धात्विक ऑक्साइड को सामान्यतः क्या कहा जाता है?",
+options:[
+"अम्लीय ऑक्साइड",
+"उदासीन ऑक्साइड",
+"क्षारकीय ऑक्साइड",
+"मिश्रित ऑक्साइड"
+],
+answer:2,
+solution:"अधिकांश धात्विक ऑक्साइड क्षारकीय प्रकृति के होते हैं, इसलिए इन्हें क्षारकीय ऑक्साइड कहा जाता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी अभिक्रिया धातु ऑक्साइड और अम्ल के बीच होती है?",
+options:[
+"MgO + 2HCl → MgCl₂ + H₂O",
+"Mg + 2HCl → MgCl₂ + H₂",
+"NaOH + HCl → NaCl + H₂O",
+"CaCO₃ + 2HCl → CaCl₂ + CO₂ + H₂O"
+],
+answer:0,
+solution:"MgO एक धातु ऑक्साइड है। यह HCl के साथ अभिक्रिया करके MgCl₂ और H₂O बनाता है।"
+},
+
+{
+q:"कॉपर ऑक्साइड की तनु हाइड्रोक्लोरिक अम्ल के साथ अभिक्रिया करने पर कौन-सा यौगिक बनता है?",
+options:[
+"कॉपर सल्फेट",
+"कॉपर क्लोराइड",
+"कॉपर नाइट्रेट",
+"कॉपर कार्बोनेट"
+],
+answer:1,
+solution:"CuO + 2HCl → CuCl₂ + H₂O. इसलिए कॉपर क्लोराइड बनता है।"
+},
+
+{
+q:"CuO + 2HCl → CuCl₂ + H₂O अभिक्रिया में बने CuCl₂ के कारण विलयन का रंग कैसा दिखाई देता है?",
+options:[
+"लाल",
+"पीला",
+"नीला-हरा",
+"सफेद"
+],
+answer:2,
+solution:"कॉपर क्लोराइड बनने के कारण प्राप्त विलयन नीला-हरा दिखाई देता है।"
+},
+
+{
+q:"अधात्विक ऑक्साइड सामान्यतः किस प्रकृति के होते हैं?",
+options:[
+"क्षारीय",
+"अम्लीय",
+"उदासीन",
+"धात्विक"
+],
+answer:1,
+solution:"अधिकांश अधात्विक ऑक्साइड अम्लीय प्रकृति के होते हैं।"
+},
+
+{
+q:"विलयन में विद्युत धारा का प्रवाह मुख्यतः किसके कारण होता है?",
+options:[
+"परमाणुओं के कारण",
+"अणुओं के कारण",
+"आयनों के कारण",
+"न्यूट्रॉन के कारण"
+],
+answer:2,
+solution:"जलीय विलयन में उपस्थित धनायन और ऋणायन विद्युत क्षेत्र में गति करके विद्युत धारा का प्रवाह कराते हैं।"
+},
+
+{
+q:"धात्विक चालकों (Conductors) में विद्युत धारा का प्रवाह किसके कारण होता है?",
+options:[
+"मुक्त इलेक्ट्रॉनों द्वारा",
+"प्रोटॉन द्वारा",
+"न्यूट्रॉन द्वारा",
+"आयनों द्वारा"
+],
+answer:0,
+solution:"धातुओं में विद्युत धारा मुख्यतः मुक्त इलेक्ट्रॉनों की गति के कारण प्रवाहित होती है।"
+},
+
+{
+q:"अर्धचालकों (Semiconductors) में विद्युत धारा का प्रवाह किसके द्वारा होता है?",
+options:[
+"केवल प्रोटॉन",
+"मुक्त इलेक्ट्रॉन और होल्स",
+"केवल न्यूट्रॉन",
+"केवल आयन"
+],
+answer:1,
+solution:"अर्धचालकों में विद्युत चालन मुक्त इलेक्ट्रॉनों और होल्स दोनों के कारण होता है।"
+},
+
+{
+q:"निम्नलिखित में से किसका जलीय विलयन विद्युत का चालन नहीं करता है?",
+options:[
+"HCl",
+"NaOH",
+"NaCl",
+"ग्लूकोज"
+],
+answer:3,
+solution:"ग्लूकोज जल में घुलकर आयन नहीं बनाता, इसलिए इसका जलीय विलयन विद्युत का प्रभावी चालन नहीं करता।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कथन सही है?",
+options:[
+"क्षारकीय विलयन विद्युत का चालन करते हैं।",
+"अम्ल विद्युत का चालन नहीं करते।",
+"सभी पदार्थों के विलयन विद्युत का चालन करते हैं।",
+"केवल शुद्ध जल विद्युत का चालन करता है।"
+],
+answer:0,
+solution:"अम्लीय और क्षारीय जलीय विलयनों में आयन उपस्थित होते हैं, इसलिए वे विद्युत का चालन कर सकते हैं।"
+},
+
+{
+q:"हाइड्रोजन आयन (H⁺) जल में किस रूप में पाए जाते हैं?",
+options:[
+"स्वतंत्र H⁺ के रूप में",
+"H₂ के रूप में",
+"H₃O⁺ के रूप में",
+"OH⁻ के रूप में"
+],
+answer:2,
+solution:"H⁺ आयन जल के अणुओं के साथ अभिक्रिया करके हाइड्रोनियम आयन H₃O⁺ बनाते हैं।"
+},
+
+{
+q:"जल में घुलनशील क्षारक को क्या कहते हैं?",
+options:[
+"अम्ल",
+"लवण",
+"क्षार (Alkali)",
+"सूचक"
+],
+answer:2,
+solution:"जल में घुलनशील क्षारक को क्षार (Alkali) कहा जाता है। उदाहरण: NaOH और KOH।"
+},
+
+{
+q:"जल में अम्ल या क्षारक मिलाने पर उनकी सांद्रता कम होने की प्रक्रिया कहलाती है—",
+options:[
+"उदासीनीकरण",
+"तनुकरण",
+"अपघटन",
+"विस्थापन"
+],
+answer:1,
+solution:"जल मिलाने पर अम्ल या क्षारक की सांद्रता कम होती है। इस प्रक्रिया को तनुकरण (Dilution) कहते हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा प्रबल अम्ल है?",
+options:[
+"CH₃COOH",
+"HCl",
+"H₂CO₃",
+"HCOOH"
+],
+answer:1,
+solution:"HCl एक प्रबल अम्ल है। यह जल में लगभग पूर्ण रूप से आयनीकृत हो जाता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कमजोर अम्ल है?",
+options:[
+"HCl",
+"HNO₃",
+"H₂SO₄",
+"CH₃COOH"
+],
+answer:3,
+solution:"CH₃COOH अर्थात एसीटिक अम्ल एक कमजोर अम्ल है।"
+},
+
+{
+q:"शुक्र ग्रह के वायुमंडल में सल्फ्यूरिक अम्ल किससे संबंधित है?",
+options:[
+"ऑक्सीजन की परत",
+"सल्फ्यूरिक अम्ल की बूंदों वाले बादल",
+"नाइट्रिक अम्ल की वर्षा",
+"जलवाष्प की मोटी परत"
+],
+answer:1,
+solution:"शुक्र के वायुमंडल में सल्फ्यूरिक अम्ल की बूंदों वाले बादल पाए जाते हैं।"
+},
+
+{
+q:"अपच (Indigestion) की स्थिति में हमारे आमाशय में कौन-सा अम्ल पाया जाता है?",
+options:[
+"H₂SO₄",
+"HNO₃",
+"HCl",
+"CH₃COOH"
+],
+answer:2,
+solution:"आमाशय में हाइड्रोक्लोरिक अम्ल (HCl) पाया जाता है। इसकी अधिकता अपच से संबंधित हो सकती है।"
+},
+
+{
+q:"अपच के उपचार के लिए सामान्यतः किस प्रकार की औषधि प्रयोग की जाती है?",
+options:[
+"एंटीबायोटिक",
+"एंटासिड",
+"एंटीसेप्टिक",
+"दर्दनिवारक"
+],
+answer:1,
+solution:"एंटासिड अतिरिक्त आमाशयी अम्ल को उदासीन करने में सहायता करते हैं।"
+},
+
+{
+q:"दाँतों का इनेमल मुख्यतः किस पदार्थ से बना होता है?",
+options:[
+"कैल्सियम कार्बोनेट",
+"कैल्सियम फॉस्फेट",
+"सोडियम क्लोराइड",
+"कैल्सियम सल्फेट"
+],
+answer:1,
+solution:"दाँतों का इनेमल मुख्यतः कैल्सियम फॉस्फेट Ca₃(PO₄)₂ से संबंधित कठोर पदार्थ है।"
+},
+
+{
+q:"मधुमक्खी के डंक के प्रभाव को कम करने के लिए किसका प्रयोग किया जा सकता है?",
+options:[
+"सिरका",
+"बेकिंग सोडा",
+"हाइड्रोक्लोरिक अम्ल",
+"नींबू का रस"
+],
+answer:1,
+solution:"मधुमक्खी के डंक में अम्लीय पदार्थ होते हैं। बेकिंग सोडा जैसे हल्के क्षार का प्रयोग अम्लीय प्रभाव को कम करने के लिए बताया जाता है।"
+},
+
+{
+q:"कुछ पौधों की पत्तियों की प्रकृति कैसी होती है?",
+options:[
+"अम्लीय",
+"क्षारीय",
+"उदासीन",
+"धात्विक"
+],
+answer:1,
+solution:"कुछ पौधों की पत्तियों में क्षारीय प्रकृति वाले पदार्थ पाए जा सकते हैं।"
+},
+
+{
+q:"हम भोजन में सामान्यतः कौन-सा लवण खाते हैं?",
+options:[
+"Na₂CO₃",
+"NaHCO₃",
+"NaCl",
+"CaCO₃"
+],
+answer:2,
+solution:"सामान्य खाने का नमक सोडियम क्लोराइड (NaCl) है।"
+},
+
+{
+q:"NaCl, H₂O, CO₂ और NH₃ की अभिक्रिया से कौन-से पदार्थ बनते हैं?",
+options:[
+"NaOH और HCl",
+"NH₄Cl और NaHCO₃",
+"Na₂CO₃ और HCl",
+"NaOH और CO₂"
+],
+answer:1,
+solution:"Solvay प्रक्रिया में NaCl, H₂O, CO₂ और NH₃ की अभिक्रियाओं से NH₄Cl और NaHCO₃ प्राप्त होते हैं।"
+},
+
+{
+q:"वाशिंग सोडा का रासायनिक सूत्र क्या है?",
+options:[
+"NaHCO₃",
+"Na₂CO₃",
+"Na₂CO₃·10H₂O",
+"NaCl"
+],
+answer:2,
+solution:"वाशिंग सोडा क्रिस्टलीय सोडियम कार्बोनेट है और इसका सूत्र Na₂CO₃·10H₂O है।"
+},
+
+{
+q:"वाशिंग सोडा (Na₂CO₃·10H₂O) में जल का प्रतिशत लगभग कितना होता है?",
+options:[
+"37%",
+"47%",
+"63%",
+"73%"
+],
+answer:2,
+solution:"Na₂CO₃·10H₂O में 10 जल अणु होते हैं। जल का द्रव्यमान प्रतिशत लगभग 62.9%, अर्थात लगभग 63% होता है।"
+},
+
+{
+q:"कॉपर सल्फेट के क्रिस्टल को गर्म करने पर उनका रंग नीले से किस रंग में बदल जाता है?",
+options:[
+"लाल",
+"पीला",
+"सफेद",
+"हरा"
+],
+answer:2,
+solution:"CuSO₄·5H₂O को गर्म करने पर क्रिस्टलीकरण का जल निकल जाता है और निर्जल CuSO₄ बनता है, जिसका रंग सफेद होता है।"
+},
+
+{
+q:"Blue Vitriol (नीला थोथा) का रासायनिक सूत्र है—",
+options:[
+"CuSO₄",
+"CuSO₄·5H₂O",
+"CuCl₂",
+"CaSO₄·2H₂O"
+],
+answer:1,
+solution:"Blue Vitriol अर्थात नीला थोथा hydrated copper sulphate है। इसका सूत्र CuSO₄·5H₂O है।"
+},
+
+{
+q:"जिप्सम (Gypsum) का रासायनिक सूत्र क्या है?",
+options:[
+"CaSO₄",
+"CaSO₄·½H₂O",
+"CaSO₄·2H₂O",
+"CaCO₃"
+],
+answer:2,
+solution:"जिप्सम का रासायनिक सूत्र CaSO₄·2H₂O है। इसमें दो जल अणु होते हैं।"
+},
+
+{
+q:"अम्ल H⁺ आयन तथा क्षारक OH⁻ आयन देते हैं। यह किस सिद्धांत के अनुसार है?",
+options:[
+"डाल्टन सिद्धांत",
+"अरहेनियस सिद्धांत",
+"बॉयल का नियम",
+"एवोगैड्रो सिद्धांत"
+],
+answer:1,
+solution:"अरहेनियस के अनुसार अम्ल जलीय विलयन में H⁺ आयन तथा क्षारक OH⁻ आयन प्रदान करते हैं।"
+},
+
+{
+q:"किसी विलयन का pH 5 से बढ़कर 7 हो जाता है। उसकी अम्लीयता कितनी कम होगी?",
+options:[
+"2 गुना",
+"10 गुना",
+"50 गुना",
+"100 गुना"
+],
+answer:3,
+solution:"pH में 1 इकाई की वृद्धि का अर्थ H⁺ आयन की सांद्रता में 10 गुना कमी है। pH 5 से 7 तक 2 इकाई बढ़ा है, इसलिए अम्लीयता 10² = 100 गुना कम होगी।"
+}
+
+];
+
+let currentQuestion = 0;
+let selectedAnswer = null;
+let answers = new Array(questions.length).fill(null);
+let submitted = new Array(questions.length).fill(false);
+let score = 0;
+
+function loadQuestion(){
+
+  const q = questions[currentQuestion];
+
+  selectedAnswer = answers[currentQuestion];
+
+  document.getElementById("questionNumber").textContent =
+    "प्रश्न " + (currentQuestion + 1);
+
+  document.getElementById("questionText").textContent = q.q;
+
+  const optionsDiv = document.getElementById("options");
+  optionsDiv.innerHTML = "";
+
+  q.options.forEach((option,index)=>{
+
+    const label = document.createElement("label");
+    label.className = "option";
+
+    if(selectedAnswer === index){
+      label.classList.add("selected");
+    }
+
+    label.innerHTML = `
+      <input type="radio"
+        name="answer"
+        value="${index}"
+        ${selectedAnswer === index ? "checked" : ""}
+        ${submitted[currentQuestion] ? "disabled" : ""}
+      >
+      <span class="option-label">
+        ${String.fromCharCode(65+index)}. ${option}
+      </span>
+    `;
+
+    if(!submitted[currentQuestion]){
+
+      label.onclick = function(){
+
+        selectedAnswer = index;
+        answers[currentQuestion] = index;
+
+        document.querySelectorAll(".option").forEach(el=>{
+          el.classList.remove("selected");
+        });
+
+        label.classList.add("selected");
+      };
+
+    }
+
+    optionsDiv.appendChild(label);
+  });
+
+  const feedback = document.getElementById("feedback");
+
+  if(submitted[currentQuestion]){
+
+    showFeedback();
+
+    document.getElementById("submitBtn").style.display = "none";
+
+  }else{
+
+    feedback.className = "feedback";
+    feedback.innerHTML = "";
+
+    document.getElementById("submitBtn").style.display = "block";
+  }
+
+  updateProgress();
+  updatePalette();
+}
+
+function submitAnswer(){
+
+  if(selectedAnswer === null){
+    alert("कृपया पहले एक विकल्प चुनें।");
+    return;
+  }
+
+  if(submitted[currentQuestion]){
+    return;
+  }
+
+  submitted[currentQuestion] = true;
+  answers[currentQuestion] = selectedAnswer;
+
+  if(selectedAnswer === questions[currentQuestion].answer){
+    score++;
+  }
+
+  showFeedback();
+
+  document.getElementById("submitBtn").style.display = "none";
+
+  updateProgress();
+  updatePalette();
+}
+
+function showFeedback(){
+
+  const q = questions[currentQuestion];
+  const feedback = document.getElementById("feedback");
+
+  const isCorrect =
+    answers[currentQuestion] === q.answer;
+
+  feedback.className =
+    "feedback " + (isCorrect ? "correct" : "wrong");
+
+  feedback.innerHTML = `
+    <div class="feedback-title">
+      ${isCorrect ? "✅ सही उत्तर" : "❌ गलत उत्तर"}
+    </div>
+
+    <div>
+      <b>सही उत्तर:</b>
+      ${String.fromCharCode(65 + q.answer)}. ${q.options[q.answer]}
+    </div>
+
+    <div class="solution">
+      <div class="solution-title">📖 Solution / समाधान</div>
+      ${q.solution}
+    </div>
+  `;
+}
+
+function nextQuestion(){
+
+  if(currentQuestion < questions.length - 1){
+
+    currentQuestion++;
+    loadQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }else{
+
+    if(submitted[currentQuestion]){
+      showFinalResult();
+    }else{
+      alert("पहले इस प्रश्न का उत्तर Submit करें।");
+    }
+  }
+}
+
+function previousQuestion(){
+
+  if(currentQuestion > 0){
+
+    currentQuestion--;
+    loadQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+}
+
+function updateProgress(){
+
+  document.getElementById("progressText").textContent =
+    "प्रश्न " + (currentQuestion + 1) +
+    " / " + questions.length;
+
+  const answeredCount =
+    submitted.filter(Boolean).length;
+
+  document.getElementById("answeredText").textContent =
+    "हल किए: " + answeredCount;
+
+  const percent =
+    ((currentQuestion + 1) / questions.length) * 100;
+
+  document.getElementById("progressBar").style.width =
+    percent + "%";
+}
+
+function updatePalette(){
+
+  const grid =
+    document.getElementById("paletteGrid");
+
+  grid.innerHTML = "";
+
+  questions.forEach((q,index)=>{
+
+    const button =
+      document.createElement("button");
+
+    button.className = "palette-btn";
+
+    button.textContent = index + 1;
+
+    if(index === currentQuestion){
+      button.classList.add("current");
+    }
+
+    if(submitted[index]){
+
+      if(answers[index] === q.answer){
+        button.classList.add("answered");
+      }else{
+        button.classList.add("wrong");
+      }
+
+    }
+
+    button.onclick = function(){
+
+      currentQuestion = index;
+      loadQuestion();
+
+      togglePalette();
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    };
+
+    grid.appendChild(button);
+  });
+}
+
+function togglePalette(){
+
+  const palette =
+    document.getElementById("palette");
+
+  const overlay =
+    document.getElementById("overlay");
+
+  palette.classList.toggle("open");
+  overlay.classList.toggle("show");
+}
+
+function showFinalResult(){
+
+  document.getElementById("testArea").style.display = "none";
+  document.querySelector(".progress-box").style.display = "none";
+  document.querySelector(".info-box").style.display = "none";
+
+  const finalResult =
+    document.getElementById("finalResult");
+
+  finalResult.style.display = "block";
+
+  document.getElementById("finalScore").textContent =
+    score + "/" + questions.length;
+
+  const percentageValue =
+    Math.round((score / questions.length) * 100);
+
+  document.getElementById("percentage").textContent =
+    "प्रतिशत: " + percentageValue + "%";
+
+  let message = "";
+
+  if(percentageValue >= 80){
+    message = "बहुत बढ़िया! आपकी तैयारी अच्छी है।";
+  }else if(percentageValue >= 60){
+    message = "अच्छा प्रयास! कुछ topics का revision और करें।";
+  }else{
+    message = "अध्याय को दोबारा पढ़कर फिर से test दें।";
+  }
+
+  document.getElementById("resultMessage").textContent =
+    message;
+
+  const reviewList =
+    document.getElementById("reviewList");
+
+  reviewList.innerHTML = "";
+
+  questions.forEach((q,index)=>{
+
+    const item =
+      document.createElement("div");
+
+    const correct =
+      answers[index] === q.answer;
+
+    item.className =
+      "review-item " +
+      (correct ? "correct" : "wrong");
+
+    item.innerHTML = `
+      <b>Q${index+1}.</b> ${q.q}<br>
+      <b>आपका उत्तर:</b>
+      ${
+        answers[index] === null
+        ? "उत्तर नहीं दिया"
+        : q.options[answers[index]]
+      }<br>
+      <b>सही उत्तर:</b>
+      ${q.options[q.answer]}
+    `;
+
+    reviewList.appendChild(item);
+  });
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+function restartTest(){
+
+  currentQuestion = 0;
+  selectedAnswer = null;
+  answers = new Array(questions.length).fill(null);
+  submitted = new Array(questions.length).fill(false);
+  score = 0;
+
+  document.getElementById("testArea").style.display = "block";
+  document.querySelector(".progress-box").style.display = "block";
+  document.querySelector(".info-box").style.display = "block";
+
+  document.getElementById("finalResult").style.display = "none";
+
+  loadQuestion();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
