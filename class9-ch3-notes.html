@@ -161,33 +161,33 @@
       color:#123b6d;
     }
 
+    /* IMAGE BOX */
     .image-slot{
       margin:16px 0;
-      min-height:150px;
-      border:2px dashed #8fb8d3;
+      border:2px solid #8fb8d3;
       border-radius:12px;
       background:#f5faff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
+      overflow:hidden;
       text-align:center;
-      color:#50718a;
-      padding:20px;
+      padding:8px;
     }
 
-    .image-slot .icon{
-      font-size:34px;
-      margin-bottom:5px;
+    .image-slot img{
+      display:block;
+      width:100%;
+      max-width:100%;
+      height:auto;
+      max-height:600px;
+      object-fit:contain;
+      margin:0 auto;
+      border-radius:8px;
     }
 
-    .image-slot strong{
+    .image-caption{
+      padding:8px 5px 4px;
       color:#2563a6;
-    }
-
-    .image-slot small{
-      margin-top:5px;
-      font-size:12px;
+      font-size:13px;
+      font-weight:bold;
     }
 
     .type-card{
@@ -272,6 +272,7 @@
     }
 
     @media(max-width:700px){
+
       .header h1{
         font-size:23px;
       }
@@ -307,11 +308,17 @@
       }
 
       .image-slot{
-        min-height:125px;
+        padding:6px;
       }
+
+      .image-slot img{
+        max-height:500px;
+      }
+
     }
 
     @media(max-width:380px){
+
       .nav-grid{
         grid-template-columns:1fr;
       }
@@ -319,6 +326,7 @@
       .header h1{
         font-size:21px;
       }
+
     }
   </style>
 </head>
@@ -326,185 +334,369 @@
 <body>
 
 <header class="header">
+
   <h1>कक्षा 9 विज्ञान — अध्याय 03</h1>
-  <h2>Tissues in Action — ऊतकों की क्रियाशीलता</h2>
-  <p>Railway Exam Oriented Science Notes</p>
+
+  <h2>
+    ऊतकों की क्रियाशीलता (Tissues in Action)
+  </h2>
+
+  <p>
+    रेलवे परीक्षा केंद्रित विज्ञान नोट्स
+    (Railway Exam Oriented Science Notes)
+  </p>
+
 </header>
+
 
 <main class="container">
 
+
   <!-- NAVIGATION -->
+
   <div class="top-nav">
+
     <h3>📚 अध्याय के मुख्य भाग</h3>
 
     <div class="nav-grid">
-      <a href="#plant">पादप ऊतक</a>
-      <a href="#meristem">विभज्योतक</a>
-      <a href="#permanent">स्थायी ऊतक</a>
-      <a href="#vascular">संवहन ऊतक</a>
-      <a href="#animal">जंतु ऊतक</a>
-      <a href="#epithelial">उपकला</a>
-      <a href="#connective">संयोजी</a>
-      <a href="#muscular">पेशीय</a>
-      <a href="#nervous">तंत्रिका</a>
-      <a href="#movement">जोड़ व गति</a>
-      <a href="#experiment">पादप प्रयोग</a>
-      <a href="#exam">Exam Important</a>
+
+      <a href="#plant">
+        पादप ऊतक (Plant Tissues)
+      </a>
+
+      <a href="#meristem">
+        विभज्योतक (Meristematic)
+      </a>
+
+      <a href="#permanent">
+        स्थायी ऊतक (Permanent)
+      </a>
+
+      <a href="#vascular">
+        संवहन ऊतक (Vascular)
+      </a>
+
+      <a href="#animal">
+        जंतु ऊतक (Animal)
+      </a>
+
+      <a href="#epithelial">
+        उपकला (Epithelial)
+      </a>
+
+      <a href="#connective">
+        संयोजी (Connective)
+      </a>
+
+      <a href="#muscular">
+        पेशीय (Muscular)
+      </a>
+
+      <a href="#nervous">
+        तंत्रिका (Nervous)
+      </a>
+
+      <a href="#movement">
+        जोड़ व गति (Joints & Movement)
+      </a>
+
+      <a href="#experiment">
+        पादप प्रयोग (Plant Experiment)
+      </a>
+
+      <a href="#exam">
+        परीक्षा महत्वपूर्ण (Exam Important)
+      </a>
+
     </div>
+
   </div>
 
 
   <!-- 1 -->
+
   <section class="section" id="plant">
-    <h2>1. पादप और जंतु ऊतक (Plant and Animal Tissues)</h2>
 
-    <p>• जंतु में <b>पेशी ऊतक (Muscular Tissue)</b> गति संभव बनाते हैं।</p>
+    <h2>
+      1. पादप और जंतु ऊतक
+      (Plant and Animal Tissues)
+    </h2>
 
-    <p>• <b>तंत्रिका ऊतक (Nervous Tissue)</b> संदेशों को शरीर के विभिन्न भागों तक पहुँचाते हैं।</p>
+    <p>
+      • जंतु में <b>पेशी ऊतक (Muscular Tissue)</b>
+      गति संभव बनाते हैं।
+    </p>
 
-    <p>• <b>जाइलम (Xylem)</b> → जल और खनिजों का परिवहन।</p>
+    <p>
+      • <b>तंत्रिका ऊतक (Nervous Tissue)</b>
+      संदेशों को शरीर के विभिन्न भागों तक पहुँचाते हैं।
+    </p>
 
-    <p>• <b>फ्लोएम (Phloem)</b> → भोजन का परिवहन।</p>
+    <p>
+      • <b>जाइलम (Xylem)</b> → जल और खनिजों का परिवहन।
+    </p>
+
+    <p>
+      • <b>फ्लोएम (Phloem)</b> → भोजन का परिवहन।
+    </p>
 
     <div class="highlight">
+
       <b>पादप और जंतु में प्रमुख अंतर:</b><br>
+
       पोषण की विधि तथा कोशिकीय लचीलेपन से संबंधित।
+
     </div>
 
     <ul>
-      <li>पादप कोशिकाएँ सामान्यतः स्थिर और दृढ़ होती हैं।</li>
-      <li>जंतु कोशिकाएँ अपेक्षाकृत लचीली होती हैं।</li>
-      <li>वृद्धि का पैटर्न भी भिन्न होता है।</li>
+
+      <li>
+        पादप कोशिकाएँ सामान्यतः स्थिर और दृढ़ होती हैं।
+      </li>
+
+      <li>
+        जंतु कोशिकाएँ अपेक्षाकृत लचीली होती हैं।
+      </li>
+
+      <li>
+        वृद्धि का पैटर्न भी भिन्न होता है।
+      </li>
+
     </ul>
+
   </section>
 
 
   <!-- 2 -->
+
   <section class="section" id="meristem">
-    <h2>2. विभज्योतक ऊतक (Meristematic Tissue)</h2>
+
+    <h2>
+      2. विभज्योतक ऊतक
+      (Meristematic Tissue)
+    </h2>
 
     <div class="definition">
+
       <b>परिभाषा:</b><br>
+
       सक्रिय रूप से विभाजित होने वाली कोशिकाओं के समूह को
-      <b>विभज्योतक ऊतक (Meristematic Tissue)</b> कहते हैं।
+      <b>विभज्योतक ऊतक (Meristematic Tissue)</b>
+      कहते हैं।
+
     </div>
 
-    <p>• पौधों की वृद्धि के लिए उत्तरदायी।</p>
+    <p>
+      • पौधों की वृद्धि के लिए उत्तरदायी।
+    </p>
+
 
     <div class="type-card">
-      <h4>1) शीर्षस्थ विभज्योतक (Apical Meristem)</h4>
+
+      <h4>
+        1) शीर्षस्थ विभज्योतक (Apical Meristem)
+      </h4>
 
       <ul>
+
         <li>लंबाई में वृद्धि।</li>
-        <li>जड़ और प्ररोह के अग्रभाग पर।</li>
-        <li>अग्रभाग का वृद्धि क्षेत्र।</li>
+
+        <li>
+          जड़ और प्ररोह के अग्रभाग पर।
+        </li>
+
+        <li>
+          अग्रभाग का वृद्धि क्षेत्र।
+        </li>
+
       </ul>
+
     </div>
 
+
     <div class="type-card">
-      <h4>2) पार्श्व विभज्योतक (Lateral Meristem)</h4>
+
+      <h4>
+        2) पार्श्व विभज्योतक (Lateral Meristem)
+      </h4>
 
       <ul>
-        <li>परिधि/मोटाई में वृद्धि।</li>
-        <li>द्विबीजपत्री पौधों में लंबाई के साथ परिधि वृद्धि।</li>
-        <li>तना मोटा होता है।</li>
+
+        <li>
+          परिधि/मोटाई में वृद्धि।
+        </li>
+
+        <li>
+          द्विबीजपत्री पौधों में लंबाई के साथ
+          परिधि वृद्धि।
+        </li>
+
+        <li>
+          तना मोटा होता है।
+        </li>
+
         <li>
           कुछ पेड़ों के वार्षिक वलय चौड़े/संकरे,
-          अनुकूल/प्रतिकूल वृद्धि परिस्थितियों का संकेत देते हैं।
+          अनुकूल/प्रतिकूल वृद्धि परिस्थितियों का
+          संकेत देते हैं।
         </li>
+
       </ul>
+
     </div>
+
 
     <div class="type-card">
-      <h4>3) अंतर्वेशी विभज्योतक (Intercalary Meristem)</h4>
+
+      <h4>
+        3) अंतर्वेशी विभज्योतक (Intercalary Meristem)
+      </h4>
 
       <ul>
-        <li>पर्व के आधार पर या पर्वसंधि के ठीक ऊपर।</li>
-        <li>काट दिए जाने के बाद भी वृद्धि संभव।</li>
+
+        <li>
+          पर्व के आधार पर या पर्वसंधि के ठीक ऊपर।
+        </li>
+
+        <li>
+          काट दिए जाने के बाद भी वृद्धि संभव।
+        </li>
+
       </ul>
+
     </div>
+
 
     <div class="important">
-      <b>⭐ Important Terms</b>
+
+      <b>⭐ महत्वपूर्ण शब्द (Important Terms)</b>
 
       <p>
-        <b>पर्वसंधि (Node)</b> → तने का बिंदु जहाँ शाखा/पत्ती निकलती है।
+        <b>पर्वसंधि (Node)</b>
+        → तने का बिंदु जहाँ शाखा/पत्ती निकलती है।
       </p>
 
       <p>
-        <b>पर्व (Internode)</b> → दो पर्वसंधियों के बीच भाग।
+        <b>पर्व (Internode)</b>
+        → दो पर्वसंधियों के बीच भाग।
       </p>
+
     </div>
+
+
+    <!-- IMAGE 1 -->
 
     <div class="image-slot">
-      <div class="icon">🌱</div>
-      <strong>यहाँ विभज्योतक ऊतक का चित्र जोड़ें</strong>
-      <small>Suggested file: meristematic-tissue.jpg</small>
+
+      <img
+        src="meristematic-tissue.jpg"
+        alt="विभज्योतक ऊतक (Meristematic Tissue)"
+      >
+
+      <div class="image-caption">
+        विभज्योतक ऊतक (Meristematic Tissue)
+      </div>
+
     </div>
+
   </section>
 
 
   <!-- 3 -->
+
   <section class="section">
 
-    <h2>3. विभज्योतक ऊतक की कोशिकाओं की विशेषताएँ</h2>
+    <h2>
+      3. विभज्योतक ऊतक की कोशिकाओं की विशेषताएँ
+      (Features of Meristematic Tissue Cells)
+    </h2>
 
     <div class="two-col">
 
-      <div class="card">🔹 छोटी कोशिकाएँ।</div>
+      <div class="card">
+        🔹 छोटी कोशिकाएँ।
+      </div>
 
-      <div class="card">🔹 पतली कोशिका भित्ति।</div>
+      <div class="card">
+        🔹 पतली कोशिका भित्ति।
+      </div>
 
-      <div class="card">🔹 बड़ा और सुस्पष्ट केंद्रक।</div>
+      <div class="card">
+        🔹 बड़ा और सुस्पष्ट केंद्रक।
+      </div>
 
-      <div class="card">🔹 सघन कोशिकाद्रव्य।</div>
+      <div class="card">
+        🔹 सघन कोशिकाद्रव्य।
+      </div>
 
-      <div class="card">🔹 रसधानियाँ सामान्यतः नहीं होतीं।</div>
+      <div class="card">
+        🔹 रसधानियाँ सामान्यतः नहीं होतीं।
+      </div>
 
-      <div class="card">🔹 सघन व्यवस्था।</div>
+      <div class="card">
+        🔹 सघन व्यवस्था।
+      </div>
 
-      <div class="card">🔹 विभाजन क्षमता।</div>
+      <div class="card">
+        🔹 विभाजन क्षमता।
+      </div>
 
     </div>
 
     <div class="highlight">
-      कोशिकाएँ विभाजन करती रहती हैं और स्थायी ऊतकों का निर्माण करती हैं।
+
+      कोशिकाएँ विभाजन करती रहती हैं और
+      स्थायी ऊतकों का निर्माण करती हैं।
+
     </div>
 
     <div class="definition">
+
       <b>विभेदन (Differentiation):</b><br>
-      जब कोशिकाएँ सहारा, परिवहन, भंडारण आदि विशिष्ट कार्यों के लिए
-      विशेष रूप धारण करती हैं।
+
+      जब कोशिकाएँ सहारा, परिवहन, भंडारण आदि
+      विशिष्ट कार्यों के लिए विशेष रूप धारण करती हैं।
+
     </div>
 
   </section>
 
 
   <!-- 4 -->
+
   <section class="section" id="permanent">
 
-    <h2>4. स्थायी ऊतक (Permanent Tissue)</h2>
+    <h2>
+      4. स्थायी ऊतक (Permanent Tissue)
+    </h2>
 
     <p>
-      विभेदन के बाद बनने वाले ऊतक <b>स्थायी ऊतक (Permanent Tissue)</b> कहलाते हैं।
+      विभेदन के बाद बनने वाले ऊतक
+      <b>स्थायी ऊतक (Permanent Tissue)</b>
+      कहलाते हैं।
     </p>
 
     <p>
-      ये सरल या जटिल, एक या अधिक प्रकार की कोशिकाओं से बने हो सकते हैं।
+      ये सरल या जटिल, एक या अधिक प्रकार की कोशिकाओं
+      से बने हो सकते हैं।
     </p>
 
     <div class="two-col">
 
       <div class="card">
-        <b>1.</b> सुरक्षात्मक ऊतक (Protective Tissue)
+        <b>1.</b>
+        सुरक्षात्मक ऊतक (Protective Tissue)
       </div>
 
       <div class="card">
-        <b>2.</b> सहायक/सरल स्थायी ऊतक (Supporting/Simple Permanent Tissue)
+        <b>2.</b>
+        सहायक/सरल स्थायी ऊतक
+        (Supporting/Simple Permanent Tissue)
       </div>
 
       <div class="card">
-        <b>3.</b> संवहन ऊतक (Vascular Tissue)
+        <b>3.</b>
+        संवहन ऊतक (Vascular Tissue)
       </div>
 
     </div>
@@ -513,86 +705,128 @@
 
 
   <!-- 5 -->
+
   <section class="section">
 
-    <h2>5. सुरक्षात्मक ऊतक — बाह्यत्वचा (Epidermis)</h2>
+    <h2>
+      5. सुरक्षात्मक ऊतक — बाह्यत्वचा
+      (Protective Tissue — Epidermis)
+    </h2>
 
-    <p>• सबसे बाहरी परत।</p>
+    <p>
+      • सबसे बाहरी परत।
+    </p>
 
-    <h3>कार्य (Functions)</h3>
+    <h3>
+      कार्य (Functions)
+    </h3>
 
     <ul>
+
       <li>क्षति से बचाना।</li>
+
       <li>जल की हानि कम करना।</li>
-      <li>हानिकारक सूक्ष्मजीवों से रक्षा।</li>
-    </ul>
-
-    <h3>बाह्यत्वचा (Epidermis) की विशेषताएँ</h3>
-
-    <ul>
-      <li>सबसे बाहरी परत।</li>
 
       <li>
-        सामान्यतः चपटी और सघन रूप से व्यवस्थित कोशिकाओं की एकल परत।
+        हानिकारक सूक्ष्मजीवों से रक्षा।
+      </li>
+
+    </ul>
+
+
+    <h3>
+      बाह्यत्वचा (Epidermis) की विशेषताएँ
+    </h3>
+
+    <ul>
+
+      <li>
+        सबसे बाहरी परत।
       </li>
 
       <li>
-        क्यूटिन (Cutin) मोमी पदार्थ की परत से ढकी हो सकती है।
+        सामान्यतः चपटी और सघन रूप से व्यवस्थित
+        कोशिकाओं की एकल परत।
+      </li>
+
+      <li>
+        क्यूटिन (Cutin) मोमी पदार्थ की परत से
+        ढकी हो सकती है।
       </li>
 
       <li>
         शुष्क स्थानों में क्यूटिन मोटी होती है,
         जिससे जल हानि कम होती है।
       </li>
+
     </ul>
+
 
     <div class="type-card">
 
-      <h4>🌱 मूल रोम (Root Hair)</h4>
+      <h4>
+        🌱 मूल रोम (Root Hair)
+      </h4>
 
       <ul>
+
         <li>
-          जड़ों की बाह्यत्वचा कोशिकाओं में बाल जैसे उभार।
+          जड़ों की बाह्यत्वचा कोशिकाओं में
+          बाल जैसे उभार।
         </li>
 
         <li>
           जल और खनिजों के अवशोषण में सहायता।
         </li>
+
       </ul>
 
     </div>
+
 
     <div class="type-card">
 
-      <h4>🍃 रंध्र (Stomata)</h4>
+      <h4>
+        🍃 रंध्र (Stomata)
+      </h4>
 
       <ul>
-        <li>पत्तियों की बाह्यत्वचा में छोटे छिद्र।</li>
+
+        <li>
+          पत्तियों की बाह्यत्वचा में छोटे छिद्र।
+        </li>
+
         <li>गैसीय विनिमय।</li>
+
         <li>वाष्पोत्सर्जन।</li>
+
       </ul>
 
     </div>
+
 
     <div class="definition">
 
       <b>वाष्पोत्सर्जन (Transpiration):</b><br>
 
-      पौधे के वायवीय भागों से जल का जलवाष्प के रूप में बाहर निकलना।
+      पौधे के वायवीय भागों से जल का जलवाष्प
+      के रूप में बाहर निकलना।
 
     </div>
 
+
+    <!-- IMAGE 2 -->
+
     <div class="image-slot">
 
-      <div class="icon">🍃</div>
+      <img
+        src="stomata-epidermis.jpg"
+        alt="रंध्र और बाह्यत्वचा (Stomata and Epidermis)"
+      >
 
-      <strong>
-        यहाँ रंध्र / बाह्यत्वचा (Stomata / Epidermis) का चित्र जोड़ें
-      </strong>
-
-      <small>
-        Suggested file: stomata-epidermis.jpg
-      </small>
+      <div class="image-caption">
+        रंध्र / बाह्यत्वचा (Stomata / Epidermis)
+      </div>
 
     </div>
 
@@ -600,23 +834,40 @@
 
 
   <!-- 6 -->
+
   <section class="section">
 
-    <h2>6. सरल स्थायी ऊतक (Simple Permanent Tissue)</h2>
+    <h2>
+      6. सरल स्थायी ऊतक
+      (Simple Permanent Tissue)
+    </h2>
+
 
     <div class="type-card">
 
-      <h4>1) मृदुतक (Parenchyma)</h4>
+      <h4>
+        1) मृदुतक (Parenchyma)
+      </h4>
 
       <ul>
-        <li>पतली भित्ति वाली जीवित कोशिकाएँ।</li>
-        <li>विरल व्यवस्था।</li>
-        <li>अंतःकोशिकीय अवकाश।</li>
-        <li>भोजन भंडारण।</li>
-        <li>हरे भागों में प्रकाश संश्लेषण।</li>
+
         <li>
-          जलीय पौधों में वायु गुहिकाएँ, तैरने में सहायता।
+          पतली भित्ति वाली जीवित कोशिकाएँ।
         </li>
+
+        <li>विरल व्यवस्था।</li>
+
+        <li>अंतःकोशिकीय अवकाश।</li>
+
+        <li>भोजन भंडारण।</li>
+
+        <li>हरे भागों में प्रकाश संश्लेषण।</li>
+
+        <li>
+          जलीय पौधों में वायु गुहिकाएँ,
+          तैरने में सहायता।
+        </li>
+
       </ul>
 
     </div>
@@ -624,17 +875,23 @@
 
     <div class="type-card">
 
-      <h4>2) श्लेषोतक (Collenchyma)</h4>
+      <h4>
+        2) श्लेषोतक (Collenchyma)
+      </h4>
 
       <ul>
+
         <li>जीवित कोशिकाएँ।</li>
 
         <li>
-          कोनों पर पेक्टिन आदि के जमाव से कोशिका भित्ति
-          असमान रूप से मोटी।
+          कोनों पर पेक्टिन आदि के जमाव से
+          कोशिका भित्ति असमान रूप से मोटी।
         </li>
 
-        <li>सहारा और लचीलापन।</li>
+        <li>
+          सहारा और लचीलापन।
+        </li>
+
       </ul>
 
     </div>
@@ -642,32 +899,45 @@
 
     <div class="type-card">
 
-      <h4>3) दृढ़ोतक (Sclerenchyma)</h4>
+      <h4>
+        3) दृढ़ोतक (Sclerenchyma)
+      </h4>
 
       <ul>
-        <li>लिग्निन जमाव से भित्तियाँ मोटी/दृढ़।</li>
-        <li>अधिकांश कोशिकाएँ मृत।</li>
-        <li>मजबूती।</li>
+
         <li>
-          <b>उदाहरण:</b> नारियल के रेशे, अखरोट के छिलके।
+          लिग्निन जमाव से भित्तियाँ मोटी/दृढ़।
         </li>
+
+        <li>
+          अधिकांश कोशिकाएँ मृत।
+        </li>
+
+        <li>मजबूती।</li>
+
+        <li>
+          <b>उदाहरण:</b>
+          नारियल के रेशे, अखरोट के छिलके।
+        </li>
+
       </ul>
 
     </div>
 
 
+    <!-- IMAGE 3 -->
+
     <div class="image-slot">
 
-      <div class="icon">🔬</div>
+      <img
+        src="simple-permanent-tissues.jpg"
+        alt="मृदुतक, श्लेषोतक और दृढ़ोतक"
+      >
 
-      <strong>
-        यहाँ मृदुतक, श्लेषोतक और दृढ़ोतक
-        (Parenchyma, Collenchyma & Sclerenchyma) का चित्र जोड़ें
-      </strong>
-
-      <small>
-        Suggested file: simple-permanent-tissues.jpg
-      </small>
+      <div class="image-caption">
+        मृदुतक, श्लेषोतक और दृढ़ोतक
+        (Parenchyma, Collenchyma & Sclerenchyma)
+      </div>
 
     </div>
 
@@ -675,77 +945,119 @@
 
 
   <!-- 7 -->
+
   <section class="section" id="vascular">
 
-    <h2>7. संवहन ऊतक (Vascular Tissue)</h2>
+    <h2>
+      7. संवहन ऊतक (Vascular Tissue)
+    </h2>
 
     <p>
-      संवहन ऊतक <b>जटिल स्थायी ऊतक (Complex Permanent Tissue)</b> हैं।
+      संवहन ऊतक
+      <b>जटिल स्थायी ऊतक (Complex Permanent Tissue)</b>
+      हैं।
     </p>
 
     <div class="two-col">
 
       <div class="card">
+
         <b>जाइलम (Xylem)</b><br>
+
         जल और खनिजों का परिवहन
+
       </div>
 
       <div class="card">
+
         <b>फ्लोएम (Phloem)</b><br>
+
         भोजन का परिवहन
+
       </div>
 
     </div>
 
 
-    <h3>जाइलम (Xylem)</h3>
+    <h3>
+      जाइलम (Xylem)
+    </h3>
 
     <ul>
+
       <li>जल परिवहन।</li>
+
       <li>खनिज परिवहन।</li>
+
       <li>कुछ यांत्रिक दृढ़ता।</li>
+
     </ul>
 
 
-    <h3>जाइलम के घटक (Components of Xylem)</h3>
+    <h3>
+      जाइलम के घटक (Components of Xylem)
+    </h3>
 
     <ul>
-      <li>वाहिनिकाएँ (Tracheids)</li>
-      <li>वाहिकाएँ (Vessels)</li>
-      <li>जाइलम तंतु (Xylem Fibres)</li>
-      <li>जाइलम मृदुतक (Xylem Parenchyma)</li>
+
+      <li>
+        वाहिनिकाएँ (Tracheids)
+      </li>
+
+      <li>
+        वाहिकाएँ (Vessels)
+      </li>
+
+      <li>
+        जाइलम तंतु (Xylem Fibres)
+      </li>
+
+      <li>
+        जाइलम मृदुतक (Xylem Parenchyma)
+      </li>
+
     </ul>
 
 
     <div class="highlight">
 
-      <b>⭐ जाइलम मृदुतक (Xylem Parenchyma)</b>
+      <b>
+        ⭐ जाइलम मृदुतक (Xylem Parenchyma)
+      </b>
+
       → जाइलम का प्रमुख जीवित घटक।
 
     </div>
 
 
     <p>
-      Tracheids, Vessels और Xylem Fibres सामान्यतः
+
+      वाहिनिकाएँ (Tracheids), वाहिकाएँ (Vessels)
+      और जाइलम तंतु (Xylem Fibres) सामान्यतः
       दृढ़ोतकीय और अधिकतर मृत होते हैं।
+
     </p>
 
     <p>
-      Tracheids और Vessels नलिकाकार तथा मोटी भित्तियों वाले होते हैं।
+
+      वाहिनिकाएँ (Tracheids) और वाहिकाएँ (Vessels)
+      नलिकाकार तथा मोटी भित्तियों वाले होते हैं।
+
     </p>
 
 
+    <!-- IMAGE 4 -->
+
     <div class="image-slot">
 
-      <div class="icon">🌿</div>
+      <img
+        src="xylem-structure.jpg"
+        alt="जाइलम संरचना (Xylem Structure)"
+      >
 
-      <strong>
-        यहाँ जाइलम (Xylem) की संरचना का चित्र जोड़ें
-      </strong>
-
-      <small>
-        Suggested file: xylem-structure.jpg
-      </small>
+      <div class="image-caption">
+        जाइलम की संरचना (Xylem Structure)
+      </div>
 
     </div>
 
@@ -753,34 +1065,48 @@
 
 
   <!-- 8 -->
+
   <section class="section">
 
-    <h2>8. फ्लोएम (Phloem)</h2>
+    <h2>
+      8. फ्लोएम (Phloem)
+    </h2>
 
     <p>
       फ्लोएम का मुख्य कार्य
-      <b>भोजन/कार्बनिक पदार्थ का परिवहन</b> है।
+      <b>भोजन/कार्बनिक पदार्थ का परिवहन</b>
+      है।
     </p>
 
 
-    <h3>फ्लोएम के घटक (Components of Phloem)</h3>
+    <h3>
+      फ्लोएम के घटक (Components of Phloem)
+    </h3>
 
     <div class="two-col">
 
       <div class="card">
-        <b>चालनी नलिकाएँ (Sieve Tubes)</b>
+        <b>
+          चालनी नलिकाएँ (Sieve Tubes)
+        </b>
       </div>
 
       <div class="card">
-        <b>सहचर कोशिकाएँ (Companion Cells)</b>
+        <b>
+          सहचर कोशिकाएँ (Companion Cells)
+        </b>
       </div>
 
       <div class="card">
-        <b>फ्लोएम मृदुतक (Phloem Parenchyma)</b>
+        <b>
+          फ्लोएम मृदुतक (Phloem Parenchyma)
+        </b>
       </div>
 
       <div class="card">
-        <b>फ्लोएम तंतु (Phloem Fibres)</b>
+        <b>
+          फ्लोएम तंतु (Phloem Fibres)
+        </b>
       </div>
 
     </div>
@@ -788,10 +1114,13 @@
 
     <div class="type-card">
 
-      <h4>चालनी नलिकाएँ (Sieve Tubes)</h4>
+      <h4>
+        चालनी नलिकाएँ (Sieve Tubes)
+      </h4>
 
       <p>
-        कुछ कोशिकाएँ लंबी/नलिकाकार, छिद्रित भित्तियों से जुड़ी होती हैं,
+        कुछ कोशिकाएँ लंबी/नलिकाकार,
+        छिद्रित भित्तियों से जुड़ी होती हैं,
         जो मिलकर चालनी नलिकाएँ बनाती हैं।
       </p>
 
@@ -800,18 +1129,23 @@
 
     <div class="type-card">
 
-      <h4>सहचर कोशिकाएँ (Companion Cells)</h4>
+      <h4>
+        सहचर कोशिकाएँ (Companion Cells)
+      </h4>
 
       <ul>
+
         <li>जीवित।</li>
 
         <li>
-          चालनी नलिकाओं की कोशिकीय गतिविधियों को नियंत्रित करना।
+          चालनी नलिकाओं की कोशिकीय गतिविधियों
+          को नियंत्रित करना।
         </li>
 
         <li>
           शर्करा के loading में सहायता।
         </li>
+
       </ul>
 
     </div>
@@ -819,10 +1153,13 @@
 
     <div class="type-card">
 
-      <h4>फ्लोएम मृदुतक (Phloem Parenchyma)</h4>
+      <h4>
+        फ्लोएम मृदुतक (Phloem Parenchyma)
+      </h4>
 
       <p>
-        Resin, Tannin और Latex का भंडारण।
+        रेजिन (Resin), टैनिन (Tannin) और
+        लेटेक्स (Latex) का भंडारण।
       </p>
 
     </div>
@@ -830,7 +1167,9 @@
 
     <div class="type-card">
 
-      <h4>फ्लोएम तंतु (Phloem Fibres)</h4>
+      <h4>
+        फ्लोएम तंतु (Phloem Fibres)
+      </h4>
 
       <p>
         फ्लोएम को दृढ़ता प्रदान करते हैं।
@@ -839,17 +1178,18 @@
     </div>
 
 
+    <!-- IMAGE 5 -->
+
     <div class="image-slot">
 
-      <div class="icon">🌿</div>
+      <img
+        src="phloem-structure.jpg"
+        alt="फ्लोएम संरचना (Phloem Structure)"
+      >
 
-      <strong>
-        यहाँ फ्लोएम (Phloem) की संरचना का चित्र जोड़ें
-      </strong>
-
-      <small>
-        Suggested file: phloem-structure.jpg
-      </small>
+      <div class="image-caption">
+        फ्लोएम की संरचना (Phloem Structure)
+      </div>
 
     </div>
 
@@ -857,21 +1197,29 @@
 
 
   <!-- 9 -->
+
   <section class="section">
 
-    <h2>9. पादप ऊतक तंत्र (Plant Tissue System)</h2>
+    <h2>
+      9. पादप ऊतक तंत्र (Plant Tissue System)
+    </h2>
 
 
     <div class="type-card">
 
       <h4>
-        1) त्वचीय ऊतक तंत्र (Dermal Tissue System)
+        1) त्वचीय ऊतक तंत्र
+        (Dermal Tissue System)
       </h4>
 
       <ul>
+
         <li>बाहरी आवरण।</li>
+
         <li>आंतरिक रक्षा।</li>
+
         <li>जल हानि कम।</li>
+
       </ul>
 
     </div>
@@ -880,12 +1228,20 @@
     <div class="type-card">
 
       <h4>
-        2) भरण ऊतक तंत्र (Ground Tissue System)
+        2) भरण ऊतक तंत्र
+        (Ground Tissue System)
       </h4>
 
       <ul>
-        <li>त्वचीय और संवहन ऊतक के बीच।</li>
-        <li>मृदुतक, श्लेषोतक, दृढ़ोतक।</li>
+
+        <li>
+          त्वचीय और संवहन ऊतक के बीच।
+        </li>
+
+        <li>
+          मृदुतक, श्लेषोतक, दृढ़ोतक।
+        </li>
+
       </ul>
 
     </div>
@@ -894,12 +1250,16 @@
     <div class="type-card">
 
       <h4>
-        3) संवहन ऊतक तंत्र (Vascular Tissue System)
+        3) संवहन ऊतक तंत्र
+        (Vascular Tissue System)
       </h4>
 
       <ul>
+
         <li>जाइलम, फ्लोएम।</li>
+
         <li>पदार्थों का परिवहन।</li>
+
       </ul>
 
     </div>
@@ -908,26 +1268,33 @@
 
 
   <!-- 10 -->
+
   <section class="section" id="animal">
 
-    <h2>10. जंतु ऊतक (Animal Tissues)</h2>
+    <h2>
+      10. जंतु ऊतक (Animal Tissues)
+    </h2>
 
     <div class="two-col">
 
       <div class="card">
-        🧱 <b>उपकला ऊतक (Epithelial Tissue)</b>
+        🧱
+        <b>उपकला ऊतक (Epithelial Tissue)</b>
       </div>
 
       <div class="card">
-        🔗 <b>संयोजी ऊतक (Connective Tissue)</b>
+        🔗
+        <b>संयोजी ऊतक (Connective Tissue)</b>
       </div>
 
       <div class="card">
-        💪 <b>पेशीय ऊतक (Muscular Tissue)</b>
+        💪
+        <b>पेशीय ऊतक (Muscular Tissue)</b>
       </div>
 
       <div class="card">
-        🧠 <b>तंत्रिका ऊतक (Nervous Tissue)</b>
+        🧠
+        <b>तंत्रिका ऊतक (Nervous Tissue)</b>
       </div>
 
     </div>
@@ -936,1103 +1303,9 @@
 
 
   <!-- 11 -->
+
   <section class="section" id="epithelial">
 
-    <h2>11. उपकला ऊतक (Epithelial Tissue)</h2>
-
-    <p>
-      बाहरी आवरण और आंतरिक अंगों की परत।
-    </p>
-
-    <p>
-      <b>उदाहरण:</b>
-      त्वचा, मुँह, फेफड़े, रक्त वाहिकाएँ, आंत का अस्तर।
-    </p>
-
-    <div class="highlight">
-      सघन कोशिकाएँ और कम अंतराल।
-    </div>
-
-    <p>
-      मुख्य कार्य: जल हानि कम करना, पदार्थों का अवशोषण,
-      स्रवण तथा गति।
-    </p>
-
-
-    <h3>उपकला ऊतक के कार्य (Functions)</h3>
-
-
-    <div class="type-card">
-
-      <h4>1) विनिमय (Exchange)</h4>
-
-      <p>
-        गैस आदि का विनिमय।
-      </p>
-
-      <p>
-        <b>उदाहरण:</b>
-        रक्त वाहिका की आंतरिक परत (Blood Vessel Inner Lining),
-        फेफड़ों की परत (Lung Lining)।
-      </p>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>2) सुरक्षा (Protection)</h4>
-
-      <p>
-        घर्षण, सूक्ष्मजीवों और आंतरिक भागों की रक्षा।
-      </p>
-
-      <p>
-        <b>उदाहरण:</b>
-        त्वचा (Skin), मुँह (Mouth), श्वासनली (Trachea)।
-      </p>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>3) स्रवण (Secretion)</h4>
-
-      <p>
-        श्लेष्मा (Mucus), एंजाइम (Enzymes), हार्मोन (Hormones),
-        पसीना (Sweat), लार (Saliva) का स्रवण।
-      </p>
-
-      <p>
-        <b>उदाहरण:</b>
-        लार ग्रंथियाँ (Salivary Glands),
-        पसीना ग्रंथियाँ (Sweat Glands), आमाशय (Stomach)।
-      </p>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>4) संवेदी कार्य (Sensory Function)</h4>
-
-      <p>
-        गंध, स्वाद, ध्वनि तथा संतुलन का अनुभव।
-      </p>
-
-      <p>
-        <b>उदाहरण:</b>
-        नासिका/घ्राण क्षेत्र (Nasal/Olfactory Region),
-        स्वाद कलिकाएँ (Taste Buds), आंतरिक कान (Inner Ear)।
-      </p>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>5) अवशोषण (Absorption)</h4>
-
-      <p>
-        पोषक पदार्थों और जल का अवशोषण।
-      </p>
-
-      <p>
-        <b>उदाहरण:</b>
-        छोटी आँत की परत (Small Intestine Lining)।
-      </p>
-
-    </div>
-
-
-    <div class="highlight">
-
-      कुछ उपकला कोशिकाओं में
-      <b>रोम (Cilia)</b> पाए जाते हैं।
-
-    </div>
-
-
-    <p>
-      छोटी आँत की उपकला में स्तंभाकार कोशिकाएँ तथा
-      अवशोषण के लिए विशेष संरचनाएँ
-      <b>सूक्ष्मांकुर (Microvilli)</b> पाई जाती हैं।
-    </p>
-
-  </section>
-
-
-  <!-- 12 -->
-  <section class="section" id="connective">
-
-    <h2>12. संयोजी ऊतक (Connective Tissue)</h2>
-
-    <p>
-      संयोजी ऊतक विभिन्न ऊतकों और अंगों को जोड़ता तथा सहारा देता है।
-    </p>
-
-    <p>
-      <b>उदाहरण:</b>
-      रक्त (Blood), हड्डी (Bone), उपास्थि (Cartilage),
-      कंडरा (Tendon), स्नायुबंधन (Ligament)।
-    </p>
-
-    <div class="highlight">
-
-      कोशिकाएँ बाह्यकोशिकीय आधात्री
-      (Extracellular Matrix) में स्थित होती हैं।
-      Matrix के कारण इनके गुण अलग-अलग होते हैं।
-
-    </div>
-
-
-    <h3>रक्त (Blood)</h3>
-
-    <p>
-      रक्त एक <b>तरल संयोजी ऊतक (Liquid Connective Tissue)</b> है।
-    </p>
-
-    <p>
-      पोषक पदार्थों, गैसों तथा हार्मोनों (Hormones) का परिवहन करता है।
-    </p>
-
-
-    <h3>रक्त के घटक (Components of Blood)</h3>
-
-    <div class="two-col">
-
-      <div class="card">
-        <b>प्लाज्मा (Plasma)</b>
-      </div>
-
-      <div class="card">
-        <b>लाल रक्त कोशिकाएँ (RBC)</b>
-      </div>
-
-      <div class="card">
-        <b>श्वेत रक्त कोशिकाएँ (WBC)</b>
-      </div>
-
-      <div class="card">
-        <b>प्लेटलेट्स (Platelets)</b>
-      </div>
-
-    </div>
-
-
-    <div class="important">
-
-      लगभग <b>55% Plasma</b> और
-      <b>45% Formed Elements</b>।
-
-    </div>
-
-
-    <h3>लाल रक्त कोशिकाएँ (RBC)</h3>
-
-    <ul>
-
-      <li>
-        हीमोग्लोबिन (Hemoglobin) के कारण लाल रंग।
-      </li>
-
-      <li>
-        हीमोग्लोबिन iron-rich protein है।
-      </li>
-
-      <li>
-        लगभग 4 महीने का जीवनकाल।
-      </li>
-
-      <li>
-        नियमित रूप से replacement होता है।
-      </li>
-
-    </ul>
-
-
-    <h3>प्लेटलेट्स (Platelets)</h3>
-
-    <p>
-      चोट लगने पर रक्त का थक्का बनने में सहायता करते हैं।
-    </p>
-
-
-    <h3>श्वेत रक्त कोशिकाएँ (WBC)</h3>
-
-    <ul>
-
-      <li>
-        संक्रमण से रक्षा।
-      </li>
-
-      <li>
-        संक्रमित स्थान पर इनके जमा होने से pus बन सकता है।
-      </li>
-
-    </ul>
-
-  </section>
-
-
-  <!-- 13-16 -->
-  <section class="section">
-
     <h2>
-      13–16. हड्डी, उपास्थि, कंडरा और स्नायुबंधन
-    </h2>
-
-
-    <div class="type-card">
-
-      <h4>🦴 हड्डी (Bone)</h4>
-
-      <ul>
-
-        <li>
-          दृढ़ता, सहारा और सुरक्षा।
-        </li>
-
-        <li>
-          <b>उदाहरण:</b>
-          खोपड़ी (Skull), पसलियाँ (Ribs), कोहनी की हड्डियाँ (Elbow Bones)।
-        </li>
-
-        <li>
-          Matrix में calcium और phosphorus salts होते हैं,
-          जिससे bone कठोर होती है।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>🦴 उपास्थि (Cartilage)</h4>
-
-      <ul>
-
-        <li>
-          नरम और लचीला।
-        </li>
-
-        <li>
-          शरीर के कुछ भागों में लचीलापन प्रदान करता है।
-        </li>
-
-        <li>
-          <b>उदाहरण:</b>
-          कान (Ear), नाक (Nose)।
-        </li>
-
-        <li>
-          अपेक्षाकृत नरम jelly-like matrix।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>💪 कंडरा (Tendon)</h4>
-
-      <ul>
-
-        <li>
-          मांसपेशी को हड्डी से जोड़ता है।
-        </li>
-
-        <li>
-          <b>उदाहरण:</b>
-          उँगलियों की मांसपेशियों को हड्डियों से जोड़ना।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>🔗 स्नायुबंधन (Ligament)</h4>
-
-      <ul>
-
-        <li>
-          हड्डी को हड्डी से जोड़ता है।
-        </li>
-
-        <li>
-          <b>उदाहरण:</b>
-          घुटने का जोड़ (Knee Joint)।
-        </li>
-
-      </ul>
-
-    </div>
-
-  </section>
-
-
-  <!-- 17 -->
-  <section class="section" id="movement">
-
-    <h2>17. शरीर की गति का नियंत्रण (Body Movement Control)</h2>
-
-    <div class="two-col">
-
-      <div class="card">
-
-        <strong>
-          ऐच्छिक गति (Voluntary Movement)
-        </strong>
-
-        <p>
-          अपनी इच्छा के अनुसार होने वाली गति।
-        </p>
-
-        <p>
-          <b>उदाहरण:</b>
-          चलना, लिखना, वस्तु उठाना।
-        </p>
-
-      </div>
-
-
-      <div class="card">
-
-        <strong>
-          अनैच्छिक गति (Involuntary Movement)
-        </strong>
-
-        <p>
-          अपनी इच्छा के अनुसार नहीं होने वाली गति।
-        </p>
-
-        <p>
-          <b>उदाहरण:</b>
-          हृदय की धड़कन (Heartbeat),
-          पलक झपकना (Blinking), पाचन (Digestion)।
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- 18 -->
-  <section class="section" id="muscular">
-
-    <h2>18. पेशीय ऊतक (Muscular Tissue)</h2>
-
-    <p>
-      मांसपेशी कोशिकाएँ लंबी होती हैं,
-      जिन्हें <b>मांसपेशी तंतु (Muscle Fibres)</b> कहा जाता है।
-    </p>
-
-
-    <div class="type-card">
-
-      <h4>
-        1) कंकालीय/ऐच्छिक पेशी
-        (Skeletal / Voluntary Muscle)
-      </h4>
-
-      <ul>
-
-        <li>
-          लंबी बेलनाकार कोशिकाएँ (Cylindrical Cells)।
-        </li>
-
-        <li>
-          सामान्यतः अशाखित तंतु (Unbranched Fibres)।
-        </li>
-
-        <li>
-          अनेक केंद्रक (Many Nuclei)।
-        </li>
-
-        <li>
-          धारियाँ (Striations) पाई जाती हैं।
-        </li>
-
-        <li>
-          मुख्यतः ऐच्छिक (Voluntary)।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>
-        2) चिकनी/अनैच्छिक पेशी
-        (Smooth / Involuntary Muscle)
-      </h4>
-
-      <ul>
-
-        <li>
-          सामान्यतः एक केंद्रक (One Nucleus)।
-        </li>
-
-        <li>
-          धारियाँ (Striations) नहीं होतीं।
-        </li>
-
-        <li>
-          अनैच्छिक (Involuntary)।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>
-        3) हृदय पेशी (Cardiac Muscle)
-      </h4>
-
-      <ul>
-
-        <li>
-          बेलनाकार और शाखित (Cylindrical and Branched)।
-        </li>
-
-        <li>
-          धारियाँ (Striations) पाई जाती हैं।
-        </li>
-
-        <li>
-          सामान्यतः एक केंद्रक।
-        </li>
-
-        <li>
-          अनैच्छिक (Involuntary)।
-        </li>
-
-        <li>
-          हृदय की धड़कन (Heartbeat) के लिए जिम्मेदार।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="image-slot">
-
-      <div class="icon">💪</div>
-
-      <strong>
-        यहाँ तीन प्रकार के पेशीय ऊतक
-        (Types of Muscular Tissue) का चित्र जोड़ें
-      </strong>
-
-      <small>
-        Suggested file: muscular-tissue-types.jpg
-      </small>
-
-    </div>
-
-  </section>
-
-
-  <!-- 19 -->
-  <section class="section" id="nervous">
-
-    <h2>19. तंत्रिका ऊतक (Nervous Tissue)</h2>
-
-    <p>
-      तंत्रिका ऊतक की कोशिकाओं को
-      <b>तंत्रिका कोशिका (Neuron)</b> कहा जाता है।
-    </p>
-
-    <p>
-      यह signals को प्राप्त और transmit करता है।
-    </p>
-
-
-    <div class="type-card">
-
-      <h4>
-        1) कोशिका काय (Cell Body)
-      </h4>
-
-      <p>
-        इसमें केंद्रक (Nucleus) होता है और यह
-        कोशिका की गतिविधियों को नियंत्रित करता है।
-      </p>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>
-        2) द्रुमिका (Dendrite)
-      </h4>
-
-      <p>
-        अन्य neurons या sensory cells से signals प्राप्त करता है।
-      </p>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>
-        3) अक्षतंतु (Axon)
-      </h4>
-
-      <p>
-        message को आगे ले जाता है।
-        इसका अंतिम भाग <b>अक्षतंतु सिरा (Axon Terminal)</b> कहलाता है।
-      </p>
-
-    </div>
-
-
-    <div class="image-slot">
-
-      <div class="icon">🧠</div>
-
-      <strong>
-        यहाँ तंत्रिका कोशिका (Neuron) का Labeled Diagram जोड़ें
-      </strong>
-
-      <small>
-        Suggested file: neuron-diagram.jpg
-      </small>
-
-    </div>
-
-  </section>
-
-
-  <!-- 20 -->
-  <section class="section">
-
-    <h2>
-      20. पेशी-अस्थि तंत्र (Musculoskeletal System)
-    </h2>
-
-    <p>
-      पेशी-अस्थि तंत्र में हड्डियाँ (Bones), मांसपेशियाँ (Muscles),
-      जोड़ (Joints), उपास्थि (Cartilage), कंडरा (Tendon)
-      और स्नायुबंधन (Ligament) शामिल होते हैं।
-    </p>
-
-    <ul>
-
-      <li>
-        जब muscle contract करती है,
-        tendon force को bone तक पहुँचाता है।
-      </li>
-
-      <li>
-        Joints bones को जोड़ते हैं और movement की अनुमति देते हैं।
-      </li>
-
-      <li>
-        Joint स्वयं bones को move नहीं करता।
-      </li>
-
-      <li>
-        Muscle contraction की force bones को move करती है।
-      </li>
-
-    </ul>
-
-  </section>
-
-
-  <!-- 21 -->
-  <section class="section">
-
-    <h2>21. जोड़ों के प्रकार (Types of Joints)</h2>
-
-
-    <div class="type-card">
-
-      <h4>
-        1) गेंद और गर्त जोड़ (Ball and Socket Joint)
-      </h4>
-
-      <ul>
-
-        <li>
-          <b>उदाहरण:</b> कंधा (Shoulder)।
-        </li>
-
-        <li>
-          Arm को आगे, पीछे, side तथा circular direction
-          में move कर सकता है।
-        </li>
-
-        <li>
-          हंसली (Clavicle) महत्वपूर्ण है।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>
-        2) काज जोड़ (Hinge Joint)
-      </h4>
-
-      <ul>
-
-        <li>
-          <b>उदाहरण:</b> कोहनी (Elbow) और घुटना (Knee)।
-        </li>
-
-        <li>
-          मुख्यतः एक दिशा में bending और straightening।
-        </li>
-
-        <li>
-          घुटने की टोपी/पटेला (Kneecap/Patella)
-          knee joint की रक्षा करता है।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>
-        3) धुरी जोड़ (Pivot Joint)
-      </h4>
-
-      <ul>
-
-        <li>
-          <b>उदाहरण:</b> गर्दन (Neck)।
-        </li>
-
-        <li>
-          सिर को घुमाने में सहायता करता है।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="type-card">
-
-      <h4>
-        4) स्थिर जोड़ (Fixed Joint)
-      </h4>
-
-      <ul>
-
-        <li>
-          <b>उदाहरण:</b> खोपड़ी (Skull)।
-        </li>
-
-        <li>
-          बहुत कम या कोई movement नहीं।
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <div class="image-slot">
-
-      <div class="icon">🦴</div>
-
-      <strong>
-        यहाँ जोड़ों के प्रकार
-        (Types of Joints) का चित्र जोड़ें
-      </strong>
-
-      <small>
-        Suggested file: types-of-joints.jpg
-      </small>
-
-    </div>
-
-  </section>
-
-
-  <!-- 22 -->
-  <section class="section">
-
-    <h2>
-      22. कंकाल तंत्र (Skeletal System)
-    </h2>
-
-    <p>
-      Skeletal system हड्डियों का framework है
-      जो शरीर को rigidity और support प्रदान करता है।
-    </p>
-
-    <ul>
-
-      <li>
-        खोपड़ी के आधार से निकलने वाली flexible rod को
-        <b>कशेरुक स्तंभ (Vertebral Column)</b> कहते हैं।
-      </li>
-
-      <li>
-        यह कशेरुकाओं (Vertebrae) से बना होता है।
-      </li>
-
-      <li>
-        दो कशेरुकाओं के बीच
-        उपास्थियुक्त डिस्क (Cartilaginous Disc)
-        flexibility प्रदान करती है।
-      </li>
-
-      <li>
-        <b>12 जोड़ी पसलियाँ (12 Pairs of Ribs)</b>
-        rib cage बनाती हैं।
-      </li>
-
-    </ul>
-
-
-    <div class="image-slot">
-
-      <div class="icon">🦴</div>
-
-      <strong>
-        यहाँ कंकाल तंत्र (Skeletal System) का चित्र जोड़ें
-      </strong>
-
-      <small>
-        Suggested file: skeletal-system.jpg
-      </small>
-
-    </div>
-
-  </section>
-
-
-  <!-- 23 -->
-  <section class="section" id="experiment">
-
-    <h2>
-      23. पादप कोशिकीय पुनर्जनन प्रयोग
-      (Plant Cellular Regeneration Experiment)
-    </h2>
-
-    <div class="highlight">
-
-      <b>F. C. Steward</b> ने लगभग <b>1958</b> में
-      carrot phloem/plant tissue cells पर प्रयोग किया।
-
-    </div>
-
-    <p>
-      प्रयोग से यह दिखाया गया कि कुछ जीवित plant cells
-      पूरे पौधे को regenerate कर सकती हैं।
-    </p>
-
-    <p>
-      यह प्रयोग plant cell regeneration को समझने में महत्वपूर्ण रहा।
-    </p>
-
-  </section>
-
-
-  <!-- 24 -->
-  <section class="section">
-
-    <h2>
-      24. पादप रोग — Crown Gall
-    </h2>
-
-    <div class="important">
-
-      <p>
-        <b>रोग:</b>
-        किरीट पिटिका (Crown Gall)
-      </p>
-
-      <p>
-        <b>कारक जीव:</b>
-        <i>Agrobacterium tumefaciens</i>
-      </p>
-
-      <p>
-        यह जीव Crown Gall रोग उत्पन्न कर सकता है।
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- EXAM IMPORTANT -->
-  <section class="section" id="exam">
-
-    <div class="exam-box">
-
-      <h2>🚆 Exam Important Points</h2>
-
-      <ul>
-
-        <li>
-          <b>जाइलम (Xylem)</b> → जल और खनिज
-        </li>
-
-        <li>
-          <b>फ्लोएम (Phloem)</b> → भोजन
-        </li>
-
-        <li>
-          <b>शीर्षस्थ (Apical)</b> → लंबाई
-        </li>
-
-        <li>
-          <b>पार्श्व (Lateral)</b> → परिधि/मोटाई
-        </li>
-
-        <li>
-          <b>अंतर्वेशी (Intercalary)</b> → पर्व/पर्वसंधि के पास वृद्धि
-        </li>
-
-        <li>
-          <b>मृदुतक (Parenchyma)</b> → भंडारण/प्रकाश संश्लेषण
-        </li>
-
-        <li>
-          <b>श्लेषोतक (Collenchyma)</b> → सहारा/लचीलापन
-        </li>
-
-        <li>
-          <b>दृढ़ोतक (Sclerenchyma)</b> → मजबूती
-        </li>
-
-        <li>
-          <b>जाइलम मृदुतक (Xylem Parenchyma)</b>
-          → जाइलम का जीवित घटक
-        </li>
-
-        <li>
-          <b>फ्लोएम (Phloem)</b> → भोजन परिवहन
-        </li>
-
-        <li>
-          <b>कंडरा (Tendon)</b> → मांसपेशी से हड्डी
-        </li>
-
-        <li>
-          <b>स्नायुबंधन (Ligament)</b> → हड्डी से हड्डी
-        </li>
-
-        <li>
-          <b>हड्डी (Bone)</b> → दृढ़ सहारा/सुरक्षा
-        </li>
-
-        <li>
-          <b>उपास्थि (Cartilage)</b> → लचीलापन
-        </li>
-
-        <li>
-          <b>RBC</b> → हीमोग्लोबिन के कारण लाल
-        </li>
-
-        <li>
-          <b>Platelets</b> → रक्त का थक्का
-        </li>
-
-        <li>
-          <b>WBC</b> → संक्रमण से रक्षा
-        </li>
-
-        <li>
-          <b>ऐच्छिक गति (Voluntary Movement)</b>
-          → इच्छा के अनुसार
-        </li>
-
-        <li>
-          <b>चिकनी पेशी (Smooth Muscle)</b>
-          → अनैच्छिक
-        </li>
-
-        <li>
-          <b>हृदय पेशी (Cardiac Muscle)</b>
-          → अनैच्छिक, हृदय
-        </li>
-
-        <li>
-          <b>तंत्रिका कोशिका (Neuron)</b>
-          → तंत्रिका संकेतों का संचार
-        </li>
-
-        <li>
-          <b>द्रुमिका (Dendrite)</b>
-          → संदेश प्राप्त करती है
-        </li>
-
-        <li>
-          <b>अक्षतंतु (Axon)</b>
-          → संदेश आगे ले जाता है
-        </li>
-
-        <li>
-          <b>गेंद और गर्त जोड़ (Ball and Socket)</b>
-          → कंधा
-        </li>
-
-        <li>
-          <b>काज जोड़ (Hinge)</b>
-          → कोहनी/घुटना
-        </li>
-
-        <li>
-          <b>धुरी जोड़ (Pivot)</b>
-          → गर्दन
-        </li>
-
-        <li>
-          <b>स्थिर जोड़ (Fixed)</b>
-          → खोपड़ी
-        </li>
-
-        <li>
-          <b>12 जोड़ी पसलियाँ</b>
-          → वक्ष पिंजर (Rib Cage)
-        </li>
-
-        <li>
-          <i><b>Agrobacterium tumefaciens</b></i>
-          → Crown Gall
-        </li>
-
-      </ul>
-
-    </div>
-
-  </section>
-
-
-  <!-- QUICK REVISION -->
-  <section class="quick">
-
-    <h2>⚡ Quick Revision</h2>
-
-    <div class="quick-grid">
-
-      <div class="quick-item">
-        🌱 शीर्षस्थ (Apical) → लंबाई में वृद्धि
-      </div>
-
-      <div class="quick-item">
-        🌳 पार्श्व (Lateral) → मोटाई/परिधि में वृद्धि
-      </div>
-
-      <div class="quick-item">
-        🌿 जाइलम (Xylem) → जल + खनिज
-      </div>
-
-      <div class="quick-item">
-        🍃 फ्लोएम (Phloem) → भोजन
-      </div>
-
-      <div class="quick-item">
-        📦 मृदुतक (Parenchyma) → भंडारण
-      </div>
-
-      <div class="quick-item">
-        🔗 श्लेषोतक (Collenchyma) → लचीलापन
-      </div>
-
-      <div class="quick-item">
-        🧱 दृढ़ोतक (Sclerenchyma) → मजबूती
-      </div>
-
-      <div class="quick-item">
-        💪 कंडरा (Tendon) → Muscle → Bone
-      </div>
-
-      <div class="quick-item">
-        🔗 स्नायुबंधन (Ligament) → Bone → Bone
-      </div>
-
-      <div class="quick-item">
-        🩸 RBC → Hemoglobin
-      </div>
-
-      <div class="quick-item">
-        🩹 Platelets → रक्त का थक्का
-      </div>
-
-      <div class="quick-item">
-        🛡️ WBC → संक्रमण से रक्षा
-      </div>
-
-      <div class="quick-item">
-        🧠 Neuron → तंत्रिका संकेतों का संचार
-      </div>
-
-      <div class="quick-item">
-        📥 Dendrite → संदेश प्राप्त
-      </div>
-
-      <div class="quick-item">
-        📤 Axon → संदेश आगे
-      </div>
-
-      <div class="quick-item">
-        🦴 कंधा → Ball & Socket
-      </div>
-
-      <div class="quick-item">
-        🦵 कोहनी/घुटना → Hinge
-      </div>
-
-      <div class="quick-item">
-        🧠 गर्दन → Pivot
-      </div>
-
-      <div class="quick-item">
-        💀 खोपड़ी → Fixed
-      </div>
-
-      <div class="quick-item">
-        🌱 Crown Gall → Agrobacterium tumefaciens
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <a href="index.html" class="back">
-    🏠 वापस Home पर जाएँ
-  </a>
-
-</main>
-
-
-<footer class="footer">
-  © 2026 Railway Science | Class 9 Science
-</footer>
-
-</body>
-</html>
+      11. उपकला ऊतक (Epithelial Tissue)
+  
