@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Railway Science | Tissues in Action</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f2f4f7;
+  color:#222;
+}
+
+header{
+  height:64px;
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo{
+  font-size:21px;
+  font-weight:bold;
+  color:#123b6d;
+}
+
+.timer-box{
+  background:#123b6d;
+  color:#fff;
+  padding:9px 16px;
+  border-radius:5px;
+  font-size:18px;
+  font-weight:bold;
+  min-width:120px;
+  text-align:center;
+}
+
+.timer-warning{background:#e67e22!important}
+.timer-danger{background:#c0392b!important}
+
+.exam-info{
+  background:#eaf0f7;
+  border-bottom:1px solid #d3dbe5;
+  padding:10px 20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:25px;
+  font-size:14px;
+}
+
+.exam-info b{color:#123b6d}
+
+.main{
+  max-width:1100px;
+  margin:18px auto 90px;
+  padding:0 15px;
+}
+
+.question-card{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:5px;
+  min-height:450px;
+  padding:22px;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+
+.question-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding-bottom:13px;
+  margin-bottom:20px;
+}
+
+.question-number{
+  font-size:18px;
+  font-weight:bold;
+  color:#123b6d;
+}
+
+.section-name{
+  font-size:14px;
+  color:#666;
+}
+
+.question-text{
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:22px;
+}
+
+.option{
+  border:1px solid #cfd5dc;
+  border-radius:5px;
+  padding:13px 15px;
+  margin:10px 0;
+  cursor:pointer;
+  transition:.15s;
+  background:#fff;
+  font-size:16px;
+  line-height:1.6;
+}
+
+.option:hover{background:#f5f8fb}
+
+.option.selected{
+  background:#e7f0fb;
+  border:2px solid #2563a6;
+}
+
+.option-letter{
+  font-weight:bold;
+  color:#123b6d;
+  margin-right:8px;
+}
+
+.bottom-bar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  min-height:66px;
+  background:#fff;
+  border-top:1px solid #ccc;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  z-index:900;
+  padding:8px;
+}
+
+button{
+  border:none;
+  border-radius:4px;
+  padding:11px 15px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.btn-prev{background:#e9ecef;color:#333}
+.btn-clear{background:#f4f4f4;border:1px solid #ccc}
+.btn-review{background:#f39c12;color:#fff}
+.btn-next{background:#2563a6;color:#fff}
+.btn-submit{background:#198754;color:#fff}
+
+button:hover{opacity:.9}
+
+.palette{
+  position:fixed;
+  right:0;
+  top:64px;
+  bottom:66px;
+  width:260px;
+  background:#fff;
+  border-left:1px solid #ccc;
+  padding:15px;
+  overflow-y:auto;
+  z-index:800;
+}
+
+.palette-title{
+  font-size:17px;
+  font-weight:bold;
+  color:#123b6d;
+  margin-bottom:12px;
+}
+
+.palette-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.stat{
+  padding:7px;
+  border:1px solid #ddd;
+  border-radius:4px;
+  text-align:center;
+  background:#fafafa;
+}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+}
+
+.pq{
+  height:36px;
+  border:1px solid #bbb;
+  background:#fff;
+  border-radius:4px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.pq.current{outline:3px solid #2563a6}
+.pq.answered{background:#198754;color:#fff;border-color:#198754}
+.pq.review{background:#f39c12;color:#fff;border-color:#f39c12}
+.pq.answered-review{background:#6f42c1;color:#fff;border-color:#6f42c1}
+.pq.not-visited{background:#fff}
+
+.legend{
+  margin-top:18px;
+  font-size:12px;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin:7px 0;
+}
+
+.legend-box{
+  width:20px;
+  height:20px;
+  border:1px solid #bbb;
+  border-radius:3px;
+}
+
+.mobile-menu{
+  display:none;
+  position:fixed;
+  right:10px;
+  top:76px;
+  z-index:1100;
+  background:#123b6d;
+  color:#fff;
+  border:none;
+  font-size:22px;
+  width:43px;
+  height:43px;
+  border-radius:5px;
+}
+
+.palette-close{
+  display:none;
+}
+
+.result-page{
+  display:none;
+  max-width:1000px;
+  margin:25px auto 50px;
+  padding:15px;
+}
+
+.result-card{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:6px;
+  padding:25px;
+}
+
+.result-title{
+  text-align:center;
+  color:#123b6d;
+  margin-bottom:25px;
+}
+
+.score-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:30px;
+}
+
+.score-box{
+  border:1px solid #ddd;
+  padding:15px;
+  text-align:center;
+  border-radius:5px;
+  background:#fafafa;
+}
+
+.score-box b{
+  display:block;
+  font-size:22px;
+  margin-top:5px;
+  color:#123b6d;
+}
+
+.solution{
+  border-top:1px solid #ddd;
+  padding:18px 0;
+}
+
+.solution h3{
+  color:#123b6d;
+  margin-bottom:8px;
+}
+
+.correct{color:#198754;font-weight:bold}
+.wrong{color:#c0392b;font-weight:bold}
+.unattempted{color:#777;font-weight:bold}
+
+.solution-text{
+  line-height:1.8;
+  font-size:15px;
+}
+
+@media(max-width:900px){
+
+  .palette{
+    display:none;
+    width:280px;
+    box-shadow:-3px 0 12px rgba(0,0,0,.2);
+  }
+
+  .palette.open{display:block}
+
+  .mobile-menu{display:block}
+
+  .palette-close{
+    display:block;
+    float:right;
+    background:#c0392b;
+    color:#fff;
+    padding:5px 9px;
+  }
+
+  .main{
+    margin-top:15px;
+  }
+
+  .question-card{
+    padding:16px;
+  }
+
+  .question-text{
+    font-size:17px;
+  }
+
+  .bottom-bar{
+    height:auto;
+    flex-wrap:wrap;
+  }
+
+  .bottom-bar button{
+    font-size:11px;
+    padding:9px 8px;
+  }
+
+  .score-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .exam-info{
+    gap:10px;
+    font-size:12px;
+  }
+}
+
+@media(max-width:500px){
+
+  header{padding:0 10px}
+
+  .logo{font-size:17px}
+
+  .timer-box{
+    min-width:105px;
+    font-size:16px;
+    padding:8px 10px;
+  }
+
+  .question-card{min-height:500px}
+
+  .option{
+    font-size:15px;
+    padding:11px;
+  }
+
+  .bottom-bar{gap:4px}
+
+  .bottom-bar button{
+    flex:1;
+    min-width:0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🚆 Railway Science</div>
+  <div id="timer" class="timer-box">25:00</div>
+</header>
+
+<div class="exam-info">
+  <span><b>विषय:</b> General Science</span>
+  <span><b>अध्याय:</b> Tissues in Action</span>
+  <span><b>कुल प्रश्न:</b> 56</span>
+  <span><b>कुल अंक:</b> 56</span>
+  <span><b>गलत उत्तर:</b> −1/3</span>
+</div>
+
+<button class="mobile-menu" onclick="togglePalette()">☰</button>
+
+<div id="palette" class="palette">
+
+  <button class="palette-close" onclick="togglePalette()">×</button>
+
+  <div class="palette-title">Question Palette</div>
+
+  <div class="palette-stats">
+    <div class="stat">
+      Answered<br>
+      <b id="answeredCount">0</b>
+    </div>
+
+    <div class="stat">
+      Not Answered<br>
+      <b id="notAnsweredCount">56</b>
+    </div>
+
+    <div class="stat">
+      Review<br>
+      <b id="reviewCount">0</b>
+    </div>
+
+    <div class="stat">
+      Not Visited<br>
+      <b id="notVisitedCount">55</b>
+    </div>
+  </div>
+
+  <div id="paletteGrid" class="palette-grid"></div>
+
+  <div class="legend">
+
+    <div class="legend-item">
+      <div class="legend-box"></div>
+      Not Visited
+    </div>
+
+    <div class="legend-item">
+      <div class="legend-box" style="background:#198754"></div>
+      Answered
+    </div>
+
+    <div class="legend-item">
+      <div class="legend-box" style="background:#f39c12"></div>
+      Marked for Review
+    </div>
+
+    <div class="legend-item">
+      <div class="legend-box" style="background:#6f42c1"></div>
+      Answered + Review
+    </div>
+
+  </div>
+
+</div>
+
+<main id="examPage" class="main">
+
+  <div class="question-card">
+
+    <div class="question-top">
+      <div id="questionNumber" class="question-number"></div>
+      <div id="sectionName" class="section-name"></div>
+    </div>
+
+    <div id="questionText" class="question-text"></div>
+
+    <div id="options"></div>
+
+  </div>
+
+</main>
+
+<div id="bottomBar" class="bottom-bar">
+
+  <button class="btn-prev" onclick="previousQuestion()">
+    Previous
+  </button>
+
+  <button class="btn-clear" onclick="clearAnswer()">
+    Clear Response
+  </button>
+
+  <button class="btn-review" onclick="markReviewAndNext()">
+    Mark for Review & Next
+  </button>
+
+  <button class="btn-next" onclick="nextQuestion()">
+    Save & Next
+  </button>
+
+  <button class="btn-submit" onclick="submitTest()">
+    Submit Test
+  </button>
+
+</div>
+
+<section id="resultPage" class="result-page">
+
+  <div class="result-card">
+
+    <h1 class="result-title">
+      🎯 Test Result
+    </h1>
+
+    <div class="score-grid">
+
+      <div class="score-box">
+        कुल प्रश्न
+        <b id="totalResult">56</b>
+      </div>
+
+      <div class="score-box">
+        सही उत्तर
+        <b id="correctResult">0</b>
+      </div>
+
+      <div class="score-box">
+        गलत उत्तर
+        <b id="wrongResult">0</b>
+      </div>
+
+      <div class="score-box">
+        प्राप्त अंक
+        <b id="scoreResult">0</b>
+      </div>
+
+    </div>
+
+    <h2>📚 विस्तृत Solutions</h2>
+
+    <div id="solutions"></div>
+
+  </div>
+
+</section>
+
+<script>
+
+/* =====================================================
+   56 QUESTIONS
+   35 PLANT + 21 ANIMAL
+===================================================== */
+
+const questions = [
+
+/* =====================================================
+   🌱 PLANT TISSUES — 35
+===================================================== */
+
+{
+q:"एक वनस्पति विज्ञानी एक पौधे के तने का अवलोकन करता है जो बिना टूटे आसानी से मुड़ जाता है और वह बाह्यत्वचा के नीचे स्थित ऊतक की जांच कर रहा है। इस लचीलेपन के लिए किस प्रकार का सरल स्थायी ऊतक सबसे अधिक उत्तरदायी होता है?",
+o:[
+"कोलेन्काइमा (Collenchyma)",
+"स्क्लेरेन्काइमा (Sclerenchyma)",
+"पैरेन्काइमा (Parenchyma)",
+"एपिडर्मिस (Epidermis)"
+],
+a:0,
+e:"कोलेन्काइमा पौधे के कोमल भागों को लचीलापन और यांत्रिक सहारा प्रदान करता है।"
+},
+
+{
+q:"पादपों में अंतर्वेशी विभज्योतक सामान्यतः कहाँ स्थित होता है?",
+o:[
+"तने के पार्श्व भागों पर",
+"पत्तियों की कोर पर",
+"मूलाग्र और प्ररोहाग्र पर",
+"पत्तियों या पर्व के आधार पर"
+],
+a:3,
+e:"अंतर्वेशी विभज्योतक सामान्यतः पर्वों या पत्तियों के आधार के पास पाया जाता है और लंबाई में वृद्धि में सहायता करता है।"
+},
+
+{
+q:"किसी वृक्ष के तने की चौड़ाई या परिधि (girth) बढ़ाने के लिए, कोशिकाओं को तने के चारों ओर वलयाकार रूप में विभाजित होना चाहिए। यह कार्य कौन-सा ऊतक करता है?",
+o:[
+"पार्श्व विभज्योतक (Lateral meristem)",
+"अंतर्वेशी विभज्योतक (Intercalary meristem)",
+"शीर्षस्थ विभज्योतक (Apical meristem)",
+"दृढ़ोतक (Sclerenchyma)"
+],
+a:0,
+e:"पार्श्व विभज्योतक तने और जड़ की मोटाई या परिधि बढ़ाता है।"
+},
+
+{
+q:"पौधों में, विभाजक ऊतकों की उपस्थिति के कारण वृद्धि विशिष्ट क्षेत्रों तक ही सीमित रहती है, जिन्हें __________ के नाम से भी जाना जाता है।",
+o:[
+"स्थायी ऊतक",
+"विभज्योतक ऊतक",
+"सहायक ऊतक",
+"संवहनी ऊतक"
+],
+a:1,
+e:"पौधों में सक्रिय कोशिका विभाजन विशिष्ट विभज्योतक क्षेत्रों में होता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा पादपों में विभज्योतकीय ऊतक का विशिष्ट लक्षण है?",
+o:[
+"कोशिकाओं में स्थूल द्वितीयक भित्तियां होती हैं",
+"कोशिकाएं मुख्यतः यांत्रिक सहारा प्रदान करती हैं",
+"कोशिकाएँ निरंतर विभाजन करने में सक्षम होती हैं",
+"कोशिकाएं जल और खनिजों का परिवहन करती हैं"
+],
+a:2,
+e:"विभज्योतक ऊतक की कोशिकाएँ सक्रिय रूप से विभाजित होकर नई कोशिकाएँ बनाती हैं।"
+},
+
+{
+q:"एक विद्यार्थी सूक्ष्मदर्शी से एक पादप कोशिका का अवलोकन करता है और देखता है कि इसमें एक स्पष्ट केंद्रक, सघन कोशिका द्रव्य और कोई दृश्यमान धानी नहीं हैं। निम्नलिखित में से कौन-सा इस कोशिका का सबसे संभावित फंक्शन है?",
+o:[
+"जल और खनिजों का परिवहन",
+"जल और पोषक तत्वों का भंडारण",
+"संरचनात्मक सपोर्ट प्रदान करना",
+"सक्रिय कोशिका विभाजन और वृद्धि"
+],
+a:3,
+e:"विभज्योतक कोशिकाओं में सघन कोशिकाद्रव्य, स्पष्ट केंद्रक और सामान्यतः छोटी या अदृश्य रसधानियाँ होती हैं।"
+},
+
+{
+q:"यदि कोई विद्यार्थी पौधे के तने या जड़ की लंबाई बढ़ाने के लिए सक्रिय रूप से विभाजित हो रही कोशिकाओं का अवलोकन करना चाहता है, तो उसे सूक्ष्मदर्शी के तहत किस विशिष्ट ऊतक की जांच करनी चाहिए?",
+o:[
+"स्थायी ऊतक (Permanent tissue)",
+"पार्श्विक विभज्योतक (Lateral meristem)",
+"शीर्षस्थ विभज्योतक (Apical meristem)",
+"अंतर्वेशी विभज्योतक (Intercalary meristem)"
+],
+a:2,
+e:"शीर्षस्थ विभज्योतक जड़ और प्ररोह के सिरों पर पाया जाता है और लंबाई में वृद्धि करता है।"
+},
+
+{
+q:"मेरिस्टेमी ऊतक की कोशिकाओं के लिए निम्नलिखित में से कौन-सी विशेषताएं सही हैं?",
+o:[
+"बहुत सक्रिय, प्रमुख केंद्रक, सघन कोशिकाद्रव्य और पतली सेलुलोज भित्ति",
+"बहुत सक्रिय, प्रमुख केंद्रक, सघन कोशिकाद्रव्य और मोटी सेलुलोज भित्ति",
+"बहुत सक्रिय, प्रमुख केंद्रक, हल्का कोशिकाद्रव्य और पतली सेलुलोज भित्ति",
+"बहुत सक्रिय, प्रमुख केंद्रक, हल्का कोशिकाद्रव्य और मोटी सेलुलोज भित्ति"
+],
+a:0,
+e:"मेरिस्टेमी कोशिकाएँ सक्रिय, सघन कोशिकाद्रव्य वाली, प्रमुख केंद्रक वाली तथा पतली प्राथमिक कोशिका भित्ति वाली होती हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा विकल्प शीर्षस्थ विभज्योतक (apical meristems) की भूमिका का सर्वोत्तम रूप से वर्णन करता है?",
+o:[
+"जड़ों और प्ररोह के सिरों पर अनुदैर्ध्य वृद्धि को बढ़ावा देता है।",
+"तनों और जड़ों का व्यास बढ़ाता है।",
+"मृदूतक (parenchyma) में पोषक तत्वों का संचयन करता है।",
+"पौधे के पूरी तरह विकसित होने के बाद ही परिपक्व ऊतकों का निर्माण करता है।"
+],
+a:0,
+e:"शीर्षस्थ विभज्योतक जड़ और प्ररोह की लंबाई बढ़ाने के लिए जिम्मेदार होता है।"
+},
+
+{
+q:"पादप और जंतु कोशिकाओं के वृद्धि के पैटर्न के बारे में निम्नलिखित में से कौन-सा कथन सही है?",
+o:[
+"जंतु कोशिकाओं की तुलना में पादप कोशिका वृद्धि अधिक एकसमान होती है",
+"दोनों समान वृद्धि पैटर्न का पालन करते हैं",
+"जंतु कोशिका वृद्धि मेरिस्टेमी ऊतकों के कारण होती है",
+"पादपों में एक विशिष्ट वृद्धि क्षेत्र होता है जिसमें विभाजित ऊतक होते हैं"
+],
+a:3,
+e:"पादपों में वृद्धि विशिष्ट क्षेत्रों में स्थित विभज्योतक ऊतकों की सक्रिय कोशिका-विभाजन क्षमता के कारण होती है।"
+},
+
+{
+q:"पौधों को जल और खनिजों के लिए एक विशेषीकृत परिवहन तंत्र की आवश्यकता क्यों होती है?",
+o:[
+"क्योंकि पौधों में विसरण नहीं होता है",
+"क्योंकि पौधे गति करते हैं और उन्हें संपूर्ण शरीर में शीघ्रता से परिवहन की आवश्यकता होती है",
+"क्योंकि लंबे पौधों में लंबी दूरी के लिए केवल विसरण अपर्याप्त है",
+"क्योंकि पौधों को जंतुओं की तरह उच्च ऊर्जा की आवश्यकता होती है"
+],
+a:2,
+e:"लंबे पौधों में जल और खनिजों को लंबी दूरी तक पहुँचाने के लिए केवल विसरण पर्याप्त नहीं होता।"
+},
+
+{
+q:"चूँकि मृदूतक ऊतक मुख्य रूप से भोजन और अन्य पदार्थों का भंडारण करता है, इसलिए इसकी कोशिकाओं को पर्याप्त आंतरिक स्थान की आवश्यकता होती है। इसलिए, मृदूतक कोशिकाएं सामान्यतः ________।",
+o:[
+"बिना किन्हीं स्थानों के कसकर बंधी हुई पैक होती हैं",
+"मृत और खोखली होती हैं",
+"अंतराकोशिकीय स्थानों के साथ शिथिल रूप से पैक होती हैं",
+"खनिजों के साथ कठोर होती हैं"
+],
+a:2,
+e:"मृदूतक की जीवित कोशिकाएँ सामान्यतः शिथिल रूप से व्यवस्थित होती हैं और उनमें अंतराकोशिकीय स्थान पाए जाते हैं।"
+},
+
+{
+q:"कौन-सा कथन जंतु ऊतकों की तुलना में पादप ऊतकों की ऊर्जा आवश्यकता का सही रूप से वर्णन करता है?",
+o:[
+"पादप ऊतकों को ऊर्जा की बिल्कुल आवश्यकता नहीं होती है",
+"पौधों को सामान्यतः जंतुओं की तुलना में कम ऊर्जा की आवश्यकता होती है",
+"ऊर्जा के लिए पादप श्वसन नहीं करते हैं",
+"पादपों को जंतुओं की तुलना में अधिक ऊर्जा की आवश्यकता होती है"
+],
+a:1,
+e:"पौधे स्थिर होते हैं और उन्हें जंतुओं की तरह गति के लिए अधिक ऊर्जा की आवश्यकता नहीं होती।"
+},
+
+{
+q:"मृदा से जल और खनिजों को अवशोषित करने के प्रक्रम में मूल रोम, पौधों की किस प्रकार सहायता करते हैं?",
+o:[
+"वे यांत्रिक सहारा प्रदान करते हैं।",
+"वे अवशोषण के पृष्ठीय क्षेत्रफल में वृद्धि करते हैं।",
+"वे पत्तियों तक खाद्य का परिवहन करते हैं।",
+"वे खाद्य का संश्लेषण करते हैं।"
+],
+a:1,
+e:"मूल रोम जड़ का सतह क्षेत्र बढ़ाते हैं, जिससे जल और खनिजों के अवशोषण में सहायता मिलती है।"
+},
+
+{
+q:"मृत संरचनाएं प्रायः 'कठोर और दृढ़' होती हैं। कौन-सा साधारण स्थायी ऊतक मुख्यतः मृत कोशिकाओं से बना होता है जो पादपों को यांत्रिक शक्ति प्रदान करता है?",
+o:[
+"मृदूतक",
+"विभज्योतक",
+"बाह्यत्वचा",
+"दृढ़ोतक"
+],
+a:3,
+e:"दृढ़ोतक की कोशिकाएँ सामान्यतः मृत और मोटी, लिग्निनयुक्त भित्तियों वाली होती हैं तथा यांत्रिक शक्ति देती हैं।"
+},
+
+{
+q:"पादप के अधिकांश सहायक ऊतक मृत कोशिकाओं से क्यों बने होते हैं, जबकि पशुओं के सहायक ऊतक सजीव कोशिकाओं से बने होते हैं?",
+o:[
+"पादपों में मृत कोशिकाएं ऊर्जा की आवश्यकता के बिना संरचनात्मक सामर्थ्य प्रदान करती हैं",
+"प्रतिरक्षा अभिक्रियाओं से बचने के लिए पशु ऊतक मृत अवस्था में होते हैं",
+"क्योंकि मृत कोशिकाएं पशुओं की तुलना में पादपों में तेजी से विभाजित होती हैं",
+"पादप को सजीव कोशिकाओं की आवश्यकता बिल्कुल नहीं होती है"
+],
+a:0,
+e:"मृत कोशिकाओं की कठोर भित्तियाँ पौधों को बिना अतिरिक्त चयापचय गतिविधि के यांत्रिक शक्ति प्रदान कर सकती हैं।"
+},
+
+{
+q:"एक वनस्पति विज्ञानी शहर की एक इमारत के लिए जल-दक्ष ऊर्ध्वाधर उद्यान डिजाइन कर रहा है। पवन का सामना करने के लिए आलम्ब और लचीलापन प्रदान हेतु मुख्यतः किस सरल स्थायी ऊतक का उपयोग किया जाना चाहिए?",
+o:[
+"बाह्यत्वचीय ऊतक (Epidermal tissue)",
+"स्थूलकोण ऊतक (Collenchyma)",
+"मृदूतक (Parenchyma)",
+"दृढ़ोतक (Sclerenchyma)"
+],
+a:1,
+e:"कोलेन्काइमा पौधे को सहारा देने के साथ-साथ लचीलापन भी प्रदान करता है।"
+},
+
+{
+q:"किसी पौधे के पर्णवृंत के ऊतीकीय परीक्षण के दौरान, अनियमित रूप से स्थूल कोनों और बहुत कम अंतराकोशिकीय अवकाश वाली दीर्घित कोशिकाएं देखी जाती हैं। कौन-सा सरल स्थायी ऊतक इस क्षेत्र में उपस्थित है और इस क्षेत्र में इसका प्राथमिक कार्य क्या है?",
+o:[
+"कोलेन्काइमा (Collenchyma)",
+"स्क्लेरेन्काइमा (Sclerenchyma)",
+"पैरेन्काइमा (Parenchyma)",
+"क्लोरेन्काइमा (Chlorenchyma)"
+],
+a:0,
+e:"कोलेन्काइमा की कोशिकाएँ कोनों पर असमान रूप से मोटी होती हैं और पौधे को लचीला सहारा देती हैं।"
+},
+
+{
+q:"सादृश्य को पूरा कीजिए। विभज्योतक ऊतक : विभाजन क्षमता :: सरल स्थायी ऊतक : _________",
+o:[
+"विभाजित करने की क्षमता लुप्त होना",
+"सक्रिय चलन",
+"तीव्र उद्दीपन संचरण",
+"सुरक्षात्मक अधिचर्म"
+],
+a:0,
+e:"स्थायी ऊतक की कोशिकाएँ विभज्योतक से विकसित होने के बाद सामान्यतः विभाजन की क्षमता खो देती हैं।"
+},
+
+{
+q:"सादृश्य को पूर्ण करें। मृदूतक : दीर्घ अंतराकोशिकीय स्थान :: दृढ़ोतक : __________",
+o:[
+"सजीव कोशिकाएं",
+"दीर्घ वायु गुहिकाएं",
+"पतली सेलुलोस भित्तियां",
+"कोई आंतरिक स्थान नहीं"
+],
+a:3,
+e:"दृढ़ोतक की कोशिकाएँ बहुत सघन रूप से व्यवस्थित होती हैं और इनमें अंतराकोशिकीय स्थान बहुत कम या नहीं के बराबर होते हैं।"
+},
+
+{
+q:"पौधों में कौन-सा सरल स्थायी ऊतक, मुख्यतः प्रकाश संश्लेषण और भोजन के भंडारण के लिए उत्तरदायी होता है?",
+o:[
+"फ्लोएम (Phloem)",
+"स्थूलकोण ऊतक (Collenchyma)",
+"दृढ़ ऊतक (Sclerenchyma)",
+"मृदूतक (Parenchyma)"
+],
+a:3,
+e:"मृदूतक भंडारण में महत्वपूर्ण है और क्लोरोप्लास्ट युक्त होने पर प्रकाश संश्लेषण भी कर सकता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी विशेषताएं मृदूतक (parenchyma) की कोशिकाओं के लिए सही हैं?",
+o:[
+"मृत, अंतरकोशिकीय स्थान के बिना शिथिल रूप से व्यवस्थित",
+"जीवित, अंतरकोशिकीय स्थान के बिना शिथिल रूप से व्यवस्थित",
+"जीवित, दीर्घ अंतरकोशिकीय स्थान के साथ शिथिल रूप से व्यवस्थित",
+"मृत, दीर्घ अंतरकोशिकीय स्थान के साथ शिथिल रूप से व्यवस्थित"
+],
+a:2,
+e:"मृदूतक कोशिकाएँ जीवित होती हैं और सामान्यतः अंतराकोशिकीय स्थानों के साथ शिथिल रूप से व्यवस्थित रहती हैं।"
+},
+
+{
+q:"एक उद्यानविद् ऐसे जलीय पादपों की नस्ल (breed) तैयार करना चाहता है जो बेहतर तरीके से प्लव करने में सक्षम हों। उन्हें ऊतक के किस रूपांतरण को बेहतर बनाने पर ध्यान केंद्रित करना चाहिए?",
+o:[
+"मृदूतक में अंतरकोशिकीय अंतरालों को कम करना",
+"स्थूल कोण ऊतक में पर्णहरित की वृद्धि करना",
+"वायूतक निर्माण करना",
+"स्थूल कोण ऊतक में अनियमित स्थूल करना"
+],
+a:2,
+e:"वायूतक में बड़े वायु-स्थान होते हैं, जो जलीय पौधों को तैरने में सहायता करते हैं।"
+},
+
+{
+q:"पादपों में सुक्रोज किस प्राथमिक प्रक्रिया द्वारा फ्लोएम ऊतक में प्रवेश करता है?",
+o:[
+"प्रवणता के अनुदिश सरल विसरण",
+"वाहक प्रोटीन के माध्यम से सुगम विसरण",
+"ATP से ऊर्जा के साथ सक्रिय परिवहन",
+"अर्द्ध-पारगम्य झिल्ली के माध्यम से परासरण"
+],
+a:2,
+e:"स्रोत से फ्लोएम में सुक्रोज का लोडिंग सक्रिय परिवहन द्वारा किया जा सकता है।"
+},
+
+{
+q:"यदि वसंत ऋतु के दौरान किसी पादप का फ्लोएम अवरुद्ध हो जाए, तो कौन-सी प्रक्रिया प्रत्यक्ष रूप से प्रभावित होगी?",
+o:[
+"पत्तियां, गैस विनिमय करने में असमर्थ होंगी",
+"कलिकाओं की वृद्धि के लिए आवश्यक शर्करा प्राप्त नहीं होगी",
+"जड़ें, मृदा से पर्याप्त पोषकों को अवशोषित नहीं करेंगी",
+"जड़ों से पत्तियों तक जल का परिवहन कम हो जाएगा"
+],
+a:1,
+e:"फ्लोएम प्रकाश संश्लेषण से बने खाद्य पदार्थों को स्रोत से अन्य भागों तक पहुँचाता है।"
+},
+
+{
+q:"पौधों में सुक्रोज के फ्लोएम ऊतक में सक्रिय रूप से लोड होने के बाद, जल के उसमें प्रवेश करने का मुख्य कारण क्या है?",
+o:[
+"परासरण दाब में वृद्धि फ्लोएम में जल खींचती है",
+"फ्लोएम और जाइलम ऊतकों के बीच दाब बराबर हो जाता है",
+"मूलों के दाब के निर्माण के कारण जल फ्लोएम में जाता है",
+"ATP का अधिक उपयोग फ्लोएम में ताप बढ़ाता है"
+],
+a:0,
+e:"फ्लोएम में सुक्रोज की मात्रा बढ़ने से जल विभव कम होता है और जल परासरण द्वारा फ्लोएम में प्रवेश करता है।"
+},
+
+{
+q:"ऊँचे वृक्षों में वह मुख्य बल क्या है जो जाइलम के माध्यम से जल को ऊपर की ओर खींचता है?",
+o:[
+"विसरण",
+"वाष्पोत्सर्जन खिंचाव",
+"मूल दाब",
+"केशिका क्रिया"
+],
+a:1,
+e:"पत्तियों से जल के वाष्पोत्सर्जन के कारण उत्पन्न खिंचाव जाइलम में जल को ऊपर खींचता है।"
+},
+
+{
+q:"निम्नलिखित में से किस प्रक्रम के कारण जल, मिट्टी से मूल रोम की कोशिकाओं में प्रवेश करता है?",
+o:[
+"परासरण",
+"वाष्पोत्सर्जन",
+"विसरण",
+"सक्रिय परिवहन"
+],
+a:0,
+e:"मूल रोम की कोशिकाओं में जल का प्रवेश मुख्यतः परासरण द्वारा होता है।"
+},
+
+{
+q:"पादपों का कौन-सा भाग मुख्यतः मृदा से जल और खनिजों को अवशोषित करता है?",
+o:[
+"तना",
+"पत्ती",
+"पुष्प",
+"जड़"
+],
+a:3,
+e:"जड़, विशेषकर मूल रोम, मिट्टी से जल और खनिजों के अवशोषण का प्रमुख भाग है।"
+},
+
+{
+q:"सादृश्य को पूरा कीजिए। जाइलम : जल परिवहन :: फ्लोएम : ______।",
+o:[
+"सूक्ष्मजीवों से सुरक्षा",
+"खाद्य परिवहन",
+"यांत्रिक सामर्थ्य",
+"गैस विनिमय"
+],
+a:1,
+e:"फ्लोएम प्रकाश संश्लेषण से बने खाद्य पदार्थों को पौधे के विभिन्न भागों तक पहुँचाता है।"
+},
+
+{
+q:"परिपक्वता पर कौन-सा पादप ऊतक मृत होता है लेकिन जल और खनिजों के परिवहन के लिए क्रियाशील होता है?",
+o:[
+"जाइलम (Xylem)",
+"कॉलेन्काइमा (Collenchyma)",
+"फ्लोएम (Phloem)",
+"पैरेन्काइमा (Parenchyma)"
+],
+a:0,
+e:"जाइलम के अधिकांश संवाहक तत्व परिपक्वता पर मृत होते हैं और जल तथा खनिजों का परिवहन करते हैं।"
+},
+
+{
+q:"पादपों में जल का परिवहन __________ के माध्यम से होता है।",
+o:[
+"कैम्बियम",
+"जाइलम",
+"फ्लोएम",
+"रसधानी"
+],
+a:1,
+e:"जाइलम जड़ों से पौधे के ऊपरी भागों तक जल और खनिजों का परिवहन करता है।"
+},
+
+{
+q:"पादप संवहनी ऊतक का कौन-सा भाग मुख्यतः अमीनो अम्लों और प्रकाश संश्लेषण के विलेय उत्पादों के परिवहन के लिए उत्तरदायी होता है?",
+o:[
+"एपिडर्मिस (Epidermis)",
+"फ्लोएम (Phloem)",
+"जाइलम (Xylem)",
+"कॉर्टेक्स (Cortex)"
+],
+a:1,
+e:"फ्लोएम कार्बनिक विलेय पदार्थों, जैसे सुक्रोज और अन्य पोषक पदार्थों का परिवहन करता है।"
+},
+
+{
+q:"पौधों में जाइलम और फ्लोएम को स्वतंत्र रूप से संगठित संवाहक नलिकाओं के रूप में क्यों वर्णित किया जाता है?",
+o:[
+"वे सभी पौधों में एक प्रकार के ऊतक के रूप में कार्य करते हैं",
+"वे सभी परिवहन आवश्यकताओं के लिए एक ही मार्ग साझा करते हैं",
+"वे विभिन्न पदार्थों का अलग-अलग परिवहन करते हैं",
+"वे दोनों मिलकर समान कार्य करते हैं"
+],
+a:2,
+e:"जाइलम मुख्यतः जल और खनिजों का, जबकि फ्लोएम खाद्य पदार्थों का परिवहन करता है।"
+},
+
+{
+q:"निम्नलिखित में से किसका गमन (परिवहन) जाइलम में होता है?",
+o:[
+"ग्लूकोज",
+"जल और खनिज",
+"अमीनो अम्ल",
+"प्रोटीन"
+],
+a:1,
+e:"जाइलम जड़ों से जल और खनिजों को पौधे के अन्य भागों तक पहुँचाता है।"
+},
+
+/* =====================================================
+   🐾 ANIMAL TISSUES — 21
+===================================================== */
+
+{
+q:"रक्त एक संयोजी ऊतक है, क्योंकि यह शरीर के विभिन्न तंत्रों को जोड़ता है। वह तरल मैट्रिक्स क्या है जिसमें रक्त कोशिकाएं निलंबित रहती हैं?",
+o:[
+"प्लेटलेट्स",
+"साइटोप्लाज्म",
+"प्लाज्मा",
+"हीमोग्लोबिन"
+],
+a:2,
+e:"प्लाज्मा रक्त का तरल मैट्रिक्स है, जिसमें रक्त की कोशिकाएँ और अन्य घटक निलंबित रहते हैं।"
+},
+
+{
+q:"किसी दुर्लभ आनुवंशिक विकार के कारण एक विशेष प्रकार के संयोजी ऊतक का कठोर मैट्रिक्स कम दृढ़ हो जाता है, जिससे बार-बार अस्थिभंग होता है। इस अवलोकन की सबसे संभावित व्याख्या क्या है?",
+o:[
+"अस्थि मैट्रिक्स में कैल्शियम और फॉस्फोरस यौगिकों में कमी",
+"COL1A1 या COL1A2 जीन में उत्परिवर्तन के कारण टाइप I कोलैजन में दोष",
+"उपास्थि मैट्रिक्स में प्रोटीन और शर्करा की हानि",
+"रक्त मैट्रिक्स में प्लाज्मा प्रोटीन की कमी"
+],
+a:1,
+e:"COL1A1 या COL1A2 में दोष टाइप I कोलैजन को प्रभावित कर सकता है, जो अस्थि की मजबूती के लिए महत्वपूर्ण है।"
+},
+
+{
+q:"उपास्थि कोशिकाओं को ________ कहा जाता है।",
+o:[
+"अस्थिअणु (Osteocyte)",
+"उपास्थिअणु (Chondrocyte)",
+"वसाकोशिका (Adipocyte)",
+"रेशकोरक (Fibroblast)"
+],
+a:1,
+e:"उपास्थि में पाई जाने वाली परिपक्व कोशिकाओं को chondrocytes कहा जाता है।"
+},
+
+{
+q:"अभ्यास के दौरान एक फ़ुटबॉल खिलाड़ी की पेशियों को अस्थियों से जोड़ने वाली संरचना फट जाती है। किस संरचना के क्षतिग्रस्त होने की सर्वाधिक संभावना है?",
+o:[
+"कंडरा (Tendon)",
+"तंत्रिका (Nerve)",
+"उपास्थि (Cartilage)",
+"स्नायु (Ligament)"
+],
+a:0,
+e:"कंडरा पेशियों को अस्थियों से जोड़ता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा उपकला ऊतकों का कार्य नहीं है?",
+o:[
+"रक्षण",
+"लाल रक्त कोशिकाओं का निर्माण",
+"स्राव",
+"अवशोषण"
+],
+a:1,
+e:"उपकला ऊतक सुरक्षा, अवशोषण और स्राव जैसे कार्य करते हैं; लाल रक्त कोशिकाओं का निर्माण उनका कार्य नहीं है।"
+},
+
+{
+q:"एक रोगी को बाह्य शरीर आवरण में गंभीर क्षति के बाद बार-बार त्वचा संक्रमण हो रहा है। किस ऊतक के प्रभावित होने की सर्वाधिक संभावना है?",
+o:[
+"संयोजी ऊतक",
+"तंत्रिका ऊतक",
+"पेशी ऊतक",
+"उपकला ऊतक"
+],
+a:3,
+e:"उपकला शरीर की बाहरी सतह को ढककर सुरक्षा प्रदान करती है और रोगजनकों के प्रवेश को रोकने में मदद करती है।"
+},
+
+{
+q:"उपकला ऊतक (Epithelial tissue), _______ नामक एक रेशेदार बाह्यकोशिकीय परत द्वारा अंतर्निहित ऊतक (underlying tissue) से अलग होता है।",
+o:[
+"आधार झिल्ली (Basement membrane)",
+"कोशिका भित्ति (Cell wall)",
+"कोशिकाद्रव्य (Cytoplasm)",
+"कनेक्टिव मैट्रिक्स (Connective matrix)"
+],
+a:0,
+e:"basement membrane उपकला को उसके नीचे स्थित संयोजी ऊतक से अलग और सहारा देती है।"
+},
+
+{
+q:"वृक्क नलिकाओं के अस्तर में कौन-सा उपकला ऊतक पाया जाता है?",
+o:[
+"स्तंभी (Columnar)",
+"घनाभीय (Cuboidal)",
+"पक्ष्माभी (Ciliated)",
+"पट्टकी (Squamous)"
+],
+a:1,
+e:"वृक्क नलिकाओं में घनाभीय उपकला पाई जाती है, जो अवशोषण और स्राव में सहायता करती है।"
+},
+
+{
+q:"उपकला ऊतक पशुओं में आवरण या सुरक्षात्मक परत के रूप में कार्य करते हैं। निम्नलिखित में से कौन-सी ऐसी जगह नहीं है जहाँ उपकला ऊतक पाए जाते हैं?",
+o:[
+"अस्थि के अंदर",
+"मुख का अस्तरण",
+"त्वचा",
+"वृक्क की नलिकाओं"
+],
+a:0,
+e:"उपकला ऊतक मुख्यतः शरीर की बाहरी सतह और विभिन्न आंतरिक अंगों/गुहाओं की सतह को ढकते हैं; अस्थि का आंतरिक मैट्रिक्स उपकला ऊतक नहीं है।"
+},
+
+{
+q:"उपकला ऊतक से संबंधित निम्नलिखित कथनों को पढ़िए और सबसे उपयुक्त विकल्प का चयन कीजिए। कथन A: उपकला ऊतक की कोशिकाएं दृढ़ता से पैक होती हैं। कथन B: रेशेदार आधार झिल्ली उपकला को अंतर्निहित ऊतक से अलग करती है।",
+o:[
+"कथन A सही है और कथन B गलत है",
+"कथन A और कथन B दोनों सही हैं",
+"कथन A गलत है और कथन B सही है",
+"कथन A और कथन B दोनों गलत हैं"
+],
+a:1,
+e:"उपकला कोशिकाएँ कसकर व्यवस्थित होती हैं और basement membrane उन्हें नीचे के ऊतक से अलग करती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कारण स्पष्ट करता है कि उपकला ऊतक कोशिकाएं एक दूसरे से बहुत कम दूरी पर दृढ़ता से क्यों बंधी हुई होती हैं?",
+o:[
+"ऊतक में तीव्र कोशिका विभाजन को संभव बनाने के लिए",
+"ऊतक के स्राव कार्यों को बढ़ाने के लिए",
+"एक सतत अवरोध बनाने और पारगम्यता को नियंत्रित करने के लिए",
+"ऊतक की समग्र सामर्थ्य बढ़ाने के लिए"
+],
+a:2,
+e:"कसकर जुड़ी उपकला कोशिकाएँ एक सतत अवरोध बनाती हैं और पदार्थों के आवागमन को नियंत्रित करती हैं।"
+},
+
+{
+q:"पेशीय ऊतकों का निर्माण करने वाली लंबी, बेलनाकार कोशिकाओं को विशेष रूप से __________ के रूप में जाना जाता है।",
+o:[
+"उपास्थि डिस्क",
+"तंत्रिका कोशिकाओं",
+"पेशी तंतुओं",
+"चालनी नलिकाओं"
+],
+a:2,
+e:"पेशीय ऊतक की लंबी कोशिकाओं को muscle fibres अर्थात् पेशी तंतु कहा जाता है।"
+},
+
+{
+q:"अरेखित पेशियाँ, ____________ को छोड़कर निम्नलिखित सभी क्रियाओं के लिए उत्तरदायी हैं।",
+o:[
+"आंत्रों में नियमित गति",
+"मुख का अस्तरण",
+"त्वचा",
+"वृक्क की नलिकाओं"
+],
+a:1,
+e:"अरेखित पेशियाँ आंत्र और कुछ आंतरिक अंगों की अनैच्छिक गतिविधियों में कार्य करती हैं। मुख का अस्तरण पेशीय ऊतक नहीं है।"
+},
+
+{
+q:"सूक्ष्मदर्शी से देखने पर कंकाल की मांसपेशियों में वैकल्पिक रूप से हल्की और गहरी धारियाँ दिखाई देती हैं। इस ऊतक की कोशिकाएँ लंबी, बेलनाकार, अशाखित और __________ होती हैं।",
+o:[
+"तर्क्वाकार",
+"मृत",
+"एककेंद्रकी",
+"बहुकेंद्रकी"
+],
+a:3,
+e:"कंकालीय पेशी तंतु लंबे, बेलनाकार, अशाखित और बहुकेंद्रकी होते हैं तथा इनमें धारियाँ दिखाई देती हैं।"
+},
+
+{
+q:"पेशीय ऊतक हमारे शरीर में सभी गतिविधियों के लिए उत्तरदायी होता है और इसमें लंबी कोशिकाएं होती हैं जिन्हें आमतौर पर __________ के रूप में भी जाना जाता है।",
+o:[
+"उपास्थि कोशिकाओं",
+"न्यूरॉनों",
+"उपकला कोशिकाओं",
+"पेशी तंतुओं"
+],
+a:3,
+e:"पेशीय ऊतक की लंबी कोशिकाओं को पेशी तंतु या muscle fibres कहा जाता है।"
+},
+
+{
+q:"तंत्रिका ऊतक से संबंधित गलत कथन की पहचान कीजिए।",
+o:[
+"तंत्रिका ऊतक की कोशिकाओं को वृक्काणु कहा जाता है।",
+"तंत्रिकाक्ष तंत्रिका ऊतक का एकल, लंबा खंड है।",
+"तंत्रिकावेग ऐसे संकेत हैं जो तंत्रिका तंतुओं के साथ संचरित होते हैं।",
+"तंत्रिका ऊतक में मेरुरज्जु शामिल होता है।"
+],
+a:0,
+e:"तंत्रिका ऊतक की प्रमुख कोशिकाओं को न्यूरॉन कहा जाता है, वृक्काणु नहीं।"
+},
+
+{
+q:"तंत्रिका ऊतक के मुख्य घटक क्या हैं?",
+o:[
+"पेशियां",
+"अस्थियां",
+"तंत्रिकोशिकाएं",
+"ग्रंथियां"
+],
+a:2,
+e:"तंत्रिका ऊतक का मुख्य घटक न्यूरॉन या तंत्रिकोशिकाएँ हैं, जो तंत्रिका आवेगों का संचरण करती हैं।"
+},
+
+{
+q:"तंत्रिका ऊतक के संबंध में दिए गए कथनों में से कौन-से कथन सही हैं? (i) तंत्रिका ऊतक न्यूरॉन से बने होते हैं। (ii) न्यूरॉन में एक तंत्रिकाक्ष और कई द्रुमिका होती हैं। (iii) तंत्रिका आवेग वे संकेत होते हैं जो तंत्रिका तंतुओं से होकर गुजरते हैं।",
+o:[
+"केवल (ii) और (iii)",
+"(i), (ii) और (iii)",
+"केवल (i) और (ii)",
+"केवल (i) और (iii)"
+],
+a:1,
+e:"न्यूरॉन में axon और dendrites होते हैं तथा तंत्रिका आवेग तंत्रिका तंतुओं के माध्यम से संचरित होते हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा पेशीकंकाली तंत्र का भाग नहीं है?",
+o:[
+"वृक्काणु (Nephrons)",
+"पेशियां (Muscles)",
+"अस्थियां (Bones)",
+"कंडरा (Tendons)"
+],
+a:0,
+e:"नेफ्रॉन वृक्क की कार्यात्मक इकाई है, जबकि अस्थियाँ, पेशियाँ और कंडरा पेशीकंकाली तंत्र से संबंधित हैं।"
+},
+
+{
+q:"एक बच्चे में जन्मजात कशेरुकदंड की अनुपस्थिति है। कौन-सा मुख्य देह तंत्र मुख्यतः प्रभावित होगा?",
+o:[
+"श्वसन गैसों का विनिमय",
+"त्वचीय श्वसन",
+"बाह्य पाचन",
+"केंद्रीय तंत्रिका तंत्र की सुरक्षा"
+],
+a:3,
+e:"कशेरुकदंड मेरुरज्जु को सुरक्षा प्रदान करता है, जो केंद्रीय तंत्रिका तंत्र का महत्वपूर्ण भाग है।"
+},
+
+{
+q:"गंभीर अभिघात (severe trauma) के बाद, पक्षी को देह आलंब (body support) और संचलन में कठिनाई होने लगती है। निम्नलिखित में से कौन-सा कशेरुकी तंत्र मुख्यतः प्रभावित होता है?",
+o:[
+"आंतरिक कंकाल पंजर (Internal skeletal framework)",
+"साधारण पाचन कोश (Simple digestive sac)",
+"मूलभूत पेशी पट्टियां (Basic muscle bands)",
+"बाह्य क्लोम चाप (Gill arches)"
+],
+a:0,
+e:"आंतरिक कंकाल शरीर को सहारा देता है और संचलन के लिए पेशियों के साथ मिलकर कार्य करता है।"
+}
+
+];
+
+
+/* =====================================================
+   TEST VARIABLES
+===================================================== */
+
+let current=0;
+
+let answers=new Array(questions.length).fill(null);
+
+let review=new Array(questions.length).fill(false);
+
+let visited=new Array(questions.length).fill(false);
+
+let submitted=false;
+
+let totalSeconds=25*60;
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function render(){
+
+  if(submitted)return;
+
+  visited[current]=true;
+
+  document.getElementById("questionNumber").textContent=
+    "Question "+(current+1);
+
+  document.getElementById("sectionName").textContent=
+    current<35 ? "🌱 Plant Tissue" : "🐾 Animal Tissue";
+
+  document.getElementById("questionText").textContent=
+    questions[current].q;
+
+  const optionsDiv=document.getElementById("options");
+
+  optionsDiv.innerHTML="";
+
+  questions[current].o.forEach((option,index)=>{
+
+    const div=document.createElement("div");
+
+    div.className="option";
+
+    if(answers[current]===index){
+      div.classList.add("selected");
+    }
+
+    div.innerHTML=
+      '<span class="option-letter">'+
+      String.fromCharCode(65+index)+
+      ".</span>"+option;
+
+    div.onclick=function(){
+      selectAnswer(current,index);
+    };
+
+    optionsDiv.appendChild(div);
+
+  });
+
+  updatePalette();
+}
+
+
+/* =====================================================
+   SELECT ANSWER
+===================================================== */
+
+function selectAnswer(questionIndex,optionIndex){
+
+  answers[questionIndex]=optionIndex;
+
+  render();
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextQuestion(){
+
+  if(current<questions.length-1){
+
+    current++;
+
+    render();
+
+  }
+}
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+function previousQuestion(){
+
+  if(current>0){
+
+    current--;
+
+    render();
+
+  }
+}
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+function clearAnswer(){
+
+  answers[current]=null;
+
+  render();
+}
+
+
+/* =====================================================
+   MARK REVIEW
+===================================================== */
+
+function markReview(){
+
+  review[current]=!review[current];
+
+  updatePalette();
+}
+
+
+/* =====================================================
+   MARK REVIEW + NEXT
+===================================================== */
+
+function markReviewAndNext(){
+
+  review[current]=true;
+
+  if(current<questions.length-1){
+
+    current++;
+
+    render();
+
+  }else{
+
+    updatePalette();
+
+  }
+}
+
+
+/* =====================================================
+   JUMP
+===================================================== */
+
+function jumpTo(index){
+
+  current=index;
+
+  render();
+
+  if(window.innerWidth<=900){
+
+    document.getElementById("palette")
+      .classList.remove("open");
+
+  }
+}
+
+
+/* =====================================================
+   PALETTE
+===================================================== */
+
+function togglePalette(){
+
+  document.getElementById("palette")
+    .classList.toggle("open");
+
+}
+
+
+/* =====================================================
+   UPDATE PALETTE
+===================================================== */
+
+function updatePalette(){
+
+  const grid=document.getElementById("paletteGrid");
+
+  grid.innerHTML="";
+
+  let answered=0;
+  let reviewCount=0;
+  let notVisited=0;
+
+  questions.forEach((q,index)=>{
+
+    const btn=document.createElement("button");
+
+    btn.className="pq";
+
+    btn.textContent=index+1;
+
+    if(index===current){
+      btn.classList.add("current");
+    }
+
+    if(answers[index]!==null){
+
+      answered++;
+
+      if(review[index]){
+
+        btn.classList.add("answered-review");
+
+      }else{
+
+        btn.classList.add("answered");
+
+      }
+
+    }else if(review[index]){
+
+      reviewCount++;
+
+      btn.classList.add("review");
+
+    }else if(!visited[index]){
+
+      notVisited++;
+
+      btn.classList.add("not-visited");
+
+    }
+
+    btn.onclick=function(){
+
+      jumpTo(index);
+
+    };
+
+    grid.appendChild(btn);
+
+  });
+
+  document.getElementById("answeredCount").textContent=
+    answered;
+
+  document.getElementById("notAnsweredCount").textContent=
+    questions.length-answered;
+
+  document.getElementById("reviewCount").textContent=
+    reviewCount;
+
+  document.getElementById("notVisitedCount").textContent=
+    notVisited;
+}
+
+
+/* =====================================================
+   SUBMIT
+===================================================== */
+
+function submitTest(){
+
+  if(submitted)return;
+
+  let unanswered=
+    answers.filter(a=>a===null).length;
+
+  const confirmSubmit=confirm(
+    "क्या आप Test Submit करना चाहते हैं?\n\n"+
+    "Answered: "+(questions.length-unanswered)+
+    "\nNot Answered: "+unanswered
+  );
+
+  if(confirmSubmit){
+
+    forceSubmit();
+
+  }
+}
+
+
+/* =====================================================
+   FORCE SUBMIT
+===================================================== */
+
+function forceSubmit(){
+
+  if(submitted)return;
+
+  submitted=true;
+
+  clearInterval(timerInterval);
+
+  let correct=0;
+  let wrong=0;
+  let unattempted=0;
+
+  questions.forEach((q,index)=>{
+
+    if(answers[index]===null){
+
+      unattempted++;
+
+    }else if(answers[index]===q.a){
+
+      correct++;
+
+    }else{
+
+      wrong++;
+
+    }
+
+  });
+
+  const score=correct-(wrong/3);
+
+  document.getElementById("examPage")
+    .style.display="none";
+
+  document.getElementById("bottomBar")
+    .style.display="none";
+
+  document.getElementById("palette")
+    .style.display="none";
+
+  document.querySelector(".mobile-menu")
+    .style.display="none";
+
+  document.getElementById("resultPage")
+    .style.display="block";
+
+  document.getElementById("correctResult")
+    .textContent=correct;
+
+  document.getElementById("wrongResult")
+    .textContent=wrong;
+
+  document.getElementById("totalResult")
+    .textContent=questions.length;
+
+  document.getElementById("scoreResult")
+    .textContent=score.toFixed(2);
+
+  showSolutions();
+}
+
+
+/* =====================================================
+   SOLUTIONS
+===================================================== */
+
+function showSolutions(){
+
+  const container=
+    document.getElementById("solutions");
+
+  container.innerHTML="";
+
+  questions.forEach((q,index)=>{
+
+    const div=document.createElement("div");
+
+    div.className="solution";
+
+    let status="";
+
+    if(answers[index]===null){
+
+      status=
+        '<span class="unattempted">Not Attempted</span>';
+
+    }else if(answers[index]===q.a){
+
+      status=
+        '<span class="correct">Correct ✓</span>';
+
+    }else{
+
+      status=
+        '<span class="wrong">Wrong ✗</span>';
+
+    }
+
+    div.innerHTML=
+
+      "<h3>Q."+(index+1)+" "+status+"</h3>"+
+
+      '<div class="solution-text">'+
+
+      "<b>प्रश्न:</b> "+
+      q.q+
+
+      "<br><br>"+
+
+      "<b>सही उत्तर:</b> "+
+      q.o[q.a]+
+
+      "<br><br>"+
+
+      "<b>Explanation:</b> "+
+      q.e+
+
+      "</div>";
+
+    container.appendChild(div);
+
+  });
+}
+
+
+/* =====================================================
+   TIMER — 25 MINUTES
+===================================================== */
+
+const timerElement=
+  document.getElementById("timer");
+
+let timerInterval=
+  setInterval(updateTimer,1000);
+
+
+function updateTimer(){
+
+  if(submitted)return;
+
+  let minutes=
+    Math.floor(totalSeconds/60);
+
+  let seconds=
+    totalSeconds%60;
+
+  timerElement.textContent=
+    String(minutes).padStart(2,"0")+
+    ":"+
+    String(seconds).padStart(2,"0");
+
+  if(totalSeconds<=300){
+
+    timerElement.classList.add("timer-warning");
+
+  }
+
+  if(totalSeconds<=60){
+
+    timerElement.classList.remove("timer-warning");
+
+    timerElement.classList.add("timer-danger");
+
+  }
+
+  if(totalSeconds<=0){
+
+    clearInterval(timerInterval);
+
+    alert(
+      "समय समाप्त! Test automatically submit हो रहा है।"
+    );
+
+    forceSubmit();
+
+    return;
+
+  }
+
+  totalSeconds--;
+
+}
+
+
+/* =====================================================
+   START TEST
+===================================================== */
+
+render();
+
+</script>
+
+</body>
+</html>
