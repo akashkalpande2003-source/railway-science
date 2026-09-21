@@ -26,58 +26,72 @@ body{
 
 
 /* =========================
-   HEADER
+   HEADER - TCS STYLE
    ========================= */
 
 header{
-  background:#17365d;
-  color:white;
-  text-align:center;
-  padding:18px 10px;
-}
-
-header h1{
-  margin:0;
-  font-size:25px;
-}
-
-header p{
-  margin:6px 0 0;
-  font-size:15px;
-}
-
-
-/* =========================
-   EXAM INFO
-   ========================= */
-
-.exam-info{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:white;
-  border-bottom:1px solid #ddd;
-  padding:10px;
+  background:#fff;
+  color:#17365d;
+  padding:14px 20px;
   display:flex;
-  justify-content:space-around;
+  justify-content:space-between;
   align-items:center;
-  flex-wrap:wrap;
-  gap:8px;
-  box-shadow:0 2px 5px rgba(0,0,0,.08);
+  border-bottom:1px solid #ddd;
+  min-height:65px;
 }
 
-.info-box{
-  font-weight:bold;
-  font-size:14px;
+.header-left h1{
+  margin:0;
+  font-size:22px;
+}
+
+.header-left p{
+  margin:4px 0 0;
+  font-size:13px;
+  color:#555;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 .timer{
   background:#17365d;
-  color:white;
-  padding:7px 14px;
-  border-radius:6px;
-  min-width:90px;
+  color:#fff;
+  padding:9px 16px;
+  border-radius:5px;
+  min-width:88px;
   text-align:center;
+  font-size:18px;
+  font-weight:bold;
+}
+
+
+/* =========================
+   EXAM INFO BAR
+   ========================= */
+
+.exam-info{
+  background:#17365d;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:0;
+  min-height:42px;
+}
+
+.info-box{
+  padding:11px 18px;
+  font-size:13px;
+  border-right:1px solid rgba(255,255,255,.25);
+}
+
+.info-box:last-child{
+  border-right:none;
 }
 
 
@@ -86,9 +100,10 @@ header p{
    ========================= */
 
 .examContainer{
-  max-width:900px;
-  margin:25px auto;
-  padding:0 15px;
+  max-width:1050px;
+  margin:20px auto;
+  padding:0 20px;
+  margin-right:320px;
 }
 
 
@@ -97,22 +112,23 @@ header p{
    ========================= */
 
 .question-box{
-  background:white;
-  border-radius:10px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:4px;
   padding:22px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  box-shadow:0 2px 7px rgba(0,0,0,.07);
 }
 
 .question-number{
   color:#17365d;
-  font-size:18px;
+  font-size:17px;
   font-weight:bold;
-  margin-bottom:12px;
+  margin-bottom:15px;
 }
 
 .question-text{
-  font-size:18px;
-  line-height:1.6;
+  font-size:17px;
+  line-height:1.65;
   font-weight:600;
   margin-bottom:20px;
 }
@@ -123,26 +139,28 @@ header p{
    ========================= */
 
 .option{
-  border:1px solid #ddd;
-  border-radius:7px;
-  padding:12px;
-  margin:10px 0;
+  border:1px solid #d5d5d5;
+  border-radius:4px;
+  padding:13px 14px;
+  margin:9px 0;
   cursor:pointer;
-  transition:.2s;
+  transition:.15s;
   background:#fff;
+  line-height:1.5;
 }
 
 .option:hover{
-  background:#f1f5fa;
+  background:#f5f8fc;
 }
 
 .option.selected{
-  background:#dcecff;
+  background:#e7f0ff;
   border-color:#17365d;
 }
 
 .option input{
   margin-right:10px;
+  cursor:pointer;
 }
 
 
@@ -152,108 +170,121 @@ header p{
 
 .navigation{
   display:flex;
+  align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:8px;
   margin-top:22px;
   flex-wrap:wrap;
+  border-top:1px solid #eee;
+  padding-top:16px;
 }
 
 .nav-btn{
-  padding:10px 18px;
+  padding:10px 15px;
   border:none;
-  border-radius:6px;
+  border-radius:4px;
   cursor:pointer;
   font-weight:bold;
-  font-size:14px;
+  font-size:13px;
+}
+
+.nav-btn:active{
+  transform:scale(.98);
 }
 
 .prev-btn{
   background:#6c757d;
-  color:white;
+  color:#fff;
+}
+
+.clear-btn{
+  background:#fff;
+  color:#333;
+  border:1px solid #aaa;
+}
+
+.review-btn{
+  background:#f0ad4e;
+  color:#fff;
 }
 
 .next-btn{
   background:#17365d;
-  color:white;
+  color:#fff;
 }
 
-.clear-btn{
-  background:#ffc107;
-  color:#222;
-}
-
-.review-btn{
-  background:#fd7e14;
-  color:white;
+.save-btn{
+  background:#198754;
+  color:#fff;
 }
 
 
 /* =========================
-   PALETTE BUTTON
-   ========================= */
-
-.palette-toggle{
-  position:fixed;
-  right:15px;
-  bottom:20px;
-  width:50px;
-  height:50px;
-  border:none;
-  border-radius:50%;
-  background:#17365d;
-  color:white;
-  font-size:25px;
-  font-weight:bold;
-  cursor:pointer;
-  z-index:1001;
-  box-shadow:0 3px 10px rgba(0,0,0,.25);
-}
-
-.palette-toggle:hover{
-  background:#0d2b4d;
-}
-
-
-/* =========================
-   QUESTION PALETTE
+   PALETTE
    ========================= */
 
 .palette{
   position:fixed;
-  top:0;
-  right:-330px;
-  width:310px;
-  height:100vh;
-  background:white;
-  z-index:1002;
-  box-shadow:-4px 0 15px rgba(0,0,0,.2);
-  transition:right .3s ease;
-  padding:20px;
-  overflow-y:auto;
-}
-
-.palette.open{
+  top:65px;
   right:0;
+  width:295px;
+  height:calc(100vh - 65px);
+  background:#fff;
+  z-index:1000;
+  border-left:1px solid #ccc;
+  box-shadow:-3px 0 12px rgba(0,0,0,.12);
+  padding:18px;
+  overflow-y:auto;
 }
 
 .palette-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:15px;
+  padding-bottom:12px;
+  border-bottom:1px solid #ddd;
+  margin-bottom:12px;
 }
 
 .palette-header h3{
   margin:0;
   color:#17365d;
+  font-size:18px;
 }
 
 .close-palette{
   background:none;
   border:none;
-  font-size:28px;
+  font-size:26px;
   cursor:pointer;
   color:#555;
+}
+
+
+/* =========================
+   PALETTE STATS
+   ========================= */
+
+.palette-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  margin-bottom:15px;
+}
+
+.palette-stat{
+  border:1px solid #ddd;
+  padding:7px;
+  border-radius:4px;
+  text-align:center;
+  font-size:11px;
+  background:#fafafa;
+}
+
+.palette-stat strong{
+  display:block;
+  font-size:15px;
+  color:#17365d;
 }
 
 
@@ -264,33 +295,51 @@ header p{
 .palette-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
-  gap:8px;
+  gap:7px;
 }
 
 .palette-btn{
   width:100%;
-  height:40px;
-  border:1px solid #ccc;
+  height:38px;
+  border:1px solid #bbb;
   background:#eee;
-  border-radius:5px;
+  border-radius:4px;
   cursor:pointer;
   font-weight:bold;
+  font-size:13px;
+  position:relative;
+}
+
+.palette-btn:hover{
+  opacity:.9;
 }
 
 .palette-btn.answered{
   background:#198754;
-  color:white;
+  color:#fff;
   border-color:#198754;
 }
 
 .palette-btn.review{
-  background:#fd7e14;
-  color:white;
-  border-color:#fd7e14;
+  background:#f0ad4e;
+  color:#fff;
+  border-color:#f0ad4e;
+}
+
+.palette-btn.answered-review{
+  background:#6f42c1;
+  color:#fff;
+  border-color:#6f42c1;
 }
 
 .palette-btn.current{
-  border:3px solid #17365d;
+  outline:3px solid #17365d;
+  outline-offset:1px;
+}
+
+.palette-btn.not-visited{
+  background:#eee;
+  color:#333;
 }
 
 
@@ -300,13 +349,15 @@ header p{
 
 .legend{
   margin-top:20px;
-  font-size:13px;
+  padding-top:12px;
+  border-top:1px solid #ddd;
+  font-size:12px;
 }
 
 .legend-item{
   display:flex;
   align-items:center;
-  margin:7px 0;
+  margin:8px 0;
 }
 
 .legend-box{
@@ -314,19 +365,27 @@ header p{
   height:18px;
   border-radius:3px;
   margin-right:8px;
-  border:1px solid #ccc;
-}
-
-.legend-answered{
-  background:#198754;
-}
-
-.legend-review{
-  background:#fd7e14;
+  border:1px solid #bbb;
+  flex-shrink:0;
 }
 
 .legend-not{
   background:#eee;
+}
+
+.legend-answered{
+  background:#198754;
+  border-color:#198754;
+}
+
+.legend-review{
+  background:#f0ad4e;
+  border-color:#f0ad4e;
+}
+
+.legend-both{
+  background:#6f42c1;
+  border-color:#6f42c1;
 }
 
 
@@ -336,15 +395,42 @@ header p{
 
 .submit-btn{
   width:100%;
-  margin-top:20px;
+  margin-top:18px;
   padding:12px;
   border:none;
-  border-radius:6px;
+  border-radius:4px;
   background:#dc3545;
-  color:white;
-  font-size:16px;
+  color:#fff;
+  font-size:15px;
   font-weight:bold;
   cursor:pointer;
+}
+
+.submit-btn:hover{
+  background:#bb2d3b;
+}
+
+
+/* =========================
+   MOBILE PALETTE BUTTON
+   ========================= */
+
+.palette-toggle{
+  display:none;
+  position:fixed;
+  right:15px;
+  bottom:75px;
+  width:48px;
+  height:48px;
+  border:none;
+  border-radius:5px;
+  background:#17365d;
+  color:#fff;
+  font-size:23px;
+  font-weight:bold;
+  cursor:pointer;
+  z-index:1100;
+  box-shadow:0 3px 10px rgba(0,0,0,.25);
 }
 
 
@@ -354,22 +440,25 @@ header p{
 
 .result-box{
   display:none;
-  max-width:700px;
+  max-width:750px;
   margin:30px auto;
-  background:white;
-  padding:25px;
-  border-radius:10px;
+  background:#fff;
+  padding:28px;
+  border-radius:6px;
+  border:1px solid #ddd;
   box-shadow:0 3px 12px rgba(0,0,0,.1);
   text-align:center;
 }
 
 .result-box h2{
   color:#17365d;
+  margin-top:0;
 }
 
 .result-score{
-  font-size:35px;
+  font-size:38px;
   font-weight:bold;
+  color:#17365d;
   margin:15px 0;
 }
 
@@ -382,17 +471,18 @@ header p{
 
 .stat{
   padding:15px;
-  border-radius:7px;
+  border-radius:5px;
   background:#f1f3f5;
   font-weight:bold;
+  border:1px solid #ddd;
 }
 
 .retake-btn{
   padding:11px 25px;
   background:#17365d;
-  color:white;
+  color:#fff;
   border:none;
-  border-radius:6px;
+  border-radius:4px;
   cursor:pointer;
   font-weight:bold;
 }
@@ -404,9 +494,9 @@ header p{
 
 .solutions-box{
   display:none;
-  max-width:900px;
+  max-width:1050px;
   margin:25px auto;
-  padding:20px 15px;
+  padding:20px;
 }
 
 .solutions-box h2{
@@ -416,12 +506,13 @@ header p{
 }
 
 .solution-card{
-  background:white;
-  border-radius:10px;
+  background:#fff;
+  border-radius:5px;
   padding:18px;
-  margin-bottom:15px;
-  box-shadow:0 3px 10px rgba(0,0,0,.08);
+  margin-bottom:14px;
+  border:1px solid #ddd;
   border-left:5px solid #17365d;
+  box-shadow:0 2px 7px rgba(0,0,0,.06);
 }
 
 .solution-card.correct{
@@ -445,7 +536,7 @@ header p{
 
 .solution-answer{
   margin:7px 0;
-  font-size:15px;
+  font-size:14px;
   line-height:1.5;
 }
 
@@ -468,7 +559,7 @@ header p{
   margin-top:12px;
   padding:12px;
   background:#f4f6f9;
-  border-radius:6px;
+  border-radius:4px;
   line-height:1.6;
   font-size:14px;
 }
@@ -478,27 +569,50 @@ header p{
    MOBILE
    ========================= */
 
-@media(max-width:750px){
+@media(max-width:900px){
 
-  header h1{
-    font-size:20px;
+  header{
+    padding:11px 12px;
   }
 
-  header p{
-    font-size:13px;
+  .header-left h1{
+    font-size:18px;
+  }
+
+  .header-left p{
+    font-size:11px;
+  }
+
+  .header-right .timer{
+    font-size:15px;
+    min-width:75px;
+    padding:8px 9px;
   }
 
   .exam-info{
-    padding:8px 5px;
+    justify-content:space-around;
   }
 
   .info-box{
-    font-size:12px;
+    padding:8px 7px;
+    font-size:11px;
   }
 
-  .timer{
-    padding:6px 10px;
-    min-width:80px;
+  .palette{
+    display:none;
+    top:0;
+    right:0;
+    width:290px;
+    height:100vh;
+    z-index:1200;
+  }
+
+  .palette.open{
+    display:block;
+  }
+
+  .palette-toggle{
+    display:block;
   }
 
   .examContainer{
@@ -519,20 +633,8 @@ header p{
   }
 
   .nav-btn{
-    padding:9px 12px;
-    font-size:13px;
-  }
-
-  .palette{
-    width:290px;
-  }
-
-  .palette-toggle{
-    right:15px;
-    bottom:18px;
-    width:48px;
-    height:48px;
-    font-size:23px;
+    padding:9px 10px;
+    font-size:12px;
   }
 
   .result-stats{
@@ -547,8 +649,70 @@ header p{
     padding:14px;
   }
 
-  .solution-question{
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media(max-width:500px){
+
+  header{
+    min-height:60px;
+  }
+
+  .header-left h1{
+    font-size:16px;
+  }
+
+  .header-left p{
+    max-width:210px;
+    line-height:1.3;
+  }
+
+  .header-right .timer{
+    font-size:14px;
+    min-width:68px;
+    padding:7px 6px;
+  }
+
+  .exam-info{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .info-box{
+    text-align:center;
+    border-right:none;
+    border-bottom:1px solid rgba(255,255,255,.15);
+  }
+
+  .question-number{
+    font-size:16px;
+  }
+
+  .question-text{
     font-size:15px;
+  }
+
+  .option{
+    font-size:14px;
+    padding:11px;
+  }
+
+  .navigation{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+
+  .nav-btn{
+    width:100%;
+  }
+
+  .palette-toggle{
+    right:12px;
+    bottom:70px;
   }
 
 }
@@ -567,15 +731,28 @@ header p{
 
 <header>
 
+<div class="header-left">
+
 <h1>🚆 Railway Science</h1>
 
 <p>
 Class 9 Science – Chapter 2: Cell – The Fundamental Unit of Life
 </p>
 
-<p>
-RRB Group D 2026 Practice Test
-</p>
+</div>
+
+
+<div class="header-right">
+
+<div
+class="timer"
+id="timer">
+
+15:00
+
+</div>
+
+</div>
 
 </header>
 
@@ -587,26 +764,30 @@ RRB Group D 2026 Practice Test
 <div class="exam-info">
 
 <div class="info-box">
+General Science
+</div>
+
+<div class="info-box">
+Cell – The Fundamental Unit of Life
+</div>
+
+<div class="info-box">
 Questions: 27
 </div>
 
 <div class="info-box">
-Total Marks: 27
+Marks: 27
 </div>
 
 <div class="info-box">
-+1 / −1⁄3
-</div>
-
-<div class="info-box timer" id="timer">
-15:00
+Wrong Answer −1/3
 </div>
 
 </div>
 
 
 <!-- =========================
-     PALETTE BUTTON
+     MOBILE PALETTE BUTTON
      ========================= -->
 
 <button
@@ -623,7 +804,9 @@ aria-label="Question Palette">
      QUESTION PALETTE
      ========================= -->
 
-<div class="palette" id="palette">
+<div
+class="palette"
+id="palette">
 
 <div class="palette-header">
 
@@ -642,6 +825,31 @@ onclick="togglePalette()">
 </div>
 
 
+<div class="palette-stats">
+
+<div class="palette-stat">
+<strong id="answeredCount">0</strong>
+Answered
+</div>
+
+<div class="palette-stat">
+<strong id="notAnsweredCount">0</strong>
+Not Answered
+</div>
+
+<div class="palette-stat">
+<strong id="reviewCount">0</strong>
+Review
+</div>
+
+<div class="palette-stat">
+<strong id="notVisitedCount">27</strong>
+Not Visited
+</div>
+
+</div>
+
+
 <div
 class="palette-grid"
 id="paletteGrid">
@@ -649,6 +857,15 @@ id="paletteGrid">
 
 
 <div class="legend">
+
+<div class="legend-item">
+
+<span class="legend-box legend-not"></span>
+
+Not Visited / Not Answered
+
+</div>
+
 
 <div class="legend-item">
 
@@ -670,9 +887,9 @@ Marked for Review
 
 <div class="legend-item">
 
-<span class="legend-box legend-not"></span>
+<span class="legend-box legend-both"></span>
 
-Not Answered
+Answered + Review
 
 </div>
 
@@ -719,6 +936,7 @@ id="options">
 
 <div class="navigation">
 
+
 <button
 class="nav-btn prev-btn"
 onclick="previousQuestion()">
@@ -739,20 +957,21 @@ Clear Response
 
 <button
 class="nav-btn review-btn"
-onclick="markReview()">
+onclick="markReviewAndNext()">
 
-Mark for Review
+Mark for Review & Next
 
 </button>
 
 
 <button
-class="nav-btn next-btn"
-onclick="nextQuestion()">
+class="nav-btn save-btn"
+onclick="saveAndNext()">
 
-Next →
+Save & Next →
 
 </button>
+
 
 </div>
 
@@ -1235,6 +1454,9 @@ new Array(questions.length).fill(null);
 let review =
 new Array(questions.length).fill(false);
 
+let visited =
+new Array(questions.length).fill(false);
+
 let timeLeft = 15 * 60;
 
 let submitted = false;
@@ -1248,12 +1470,17 @@ function showQuestion(){
 
   const q = questions[current];
 
+  visited[current] = true;
+
+
   document.getElementById("questionNumber").innerText =
   "Question " + (current + 1) +
   " of " + questions.length;
 
+
   document.getElementById("questionText").innerText =
   q.q;
+
 
   const optionsDiv =
   document.getElementById("options");
@@ -1276,14 +1503,25 @@ function showQuestion(){
     }
 
 
-    div.innerHTML =
+    const radio =
+    document.createElement("input");
 
-    `<input
-    type="radio"
-    name="option"
-    ${answers[current] === index ? "checked" : ""}>
+    radio.type = "radio";
+    radio.name = "option";
+    radio.checked =
+    answers[current] === index;
 
-    ${String.fromCharCode(65+index)}. ${option}`;
+
+    const label =
+    document.createTextNode(
+      String.fromCharCode(65 + index)
+      + ". "
+      + option
+    );
+
+
+    div.appendChild(radio);
+    div.appendChild(label);
 
 
     div.onclick = ()=>{
@@ -1353,10 +1591,12 @@ function previousQuestion(){
 
 
 /* =========================
-   CLEAR
+   CLEAR RESPONSE
    ========================= */
 
 function clearResponse(){
+
+  if(submitted) return;
 
   answers[current] = null;
 
@@ -1371,10 +1611,52 @@ function clearResponse(){
 
 function markReview(){
 
+  if(submitted) return;
+
   review[current] =
   !review[current];
 
   updatePalette();
+
+}
+
+
+/* =========================
+   MARK REVIEW & NEXT
+   ========================= */
+
+function markReviewAndNext(){
+
+  if(submitted) return;
+
+  review[current] = true;
+
+  if(current < questions.length - 1){
+
+    current++;
+
+  }
+
+  showQuestion();
+
+}
+
+
+/* =========================
+   SAVE & NEXT
+   ========================= */
+
+function saveAndNext(){
+
+  if(submitted) return;
+
+  if(current < questions.length - 1){
+
+    current++;
+
+  }
+
+  showQuestion();
 
 }
 
@@ -1391,7 +1673,33 @@ function updatePalette(){
   grid.innerHTML = "";
 
 
+  let answered = 0;
+  let reviewCount = 0;
+  let notVisited = 0;
+
+
   questions.forEach((q,index)=>{
+
+    if(answers[index] !== null){
+
+      answered++;
+
+    }
+
+
+    if(review[index]){
+
+      reviewCount++;
+
+    }
+
+
+    if(!visited[index]){
+
+      notVisited++;
+
+    }
+
 
     const btn =
     document.createElement("button");
@@ -1399,27 +1707,56 @@ function updatePalette(){
     btn.className =
     "palette-btn";
 
+
     btn.innerText =
     index + 1;
 
 
-    if(answers[index] !== null){
+    /*
+      TCS STYLE STATES
+    */
 
-      btn.classList.add("answered");
+    if(
+      answers[index] !== null &&
+      review[index]
+    ){
+
+      btn.classList.add(
+        "answered-review"
+      );
 
     }
 
+    else if(review[index]){
 
-    if(review[index]){
+      btn.classList.add(
+        "review"
+      );
 
-      btn.classList.add("review");
+    }
+
+    else if(answers[index] !== null){
+
+      btn.classList.add(
+        "answered"
+      );
+
+    }
+
+    else{
+
+      btn.classList.add(
+        "not-visited"
+      );
 
     }
 
 
     if(index === current){
 
-      btn.classList.add("current");
+      btn.classList.add(
+        "current"
+      );
 
     }
 
@@ -1435,6 +1772,30 @@ function updatePalette(){
 
   });
 
+
+  document.getElementById(
+    "answeredCount"
+  ).innerText =
+  answered;
+
+
+  document.getElementById(
+    "notAnsweredCount"
+  ).innerText =
+  questions.length - answered;
+
+
+  document.getElementById(
+    "reviewCount"
+  ).innerText =
+  reviewCount;
+
+
+  document.getElementById(
+    "notVisitedCount"
+  ).innerText =
+  notVisited;
+
 }
 
 
@@ -1448,7 +1809,16 @@ function jumpToQuestion(index){
 
   showQuestion();
 
-  togglePalette();
+
+  if(
+    window.innerWidth <= 900
+  ){
+
+    document.getElementById(
+      "palette"
+    ).classList.remove("open");
+
+  }
 
 }
 
@@ -1462,7 +1832,13 @@ function togglePalette(){
   const palette =
   document.getElementById("palette");
 
-  palette.classList.toggle("open");
+  if(window.innerWidth <= 900){
+
+    palette.classList.toggle(
+      "open"
+    );
+
+  }
 
 }
 
@@ -1502,6 +1878,13 @@ function updateTimer(){
 
   }
 
+  else if(timeLeft <= 300){
+
+    timer.style.background =
+    "#f0ad4e";
+
+  }
+
 
   if(timeLeft <= 0){
 
@@ -1517,7 +1900,10 @@ function updateTimer(){
 }
 
 
-setInterval(updateTimer,1000);
+setInterval(
+  updateTimer,
+  1000
+);
 
 
 /* =========================
@@ -1581,7 +1967,9 @@ function submitTest(autoSubmit=false){
   correct - (wrong / 3);
 
 
-  /* Hide Exam */
+  /* =========================
+     HIDE EXAM
+     ========================= */
 
   document.getElementById(
     "examContainer"
@@ -1603,7 +1991,14 @@ function submitTest(autoSubmit=false){
   ).classList.remove("open");
 
 
-  /* Show Result */
+  document.querySelector(
+    ".palette"
+  ).style.display = "none";
+
+
+  /* =========================
+     RESULT
+     ========================= */
 
   document.getElementById(
     "resultBox"
@@ -1681,8 +2076,6 @@ function submitTest(autoSubmit=false){
   message;
 
 
-  /* Show Solutions */
-
   showSolutions();
 
 }
@@ -1719,8 +2112,6 @@ function showSolutions(){
 
     let statusText = "";
 
-
-    /* STATUS */
 
     if(answers[index] === null){
 
@@ -1766,8 +2157,6 @@ function showSolutions(){
     }
 
 
-    /* YOUR ANSWER */
-
     let yourAnswer =
     "Not Attempted";
 
@@ -1784,8 +2173,6 @@ function showSolutions(){
     }
 
 
-    /* CORRECT ANSWER */
-
     const correctAnswer =
     String.fromCharCode(
       65 + q.answer
@@ -1793,8 +2180,6 @@ function showSolutions(){
     + ". "
     + q.options[q.answer];
 
-
-    /* CARD */
 
     card.className =
     "solution-card " +
@@ -1869,6 +2254,8 @@ function showSolutions(){
    ========================= */
 
 showQuestion();
+
+updateTimer();
 
 </script>
 
