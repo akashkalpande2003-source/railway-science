@@ -1,0 +1,1794 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RRB Group D 2026 | Class 10 Science Chapter 01</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#eef1f5;
+  color:#202124;
+}
+
+/* ================= HEADER ================= */
+
+.exam-header{
+  background:#102a43;
+  color:#fff;
+  padding:15px 18px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.header-inner{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+
+.exam-title{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.exam-subtitle{
+  font-size:12px;
+  margin-top:3px;
+  opacity:.9;
+}
+
+.timer-box{
+  background:#fff;
+  color:#b42318;
+  padding:9px 15px;
+  border-radius:7px;
+  font-size:20px;
+  font-weight:bold;
+  min-width:105px;
+  text-align:center;
+  border:2px solid #fff;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:15px;
+}
+
+/* ================= INFO ================= */
+
+.info-box{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+  box-shadow:0 2px 7px rgba(0,0,0,.08);
+}
+
+.info-title{
+  font-weight:bold;
+  color:#102a43;
+  margin-bottom:8px;
+}
+
+.info-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  font-size:13px;
+}
+
+.info-item{
+  background:#f5f7fa;
+  padding:8px;
+  border-radius:6px;
+  text-align:center;
+}
+
+.info-item strong{
+  display:block;
+  font-size:16px;
+}
+
+/* ================= TOPIC ================= */
+
+.topic-title{
+  background:#102a43;
+  color:white;
+  padding:11px 15px;
+  border-radius:8px;
+  font-size:17px;
+  margin:25px 0 12px;
+}
+
+/* ================= QUESTION ================= */
+
+.question-card{
+  background:white;
+  padding:18px;
+  margin:12px 0;
+  border-radius:10px;
+  box-shadow:0 2px 7px rgba(0,0,0,.07);
+}
+
+.question-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.q-number{
+  font-weight:bold;
+  font-size:17px;
+  color:#102a43;
+}
+
+.topic-tag{
+  font-size:11px;
+  padding:4px 8px;
+  background:#edf2f7;
+  color:#34495e;
+  border-radius:12px;
+}
+
+.exam-tag{
+  display:inline-block;
+  margin:9px 0;
+  padding:4px 9px;
+  font-size:11px;
+  font-weight:bold;
+  color:#7a4b00;
+  background:#fff4d6;
+  border:1px solid #e7c76b;
+  border-radius:12px;
+}
+
+.question{
+  font-size:16px;
+  line-height:1.7;
+  font-weight:500;
+  margin:10px 0 14px;
+}
+
+/* ================= OPTIONS ================= */
+
+.option{
+  display:block;
+  border:1px solid #d8dee6;
+  padding:10px 12px;
+  margin:8px 0;
+  border-radius:7px;
+  cursor:pointer;
+  background:#fafbfc;
+  transition:.15s;
+}
+
+.option:hover{
+  border-color:#477da8;
+  background:#f2f7fb;
+}
+
+.option input{
+  margin-right:8px;
+}
+
+/* ================= REVIEW ================= */
+
+.correct{
+  background:#e8f6ed !important;
+  border-color:#28a745 !important;
+}
+
+.wrong{
+  background:#fdecec !important;
+  border-color:#dc3545 !important;
+}
+
+.explanation{
+  display:none;
+  margin-top:12px;
+  padding:10px 12px;
+  background:#f5f7fa;
+  border-left:4px solid #102a43;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* ================= SUBMIT ================= */
+
+.submit-area{
+  text-align:center;
+  margin:30px 0;
+}
+
+.submit-btn{
+  background:#102a43;
+  color:white;
+  border:none;
+  padding:13px 30px;
+  border-radius:7px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.submit-btn:hover{
+  background:#17476d;
+}
+
+/* ================= RESULT ================= */
+
+#result{
+  display:none;
+  background:white;
+  padding:22px;
+  border-radius:12px;
+  margin:20px 0;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.result-title{
+  text-align:center;
+  color:#102a43;
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:18px;
+}
+
+.score-main{
+  text-align:center;
+  font-size:34px;
+  font-weight:bold;
+  color:#102a43;
+  margin-bottom:20px;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.result-item{
+  text-align:center;
+  padding:10px;
+  background:#f5f7fa;
+  border-radius:7px;
+}
+
+.result-item strong{
+  display:block;
+  font-size:19px;
+}
+
+.result-note{
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#555;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  padding:25px 10px;
+  color:#666;
+  font-size:12px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+  .header-inner{
+    align-items:center;
+  }
+
+  .exam-title{
+    font-size:15px;
+  }
+
+  .timer-box{
+    font-size:17px;
+    min-width:90px;
+    padding:8px;
+  }
+
+  .info-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .result-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .question{
+    font-size:15px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= EXAM HEADER ================= -->
+
+<header class="exam-header">
+
+  <div class="header-inner">
+
+    <div>
+      <div class="exam-title">
+        RRB Group D 2026
+      </div>
+
+      <div class="exam-subtitle">
+        Class 10 Science • Chapter 01
+      </div>
+    </div>
+
+    <div class="timer-box" id="timer">
+      20:00
+    </div>
+
+  </div>
+
+</header>
+
+
+<div class="container">
+
+<!-- ================= INSTRUCTIONS ================= -->
+
+<div class="info-box">
+
+  <div class="info-title">
+    📝 परीक्षा निर्देश
+  </div>
+
+  <div class="info-grid">
+
+    <div class="info-item">
+      <strong>36</strong>
+      Questions
+    </div>
+
+    <div class="info-item">
+      <strong>20 Min</strong>
+      Time
+    </div>
+
+    <div class="info-item">
+      <strong>+1</strong>
+      Correct
+    </div>
+
+    <div class="info-item">
+      <strong>−1/3</strong>
+      Wrong
+    </div>
+
+  </div>
+
+</div>
+
+
+<form id="examForm">
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 1 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 1: संतुलित रासायनिक समीकरण
+</h2>
+
+
+<!-- Q1 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q1.</span>
+<span class="topic-tag">Balancing Chemical Equations</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+एक विद्यार्थी, जिंक की नाइट्रिक अम्ल के साथ अभिक्रिया के लिए ढाँचागत समीकरण लिखता है:
+<br><br>
+Zn + HNO₃ → Zn(NO₃)₂ + H₂
+<br><br>
+समीकरण को सबसे छोटी पूर्ण संख्या गुणांकों के साथ संतुलित करने के बाद, संतुलित समीकरण में सभी गुणांकों का योगफल कितना होगा?
+</p>
+
+<label class="option"><input type="radio" name="q1" value="A"> A. 7</label>
+<label class="option"><input type="radio" name="q1" value="B"> B. 5</label>
+<label class="option"><input type="radio" name="q1" value="C"> C. 6</label>
+<label class="option"><input type="radio" name="q1" value="D"> D. 8</label>
+
+<div class="explanation">
+संतुलित समीकरण: Zn + 2HNO₃ → Zn(NO₃)₂ + H₂.
+गुणांकों का योग = 1 + 2 + 1 + 1 = 5.
+</div>
+
+</div>
+
+
+<!-- Q2 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q2.</span>
+<span class="topic-tag">Balancing Chemical Equations</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+निम्नलिखित समीकरण के संतुलन के दौरान, एक विद्यार्थी ऑक्सीजन के स्थान पर पहले हाइड्रोजन को संतुलित करता है।
+<br><br>
+Fe + H₂O → Fe₃O₄ + H₂
+<br><br>
+इस उपागम से मुख्य कठिनाई क्या हो सकती है?
+</p>
+
+<label class="option"><input type="radio" name="q2" value="A"> A. संरक्षण का नियम अमान्य हो जाता है</label>
+<label class="option"><input type="radio" name="q2" value="B"> B. ऑक्सीजन परमाणु अत्यधिक असमान रहते हैं</label>
+<label class="option"><input type="radio" name="q2" value="C"> C. रासायनिक सूत्रों को संशोधित किया जाना चाहिए</label>
+<label class="option"><input type="radio" name="q2" value="D"> D. गुणांक असंभव मान बन जाते हैं</label>
+
+<div class="explanation">
+संतुलन करते समय गलत क्रम से ऑक्सीजन का संतुलन कठिन हो सकता है।
+</div>
+
+</div>
+
+
+<!-- Q3 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q3.</span>
+<span class="topic-tag">Balancing Chemical Equations</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+एक विद्यार्थी समीकरण Fe + H₂O → Fe₃O₄ + H₂ को संतुलित करने का प्रयास करता है और लिखता है:
+<br><br>
+Fe + H₂O₄ → Fe₃O₄ + H₂
+<br><br>
+यह चरण गलत क्यों है?
+</p>
+
+<label class="option"><input type="radio" name="q3" value="A"> A. यह द्रव्यमान संरक्षण के नियम को बनाए रखता है</label>
+<label class="option"><input type="radio" name="q3" value="B"> B. यह ऑक्सीजन परमाणुओं को प्रत्यक्ष रूप से संतुलित करता है</label>
+<label class="option"><input type="radio" name="q3" value="C"> C. यह जल के संघटन को परिवर्तित करता है</label>
+<label class="option"><input type="radio" name="q3" value="D"> D. यह ऑक्सीजन परमाणुओं में सही ढंग से वृद्धि करता है</label>
+
+<div class="explanation">
+संतुलन करते समय रासायनिक सूत्र नहीं बदले जाते। H₂O को H₂O₄ करना गलत है।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 2 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 2: संयोजन अभिक्रिया
+</h2>
+
+
+<!-- Q4 -->
+
+<div class="question-card" data-answer="A">
+
+<div class="question-head">
+<span class="q-number">Q4.</span>
+<span class="topic-tag">Combination Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+निम्नलिखित में से कौन-सा प्रेक्षण इसकी पुष्टि करता है कि कोई अभिक्रिया एक संयोजन अभिक्रिया है?
+</p>
+
+<label class="option"><input type="radio" name="q4" value="A"> A. केवल एक नया पदार्थ निर्मित होता है</label>
+<label class="option"><input type="radio" name="q4" value="B"> B. तापमान अचानक कम हो जाता है</label>
+<label class="option"><input type="radio" name="q4" value="C"> C. अभिक्रिया के दौरान गैस विकसित होती है</label>
+<label class="option"><input type="radio" name="q4" value="D"> D. अभिकारकों का रंग बदलता है</label>
+
+<div class="explanation">
+संयोजन अभिक्रिया में दो या दो से अधिक पदार्थ मिलकर एक उत्पाद बनाते हैं।
+</div>
+
+</div>
+
+
+<!-- Q5 -->
+
+<div class="question-card" data-answer="D">
+
+<div class="question-head">
+<span class="q-number">Q5.</span>
+<span class="topic-tag">Combination Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+ऑक्सीजन में कार्बन के जलने पर क्या बनता है?
+</p>
+
+<label class="option"><input type="radio" name="q5" value="A"> A. ऊष्मा और प्रकाश के साथ मेथेन गैस मुक्त होती है</label>
+<label class="option"><input type="radio" name="q5" value="B"> B. ऊष्मा और प्रकाश के साथ हाइड्रोजन गैस मुक्त होती है</label>
+<label class="option"><input type="radio" name="q5" value="C"> C. ऊष्मा और प्रकाश के साथ कार्बन मोनोऑक्साइड मुक्त होती है</label>
+<label class="option"><input type="radio" name="q5" value="D"> D. ऊष्मा और प्रकाश के साथ कार्बन डाइऑक्साइड मुक्त होती है</label>
+
+<div class="explanation">
+C + O₂ → CO₂ + ऊष्मा + प्रकाश.
+</div>
+
+</div>
+
+
+<!-- Q6 -->
+
+<div class="question-card" data-answer="D">
+
+<div class="question-head">
+<span class="q-number">Q6.</span>
+<span class="topic-tag">Combination Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+CaO(s) + H₂O(l) → Ca(OH)₂(aq) + ऊष्मा किस प्रकार की अभिक्रिया है?
+</p>
+
+<label class="option"><input type="radio" name="q6" value="A"> A. द्वि-विस्थापन</label>
+<label class="option"><input type="radio" name="q6" value="B"> B. विस्थापन</label>
+<label class="option"><input type="radio" name="q6" value="C"> C. वियोजन</label>
+<label class="option"><input type="radio" name="q6" value="D"> D. संयोजन</label>
+
+<div class="explanation">
+दो पदार्थ मिलकर एक उत्पाद Ca(OH)₂ बनाते हैं।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 3 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 3: अपघटन अभिक्रिया
+</h2>
+
+
+<!-- Q7 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q7.</span>
+<span class="topic-tag">Decomposition Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+निम्नलिखित में से कौन-सी अभिक्रियाएँ अपघटन अभिक्रियाएँ हैं?
+<br><br>
+(I) CaCO₃ → CaO + CO₂
+<br>
+(II) 2AgCl → 2Ag + Cl₂
+<br>
+(III) 2H₂O → 2H₂ + O₂
+<br>
+(IV) Fe + CuSO₄ → FeSO₄ + Cu
+</p>
+
+<label class="option"><input type="radio" name="q7" value="A"> A. केवल III और IV</label>
+<label class="option"><input type="radio" name="q7" value="B"> B. केवल I और II</label>
+<label class="option"><input type="radio" name="q7" value="C"> C. केवल I, II और III</label>
+<label class="option"><input type="radio" name="q7" value="D"> D. केवल II और III</label>
+
+<div class="explanation">
+I, II और III में एक यौगिक टूटकर दो या अधिक पदार्थ बनाता है।
+</div>
+
+</div>
+
+
+<!-- Q8 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q8.</span>
+<span class="topic-tag">Decomposition Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+अधिकांश अपघटन अभिक्रियाओं को सफलतापूर्वक शुरू करने के लिए कौन-सा ऊर्जा स्रोत आवश्यक है?
+</p>
+
+<label class="option"><input type="radio" name="q8" value="A"> A. केवल उत्प्रेरक की उपस्थिति</label>
+<label class="option"><input type="radio" name="q8" value="B"> B. यांत्रिक विलोडन बल</label>
+<label class="option"><input type="radio" name="q8" value="C"> C. ऊष्मा, प्रकाश या विद्युत ऊर्जा</label>
+<label class="option"><input type="radio" name="q8" value="D"> D. केवल वायुमंडलीय दाब</label>
+
+<div class="explanation">
+अपघटन अभिक्रियाएँ ऊष्मा, प्रकाश या विद्युत ऊर्जा द्वारा कराई जा सकती हैं।
+</div>
+
+</div>
+
+
+<!-- Q9 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q9.</span>
+<span class="topic-tag">Decomposition Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+अपघटन अभिक्रिया की मूलभूत विशेषता क्या है?
+</p>
+
+<label class="option"><input type="radio" name="q9" value="A"> A. दो पदार्थों के संयोजन से एक पदार्थ का निर्माण</label>
+<label class="option"><input type="radio" name="q9" value="B"> B. एक यौगिक का सरल पदार्थों में टूटना</label>
+<label class="option"><input type="radio" name="q9" value="C"> C. एक तत्व द्वारा दूसरे तत्व का प्रतिस्थापन</label>
+<label class="option"><input type="radio" name="q9" value="D"> D. विलयन में आयनों का विनिमय</label>
+
+<div class="explanation">
+एक यौगिक का दो या अधिक सरल पदार्थों में टूटना अपघटन कहलाता है।
+</div>
+
+</div>
+
+
+<!-- Q10 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q10.</span>
+<span class="topic-tag">Decomposition Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+कथन A: एकल यौगिक दो या दो से अधिक सरल पदार्थों में टूट जाता है।
+<br><br>
+कथन B: वियोजन अभिक्रियाओं के लिए सदैव ऑक्सीजन की उपस्थिति अनिवार्य होती है।
+</p>
+
+<label class="option"><input type="radio" name="q10" value="A"> A. कथन A और B दोनों गलत हैं।</label>
+<label class="option"><input type="radio" name="q10" value="B"> B. कथन A सही है लेकिन कथन B गलत है।</label>
+<label class="option"><input type="radio" name="q10" value="C"> C. कथन A गलत है लेकिन कथन B सही है।</label>
+<label class="option"><input type="radio" name="q10" value="D"> D. कथन A और B दोनों सही हैं।</label>
+
+<div class="explanation">
+कथन A सही है। ऑक्सीजन की उपस्थिति हमेशा आवश्यक नहीं होती।
+</div>
+
+</div>
+
+
+<!-- Q11 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q11.</span>
+<span class="topic-tag">Decomposition Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+कैल्शियम कार्बोनेट को तप्त करने पर कैल्शियम ऑक्साइड और कार्बन डाइऑक्साइड उत्पन्न होते हैं; यह किस प्रकार की अभिक्रिया है?
+</p>
+
+<label class="option"><input type="radio" name="q11" value="A"> A. योगज अभिक्रिया</label>
+<label class="option"><input type="radio" name="q11" value="B"> B. विस्थापन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q11" value="C"> C. अपघटन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q11" value="D"> D. प्रतिस्थापन अभिक्रिया</label>
+
+<div class="explanation">
+CaCO₃ → CaO + CO₂ एक तापीय अपघटन अभिक्रिया है।
+</div>
+
+</div>
+
+
+<!-- Q12 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q12.</span>
+<span class="topic-tag">Decomposition Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+कैल्शियम कार्बोनेट, सिल्वर क्लोराइड और लेड नाइट्रेट को सूर्य के प्रकाश में रखने पर कौन-सा यौगिक दृश्यमान परिवर्तन दर्शाएगा?
+</p>
+
+<label class="option"><input type="radio" name="q12" value="A"> A. तीनों यौगिक</label>
+<label class="option"><input type="radio" name="q12" value="B"> B. केवल लेड नाइट्रेट</label>
+<label class="option"><input type="radio" name="q12" value="C"> C. केवल सिल्वर क्लोराइड</label>
+<label class="option"><input type="radio" name="q12" value="D"> D. केवल कैल्शियम कार्बोनेट</label>
+
+<div class="explanation">
+2AgCl → 2Ag + Cl₂. सूर्य के प्रकाश में AgCl का अपघटन होता है।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 4 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 4: विस्थापन अभिक्रिया
+</h2>
+
+
+<!-- Q13 -->
+
+<div class="question-card" data-answer="A">
+
+<div class="question-head">
+<span class="q-number">Q13.</span>
+<span class="topic-tag">Displacement Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+जब आयरन, कॉपर सल्फेट विलयन के साथ अभिक्रिया करता है, तो कौन-सा दृश्य परिवर्तन विस्थापन अभिक्रिया की पुष्टि करता है?
+</p>
+
+<label class="option"><input type="radio" name="q13" value="A"> A. लाल-भूरा कॉपर निक्षेप दिखाई देता है</label>
+<label class="option"><input type="radio" name="q13" value="B"> B. तुरंत सफेद अवक्षेप बनता है</label>
+<label class="option"><input type="radio" name="q13" value="C"> C. रंगहीन गैस तेजी से विकसित होती है</label>
+<label class="option"><input type="radio" name="q13" value="D"> D. विलयन का तापमान अचानक गिरता है</label>
+
+<div class="explanation">
+Fe + CuSO₄ → FeSO₄ + Cu. कॉपर लाल-भूरे रंग का होता है।
+</div>
+
+</div>
+
+
+<!-- Q14 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q14.</span>
+<span class="topic-tag">Displacement Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+जब जस्ता, तनु HCl के साथ अभिक्रिया करता है, तो इसे किस रूप में वर्गीकृत किया जा सकता है?
+</p>
+
+<label class="option"><input type="radio" name="q14" value="A"> A. द्वि-अपघटन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q14" value="B"> B. विस्थापन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q14" value="C"> C. संयोजन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q14" value="D"> D. उदासीनीकरण अभिक्रिया</label>
+
+<div class="explanation">
+Zn + 2HCl → ZnCl₂ + H₂. Zn, H को विस्थापित करता है।
+</div>
+
+</div>
+
+
+<!-- Q15 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q15.</span>
+<span class="topic-tag">Displacement Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+कौन-सा समीकरण धातु और उसके लवण विलयन के बीच विस्थापन अभिक्रिया दर्शाता है?
+</p>
+
+<label class="option"><input type="radio" name="q15" value="A"> A. Ag + MgSO₄ → AgSO₄ + Mg</label>
+<label class="option"><input type="radio" name="q15" value="B"> B. Zn + CuSO₄ → ZnSO₄ + Cu</label>
+<label class="option"><input type="radio" name="q15" value="C"> C. Au + FeSO₄ → AuSO₄ + Fe</label>
+<label class="option"><input type="radio" name="q15" value="D"> D. Cu + ZnSO₄ → CuSO₄ + Zn</label>
+
+<div class="explanation">
+Zn, Cu से अधिक अभिक्रियाशील है और Cu को उसके लवण से विस्थापित करता है।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 5 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 5: द्वि-विस्थापन अभिक्रिया
+</h2>
+
+
+<!-- Q16 -->
+
+<div class="question-card" data-answer="D">
+
+<div class="question-head">
+<span class="q-number">Q16.</span>
+<span class="topic-tag">Double Displacement</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+दो जलीय लवण विलयनों को मिलाने पर अघुलनशील ठोस बनता है। यह किस प्रकार की अभिक्रिया है?
+</p>
+
+<label class="option"><input type="radio" name="q16" value="A"> A. अपघटन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q16" value="B"> B. संयोजन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q16" value="C"> C. विस्थापन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q16" value="D"> D. द्वि-विस्थापन अवक्षेपण अभिक्रिया</label>
+
+<div class="explanation">
+दो यौगिकों के आयनों का विनिमय होता है और अघुलनशील अवक्षेप बनता है।
+</div>
+
+</div>
+
+
+<!-- Q17 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q17.</span>
+<span class="topic-tag">Double Displacement</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+Na₂SO₄(aq) + BaCl₂(aq) → BaSO₄(s) + 2NaCl(aq) को द्वि-विस्थापन अभिक्रिया क्यों कहा जाता है?
+</p>
+
+<label class="option"><input type="radio" name="q17" value="A"> A. एक धातु दूसरे को विस्थापित करती है</label>
+<label class="option"><input type="radio" name="q17" value="B"> B. केवल एक उत्पाद बनता है</label>
+<label class="option"><input type="radio" name="q17" value="C"> C. आयनों के विनिमय से दो नए यौगिक बनते हैं</label>
+<label class="option"><input type="radio" name="q17" value="D"> D. ऊष्मा यौगिक को विभक्त करती है</label>
+
+<div class="explanation">
+Na₂SO₄ और BaCl₂ के आयन आपस में विनिमय करते हैं।
+</div>
+
+</div>
+
+
+<!-- Q18 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q18.</span>
+<span class="topic-tag">Double Displacement</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+सोडियम सल्फेट और बेरियम क्लोराइड के जलीय विलयनों को मिलाने पर क्या होता है?
+</p>
+
+<label class="option"><input type="radio" name="q18" value="A"> A. एकल विस्थापन; रंग बदलता है</label>
+<label class="option"><input type="radio" name="q18" value="B"> B. रेडॉक्स; गैस निकलती है</label>
+<label class="option"><input type="radio" name="q18" value="C"> C. दोहरा विस्थापन; अवक्षेप बनता है</label>
+<label class="option"><input type="radio" name="q18" value="D"> D. अपघटन; ऊष्मा मुक्त होती है</label>
+
+<div class="explanation">
+BaSO₄ का सफेद अवक्षेप बनता है।
+</div>
+
+</div>
+
+
+<!-- Q19 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q19.</span>
+<span class="topic-tag">Double Displacement</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+दो रंगहीन जलीय विलयनों को मिलाने पर अविलेय कैल्शियम कार्बोनेट का श्वेत अवक्षेप बनता है। कौन-सा युग्म उपयुक्त है?
+</p>
+
+<label class="option"><input type="radio" name="q19" value="A"> A. NaCl और KNO₃</label>
+<label class="option"><input type="radio" name="q19" value="B"> B. Na₂CO₃ और CaCl₂</label>
+<label class="option"><input type="radio" name="q19" value="C"> C. ZnSO₄ और FeCl₂</label>
+<label class="option"><input type="radio" name="q19" value="D"> D. HCl और NaOH</label>
+
+<div class="explanation">
+Na₂CO₃ + CaCl₂ → CaCO₃↓ + 2NaCl.
+</div>
+
+</div>
+
+
+<!-- Q20 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q20.</span>
+<span class="topic-tag">Double Displacement</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+द्वि-विस्थापन अभिक्रिया का मुख्य अभिलक्षण क्या है?
+</p>
+
+<label class="option"><input type="radio" name="q20" value="A"> A. किसी पदार्थ को ऑक्सीजन का लाभ</label>
+<label class="option"><input type="radio" name="q20" value="B"> B. अम्ल से हाइड्रोजन का निष्कासन</label>
+<label class="option"><input type="radio" name="q20" value="C"> C. अभिकारकों के बीच आयनों का विनिमय</label>
+<label class="option"><input type="radio" name="q20" value="D"> D. दो तत्वों का संयोजन</label>
+
+<div class="explanation">
+दो यौगिकों के आयन आपस में विनिमय करते हैं।
+</div>
+
+</div>
+
+
+<!-- Q21 -->
+
+<div class="question-card" data-answer="A">
+
+<div class="question-head">
+<span class="q-number">Q21.</span>
+<span class="topic-tag">Double Displacement</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+HCl + NaOH → NaCl + H₂O किस प्रकार की अभिक्रिया है?
+</p>
+
+<label class="option"><input type="radio" name="q21" value="A"> A. द्वि-विस्थापन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q21" value="B"> B. रेडॉक्स अभिक्रिया</label>
+<label class="option"><input type="radio" name="q21" value="C"> C. संयोजन अभिक्रिया</label>
+<label class="option"><input type="radio" name="q21" value="D"> D. विस्थापन अभिक्रिया</label>
+
+<div class="explanation">
+यह अम्ल-क्षार उदासीनीकरण तथा द्वि-विस्थापन अभिक्रिया है।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 6 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 6: ऊष्माक्षेपी एवं ऊष्माशोषी अभिक्रियाएँ
+</h2>
+
+
+<!-- Q22 -->
+
+<div class="question-card" data-answer="A">
+
+<div class="question-head">
+<span class="q-number">Q22.</span>
+<span class="topic-tag">Exothermic & Endothermic</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+संयोजन अभिक्रिया और ऊर्जा के बीच संबंध को कौन-सा कथन सही ढंग से वर्णित करता है?
+</p>
+
+<label class="option"><input type="radio" name="q22" value="A"> A. कई संयोजन अभिक्रियाएँ ऊष्माक्षेपी होती हैं, हालाँकि कुछ ऊष्माशोषी भी हो सकती हैं।</label>
+<label class="option"><input type="radio" name="q22" value="B"> B. संयोजन अभिक्रियाएँ ऊर्जा न तो निर्मुक्त करती हैं और न अवशोषित करती हैं।</label>
+<label class="option"><input type="radio" name="q22" value="C"> C. सभी संयोजन अभिक्रियाओं को ऊष्मा अवशोषित करनी चाहिए।</label>
+<label class="option"><input type="radio" name="q22" value="D"> D. सभी संयोजन अभिक्रियाएँ ऊष्मा निर्मुक्त करती हैं।</label>
+
+<div class="explanation">
+संयोजन अभिक्रियाएँ ऊष्माक्षेपी या कुछ परिस्थितियों में ऊष्माशोषी हो सकती हैं।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 7 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 7: चूने का पानी एवं CO₂
+</h2>
+
+
+<!-- Q23 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q23.</span>
+<span class="topic-tag">Lime Water & CO₂</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+जब CO₂ गैस को चूने के पानी से गुजारा जाता है, तो किसका श्वेत अवक्षेप बनता है?
+</p>
+
+<label class="option"><input type="radio" name="q23" value="A"> A. कैल्शियम सल्फेट</label>
+<label class="option"><input type="radio" name="q23" value="B"> B. कैल्शियम कार्बोनेट</label>
+<label class="option"><input type="radio" name="q23" value="C"> C. कैल्शियम हाइड्रोजन कार्बोनेट</label>
+<label class="option"><input type="radio" name="q23" value="D"> D. कैल्शियम ऑक्साइड</label>
+
+<div class="explanation">
+Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O.
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 8 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 8: ऑक्सीकरण एवं अपचयन
+</h2>
+
+
+<!-- Q24 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q24.</span>
+<span class="topic-tag">Oxidation & Reduction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+2Cu + O₂ → 2CuO तथा CuO + H₂ → Cu + H₂O में कौन-सा पदार्थ पहली अभिक्रिया में ऑक्सीकृत और दूसरी में अपचयित होता है?
+</p>
+
+<label class="option"><input type="radio" name="q24" value="A"> A. पहली में ऑक्सीजन और दूसरी में CuO</label>
+<label class="option"><input type="radio" name="q24" value="B"> B. पहली में H₂ और दूसरी में CuO</label>
+<label class="option"><input type="radio" name="q24" value="C"> C. पहली में Cu और दूसरी में CuO</label>
+<label class="option"><input type="radio" name="q24" value="D"> D. पहली में CuO और दूसरी में Cu</label>
+
+<div class="explanation">
+पहली अभिक्रिया में Cu ऑक्सीकरण होता है। दूसरी में CuO का अपचयन होता है।
+</div>
+
+</div>
+
+
+<!-- Q25 -->
+
+<div class="question-card" data-answer="D">
+
+<div class="question-head">
+<span class="q-number">Q25.</span>
+<span class="topic-tag">Oxidation & Reduction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+CuO + H₂ → Cu + H₂O में कौन-सा परिवर्तन सही है?
+</p>
+
+<label class="option"><input type="radio" name="q25" value="A"> A. कॉपर ऑक्सीकृत, H₂ अपचयित</label>
+<label class="option"><input type="radio" name="q25" value="B"> B. H₂ अपचयित, CuO ऑक्सीकृत</label>
+<label class="option"><input type="radio" name="q25" value="C"> C. कॉपर और हाइड्रोजन दोनों ऑक्सीकृत</label>
+<label class="option"><input type="radio" name="q25" value="D"> D. H₂ ऑक्सीकृत, CuO अपचयित</label>
+
+<div class="explanation">
+H₂ ऑक्सीजन ग्रहण करता है और CuO ऑक्सीजन खोता है।
+</div>
+
+</div>
+
+
+<!-- Q26 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q26.</span>
+<span class="topic-tag">Oxidation & Reduction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+MnO₂ + 4HCl → MnCl₂ + 2H₂O + Cl₂ में किस पदार्थ का अपचयन होता है?
+</p>
+
+<label class="option"><input type="radio" name="q26" value="A"> A. क्लोरीन गैस</label>
+<label class="option"><input type="radio" name="q26" value="B"> B. हाइड्रोजन क्लोराइड</label>
+<label class="option"><input type="radio" name="q26" value="C"> C. मैंगनीज डाइऑक्साइड</label>
+<label class="option"><input type="radio" name="q26" value="D"> D. जल</label>
+
+<div class="explanation">
+MnO₂ ऑक्सीजन खोकर MnCl₂ बनाता है, इसलिए MnO₂ का अपचयन होता है।
+</div>
+
+</div>
+
+
+<!-- Q27 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q27.</span>
+<span class="topic-tag">Oxidation & Reduction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+ZnO(s) + C(s) → Zn(s) + CO(g) में किसका अपचयन होता है?
+</p>
+
+<label class="option"><input type="radio" name="q27" value="A"> A. CO का निर्माण</label>
+<label class="option"><input type="radio" name="q27" value="B"> B. ZnO ऑक्सीजन खोकर Zn बनाता है</label>
+<label class="option"><input type="radio" name="q27" value="C"> C. ZnO जिंक धातु में बदलता है</label>
+<label class="option"><input type="radio" name="q27" value="D"> D. कार्बन ऑक्सीजन ग्रहण करके CO बनाता है</label>
+
+<div class="explanation">
+ZnO ऑक्सीजन खोकर Zn बनता है, इसलिए इसका अपचयन होता है।
+</div>
+
+</div>
+
+
+<!-- Q28 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q28.</span>
+<span class="topic-tag">Oxidation</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+किसी पदार्थ के ऑक्सीकरण को सर्वोत्तम रूप से क्या दर्शाता है?
+</p>
+
+<label class="option"><input type="radio" name="q28" value="A"> A. केवल हाइड्रोजन का लाभ</label>
+<label class="option"><input type="radio" name="q28" value="B"> B. भौतिक अवस्था में परिवर्तन</label>
+<label class="option"><input type="radio" name="q28" value="C"> C. ऑक्सीजन का लाभ या हाइड्रोजन की हानि</label>
+<label class="option"><input type="radio" name="q28" value="D"> D. केवल इलेक्ट्रॉनों की हानि</label>
+
+<div class="explanation">
+ऑक्सीजन का लाभ या हाइड्रोजन की हानि ऑक्सीकरण की पारंपरिक परिभाषा है।
+</div>
+
+</div>
+
+
+<!-- Q29 -->
+
+<div class="question-card" data-answer="A">
+
+<div class="question-head">
+<span class="q-number">Q29.</span>
+<span class="topic-tag">Oxidation</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+निम्नलिखित में से कौन-सा परिवर्तन ऑक्सीकरण को सही रूप से दर्शाता है?
+</p>
+
+<label class="option"><input type="radio" name="q29" value="A"> A. किसी पदार्थ में ऑक्सीजन का योग</label>
+<label class="option"><input type="radio" name="q29" value="B"> B. यौगिकों के बीच आयनों का विनिमय</label>
+<label class="option"><input type="radio" name="q29" value="C"> C. किसी यौगिक से ऑक्सीजन का निष्कासन</label>
+<label class="option"><input type="radio" name="q29" value="D"> D. लवण और जल का निर्माण</label>
+
+<div class="explanation">
+ऑक्सीजन का योग ऑक्सीकरण का संकेत है।
+</div>
+
+</div>
+
+
+<!-- Q30 -->
+
+<div class="question-card" data-answer="D">
+
+<div class="question-head">
+<span class="q-number">Q30.</span>
+<span class="topic-tag">Oxidation & Reduction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+ऑक्सीकरण और अपचयन अभिक्रियाएँ सदैव एक साथ क्यों होती हैं?
+</p>
+
+<label class="option"><input type="radio" name="q30" value="A"> A. ऊर्जा संरक्षण नियम के कारण</label>
+<label class="option"><input type="radio" name="q30" value="B"> B. अभिक्रिया के संतुलित होने के लिए</label>
+<label class="option"><input type="radio" name="q30" value="C"> C. उत्पादों के उदासीन होने के लिए</label>
+<label class="option"><input type="radio" name="q30" value="D"> D. क्योंकि एक पदार्थ जिसे त्यागता है, दूसरा पदार्थ उसे ग्रहण करता है</label>
+
+<div class="explanation">
+रेडॉक्स में ऑक्सीकरण और अपचयन साथ-साथ होते हैं क्योंकि इलेक्ट्रॉन/ऑक्सीजन/हाइड्रोजन का आदान-प्रदान होता है।
+</div>
+
+</div>
+
+
+<!-- Q31 -->
+
+<div class="question-card" data-answer="D">
+
+<div class="question-head">
+<span class="q-number">Q31.</span>
+<span class="topic-tag">Oxidation</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+MnO₂ + 4HCl → MnCl₂ + 2H₂O + Cl₂ में कौन-सा पदार्थ ऑक्सीकृत होता है?
+</p>
+
+<label class="option"><input type="radio" name="q31" value="A"> A. H₂O</label>
+<label class="option"><input type="radio" name="q31" value="B"> B. MnO₂</label>
+<label class="option"><input type="radio" name="q31" value="C"> C. MnCl₂</label>
+<label class="option"><input type="radio" name="q31" value="D"> D. HCl</label>
+
+<div class="explanation">
+HCl में उपस्थित Cl⁻ का ऑक्सीकरण होकर Cl₂ बनता है।
+</div>
+
+</div>
+
+
+<!-- Q32 -->
+
+<div class="question-card" data-answer="C">
+
+<div class="question-head">
+<span class="q-number">Q32.</span>
+<span class="topic-tag">Reduction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+कौन-सा अवलोकन अपचयन को दर्शाता है?
+</p>
+
+<label class="option"><input type="radio" name="q32" value="A"> A. कार्बोनेट से CO₂ निकलना</label>
+<label class="option"><input type="radio" name="q32" value="B"> B. अम्ल के साथ धातु से H₂ निकलना</label>
+<label class="option"><input type="radio" name="q32" value="C"> C. धात्विक ऑक्साइड से ऑक्सीजन निष्कासित होना</label>
+<label class="option"><input type="radio" name="q32" value="D"> D. ऑक्सीजन से धातु का ऑक्साइड बनना</label>
+
+<div class="explanation">
+ऑक्सीजन की हानि अपचयन का संकेत है।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 9 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 9: अवक्षेपण अभिक्रिया
+</h2>
+
+
+<!-- Q33 -->
+
+<div class="question-card" data-answer="D">
+
+<div class="question-head">
+<span class="q-number">Q33.</span>
+<span class="topic-tag">Precipitation Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+निम्नलिखित में से कौन-सी अभिक्रियाएँ अवक्षेपण अभिक्रियाएँ हैं?
+<br><br>
+(I) Na₂SO₄ + BaCl₂ → BaSO₄ + 2NaCl
+<br>
+(II) AgNO₃ + NaCl → AgCl + NaNO₃
+<br>
+(III) CaCO₃ → CaO + CO₂
+<br>
+(IV) Fe + CuSO₄ → FeSO₄ + Cu
+</p>
+
+<label class="option"><input type="radio" name="q33" value="A"> A. केवल III और IV</label>
+<label class="option"><input type="radio" name="q33" value="B"> B. केवल I और III</label>
+<label class="option"><input type="radio" name="q33" value="C"> C. केवल II और IV</label>
+<label class="option"><input type="radio" name="q33" value="D"> D. केवल I और II</label>
+
+<div class="explanation">
+I में BaSO₄ और II में AgCl अघुलनशील अवक्षेप बनते हैं।
+</div>
+
+</div>
+
+
+<!-- Q34 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q34.</span>
+<span class="topic-tag">Precipitation Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+Na₂SO₄ + BaCl₂ → BaSO₄ + 2NaCl को अवक्षेपण अभिक्रिया क्यों कहा जाता है?
+</p>
+
+<label class="option"><input type="radio" name="q34" value="A"> A. अभिक्रियक जलीय विलयन होते हैं</label>
+<label class="option"><input type="radio" name="q34" value="B"> B. अघुलनशील बेरियम सल्फेट बनता है</label>
+<label class="option"><input type="radio" name="q34" value="C"> C. दो आयनिक यौगिकों का विनिमय होता है</label>
+<label class="option"><input type="radio" name="q34" value="D"> D. NaCl जल में घुला रहता है</label>
+
+<div class="explanation">
+BaSO₄ अघुलनशील ठोस के रूप में अवक्षेपित होता है।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 10 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 10: विकृतगंधिता (Rancidity)
+</h2>
+
+
+<!-- Q35 -->
+
+<div class="question-card" data-answer="A">
+
+<div class="question-head">
+<span class="q-number">Q35.</span>
+<span class="topic-tag">Rancidity</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+तैलीय खाद्य पदार्थों में अप्रिय गंध और स्वाद मुख्यतः किस रासायनिक प्रक्रम के कारण होता है?
+</p>
+
+<label class="option"><input type="radio" name="q35" value="A"> A. वसा और तेलों का ऑक्सीकरण</label>
+<label class="option"><input type="radio" name="q35" value="B"> B. शर्करा का किण्वन</label>
+<label class="option"><input type="radio" name="q35" value="C"> C. एंजाइमों की क्रिया</label>
+<label class="option"><input type="radio" name="q35" value="D"> D. जल का वाष्पीकरण</label>
+
+<div class="explanation">
+वसा और तेलों का ऑक्सीकरण होने पर विकृतगंधिता होती है।
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- TOPIC 11 -->
+<!-- ===================================================== -->
+
+<h2 class="topic-title">
+  Topic 11: रासायनिक अभिक्रिया के संकेत
+</h2>
+
+
+<!-- Q36 -->
+
+<div class="question-card" data-answer="B">
+
+<div class="question-head">
+<span class="q-number">Q36.</span>
+<span class="topic-tag">Signs of Chemical Reaction</span>
+</div>
+
+<div class="exam-tag">🏷️ RRB Group D 2026</div>
+
+<p class="question">
+किसी विलयन में कौन-सा प्रेक्षण रासायनिक परिवर्तन होने का संकेत देता है?
+</p>
+
+<label class="option"><input type="radio" name="q36" value="A"> A. पदार्थों का एकसमान मिश्रण</label>
+<label class="option"><input type="radio" name="q36" value="B"> B. अवक्षेप का बनना</label>
+<label class="option"><input type="radio" name="q36" value="C"> C. केवल तापमान में वृद्धि</label>
+<label class="option"><input type="radio" name="q36" value="D"> D. ठोस का विलीन होना</label>
+
+<div class="explanation">
+अवक्षेप का बनना नए पदार्थ के बनने का संकेत है।
+</div>
+
+</div>
+
+
+<!-- ================= SUBMIT ================= -->
+
+<div class="submit-area">
+
+<button type="button" class="submit-btn" onclick="submitTest()">
+  ✅ Submit Test
+</button>
+
+</div>
+
+</form>
+
+
+<!-- ================= RESULT ================= -->
+
+<div id="result">
+
+  <div class="result-title">
+    🎯 Test Result
+  </div>
+
+  <div class="score-main" id="score">
+    0 / 36
+  </div>
+
+  <div class="result-grid">
+
+    <div class="result-item">
+      <strong id="correct">0</strong>
+      Correct
+    </div>
+
+    <div class="result-item">
+      <strong id="wrong">0</strong>
+      Wrong
+    </div>
+
+    <div class="result-item">
+      <strong id="unattempted">0</strong>
+      Unattempted
+    </div>
+
+    <div class="result-item">
+      <strong id="finalMarks">0</strong>
+      Marks
+    </div>
+
+  </div>
+
+  <div class="result-note">
+    सही उत्तर = +1 अंक &nbsp; | &nbsp;
+    गलत उत्तर = −1/3 अंक &nbsp; | &nbsp;
+    Unattempted = 0 अंक
+  </div>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+  Class 10 Science • Chapter 01 • RRB Group D 2026
+</div>
+
+
+<script>
+
+/* =====================================================
+   TIMER
+   ===================================================== */
+
+let timeLeft = 20 * 60;
+let testSubmitted = false;
+
+const timer = document.getElementById("timer");
+
+const countdown = setInterval(function(){
+
+  if(testSubmitted){
+    clearInterval(countdown);
+    return;
+  }
+
+  let minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+
+  minutes = String(minutes).padStart(2,"0");
+  seconds = String(seconds).padStart(2,"0");
+
+  timer.textContent = minutes + ":" + seconds;
+
+  if(timeLeft <= 60){
+    timer.style.color = "#d92d20";
+    timer.style.background = "#fff0f0";
+  }
+
+  if(timeLeft <= 0){
+
+    clearInterval(countdown);
+
+    alert("⏰ समय समाप्त! आपका test automatically submit हो रहा है।");
+
+    submitTest();
+
+    return;
+  }
+
+  timeLeft--;
+
+},1000);
+
+
+/* =====================================================
+   SUBMIT TEST
+   ===================================================== */
+
+function submitTest(){
+
+  if(testSubmitted){
+    return;
+  }
+
+  testSubmitted = true;
+
+  clearInterval(countdown);
+
+  const questions =
+    document.querySelectorAll(".question-card");
+
+  let correct = 0;
+  let wrong = 0;
+  let unattempted = 0;
+
+  questions.forEach(function(question){
+
+    const correctAnswer =
+      question.dataset.answer;
+
+    const selected =
+      question.querySelector(
+        'input[type="radio"]:checked'
+      );
+
+    const options =
+      question.querySelectorAll(".option");
+
+    const explanation =
+      question.querySelector(".explanation");
+
+
+    /* Reset */
+    options.forEach(function(option){
+
+      option.classList.remove(
+        "correct",
+        "wrong"
+      );
+
+    });
+
+
+    /* Unattempted */
+
+    if(!selected){
+
+      unattempted++;
+
+      options.forEach(function(option){
+
+        const input =
+          option.querySelector("input");
+
+        if(input.value === correctAnswer){
+          option.classList.add("correct");
+        }
+
+        input.disabled = true;
+
+      });
+
+    }
+
+
+    /* Attempted */
+
+    else{
+
+      const selectedValue =
+        selected.value;
+
+      if(selectedValue === correctAnswer){
+        correct++;
+      }
+      else{
+        wrong++;
+      }
+
+
+      options.forEach(function(option){
+
+        const input =
+          option.querySelector("input");
+
+        if(input.value === correctAnswer){
+          option.classList.add("correct");
+        }
+
+        if(
+          input.checked &&
+          input.value !== correctAnswer
+        ){
+          option.classList.add("wrong");
+        }
+
+        input.disabled = true;
+
+      });
+
+    }
+
+
+    /* Show explanation */
+
+    if(explanation){
+      explanation.style.display = "block";
+    }
+
+  });
+
+
+  /* =====================================================
+     NEGATIVE MARKING
+     ===================================================== */
+
+  const marks =
+    correct - (wrong / 3);
+
+
+  const roundedMarks =
+    Math.round(marks * 100) / 100;
+
+
+  /* =====================================================
+     RESULT
+     ===================================================== */
+
+  document.getElementById("score").textContent =
+    correct + " / " + questions.length;
+
+  document.getElementById("correct").textContent =
+    correct;
+
+  document.getElementById("wrong").textContent =
+    wrong;
+
+  document.getElementById("unattempted").textContent =
+    unattempted;
+
+  document.getElementById("finalMarks").textContent =
+    roundedMarks;
+
+
+  document.getElementById("result").style.display =
+    "block";
+
+
+  /* Disable submit */
+
+  const submitButton =
+    document.querySelector(".submit-btn");
+
+  submitButton.disabled = true;
+
+  submitButton.textContent =
+    "Test Submitted ✓";
+
+
+  submitButton.style.opacity =
+    "0.7";
+
+
+  /* Scroll to result */
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+</script>
+
+</body>
+</html>
