@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Class 10 Science Chapter 2 MCQ Test</title>
+
+<title>Class 10 Science Chapter 2 | TCS Style Test</title>
 
 <style>
 *{
@@ -16,196 +17,147 @@ body{
   font-family:Arial,"Noto Sans Devanagari",sans-serif;
   background:#f4f6f9;
   color:#222;
+  padding-bottom:75px;
 }
 
+/* ================= HEADER ================= */
+
 .header{
+  height:64px;
   background:#172554;
   color:white;
-  padding:14px 18px;
+  padding:10px 16px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  gap:14px;
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 2px 8px rgba(0,0,0,.18);
+  box-shadow:0 2px 8px rgba(0,0,0,.2);
 }
 
 .header h1{
-  font-size:18px;
-}
-
-.menu-btn{
-  width:42px;
-  height:38px;
-  border:0;
-  border-radius:7px;
-  background:white;
-  color:#172554;
-  font-size:25px;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  font-size:17px;
+  flex:1;
+  line-height:1.3;
 }
 
 .timer{
+  background:white;
+  color:#172554;
   font-size:17px;
   font-weight:bold;
-  background:#fff;
-  color:#172554;
-  padding:8px 13px;
-  border-radius:7px;
+  padding:9px 13px;
+  border-radius:6px;
   min-width:82px;
   text-align:center;
 }
 
-/* SIDE PALETTE */
-.palette{
-  position:fixed;
-  top:0;
-  right:-330px;
-  width:310px;
-  max-width:90%;
-  height:100vh;
-  background:#fff;
-  z-index:2000;
-  box-shadow:-4px 0 15px rgba(0,0,0,.25);
-  transition:.3s ease;
-  overflow-y:auto;
-  padding:70px 15px 20px;
-}
-
-.palette.open{
-  right:0;
-}
-
-.palette-title{
-  font-weight:bold;
-  font-size:18px;
-  margin-bottom:12px;
-  color:#172554;
-}
-
-.palette-info{
-  font-size:13px;
-  margin-bottom:15px;
-  line-height:1.7;
-}
-
-.palette-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:8px;
-}
-
-.p-btn{
-  height:38px;
-  border:1px solid #ccc;
-  border-radius:6px;
-  background:#f5f5f5;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.p-btn.current{
-  border:3px solid #172554;
-}
-
-.p-btn.answered{
-  background:#16a34a;
-  color:white;
-  border-color:#16a34a;
-}
-
-.p-btn.wrong{
-  background:#dc2626;
-  color:white;
-  border-color:#dc2626;
-}
-
-.close-palette{
-  position:absolute;
-  top:14px;
-  right:15px;
-  border:0;
-  background:#172554;
-  color:white;
-  width:35px;
-  height:35px;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:18px;
-}
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.35);
-  z-index:1500;
+.menu-btn{
   display:none;
+  width:40px;
+  height:38px;
+  border:0;
+  border-radius:6px;
+  background:white;
+  color:#172554;
+  font-size:23px;
+  cursor:pointer;
 }
 
-.overlay.show{
-  display:block;
-}
+/* ================= CONTAINER ================= */
 
-/* MAIN */
 .container{
-  max-width:900px;
-  margin:20px auto;
-  padding:0 14px 50px;
+  max-width:1200px;
+  margin:18px auto;
+  padding:0 14px 30px;
 }
+
+/* ================= TEST HEADING ================= */
 
 .test-heading{
   background:white;
-  border-radius:10px;
-  padding:18px;
+  border-radius:8px;
+  padding:16px;
+  margin-bottom:14px;
   box-shadow:0 2px 7px rgba(0,0,0,.08);
-  margin-bottom:15px;
 }
 
 .test-heading h2{
   color:#172554;
-  font-size:21px;
+  font-size:20px;
   margin-bottom:8px;
 }
 
 .test-heading p{
-  color:#555;
   font-size:14px;
+  color:#555;
   line-height:1.7;
 }
 
 .negative{
   display:inline-block;
-  margin-top:8px;
+  margin-top:7px;
   padding:5px 9px;
   border-radius:5px;
   background:#fff1f2;
   color:#be123c;
+  font-size:13px;
   font-weight:bold;
 }
 
+/* ================= EXAM LAYOUT ================= */
+
+.exam-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 280px;
+  gap:15px;
+  align-items:start;
+}
+
+.question-area{
+  min-width:0;
+}
+
+.question-toolbar{
+  background:white;
+  border-radius:8px;
+  padding:11px 14px;
+  margin-bottom:10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:14px;
+  font-weight:bold;
+  box-shadow:0 1px 5px rgba(0,0,0,.07);
+}
+
+.marks-info{
+  color:#555;
+}
+
+/* ================= QUESTION CARD ================= */
+
 .question-card{
   background:white;
-  border-radius:10px;
+  border-radius:8px;
   padding:20px;
   box-shadow:0 2px 7px rgba(0,0,0,.08);
+  min-height:360px;
 }
 
 .question-number{
   color:#172554;
-  font-weight:bold;
-  margin-bottom:12px;
   font-size:16px;
+  font-weight:bold;
+  margin-bottom:14px;
 }
 
 .question{
   font-size:18px;
-  line-height:1.65;
-  margin-bottom:18px;
+  line-height:1.7;
   font-weight:600;
+  margin-bottom:20px;
 }
 
 .options{
@@ -216,12 +168,12 @@ body{
 
 .option{
   border:1px solid #d1d5db;
-  border-radius:8px;
-  padding:13px;
+  border-radius:7px;
+  padding:13px 14px;
   cursor:pointer;
   background:#fff;
+  line-height:1.55;
   transition:.15s;
-  line-height:1.5;
 }
 
 .option:hover{
@@ -233,37 +185,64 @@ body{
   background:#e8edff;
 }
 
+.option-label{
+  font-weight:bold;
+  margin-right:7px;
+}
+
 .option input{
   display:none;
 }
 
-.option-label{
-  font-weight:bold;
-  margin-right:6px;
+/* ================= BOTTOM NAV ================= */
+
+.bottom-actions{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #d1d5db;
+  box-shadow:0 -2px 8px rgba(0,0,0,.12);
+  z-index:900;
+  padding:8px 12px;
 }
 
-.navigation{
+.action-inner{
+  max-width:1200px;
+  margin:auto;
   display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:18px;
+  gap:8px;
+  justify-content:center;
 }
 
-.nav-btn{
+.action-btn{
   border:0;
-  border-radius:7px;
-  padding:11px 18px;
-  cursor:pointer;
+  border-radius:6px;
+  padding:10px 14px;
   font-weight:bold;
-  font-size:14px;
+  font-size:13px;
+  cursor:pointer;
+  white-space:nowrap;
 }
 
-.prev{
+.previous{
   background:#e5e7eb;
   color:#111827;
 }
 
-.next{
+.clear{
+  background:#f3f4f6;
+  color:#374151;
+  border:1px solid #d1d5db;
+}
+
+.review{
+  background:#7c3aed;
+  color:white;
+}
+
+.save{
   background:#172554;
   color:white;
 }
@@ -273,18 +252,153 @@ body{
   color:white;
 }
 
-.nav-btn:disabled{
+.action-btn:disabled{
   opacity:.45;
   cursor:not-allowed;
 }
 
-/* RESULT */
+/* ================= PALETTE ================= */
+
+.palette-box{
+  background:white;
+  border-radius:8px;
+  box-shadow:0 2px 7px rgba(0,0,0,.1);
+  padding:15px;
+  position:sticky;
+  top:78px;
+}
+
+.palette-title{
+  color:#172554;
+  font-weight:bold;
+  font-size:18px;
+  margin-bottom:12px;
+}
+
+.palette-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  margin-bottom:14px;
+}
+
+.stat{
+  border:1px solid #ddd;
+  border-radius:6px;
+  padding:7px;
+  text-align:center;
+  font-size:12px;
+}
+
+.stat strong{
+  display:block;
+  font-size:16px;
+  margin-bottom:2px;
+}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+  max-height:390px;
+  overflow-y:auto;
+  padding:2px;
+}
+
+.p-btn{
+  height:37px;
+  border:1px solid #cbd5e1;
+  border-radius:5px;
+  background:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.p-btn.current{
+  outline:3px solid #172554;
+  outline-offset:-2px;
+}
+
+.p-btn.answered{
+  background:#16a34a;
+  border-color:#16a34a;
+  color:white;
+}
+
+.p-btn.not-answered{
+  background:#fee2e2;
+  border-color:#ef4444;
+  color:#991b1b;
+}
+
+.p-btn.review{
+  background:#7c3aed;
+  border-color:#7c3aed;
+  color:white;
+}
+
+.p-btn.review-answered{
+  background:#7c3aed;
+  border-color:#7c3aed;
+  color:white;
+  position:relative;
+}
+
+.p-btn.review-answered::after{
+  content:"✓";
+  position:absolute;
+  right:2px;
+  bottom:0;
+  font-size:10px;
+  color:#bbf7d0;
+}
+
+.palette-legend{
+  margin-top:15px;
+  border-top:1px solid #ddd;
+  padding-top:12px;
+  font-size:12px;
+  line-height:2;
+}
+
+.legend-item{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.legend-box{
+  width:17px;
+  height:17px;
+  border-radius:3px;
+  border:1px solid #ccc;
+  display:inline-block;
+}
+
+.lv-not{
+  background:white;
+}
+
+.lv-notanswer{
+  background:#fee2e2;
+}
+
+.lv-answer{
+  background:#16a34a;
+}
+
+.lv-review{
+  background:#7c3aed;
+}
+
+/* ================= RESULT ================= */
+
 .result{
   display:none;
   background:white;
-  border-radius:10px;
-  padding:22px;
-  margin-top:18px;
+  border-radius:8px;
+  padding:20px;
+  margin-top:16px;
   box-shadow:0 2px 8px rgba(0,0,0,.1);
 }
 
@@ -295,25 +409,26 @@ body{
 
 .result-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
 }
 
 .result-box{
   border:1px solid #ddd;
   border-radius:7px;
-  padding:12px;
+  padding:11px;
   background:#fafafa;
 }
 
 .result-box span{
   display:block;
-  font-size:13px;
   color:#666;
+  font-size:12px;
+  margin-bottom:3px;
 }
 
 .result-box strong{
-  font-size:20px;
+  font-size:19px;
 }
 
 .final-score{
@@ -325,19 +440,22 @@ body{
 }
 
 .final-score strong{
-  font-size:28px;
+  display:block;
   color:#172554;
+  font-size:28px;
+  margin-top:4px;
 }
 
-/* SOLUTIONS */
+/* ================= SOLUTIONS ================= */
+
 .solutions{
   display:none;
   margin-top:18px;
 }
 
 .solutions h2{
-  margin-bottom:12px;
   color:#172554;
+  margin-bottom:12px;
 }
 
 .solution-card{
@@ -345,7 +463,7 @@ body{
   border-radius:8px;
   padding:16px;
   margin-bottom:12px;
-  border-left:4px solid #172554;
+  border-left:4px solid #6b7280;
   box-shadow:0 1px 5px rgba(0,0,0,.08);
 }
 
@@ -363,32 +481,35 @@ body{
 
 .solution-q{
   font-weight:bold;
+  line-height:1.65;
   margin-bottom:8px;
-  line-height:1.6;
-}
-
-.answer{
-  color:#15803d;
-  font-weight:bold;
-  margin-bottom:6px;
 }
 
 .user-answer{
   color:#555;
   font-size:14px;
+  line-height:1.5;
+  margin-bottom:6px;
+}
+
+.answer{
+  color:#15803d;
+  font-weight:bold;
+  font-size:14px;
+  line-height:1.5;
   margin-bottom:6px;
 }
 
 .explanation{
   color:#444;
-  line-height:1.6;
   font-size:14px;
+  line-height:1.65;
 }
 
 .restart{
-  margin-top:15px;
   width:100%;
-  padding:13px;
+  margin-top:15px;
+  padding:12px;
   border:0;
   border-radius:7px;
   background:#172554;
@@ -397,75 +518,260 @@ body{
   cursor:pointer;
 }
 
-@media(max-width:600px){
+/* ================= MOBILE PALETTE ================= */
+
+.mobile-palette{
+  display:none;
+}
+
+.palette-overlay{
+  display:none;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+  body{
+    padding-bottom:105px;
+  }
+
+  .header{
+    height:62px;
+  }
+
+  .menu-btn{
+    display:flex;
+  }
+
   .header h1{
     font-size:14px;
-    max-width:190px;
   }
 
   .timer{
     font-size:14px;
-    min-width:72px;
+    min-width:70px;
+    padding:8px 7px;
   }
 
-  .container{
-    margin-top:12px;
+  .exam-layout{
+    display:block;
+  }
+
+  .desktop-palette{
+    display:none;
   }
 
   .question-card{
     padding:15px;
+    min-height:350px;
   }
 
   .question{
     font-size:16px;
   }
 
+  .question-toolbar{
+    font-size:13px;
+  }
+
+  .bottom-actions{
+    padding:7px;
+  }
+
+  .action-inner{
+    overflow-x:auto;
+    justify-content:flex-start;
+  }
+
+  .action-btn{
+    padding:9px 11px;
+    font-size:12px;
+  }
+
   .result-grid{
     grid-template-columns:1fr 1fr;
   }
+
+  .palette-mobile{
+    position:fixed;
+    top:62px;
+    right:-330px;
+    width:310px;
+    max-width:90%;
+    height:calc(100vh - 62px);
+    background:white;
+    z-index:2000;
+    box-shadow:-4px 0 15px rgba(0,0,0,.25);
+    padding:15px;
+    transition:.3s ease;
+    overflow-y:auto;
+  }
+
+  .palette-mobile.open{
+    right:0;
+  }
+
+  .palette-overlay.show{
+    display:block;
+    position:fixed;
+    inset:62px 0 0 0;
+    background:rgba(0,0,0,.35);
+    z-index:1500;
+  }
+
+  .close-mobile{
+    position:absolute;
+    top:10px;
+    right:10px;
+    border:0;
+    width:34px;
+    height:34px;
+    background:#172554;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+  }
+
+  .palette-mobile .palette-title{
+    margin-top:38px;
+  }
+}
+
+@media(max-width:500px){
+
+  .header h1{
+    max-width:150px;
+  }
+
+  .test-heading h2{
+    font-size:18px;
+  }
+
+  .result-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header class="header">
 
-  <button class="menu-btn" onclick="openPalette()">☰</button>
+  <button class="menu-btn" onclick="openMobilePalette()">
+    ☰
+  </button>
 
-  <h1>Class 10 Science • Chapter 02 MCQ Test</h1>
+  <h1>
+    Class 10 Science • Chapter 02 MCQ Test
+  </h1>
 
-  <div class="timer" id="timer">30:00</div>
+  <div class="timer" id="timer">
+    30:00
+  </div>
 
 </header>
 
-<div class="overlay" id="overlay" onclick="closePalette()"></div>
 
-<aside class="palette" id="palette">
+<!-- ================= MOBILE PALETTE OVERLAY ================= -->
 
-  <button class="close-palette" onclick="closePalette()">✕</button>
+<div
+  class="palette-overlay"
+  id="paletteOverlay"
+  onclick="closeMobilePalette()">
+</div>
 
-  <div class="palette-title">Question Palette</div>
 
-  <div class="palette-info">
-    🟢 Attempted<br>
-    ⚪ Not Attempted<br>
-    🔵 Current Question
+<!-- ================= MOBILE PALETTE ================= -->
+
+<aside class="palette-mobile" id="mobilePalette">
+
+  <button
+    class="close-mobile"
+    onclick="closeMobilePalette()">
+    ✕
+  </button>
+
+  <div class="palette-title">
+    Question Palette
   </div>
 
-  <div class="palette-grid" id="paletteGrid"></div>
+  <div class="palette-stats">
+
+    <div class="stat">
+      <strong id="mAnswered">0</strong>
+      Answered
+    </div>
+
+    <div class="stat">
+      <strong id="mNotAnswered">0</strong>
+      Not Answered
+    </div>
+
+    <div class="stat">
+      <strong id="mReview">0</strong>
+      Review
+    </div>
+
+    <div class="stat">
+      <strong id="mNotVisited">53</strong>
+      Not Visited
+    </div>
+
+  </div>
+
+  <div
+    class="palette-grid"
+    id="mobilePaletteGrid">
+  </div>
+
+  <div class="palette-legend">
+
+    <div class="legend-item">
+      <span class="legend-box lv-not"></span>
+      Not Visited
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-box lv-notanswer"></span>
+      Not Answered
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-box lv-answer"></span>
+      Answered
+    </div>
+
+    <div class="legend-item">
+      <span class="legend-box lv-review"></span>
+      Marked for Review
+    </div>
+
+  </div>
 
 </aside>
 
+
 <main class="container">
+
+<!-- ================= TEST HEADING ================= -->
 
 <section class="test-heading">
 
-  <h2>अध्याय 02 : अम्ल, क्षारक एवं लवण</h2>
+  <h2>
+    अध्याय 02 : अम्ल, क्षारक एवं लवण
+  </h2>
 
   <p>
-    कुल प्रश्न: <strong>53</strong> &nbsp; | &nbsp;
+    कुल प्रश्न: <strong>53</strong>
+    &nbsp; | &nbsp;
     प्रत्येक प्रश्न: <strong>1 अंक</strong>
+    &nbsp; | &nbsp;
+    समय: <strong>30 मिनट</strong>
   </p>
 
   <span class="negative">
@@ -475,38 +781,109 @@ body{
 </section>
 
 
-<section class="question-card" id="questionCard">
+<!-- ================= EXAM LAYOUT ================= -->
 
-  <div class="question-number" id="questionNumber"></div>
+<div class="exam-layout">
 
-  <div class="question" id="questionText"></div>
+  <section class="question-area">
 
-  <div class="options" id="options"></div>
+    <div class="question-toolbar">
 
-  <div class="navigation">
+      <span id="questionNumber">
+        Question 1 of 53
+      </span>
 
-    <button class="nav-btn prev" id="prevBtn" onclick="previousQuestion()">
-      ← Previous
-    </button>
+      <span class="marks-info">
+        +1 Correct &nbsp; | &nbsp; −1/3 Wrong
+      </span>
 
-    <button class="nav-btn next" id="nextBtn" onclick="nextQuestion()">
-      Next →
-    </button>
+    </div>
 
-  </div>
 
-  <div class="navigation">
+    <section class="question-card">
 
-    <button class="nav-btn submit"
-      style="width:100%"
-      onclick="submitTest()">
-      Submit Test
-    </button>
+      <div
+        class="question"
+        id="questionText">
+      </div>
 
-  </div>
+      <div
+        class="options"
+        id="options">
+      </div>
 
-</section>
+    </section>
 
+  </section>
+
+
+  <!-- ================= DESKTOP PALETTE ================= -->
+
+  <aside class="palette-box desktop-palette">
+
+    <div class="palette-title">
+      Question Palette
+    </div>
+
+    <div class="palette-stats">
+
+      <div class="stat">
+        <strong id="dAnswered">0</strong>
+        Answered
+      </div>
+
+      <div class="stat">
+        <strong id="dNotAnswered">0</strong>
+        Not Answered
+      </div>
+
+      <div class="stat">
+        <strong id="dReview">0</strong>
+        Review
+      </div>
+
+      <div class="stat">
+        <strong id="dNotVisited">53</strong>
+        Not Visited
+      </div>
+
+    </div>
+
+    <div
+      class="palette-grid"
+      id="desktopPaletteGrid">
+    </div>
+
+    <div class="palette-legend">
+
+      <div class="legend-item">
+        <span class="legend-box lv-not"></span>
+        Not Visited
+      </div>
+
+      <div class="legend-item">
+        <span class="legend-box lv-notanswer"></span>
+        Not Answered
+      </div>
+
+      <div class="legend-item">
+        <span class="legend-box lv-answer"></span>
+        Answered
+      </div>
+
+      <div class="legend-item">
+        <span class="legend-box lv-review"></span>
+        Marked for Review
+      </div>
+
+    </div>
+
+  </aside>
+
+</div>
+
+
+<!-- ================= RESULT ================= -->
 
 <section class="result" id="result">
 
@@ -560,20 +937,30 @@ body{
 
     <div>Final Score</div>
 
-    <strong id="scoreResult">0 / 53</strong>
+    <strong id="scoreResult">
+      0 / 53
+    </strong>
 
   </div>
 
-  <button class="restart" onclick="restartTest()">
+  <button
+    class="restart"
+    onclick="restartTest()">
     🔄 Test Again
   </button>
 
 </section>
 
 
-<section class="solutions" id="solutions">
+<!-- ================= SOLUTIONS ================= -->
 
-  <h2>📖 Solutions & Explanations</h2>
+<section
+  class="solutions"
+  id="solutions">
+
+  <h2>
+    📖 Solutions & Explanations
+  </h2>
 
   <div id="solutionContainer"></div>
 
@@ -582,10 +969,54 @@ body{
 </main>
 
 
+<!-- ================= FIXED ACTION BAR ================= -->
+
+<div class="bottom-actions">
+
+  <div class="action-inner">
+
+    <button
+      class="action-btn previous"
+      id="previousBtn"
+      onclick="previousQuestion()">
+      ← Previous
+    </button>
+
+    <button
+      class="action-btn clear"
+      onclick="clearResponse()">
+      Clear Response
+    </button>
+
+    <button
+      class="action-btn review"
+      onclick="markReviewNext()">
+      Mark for Review & Next
+    </button>
+
+    <button
+      class="action-btn save"
+      onclick="saveNext()">
+      Save & Next
+    </button>
+
+    <button
+      class="action-btn submit"
+      onclick="submitTest()">
+      Submit Test
+    </button>
+
+  </div>
+
+</div>
+
+
 <script>
 
 /* =====================================================
    QUESTIONS
+   QUESTIONS / OPTIONS / ANSWERS / EXPLANATIONS
+   ARE KEPT EXACTLY AS PROVIDED
 ===================================================== */
 
 const questions = [
@@ -1247,10 +1678,20 @@ s:`pH 7 से अधिक होने पर विलयन क्षार�
 ===================================================== */
 
 let currentQuestion = 0;
-let answers = new Array(questions.length).fill(null);
+
+let answers =
+  new Array(questions.length).fill(null);
+
+let visited =
+  new Array(questions.length).fill(false);
+
+let review =
+  new Array(questions.length).fill(false);
+
 let testSubmitted = false;
 
 let timeLeft = 30 * 60;
+
 let timerInterval;
 
 
@@ -1260,25 +1701,35 @@ let timerInterval;
 
 function createPalette(){
 
-  const grid = document.getElementById("paletteGrid");
+  const desktop =
+    document.getElementById(
+      "desktopPaletteGrid"
+    );
 
-  grid.innerHTML = "";
+  const mobile =
+    document.getElementById(
+      "mobilePaletteGrid"
+    );
+
+  desktop.innerHTML = "";
+  mobile.innerHTML = "";
 
   questions.forEach((question,index)=>{
 
-    const button = document.createElement("button");
+    const dBtn =
+      document.createElement("button");
 
-    button.className = "p-btn";
+    dBtn.className = "p-btn";
 
-    button.textContent = index + 1;
+    dBtn.textContent = index + 1;
 
-    button.onclick = function(){
+    dBtn.onclick = function(){
+
+      if(testSubmitted) return;
 
       currentQuestion = index;
 
       renderQuestion();
-
-      closePalette();
 
       window.scrollTo({
         top:0,
@@ -1287,7 +1738,34 @@ function createPalette(){
 
     };
 
-    grid.appendChild(button);
+    desktop.appendChild(dBtn);
+
+
+    const mBtn =
+      document.createElement("button");
+
+    mBtn.className = "p-btn";
+
+    mBtn.textContent = index + 1;
+
+    mBtn.onclick = function(){
+
+      if(testSubmitted) return;
+
+      currentQuestion = index;
+
+      renderQuestion();
+
+      closeMobilePalette();
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    };
+
+    mobile.appendChild(mBtn);
 
   });
 
@@ -1296,62 +1774,135 @@ function createPalette(){
 }
 
 
+/* =====================================================
+   UPDATE PALETTE
+===================================================== */
+
 function updatePalette(){
 
-  const buttons =
-    document.querySelectorAll(".p-btn");
-
-  buttons.forEach((button,index)=>{
-
-    button.classList.remove(
-      "current",
-      "answered",
-      "wrong"
+  const desktopButtons =
+    document.querySelectorAll(
+      "#desktopPaletteGrid .p-btn"
     );
 
-    if(index === currentQuestion){
+  const mobileButtons =
+    document.querySelectorAll(
+      "#mobilePaletteGrid .p-btn"
+    );
 
-      button.classList.add("current");
+  const updateButtons =
+    function(buttons){
 
-    }
+      buttons.forEach((button,index)=>{
+
+        button.className = "p-btn";
+
+        if(index === currentQuestion){
+
+          button.classList.add("current");
+
+        }
+
+        if(review[index]){
+
+          if(answers[index] !== null){
+
+            button.classList.add(
+              "review-answered"
+            );
+
+          }else{
+
+            button.classList.add(
+              "review"
+            );
+
+          }
+
+        }else if(answers[index] !== null){
+
+          button.classList.add(
+            "answered"
+          );
+
+        }else if(visited[index]){
+
+          button.classList.add(
+            "not-answered"
+          );
+
+        }
+
+      });
+
+    };
+
+  updateButtons(desktopButtons);
+  updateButtons(mobileButtons);
+
+
+  let answered = 0;
+  let notAnswered = 0;
+  let marked = 0;
+  let notVisited = 0;
+
+  questions.forEach((question,index)=>{
 
     if(answers[index] !== null){
 
-      button.classList.add("answered");
+      answered++;
+
+    }else if(visited[index]){
+
+      notAnswered++;
+
+    }else{
+
+      notVisited++;
+
+    }
+
+    if(review[index]){
+
+      marked++;
 
     }
 
   });
 
-}
+
+  document.getElementById(
+    "dAnswered"
+  ).textContent = answered;
+
+  document.getElementById(
+    "dNotAnswered"
+  ).textContent = notAnswered;
+
+  document.getElementById(
+    "dReview"
+  ).textContent = marked;
+
+  document.getElementById(
+    "dNotVisited"
+  ).textContent = notVisited;
 
 
-/* =====================================================
-   PALETTE OPEN/CLOSE
-===================================================== */
+  document.getElementById(
+    "mAnswered"
+  ).textContent = answered;
 
-function openPalette(){
+  document.getElementById(
+    "mNotAnswered"
+  ).textContent = notAnswered;
 
-  document
-    .getElementById("palette")
-    .classList.add("open");
+  document.getElementById(
+    "mReview"
+  ).textContent = marked;
 
-  document
-    .getElementById("overlay")
-    .classList.add("show");
-
-}
-
-
-function closePalette(){
-
-  document
-    .getElementById("palette")
-    .classList.remove("open");
-
-  document
-    .getElementById("overlay")
-    .classList.remove("show");
+  document.getElementById(
+    "mNotVisited"
+  ).textContent = notVisited;
 
 }
 
@@ -1365,19 +1916,30 @@ function renderQuestion(){
   const question =
     questions[currentQuestion];
 
-  document.getElementById("questionNumber")
-    .textContent =
+  visited[currentQuestion] = true;
+
+  document.getElementById(
+    "questionNumber"
+  ).textContent =
     `Question ${currentQuestion + 1} of ${questions.length}`;
 
-  document.getElementById("questionText")
-    .innerHTML = question.q;
+
+  document.getElementById(
+    "questionText"
+  ).innerHTML =
+    question.q;
+
 
   const options =
-    document.getElementById("options");
+    document.getElementById(
+      "options"
+    );
 
   options.innerHTML = "";
 
-  const labels = ["A","B","C","D"];
+  const labels =
+    ["A","B","C","D"];
+
 
   question.o.forEach((option,index)=>{
 
@@ -1386,17 +1948,23 @@ function renderQuestion(){
 
     div.className = "option";
 
-    if(answers[currentQuestion] === index){
+
+    if(
+      answers[currentQuestion] === index
+    ){
 
       div.classList.add("selected");
 
     }
 
+
     div.innerHTML =
+
       `<span class="option-label">
         ${labels[index]}.
       </span>
       ${option}`;
+
 
     div.onclick = function(){
 
@@ -1408,18 +1976,17 @@ function renderQuestion(){
 
     };
 
+
     options.appendChild(div);
 
   });
 
 
-  document.getElementById("prevBtn")
-    .disabled =
+  document.getElementById(
+    "previousBtn"
+  ).disabled =
     currentQuestion === 0;
 
-  document.getElementById("nextBtn")
-    .disabled =
-    currentQuestion === questions.length - 1;
 
   updatePalette();
 
@@ -1427,12 +1994,19 @@ function renderQuestion(){
 
 
 /* =====================================================
-   NEXT / PREVIOUS
+   NEXT
 ===================================================== */
 
-function nextQuestion(){
+function saveNext(){
 
-  if(currentQuestion < questions.length - 1){
+  if(testSubmitted) return;
+
+  review[currentQuestion] = false;
+
+  if(
+    currentQuestion <
+    questions.length - 1
+  ){
 
     currentQuestion++;
 
@@ -1443,12 +2017,55 @@ function nextQuestion(){
       behavior:"smooth"
     });
 
+  }else{
+
+    updatePalette();
+
   }
 
 }
 
 
+/* =====================================================
+   MARK FOR REVIEW
+===================================================== */
+
+function markReviewNext(){
+
+  if(testSubmitted) return;
+
+  review[currentQuestion] = true;
+
+  if(
+    currentQuestion <
+    questions.length - 1
+  ){
+
+    currentQuestion++;
+
+    renderQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }else{
+
+    updatePalette();
+
+  }
+
+}
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
 function previousQuestion(){
+
+  if(testSubmitted) return;
 
   if(currentQuestion > 0){
 
@@ -1467,8 +2084,49 @@ function previousQuestion(){
 
 
 /* =====================================================
+   CLEAR RESPONSE
+===================================================== */
+
+function clearResponse(){
+
+  if(testSubmitted) return;
+
+  answers[currentQuestion] = null;
+
+  renderQuestion();
+
+}
+
+
+/* =====================================================
    TIMER
 ===================================================== */
+
+function updateTimer(){
+
+  const minutes =
+    Math.floor(timeLeft / 60);
+
+  const seconds =
+    timeLeft % 60;
+
+  const timer =
+    document.getElementById("timer");
+
+  timer.textContent =
+    String(minutes).padStart(2,"0")
+    + ":"
+    + String(seconds).padStart(2,"0");
+
+
+  if(timeLeft <= 60){
+
+    timer.style.color = "#b91c1c";
+
+  }
+
+}
+
 
 function startTimer(){
 
@@ -1491,10 +2149,9 @@ function startTimer(){
 
         timeLeft = 0;
 
-        clearInterval(timerInterval);
+        updateTimer();
 
-        document.getElementById("timer")
-          .textContent = "00:00";
+        clearInterval(timerInterval);
 
         submitTest(true);
 
@@ -1509,23 +2166,6 @@ function startTimer(){
 }
 
 
-function updateTimer(){
-
-  const minutes =
-    Math.floor(timeLeft / 60);
-
-  const seconds =
-    timeLeft % 60;
-
-  document.getElementById("timer")
-    .textContent =
-    String(minutes).padStart(2,"0")
-    + ":" +
-    String(seconds).padStart(2,"0");
-
-}
-
-
 /* =====================================================
    SUBMIT TEST
 ===================================================== */
@@ -1533,6 +2173,7 @@ function updateTimer(){
 function submitTest(autoSubmit=false){
 
   if(testSubmitted) return;
+
 
   if(!autoSubmit){
 
@@ -1544,12 +2185,16 @@ function submitTest(autoSubmit=false){
     const unattempted =
       questions.length - attempted;
 
+
     const confirmSubmit =
       confirm(
-        `क्या आप Test Submit करना चाहते हैं?\n\n` +
-        `Attempted: ${attempted}\n` +
+        `क्या आप Test Submit करना चाहते हैं?\n\n`
+        +
+        `Attempted: ${attempted}\n`
+        +
         `Unattempted: ${unattempted}`
       );
+
 
     if(!confirmSubmit){
 
@@ -1558,6 +2203,7 @@ function submitTest(autoSubmit=false){
     }
 
   }
+
 
   testSubmitted = true;
 
@@ -1578,27 +2224,36 @@ function calculateResult(){
   let wrong = 0;
   let attempted = 0;
 
-  questions.forEach((question,index)=>{
 
-    if(answers[index] === null){
+  questions.forEach(
+    (question,index)=>{
 
-      return;
+      if(
+        answers[index] === null
+      ){
+
+        return;
+
+      }
+
+
+      attempted++;
+
+
+      if(
+        answers[index] === question.a
+      ){
+
+        correct++;
+
+      }else{
+
+        wrong++;
+
+      }
 
     }
-
-    attempted++;
-
-    if(answers[index] === question.a){
-
-      correct++;
-
-    }else{
-
-      wrong++;
-
-    }
-
-  });
+  );
 
 
   const unattempted =
@@ -1611,9 +2266,11 @@ function calculateResult(){
     wrong / 3;
 
   const finalScore =
-    correct - (wrong / 3);
+    correct - negativeMarks;
+
 
   let accuracy = 0;
+
 
   if(attempted > 0){
 
@@ -1623,52 +2280,79 @@ function calculateResult(){
   }
 
 
-  document.getElementById("totalResult")
-    .textContent =
+  document.getElementById(
+    "totalResult"
+  ).textContent =
     questions.length;
 
-  document.getElementById("attemptedResult")
-    .textContent =
+
+  document.getElementById(
+    "attemptedResult"
+  ).textContent =
     attempted;
 
-  document.getElementById("correctResult")
-    .textContent =
+
+  document.getElementById(
+    "correctResult"
+  ).textContent =
     correct;
 
-  document.getElementById("wrongResult")
-    .textContent =
+
+  document.getElementById(
+    "wrongResult"
+  ).textContent =
     wrong;
 
-  document.getElementById("unattemptedResult")
-    .textContent =
+
+  document.getElementById(
+    "unattemptedResult"
+  ).textContent =
     unattempted;
 
-  document.getElementById("positiveResult")
-    .textContent =
+
+  document.getElementById(
+    "positiveResult"
+  ).textContent =
     positiveMarks.toFixed(2);
 
-  document.getElementById("negativeResult")
-    .textContent =
+
+  document.getElementById(
+    "negativeResult"
+  ).textContent =
     negativeMarks.toFixed(2);
 
-  document.getElementById("accuracyResult")
-    .textContent =
+
+  document.getElementById(
+    "accuracyResult"
+  ).textContent =
     accuracy.toFixed(2) + "%";
 
-  document.getElementById("scoreResult")
-    .textContent =
+
+  document.getElementById(
+    "scoreResult"
+  ).textContent =
     finalScore.toFixed(2)
     + " / "
     + questions.length;
 
 
-  document.getElementById("questionCard")
-    .style.display = "none";
+  document.querySelector(
+    ".exam-layout"
+  ).style.display = "none";
 
-  document.getElementById("result")
-    .style.display = "block";
+
+  document.querySelector(
+    ".bottom-actions"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "result"
+  ).style.display = "block";
+
 
   showSolutions();
+
 
   window.scrollTo({
     top:0,
@@ -1691,73 +2375,126 @@ function showSolutions(){
 
   container.innerHTML = "";
 
-  const labels = ["A","B","C","D"];
+  const labels =
+    ["A","B","C","D"];
 
-  questions.forEach((question,index)=>{
 
-    const card =
-      document.createElement("div");
+  questions.forEach(
+    (question,index)=>{
 
-    let statusClass =
-      "unattempted";
+      const card =
+        document.createElement("div");
 
-    if(answers[index] !== null){
 
-      if(answers[index] === question.a){
+      let statusClass =
+        "unattempted";
 
-        statusClass = "correct";
 
-      }else{
+      if(
+        answers[index] !== null
+      ){
 
-        statusClass = "wrong";
+        if(
+          answers[index] === question.a
+        ){
+
+          statusClass = "correct";
+
+        }else{
+
+          statusClass = "wrong";
+
+        }
 
       }
 
+
+      card.className =
+        `solution-card ${statusClass}`;
+
+
+      let userAnswer =
+        "Not Attempted";
+
+
+      if(
+        answers[index] !== null
+      ){
+
+        userAnswer =
+          `${labels[answers[index]]}. `
+          +
+          question.o[answers[index]];
+
+      }
+
+
+      card.innerHTML = `
+
+        <div class="solution-q">
+          Q.${index + 1}. ${question.q}
+        </div>
+
+        <div class="user-answer">
+          <strong>Your Answer:</strong>
+          ${userAnswer}
+        </div>
+
+        <div class="answer">
+          Correct Answer:
+          ${labels[question.a]}.
+          ${question.o[question.a]}
+        </div>
+
+        <div class="explanation">
+          <strong>Explanation:</strong><br>
+          ${question.s}
+        </div>
+
+      `;
+
+
+      container.appendChild(card);
+
     }
+  );
 
-    card.className =
-      `solution-card ${statusClass}`;
 
-    let userAnswer =
-      "Not Attempted";
+  document.getElementById(
+    "solutions"
+  ).style.display = "block";
 
-    if(answers[index] !== null){
+}
 
-      userAnswer =
-        `${labels[answers[index]]}. ${question.o[answers[index]]}`;
 
-    }
+/* =====================================================
+   MOBILE PALETTE
+===================================================== */
 
-    card.innerHTML = `
+function openMobilePalette(){
 
-      <div class="solution-q">
-        Q.${index + 1}. ${question.q}
-      </div>
+  document.getElementById(
+    "mobilePalette"
+  ).classList.add("open");
 
-      <div class="user-answer">
-        <strong>Your Answer:</strong>
-        ${userAnswer}
-      </div>
 
-      <div class="answer">
-        Correct Answer:
-        ${labels[question.a]}.
-        ${question.o[question.a]}
-      </div>
+  document.getElementById(
+    "paletteOverlay"
+  ).classList.add("show");
 
-      <div class="explanation">
-        <strong>Explanation:</strong><br>
-        ${question.s}
-      </div>
+}
 
-    `;
 
-    container.appendChild(card);
+function closeMobilePalette(){
 
-  });
+  document.getElementById(
+    "mobilePalette"
+  ).classList.remove("open");
 
-  document.getElementById("solutions")
-    .style.display = "block";
+
+  document.getElementById(
+    "paletteOverlay"
+  ).classList.remove("show");
 
 }
 
@@ -1773,36 +2510,71 @@ function restartTest(){
       "क्या आप Test फिर से शुरू करना चाहते हैं?"
     );
 
+
   if(!confirmRestart){
 
     return;
 
   }
 
+
   currentQuestion = 0;
+
 
   answers =
     new Array(questions.length)
       .fill(null);
 
+
+  visited =
+    new Array(questions.length)
+      .fill(false);
+
+
+  review =
+    new Array(questions.length)
+      .fill(false);
+
+
   testSubmitted = false;
+
 
   timeLeft = 30 * 60;
 
-  document.getElementById("questionCard")
-    .style.display = "block";
 
-  document.getElementById("result")
-    .style.display = "none";
+  document.querySelector(
+    ".exam-layout"
+  ).style.display = "grid";
 
-  document.getElementById("solutions")
-    .style.display = "none";
+
+  document.querySelector(
+    ".bottom-actions"
+  ).style.display = "block";
+
+
+  document.getElementById(
+    "result"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "solutions"
+  ).style.display = "none";
+
+
+  document.getElementById(
+    "timer"
+  ).style.color = "#172554";
+
 
   updateTimer();
+
+  createPalette();
 
   renderQuestion();
 
   startTimer();
+
 
   window.scrollTo({
     top:0,
