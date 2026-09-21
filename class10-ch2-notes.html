@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science Chapter 2 - अम्ल, क्षारक एवं लवण</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#f1f5f9;
+  color:#172033;
+  font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+  line-height:1.7;
+}
+
+.header{
+  background:linear-gradient(135deg,#075985,#0f766e);
+  color:white;
+  text-align:center;
+  padding:25px 14px;
+}
+
+.header h1{
+  margin:0;
+  font-size:25px;
+}
+
+.header p{
+  margin:5px 0 0;
+  font-size:13px;
+}
+
+.container{
+  width:min(900px,94%);
+  margin:18px auto 35px;
+}
+
+.section{
+  background:#fff;
+  border-radius:15px;
+  margin:15px 0;
+  padding:17px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.section-title{
+  margin:-17px -17px 15px;
+  padding:11px 14px;
+  background:#075985;
+  color:#fff;
+  border-radius:15px 15px 0 0;
+  font-size:19px;
+  font-weight:bold;
+}
+
+.sub-title{
+  color:#075985;
+  font-size:17px;
+  margin:17px 0 8px;
+  border-left:4px solid #0f766e;
+  padding-left:9px;
+}
+
+p{
+  margin:7px 0;
+}
+
+ul,ol{
+  padding-left:24px;
+}
+
+li{
+  margin:4px 0;
+}
+
+
+/* COMMON BOXES */
+
+.highlight,
+.exam,
+.note,
+.example,
+.formula{
+  margin:11px 0;
+  border-radius:10px;
+  padding:10px 12px;
+}
+
+.highlight{
+  background:#ecfeff;
+  border-left:5px solid #0891b2;
+}
+
+.exam{
+  background:#fff7ed;
+  border-left:5px solid #f97316;
+}
+
+.note{
+  background:#fefce8;
+  border-left:5px solid #eab308;
+}
+
+.example{
+  background:#f8fafc;
+  border:1px solid #dbe3ec;
+}
+
+.example-title{
+  color:#0f766e;
+  font-weight:bold;
+  margin-bottom:3px;
+}
+
+.formula{
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  color:#075985;
+  text-align:center;
+  font-size:17px;
+  font-weight:bold;
+  overflow-wrap:anywhere;
+}
+
+
+/* INDICATOR BOXES */
+
+.indicator-group{
+  margin:13px 0;
+  padding:13px;
+  border:1px solid #dbe3ec;
+  border-radius:12px;
+  background:#f8fafc;
+}
+
+.indicator-group-title{
+  font-size:17px;
+  font-weight:bold;
+  color:#075985;
+  margin-bottom:10px;
+}
+
+.indicator-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+
+.indicator-card{
+  background:#fff;
+  border:1px solid #dbe3ec;
+  border-radius:10px;
+  padding:11px;
+  min-width:0;
+}
+
+.indicator-name{
+  font-size:16px;
+  font-weight:bold;
+  color:#0f766e;
+  margin-bottom:7px;
+}
+
+.medium{
+  padding:6px 8px;
+  margin:5px 0;
+  border-radius:7px;
+  font-size:14px;
+  overflow-wrap:anywhere;
+}
+
+.acid-medium{
+  background:#fee2e2;
+  border-left:4px solid #ef4444;
+}
+
+.base-medium{
+  background:#dbeafe;
+  border-left:4px solid #2563eb;
+}
+
+
+/* TABLE */
+
+.table-wrap{
+  width:100%;
+  margin:12px 0;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+}
+
+th{
+  background:#075985;
+  color:white;
+  padding:8px;
+  border:1px solid #cbd5e1;
+}
+
+td{
+  padding:8px;
+  border:1px solid #cbd5e1;
+  text-align:center;
+  overflow-wrap:anywhere;
+}
+
+
+/* PH SCALE */
+
+.ph-title{
+  text-align:center;
+  color:#075985;
+  font-size:18px;
+  font-weight:bold;
+  margin:12px 0 7px;
+}
+
+.ph-scale{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(15,minmax(0,1fr));
+  gap:2px;
+  border-radius:9px;
+  overflow:hidden;
+}
+
+.ph-scale div{
+  padding:8px 1px;
+  text-align:center;
+  font-weight:bold;
+  font-size:12px;
+}
+
+.ph-0,.ph-1,.ph-2,.ph-3,.ph-4,.ph-5,.ph-6{
+  background:#fca5a5;
+}
+
+.ph-7{
+  background:#fde68a;
+}
+
+.ph-8,.ph-9,.ph-10,.ph-11,.ph-12,.ph-13,.ph-14{
+  background:#93c5fd;
+}
+
+.ph-labels{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin-top:7px;
+  font-weight:bold;
+  font-size:13px;
+}
+
+.ph-acid{
+  color:#b91c1c;
+}
+
+.ph-neutral{
+  color:#a16207;
+}
+
+.ph-base{
+  color:#1d4ed8;
+}
+
+
+/* FINAL BOX */
+
+.final-box{
+  background:linear-gradient(135deg,#075985,#0f766e);
+  color:white;
+  border-radius:15px;
+  padding:17px;
+  margin-top:17px;
+}
+
+.final-box h2{
+  margin:0 0 10px;
+  font-size:20px;
+}
+
+.final-line{
+  background:rgba(255,255,255,.13);
+  padding:7px 10px;
+  margin:5px 0;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+
+/* QUICK REVISION */
+
+.quick-box{
+  background:#fff;
+  border-left:6px solid #0f766e;
+  border-radius:15px;
+  padding:16px;
+  margin-top:17px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.quick-box h2{
+  margin:0 0 10px;
+  color:#075985;
+  font-size:20px;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+
+.quick-item{
+  background:#f0fdfa;
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+
+/* BACK */
+
+.back-btn{
+  display:block;
+  width:max-content;
+  margin:20px auto;
+  padding:10px 18px;
+  background:#075985;
+  color:white;
+  text-decoration:none;
+  border-radius:9px;
+  font-weight:bold;
+}
+
+footer{
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:18px;
+  font-size:13px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .header h1{
+    font-size:21px;
+  }
+
+  .container{
+    width:94%;
+  }
+
+  .section{
+    padding:14px;
+  }
+
+  .section-title{
+    margin:-14px -14px 13px;
+    font-size:17px;
+  }
+
+  p,li{
+    font-size:14px;
+  }
+
+  .sub-title{
+    font-size:16px;
+  }
+
+  .indicator-grid{
+    grid-template-columns:1fr;
+  }
+
+  .indicator-group{
+    padding:10px;
+  }
+
+  .indicator-card{
+    padding:10px;
+  }
+
+  .indicator-name{
+    font-size:15px;
+  }
+
+  .medium{
+    font-size:13px;
+  }
+
+  .formula{
+    font-size:15px;
+  }
+
+  /* Mobile tables become cards */
+  table,
+  tbody{
+    display:block;
+    width:100%;
+  }
+
+  table thead,
+  table tr:first-child{
+    display:none;
+  }
+
+  table tr{
+    display:block;
+    margin-bottom:8px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+    overflow:hidden;
+  }
+
+  table td{
+    display:block;
+    width:100%;
+    text-align:left;
+    border:none;
+    border-bottom:1px solid #e2e8f0;
+    padding:7px 9px;
+    font-size:13px;
+  }
+
+  table td:last-child{
+    border-bottom:none;
+  }
+
+  table td:first-child{
+    background:#f1f5f9;
+    font-weight:bold;
+  }
+
+  .ph-scale{
+    gap:1px;
+  }
+
+  .ph-scale div{
+    font-size:9px;
+    padding:7px 0;
+  }
+
+  .ph-labels{
+    font-size:11px;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+
+<header class="header">
+
+  <h1>🧪 अध्याय 02 : अम्ल, क्षारक एवं लवण</h1>
+
+  <p>
+    Class 10 Science • Railway Exam Oriented Notes
+  </p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- 1 -->
+
+<section class="section">
+
+<div class="section-title">
+1. अम्ल (Acid)
+</div>
+
+<p>
+अम्ल का स्वाद <b>खट्टा</b> होता है।
+</p>
+
+<p>
+अम्ल जलीय विलयन में <b>H⁺ आयन</b> प्रदान करते हैं।
+</p>
+
+<h3 class="sub-title">उदाहरण</h3>
+
+<ul>
+<li><b>HCl</b> — हाइड्रोक्लोरिक अम्ल</li>
+<li><b>H₂SO₄</b> — सल्फ्यूरिक अम्ल</li>
+<li><b>CH₃COOH</b> — एसीटिक अम्ल</li>
+<li><b>C₆H₈O₇</b> — साइट्रिक अम्ल</li>
+</ul>
+
+</section>
+
+
+<!-- 2 -->
+
+<section class="section">
+
+<div class="section-title">
+2. क्षारक (Base)
+</div>
+
+<p>
+क्षारक का स्वाद <b>कड़वा</b> होता है।
+</p>
+
+<p>
+क्षारक <b>लाल लिटमस को नीला</b> कर देते हैं।
+</p>
+
+<p>
+क्षारक जलीय विलयन में <b>OH⁻ आयन</b> प्रदान करते हैं।
+</p>
+
+<h3 class="sub-title">उदाहरण</h3>
+
+<ul>
+<li><b>NaOH</b> — सोडियम हाइड्रॉक्साइड</li>
+<li><b>KOH</b> — पोटैशियम हाइड्रॉक्साइड</li>
+<li><b>NH₄OH</b> — अमोनियम हाइड्रॉक्साइड</li>
+</ul>
+
+<div class="highlight">
+<b>क्षार (Alkali):</b>
+जल में घुलनशील क्षारक को क्षार कहते हैं।
+</div>
+
+</section>
+
+
+<!-- 3 -->
+
+<section class="section">
+
+<div class="section-title">
+3. सांद्र अम्ल एवं तनु अम्ल
+</div>
+
+<h3 class="sub-title">सांद्र अम्ल</h3>
+
+<p>
+जिसमें <b>अम्ल की मात्रा अधिक तथा जल की मात्रा कम</b> हो,
+उसे सांद्र अम्ल कहते हैं।
+</p>
+
+<h3 class="sub-title">तनु अम्ल</h3>
+
+<p>
+जिसमें <b>अम्ल की मात्रा कम तथा जल की मात्रा अधिक</b> हो,
+उसे तनु अम्ल कहते हैं।
+</p>
+
+</section>
+
+
+<!-- 4 INDICATOR -->
+
+<section class="section">
+
+<div class="section-title">
+4. सूचक (Indicator)
+</div>
+
+<p>
+सूचक वह पदार्थ है जो किसी दिए गए विलयन में
+<b>अम्ल या क्षारक की उपस्थिति को दर्शाता है।</b>
+</p>
+
+<p>
+अम्लीय या क्षारीय माध्यम में सूचक का
+<b>रंग या गंध बदल सकता है।</b>
+</p>
+
+
+<!-- NATURAL -->
+
+<div class="indicator-group">
+
+<div class="indicator-group-title">
+🌿 (i) प्राकृतिक सूचक
+</div>
+
+<p>
+वे सूचक जो <b>प्राकृतिक स्रोतों से प्राप्त होते हैं</b>,
+प्राकृतिक सूचक कहलाते हैं।
+</p>
+
+<div class="indicator-grid">
+
+<div class="indicator-card">
+
+<div class="indicator-name">
+🟣 लिटमस
+</div>
+
+<div class="medium acid-medium">
+<b>अम्लीय माध्यम:</b> लाल
+</div>
+
+<div class="medium base-medium">
+<b>क्षारीय माध्यम:</b> नीला
+</div>
+
+</div>
+
+
+<div class="indicator-card">
+
+<div class="indicator-name">
+🟡 हल्दी
+</div>
+
+<div class="medium acid-medium">
+<b>अम्लीय माध्यम:</b> पीला
+</div>
+
+<div class="medium base-medium">
+<b>क्षारीय माध्यम:</b> लाल
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SYNTHETIC -->
+
+<div class="indicator-group">
+
+<div class="indicator-group-title">
+🧪 (ii) कृत्रिम सूचक (Synthetic Indicator)
+</div>
+
+<p>
+वे सूचक जो <b>रासायनिक प्रक्रिया द्वारा बनाए जाते हैं</b>,
+कृत्रिम सूचक कहलाते हैं।
+</p>
+
+<div class="indicator-grid">
+
+<div class="indicator-card">
+
+<div class="indicator-name">
+⚪ फिनॉल्फ्थेलिन
+</div>
+
+<div class="medium acid-medium">
+<b>अम्लीय माध्यम:</b> रंगहीन
+</div>
+
+<div class="medium base-medium">
+<b>क्षारीय माध्यम:</b> गुलाबी
+</div>
+
+</div>
+
+
+<div class="indicator-card">
+
+<div class="indicator-name">
+🟠 मेथिल ऑरेंज
+</div>
+
+<div class="medium acid-medium">
+<b>अम्लीय माध्यम:</b> लाल
+</div>
+
+<div class="medium base-medium">
+<b>क्षारीय माध्यम:</b> पीला
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- OLFACTORY -->
+
+<div class="indicator-group">
+
+<div class="indicator-group-title">
+👃 (iii) गंधीय सूचक (Olfactory Indicator)
+</div>
+
+<p>
+जिन सूचकों की <b>गंध अम्लीय या क्षारीय माध्यम में बदल जाती है</b>,
+उन्हें गंधीय सूचक कहते हैं।
+</p>
+
+<div class="indicator-grid">
+
+<div class="indicator-card">
+
+<div class="indicator-name">
+🧅 प्याज का रस
+</div>
+
+<div class="medium acid-medium">
+<b>अम्लीय माध्यम:</b> तीक्ष्ण गंध
+</div>
+
+<div class="medium base-medium">
+<b>क्षारीय माध्यम:</b> कोई गंध नहीं
+</div>
+
+</div>
+
+
+<div class="indicator-card">
+
+<div class="indicator-name">
+🌸 वैनिला
+</div>
+
+<div class="medium acid-medium">
+<b>अम्लीय माध्यम:</b> गंध बनी रहती है
+</div>
+
+<div class="medium base-medium">
+<b>क्षारीय माध्यम:</b> गंध समाप्त
+</div>
+
+</div>
+
+
+<div class="indicator-card">
+
+<div class="indicator-name">
+🌿 लौंग का तेल
+</div>
+
+<div class="medium acid-medium">
+<b>अम्लीय माध्यम:</b> गंध बनी रहती है
+</div>
+
+<div class="medium base-medium">
+<b>क्षारीय माध्यम:</b> गंध समाप्त
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 5 -->
+
+<section class="section">
+
+<div class="section-title">
+5. अम्ल एवं क्षारक के रासायनिक गुण
+</div>
+
+<h3 class="sub-title">
+(i) धातु के साथ अम्ल की अभिक्रिया
+</h3>
+
+<div class="formula">
+अम्ल + धातु → लवण + H₂
+</div>
+
+<div class="example">
+<div class="example-title">उदाहरण:</div>
+<b>2HCl + Zn → ZnCl₂ + H₂</b>
+</div>
+
+<div class="highlight">
+इस अभिक्रिया में <b>हाइड्रोजन गैस</b> निकलती है।
+</div>
+
+<h3 class="sub-title">
+(ii) धातु के साथ क्षारक की अभिक्रिया
+</h3>
+
+<p>
+कुछ धातुएँ प्रबल क्षारकों के साथ अभिक्रिया करके
+<b>लवण एवं हाइड्रोजन गैस</b> बनाती हैं।
+</p>
+
+<div class="example">
+<b>2NaOH + Zn → Na₂ZnO₂ + H₂</b>
+</div>
+
+<h3 class="sub-title">
+💨 हाइड्रोजन गैस का परीक्षण
+</h3>
+
+<p>
+हाइड्रोजन गैस से भरी परखनली के पास
+<b>जलती हुई मोमबत्ती/माचिस की तीली</b> लाने पर
+<b>‘पॉप’</b> की ध्वनि उत्पन्न होती है।
+</p>
+
+</section>
+
+
+<!-- 6 -->
+
+<section class="section">
+
+<div class="section-title">
+6. अम्ल की धातु कार्बोनेट एवं हाइड्रोजनकार्बोनेट के साथ अभिक्रिया
+</div>
+
+<h3 class="sub-title">
+अम्ल + धातु कार्बोनेट
+</h3>
+
+<div class="formula">
+अम्ल + धातु कार्बोनेट → लवण + CO₂ + जल
+</div>
+
+<div class="example">
+<b>
+2HCl + Na₂CO₃ → 2NaCl + CO₂ + H₂O
+</b>
+</div>
+
+<h3 class="sub-title">
+अम्ल + धातु हाइड्रोजनकार्बोनेट
+</h3>
+
+<div class="formula">
+अम्ल + धातु हाइड्रोजनकार्बोनेट → लवण + CO₂ + जल
+</div>
+
+<div class="example">
+<b>
+HCl + NaHCO₃ → NaCl + CO₂ + H₂O
+</b>
+</div>
+
+<div class="note">
+<b>नोट:</b>
+धातु हाइड्रोजनकार्बोनेट को
+<b>धातु बाइकार्बोनेट</b> भी कहते हैं।
+</div>
+
+<p>
+सामान्यतः <b>क्षारक धातु कार्बोनेट तथा
+धातु हाइड्रोजनकार्बोनेट के साथ अभिक्रिया नहीं करते हैं।</b>
+</p>
+
+</section>
+
+
+<!-- 7 -->
+
+<section class="section">
+
+<div class="section-title">
+7. CO₂ की चूने के पानी के साथ अभिक्रिया
+</div>
+
+<p>
+कार्बन डाइऑक्साइड (<b>CO₂</b>) को चूने के पानी में
+प्रवाहित करने पर चूने का पानी <b>दूधिया</b> हो जाता है।
+</p>
+
+<div class="formula">
+Ca(OH)₂ + CO₂ → CaCO₃↓ + H₂O
+</div>
+
+<div class="highlight">
+<b>CaCO₃</b> जल में अघुलनशील होने के कारण
+<b>सफेद अवक्षेप</b> बनाता है।
+</div>
+
+<ul>
+<li><b>Ca(OH)₂</b> = बुझा हुआ चूना</li>
+<li><b>CaCO₃</b> = कैल्शियम कार्बोनेट</li>
+</ul>
+
+</section>
+
+
+<!-- 8 -->
+
+<section class="section">
+
+<div class="section-title">
+8. अम्ल एवं क्षारक की एक-दूसरे के साथ अभिक्रिया
+</div>
+
+<h3 class="sub-title">
+उदासीनीकरण अभिक्रिया (Neutralisation Reaction)
+</h3>
+
+<p>
+जब <b>अम्ल और क्षारक</b> परस्पर अभिक्रिया करके
+एक-दूसरे के प्रभाव को समाप्त करते हैं तथा
+<b>लवण और जल</b> का निर्माण करते हैं,
+तो इसे उदासीनीकरण अभिक्रिया कहते हैं।
+</p>
+
+<div class="formula">
+अम्ल + क्षारक → लवण + जल
+</div>
+
+<div class="example">
+<b>HCl + NaOH → NaCl + H₂O</b>
+</div>
+
+</section>
+
+
+<!-- 9 -->
+
+<section class="section">
+
+<div class="section-title">
+9. अम्ल एवं क्षारक की प्रबलता
+</div>
+
+<p>
+किसी अम्ल या क्षारक की प्रबलता उसके द्वारा उत्पन्न
+<b>H⁺ या OH⁻ आयनों की सांद्रता</b> पर निर्भर करती है।
+</p>
+
+<p>
+अम्ल एवं क्षारक की प्रबलता को
+<b>सार्वत्रिक सूचक</b> द्वारा ज्ञात किया जा सकता है।
+</p>
+
+</section>
+
+
+<!-- 10 -->
+
+<section class="section">
+
+<div class="section-title">
+10. सार्वत्रिक सूचक (Universal Indicator)
+</div>
+
+<p>
+सार्वत्रिक सूचक <b>अनेक सूचकों का मिश्रण</b> होता है।
+</p>
+
+<p>
+यह विभिन्न H⁺ सांद्रताओं को
+<b>अलग-अलग रंगों</b> द्वारा प्रदर्शित करता है।
+</p>
+
+<div class="formula">
+pH = 0 से 14
+</div>
+
+<div class="ph-title">
+🌈 pH Scale
+</div>
+
+<div class="ph-scale">
+
+<div class="ph-0">0</div>
+<div class="ph-1">1</div>
+<div class="ph-2">2</div>
+<div class="ph-3">3</div>
+<div class="ph-4">4</div>
+<div class="ph-5">5</div>
+<div class="ph-6">6</div>
+<div class="ph-7">7</div>
+<div class="ph-8">8</div>
+<div class="ph-9">9</div>
+<div class="ph-10">10</div>
+<div class="ph-11">11</div>
+<div class="ph-12">12</div>
+<div class="ph-13">13</div>
+<div class="ph-14">14</div>
+
+</div>
+
+<div class="ph-labels">
+<div class="ph-acid">🔴 अम्लीय</div>
+<div class="ph-neutral">🟡 उदासीन</div>
+<div class="ph-base">🔵 क्षारीय</div>
+</div>
+
+<div class="exam">
+
+<b>🎯 परीक्षा के लिए याद रखें:</b>
+<br><br>
+<b>pH = 7</b> → उदासीन
+<br>
+<b>pH &lt; 7</b> → अम्लीय
+<br>
+<b>pH &gt; 7</b> → क्षारीय
+
+</div>
+
+</section>
+
+
+<!-- 11 -->
+
+<section class="section">
+
+<div class="section-title">
+11. दैनिक जीवन में pH का महत्व
+</div>
+
+<ul>
+
+<li>
+हमारा शरीर लगभग <b>pH 7 से 7.8</b> के बीच कार्य करता है।
+</li>
+
+<li>
+वर्षा के जल का <b>pH 5.6 से कम</b> होने पर उसे
+<b>अम्लीय वर्षा</b> कहते हैं।
+</li>
+
+<li>
+मुँह में <b>pH 5.5 से कम</b> होने पर दाँतों का क्षय
+प्रारंभ हो सकता है।
+</li>
+
+<li>
+मधुमक्खी का डंक <b>अम्ल</b> छोड़ता है,
+जिससे जलन और दर्द होता है।
+</li>
+
+<li>
+पौधों को अच्छी उपज के लिए
+<b>विशिष्ट pH</b> की आवश्यकता होती है।
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- 12 -->
+
+<section class="section">
+
+<div class="section-title">
+12.NaOH (सोडियम हायड्रॉक्सिड)
+</div>
+
+<p>
+सोडियम क्लोराइड (<b>NaCl</b>) के जलीय विलयन में
+विद्युत धारा प्रवाहित करने पर NaOH, H₂ तथा Cl₂ प्राप्त होते हैं।
+</p>
+
+<div class="formula">
+2NaCl + 2H₂O → 2NaOH + Cl₂ + H₂
+</div>
+
+<div class="highlight">
+
+<b>उत्पाद:</b>
+<br><br>
+एनोड → <b>Cl₂ गैस</b>
+<br>
+कैथोड → <b>H₂ गैस</b>
+<br>
+विलयन → <b>NaOH</b>
+
+</div>
+
+<h3 class="sub-title">उपयोग</h3>
+
+<ul>
+<li>ग्रीस हटाने में</li>
+<li>साबुन बनाने में</li>
+<li>कागज बनाने में</li>
+<li>सफाई में</li>
+</ul>
+
+</section>
+
+
+<!-- 13 -->
+
+<section class="section">
+
+<div class="section-title">
+13. विरंजक चूर्ण
+</div>
+
+<div class="formula">
+विरंजक चूर्ण = CaOCl₂
+</div>
+
+<p>
+शुष्क बुझा हुआ चूना और क्लोरीन की अभिक्रिया से
+विरंजक चूर्ण बनता है।
+</p>
+
+<div class="formula">
+Ca(OH)₂ + Cl₂ → CaOCl₂ + H₂O
+</div>
+
+<h3 class="sub-title">उपयोग</h3>
+
+<ul>
+<li>सूती एवं लिनेन वस्त्रों के विरंजन में</li>
+<li>कागज के गूदे के विरंजन में</li>
+<li>पीने के पानी के रोगाणुनाशक के रूप में</li>
+</ul>
+
+</section>
+
+
+<!-- 14 -->
+
+<section class="section">
+
+<div class="section-title">
+14. बेकिंग सोडा
+</div>
+
+<div class="formula">
+NaHCO₃
+</div>
+
+<h3 class="sub-title">
+सॉल्वे प्रक्रिया
+</h3>
+
+<div class="formula">
+NaCl + CO₂ + H₂O + NH₃ → NH₄Cl + NaHCO₃
+</div>
+
+<h3 class="sub-title">
+गर्म करने पर
+</h3>
+
+<div class="formula">
+2NaHCO₃ → Na₂CO₃ + H₂O + CO₂
+</div>
+
+<h3 class="sub-title">उपयोग</h3>
+
+<ul>
+<li>बेकिंग पाउडर में</li>
+<li>अग्निशामक में</li>
+<li>एंटासिड के घटक के रूप में</li>
+</ul>
+
+<div class="exam">
+<b>परीक्षा में याद रखें:</b>
+<br><br>
+बेकिंग पाउडर = बेकिंग सोडा + टार्टरिक अम्ल
+</div>
+
+</section>
+
+
+<!-- 15 -->
+
+<section class="section">
+
+<div class="section-title">
+15. धोने का सोडा
+</div>
+
+<div class="formula">
+Na₂CO₃·10H₂O
+</div>
+
+<p>
+सोडियम कार्बोनेट के पुनः क्रिस्टलीकरण से
+धोने का सोडा प्राप्त होता है।
+</p>
+
+<div class="formula">
+Na₂CO₃ + 10H₂O → Na₂CO₃·10H₂O
+</div>
+
+<h3 class="sub-title">उपयोग</h3>
+
+<ul>
+<li>काँच उद्योग</li>
+<li>साबुन उद्योग</li>
+<li>कागज उद्योग</li>
+<li>सफाई</li>
+<li>जल की स्थायी कठोरता दूर करने में</li>
+</ul>
+
+</section>
+
+
+<!-- 16 -->
+
+<section class="section">
+
+<div class="section-title">
+16. प्लास्टर ऑफ पेरिस (POP)
+</div>
+
+<div class="formula">
+POP = CaSO₄·½H₂O
+</div>
+
+<p>
+जिप्सम को <b>373 K (लगभग 100°C)</b> पर गर्म करने पर
+कैल्शियम सल्फेट अर्धहाइड्रेट प्राप्त होता है।
+</p>
+
+<div class="formula">
+CaSO₄·2H₂O
+→ CaSO₄·½H₂O + 1½H₂O
+</div>
+
+<p>
+POP में जल मिलाने पर यह पुनः <b>जिप्सम</b> में बदल जाता है।
+</p>
+
+<h3 class="sub-title">उपयोग</h3>
+
+<ul>
+<li>टूटी हुई हड्डियों को सही स्थिति में रखने के लिए</li>
+<li>खिलौने एवं सजावटी सामान बनाने में</li>
+<li>दीवारों को चिकना बनाने में</li>
+</ul>
+
+</section>
+
+
+<!-- 17 -->
+
+<section class="section">
+
+<div class="section-title">
+17. क्रिस्टलन का जल
+</div>
+
+<p>
+लवण के एक सूत्रक इकाई में उपस्थित जल के निश्चित अणुओं की संख्या को
+<b>क्रिस्टलन का जल</b> कहते हैं।
+</p>
+
+<div class="example">
+
+<div class="example-title">
+उदाहरण:
+</div>
+
+<b>CuSO₄·5H₂O</b>
+
+<br><br>
+
+कॉपर सल्फेट के एक सूत्रक इकाई में
+<b>5 जल अणु</b> होते हैं।
+
+</div>
+
+</section>
+
+
+<!-- 18 DAILY LIFE ACIDS -->
+
+<section class="section">
+
+<div class="section-title">
+18. दैनिक जीवन में पाए जाने वाले अम्ल
+</div>
+
+<div class="indicator-group">
+
+<div class="indicator-group-title">
+🧪 पदार्थ और संबंधित अम्ल
+</div>
+
+<div class="indicator-grid">
+
+<div class="indicator-card">
+<div class="indicator-name">इमली</div>
+<div class="medium acid-medium">
+<b>टार्टरिक अम्ल</b>
+</div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">केला</div>
+<div class="medium acid-medium">
+<b>टार्टरिक अम्ल</b>
+</div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">अंगूर</div>
+<div class="medium acid-medium">
+<b>टार्टरिक अम्ल</b>
+</div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">सिरका</div>
+<div class="medium acid-medium">
+<b>एसीटिक अम्ल</b>
+</div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">बिच्छू/चींटी/मधुमक्खी का डंक</div>
+<div class="medium acid-medium">
+<b>फॉर्मिक अम्ल</b>
+</div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">दूध/दही</div>
+<div class="medium acid-medium">
+<b>लैक्टिक अम्ल</b>
+</div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">नींबू</div>
+<div class="medium acid-medium">
+<b>साइट्रिक अम्ल</b>
+</div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">टमाटर</div>
+<div class="medium acid-medium">
+<b>ऑक्सैलिक अम्ल</b>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 19 PH VALUES -->
+
+<section class="section">
+
+<div class="section-title">
+19. विभिन्न पदार्थों के pH मान
+</div>
+
+<div class="indicator-group">
+
+<div class="indicator-group-title">
+🌈 पदार्थ और pH मान
+</div>
+
+<div class="indicator-grid">
+
+<div class="indicator-card">
+<div class="indicator-name">शुद्ध जल</div>
+<div class="medium base-medium"><b>pH = 7</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">रक्त</div>
+<div class="medium base-medium"><b>pH = 7.4</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">नींबू का रस</div>
+<div class="medium acid-medium"><b>pH = 2.2</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">मिल्क ऑफ मैग्नीशिया</div>
+<div class="medium base-medium"><b>pH = 10</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">सोडियम हाइड्रॉक्साइड विलयन</div>
+<div class="medium base-medium"><b>pH = 14</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">जठर रस</div>
+<div class="medium acid-medium"><b>pH = 1.2</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">साधारण नमक का विलयन</div>
+<div class="medium base-medium"><b>pH = 7</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">मानव लार</div>
+<div class="medium acid-medium"><b>pH = 6.4</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">Black Coffee</div>
+<div class="medium acid-medium"><b>pH = 5</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">समुद्र का पानी</div>
+<div class="medium base-medium"><b>pH = 7.8</b></div>
+</div>
+
+<div class="indicator-card">
+<div class="indicator-name">चूने का पानी</div>
+<div class="medium base-medium"><b>pH = 10.5</b></div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- 20 -->
+
+<section class="section">
+
+<div class="section-title">
+20. महत्वपूर्ण नोट्स
+</div>
+
+<div class="highlight">
+<b>लिटमस:</b>
+उदासीन विलयन में लिटमस का रंग <b>बैंगनी</b> होता है।
+</div>
+
+<div class="highlight">
+लिटमस एक प्राकृतिक सूचक है जो
+<b>लाइकेन (Lichen)</b> से प्राप्त किया जाता है।
+</div>
+
+<div class="highlight">
+<b>नेटल</b> एक शाकीय पौधा है।
+इसके पत्तों में <b>फॉर्मिक अम्ल
+(Formic/Methanoic Acid)</b> पाया जाता है।
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<div class="final-box">
+
+<h2>🔑 परीक्षा के लिए महत्वपूर्ण सूत्र</h2>
+
+<div class="final-line">
+अम्ल → H⁺ आयन
+</div>
+
+<div class="final-line">
+क्षारक → OH⁻ आयन
+</div>
+
+<div class="final-line">
+pH &lt; 7 → अम्लीय
+</div>
+
+<div class="final-line">
+pH = 7 → उदासीन
+</div>
+
+<div class="final-line">
+pH &gt; 7 → क्षारीय
+</div>
+
+<div class="final-line">
+अम्ल + क्षारक → लवण + जल
+</div>
+
+<div class="final-line">
+अम्ल + धातु → लवण + H₂
+</div>
+
+<div class="final-line">
+अम्ल + कार्बोनेट → लवण + CO₂ + H₂O
+</div>
+
+<div class="final-line">
+अम्ल + हाइड्रोजनकार्बोनेट → लवण + CO₂ + H₂O
+</div>
+
+</div>
+
+
+<!-- QUICK REVISION -->
+
+<div class="quick-box">
+
+<h2>⚡ Quick Revision</h2>
+
+<div class="quick-grid">
+
+<div class="quick-item">
+🧪 अम्ल → H⁺ आयन
+</div>
+
+<div class="quick-item">
+🧴 क्षारक → OH⁻ आयन
+</div>
+
+<div class="quick-item">
+🔴 pH &lt; 7 → अम्लीय
+</div>
+
+<div class="quick-item">
+🟡 pH = 7 → उदासीन
+</div>
+
+<div class="quick-item">
+🔵 pH &gt; 7 → क्षारीय
+</div>
+
+<div class="quick-item">
+⚗️ अम्ल + क्षारक → लवण + जल
+</div>
+
+</div>
+
+</div>
+
+
+<a href="index.html" class="back-btn">
+🏠 वापस Home पर जाएँ
+</a>
+
+</div>
+
+
+<footer>
+
+Class 10 Science • Chapter 02<br>
+अम्ल, क्षारक एवं लवण
+
+</footer>
+
+
+</body>
+</html>
