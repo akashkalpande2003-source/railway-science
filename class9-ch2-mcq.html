@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 9 Science Chapter 2 MCQ</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+  background:#f1f5f9;
+  color:#172033;
+}
+
+header{
+  background:linear-gradient(135deg,#075985,#0f766e);
+  color:white;
+  text-align:center;
+  padding:24px 14px;
+}
+
+header h1{
+  margin:0;
+  font-size:24px;
+}
+
+header p{
+  margin:7px 0 0;
+  font-size:14px;
+}
+
+.container{
+  width:min(850px,94%);
+  margin:18px auto 35px;
+}
+
+.info{
+  background:white;
+  padding:15px;
+  border-radius:14px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  margin-bottom:15px;
+}
+
+.info-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  font-weight:bold;
+}
+
+.progress-box{
+  height:8px;
+  background:#e2e8f0;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:12px;
+}
+
+.progress{
+  height:100%;
+  width:0%;
+  background:#0f766e;
+  transition:.3s;
+}
+
+.card{
+  background:white;
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.qno{
+  color:#0f766e;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.question{
+  font-size:19px;
+  font-weight:bold;
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+.option{
+  border:2px solid #dbe2ea;
+  border-radius:11px;
+  padding:12px 14px;
+  margin:10px 0;
+  cursor:pointer;
+  transition:.2s;
+  background:#fff;
+}
+
+.option:hover{
+  background:#f0f9ff;
+  border-color:#38bdf8;
+}
+
+.option.correct{
+  background:#dcfce7;
+  border-color:#16a34a;
+  color:#166534;
+  font-weight:bold;
+}
+
+.option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626;
+  color:#991b1b;
+  font-weight:bold;
+}
+
+.option.disabled{
+  cursor:default;
+}
+
+.explanation{
+  display:none;
+  margin-top:18px;
+  padding:14px;
+  background:#eff6ff;
+  border-left:5px solid #2563eb;
+  border-radius:10px;
+  line-height:1.7;
+}
+
+.explanation.show{
+  display:block;
+}
+
+.explanation b{
+  color:#075985;
+}
+
+.buttons{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:22px;
+}
+
+button{
+  border:none;
+  border-radius:10px;
+  padding:11px 20px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.prev{
+  background:#e2e8f0;
+  color:#334155;
+}
+
+.next{
+  background:#075985;
+  color:white;
+}
+
+button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+.result{
+  display:none;
+  background:white;
+  padding:28px;
+  border-radius:16px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+  text-align:center;
+}
+
+.result h2{
+  color:#075985;
+}
+
+.score{
+  font-size:40px;
+  font-weight:bold;
+  color:#0f766e;
+  margin:12px 0;
+}
+
+.restart{
+  background:#075985;
+  color:white;
+  margin-top:15px;
+}
+
+footer{
+  background:#0f172a;
+  color:white;
+  text-align:center;
+  padding:20px;
+  font-size:13px;
+}
+
+@media(max-width:600px){
+
+  header h1{
+    font-size:20px;
+  }
+
+  .card{
+    padding:16px;
+  }
+
+  .question{
+    font-size:17px;
+  }
+
+  .option{
+    font-size:14px;
+  }
+
+  button{
+    padding:10px 14px;
+    font-size:14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🧬 कोशिका: जीवन की मूल इकाई</h1>
+  <p>Class 9 Science • Railway Exam Oriented MCQ</p>
+</header>
+
+<div class="container">
+
+  <div class="info">
+    <div class="info-top">
+      <span>📚 Chapter 2</span>
+      <span id="progressText">Q 1 / 80</span>
+    </div>
+
+    <div class="progress-box">
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+
+
+  <div class="card" id="quizCard">
+
+    <div class="qno" id="qno"></div>
+
+    <div class="question" id="question"></div>
+
+    <div id="options"></div>
+
+    <div class="explanation" id="explanation"></div>
+
+    <div class="buttons">
+
+      <button class="prev" id="prevBtn" onclick="previousQuestion()">
+        ← Previous
+      </button>
+
+      <button class="next" id="nextBtn" onclick="nextQuestion()">
+        Next →
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="result" id="result">
+
+    <h2>🎉 Test Complete!</h2>
+
+    <div class="score" id="score"></div>
+
+    <p id="message"></p>
+
+    <button class="restart" onclick="restartQuiz()">
+      🔄 Restart Test
+    </button>
+
+  </div>
+
+</div>
+
+<footer>
+  Class 9 Science – Chapter 2<br>
+  कोशिका: जीवन की मूल इकाई
+</footer>
+
+
+<script>
+
+const questions = [
+
+/* 1 */
+{
+q:"कोशिका को किसका संरचनात्मक एवं क्रियात्मक इकाई कहा जाता है?",
+o:["ऊतक","अंग","जीव","जीवन"],
+a:3,
+e:"कोशिका जीवन की संरचनात्मक एवं क्रियात्मक इकाई है।"
+},
+
+/* 2 */
+{
+q:"रॉबर्ट हुक ने कोशिका की खोज किस वर्ष की थी?",
+o:["1655","1665","1675","1685"],
+a:1,
+e:"रॉबर्ट हुक ने 1665 में कॉर्क की पतली काट का अध्ययन करते समय कोशिका शब्द का प्रयोग किया।"
+},
+
+/* 3 */
+{
+q:"रॉबर्ट हुक ने कोशिकाओं को पहली बार किस पदार्थ की पतली काट में देखा था?",
+o:["पत्ती","रक्त","कॉर्क","प्याज"],
+a:2,
+e:"रॉबर्ट हुक ने कॉर्क की पतली काट को सूक्ष्मदर्शी से देखा था।"
+},
+
+/* 4 */
+{
+q:"रॉबर्ट हुक द्वारा देखी गई कॉर्क की कोशिकाएँ कैसी थीं?",
+o:["जीवित","मृत","विभाजित होती हुई","प्रजनन करती हुई"],
+a:1,
+e:"कॉर्क की कोशिकाएँ मृत थीं। उनके खाली कक्ष जैसे भाग दिखाई देते थे।"
+},
+
+/* 5 */
+{
+q:"निम्न में से कौन एककोशिकीय जीव है?",
+o:["मनुष्य","मछली","यीस्ट","पक्षी"],
+a:2,
+e:"यीस्ट एक एककोशिकीय जीव है।"
+},
+
+/* 6 */
+{
+q:"निम्न में से कौन बहुकोशिकीय जीव है?",
+o:["बैक्टीरिया","यीस्ट","अमीबा","मनुष्य"],
+a:3,
+e:"मनुष्य का शरीर अनेक कोशिकाओं से बना बहुकोशिकीय जीव है।"
+},
+
+/* 7 */
+{
+q:"कोशिकाएँ मिलकर किसका निर्माण करती हैं?",
+o:["ऊतक","अंग","अंग तंत्र","जीव"],
+a:0,
+e:"कोशिकाएँ मिलकर ऊतक बनाती हैं।"
+},
+
+/* 8 */
+{
+q:"ऊतक मिलकर बनाते हैं—",
+o:["कोशिका","अंग","केंद्रक","राइबोसोम"],
+a:1,
+e:"विभिन्न ऊतक मिलकर अंगों का निर्माण करते हैं।"
+},
+
+/* 9 */
+{
+q:"कई अंग मिलकर क्या बनाते हैं?",
+o:["कोशिका","ऊतक","अंग तंत्र","केंद्रक"],
+a:2,
+e:"कई अंग मिलकर एक अंग तंत्र बनाते हैं।"
+},
+
+/* 10 */
+{
+q:"1 mm में कितने माइक्रोमीटर होते हैं?",
+o:["10","100","1000","10000"],
+a:2,
+e:"1 mm = 1000 µm."
+},
+
+/* 11 */
+{
+q:"1 µm बराबर है—",
+o:["10 nm","100 nm","1000 nm","10000 nm"],
+a:2,
+e:"1 µm = 1000 nm."
+},
+
+/* 12 */
+{
+q:"1 nm बराबर है—",
+o:["10⁻³ m","10⁻⁶ m","10⁻⁹ m","10⁹ m"],
+a:2,
+e:"1 nm = 10⁻⁹ m."
+},
+
+/* 13 */
+{
+q:"माइक्रोमीटर स्तर की वस्तुओं को देखने के लिए सामान्यतः किसका उपयोग किया जाता है?",
+o:["दूरबीन","प्रकाश सूक्ष्मदर्शी","बैरोमीटर","थर्मामीटर"],
+a:1,
+e:"प्रकाश सूक्ष्मदर्शी माइक्रोमीटर स्तर की संरचनाओं को देखने के लिए उपयोगी है।"
+},
+
+/* 14 */
+{
+q:"नैनोमीटर स्तर की संरचनाओं के अध्ययन के लिए किसका उपयोग किया जाता है?",
+o:["प्रकाश सूक्ष्मदर्शी","इलेक्ट्रॉन सूक्ष्मदर्शी","साधारण लेंस","दूरबीन"],
+a:1,
+e:"इलेक्ट्रॉन सूक्ष्मदर्शी बहुत छोटी संरचनाओं के अध्ययन में उपयोगी है।"
+},
+
+/* 15 */
+{
+q:"दो बहुत पास-पास स्थित वस्तुओं को अलग-अलग पहचानने की क्षमता कहलाती है—",
+o:["आवर्धन","विभेदन क्षमता","परासरण","विसरण"],
+a:1,
+e:"Resolution अर्थात विभेदन क्षमता दो पास-पास स्थित बिंदुओं को अलग-अलग पहचानने की क्षमता है।"
+},
+
+/* 16 */
+{
+q:"वस्तु को बड़ा करके दिखाने की क्षमता कहलाती है—",
+o:["Resolution","Magnification","Contrast","Diffusion"],
+a:1,
+e:"Magnification का अर्थ वस्तु को बड़ा करके दिखाना है।"
+},
+
+/* 17 */
+{
+q:"कोशिका की बाहरी सीमा मुख्यतः किससे बनी होती है?",
+o:["कोशिका भित्ति","प्लाज्मा झिल्ली","केंद्रक","राइबोसोम"],
+a:1,
+e:"प्लाज्मा झिल्ली कोशिका की बाहरी सीमा बनाती है।"
+},
+
+/* 18 */
+{
+q:"प्लाज्मा झिल्ली कैसी होती है?",
+o:["पूर्णतः पारगम्य","अपारगम्य","चयनात्मक पारगम्य","कठोर"],
+a:2,
+e:"प्लाज्मा झिल्ली कुछ पदार्थों को अंदर-बाहर जाने देती है और कुछ को रोकती है।"
+},
+
+/* 19 */
+{
+q:"प्लाज्मा झिल्ली मुख्यतः किससे बनी होती है?",
+o:["केवल प्रोटीन","केवल कार्बोहाइड्रेट","लिपिड और प्रोटीन","केवल DNA"],
+a:2,
+e:"प्लाज्मा झिल्ली मुख्यतः लिपिड और प्रोटीन से बनी होती है।"
+},
+
+/* 20 */
+{
+q:"प्लाज्मा झिल्ली की मूल संरचना में कौन-सी परत प्रमुख है?",
+o:["प्रोटीन एकल परत","लिपिड द्विपरत","DNA द्विपरत","स्टार्च परत"],
+a:1,
+e:"प्लाज्मा झिल्ली में लिपिड की द्विपरत होती है।"
+},
+
+/* 21 */
+{
+q:"प्लाज्मा झिल्ली की संरचना समझाने वाला मॉडल है—",
+o:["कोशिका सिद्धांत","द्रव मोजेक मॉडल","लॉक-एंड-की मॉडल","द्रव क्रिस्टल मॉडल"],
+a:1,
+e:"प्लाज्मा झिल्ली के लिए Fluid Mosaic Model स्वीकार किया जाता है।"
+},
+
+/* 22 */
+{
+q:"अधिक सांद्रता से कम सांद्रता की ओर कणों की गति कहलाती है—",
+o:["परासरण","विसरण","सक्रिय परिवहन","अवशोषण"],
+a:1,
+e:"उच्च सांद्रता से निम्न सांद्रता की ओर कणों की गति विसरण कहलाती है।"
+},
+
+/* 23 */
+{
+q:"विसरण के लिए निम्न में से किसकी आवश्यकता नहीं होती?",
+o:["सांद्रता अंतर","प्लाज्मा झिल्ली","कणों की गति","माध्यम"],
+a:1,
+e:"विसरण के लिए प्लाज्मा झिल्ली आवश्यक नहीं है।"
+},
+
+/* 24 */
+{
+q:"परासरण में किसके अणुओं की गति होती है?",
+o:["प्रोटीन","जल","DNA","वसा"],
+a:1,
+e:"परासरण में जल के अणुओं की गति होती है।"
+},
+
+/* 25 */
+{
+q:"परासरण के लिए किस प्रकार की झिल्ली आवश्यक है?",
+o:["पूर्णतः पारगम्य","चयनात्मक पारगम्य","कठोर झिल्ली","कोशिका भित्ति"],
+a:1,
+e:"परासरण के लिए चयनात्मक पारगम्य झिल्ली आवश्यक है।"
+},
+
+/* 26 */
+{
+q:"हाइपोटोनिक विलयन में कोशिका में क्या होता है?",
+o:["जल बाहर जाता है","जल अंदर आता है","कोई परिवर्तन नहीं","कोशिका हमेशा मर जाती है"],
+a:1,
+e:"Hypotonic माध्यम में जल कोशिका के अंदर प्रवेश करता है।"
+},
+
+/* 27 */
+{
+q:"हाइपरटोनिक विलयन में कोशिका से—",
+o:["जल बाहर जाता है","जल अंदर आता है","प्रोटीन अंदर आता है","DNA बाहर जाता है"],
+a:0,
+e:"Hypertonic माध्यम में जल कोशिका से बाहर निकलता है।"
+},
+
+/* 28 */
+{
+q:"आइसोटोनिक विलयन में कोशिका का आकार सामान्यतः—",
+o:["बहुत बढ़ता है","बहुत घटता है","लगभग समान रहता है","समाप्त हो जाता है"],
+a:2,
+e:"Isotonic माध्यम में जल की सांद्रता लगभग समान होने के कारण कोशिका का आकार लगभग समान रहता है।"
+},
+
+/* 29 */
+{
+q:"पादप कोशिका की कोशिका भित्ति मुख्यतः किसकी बनी होती है?",
+o:["ग्लूकोज","सेलुलोज","प्रोटीन","वसा"],
+a:1,
+e:"पादप कोशिका भित्ति मुख्यतः cellulose की बनी होती है।"
+},
+
+/* 30 */
+{
+q:"कोशिका भित्ति का प्रमुख कार्य है—",
+o:["ऊर्जा उत्पादन","प्रोटीन संश्लेषण","आकार एवं मजबूती देना","DNA बनाना"],
+a:2,
+e:"कोशिका भित्ति पौधे की कोशिकाओं को आकार और मजबूती देती है।"
+},
+
+/* 31 */
+{
+q:"सेलुलोज मनुष्य में मुख्यतः किस रूप में कार्य करता है?",
+o:["प्रोटीन","एंजाइम","आहारीय रेशा","हार्मोन"],
+a:2,
+e:"मनुष्य cellulose को पचा नहीं सकता; यह dietary fibre/roughage के रूप में कार्य करता है।"
+},
+
+/* 32 */
+{
+q:"निम्न में से किसमें कोशिका भित्ति पाई जाती है?",
+o:["केवल जंतु","केवल मनुष्य","पौधे","लाल रक्त कोशिका"],
+a:2,
+e:"पादप कोशिकाओं में कोशिका भित्ति पाई जाती है।"
+},
+
+/* 33 */
+{
+q:"एक सामान्य यूकैरियोटिक कोशिका के तीन प्रमुख घटक हैं—",
+o:["कोशिका भित्ति, राइबोसोम, DNA","प्लाज्मा झिल्ली, कोशिका द्रव्य, केंद्रक","केंद्रक, क्लोरोप्लास्ट, कोशिका भित्ति","माइटोकॉन्ड्रिया, गोल्जी, लाइसोसोम"],
+a:1,
+e:"सामान्य यूकैरियोटिक कोशिका में plasma membrane, cytoplasm और nucleus प्रमुख घटक हैं।"
+},
+
+/* 34 */
+{
+q:"प्रोकैरियोटिक कोशिका में किस प्रकार का केंद्रक होता है?",
+o:["स्पष्ट वास्तविक केंद्रक","झिल्ली-बद्ध केंद्रक","वास्तविक केंद्रक नहीं होता","दो केंद्रक होते हैं"],
+a:2,
+e:"प्रोकैरियोटिक कोशिका में membrane-bound true nucleus नहीं होता।"
+},
+
+/* 35 */
+{
+q:"प्रोकैरियोटिक कोशिका में DNA मुख्यतः कहाँ पाया जाता है?",
+o:["न्यूक्लियोलस","न्यूक्लॉइड","गोल्जी तंत्र","लाइसोसोम"],
+a:1,
+e:"प्रोकैरियोटिक कोशिका में DNA nucleoid region में पाया जाता है।"
+},
+
+/* 36 */
+{
+q:"निम्न में से कौन प्रोकैरियोटिक जीव का उदाहरण है?",
+o:["बैक्टीरिया","मनुष्य","पौधा","कवक"],
+a:0,
+e:"बैक्टीरिया प्रोकैरियोटिक जीव हैं।"
+},
+
+/* 37 */
+{
+q:"यूकैरियोटिक कोशिका की प्रमुख विशेषता है—",
+o:["वास्तविक केंद्रक का अभाव","झिल्ली-बद्ध कोशिकांगों का अभाव","स्पष्ट केंद्रक एवं झिल्ली-बद्ध कोशिकांग","केवल एक कोशिका"],
+a:2,
+e:"यूकैरियोटिक कोशिकाओं में स्पष्ट केंद्रक और membrane-bound organelles होते हैं।"
+},
+
+/* 38 */
+{
+q:"प्रोकैरियोटिक कोशिकाएँ सामान्यतः कैसी होती हैं?",
+o:["केवल बहुकोशिकीय","मुख्यतः एककोशिकीय","केवल पौधों में","केवल जंतुओं में"],
+a:1,
+e:"प्रोकैरियोटिक जीव मुख्यतः एककोशिकीय होते हैं।"
+},
+
+/* 39 */
+{
+q:"वायरस में पाया जाता है—",
+o:["DNA/RNA और प्रोटीन आवरण","केवल प्रोटीन","केवल DNA","केवल RNA"],
+a:0,
+e:"वायरस में आनुवंशिक पदार्थ DNA या RNA तथा protein coat होता है।"
+},
+
+/* 40 */
+{
+q:"वायरोइड मुख्यतः किससे बना होता है?",
+o:["DNA","RNA","प्रोटीन","लिपिड"],
+a:1,
+e:"Viroid छोटा संक्रामक RNA होता है और इसमें protein coat नहीं होता।"
+},
+
+/* 41 */
+{
+q:"वायरोइड की प्रमुख विशेषता है—",
+o:["प्रोटीन आवरण होता है","प्रोटीन आवरण नहीं होता","दो केंद्रक होते हैं","कोशिका भित्ति होती है"],
+a:1,
+e:"Viroid में protein coat नहीं होता।"
+},
+
+/* 42 */
+{
+q:"प्रायॉन क्या है?",
+o:["DNA","RNA","संक्रामक रूप से गलत मुड़ा हुआ प्रोटीन","बैक्टीरिया"],
+a:2,
+e:"Prion एक abnormal infectious protein है।"
+},
+
+/* 43 */
+{
+q:"साइटोस्केलेटन का प्रमुख कार्य है—",
+o:["ऊर्जा उत्पादन","कोशिका को आकार एवं आंतरिक संगठन देना","प्रोटीन पाचन","प्रकाश संश्लेषण"],
+a:1,
+e:"Cytoskeleton कोशिका के आकार, स्थिरता और आंतरिक संगठन में सहायता करता है।"
+},
+
+/* 44 */
+{
+q:"कोशिका में संग्रहित स्टार्च, वसा आदि को सामान्यतः क्या कहा जाता है?",
+o:["कोशिका अंगक","Cell Inclusions","गुणसूत्र","जीन"],
+a:1,
+e:"कोशिका में संग्रहित स्टार्च, वसा, calcium oxalate और silica आदि को cell inclusions कहा जाता है।"
+},
+
+/* 45 */
+{
+q:"कोशिका की गतिविधियों को नियंत्रित करने वाला प्रमुख कोशिकांग है—",
+o:["राइबोसोम","केंद्रक","लाइसोसोम","रिक्तिका"],
+a:1,
+e:"केंद्रक कोशिका की गतिविधियों को नियंत्रित करने में महत्वपूर्ण भूमिका निभाता है।"
+},
+
+/* 46 */
+{
+q:"केंद्रक किससे घिरा होता है?",
+o:["एकल झिल्ली","दोहरी झिल्ली वाला नाभिकीय आवरण","कोशिका भित्ति","राइबोसोम"],
+a:1,
+e:"Nucleus nuclear envelope की दोहरी झिल्ली से घिरा होता है।"
+},
+
+/* 47 */
+{
+q:"केंद्रक में पाए जाने वाले छिद्र किसमें सहायता करते हैं?",
+o:["ATP निर्माण","केंद्रक और कोशिका द्रव्य के बीच आदान-प्रदान","प्रकाश संश्लेषण","कोशिका पाचन"],
+a:1,
+e:"Nuclear pores nucleus और cytoplasm के बीच पदार्थों के आदान-प्रदान में सहायता करते हैं।"
+},
+
+/* 48 */
+{
+q:"न्यूक्लियोलस किसके निर्माण में महत्वपूर्ण है?",
+o:["ATP","राइबोसोम","कोशिका भित्ति","क्लोरोफिल"],
+a:1,
+e:"Nucleolus ribosome formation में महत्वपूर्ण भूमिका निभाता है।"
+},
+
+/* 49 */
+{
+q:"जीन क्या है?",
+o:["कोशिका का पूरा केंद्रक","DNA का कार्यात्मक खंड","एक कोशिकांग","प्रोटीन का पूरा अणु"],
+a:1,
+e:"Gene DNA का एक functional segment है।"
+},
+
+/* 50 */
+{
+q:"विभाजन के समय DNA संघनित होकर किस रूप में दिखाई देता है?",
+o:["राइबोसोम","गुणसूत्र","रिक्तिका","लाइसोसोम"],
+a:1,
+e:"Cell division के समय chromatin संघनित होकर chromosomes बनाता है।"
+},
+
+/* 51 */
+{
+q:"विभाजन न करने वाली कोशिका में DNA मुख्यतः किस रूप में रहता है?",
+o:["क्रोमैटिन","क्रिस्टा","ग्राना","न्यूक्लियोलस"],
+a:0,
+e:"Non-dividing cell में DNA chromatin के रूप में रहता है।"
+},
+
+/* 52 */
+{
+q:"परिपक्व मानव RBC में क्या नहीं होता?",
+o:["हीमोग्लोबिन","कोशिका झिल्ली","केंद्रक","कोशिका द्रव्य"],
+a:2,
+e:"परिपक्व मानव लाल रक्त कोशिका में nucleus नहीं होता।"
+},
+
+/* 53 */
+{
+q:"मानव RBC का औसत जीवनकाल लगभग कितना होता है?",
+o:["12 दिन","30 दिन","120 दिन","365 दिन"],
+a:2,
+e:"मानव RBC का औसत जीवनकाल लगभग 120 दिन होता है।"
+},
+
+/* 54 */
+{
+q:"RBC में केंद्रक के अभाव का एक लाभ है—",
+o:["अधिक हीमोग्लोबिन के लिए स्थान","अधिक DNA निर्माण","अधिक कोशिका विभाजन","अधिक प्रोटीन संश्लेषण"],
+a:0,
+e:"केंद्रक के अभाव से RBC में hemoglobin के लिए अधिक स्थान उपलब्ध होता है।"
+},
+
+/* 55 */
+{
+q:"प्रोटीन संश्लेषण का प्रमुख स्थल है—",
+o:["लाइसोसोम","राइबोसोम","गोल्जी तंत्र","रिक्तिका"],
+a:1,
+e:"Ribosome protein synthesis का प्रमुख स्थल है।"
+},
+
+/* 56 */
+{
+q:"राइबोसोम को किस नाम से भी जाना जाता है?",
+o:["Powerhouse","Protein Factory","Suicidal Bag","Control Centre"],
+a:1,
+e:"Ribosome को protein factory कहा जाता है।"
+},
+
+/* 57 */
+{
+q:"RER की सतह पर क्या पाया जाता है?",
+o:["क्लोरोफिल","राइबोसोम","DNA","रिक्तिका"],
+a:1,
+e:"Rough Endoplasmic Reticulum की सतह पर ribosomes लगे होते हैं।"
+},
+
+/* 58 */
+{
+q:"RER का प्रमुख कार्य है—",
+o:["प्रोटीन संश्लेषण एवं परिवहन","केवल वसा संग्रहण","प्रकाश संश्लेषण","DNA प्रतिकृति"],
+a:0,
+e:"RER protein synthesis और transport में महत्वपूर्ण है।"
+},
+
+/* 59 */
+{
+q:"SER की सतह पर—",
+o:["राइबोसोम होते हैं","राइबोसोम नहीं होते","DNA होता है","क्लोरोफिल होता है"],
+a:1,
+e:"Smooth ER की सतह पर ribosomes नहीं होते।"
+},
+
+/* 60 */
+{
+q:"SER मुख्यतः किसके संश्लेषण में महत्वपूर्ण है?",
+o:["लिपिड","DNA","RNA","हीमोग्लोबिन"],
+a:0,
+e:"SER lipid synthesis में महत्वपूर्ण है।"
+},
+
+/* 61 */
+{
+q:"गोल्जी तंत्र का प्रमुख कार्य है—",
+o:["ATP बनाना","पदार्थों का संशोधन, छँटाई एवं पैकेजिंग","प्रकाश संश्लेषण","DNA बनाना"],
+a:1,
+e:"Golgi apparatus पदार्थों का modification, sorting और packaging करता है।"
+},
+
+/* 62 */
+{
+q:"लाइसोसोम में मुख्यतः क्या पाया जाता है?",
+o:["पाचन एंजाइम","क्लोरोफिल","हीमोग्लोबिन","DNA"],
+a:0,
+e:"Lysosome में digestive enzymes पाए जाते हैं।"
+},
+
+/* 63 */
+{
+q:"लाइसोसोम को कहा जाता है—",
+o:["Powerhouse of cell","Protein factory","Suicidal bags of cell","Control centre"],
+a:2,
+e:"Lysosome को suicidal bags of the cell कहा जाता है।"
+},
+
+/* 64 */
+{
+q:"लाइसोसोम का प्रमुख कार्य है—",
+o:["अपशिष्ट एवं पुराने कोशिकीय भागों का विघटन","प्रकाश संश्लेषण","ATP निर्माण","प्रोटीन निर्माण"],
+a:0,
+e:"Lysosome पुराने cell parts और waste को digestive enzymes द्वारा तोड़ता है।"
+},
+
+/* 65 */
+{
+q:"कोशिका का Powerhouse कहलाता है—",
+o:["केंद्रक","माइटोकॉन्ड्रिया","गोल्जी तंत्र","राइबोसोम"],
+a:1,
+e:"Mitochondria को cell का powerhouse कहा जाता है।"
+},
+
+/* 66 */
+{
+q:"माइटोकॉन्ड्रिया की आंतरिक झिल्ली की तहों को क्या कहते हैं?",
+o:["ग्राना","क्रिस्टा","स्ट्रोमा","न्यूक्लॉइड"],
+a:1,
+e:"Mitochondria की inner membrane की folds को cristae कहा जाता है।"
+},
+
+/* 67 */
+{
+q:"कोशिकीय श्वसन से मुख्यतः किस रूप में उपयोगी ऊर्जा उपलब्ध होती है?",
+o:["DNA","ATP","RNA","ग्लाइकोजन"],
+a:1,
+e:"Cellular respiration से उपयोगी energy ATP के रूप में उपलब्ध होती है।"
+},
+
+/* 68 */
+{
+q:"निम्न में से कौन-सा कोशिकांग अपना DNA रखता है?",
+o:["माइटोकॉन्ड्रिया","राइबोसोम","लाइसोसोम","गोल्जी तंत्र"],
+a:0,
+e:"Mitochondria में अपना DNA और ribosomes पाए जाते हैं।"
+},
+
+/* 69 */
+{
+q:"क्लोरोप्लास्ट का प्रमुख कार्य है—",
+o:["प्रोटीन पाचन","प्रकाश संश्लेषण","कोशिका विभाजन","अपशिष्ट निष्कासन"],
+a:1,
+e:"Chloroplast photosynthesis का प्रमुख स्थल है।"
+},
+
+/* 70 */
+{
+q:"क्लोरोप्लास्ट में प्रकाश को अवशोषित करने वाला प्रमुख वर्णक है—",
+o:["हीमोग्लोबिन","क्लोरोफिल","कैरोटीन केवल","मेलेनिन"],
+a:1,
+e:"Chlorophyll सूर्य के प्रकाश को अवशोषित करता है।"
+},
+
+/* 71 */
+{
+q:"क्लोरोप्लास्ट के अंदर द्रव भाग को क्या कहते हैं?",
+o:["स्ट्रोमा","क्रिस्टा","न्यूक्लियोलस","न्यूक्लॉइड"],
+a:0,
+e:"Chloroplast का द्रव भाग stroma कहलाता है।"
+},
+
+/* 72 */
+{
+q:"थायलाकोइड के समूह को क्या कहा जाता है?",
+o:["क्रिस्टा","ग्राना","स्ट्रोमा","साइटोप्लाज्म"],
+a:1,
+e:"Thylakoids के stacks को grana कहा जाता है।"
+},
+
+/* 73 */
+{
+q:"फूलों और फलों को रंग प्रदान करने में कौन-सा प्लास्टिड प्रमुख है?",
+o:["ल्यूकोप्लास्ट","क्रोमोप्लास्ट","क्लोरोप्लास्ट","राइबोसोम"],
+a:1,
+e:"Chromoplast फूलों और फलों में विभिन्न रंगों के लिए उत्तरदायी होता है।"
+},
+
+/* 74 */
+{
+q:"ल्यूकोप्लास्ट का प्रमुख कार्य है—",
+o:["रंग देना","भंडारण","प्रकाश संश्लेषण","प्रोटीन संश्लेषण"],
+a:1,
+e:"Leucoplast रंगहीन plastid है जो starch, oil और protein का भंडारण करता है।"
+},
+
+/* 75 */
+{
+q:"परिपक्व पादप कोशिका में बड़ी केंद्रीय रिक्तिका का प्रमुख कार्य है—",
+o:["DNA बनाना","भंडारण और तुर्गidity बनाए रखना","प्रोटीन संश्लेषण","ATP बनाना"],
+a:1,
+e:"Vacuole पदार्थों के storage और plant cell में turgidity बनाए रखने में महत्वपूर्ण है।"
+},
+
+/* 76 */
+{
+q:"समसूत्री विभाजन (Mitosis) से सामान्यतः कितनी पुत्री कोशिकाएँ बनती हैं?",
+o:["1","2","3","4"],
+a:1,
+e:"Mitosis में सामान्यतः दो genetically similar daughter cells बनती हैं।"
+},
+
+/* 77 */
+{
+q:"अर्धसूत्री विभाजन (Meiosis) का प्रमुख परिणाम है—",
+o:["गुणसूत्र संख्या दोगुनी होना","गुणसूत्र संख्या आधी होना","केंद्रक समाप्त होना","कोशिका भित्ति बनना"],
+a:1,
+e:"Meiosis में chromosome number आधी हो जाती है।"
+},
+
+/* 78 */
+{
+q:"Meiosis में एक द्विगुणित कोशिका से सामान्यतः कितनी अगुणित कोशिकाएँ बनती हैं?",
+o:["2","3","4","8"],
+a:2,
+e:"Meiosis के अंत में सामान्यतः चार haploid cells बनती हैं।"
+},
+
+/* 79 */
+{
+q:"पौधों के कोशिका सिद्धांत में योगदान देने वाले वैज्ञानिक थे—",
+o:["Schleiden","Schwann","Virchow","Hooke"],
+a:0,
+e:"Matthias Schleiden ने 1838 में पौधों के संबंध में cell theory में योगदान दिया।"
+},
+
+/* 80 */
+{
+q:"“नई कोशिकाएँ पहले से मौजूद कोशिकाओं से बनती हैं” यह विचार किस वैज्ञानिक से संबंधित है?",
+o:["रॉबर्ट हुक","थियोडोर श्वान","रूडोल्फ विरचो","श्लाइडेन"],
+a:2,
+e:"Rudolf Virchow ने 1855 में बताया कि नई कोशिकाएँ पहले से मौजूद कोशिकाओं से बनती हैं।"
+}
+
+];
+
+
+let current = 0;
+let score = 0;
+let answered = new Array(questions.length).fill(false);
+
+
+function loadQuestion(){
+
+  const q = questions[current];
+
+  document.getElementById("qno").textContent =
+    "Question " + (current + 1) + " of " + questions.length;
+
+  document.getElementById("question").textContent = q.q;
+
+  const options = document.getElementById("options");
+
+  options.innerHTML = "";
+
+  document.getElementById("explanation").classList.remove("show");
+
+  q.o.forEach((option,index)=>{
+
+    const div = document.createElement("div");
+
+    div.className = "option";
+
+    div.textContent =
+      String.fromCharCode(65 + index) + ". " + option;
+
+    if(answered[current]){
+
+      div.classList.add("disabled");
+
+    }else{
+
+      div.onclick = function(){
+
+        checkAnswer(index,div);
+
+      };
+
+    }
+
+    options.appendChild(div);
+
+  });
+
+
+  document.getElementById("prevBtn").disabled =
+    current === 0;
+
+  document.getElementById("nextBtn").disabled =
+    !answered[current];
+
+  if(current === questions.length - 1){
+
+    document.getElementById("nextBtn").textContent =
+      "🏆 Result";
+
+  }else{
+
+    document.getElementById("nextBtn").textContent =
+      "Next →";
+
+  }
+
+
+  document.getElementById("progressText").textContent =
+    "Q " + (current + 1) + " / " + questions.length;
+
+  document.getElementById("progress").style.width =
+    ((current + 1) / questions.length * 100) + "%";
+
+}
+
+
+function checkAnswer(selected, clicked){
+
+  if(answered[current]) return;
+
+  answered[current] = true;
+
+  const q = questions[current];
+
+  const allOptions =
+    document.querySelectorAll(".option");
+
+  allOptions.forEach((option,index)=>{
+
+    option.classList.add("disabled");
+
+    if(index === q.a){
+
+      option.classList.add("correct");
+
+    }
+
+  });
+
+
+  if(selected === q.a){
+
+    score++;
+
+    clicked.classList.add("correct");
+
+  }else{
+
+    clicked.classList.add("wrong");
+
+  }
+
+
+  const explanation =
+    document.getElementById("explanation");
+
+  explanation.innerHTML =
+    "<b>💡 Explanation:</b><br>" +
+    q.e +
+    "<br><br>" +
+    "<b>✅ सही उत्तर:</b> " +
+    String.fromCharCode(65 + q.a) +
+    ". " + q.o[q.a];
+
+
+  explanation.classList.add("show");
+
+  document.getElementById("nextBtn").disabled = false;
+
+}
+
+
+function nextQuestion(){
+
+  if(!answered[current]) return;
+
+  if(current < questions.length - 1){
+
+    current++;
+
+    loadQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }else{
+
+    showResult();
+
+  }
+
+}
+
+
+function previousQuestion(){
+
+  if(current > 0){
+
+    current--;
+
+    loadQuestion();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+
+function showResult(){
+
+  document.getElementById("quizCard").style.display =
+    "none";
+
+  document.querySelector(".info").style.display =
+    "none";
+
+  const result =
+    document.getElementById("result");
+
+  result.style.display = "block";
+
+  document.getElementById("score").textContent =
+    score + " / " + questions.length;
+
+  const percentage =
+    (score / questions.length) * 100;
+
+  let message = "";
+
+  if(percentage >= 80){
+
+    message =
+      "🔥 बहुत बढ़िया! Chapter 2 पर आपकी पकड़ अच्छी है।";
+
+  }else if(percentage >= 60){
+
+    message =
+      "👍 अच्छा प्रयास! कुछ topics का revision करें।";
+
+  }else{
+
+    message =
+      "📚 Chapter 2 को दोबारा पढ़कर फिर से test दें।";
+
+  }
+
+  document.getElementById("message").textContent =
+    message +
+    " आपका प्रतिशत: " +
+    percentage.toFixed(1) + "%";
+
+}
+
+
+function restartQuiz(){
+
+  current = 0;
+
+  score = 0;
+
+  answered =
+    new Array(questions.length).fill(false);
+
+  document.getElementById("quizCard").style.display =
+    "block";
+
+  document.querySelector(".info").style.display =
+    "block";
+
+  document.getElementById("result").style.display =
+    "none";
+
+  loadQuestion();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
