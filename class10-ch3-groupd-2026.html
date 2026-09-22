@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 10 Science Chapter 3 | Group D Test</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f4f6f8;
+  color:#222;
+  overflow-x:hidden;
+}
+
+.header{
+  height:58px;
+  background:#123b6d;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 12px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.logo{
+  font-size:19px;
+  font-weight:bold;
+}
+
+.exam-name{
+  font-size:12px;
+  opacity:.9;
+}
+
+.timer{
+  background:#fff;
+  color:#c62828;
+  padding:7px 10px;
+  border-radius:5px;
+  font-weight:bold;
+  font-size:15px;
+  min-width:75px;
+  text-align:center;
+}
+
+.palette-btn{
+  position:fixed;
+  right:10px;
+  top:70px;
+  width:42px;
+  height:42px;
+  border:none;
+  border-radius:6px;
+  background:#123b6d;
+  color:#fff;
+  font-size:23px;
+  z-index:1100;
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+}
+
+.palette{
+  position:fixed;
+  right:-310px;
+  top:0;
+  width:290px;
+  max-width:86%;
+  height:100vh;
+  background:#fff;
+  z-index:1200;
+  box-shadow:-4px 0 15px rgba(0,0,0,.2);
+  transition:.25s;
+  overflow-y:auto;
+}
+
+.palette.open{
+  right:0;
+}
+
+.palette-head{
+  height:58px;
+  background:#123b6d;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 14px;
+  font-weight:bold;
+}
+
+.close-palette{
+  font-size:25px;
+  cursor:pointer;
+}
+
+.palette-info{
+  padding:12px;
+  font-size:13px;
+  border-bottom:1px solid #ddd;
+}
+
+.legend{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  margin-top:8px;
+}
+
+.legend span{
+  font-size:12px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.dot{
+  width:13px;
+  height:13px;
+  border-radius:3px;
+  display:inline-block;
+}
+
+.dot.green{background:#28a745;}
+.dot.red{background:#dc3545;}
+.dot.purple{background:#7b1fa2;}
+.dot.grey{background:#ddd;}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+  padding:13px;
+}
+
+.pq{
+  height:38px;
+  border:1px solid #bbb;
+  background:#eee;
+  border-radius:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.pq.answered{
+  background:#28a745;
+  color:#fff;
+  border-color:#28a745;
+}
+
+.pq.review{
+  background:#7b1fa2;
+  color:#fff;
+  border-color:#7b1fa2;
+}
+
+/* MAIN */
+
+.main{
+  width:100%;
+  max-width:850px;
+  margin:0 auto;
+  padding:10px 10px 90px;
+}
+
+.progress{
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:5px;
+  padding:8px 10px;
+  margin-bottom:9px;
+  font-size:13px;
+  color:#444;
+}
+
+.progress-bar{
+  height:5px;
+  background:#e5e7eb;
+  border-radius:5px;
+  margin-top:7px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:#2563a6;
+  transition:.2s;
+}
+
+.question-card{
+  background:#fff;
+  border:1px solid #d9dee5;
+  border-radius:5px;
+  padding:14px;
+  min-height:430px;
+}
+
+.question-number{
+  font-size:14px;
+  font-weight:bold;
+  color:#123b6d;
+  margin-bottom:9px;
+}
+
+.question{
+  font-size:17px;
+  line-height:1.65;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+}
+
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  border:1px solid #cfd5dc;
+  background:#fff;
+  border-radius:5px;
+  padding:10px;
+  cursor:pointer;
+  font-size:15px;
+  line-height:1.5;
+  transition:.15s;
+}
+
+.option:hover{
+  background:#f5f9ff;
+}
+
+.option.selected{
+  background:#eaf3ff;
+  border:2px solid #2563a6;
+  padding:9px;
+}
+
+.option input{
+  margin-top:4px;
+  accent-color:#2563a6;
+  flex-shrink:0;
+}
+
+/* BOTTOM */
+
+.controls{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  border-top:1px solid #ccc;
+  box-shadow:0 -2px 10px rgba(0,0,0,.12);
+  z-index:900;
+}
+
+.controls-inner{
+  width:100%;
+  max-width:850px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:6px;
+  padding:7px;
+}
+
+.btn{
+  height:42px;
+  border:none;
+  border-radius:5px;
+  font-size:13px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.prev{
+  background:#e5e7eb;
+  color:#222;
+}
+
+.review{
+  background:#7b1fa2;
+  color:#fff;
+}
+
+.next{
+  background:#2563a6;
+  color:#fff;
+}
+
+.submit{
+  background:#198754;
+  color:#fff;
+}
+
+/* RESULT */
+
+.result{
+  display:none;
+  background:#fff;
+  margin:20px auto;
+  width:min(850px,94%);
+  border-radius:8px;
+  padding:22px;
+  box-shadow:0 3px 15px rgba(0,0,0,.15);
+}
+
+.result h2{
+  color:#123b6d;
+  margin-bottom:15px;
+  text-align:center;
+}
+
+.score{
+  font-size:34px;
+  font-weight:bold;
+  color:#198754;
+  margin:10px 0 18px;
+  text-align:center;
+}
+
+.result-box{
+  background:#f4f6f8;
+  padding:12px;
+  margin:8px 0;
+  border-radius:6px;
+}
+
+.restart{
+  display:block;
+  margin:18px auto 0;
+  background:#123b6d;
+  color:#fff;
+  border:none;
+  padding:11px 20px;
+  border-radius:5px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* SOLUTIONS */
+
+.solutions{
+  margin-top:22px;
+  text-align:left;
+}
+
+.solution-title{
+  background:#123b6d;
+  color:#fff;
+  padding:13px;
+  border-radius:6px;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.solution-card{
+  background:#fff;
+  border:1px solid #d6dbe1;
+  border-radius:6px;
+  margin-bottom:12px;
+  overflow:hidden;
+}
+
+.solution-q{
+  background:#f1f5f9;
+  padding:11px;
+  font-weight:bold;
+  line-height:1.55;
+}
+
+.solution-body{
+  padding:11px;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.your-answer{
+  margin-bottom:7px;
+}
+
+.correct-answer{
+  margin-bottom:7px;
+  color:#198754;
+  font-weight:bold;
+}
+
+.wrong-answer{
+  margin-bottom:7px;
+  color:#dc3545;
+  font-weight:bold;
+}
+
+.solution-explanation{
+  margin-top:9px;
+  background:#f8fbff;
+  border-left:4px solid #2563a6;
+  padding:10px;
+  line-height:1.65;
+}
+
+.status-correct,
+.status-wrong,
+.status-skip{
+  display:inline-block;
+  color:#fff;
+  padding:3px 8px;
+  border-radius:4px;
+  font-size:11px;
+  margin-left:5px;
+  vertical-align:middle;
+}
+
+.status-correct{
+  background:#198754;
+}
+
+.status-wrong{
+  background:#dc3545;
+}
+
+.status-skip{
+  background:#6c757d;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .header{
+    height:55px;
+    padding:0 8px;
+  }
+
+  .logo{
+    font-size:16px;
+  }
+
+  .exam-name{
+    font-size:10px;
+  }
+
+  .timer{
+    font-size:14px;
+    min-width:70px;
+    padding:6px 7px;
+  }
+
+  .palette-btn{
+    top:63px;
+    right:7px;
+    width:38px;
+    height:38px;
+    font-size:21px;
+  }
+
+  .main{
+    padding:7px 6px 65px;
+  }
+
+  .question-card{
+    padding:11px;
+    min-height:calc(100vh - 175px);
+  }
+
+  .question{
+    font-size:16px;
+    line-height:1.55;
+    margin-bottom:13px;
+  }
+
+  .option{
+    font-size:14px;
+    padding:9px;
+  }
+
+  .option.selected{
+    padding:8px;
+  }
+
+  .controls-inner{
+    padding:5px;
+    gap:4px;
+  }
+
+  .btn{
+    height:40px;
+    font-size:11px;
+  }
+
+  .progress{
+    font-size:12px;
+    padding:7px;
+  }
+
+  .result{
+    width:96%;
+    padding:14px;
+    margin:12px auto 20px;
+  }
+
+  .solution-title{
+    font-size:16px;
+  }
+
+  .solution-q{
+    font-size:14px;
+  }
+
+  .solution-body{
+    font-size:13px;
+  }
+
+  .status-correct,
+  .status-wrong,
+  .status-skip{
+    display:block;
+    width:max-content;
+    margin:6px 0 0;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+
+  <div class="header-left">
+    <div class="logo">🚆 Railway Science</div>
+    <div class="exam-name">Class 10 • Ch 3 • Group D</div>
+  </div>
+
+  <div class="timer" id="timer">20:00</div>
+
+</div>
+
+<!-- QUESTION PALETTE BUTTON -->
+<button class="palette-btn" onclick="togglePalette()">☰</button>
+
+<!-- QUESTION PALETTE -->
+<div class="palette" id="palette">
+
+  <div class="palette-head">
+    <span>Question Palette</span>
+    <span class="close-palette" onclick="togglePalette()">×</span>
+  </div>
+
+  <div class="palette-info">
+
+    <div>
+      <b>35 Questions</b>
+    </div>
+
+    <div class="legend">
+      <span><i class="dot green"></i> Answered</span>
+      <span><i class="dot red"></i> Not Answered</span>
+      <span><i class="dot purple"></i> Review</span>
+      <span><i class="dot grey"></i> Not Visited</span>
+    </div>
+
+  </div>
+
+  <div class="palette-grid" id="paletteGrid"></div>
+
+</div>
+
+<!-- TEST AREA -->
+<div class="main" id="testArea">
+
+  <div class="progress">
+
+    <div>
+      Question <b id="currentNo">1</b> of <b>35</b>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+  </div>
+
+  <div class="question-card">
+
+    <div class="question-number" id="qNumber"></div>
+
+    <div class="question" id="questionText"></div>
+
+    <div class="options" id="options"></div>
+
+  </div>
+
+</div>
+
+<!-- BOTTOM CONTROLS -->
+<div class="controls" id="controls">
+
+  <div class="controls-inner">
+
+    <button class="btn prev" onclick="previousQuestion()">
+      ← Previous
+    </button>
+
+    <button class="btn review" onclick="markReview()">
+      ⚑ Mark for Review
+    </button>
+
+    <button class="btn next" onclick="nextQuestion()">
+      Next →
+    </button>
+
+    <button class="btn submit" onclick="confirmSubmit()">
+      Submit Test
+    </button>
+
+  </div>
+
+</div>
+
+<!-- RESULT -->
+<div class="result" id="result">
+
+  <h2>🎯 Test Result</h2>
+
+  <div class="score" id="finalScore"></div>
+
+  <div class="result-box">
+    <b>Total Questions:</b>
+    <span id="totalResult"></span>
+  </div>
+
+  <div class="result-box">
+    <b>Correct:</b>
+    <span id="correctResult"></span>
+  </div>
+
+  <div class="result-box">
+    <b>Wrong:</b>
+    <span id="wrongResult"></span>
+  </div>
+
+  <div class="result-box">
+    <b>Not Attempted:</b>
+    <span id="skipResult"></span>
+  </div>
+
+  <div class="result-box">
+    <b>Negative Marking:</b>
+    1/3 mark for each wrong answer
+  </div>
+
+  <!-- SOLUTIONS WILL APPEAR HERE -->
+  <div id="solutions" class="solutions"></div>
+
+  <button class="restart" onclick="location.reload()">
+    Restart Test
+  </button>
+
+</div>
+
+<script>
+
+const questions = [
+
+{
+q:"निम्नलिखित में से कौन-सा, आयरन का सबसे शुद्ध रूप है?",
+o:["कठोर इस्पात","स्टेनलेस इस्पात","पिटवा लोहा","लिमोनाइट"],
+a:2,
+e:"पिटवा लोहा (Wrought Iron) लोहे का अपेक्षाकृत शुद्ध रूप है। इसमें कार्बन की मात्रा बहुत कम होती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा प्रेक्षण धातु के संक्षारण को सही ढंग से दर्शाता है?",
+o:["कॉपर के तार का अत्यधिक तापन करने पर पिघल जाना","चाँदी का जल में पूरी तरह घुल जाना","ऐलुमिनियम का यांत्रिक लोड के कारण टूट जाना","आयरन पर लाल-भूरे रंग की पृष्ठ परत बनना"],
+a:3,
+e:"लोहे पर ऑक्सीजन और नमी की उपस्थिति में लाल-भूरे रंग की जंग बनती है। यह संक्षारण का उदाहरण है।"
+},
+
+{
+q:"एनोडीकरण (Anodising) के दौरान एनोड पर क्या होता है?",
+o:["हाइड्रोजन गैस ऐलुमिनियम के साथ अभिक्रिया करके ऑक्साइड बनाती है","ऑक्सीजन से अभिक्रिया के कारण ऐलुमिनियम की मोटी ऑक्साइड परत बनती है","नाइट्रोजन गैस ऐलुमिनियम के साथ अभिक्रिया करके ऑक्साइड बनाती है","कार्बन डाइऑक्साइड ऐलुमिनियम के साथ अभिक्रिया करके ऑक्साइड बनाती है"],
+a:1,
+e:"Anodising में ऐलुमिनियम को एनोड बनाया जाता है। उसकी सतह पर मोटी सुरक्षात्मक Al₂O₃ परत बनाई जाती है।"
+},
+
+{
+q:"स्टील से बनी औद्योगिक मशीनें प्रायः आर्द्र वातावरण में प्रचालित होती हैं। संक्षारण को न्यूनतम करने के लिए कौन-सा नियमित अनुरक्षण कार्य सबसे प्रभावी है?",
+o:["मशीनों को कागज की शीट से ढकना","मशीनों पर जल छिड़काव करना","अनावृत हिस्सों पर स्नेहक तेल लगाना","मशीनों को सूखे तौलिये से पोंछना"],
+a:2,
+e:"तेल की परत धातु की सतह को वायु और नमी के सीधे संपर्क से बचाती है।"
+},
+
+{
+q:"जिंक की परत क्षतिग्रस्त होने पर भी यशदलेपन (Galvanisation) में लोहा जंग से सुरक्षित क्यों रहता है?",
+o:["जिंक ऑक्सीजन के संपर्क को हमेशा पूरी तरह रोकता है","जिंक अधिमानतः संक्षारित होता है","जिंक लोहे की कठोरता बढ़ाता है","जिंक जल के साथ अधिक तेजी से अभिक्रिया करता है"],
+a:1,
+e:"जिंक लोहे से अधिक क्रियाशील है। इसलिए जिंक स्वयं पहले संक्षारित होकर लोहे की रक्षा करता है।"
+},
+
+{
+q:"संक्षारण को धात्विक संरचनाओं और मशीनरी के लिए आर्थिक रूप से हानिकारक क्यों माना जाता है?",
+o:["यह धातुओं को दुर्बल बनाता है और चिरस्थायित्व कम करता है","यह पृष्ठीय दिखावट में सुधार करता है","यह धातु की अभिक्रियाशीलता में वृद्धि करता है","यह धातु की चालकता को बढ़ाता है"],
+a:0,
+e:"संक्षारण के कारण धातु धीरे-धीरे नष्ट और कमजोर होती है, जिससे मशीनों और संरचनाओं की आयु कम हो सकती है।"
+},
+
+{
+q:"ऐनोडीकरण के सिद्धांत को सर्वोत्तम तरीके से कौन-सा कथन वर्णित करता है?",
+o:["ऐलुमिनियम की अभिक्रियाशीलता बढ़ाने के लिए उसे क्षार में डुबोया जाता है","जंग से बचाने के लिए ऐलुमिनियम को जस्ते से लेपित किया जाता है","ऑक्साइड परत को कम करने के लिए ऐलुमिनियम को कैथोड बनाया जाता है","ऐलुमिनियम को एनोड बनाया जाता है और ऑक्सीकरण द्वारा मोटी सुरक्षात्मक ऑक्साइड परत बनाई जाती है"],
+a:3,
+e:"Anodising में ऐलुमिनियम को एनोड बनाकर उसकी सतह पर मोटी और सुरक्षात्मक ऑक्साइड परत बनाई जाती है।"
+},
+
+{
+q:"एनोडीकरण एक विद्युत-अपघटनी प्रक्रम के माध्यम से किस धातु की मोटी ऑक्साइड परत बनाने की प्रक्रिया है?",
+o:["जस्ता","एल्यूमीनियम","तांबा","लोहा"],
+a:1,
+e:"ऐलुमिनियम की सतह पर मोटी Al₂O₃ परत बनाने के लिए anodising किया जाता है।"
+},
+
+{
+q:"लंबे समय तक वायु के संपर्क में रखने पर चाँदी की वस्तुएँ काली पड़ जाती हैं। इसका मुख्य कारण क्या है?",
+o:["ऑक्सीजन के साथ अभिक्रिया द्वारा सिल्वर ऑक्साइड का निर्माण","पृष्ठ पर धूल के कणों का संचयन","सिल्वर सल्फाइड की परत का निर्माण","वायु में क्लोरीन के साथ अभिक्रिया द्वारा सिल्वर क्लोराइड का निर्माण"],
+a:2,
+e:"वायु में उपस्थित सल्फर यौगिकों के साथ चाँदी की अभिक्रिया से Ag₂S की काली परत बनती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी स्थिति धातुओं के संक्षारण को सबसे अधिक त्वरित करती है?",
+o:["निर्वात और अंधकार","शुष्क वायु और निम्न तापमान","आर्द्र वायु और लवणों या अम्लों की उपस्थिति","शुद्ध जल और सूर्य का प्रकाश"],
+a:2,
+e:"नमी संक्षारण के लिए महत्वपूर्ण है। लवण और अम्ल संक्षारण की दर बढ़ा सकते हैं।"
+},
+
+{
+q:"जब ताँबे को वायु में गर्म किया जाता है, तो यह ऑक्सीजन के साथ मिलकर एक काला ऑक्साइड बनाता है, जिसे __________ कहा जाता है।",
+o:["कॉपर (IV) ऑक्साइड","कॉपर (III) ऑक्साइड","कॉपर (II) ऑक्साइड","कॉपर (I) ऑक्साइड"],
+a:2,
+e:"ताँबे को गर्म करने पर काले रंग का CuO, अर्थात Copper(II) Oxide बनता है। 2Cu + O₂ → 2CuO"
+},
+
+{
+q:"जब मैग्नीशियम धातु तप्त जल के साथ अभिक्रिया करती है, तो हाइड्रोजन गैस के साथ कौन-सा मुख्य उत्पाद बनता है?",
+o:["मैग्नीशियम ऑक्साइड","कॉपर हाइड्रॉक्साइड","आयरन हाइड्रॉक्साइड","मैग्नीशियम हाइड्रॉक्साइड"],
+a:3,
+e:"मैग्नीशियम गर्म जल के साथ अभिक्रिया करके Mg(OH)₂ और H₂ बनाता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी विधि किसी अन्य धातु का त्याग करके संक्षारण को रोकती है?",
+o:["गैल्वनाइजेशन (Galvanisation)","पेंटिंग (Painting)","मिश्रात्वन (Alloying)","ऐनोडीकरण (Anodising)"],
+a:0,
+e:"गैल्वनाइजेशन में लोहे पर जिंक की परत चढ़ाई जाती है। जिंक अधिक क्रियाशील होने के कारण पहले संक्षारित होता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी विधि वायु और आर्द्रता के साथ संपर्क को अवरुद्ध करके संक्षारण को प्रभावी रूप से रोकती है?",
+o:["पेंट या रक्षी लेपन करना","धातु को जल के साथ मिश्रित करना","धातु को सूर्य के प्रकाश में रखना","उच्च तापमान पर धातु को गर्म करना"],
+a:0,
+e:"पेंट या Protective Coating धातु की सतह को वायु और नमी से अलग करती है।"
+},
+
+{
+q:"कौन-सा कथन किसी उपधातु (Metalloid) की उसके गुणों के आधार पर सटीक व्याख्या करता है?",
+o:["यह केवल धातुओं जैसे गुण प्रदर्शित करता है","यह धातुओं और अधातुओं के बीच के मध्यवर्ती गुण प्रदर्शित करता है","यह सभी परिस्थितियों में धातुओं के समान गुण प्रदर्शित करता है","यह सभी परिस्थितियों में अधातुओं के समान गुण प्रदर्शित करता है"],
+a:1,
+e:"उपधातुओं में धातु और अधातु दोनों के कुछ-कुछ गुण पाए जाते हैं। उदाहरण: Silicon."
+},
+
+{
+q:"धातुओं के लिए निम्नलिखित में से कौन-सा भौतिक गुणधर्म सही है?",
+o:["सभी धातुएँ कमरे के तापमान पर ठोस होती हैं","धातुएँ भंगुर होती हैं और आसानी से टूट जाती हैं","धातुएँ सामान्यतः चमकदार होती हैं और विद्युत की सुचालक होती हैं","धातुएँ सामान्यतः विद्युत की कुचालक होती हैं"],
+a:2,
+e:"अधिकांश धातुएँ चमकदार और विद्युत की अच्छी चालक होती हैं। पारा कमरे के तापमान पर द्रव है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा सेट अधिकांश धातुओं द्वारा सामान्यतः प्रदर्शित भौतिक गुणों को सही रूप में दर्शाता है?",
+o:["मृदु, अतन्य, विद्युत की कुचालक","निष्प्रभ, आघातवर्ध्य, ध्वनिहीन","भंगुर, विद्युत की कुचालक, ऊष्मा की कुचालक","द्युतिमय, आघातवर्ध्य, विद्युत की सुचालक"],
+a:3,
+e:"धातुएँ सामान्यतः चमकीली, आघातवर्धनीय और विद्युत की सुचालक होती हैं।"
+},
+
+{
+q:"अधातुओं की विद्युत चालकता को उनके शुद्ध रूप में सर्वोत्तम रूप से कौन-सा कथन वर्णित करता है?",
+o:["अधातुएँ धातुओं की तरह ही विद्युत का चालन करती हैं","अधातुएँ विद्युत का दक्षतापूर्वक चालन करती हैं","अधिकांश अधातुएँ विद्युत की कुचालक होती हैं","सभी अधातुओं की विद्युत चालकता उच्च होती है"],
+a:2,
+e:"अधिकांश अधातु विद्युत के कुचालक हैं। ग्रेफाइट एक महत्वपूर्ण अपवाद है।"
+},
+
+{
+q:"एक विद्यार्थी सल्फर, कार्बन (हीरा) और ब्रोमीन के नमूनों की तुलना कर रहा है। निम्नलिखित में से कौन-सा गुणधर्म इन तीनों में सबसे कम सामान्य है?",
+o:["भंगुरता","उच्च विद्युत चालकता","धात्विक चमक","उच्च तन्यता"],
+a:1,
+e:"सल्फर और हीरा विद्युत के कुचालक हैं तथा ब्रोमीन भी विद्युत का अच्छा चालक नहीं है।"
+},
+
+{
+q:"कथन I: वह ठोस पदार्थ जो द्युतिहीन, भंगुर होता है और ठोस अवस्था में विद्युत का चालन नहीं करता है, संभवतः एक अधातु होता है। कथन II: सभी अधातुएँ द्युतिहीन, भंगुर ठोस होती हैं और ठोस अवस्था में विद्युत का चालन नहीं करती हैं। सही विकल्प चुनें।",
+o:["दोनों कथन गलत हैं","कथन I गलत है, लेकिन कथन II सही है","दोनों कथन सही हैं","कथन I सही है, लेकिन कथन II गलत है"],
+a:3,
+e:"कथन I सामान्य गुणों को दर्शाता है। लेकिन सभी अधातु ठोस नहीं होते; ब्रोमीन द्रव है और कई अधातु गैस हैं।"
+},
+
+{
+q:"तनु अम्ल के साथ एक धातु की अभिक्रिया से हाइड्रोजन गैस मुक्त होती है। हाइड्रोजन गैस के साथ बनने वाले यौगिक को क्या कहते हैं?",
+o:["ऑक्साइड","क्षार","जल","लवण"],
+a:3,
+e:"सामान्य अभिक्रिया: धातु + तनु अम्ल → लवण + हाइड्रोजन। उदाहरण: Fe + 2HCl → FeCl₂ + H₂"
+},
+
+{
+q:"जब जिंक, सल्फर जैसे अधातु के साथ संयोजित होता है, तो धातु का कौन-सा गुणधर्म प्रदर्शित होता है?",
+o:["जिंक एक अपचायी कर्मक के रूप में कार्य करता है","जिंक एक ऑक्सीकरण कर्मक के रूप में कार्य करता है","जिंक एक विलायक के रूप में कार्य करता है","जिंक एक उत्प्रेरक के रूप में कार्य करता है"],
+a:0,
+e:"जिंक इलेक्ट्रॉन त्यागकर Zn²⁺ बनाता है। इलेक्ट्रॉन देने वाला पदार्थ अपचायी कर्मक कहलाता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी धातु वायु में गर्म करने पर अपने पृष्ठ पर रक्षी ऑक्साइड परत बनाती है, जो आगे ऑक्सीकरण को रोकती है?",
+o:["सोडियम","एल्यूमीनियम","आयरन","कॉपर"],
+a:1,
+e:"ऐलुमिनियम की सतह पर Al₂O₃ की पतली और सुरक्षात्मक परत बन जाती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कथन विभिन्न धातुओं को वायु में गर्म करने पर उनके व्यवहार का सर्वोत्तम वर्णन करता है?",
+o:["चाँदी और सोना वायु में आसानी से जलते हैं और मोटी ऑक्साइड परत बनाते हैं","सभी धातुएँ समान तीव्रता से वायु में जलती हैं और धातु ऑक्साइड बनाती हैं","आयरन और कॉपर हमेशा ज्वाला के साथ जलते हुए ऑक्साइड बनाते हैं","पोटैशियम और सोडियम ऑक्सीजन के साथ बहुत तेजी से अभिक्रिया करते हैं और आग पकड़ सकते हैं"],
+a:3,
+e:"K और Na अत्यधिक क्रियाशील धातुएँ हैं और ऑक्सीजन के साथ बहुत तेजी से अभिक्रिया करती हैं।"
+},
+
+{
+q:"जब कैल्सियम जल के साथ अभिक्रिया करता है, तो कौन-सी गैस विकसित होती है?",
+o:["कार्बन डाइऑक्साइड","ऑक्सीजन","हाइड्रोजन","नाइट्रोजन"],
+a:2,
+e:"Ca + 2H₂O → Ca(OH)₂ + H₂. इस अभिक्रिया में हाइड्रोजन गैस निकलती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा समीकरण कैल्सियम और ठंडे जल के बीच अभिक्रिया को सही रूप से निरूपित करता है?",
+o:["2Ca + H₂O → 2CaOH + H₂","Ca + H₂O → CaOH₂ + H₂","Ca + H₂O → CaH₂ + O₂","Ca + 2H₂O → Ca(OH)₂ + H₂"],
+a:3,
+e:"कैल्सियम ठंडे जल से अभिक्रिया करके Ca(OH)₂ और H₂ बनाता है।"
+},
+
+{
+q:"सक्रियता श्रेणी की सभी धातुएँ तनु अम्लों से हाइड्रोजन को विस्थापित कर हाइड्रोजन गैस बना सकती हैं। सक्रियता श्रेणी में हाइड्रोजन से नीचे स्थित धातुएँ तनु अम्लों के साथ हाइड्रोजन गैस नहीं बनाती हैं। सही विकल्प चुनें।",
+o:["कथन I सत्य है, लेकिन कथन II असत्य है","दोनों कथन सत्य हैं तथा कथन II, कथन I की सही व्याख्या है","दोनों कथन सत्य हैं, लेकिन कथन II, कथन I की सही व्याख्या नहीं करता","कथन I असत्य है, लेकिन कथन II सत्य है"],
+a:3,
+e:"हाइड्रोजन से ऊपर की धातुएँ सामान्यतः तनु अम्लों से H₂ विस्थापित करती हैं। हाइड्रोजन से नीचे की धातुएँ ऐसा नहीं करतीं।"
+},
+
+{
+q:"P, Q को उसके लवण विलयन से विस्थापित करता है; R, S को विस्थापित करता है; Q, R को विस्थापित करता है; S किसी अन्य धातु को विस्थापित नहीं कर सकता। सबसे अधिक अभिक्रियाशील धातु कौन-सी है?",
+o:["R","P","Q","S"],
+a:1,
+e:"P > Q, Q > R और R > S. इसलिए P सबसे अधिक अभिक्रियाशील है।"
+},
+
+{
+q:"यदि एक धातु को दूसरी धातु के लवण विलयन में रखने पर अभिक्रिया होती है, तो यह इन दोनों धातुओं के बारे में क्या निर्दिष्ट करता है?",
+o:["दोनों धातुएँ समान रूप से अभिक्रियाशील हैं","विलयन में उपस्थित धातु की तुलना में ठोस धातु अधिक अभिक्रियाशील है","अभिक्रियाशीलता के बारे में कोई जानकारी निर्धारित नहीं की जा सकती","विलयन में उपस्थित धातु अधिक अभिक्रियाशील है"],
+a:1,
+e:"अधिक क्रियाशील धातु कम क्रियाशील धातु को उसके लवण विलयन से विस्थापित करती है।"
+},
+
+{
+q:"कौन-सा प्राथमिक कारक यह निर्धारित करता है कि एक तत्व दूसरे तत्व को उसके यौगिक से विस्थापित कर सकता है?",
+o:["संबंधित तत्वों की सापेक्षिक अभिक्रियाशीलता","विलयन सांद्रता में अंतर","भौतिक अवस्था में अंतर","परमाण्विक द्रव्यमानों में अंतर"],
+a:0,
+e:"विस्थापन अभिक्रिया मुख्यतः दोनों धातुओं की relative reactivity पर निर्भर करती है।"
+},
+
+{
+q:"जब जिंक की स्ट्रिप को आयरन(II) सल्फेट के विलयन में डुबोया जाएगा, तो क्या होगा?",
+o:["जस्ता पर लोहे का जमाव होगा और हाइड्रोजन गैस उत्सर्जित होगी","कोई अभिक्रिया नहीं होगी","जस्ते पर लौह ऑक्साइड की परत चढ़ जाएगी","जस्ता विलयन से लोहे को विस्थापित करेगा"],
+a:3,
+e:"Zn, Fe से अधिक क्रियाशील है। इसलिए Zn, Fe को FeSO₄ से विस्थापित करता है। Zn + FeSO₄ → ZnSO₄ + Fe"
+},
+
+{
+q:"कॉपर सल्फेट के नीले विलयन में लोहे की कील डालने पर लाल-भूरे रंग का निक्षेप किस कारण बनता है?",
+o:["कॉपर सल्फेट के धात्विक कॉपर में परिवर्तित होने के कारण","कॉपर सल्फेट के Cu⁺ में परिवर्तित होने के कारण","Fe के कॉपर ऑक्साइड में परिवर्तित होने के कारण","कॉपर सल्फेट के आयरन ऑक्साइड में परिवर्तित होने के कारण"],
+a:0,
+e:"Fe, Cu से अधिक क्रियाशील है और Cu को उसके लवण से विस्थापित करता है। जमा हुआ लाल-भूरा पदार्थ Cu है। Fe + CuSO₄ → FeSO₄ + Cu"
+},
+
+{
+q:"लेड धातु को आयरन(II) सल्फेट के विलयन में मिलाने पर कोई दृश्यमान परिवर्तन नहीं होता। इसकी सर्वोत्तम व्याख्या क्या है?",
+o:["लेड, आयरन से कम अभिक्रियाशील है और उसे उसके यौगिक से विस्थापित नहीं कर सकता","लेड, आयरन(II) सल्फेट के साथ प्रबलता से अभिक्रिया करता है","अभिक्रिया उत्क्रमणीय है, इसलिए कोई नेट परिवर्तन नहीं होता","लेड, आयरन से अधिक अभिक्रियाशील है और उसे विलयन से विस्थापित कर देता है"],
+a:0,
+e:"क्रियाशीलता श्रेणी में Fe, Pb से ऊपर है। इसलिए Pb, Fe को FeSO₄ से विस्थापित नहीं कर सकता।"
+},
+
+{
+q:"धातु X, CuSO₄ के साथ अभिक्रिया करती है लेकिन FeSO₄ के साथ नहीं। धातु Y, FeSO₄ के साथ अभिक्रिया करती है लेकिन ZnSO₄ के साथ नहीं। Zn, Fe, Cu, X और Y की घटती अभिक्रियाशीलता का सही क्रम क्या है?",
+o:["Y > Zn > X > Fe > Cu","Zn > Y > Fe > X > Cu","Fe > X > Zn > Y > Cu","Cu > X > Fe > Y > Zn"],
+a:1,
+e:"X के लिए Fe > X > Cu और Y के लिए Zn > Y > Fe. इसलिए पूरा क्रम Zn > Y > Fe > X > Cu है।"
+},
+
+{
+q:"एक चमकदार लोहे की कील को चार अलग-अलग स्थितियों में रखा गया: I. शुष्क वायु वाले सीलबंद पात्र में II. घुली ऑक्सीजन वाले जल में III. उबले जल में डालकर तेल की परत चढ़ाई गई IV. आर्द्र वायु में। जंग लगने की सर्वाधिक संभावना किस स्थिति में है?",
+o:["केवल I और III","केवल II और IV","I, II और IV","II, III और IV"],
+a:1,
+e:"जंग के लिए ऑक्सीजन और जल/नमी दोनों आवश्यक हैं। II और IV में दोनों उपलब्ध हैं।"
+}
+
+];
+
+let current=0;
+let answers=new Array(questions.length).fill(null);
+let review=new Array(questions.length).fill(false);
+let visited=new Array(questions.length).fill(false);
+
+let timeLeft=20*60;
+let timerInterval;
+
+const qText=document.getElementById("questionText");
+const qNumber=document.getElementById("qNumber");
+const optionsBox=document.getElementById("options");
+const currentNo=document.getElementById("currentNo");
+const progressFill=document.getElementById("progressFill");
+const paletteGrid=document.getElementById("paletteGrid");
+
+function createPalette(){
+
+  paletteGrid.innerHTML="";
+
+  questions.forEach((q,i)=>{
+
+    const btn=document.createElement("button");
+
+    btn.className="pq";
+    btn.textContent=i+1;
+    btn.id="palette-"+i;
+
+    btn.onclick=()=>{
+
+      current=i;
+      renderQuestion();
+      togglePalette();
+
+    };
+
+    paletteGrid.appendChild(btn);
+
+  });
+
+  updatePalette();
+}
+
+function updatePalette(){
+
+  questions.forEach((q,i)=>{
+
+    const btn=document.getElementById("palette-"+i);
+
+    btn.className="pq";
+
+    if(review[i]){
+
+      btn.classList.add("review");
+
+    }else if(answers[i]!==null){
+
+      btn.classList.add("answered");
+
+    }
+
+  });
+}
+
+function renderQuestion(){
+
+  visited[current]=true;
+
+  const q=questions[current];
+
+  qNumber.textContent="Q."+(current+1);
+  currentNo.textContent=current+1;
+
+  qText.textContent=q.q;
+
+  optionsBox.innerHTML="";
+
+  q.o.forEach((option,index)=>{
+
+    const label=document.createElement("label");
+
+    label.className="option";
+
+    if(answers[current]===index){
+
+      label.classList.add("selected");
+
+    }
+
+    const radio=document.createElement("input");
+
+    radio.type="radio";
+    radio.name="option";
+    radio.value=index;
+
+    if(answers[current]===index){
+
+      radio.checked=true;
+
+    }
+
+    radio.onchange=()=>{
+
+      answers[current]=index;
+
+      document.querySelectorAll(".option").forEach(x=>{
+        x.classList.remove("selected");
+      });
+
+      label.classList.add("selected");
+
+      updatePalette();
+
+    };
+
+    label.appendChild(radio);
+
+    const text=document.createElement("span");
+
+    text.innerHTML=
+      "<b>"+String.fromCharCode(65+index)+".</b> "+option;
+
+    label.appendChild(text);
+
+    optionsBox.appendChild(label);
+
+  });
+
+  progressFill.style.width=
+    ((current+1)/questions.length*100)+"%";
+
+  updatePalette();
+}
+
+function nextQuestion(){
+
+  if(current<questions.length-1){
+
+    current++;
+    renderQuestion();
+
+  }else{
+
+    confirmSubmit();
+
+  }
+
+}
+
+function previousQuestion(){
+
+  if(current>0){
+
+    current--;
+    renderQuestion();
+
+  }
+
+}
+
+function markReview(){
+
+  review[current]=!review[current];
+
+  updatePalette();
+
+  if(current<questions.length-1){
+
+    current++;
+    renderQuestion();
+
+  }
+
+}
+
+function togglePalette(){
+
+  document.getElementById("palette").classList.toggle("open");
+
+}
+
+function confirmSubmit(){
+
+  const unanswered=
+    answers.filter(x=>x===null).length;
+
+  const msg=
+    "क्या आप टेस्ट Submit करना चाहते हैं?\n\n"+
+    "Attempted: "+
+    (questions.length-unanswered)+
+    "\nNot Attempted: "+
+    unanswered+
+    "\n\nNegative Marking: 1/3";
+
+  if(confirm(msg)){
+
+    submitTest();
+
+  }
+
+}
+
+function submitTest(){
+
+  clearInterval(timerInterval);
+
+  let correct=0;
+  let wrong=0;
+  let skipped=0;
+
+  questions.forEach((q,i)=>{
+
+    if(answers[i]===null){
+
+      skipped++;
+
+    }else if(answers[i]===q.a){
+
+      correct++;
+
+    }else{
+
+      wrong++;
+
+    }
+
+  });
+
+  const score=correct-(wrong/3);
+
+  document.getElementById("testArea").style.display="none";
+
+  document.getElementById("controls").style.display="none";
+
+  document.querySelector(".palette-btn").style.display="none";
+
+  document.getElementById("palette")
+    .classList.remove("open");
+
+  document.getElementById("result")
+    .style.display="block";
+
+  document.getElementById("finalScore").textContent=
+    score.toFixed(2)+" / "+questions.length;
+
+  document.getElementById("totalResult").textContent=
+    questions.length;
+
+  document.getElementById("correctResult").textContent=
+    correct;
+
+  document.getElementById("wrongResult").textContent=
+    wrong;
+
+  document.getElementById("skipResult").textContent=
+    skipped;
+
+  /* QUESTION WISE SOLUTIONS */
+
+  const solutions=
+    document.getElementById("solutions");
+
+  let html=`
+
+    <div class="solution-title">
+      📖 Question-wise Solutions
+    </div>
+
+  `;
+
+  questions.forEach((q,i)=>{
+
+    const userAnswer=answers[i];
+
+    const correctAnswer=q.a;
+
+    let statusClass="";
+    let statusText="";
+    let userText="";
+
+    if(userAnswer===null){
+
+      statusClass="status-skip";
+
+      statusText="Not Attempted";
+
+      userText="उत्तर नहीं दिया";
+
+    }else if(userAnswer===correctAnswer){
+
+      statusClass="status-correct";
+
+      statusText="Correct";
+
+      userText=
+        String.fromCharCode(65+userAnswer)+
+        ". "+
+        q.o[userAnswer];
+
+    }else{
+
+      statusClass="status-wrong";
+
+      statusText="Wrong";
+
+      userText=
+        String.fromCharCode(65+userAnswer)+
+        ". "+
+        q.o[userAnswer];
+
+    }
+
+    const correctText=
+      String.fromCharCode(65+correctAnswer)+
+      ". "+
+      q.o[correctAnswer];
+
+    html+=`
+
+      <div class="solution-card">
+
+        <div class="solution-q">
+
+          Q${i+1}. ${q.q}
+
+          <span class="${statusClass}">
+            ${statusText}
+          </span>
+
+        </div>
+
+        <div class="solution-body">
+
+          <div class="your-answer">
+
+            <b>आपका उत्तर:</b>
+            ${userText}
+
+          </div>
+
+          <div class="correct-answer">
+
+            ✓ सही उत्तर:
+            ${correctText}
+
+          </div>
+
+          <div class="solution-explanation">
+
+            <b>💡 Explanation:</b><br>
+
+            ${q.e}
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+  solutions.innerHTML=html;
+
+  window.scrollTo(0,0);
+
+}
+
+function startTimer(){
+
+  timerInterval=setInterval(()=>{
+
+    timeLeft--;
+
+    let min=Math.floor(timeLeft/60);
+
+    let sec=timeLeft%60;
+
+    document.getElementById("timer").textContent=
+      String(min).padStart(2,"0")+
+      ":"+
+      String(sec).padStart(2,"0");
+
+    if(timeLeft<=0){
+
+      clearInterval(timerInterval);
+
+      alert(
+        "⏰ समय समाप्त हो गया। आपका टेस्ट Submit किया जा रहा है।"
+      );
+
+      submitTest();
+
+    }
+
+  },1000);
+
+}
+
+createPalette();
+
+renderQuestion();
+
+startTimer();
+
+</script>
+
+</body>
+</html>
