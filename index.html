@@ -7,11 +7,7 @@
   <title>Railway Science | Railway Exam Preparation</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: Arial, sans-serif;
@@ -32,15 +28,8 @@
       z-index: 10;
     }
 
-    header h1 {
-      font-size: 22px;
-    }
-
-    header a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    header h1 { font-size: 22px; }
+    header a { color: white; text-decoration: none; font-weight: bold; }
 
     .hero {
       background: linear-gradient(135deg, #0b2d4d, #1769aa);
@@ -49,20 +38,10 @@
       padding: 55px 20px;
     }
 
-    .hero h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
+    .hero h2 { font-size: 36px; margin-bottom: 10px; }
+    .hero p { font-size: 17px; }
 
-    .hero p {
-      font-size: 17px;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 30px 18px;
-    }
+    .container { max-width: 1100px; margin: auto; padding: 30px 18px; }
 
     .intro {
       background: white;
@@ -73,11 +52,7 @@
       text-align: center;
     }
 
-    .intro h3 {
-      color: #0b2d4d;
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
+    .intro h3 { color: #0b2d4d; margin-bottom: 10px; font-size: 24px; }
 
     .class-buttons {
       display: flex;
@@ -98,14 +73,9 @@
       cursor: pointer;
     }
 
-    button:hover {
-      background: #1769aa;
-    }
+    button:hover { background: #1769aa; }
 
-    .mock-home-button {
-      text-align: center;
-      margin: 15px 0;
-    }
+    .mock-home-button { text-align: center; margin: 15px 0; }
 
     .mock-home-button a {
       display: inline-block;
@@ -117,28 +87,32 @@
       font-size: 17px;
       font-weight: bold;
       box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      transition: 0.2s;
     }
 
     .mock-home-button a:hover {
       background: #b84300;
+      transform: translateY(-1px);
     }
 
     /* Current Affairs Button */
-    .current-affairs-button a {
-      background: #16803c;
+    .current-affairs-button a { background: #16803c; }
+    .current-affairs-button a:hover { background: #0f632e; }
+
+    /* Group D 2026 GK Button */
+    .groupd-home-button a {
+      background: linear-gradient(135deg, #198754, #20a464);
+      border: 2px solid #126b41;
+      box-shadow: 0 5px 14px rgba(25,135,84,0.28);
     }
 
-    .current-affairs-button a:hover {
-      background: #0f632e;
+    .groupd-home-button a:hover {
+      background: linear-gradient(135deg, #157347, #198754);
+      box-shadow: 0 7px 18px rgba(25,135,84,0.35);
     }
 
-    .class-section {
-      display: none;
-    }
-
-    .class-section.active {
-      display: block;
-    }
+    .class-section { display: none; }
+    .class-section.active { display: block; }
 
     .class-title {
       text-align: center;
@@ -161,9 +135,7 @@
       transition: 0.2s;
     }
 
-    .chapter:hover {
-      transform: translateY(-3px);
-    }
+    .chapter:hover { transform: translateY(-3px); }
 
     .chapter h3 {
       color: #0b2d4d;
@@ -182,15 +154,8 @@
       font-weight: bold;
     }
 
-    .notes {
-      background: #1769aa;
-    }
-
-    .pyq {
-      background: #d35400;
-    }
-
-    /* Green Group D Button */
+    .notes { background: #1769aa; }
+    .pyq { background: #d35400; }
 
     .groupd-btn {
       background: #198754;
@@ -214,31 +179,12 @@
     }
 
     @media (max-width: 600px) {
-
-      .hero h2 {
-        font-size: 28px;
-      }
-
-      .hero {
-        padding: 40px 15px;
-      }
-
-      .chapters {
-        grid-template-columns: 1fr;
-      }
-
-      .mock-home-button a {
-        width: 100%;
-        max-width: 340px;
-      }
-
-      .intro {
-        padding: 20px 15px;
-      }
-
-      .intro h3 {
-        font-size: 21px;
-      }
+      .hero h2 { font-size: 28px; }
+      .hero { padding: 40px 15px; }
+      .chapters { grid-template-columns: 1fr; }
+      .mock-home-button a { width: 100%; max-width: 340px; }
+      .intro { padding: 20px 15px; }
+      .intro h3 { font-size: 21px; }
     }
   </style>
 </head>
@@ -247,850 +193,275 @@
 
 <header>
   <h1>🚆 Railway Science</h1>
-
-  <a href="#" onclick="showHome(); return false;">
-    Home
-  </a>
+  <a href="#" onclick="showHome(); return false;">Home</a>
 </header>
 
-
-<!-- HERO SECTION -->
-
 <section class="hero">
-
   <h2>🔬 Railway Science</h2>
-
-  <p>
-    Class 9 & Class 10 • Railway Exam Preparation
-  </p>
-
+  <p>Class 9 & Class 10 • Railway Exam Preparation</p>
 </section>
 
-
 <div class="container">
-
-  <!-- HOME -->
 
   <div id="home">
 
     <div class="intro">
-
       <h3>Welcome to Railway Science</h3>
-
       <p>
         Class 9 और Class 10 Science को Railway Technician,
         Group D और अन्य competitive exams के लिए आसान तरीके से पढ़ें।
       </p>
-
-      <p>
-        📚 Notes • ❓ Railway PYQ • 🧠 Revision • 📝 Mock Tests
-      </p>
-
+      <p>📚 Notes • ❓ Railway PYQ • 🧠 Revision • 📝 Mock Tests</p>
     </div>
-
-
-    <!-- CLASS BUTTONS -->
 
     <div class="class-buttons">
-
-      <button onclick="showClass('class9')">
-        📘 Class 9 Science
-      </button>
-
-      <button onclick="showClass('class10')">
-        📗 Class 10 Science
-      </button>
-
+      <button onclick="showClass('class9')">📘 Class 9 Science</button>
+      <button onclick="showClass('class10')">📗 Class 10 Science</button>
     </div>
-
-
-    <!-- MOCK TEST BUTTON -->
 
     <div class="mock-home-button">
-
-      <a href="mock-tests.html">
-        📝 Full Mock Tests
-      </a>
-
+      <a href="mock-tests.html">📝 Full Mock Tests</a>
     </div>
 
-
-    <!-- CURRENT AFFAIRS BUTTON -->
-
     <div class="mock-home-button current-affairs-button">
+      <a href="current-affairs.html">📰 Current Affairs 2026</a>
+    </div>
 
-      <a href="current-affairs.html">
-        📰 Current Affairs 2026
+    <!-- NEW GROUP D 2026 GK BUTTON -->
+    <div class="mock-home-button groupd-home-button">
+      <a href="RRB_GROUP_D_2025_TOPICWISE_INTERACTIVE_MOCK.html">
+        📚 Group D 2026 GK
       </a>
-
     </div>
 
   </div>
 
-
-
-  <!-- ========================= -->
-  <!-- CLASS 9 -->
-  <!-- ========================= -->
-
   <section id="class9" class="class-section">
-
-    <h2 class="class-title">
-      📘 Class 9 Science
-    </h2>
-
-
+    <h2 class="class-title">📘 Class 9 Science</h2>
     <div class="chapters">
 
-
-      <!-- CHAPTER 1 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 1: Exploration: Entering the World of Secondary Science
-        </h3>
-
-        <a
-          href="class9-ch1-infographic.jpg"
-          class="btn notes"
-          target="_blank">
-          📘 PDF Notes
-        </a>
-
-        <a
-          href="class9-ch1-pyq.html"
-          class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch1-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 1: Exploration: Entering the World of Secondary Science</h3>
+        <a href="class9-ch1-infographic.jpg" class="btn notes" target="_blank">📘 PDF Notes</a>
+        <a href="class9-ch1-pyq.html" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch1-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 2 -->
-      
       <div class="chapter">
-
-        <h3>
-          Chapter 2: Cell: The Building Block of Life
-        </h3>
-
-        <a href="class9-ch2-notes.html" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="class9-ch2-mcq.html" class="btn pyq">
-          ❓ MCQ
-        </a>
-
-        <a
-          href="class9-ch2-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 2: Cell: The Building Block of Life</h3>
+        <a href="class9-ch2-notes.html" class="btn notes">📘 Notes</a>
+        <a href="class9-ch2-mcq.html" class="btn pyq">❓ MCQ</a>
+        <a href="class9-ch2-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 3 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 3: Tissues in Action
-        </h3>
-
-        <a href="class9-ch3-notes.html" class="btn notes">
-  📘 Notes
-</a>
-
-        <a href="class9-ch3-mcq.html" class="btn pyq">
-          ❓ MCQ
-        </a>
-
-        <a
-          href="class9-ch3-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 3: Tissues in Action</h3>
+        <a href="class9-ch3-notes.html" class="btn notes">📘 Notes</a>
+        <a href="class9-ch3-mcq.html" class="btn pyq">❓ MCQ</a>
+        <a href="class9-ch3-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 4 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 4: Descriding Motion Around Us
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch4-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 4: Descriding Motion Around Us</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch4-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 5 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 5: Exploring Mixtures and their Separation
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch5-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 5: Exploring Mixtures and their Separation</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch5-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 6 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 6: How Forces Affect Motion
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch6-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 6: How Forces Affect Motion</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch6-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 7 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 7: Work, Energy, and Simple Machines
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch7-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 7: Work, Energy, and Simple Machines</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch7-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 8 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 8: Journey Inside the Atom
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch8-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 8: Journey Inside the Atom</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch8-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 9 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 9: Atomic foundations of Matter
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch9-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 9: Atomic foundations of Matter</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch9-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 10 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 10: Sound Waves: Characteristics and Applications
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch10-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 10: Sound Waves: Characteristics and Applications</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch10-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 11 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 11: Reproduction: How Life Continues
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch11-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 11: Reproduction: How Life Continues</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch11-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 12 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 12: Patterns in Life: Diversity and Classification
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch12-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 12: Patterns in Life: Diversity and Classification</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch12-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 13 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 13: Earth as a System: Energy, Matter, and Life
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class9-ch13-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 13: Earth as a System: Energy, Matter, and Life</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class9-ch13-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
-
 
     </div>
-
   </section>
 
-
-
-  <!-- ========================= -->
-  <!-- CLASS 10 -->
-  <!-- ========================= -->
-
   <section id="class10" class="class-section">
-
-    <h2 class="class-title">
-      📗 Class 10 Science
-    </h2>
-
-
+    <h2 class="class-title">📗 Class 10 Science</h2>
     <div class="chapters">
 
-
-      <!-- CHAPTER 1 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 1: Chemical Reactions and Equations
-        </h3>
-
-        <a href="class10-ch1-notes.pdf" class="btn notes" target="_blank">
-          📘 Notes
-        </a>
-
-        <a href="class10-ch1-mcq.html" class="btn pyq">
-          ❓ MCQ
-        </a>
-
-        <a
-          href="class10-ch1-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 1: Chemical Reactions and Equations</h3>
+        <a href="class10-ch1-notes.pdf" class="btn notes" target="_blank">📘 Notes</a>
+        <a href="class10-ch1-mcq.html" class="btn pyq">❓ MCQ</a>
+        <a href="class10-ch1-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 2 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 2: Acids, Bases and Salts
-        </h3>
-
-        <a href="class10-ch2-notes.html" class="btn notes">
-  📘 Notes
-</a>
-
-<a href="class10-ch2-mcq.html" class="btn pyq">
-  ❓ Railway PYQ
-</a>
-        <a
-          href="class10-ch2-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 2: Acids, Bases and Salts</h3>
+        <a href="class10-ch2-notes.html" class="btn notes">📘 Notes</a>
+        <a href="class10-ch2-mcq.html" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch2-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 3 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 3: Metals and Non-metals
-        </h3>
-
-        <a href="class10-ch3-notes.html" class="btn notes" target="_blank">
-          📘 Notes
-        </a>
-
-
-        <a href="class10-ch3-mcq.html" class="btn pyq">
-  ❓ Railway PYQ
-</a>
-
-        <a
-          href="class10-ch3-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 3: Metals and Non-metals</h3>
+        <a href="class10-ch3-notes.html" class="btn notes" target="_blank">📘 Notes</a>
+        <a href="class10-ch3-mcq.html" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch3-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 4 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 4: Carbon and Its Compounds
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch4-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 4: Carbon and Its Compounds</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch4-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 5 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 5: Life Processes
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch5-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 5: Life Processes</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch5-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 6 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 6: Control and Coordination
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch6-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 6: Control and Coordination</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch6-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 7 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 7: How do Organisms Reproduce?
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch7-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 7: How do Organisms Reproduce?</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch7-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 8 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 8: Heredity
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch8-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 8: Heredity</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch8-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 9 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 9: Light - Reflection and Refraction
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch9-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 9: Light - Reflection and Refraction</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch9-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 10 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 10: Human Eye and Colourful World
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch10-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 10: Human Eye and Colourful World</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch10-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 11 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 11: Electricity
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch11-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 11: Electricity</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch11-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 12 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 12: Magnetic Effects of Electric Current
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch12-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 12: Magnetic Effects of Electric Current</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch12-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
 
-
-      <!-- CHAPTER 13 -->
-
       <div class="chapter">
-
-        <h3>
-          Chapter 13: Our Environment
-        </h3>
-
-        <a href="#" class="btn notes">
-          📘 Notes
-        </a>
-
-        <a href="#" class="btn pyq">
-          ❓ Railway PYQ
-        </a>
-
-        <a
-          href="class10-ch13-groupd-2026.html"
-          class="btn groupd-btn">
-          📝 Group D 2026 Questions
-        </a>
-
+        <h3>Chapter 13: Our Environment</h3>
+        <a href="#" class="btn notes">📘 Notes</a>
+        <a href="#" class="btn pyq">❓ Railway PYQ</a>
+        <a href="class10-ch13-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
       </div>
-
 
     </div>
-
   </section>
 
 </div>
 
-
-
-<!-- FOOTER -->
-
 <footer>
-
-  <p>
-    🚆 Railway Science
-  </p>
-
-  <p>
-    Science Preparation for Railway Competitive Exams
-  </p>
-
+  <p>🚆 Railway Science</p>
+  <p>Science Preparation for Railway Competitive Exams</p>
 </footer>
 
-
-
-<!-- JAVASCRIPT -->
-
 <script>
-
 function showClass(className) {
-
   document.getElementById("home").style.display = "none";
 
-  document
-    .querySelectorAll(".class-section")
-    .forEach(function(section) {
-
-      section.classList.remove("active");
-
-    });
-
-  document
-    .getElementById(className)
-    .classList.add("active");
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  document.querySelectorAll(".class-section").forEach(function(section) {
+    section.classList.remove("active");
   });
 
-}
+  document.getElementById(className).classList.add("active");
 
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 function showHome() {
-
   document.getElementById("home").style.display = "block";
 
-  document
-    .querySelectorAll(".class-section")
-    .forEach(function(section) {
-
-      section.classList.remove("active");
-
-    });
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  document.querySelectorAll(".class-section").forEach(function(section) {
+    section.classList.remove("active");
   });
 
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
 </script>
-
 
 </body>
 </html>
