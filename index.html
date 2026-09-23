@@ -1,466 +1,1266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Railway Science | Railway Exam Preparation</title>
+<title>RAILWAY WARRIOR | BADNERA (RLY)</title>
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #222;
-      line-height: 1.6;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    header {
-      background: #0b2d4d;
-      color: white;
-      padding: 16px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:
+    radial-gradient(circle at top left,#193b75 0,#0b1730 38%,#050b18 100%);
+  color:#fff;
+  min-height:100vh;
+}
 
-    header h1 { font-size: 22px; }
-    header a { color: white; text-decoration: none; font-weight: bold; }
+/* ================= PASSWORD ================= */
 
-    .hero {
-      background: linear-gradient(135deg, #0b2d4d, #1769aa);
-      color: white;
-      text-align: center;
-      padding: 55px 20px;
-    }
+#passwordScreen{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at 20% 20%,#164b91 0,#0b1730 42%,#030711 100%);
+}
 
-    .hero h2 { font-size: 36px; margin-bottom: 10px; }
-    .hero p { font-size: 17px; }
+.password-box{
+  width:100%;
+  max-width:390px;
+  padding:32px 25px;
+  border-radius:26px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(18px);
+  box-shadow:0 25px 70px rgba(0,0,0,.45);
+  text-align:center;
+}
 
-    .container { max-width: 1100px; margin: auto; padding: 30px 18px; }
+.lock-icon{
+  width:70px;
+  height:70px;
+  margin:0 auto 18px;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  background:linear-gradient(135deg,#18a0ff,#536dfe);
+  box-shadow:0 12px 30px rgba(24,160,255,.35);
+}
 
-    .intro {
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      margin-bottom: 25px;
-      text-align: center;
-    }
+.password-box h1{
+  font-size:25px;
+  margin-bottom:6px;
+}
 
-    .intro h3 { color: #0b2d4d; margin-bottom: 10px; font-size: 24px; }
+.password-box p{
+  color:#b9c8df;
+  font-size:13px;
+  margin-bottom:22px;
+}
 
-    .class-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
+#passwordInput{
+  width:100%;
+  padding:14px 16px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:14px;
+  background:rgba(0,0,0,.22);
+  color:#fff;
+  outline:none;
+  font-size:16px;
+  text-align:center;
+  letter-spacing:2px;
+}
 
-    button {
-      border: none;
-      background: #0b2d4d;
-      color: white;
-      padding: 13px 25px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+#passwordInput::placeholder{
+  color:#91a1ba;
+  letter-spacing:0;
+}
 
-    button:hover { background: #1769aa; }
+.unlock-btn{
+  width:100%;
+  margin-top:13px;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  cursor:pointer;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  background:linear-gradient(135deg,#00a8ff,#536dfe);
+  box-shadow:0 10px 25px rgba(0,168,255,.25);
+}
 
-    .mock-home-button { text-align: center; margin: 15px 0; }
+#errorMsg{
+  min-height:18px;
+  margin-top:12px;
+  color:#ff8f8f;
+  font-size:13px;
+}
 
-    .mock-home-button a {
-      display: inline-block;
-      background: #d35400;
-      color: white;
-      text-decoration: none;
-      padding: 14px 30px;
-      border-radius: 10px;
-      font-size: 17px;
-      font-weight: bold;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-      transition: 0.2s;
-    }
+/* ================= MAIN ================= */
 
-    .mock-home-button a:hover {
-      background: #b84300;
-      transform: translateY(-1px);
-    }
+#mainSite{
+  display:none;
+  min-height:100vh;
+}
 
-    /* Current Affairs Button */
-    .current-affairs-button a { background: #16803c; }
-    .current-affairs-button a:hover { background: #0f632e; }
+.container{
+  width:min(1100px,92%);
+  margin:auto;
+}
 
-    /* Group D 2026 GK Button */
-    .groupd-home-button a {
-      background: linear-gradient(135deg, #198754, #20a464);
-      border: 2px solid #126b41;
-      box-shadow: 0 5px 14px rgba(25,135,84,0.28);
-    }
+#homePage{
+  padding-bottom:35px;
+}
 
-    .groupd-home-button a:hover {
-      background: linear-gradient(135deg, #157347, #198754);
-      box-shadow: 0 7px 18px rgba(25,135,84,0.35);
-    }
+.top-space{
+  height:20px;
+}
 
-    .class-section { display: none; }
-    .class-section.active { display: block; }
+/* ================= HEADER ================= */
 
-    .class-title {
-      text-align: center;
-      color: #0b2d4d;
-      margin-bottom: 20px;
-      font-size: 28px;
-    }
+.hero{
+  position:relative;
+  overflow:hidden;
+  margin-top:20px;
+  padding:28px 24px 30px;
+  border-radius:30px;
+  background:
+    linear-gradient(135deg,rgba(18,55,110,.96),rgba(8,20,46,.96));
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 25px 65px rgba(0,0,0,.34);
+}
 
-    .chapters {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-    }
+.hero:before{
+  content:"";
+  position:absolute;
+  width:240px;
+  height:240px;
+  right:-90px;
+  top:-100px;
+  border-radius:50%;
+  background:rgba(0,174,255,.18);
+  filter:blur(4px);
+}
 
-    .chapter {
-      background: white;
-      padding: 20px;
-      border-radius: 14px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-      transition: 0.2s;
-    }
+.hero:after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  left:-100px;
+  bottom:-100px;
+  border-radius:50%;
+  background:rgba(78,93,255,.18);
+}
 
-    .chapter:hover { transform: translateY(-3px); }
+.brand{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
 
-    .chapter h3 {
-      color: #0b2d4d;
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
+.logo{
+  flex:0 0 auto;
+  width:76px;
+  height:76px;
+  border-radius:23px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    linear-gradient(145deg,#f7fbff,#dbe9ff);
+  color:#123a75;
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.28),
+    inset 0 0 0 4px rgba(255,255,255,.6);
+  font-size:36px;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 9px 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: white;
-      font-size: 13px;
-      margin: 3px 2px;
-      font-weight: bold;
-    }
+.brand-text h1{
+  font-size:clamp(28px,5vw,46px);
+  line-height:1;
+  letter-spacing:1px;
+  font-weight:900;
+}
 
-    .notes { background: #1769aa; }
-    .pyq { background: #d35400; }
+.brand-text .subtitle{
+  margin-top:8px;
+  color:#8fdcff;
+  font-size:13px;
+  letter-spacing:3px;
+  font-weight:700;
+}
 
-    .groupd-btn {
-      background: #198754;
-      color: #fff !important;
-      border: none;
-      font-weight: 700;
-      box-shadow: 0 3px 8px rgba(25, 135, 84, 0.25);
-    }
+.hero-line{
+  position:relative;
+  z-index:2;
+  margin-top:22px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+}
 
-    .groupd-btn:hover {
-      background: #157347;
-      transform: translateY(-1px);
-    }
+.hero-message{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  margin-top:22px;
+}
 
-    footer {
-      margin-top: 40px;
-      background: #0b2d4d;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
+.hero-message h2{
+  font-size:clamp(20px,4vw,28px);
+  margin-bottom:8px;
+}
 
-    @media (max-width: 600px) {
-      .hero h2 { font-size: 28px; }
-      .hero { padding: 40px 15px; }
-      .chapters { grid-template-columns: 1fr; }
-      .mock-home-button a { width: 100%; max-width: 340px; }
-      .intro { padding: 20px 15px; }
-      .intro h3 { font-size: 21px; }
-    }
-  </style>
+.hero-message p{
+  color:#b9cbe3;
+  font-size:14px;
+}
+
+.tagline{
+  display:inline-block;
+  margin-top:14px;
+  padding:8px 15px;
+  border-radius:30px;
+  background:rgba(0,174,255,.11);
+  border:1px solid rgba(0,174,255,.25);
+  color:#91ddff;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp-wrap{
+  text-align:center;
+  margin:17px 0 4px;
+}
+
+.whatsapp-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  text-decoration:none;
+  color:#fff;
+  padding:9px 15px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:700;
+  background:linear-gradient(135deg,#18b95c,#079447);
+  box-shadow:0 8px 20px rgba(0,180,80,.22);
+  transition:.2s;
+}
+
+.whatsapp-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* ================= SECTION TITLE ================= */
+
+.section-title{
+  text-align:center;
+  margin:30px 0 17px;
+}
+
+.section-title h2{
+  font-size:22px;
+}
+
+.section-title p{
+  color:#92a6c4;
+  margin-top:5px;
+  font-size:12px;
+}
+
+/* ================= CLASS CARDS ================= */
+
+.class-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+
+.class-card{
+  position:relative;
+  overflow:hidden;
+  min-height:190px;
+  padding:25px;
+  border-radius:24px;
+  text-decoration:none;
+  color:#fff;
+  cursor:pointer;
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 18px 42px rgba(0,0,0,.28);
+  transition:.25s ease;
+}
+
+.class-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 25px 50px rgba(0,0,0,.38);
+}
+
+.class-card:before{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  right:-65px;
+  top:-70px;
+  border-radius:50%;
+  background:rgba(255,255,255,.12);
+}
+
+.class9{
+  background:linear-gradient(135deg,#075e9f,#123a82 55%,#17265f);
+}
+
+.class10{
+  background:linear-gradient(135deg,#713b9f,#51318d 55%,#25245d);
+}
+
+.class-icon{
+  position:relative;
+  z-index:2;
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:17px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.18);
+  font-size:25px;
+}
+
+.class-card h3{
+  position:relative;
+  z-index:2;
+  margin-top:18px;
+  font-size:27px;
+}
+
+.class-card p{
+  position:relative;
+  z-index:2;
+  margin-top:6px;
+  color:#d4e3f7;
+  font-size:13px;
+}
+
+.open-label{
+  position:relative;
+  z-index:2;
+  display:inline-block;
+  margin-top:17px;
+  padding:7px 13px;
+  border-radius:20px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.15);
+  font-size:11px;
+  font-weight:700;
+}
+
+/* ================= QUICK LINKS ================= */
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:13px;
+}
+
+.quick-btn{
+  min-height:92px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:#fff;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.065);
+  box-shadow:0 12px 28px rgba(0,0,0,.20);
+  transition:.22s;
+}
+
+.quick-btn:hover{
+  transform:translateY(-3px);
+  background:rgba(255,255,255,.10);
+}
+
+.quick-icon{
+  font-size:24px;
+}
+
+.quick-btn span:last-child{
+  font-size:12px;
+  color:#cbd8eb;
+  font-weight:700;
+}
+
+/* ================= CLASS PAGES ================= */
+
+.class-page{
+  display:none;
+  padding:25px 0 40px;
+}
+
+.page-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 20px;
+  margin-bottom:20px;
+  border-radius:22px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 15px 35px rgba(0,0,0,.22);
+}
+
+.back-btn{
+  border:none;
+  cursor:pointer;
+  min-width:42px;
+  height:42px;
+  border-radius:13px;
+  color:#fff;
+  background:rgba(255,255,255,.10);
+  font-size:21px;
+}
+
+.page-header h2{
+  font-size:23px;
+}
+
+.page-header p{
+  margin-top:4px;
+  color:#94a9c5;
+  font-size:12px;
+}
+
+.chapter-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+
+.chapter-card{
+  padding:18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.065);
+  border:1px solid rgba(255,255,255,.11);
+  box-shadow:0 12px 28px rgba(0,0,0,.18);
+}
+
+.chapter-number{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:9px;
+  background:rgba(24,160,255,.13);
+  color:#80d5ff;
+  font-size:11px;
+  font-weight:800;
+}
+
+.chapter-card h3{
+  margin:10px 0 14px;
+  font-size:16px;
+  line-height:1.4;
+}
+
+.chapter-actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+}
+
+.action-btn{
+  padding:9px 5px;
+  border-radius:10px;
+  text-align:center;
+  text-decoration:none;
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  background:#24558e;
+  border:1px solid rgba(255,255,255,.09);
+}
+
+.action-btn:hover{
+  filter:brightness(1.15);
+}
+
+.action-btn.pyq{
+  background:#4656a7;
+}
+
+.action-btn.groupd{
+  background:linear-gradient(135deg,#079447,#12b85e);
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  margin-top:30px;
+  padding:18px;
+  color:#7185a3;
+  font-size:11px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+  .container{
+    width:94%;
+  }
+
+  .hero{
+    margin-top:12px;
+    padding:23px 17px 25px;
+    border-radius:25px;
+  }
+
+  .logo{
+    width:62px;
+    height:62px;
+    border-radius:19px;
+    font-size:29px;
+  }
+
+  .brand{
+    gap:12px;
+  }
+
+  .brand-text h1{
+    font-size:28px;
+  }
+
+  .brand-text .subtitle{
+    font-size:10px;
+    letter-spacing:2px;
+  }
+
+  .class-grid{
+    gap:11px;
+  }
+
+  .class-card{
+    min-height:175px;
+    padding:18px;
+    border-radius:20px;
+  }
+
+  .class-card h3{
+    font-size:22px;
+  }
+
+  .class-card p{
+    font-size:11px;
+  }
+
+  .quick-grid{
+    gap:9px;
+  }
+
+  .quick-btn{
+    min-height:82px;
+    border-radius:15px;
+  }
+
+  .quick-icon{
+    font-size:21px;
+  }
+
+  .quick-btn span:last-child{
+    font-size:10px;
+    text-align:center;
+  }
+
+  .chapter-grid{
+    grid-template-columns:1fr;
+  }
+
+  .chapter-actions{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media(max-width:390px){
+
+  .class-card{
+    min-height:160px;
+    padding:15px;
+  }
+
+  .class-icon{
+    width:47px;
+    height:47px;
+    font-size:22px;
+  }
+
+  .class-card h3{
+    font-size:20px;
+  }
+
+  .quick-btn{
+    min-height:76px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>🚆 Railway Science</h1>
-  <a href="#" onclick="showHome(); return false;">Home</a>
-</header>
+<!-- ================= PASSWORD SCREEN ================= -->
 
-<section class="hero">
-  <h2>🔬 Railway Science</h2>
-  <p>Class 9 & Class 10 • Railway Exam Preparation</p>
-</section>
+<div id="passwordScreen">
 
-<div class="container">
+  <div class="password-box">
 
-  <div id="home">
+    <div class="lock-icon">🚂</div>
 
-    <div class="intro">
-      <h3>Welcome to Railway Science</h3>
+    <h1>RAILWAY WARRIOR</h1>
+
+    <p>Enter password to access the study portal</p>
+
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Enter Password"
+      autocomplete="off"
+    >
+
+    <button class="unlock-btn" onclick="checkPassword()">
+      🔓 ENTER PORTAL
+    </button>
+
+    <div id="errorMsg"></div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= MAIN SITE ================= -->
+
+<div id="mainSite">
+
+
+<!-- ================= HOME PAGE ================= -->
+
+<div id="homePage" class="container">
+
+  <div class="top-space"></div>
+
+  <section class="hero">
+
+    <div class="brand">
+
+      <div class="logo">🚆</div>
+
+      <div class="brand-text">
+        <h1>RAILWAY WARRIOR</h1>
+        <div class="subtitle">BADNERA (RLY)</div>
+      </div>
+
+    </div>
+
+    <div class="hero-line"></div>
+
+    <div class="hero-message">
+
+      <h2>🚀 Welcome to Your Railway Preparation Hub</h2>
+
       <p>
-        Class 9 और Class 10 Science को Railway Technician,
-        Group D और अन्य competitive exams के लिए आसान तरीके से पढ़ें।
+        NCERT Science • Railway PYQs • Group D • Mock Tests
       </p>
-      <p>📚 Notes • ❓ Railway PYQ • 🧠 Revision • 📝 Mock Tests</p>
+
+      <div class="tagline">
+        LEARN • PRACTICE • CONQUER
+      </div>
+
     </div>
 
-    <div class="class-buttons">
-      <button onclick="showClass('class9')">📘 Class 9 Science</button>
-      <button onclick="showClass('class10')">📗 Class 10 Science</button>
+  </section>
+
+
+  <!-- WHATSAPP -->
+
+  <div class="whatsapp-wrap">
+
+    <a
+      class="whatsapp-btn"
+      href="https://chat.whatsapp.com/Fp08w973S017YJ96VROQDp"
+      target="_blank"
+      rel="noopener"
+    >
+      💬 Join WhatsApp Channel
+    </a>
+
+  </div>
+
+
+  <!-- CLASS SECTION -->
+
+  <div class="section-title">
+
+    <h2>📚 Science Preparation</h2>
+
+    <p>Select your class to continue</p>
+
+  </div>
+
+
+  <div class="class-grid">
+
+    <div
+      class="class-card class9"
+      onclick="showClass('class9Page')"
+    >
+
+      <div class="class-icon">🔬</div>
+
+      <h3>Class 9 Science</h3>
+
+      <p>13 Chapters • Notes • Railway PYQ • Group D</p>
+
+      <span class="open-label">OPEN CLASS 9 →</span>
+
     </div>
 
-    <div class="mock-home-button">
-      <a href="mock-tests.html">📝 Full Mock Tests</a>
-    </div>
 
-    <div class="mock-home-button current-affairs-button">
-      <a href="current-affairs.html">📰 Current Affairs 2026</a>
-    </div>
+    <div
+      class="class-card class10"
+      onclick="showClass('class10Page')"
+    >
 
-    <!-- NEW GROUP D 2026 GK BUTTON -->
-    <div class="mock-home-button groupd-home-button">
-      <a href="RRB_GROUP_D_2025_TOPICWISE_INTERACTIVE_MOCK.html">
-        📚 Group D 2026 GK
-      </a>
+      <div class="class-icon">🧪</div>
+
+      <h3>Class 10 Science</h3>
+
+      <p>13 Chapters • Notes • Railway PYQ • Group D</p>
+
+      <span class="open-label">OPEN CLASS 10 →</span>
+
     </div>
 
   </div>
 
-  <section id="class9" class="class-section">
-    <h2 class="class-title">📘 Class 9 Science</h2>
-    <div class="chapters">
 
-      <div class="chapter">
-        <h3>Chapter 1: Exploration: Entering the World of Secondary Science</h3>
-        <a href="class9-ch1-infographic.jpg" class="btn notes" target="_blank">📘 PDF Notes</a>
-        <a href="class9-ch1-pyq.html" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch1-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+  <!-- QUICK ACCESS -->
 
-      <div class="chapter">
-        <h3>Chapter 2: Cell: The Building Block of Life</h3>
-        <a href="class9-ch2-notes.html" class="btn notes">📘 Notes</a>
-        <a href="class9-ch2-mcq.html" class="btn pyq">❓ MCQ</a>
-        <a href="class9-ch2-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+  <div class="section-title">
 
-      <div class="chapter">
-        <h3>Chapter 3: Tissues in Action</h3>
-        <a href="class9-ch3-notes.html" class="btn notes">📘 Notes</a>
-        <a href="class9-ch3-mcq.html" class="btn pyq">❓ MCQ</a>
-        <a href="class9-ch3-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+    <h2>⚡ Quick Access</h2>
 
-      <div class="chapter">
-        <h3>Chapter 4: Descriding Motion Around Us</h3>
-        <a href="class9-ch4-notes.html" class="btn notes">📘 Notes</a>
-        <a href="class9-chapter04-mcq.html" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch4-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+    <p>Important preparation sections</p>
 
-      <div class="chapter">
-        <h3>Chapter 5: Exploring Mixtures and their Separation</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch5-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+  </div>
 
-      <div class="chapter">
-        <h3>Chapter 6: How Forces Affect Motion</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch6-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
 
-      <div class="chapter">
-        <h3>Chapter 7: Work, Energy, and Simple Machines</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch7-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+  <div class="quick-grid">
 
-      <div class="chapter">
-        <h3>Chapter 8: Journey Inside the Atom</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch8-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+    <a class="quick-btn" href="mock-tests.html">
+      <span class="quick-icon">📝</span>
+      <span>Mock Tests</span>
+    </a>
 
-      <div class="chapter">
-        <h3>Chapter 9: Atomic foundations of Matter</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch9-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+    <a class="quick-btn" href="current-affairs.html">
+      <span class="quick-icon">📰</span>
+      <span>Current Affairs</span>
+    </a>
 
-      <div class="chapter">
-        <h3>Chapter 10: Sound Waves: Characteristics and Applications</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch10-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+    <a
+      class="quick-btn"
+      href="RRB_GROUP_D_2025_TOPICWISE_INTERACTIVE_MOCK.html"
+    >
+      <span class="quick-icon">🚉</span>
+      <span>Group D 2026 GK</span>
+    </a>
 
-      <div class="chapter">
-        <h3>Chapter 11: Reproduction: How Life Continues</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch11-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
+  </div>
 
-      <div class="chapter">
-        <h3>Chapter 12: Patterns in Life: Diversity and Classification</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch12-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
 
-      <div class="chapter">
-        <h3>Chapter 13: Earth as a System: Energy, Matter, and Life</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class9-ch13-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="class10" class="class-section">
-    <h2 class="class-title">📗 Class 10 Science</h2>
-    <div class="chapters">
-
-      <div class="chapter">
-        <h3>Chapter 1: Chemical Reactions and Equations</h3>
-        <a href="class10-ch1-notes.pdf" class="btn notes" target="_blank">📘 Notes</a>
-        <a href="class10-ch1-mcq.html" class="btn pyq">❓ MCQ</a>
-        <a href="class10-ch1-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 2: Acids, Bases and Salts</h3>
-        <a href="class10-ch2-notes.html" class="btn notes">📘 Notes</a>
-        <a href="class10-ch2-mcq.html" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch2-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 3: Metals and Non-metals</h3>
-        <a href="class10-ch3-notes.html" class="btn notes" target="_blank">📘 Notes</a>
-        <a href="class10-ch3-mcq.html" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch3-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 4: Carbon and Its Compounds</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch4-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 5: Life Processes</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch5-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 6: Control and Coordination</h3>
-        <a href="class10-ch6-notes.html" class="btn notes">📘 Notes</a>
-        <a href="class10-ch06-mcq.html" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch6-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 7: How do Organisms Reproduce?</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch7-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 8: Heredity</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch8-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 9: Light - Reflection and Refraction</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch9-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 10: Human Eye and Colourful World</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch10-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 11: Electricity</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch11-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 12: Magnetic Effects of Electric Current</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch12-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-      <div class="chapter">
-        <h3>Chapter 13: Our Environment</h3>
-        <a href="#" class="btn notes">📘 Notes</a>
-        <a href="#" class="btn pyq">❓ Railway PYQ</a>
-        <a href="class10-ch13-groupd-2026.html" class="btn groupd-btn">📝 Group D 2026 Questions</a>
-      </div>
-
-    </div>
-  </section>
+  <div class="footer">
+    © 2026 RAILWAY WARRIOR • BADNERA (RLY)
+  </div>
 
 </div>
 
-<footer>
-  <p>🚆 Railway Science</p>
-  <p>Science Preparation for Railway Competitive Exams</p>
-</footer>
+
+<!-- ================= CLASS 9 PAGE ================= -->
+
+<div id="class9Page" class="container class-page">
+
+  <div class="page-header">
+
+    <button class="back-btn" onclick="showHome()">←</button>
+
+    <div>
+      <h2>Class 9 Science</h2>
+      <p>13 Chapters • Railway Preparation</p>
+    </div>
+
+  </div>
+
+
+  <div class="chapter-grid">
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 01</span>
+      <h3>Exploration: Entering the World of Secondary Science</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="class9-ch1-infographic.jpg">📘 Notes</a>
+        <a class="action-btn pyq" href="class9-ch1-pyq.html">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch1-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 02</span>
+      <h3>Cell: The Building Block of Life</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="class9-ch2-notes.html">📘 Notes</a>
+        <a class="action-btn pyq" href="class9-ch2-mcq.html">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch2-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 03</span>
+      <h3>Tissues in Action</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="class9-ch3-notes.html">📘 Notes</a>
+        <a class="action-btn pyq" href="class9-ch3-mcq.html">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch3-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 04</span>
+      <h3>Descriding Motion Around Us</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="class9-ch4-notes.html">📘 Notes</a>
+        <a class="action-btn pyq" href="class9-chapter04-mcq.html">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch4-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 05</span>
+      <h3>Exploring Mixtures and their Separation</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch5-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 06</span>
+      <h3>How Forces Affect Motion</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch6-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 07</span>
+      <h3>Work, Energy, and Simple Machines</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch7-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 08</span>
+      <h3>Journey Inside the Atom</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch8-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 09</span>
+      <h3>Atomic foundations of Matter</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch9-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 10</span>
+      <h3>Sound Waves: Characteristics and Applications</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch10-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 11</span>
+      <h3>Reproduction: How Life Continues</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch11-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 12</span>
+      <h3>Patterns in Life: Diversity and Classification</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch12-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 13</span>
+      <h3>Earth as a System: Energy, Matter, and Life</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class9-ch13-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 RAILWAY WARRIOR • BADNERA (RLY)
+  </div>
+
+</div>
+
+
+<!-- ================= CLASS 10 PAGE ================= -->
+
+<div id="class10Page" class="container class-page">
+
+  <div class="page-header">
+
+    <button class="back-btn" onclick="showHome()">←</button>
+
+    <div>
+      <h2>Class 10 Science</h2>
+      <p>13 Chapters • Railway Preparation</p>
+    </div>
+
+  </div>
+
+
+  <div class="chapter-grid">
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 01</span>
+      <h3>Chemical Reactions and Equations</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="class10-ch1-notes.pdf">📘 Notes</a>
+        <a class="action-btn pyq" href="class10-ch1-mcq.html">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch1-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 02</span>
+      <h3>Acids, Bases and Salts</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="class10-ch2-notes.html">📘 Notes</a>
+        <a class="action-btn pyq" href="class10-ch2-mcq.html">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch2-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 03</span>
+      <h3>Metals and Non-metals</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="class10-ch3-notes.html">📘 Notes</a>
+        <a class="action-btn pyq" href="class10-ch3-mcq.html">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch3-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 04</span>
+      <h3>Carbon and Its Compounds</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch4-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 05</span>
+      <h3>Life Processes</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch5-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 06</span>
+      <h3>Control and Coordination</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="class10-ch6-notes.html">📘 Notes</a>
+        <a class="action-btn pyq" href="class10-ch06-mcq.html">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch6-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 07</span>
+      <h3>How do Organisms Reproduce?</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch7-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 08</span>
+      <h3>Heredity</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch8-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 09</span>
+      <h3>Light - Reflection and Refraction</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch9-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 10</span>
+      <h3>Human Eye and Colourful World</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch10-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 11</span>
+      <h3>Electricity</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch11-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 12</span>
+      <h3>Magnetic Effects of Electric Current</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch12-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+
+    <div class="chapter-card">
+      <span class="chapter-number">CHAPTER 13</span>
+      <h3>Our Environment</h3>
+
+      <div class="chapter-actions">
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
+        <a class="action-btn groupd" href="class10-ch13-groupd-2026.html">🟢 Group D</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 RAILWAY WARRIOR • BADNERA (RLY)
+  </div>
+
+</div>
+
+</div>
+
 
 <script>
-function showClass(className) {
-  document.getElementById("home").style.display = "none";
 
-  document.querySelectorAll(".class-section").forEach(function(section) {
-    section.classList.remove("active");
-  });
+/* ================= PASSWORD ================= */
 
-  document.getElementById(className).classList.add("active");
+function checkPassword(){
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  const input = document.getElementById("passwordInput");
+  const error = document.getElementById("errorMsg");
+
+  if(input.value === "AKASH"){
+
+    document.getElementById("passwordScreen").style.display = "none";
+    document.getElementById("mainSite").style.display = "block";
+
+    error.textContent = "";
+
+  }else{
+
+    error.textContent = "❌ Incorrect password";
+
+    input.value = "";
+
+    input.focus();
+
+  }
+
 }
 
-function showHome() {
-  document.getElementById("home").style.display = "block";
 
-  document.querySelectorAll(".class-section").forEach(function(section) {
-    section.classList.remove("active");
+/* ENTER KEY */
+
+document.getElementById("passwordInput").addEventListener("keydown",function(e){
+
+  if(e.key === "Enter"){
+    checkPassword();
+  }
+
+});
+
+
+/* ================= PAGE NAVIGATION ================= */
+
+function showClass(id){
+
+  document.getElementById("homePage").style.display = "none";
+  document.getElementById("class9Page").style.display = "none";
+  document.getElementById("class10Page").style.display = "none";
+
+  document.getElementById(id).style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
   });
 
-  window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
+
+function showHome(){
+
+  document.getElementById("class9Page").style.display = "none";
+  document.getElementById("class10Page").style.display = "none";
+  document.getElementById("homePage").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* ================= RELOAD = PASSWORD AGAIN ================= */
+
+window.addEventListener("load",function(){
+
+  document.getElementById("passwordScreen").style.display = "flex";
+  document.getElementById("mainSite").style.display = "none";
+
+  document.getElementById("passwordInput").value = "";
+
+});
+
 </script>
 
 </body>
