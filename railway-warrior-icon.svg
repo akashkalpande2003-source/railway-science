@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#123f7a"/>
+    <stop offset="1" stop-color="#050b18"/>
+  </linearGradient>
+
+  <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ff4058"/>
+    <stop offset="1" stop-color="#d91635"/>
+  </linearGradient>
+</defs>
+
+<!-- Main background -->
+<rect
+  width="512"
+  height="512"
+  rx="100"
+  fill="#07111f"/>
+
+<!-- Border -->
+<rect
+  x="22"
+  y="22"
+  width="468"
+  height="468"
+  rx="85"
+  fill="url(#bg)"
+  stroke="#36b8ff"
+  stroke-width="8"/>
+
+<!-- RAILWAY -->
+<text
+  x="256"
+  y="72"
+  text-anchor="middle"
+  font-family="Arial,sans-serif"
+  font-size="38"
+  font-weight="900"
+  fill="white">
+  RAILWAY
+</text>
+
+<!-- WARRIOR -->
+<text
+  x="256"
+  y="113"
+  text-anchor="middle"
+  font-family="Arial,sans-serif"
+  font-size="38"
+  font-weight="900"
+  fill="#75d7ff">
+  WARRIOR
+</text>
+
+<!-- Train body -->
+<rect
+  x="137"
+  y="170"
+  width="238"
+  height="170"
+  rx="32"
+  fill="#f5f9ff"
+  stroke="#36b8ff"
+  stroke-width="7"/>
+
+<!-- Red train roof -->
+<rect
+  x="168"
+  y="145"
+  width="176"
+  height="48"
+  rx="10"
+  fill="url(#red)"/>
+
+<!-- Train front window -->
+<rect
+  x="188"
+  y="205"
+  width="136"
+  height="65"
+  rx="10"
+  fill="#10294e"/>
+
+<!-- Head lights -->
+<circle
+  cx="155"
+  cy="286"
+  r="16"
+  fill="#ffd84d"/>
+
+<circle
+  cx="357"
+  cy="286"
+  r="16"
+  fill="#ffd84d"/>
+
+<!-- Train wheels -->
+<circle
+  cx="194"
+  cy="345"
+  r="34"
+  fill="#101a2b"
+  stroke="#8edcff"
+  stroke-width="8"/>
+
+<circle
+  cx="318"
+  cy="345"
+  r="34"
+  fill="#101a2b"
+  stroke="#8edcff"
+  stroke-width="8"/>
+
+<!-- Railway track sides -->
+<line
+  x1="135"
+  y1="388"
+  x2="70"
+  y2="455"
+  stroke="#eaf6ff"
+  stroke-width="13"/>
+
+<line
+  x1="377"
+  y1="388"
+  x2="442"
+  y2="455"
+  stroke="#eaf6ff"
+  stroke-width="13"/>
+
+<!-- Rails -->
+<line
+  x1="86"
+  y1="412"
+  x2="426"
+  y2="412"
+  stroke="#72d8ff"
+  stroke-width="8"/>
+
+<line
+  x1="72"
+  y1="442"
+  x2="440"
+  y2="442"
+  stroke="#72d8ff"
+  stroke-width="8"/>
+
+<!-- Location -->
+<text
+  x="256"
+  y="485"
+  text-anchor="middle"
+  font-family="Arial,sans-serif"
+  font-size="25"
+  font-weight="900"
+  fill="white">
+  BADNERA (RLY)
+</text>
+
+</svg>
