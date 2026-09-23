@@ -141,6 +141,17 @@ body{
   border-color:#2563a6;
 }
 
+/* CORRECT / WRONG */
+.option.correct{
+  background:#eaf8ee;
+  border-color:#16803c;
+}
+
+.option.wrong{
+  background:#fff0f0;
+  border-color:#d32f2f;
+}
+
 /* RESULT */
 .result{
   display:none;
@@ -298,6 +309,7 @@ body{
       <span id="progressText">Question 1 of 90</span>
       <span id="answeredText">Answered: 0</span>
     </div>
+
     <div class="progress">
       <div class="progress-bar" id="progressBar"></div>
     </div>
@@ -306,25 +318,45 @@ body{
 
 <main class="container">
 
-<div class="result" id="result">
-  <h2>Test Result</h2>
-  <div class="score" id="score"></div>
-  <div class="result-details" id="resultDetails"></div>
-</div>
+  <div class="result" id="result">
+    <h2>Test Result</h2>
+    <div class="score" id="score"></div>
+    <div class="result-details" id="resultDetails"></div>
+  </div>
 
-<div id="quiz"></div>
+  <div id="quiz"></div>
 
 </main>
 
 <div class="bottom-nav">
   <div class="nav-inner">
-    <button class="nav-btn" id="prevBtn" onclick="previousQuestion()">Previous</button>
-    <button class="nav-btn" onclick="nextQuestion()">Next</button>
-    <button class="nav-btn submit-btn" onclick="submitTest()">Submit</button>
+    <button
+      class="nav-btn"
+      id="prevBtn"
+      onclick="previousQuestion()">
+      Previous
+    </button>
+
+    <button
+      class="nav-btn"
+      id="nextBtn"
+      onclick="nextQuestion()">
+      Next
+    </button>
+
+    <button
+      class="nav-btn submit-btn"
+      onclick="submitTest()">
+      Submit
+    </button>
   </div>
 </div>
 
 <script>
+
+/* =========================================================
+   QUESTIONS
+   ========================================================= */
 
 const questions = [
 
@@ -1410,219 +1442,479 @@ explanation:`इस प्रश्न के दिए गए विकल्�
 
 ];
 
+
+/* =========================================================
+   QUIZ SYSTEM
+   ========================================================= */
+
 let currentQuestion = 0;
 let submitted = false;
 
+/*
+  हर question का selected answer यहां save रहेगा।
+  null = अभी answer नहीं दिया गया।
+*/
+const userAnswers = Array(questions.length).fill(null);
+
 const quiz = document.getElementById("quiz");
 
-function renderQuiz(){
+
+/* =========================================================
+   SHOW ONLY ONE QUESTION
+   ========================================================= */
+
+function renderQuestion(){
 
   quiz.innerHTML = "";
 
-  questions.forEach((item,index)=>{
+  const item = questions[currentQuestion];
 
-    const card = document.createElement("div");
-    card.className = "question-card";
-    card.id = "q"+index;
+  const index = currentQuestion;
 
-    let optionsHTML = "";
+  const card = document.createElement("div");
 
-    item.options.forEach((option,optIndex)=>{
+  card.className = "question-card";
+  card.id = "q" + index;
 
-      optionsHTML += `
-        <label class="option" id="option-${index}-${optIndex}">
-          <input
-            type="radio"
-            name="question${index}"
-            value="${optIndex}"
-            onchange="selectAnswer(${index},${optIndex})"
-          >
-          <span><b>${String.fromCharCode(65+optIndex)}.</b> ${option}</span>
-        </label>
-      `;
-    });
+  let optionsHTML = "";
 
-    card.innerHTML = `
-      <div class="question-head">
-        Q${index+1} &nbsp; | &nbsp; ${index < 44 ? "Extraction & Metallurgy" : index < 53 ? "Nonmetals and uses" : index < 61 ? "Physical & Chemical Properties" : "Reactivity Series"}
-      </div>
+  item.options.forEach((option,optIndex)=>{
 
-      <div class="question-body">
+    const isSelected =
+      userAnswers[index] === optIndex;
 
-        <div class="question">
-          ${index+1}. ${item.q}
-        </div>
+    let selectedClass =
+      isSelected ? " selected" : "";
 
-        <div class="options">
-          ${optionsHTML}
-        </div>
+    let correctClass = "";
 
-        <div class="solution" id="solution-${index}">
-          <div class="answer">
-            सही उत्तर: ${String.fromCharCode(65+item.answer)}
-          </div>
-          <div class="explanation">
-            <b>Explanation:</b> ${item.explanation}
-          </div>
-        </div>
+    /*
+      Submit के बाद सही/गलत option दिखाना
+    */
+    if(submitted){
 
-      </div>
+      if(optIndex === item.answer){
+        correctClass = " correct";
+      }
+
+      if(
+        userAnswers[index] === optIndex &&
+        optIndex !== item.answer
+      ){
+        correctClass = " wrong";
+      }
+    }
+
+    optionsHTML += `
+      <label
+        class="option${selectedClass}${correctClass}"
+        id="option-${index}-${optIndex}"
+      >
+
+        <input
+          type="radio"
+          name="question${index}"
+          value="${optIndex}"
+          ${isSelected ? "checked" : ""}
+          ${submitted ? "disabled" : ""}
+          onchange="selectAnswer(${index},${optIndex})"
+        >
+
+        <span>
+          <b>${String.fromCharCode(65+optIndex)}.</b>
+          ${option}
+        </span>
+
+      </label>
     `;
-
-    quiz.appendChild(card);
   });
+
+
+  /*
+    Topic heading
+  */
+  let topic = "";
+
+  if(index < 44){
+    topic = "Extraction & Metallurgy";
+  }
+  else if(index < 53){
+    topic = "Nonmetals and uses";
+  }
+  else if(index < 61){
+    topic = "Physical & Chemical Properties";
+  }
+  else{
+    topic = "Reactivity Series";
+  }
+
+
+  /*
+    Explanation केवल answer select होने के बाद दिखाई जाएगी।
+  */
+  const showSolution =
+    userAnswers[index] !== null || submitted;
+
+
+  card.innerHTML = `
+
+    <div class="question-head">
+      Q${index+1}
+      &nbsp; | &nbsp;
+      ${topic}
+    </div>
+
+    <div class="question-body">
+
+      <div class="question">
+        ${index+1}. ${item.q}
+      </div>
+
+      <div class="options">
+        ${optionsHTML}
+      </div>
+
+      <div
+        class="solution"
+        id="solution-${index}"
+        style="display:${showSolution ? "block" : "none"};"
+      >
+
+        <div class="answer">
+          सही उत्तर:
+          ${String.fromCharCode(65+item.answer)}
+          — ${item.options[item.answer]}
+        </div>
+
+        <div class="explanation">
+          <b>Explanation:</b>
+          ${item.explanation}
+        </div>
+
+      </div>
+
+    </div>
+  `;
+
+  quiz.appendChild(card);
 
   updateProgress();
 }
+
+
+/* =========================================================
+   SELECT ANSWER
+   ========================================================= */
 
 function selectAnswer(questionIndex,optionIndex){
 
   if(submitted) return;
 
-  const labels = document.querySelectorAll(`#q${questionIndex} .option`);
+  userAnswers[questionIndex] = optionIndex;
+
+  /*
+    सारे options से selected हटाएं
+  */
+  const labels =
+    document.querySelectorAll(
+      `#q${questionIndex} .option`
+    );
 
   labels.forEach((label,i)=>{
-    label.classList.toggle("selected",i===optionIndex);
+
+    label.classList.toggle(
+      "selected",
+      i === optionIndex
+    );
+
   });
+
+
+  /*
+    Answer select होते ही explanation show
+  */
+  const solution =
+    document.getElementById(
+      "solution-" + questionIndex
+    );
+
+  if(solution){
+    solution.style.display = "block";
+  }
 
   updateProgress();
 }
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
 
 function updateProgress(){
 
   let answered = 0;
 
-  questions.forEach((q,index)=>{
-    const selected = document.querySelector(`input[name="question${index}"]:checked`);
-    if(selected) answered++;
+  userAnswers.forEach(answer=>{
+
+    if(answer !== null){
+      answered++;
+    }
+
   });
+
 
   document.getElementById("answeredText").textContent =
     "Answered: " + answered;
 
-  document.getElementById("progressText").textContent =
-    "Question " + (currentQuestion+1) + " of " + questions.length;
 
+  document.getElementById("progressText").textContent =
+    "Question " +
+    (currentQuestion + 1) +
+    " of " +
+    questions.length;
+
+
+  /*
+    Current question based progress
+  */
   const percentage =
-    ((answered/questions.length)*100);
+    ((currentQuestion + 1) / questions.length) * 100;
+
 
   document.getElementById("progressBar").style.width =
     Math.max(1,percentage) + "%";
 
+
+  /*
+    Previous button
+  */
   document.getElementById("prevBtn").disabled =
-    currentQuestion===0;
-}
+    currentQuestion === 0;
 
-function scrollToQuestion(index){
 
-  if(index<0) index=0;
+  /*
+    Last question पर Next disable
+  */
+  const nextBtn =
+    document.getElementById("nextBtn");
 
-  if(index>=questions.length)
-    index=questions.length-1;
-
-  currentQuestion=index;
-
-  const element=document.getElementById("q"+index);
-
-  if(element){
-    element.scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
+  if(currentQuestion === questions.length - 1){
+    nextBtn.disabled = true;
+    nextBtn.textContent = "Last Question";
+  }
+  else{
+    nextBtn.disabled = false;
+    nextBtn.textContent = "Next";
   }
 
-  updateProgress();
+
+  /*
+    Submit button केवल last question पर भी उपलब्ध रहेगा।
+  */
 }
+
+
+/* =========================================================
+   NEXT QUESTION
+   ========================================================= */
 
 function nextQuestion(){
 
-  if(currentQuestion < questions.length-1){
-    scrollToQuestion(currentQuestion+1);
+  if(submitted) return;
+
+
+  /*
+    पहले current question का answer check करें
+  */
+  if(userAnswers[currentQuestion] === null){
+
+    alert("कृपया पहले उत्तर चुनें।");
+
+    return;
   }
+
+
+  /*
+    अगर last question है
+  */
+  if(currentQuestion >= questions.length - 1){
+
+    alert("यह अंतिम प्रश्न है।");
+
+    return;
+  }
+
+
+  /*
+    Next question
+  */
+  currentQuestion++;
+
+  renderQuestion();
+
+  /*
+    ऊपर page पर ले जाएं
+  */
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 }
+
+
+/* =========================================================
+   PREVIOUS QUESTION
+   ========================================================= */
 
 function previousQuestion(){
 
-  if(currentQuestion > 0){
-    scrollToQuestion(currentQuestion-1);
+  if(currentQuestion <= 0){
+    return;
   }
+
+
+  currentQuestion--;
+
+  renderQuestion();
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 }
+
+
+/* =========================================================
+   SUBMIT TEST
+   ========================================================= */
 
 function submitTest(){
 
   if(submitted) return;
 
+
+  /*
+    Confirmation
+  */
   const confirmSubmit =
     confirm("क्या आप टेस्ट Submit करना चाहते हैं?");
 
+
   if(!confirmSubmit) return;
 
-  submitted=true;
 
-  let correct=0;
-  let wrong=0;
-  let unanswered=0;
+  submitted = true;
 
+
+  let correct = 0;
+  let wrong = 0;
+  let unanswered = 0;
+
+
+  /*
+    सभी answers check करें
+  */
   questions.forEach((item,index)=>{
 
     const selected =
-      document.querySelector(`input[name="question${index}"]:checked`);
+      userAnswers[index];
 
-    const solution =
-      document.getElementById("solution-"+index);
 
-    solution.style.display="block";
+    if(selected === null){
 
-    if(!selected){
       unanswered++;
+
       return;
     }
 
-    const selectedValue=parseInt(selected.value);
 
-    if(selectedValue===item.answer){
+    if(selected === item.answer){
+
       correct++;
-    }else{
-      wrong++;
+
     }
+    else{
+
+      wrong++;
+
+    }
+
   });
 
-  /* 1/3 NEGATIVE MARKING */
-  const score = correct - (wrong/3);
 
+  /*
+    NEGATIVE MARKING नहीं है
+  */
+  const score = correct;
+
+
+  /*
+    Result
+  */
   document.getElementById("score").textContent =
-    score.toFixed(2) + " / " + questions.length;
+    score + " / " + questions.length;
+
 
   document.getElementById("resultDetails").innerHTML =
+
     `
-    सही उत्तर: <b>${correct}</b>
-    &nbsp; | &nbsp;
-    गलत उत्तर: <b>${wrong}</b>
-    &nbsp; | &nbsp;
-    छोड़े गए: <b>${unanswered}</b>
-    <br>
-    <small>गलत उत्तर पर 1/3 अंक की कटौती</small>
+      सही उत्तर:
+      <b>${correct}</b>
+
+      &nbsp; | &nbsp;
+
+      गलत उत्तर:
+      <b>${wrong}</b>
+
+      &nbsp; | &nbsp;
+
+      छोड़े गए:
+      <b>${unanswered}</b>
+
+      <br>
+
+      <small>
+        कोई Negative Marking नहीं
+      </small>
     `;
 
-  document.getElementById("result").style.display="block";
 
-  document.querySelectorAll("input").forEach(input=>{
-    input.disabled=true;
-  });
+  document.getElementById("result").style.display =
+    "block";
 
-  document.querySelectorAll(".option").forEach(option=>{
-    option.style.cursor="default";
-  });
 
+  /*
+    Current question फिर render करें
+    ताकि सही/गलत option दिखे
+  */
+  renderQuestion();
+
+
+  /*
+    Result को ऊपर दिखाएं
+  */
   document.getElementById("result")
     .scrollIntoView({
       behavior:"smooth",
       block:"start"
     });
+
+
+  /*
+    Submit के बाद buttons
+  */
+  document.querySelector(".submit-btn").disabled =
+    true;
+
 }
 
-/* INITIAL LOAD */
-renderQuiz();
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+renderQuestion();
 
 </script>
 
