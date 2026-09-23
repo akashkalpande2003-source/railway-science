@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science | नियंत्रण एवं समन्वय | Railway Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#eef3f8;
+    color:#172033;
+    line-height:1.6;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:15px;
+}
+
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#0b2d5c,#174a85);
+    color:white;
+    border-radius:16px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
+}
+
+.header h1{
+    font-size:25px;
+    margin-bottom:6px;
+}
+
+.header p{
+    font-size:14px;
+    opacity:.95;
+}
+
+/* INFO BAR */
+.info-bar{
+    margin-top:12px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.info-box{
+    background:white;
+    border-radius:10px;
+    padding:10px;
+    text-align:center;
+    flex:1;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.info-box small{
+    display:block;
+    color:#777;
+    font-size:11px;
+}
+
+.info-box strong{
+    font-size:17px;
+    color:#0b2d5c;
+}
+
+/* PROGRESS */
+.progress-section{
+    margin-top:15px;
+    background:white;
+    padding:12px;
+    border-radius:12px;
+}
+
+.progress-text{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    margin-bottom:7px;
+    font-weight:bold;
+}
+
+.progress{
+    height:9px;
+    background:#e3e8ef;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#174a85;
+    transition:.3s;
+}
+
+/* QUESTION CARD */
+.question-card{
+    background:white;
+    margin-top:15px;
+    padding:20px;
+    border-radius:16px;
+    box-shadow:0 3px 14px rgba(0,0,0,.09);
+}
+
+.question-number{
+    display:inline-block;
+    background:#0b2d5c;
+    color:white;
+    padding:5px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.question{
+    font-size:18px;
+    font-weight:bold;
+    color:#172033;
+    margin-bottom:17px;
+}
+
+.option{
+    border:2px solid #dce3eb;
+    padding:13px;
+    margin:10px 0;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
+    background:#fff;
+    font-size:15px;
+}
+
+.option:hover{
+    border-color:#174a85;
+    background:#f3f7fc;
+}
+
+.option.selected{
+    border-color:#174a85;
+    background:#eaf2fc;
+}
+
+.option.correct{
+    border-color:#168447;
+    background:#e9f8ef;
+    color:#075b2d;
+}
+
+.option.wrong{
+    border-color:#d43b3b;
+    background:#fff0f0;
+    color:#a31313;
+}
+
+.option.disabled{
+    cursor:default;
+}
+
+/* EXPLANATION */
+.explanation{
+    display:none;
+    margin-top:18px;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid #dbe4ee;
+}
+
+.answer-title{
+    background:#eaf8ef;
+    color:#087333;
+    padding:12px 14px;
+    font-weight:bold;
+}
+
+.explanation-body{
+    padding:15px;
+    background:#fbfdff;
+    font-size:14px;
+}
+
+.notes{
+    margin-top:12px;
+    padding:13px;
+    background:#fff8e5;
+    border-left:5px solid #e0a100;
+    border-radius:7px;
+}
+
+.notes strong{
+    color:#805d00;
+}
+
+.notes ul{
+    margin:7px 0 0 20px;
+}
+
+.result-note{
+    margin-top:12px;
+    padding:10px;
+    background:#f1f5fa;
+    border-radius:8px;
+    font-size:13px;
+}
+
+/* BUTTONS */
+.buttons{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+}
+
+button{
+    border:none;
+    padding:13px 18px;
+    border-radius:10px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#nextBtn{
+    flex:1;
+    background:#0b2d5c;
+    color:white;
+}
+
+#nextBtn:disabled{
+    background:#b9c2cc;
+    cursor:not-allowed;
+}
+
+#restartBtn{
+    background:#174a85;
+    color:white;
+    width:100%;
+}
+
+/* RESULT */
+.result{
+    display:none;
+    background:white;
+    margin-top:15px;
+    padding:25px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 3px 15px rgba(0,0,0,.1);
+}
+
+.result h2{
+    color:#0b2d5c;
+    margin-bottom:15px;
+}
+
+.score{
+    font-size:42px;
+    font-weight:bold;
+    color:#174a85;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:20px 0;
+}
+
+.result-item{
+    padding:12px;
+    background:#f2f5f9;
+    border-radius:10px;
+}
+
+.result-item strong{
+    display:block;
+    font-size:20px;
+}
+
+.review{
+    text-align:left;
+    margin-top:20px;
+}
+
+.review-item{
+    padding:10px;
+    border-bottom:1px solid #ddd;
+    font-size:14px;
+}
+
+.review-correct{
+    color:#087333;
+}
+
+.review-wrong{
+    color:#b01717;
+}
+
+@media(max-width:600px){
+    .header h1{
+        font-size:21px;
+    }
+
+    .question{
+        font-size:17px;
+    }
+
+    .option{
+        font-size:14px;
+        padding:12px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🧠 नियंत्रण एवं समन्वय</h1>
+        <p>Class 10 Science • Railway / Group-D Mock Test</p>
+        <p>One Question at a Time • Explanation + Exam Notes</p>
+    </div>
+
+    <div class="info-bar">
+        <div class="info-box">
+            <small>कुल प्रश्न</small>
+            <strong>55</strong>
+        </div>
+
+        <div class="info-box">
+            <small>Negative Marking</small>
+            <strong>नहीं</strong>
+        </div>
+
+        <div class="info-box">
+            <small>Timer</small>
+            <strong>नहीं</strong>
+        </div>
+    </div>
+
+    <div class="progress-section">
+        <div class="progress-text">
+            <span id="progressText">Question 1 of 55</span>
+            <span id="scoreText">Score: 0</span>
+        </div>
+
+        <div class="progress">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
+
+    <div id="quiz"></div>
+
+    <div class="result" id="result">
+        <h2>🎉 Mock Test Complete</h2>
+
+        <div class="score" id="finalScore">0/55</div>
+
+        <div class="result-grid">
+            <div class="result-item">
+                <strong id="correctCount">0</strong>
+                सही
+            </div>
+
+            <div class="result-item">
+                <strong id="wrongCount">0</strong>
+                गलत
+            </div>
+
+            <div class="result-item">
+                <strong id="percentage">0%</strong>
+                प्रतिशत
+            </div>
+        </div>
+
+        <button id="restartBtn" onclick="restartQuiz()">
+            🔄 Test फिर से शुरू करें
+        </button>
+
+        <div class="review" id="review"></div>
+    </div>
+
+</div>
+
+
+<script>
+
+const questions = [
+
+{
+q:"मानव मस्तिष्क का मुख्य विचारक भाग कहाँ स्थित होता है?",
+options:[
+"अग्र-मस्तिष्क",
+"मेरु रज्जु",
+"मध्य मस्तिष्क",
+"मेडुला"
+],
+answer:0,
+explanation:"अग्र-मस्तिष्क (Forebrain) मस्तिष्क का वह भाग है जो सोचने, समझने, सीखने, स्मरण और निर्णय जैसी उच्च मानसिक गतिविधियों में महत्वपूर्ण भूमिका निभाता है।",
+notes:[
+"प्रमस्तिष्क (Cerebrum) अग्र-मस्तिष्क का प्रमुख भाग है।",
+"प्रमस्तिष्क चिंतन, स्मृति, बुद्धि तथा स्वैच्छिक क्रियाओं से संबंधित है।",
+"मेरुरज्जु प्रतिवर्ती क्रियाओं और मस्तिष्क-शरीर के बीच संदेश के लिए महत्वपूर्ण है।"
+]
+},
+
+{
+q:"मस्तिष्क को चिंतन गतिविधियों के लिए क्या उपयुक्त बनाता है?",
+options:[
+"इसका चिकना पृष्ठ",
+"इसका हृदय से संबंध",
+"कानों के पास इसकी अवस्थिति",
+"कई न्यूरॉन्स वाली इसकी जटिल व्यवस्था"
+],
+answer:3,
+explanation:"मस्तिष्क में बहुत बड़ी संख्या में न्यूरॉन्स एक जटिल नेटवर्क बनाते हैं। इनके बीच संदेशों के आदान-प्रदान के कारण मस्तिष्क जटिल चिंतन और सूचना-प्रसंस्करण कर सकता है।",
+notes:[
+"न्यूरॉन तंत्रिका तंत्र की संरचनात्मक और क्रियात्मक इकाई है।",
+"न्यूरॉन विद्युत एवं रासायनिक संकेतों के माध्यम से सूचना का संचार करते हैं।",
+"मस्तिष्क में न्यूरॉन्स की जटिल व्यवस्था उच्च स्तरीय कार्यों में सहायक है।"
+]
+},
+
+{
+q:"मस्तिष्क का कौन-सा भाग स्वैच्छिक मांसपेशियों के संचलन को सीधे नियंत्रित करता है?",
+options:[
+"मेडुला ऑब्लांगेटा (Medulla oblongata)",
+"मोटर क्षेत्र (Motor area)",
+"एसोसिएशन क्षेत्र (Association area)",
+"संवेदी क्षेत्र (Sensory area)"
+],
+answer:1,
+explanation:"मोटर क्षेत्र शरीर की स्वैच्छिक मांसपेशियों की गतिविधियों को नियंत्रित करता है। जब हम अपनी इच्छा से हाथ-पैर चलाते हैं, तो मोटर क्षेत्र इसमें महत्वपूर्ण भूमिका निभाता है।",
+notes:[
+"Motor area → स्वैच्छिक मांसपेशियों की गति।",
+"Sensory area → संवेदी जानकारी का विश्लेषण।",
+"Association area → संवेदी जानकारी को अन्य सूचनाओं से जोड़कर विचार और निर्णय में सहायता।"
+]
+},
+
+{
+q:"मस्तिष्क का कौन-सा भाग रक्तचाप, लार स्रवण और वमन जैसी अनैच्छिक क्रियाओं को नियंत्रित करता है?",
+options:[
+"प्रमस्तिष्क (Cerebrum)",
+"अनुमस्तिष्क (Cerebellum)",
+"थैलेमस (Thalamus)",
+"मेडुला ऑब्लांगेटा (Medulla oblongata)"
+],
+answer:3,
+explanation:"मेडुला ऑब्लांगेटा पश्चमस्तिष्क का भाग है और कई अनैच्छिक क्रियाओं जैसे रक्तचाप, हृदयगति, श्वसन, लार स्रवण और वमन को नियंत्रित करता है।",
+notes:[
+"Medulla → अनैच्छिक क्रियाएँ।",
+"Cerebellum → संतुलन और शारीरिक मुद्रा।",
+"Cerebrum → चिंतन एवं स्वैच्छिक क्रियाएँ।"
+]
+},
+
+{
+q:"मानव मस्तिष्क का कौन-सा भाग किसी व्यक्ति के सोचने और सीखने की क्षमताओं को नियंत्रित करता है?",
+options:[
+"मेडुला (Medulla)",
+"हाइपोथैलेमस (Hypothalamus)",
+"अनुमस्तिष्क (Cerebellum)",
+"प्रमस्तिष्क (Cerebrum)"
+],
+answer:3,
+explanation:"प्रमस्तिष्क (Cerebrum) मस्तिष्क का सबसे बड़ा भाग है। यह सोचने, सीखने, स्मृति, बुद्धि तथा स्वैच्छिक गतिविधियों में महत्वपूर्ण भूमिका निभाता है।",
+notes:[
+"Cerebrum = चिंतन + स्मृति + सीखना + स्वैच्छिक क्रिया।",
+"Cerebellum = संतुलन और समन्वय।",
+"Medulla = कई अनैच्छिक क्रियाएँ।"
+]
+},
+
+{
+q:"पर्याप्त मात्रा में भोजन ग्रहण करने के पश्चात, पेट भरने की संवेदना की अनुभूति हमारे शरीर के किस हिस्से में होती है?",
+options:[
+"हृदय",
+"अग्र-मस्तिष्क",
+"मुख गुहिका",
+"मध्य-मस्तिष्क"
+],
+answer:1,
+explanation:"भोजन से संबंधित तृप्ति (satiety) जैसी अनुभूतियों के नियंत्रण में मस्तिष्क, विशेषकर हाइपोथैलेमस और अग्र-मस्तिष्क के क्षेत्र महत्वपूर्ण होते हैं।",
+notes:[
+"हाइपोथैलेमस भूख और तृप्ति के नियमन में महत्वपूर्ण है।",
+"अग्र-मस्तिष्क उच्च मानसिक तथा कई नियामक कार्यों से संबंधित है।",
+"भोजन का पाचन मुख्यतः पाचन तंत्र में होता है।"
+]
+},
+
+{
+q:"मस्तिष्क का कौन-सा भाग मुख्य रूप से उच्च स्तरीय विचार प्रक्रियाओं और संवेदी जानकारी की जटिल व्याख्या के लिए जिम्मेदार है?",
+options:[
+"अनुमस्तिष्क",
+"मेरुदंड",
+"मस्तिष्क कांड",
+"अग्रमस्तिष्क"
+],
+answer:3,
+explanation:"अग्रमस्तिष्क उच्च स्तरीय मानसिक प्रक्रियाओं और संवेदी सूचनाओं के जटिल विश्लेषण में महत्वपूर्ण भूमिका निभाता है।",
+notes:[
+"Forebrain → thinking, interpretation और कई sensory functions।",
+"Cerebellum → posture, balance और coordination।",
+"Spinal cord → संदेशों का संचार और reflex actions।"
+]
+},
+
+{
+q:"निम्नलिखित में से कौन-सा सीधे रक्त में स्रावित किया जाता है और शरीर के विभिन्न अंगों तक पहुँचाया जाता है?",
+options:[
+"पित्त रस (Bile juice)",
+"एड्रिनेलिन (Adrenaline)",
+"लार (Saliva)",
+"अग्नाशयी रस (Pancreatic juice)"
+],
+answer:1,
+explanation:"एड्रिनेलिन एक हार्मोन है जो अधिवृक्क ग्रंथि से सीधे रक्त में स्रावित होता है और रक्त द्वारा शरीर के विभिन्न भागों तक पहुँचता है।",
+notes:[
+"Adrenaline → अधिवृक्क ग्रंथि।",
+"यह आपातकालीन स्थिति में Fight or Flight response से संबंधित है।",
+"पित्त, लार और अग्नाशयी रस पाचन से संबंधित स्राव हैं।"
+]
+},
+
+{
+q:"टेस्टोस्टेरोन नामक हार्मोन मनुष्य के निम्नलिखित में से किस अंग से स्रावित होता है?",
+options:[
+"मूत्रवाहिनी",
+"गर्भाशय",
+"डिम्बवाहिनी",
+"वृषण"
+],
+answer:3,
+explanation:"पुरुषों में टेस्टोस्टेरोन मुख्यतः वृषण (Testes) में बनता है। यह पुरुषों में यौन परिपक्वता और द्वितीयक लैंगिक लक्षणों के विकास में महत्वपूर्ण है।",
+notes:[
+"Testosterone → Testes.",
+"Estrogen → मुख्यतः अंडाशय।",
+"Testosterone पुरुषों में दाढ़ी-मूँछ, भारी आवाज और मांसपेशियों के विकास जैसे द्वितीयक लैंगिक लक्षणों से संबंधित है।"
+]
+},
+
+{
+q:"निम्नलिखित में से कौन-सा रासायनिक स्राव हमारे शरीर को नियंत्रण और समन्वय में मदद करता है?",
+options:[
+"गैस्ट्रिक म्यूकोसा",
+"हार्मोन",
+"लार",
+"सीबम"
+],
+answer:1,
+explanation:"हार्मोन रासायनिक संदेशवाहक होते हैं। अंतःस्रावी ग्रंथियाँ इन्हें रक्त में छोड़ती हैं और ये शरीर के विभिन्न कार्यों के नियंत्रण एवं समन्वय में सहायता करते हैं।",
+notes:[
+"Hormones = chemical messengers.",
+"Endocrine glands अपने हार्मोन सीधे रक्त में छोड़ती हैं।",
+"उदाहरण: Insulin, Thyroxine, Adrenaline, Growth hormone।"
+]
+},
+
+{
+q:"मानव शरीर में कौन-सी ग्रंथि वृद्धि हार्मोन का स्राव करती है?",
+options:[
+"अग्न्याशय",
+"अवटु ग्रंथि",
+"अधिवृक्क ग्रंथि",
+"पीयूष ग्रंथि"
+],
+answer:3,
+explanation:"वृद्धि हार्मोन (Growth Hormone/GH) का स्राव पीयूष ग्रंथि (Pituitary gland) की अग्र पिट्यूटरी से होता है।",
+notes:[
+"Pituitary = Master gland.",
+"Growth hormone शरीर की वृद्धि में महत्वपूर्ण है।",
+"GH की कमी से बच्चों में बौनापन हो सकता है।",
+"वयस्कों में GH की अधिकता Acromegaly से संबंधित हो सकती है।"
+]
+},
+
+{
+q:"कौन-सा हार्मोन लड़कों में यौन परिपक्वता को उत्तेजित करता है?",
+options:[
+"एस्ट्रोजन",
+"टेस्टोस्टेरोन",
+"प्रोजेस्टेरोन",
+"ऑक्सीटोसिन"
+],
+answer:1,
+explanation:"टेस्टोस्टेरोन लड़कों में यौन परिपक्वता तथा पुरुषों के द्वितीयक लैंगिक लक्षणों के विकास में प्रमुख भूमिका निभाता है।",
+notes:[
+"Testosterone → testes.",
+"Estrogen → महिलाओं के लैंगिक विकास में महत्वपूर्ण।",
+"Progesterone → महिला प्रजनन तंत्र और गर्भावस्था से संबंधित।"
+]
+},
+
+{
+q:"जंतुओं में डरावनी स्थिति के दौरान निम्नलिखित में से कौन-सा हार्मोन स्रावित होता है?",
+options:[
+"इंसुलिन",
+"वृद्धि हार्मोन",
+"थायरॉक्सिन",
+"एड्रिनेलिन"
+],
+answer:3,
+explanation:"डर, तनाव या आपातकालीन स्थिति में अधिवृक्क ग्रंथियों से एड्रिनेलिन का स्राव बढ़ता है। यह शरीर को Fight or Flight response के लिए तैयार करता है।",
+notes:[
+"Adrenaline → emergency hormone.",
+"हृदय गति बढ़ती है।",
+"श्वसन दर बढ़ती है।",
+"कंकालीय मांसपेशियों की ओर रक्त प्रवाह बढ़ाने में सहायता होती है।"
+]
+},
+
+{
+q:"कथन (A): इंसुलिन रक्त शर्करा के स्तर को कम करने में सहायक होता है। कारण (R): इंसुलिन ग्लूकोज को ग्लाइकोजन में परिवर्तित करता है, जिसे यकृत में संग्रहित किया जाता है।",
+options:[
+"A असत्य है, लेकिन R सत्य है।",
+"A सत्य है, लेकिन R असत्य है।",
+"A और R दोनों सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है।",
+"A और R दोनों सत्य हैं, और R, A की सही व्याख्या है।"
+],
+answer:3,
+explanation:"इंसुलिन रक्त में ग्लूकोज का स्तर कम करने में सहायता करता है। यह ग्लूकोज के कोशिकाओं द्वारा उपयोग और अतिरिक्त ग्लूकोज के ग्लाइकोजन के रूप में संग्रहण को बढ़ावा देता है।",
+notes:[
+"Insulin → Pancreas.",
+"Insulin blood glucose कम करता है।",
+"Glucagon इसके विपरीत रक्त ग्लूकोज बढ़ाने में मदद करता है।",
+"यकृत और मांसपेशियों में ग्लाइकोजन संग्रहित किया जा सकता है।"
+]
+},
+
+{
+q:"किसी व्यक्ति में कम मात्रा में भोजन करने के बाद भी रक्त शर्करा का स्तर उच्च रहता है। इसका कारण क्या हो सकता है?",
+options:[
+"एस्ट्रोजन की अधिकता",
+"इंसुलिन की कमी",
+"हार्मोन की अधिक वृद्धि",
+"थायरॉक्सिन की कमी"
+],
+answer:1,
+explanation:"इंसुलिन की कमी या उसके प्रभाव में कमी के कारण रक्त में ग्लूकोज का स्तर अधिक रह सकता है। मधुमेह में रक्त शर्करा का स्तर बढ़ सकता है।",
+notes:[
+"Insulin pancreas की β-cells से संबंधित है।",
+"Insulin की कमी/अपर्याप्त प्रभाव → blood glucose बढ़ सकता है।",
+"Diabetes mellitus में रक्त glucose का नियमन प्रभावित होता है।"
+]
+},
+
+{
+q:"जंतुओं में सुग्राहिता या अनुक्रियता मुख्यतः __________ द्वारा नियंत्रित होती है।",
+options:[
+"श्वसन-तंत्र",
+"तंत्रिका-तंत्र",
+"परिसंचारी-तंत्र",
+"पाचन-तंत्र"
+],
+answer:1,
+explanation:"जंतुओं में बाहरी और आंतरिक उद्दीपनों को पहचानने तथा उनके प्रति शीघ्र प्रतिक्रिया देने में तंत्रिका तंत्र की प्रमुख भूमिका होती है।",
+notes:[
+"Nervous system → rapid coordination.",
+"Endocrine system → hormones द्वारा comparatively slower coordination.",
+"Stimulus → receptor → sensory neuron → CNS → motor neuron → effector."
+]
+},
+
+{
+q:"निम्नलिखित में से कौन-सा विकल्प तंत्रिका ऊतक के संबंध में सही नहीं है?",
+options:[
+"कोशिकाओं को तंत्रिका कोशिका या न्यूरॉन कहा जाता है।",
+"मस्तिष्क और मेरु रज्जु के उदाहरण हैं।",
+"तंत्रिका कोशिकाएं लंबाई में बहुत छोटी होती हैं।",
+"तंत्रिकाकोशिका (न्यूरॉन), अक्षतंतु और वृक्षिका से निर्मित होता है।"
+],
+answer:2,
+explanation:"न्यूरॉन सामान्यतः लंबी कोशिकाएँ हो सकती हैं और कुछ न्यूरॉन बहुत लंबी दूरी तक संकेत पहुँचा सकते हैं। इसलिए 'तंत्रिका कोशिकाएँ लंबाई में बहुत छोटी होती हैं' गलत कथन है।",
+notes:[
+"Neuron के मुख्य भाग: Cell body, Dendrites और Axon.",
+"कुछ न्यूरॉन शरीर में बहुत लंबी दूरी तक संकेत भेजते हैं।",
+"मस्तिष्क और मेरुरज्जु केंद्रीय तंत्रिका तंत्र के मुख्य भाग हैं।"
+]
+},
+
+{
+q:"निम्नलिखित कथनों को ध्यानपूर्वक पढ़ें और गलत कथन का चयन करें।",
+options:[
+"मेरु रज्जु, मस्तिष्क और शरीर के शेष हिस्सों के बीच एक रिले के रूप में कार्य करती है और प्रतिवर्ती क्रियाओं को भी नियंत्रित करती है।",
+"प्रमस्तिष्क मानव मस्तिष्क का सबसे बड़ा हिस्सा है तथा यह चिंतन और स्वैच्छिक क्रियाओं के लिए उत्तरदायी होता है।",
+"अनुमस्तिष्क शारीरिक मुद्रा तथा संतुलन बनाए रखने में सहायता करता है।",
+"मेडुला ऑब्लांगेटा, गर्म वस्तु से हाथ हटाने जैसी प्रतिवर्ती क्रियाओं को नियंत्रित करता है।"
+],
+answer:3,
+explanation:"गर्म वस्तु से हाथ हटाने वाली सामान्य spinal reflex का मुख्य केंद्र मेरुरज्जु में होता है, न कि मेडुला ऑब्लांगेटा में।",
+notes:[
+"Reflex arc का मुख्य केंद्र सामान्यतः spinal cord होता है।",
+"Medulla → breathing, heartbeat, blood pressure जैसी involuntary functions.",
+"Cerebellum → balance और posture."
+]
+},
+
+{
+q:"एक रोगी अपना बायाँ हाथ हिलाने में असमर्थ है, लेकिन मस्तिष्क स्कैन में कोई क्षति नहीं दिखाई देती है। तंत्रिका तंत्र के किस हिस्से के प्रभावित होने की सर्वाधिक संभावना है?",
+options:[
+"परिधीय तंत्रिका तंत्र",
+"केंद्रीय तंत्रिका तंत्र",
+"स्वायत्त तंत्रिका तंत्र",
+"परानुकंपी तंत्रिका तंत्र"
+],
+answer:0,
+explanation:"यदि मस्तिष्क में कोई स्पष्ट क्षति नहीं है लेकिन हाथ की गति प्रभावित है, तो संबंधित peripheral nerve या peripheral nervous system का प्रभावित होना एक संभावित कारण हो सकता है।",
+notes:[
+"PNS → brain और spinal cord के बाहर की nerves.",
+"CNS → brain + spinal cord.",
+"Somatic nervous system → voluntary movement से संबंधित।",
+"Autonomic nervous system → involuntary functions."
+]
+},
+
+{
+q:"निम्नलिखित में से कौन-सा तंत्रिका प्रकार को उसकी उत्पत्ति से सर्वोत्तम रूप से युग्मित करता है?",
+options:[
+"कपाल तंत्रिकाएँ - मेरुरज्जु",
+"मेरु तंत्रिकाएँ - हृदय",
+"कपाल तंत्रिकाएँ - मस्तिष्क",
+"मेरु तंत्रिकाएँ - मस्तिष्क"
+],
+answer:2,
+explanation:"कपाल तंत्रिकाएँ (Cranial nerves) मस्तिष्क से निकलती हैं, जबकि spinal nerves मेरुरज्जु से निकलती हैं।",
+notes:[
+"Cranial nerves → brain.",
+"Spinal nerves → spinal cord.",
+"मानव में 12 pairs cranial nerves और 31 pairs spinal nerves होते हैं।"
+]
+},
+
+{
+q:"जब कोई व्यक्ति किसी गर्म वस्तु को छूता है, तो तंत्रिका ऊतक का कौन-सा भाग सीधे तौर पर तंत्रिका आवेग को पेशियों तक पहुँचाने के लिए जिम्मेदार होता है?",
+options:[
+"केंद्रक",
+"द्रुमाश्म",
+"संयोजी ऊतक",
+"तंत्रिकाक्ष"
+],
+answer:3,
+explanation:"Axon न्यूरॉन से तंत्रिका आवेग को आगे ले जाता है। Motor neuron का axon आवेग को संबंधित muscle तक पहुँचा सकता है।",
+notes:[
+"Axon → impulse away from cell body.",
+"Dendrite → signal reception.",
+"Motor neuron → effector muscle तक संकेत।"
+]
+},
+
+{
+q:"तंत्रिकाकोशिकाओं में कोशिका-काय से जुड़े कई छोटे, शाखित भाग या प्रक्रियाएं होती हैं जिन्हें __________ कहा जाता है।",
+options:[
+"अक्षतंतु (Axons)",
+"केंद्रक (Nuclei)",
+"द्रुमिका (Dendrites)",
+"तंत्रिका सिरा (Nerve endings)"
+],
+answer:2,
+explanation:"Dendrites छोटे, शाखित भाग होते हैं जो सामान्यतः अन्य न्यूरॉन्स या receptors से संकेत प्राप्त करते हैं।",
+notes:[
+"Dendrites → receive signals.",
+"Axon → transmit signal away from cell body.",
+"Cell body → nucleus और cytoplasm रखता है।"
+]
+},
+
+{
+q:"न्यूरॉन के किस भाग में केंद्रक और कोशिका द्रव्य होता है?",
+options:[
+"तंत्रिकाक्ष",
+"द्रुमिकाओं",
+"कोशिका काय",
+"तंत्रिका अंतों"
+],
+answer:2,
+explanation:"Cell body या कोशिका-काय में केंद्रक तथा कोशिका द्रव्य उपस्थित होते हैं और यह न्यूरॉन के metabolic functions के लिए महत्वपूर्ण है।",
+notes:[
+"Cell body = Soma.",
+"Nucleus → genetic material.",
+"Axon → impulse transmission."
+]
+},
+
+{
+q:"निम्नलिखित कोशिकाओं में से किस कोशिका को एक छोर पर पार्श्वतन्तु (Dendrite) होता है?",
+options:[
+"लाल रक्त कोशिका",
+"एककेंद्रक श्वेतकोशिका (मोनोसाइट)",
+"बिंबाणु (प्लेटलेट)",
+"न्यूरॉन"
+],
+answer:3,
+explanation:"न्यूरॉन में dendrites होते हैं, जो तंत्रिका संकेत प्राप्त करने में महत्वपूर्ण होते हैं।",
+notes:[
+"RBC → oxygen transport.",
+"Platelet → blood clotting.",
+"Neuron → nervous impulse transmission."
+]
+},
+
+{
+q:"न्यूरॉन अर्थात तंत्रिका ऊतक में कौन-सा भाग प्रोटीन संश्लेषण के लिए जिम्मेदार है?",
+options:[
+"एक्सोन",
+"डेन्ड्राइट",
+"सिनेप्टिक बल्ब",
+"निसल कणिकाएँ"
+],
+answer:3,
+explanation:"Nissl granules/ribosomes से संबंधित संरचनाएँ neuronal cell body में protein synthesis में महत्वपूर्ण भूमिका निभाती हैं।",
+notes:[
+"Nissl bodies → rough ER और ribosomes से संबंधित।",
+"Protein synthesis मुख्यतः cell body में होता है।",
+"Axon का मुख्य कार्य impulse transmission है।"
+]
+},
+
+{
+q:"______________ मानव शरीर की सबसे लंबी कोशिका है।",
+options:[
+"अस्थिकोशिका",
+"न्यूरॉन",
+"बिंबाणु",
+"पेशी तंतु"
+],
+answer:1,
+explanation:"कुछ न्यूरॉन्स के axons मानव शरीर में बहुत लंबी दूरी तक फैले हो सकते हैं, इसलिए न्यूरॉन को सामान्यतः शरीर की सबसे लंबी कोशिका के रूप में पढ़ाया जाता है।",
+notes:[
+"Neuron → nervous system की functional unit.",
+"Axon neuron का लंबा भाग हो सकता है।",
+"Dendrites सामान्यतः शाखित और छोटे होते हैं।"
+]
+},
+
+{
+q:"न्यूरॉन के मुख्य घटक कौन-से हैं?",
+options:[
+"कोशिका-काय, द्रुमिका, तंत्रिका अंत और अंतर्ग्रथन",
+"द्रुमिका, कोशिका-काय और तंत्रिका अंत",
+"द्रुमिका, कोशिका-काय और तंत्रिकाक्ष",
+"द्रुमिका, कोशिका-काय, तंत्रिकाक्ष और तंत्रिका अंत"
+],
+answer:3,
+explanation:"न्यूरॉन में cell body, dendrites और axon मुख्य संरचनाएँ हैं। Axon के अंतिम भाग को nerve terminals कहा जाता है।",
+notes:[
+"Cell body → nucleus.",
+"Dendrites → receive signals.",
+"Axon → carries impulse away.",
+"Nerve terminal → neurotransmitter release."
+]
+},
+
+{
+q:"तंत्रिका कोशिकाओं के किस भाग में पहला विद्युत आवेग उत्पन्न होता है?",
+options:[
+"तंत्रिका अंत",
+"तंत्रिकाक्ष",
+"द्रुमिका",
+"कोशिका-काय"
+],
+answer:2,
+explanation:"दिए गए विकल्पों में उत्तर C रखा गया है। हालांकि अधिक सटीक न्यूरोफिजियोलॉजिकल विवरण में action potential सामान्यतः axon hillock/initial segment से शुरू होता है, जो cell body और axon के जंक्शन पर होता है।",
+notes:[
+"Action potential की शुरुआत axon hillock/initial segment से संबंधित मानी जाती है।",
+"Dendrites मुख्यतः signals receive करते हैं।",
+"यह प्रश्न exam source के अनुसार अलग wording में मिल सकता है।"
+]
+},
+
+{
+q:"न्यूरॉन में डेंड्राइट्स का प्राथमिक कार्य क्या है?",
+options:[
+"अक्षतंतु से कोशिका काय तक संकेतों को प्रेषित करना",
+"एक सिनेप्स बनाना",
+"विद्युत आवेग उत्पन्न करना",
+"न्यूरॉन की रक्षा करना"
+],
+answer:0,
+explanation:"दिए गए answer key के अनुसार A है। Dendrites मुख्यतः संकेत प्राप्त करते हैं और उन्हें cell body की ओर पहुँचाते हैं।",
+notes:[
+"Dendrite → signal reception.",
+"Axon → signal transmission away from cell body.",
+"Synapse → दो neurons/effectors के बीच communication junction."
+]
+},
+
+{
+q:"न्यूरॉन के उस लंबे, रेशे जैसे भाग का नाम क्या है जो कोशिका-काय से संकेतों को दूर ले जाता है?",
+options:[
+"केंद्रक",
+"द्रुमिका",
+"तंत्रिकाक्ष",
+"अंतर्ग्रथन"
+],
+answer:2,
+explanation:"Axon या तंत्रिकाक्ष cell body से तंत्रिका आवेग को दूर ले जाने वाला लंबा भाग है।",
+notes:[
+"Axon = impulse away from cell body.",
+"Dendrite = signal toward cell body.",
+"Axon terminal → next cell को signal देने में महत्वपूर्ण।"
+]
+},
+
+{
+q:"यदि न्यूरॉन्स के डेन्ड्राइट कार्य करना बंद कर दें तो क्या होगा?",
+options:[
+"पेशियां अधिक मजबूती से संकुचित होंगी",
+"न्यूरॉन्स अधिक विद्युत आवेग उत्पन्न करेंगे",
+"सिग्नल शीघ्रता से संचारित होंगे",
+"अन्य न्यूरॉन्स से सिग्नल प्राप्त नहीं होंगे"
+],
+answer:3,
+explanation:"Dendrites का मुख्य कार्य अन्य कोशिकाओं से संकेत प्राप्त करना है। इनके काम न करने पर neuron को incoming signals प्राप्त करने में कठिनाई होगी।",
+notes:[
+"Dendrites → receiving region.",
+"Axon → transmitting region.",
+"Neuron communication में electrical और chemical दोनों signals महत्वपूर्ण हैं।"
+]
+},
+
+{
+q:"निम्नलिखित में से कौन-सा विकल्प सामान्यतः न्यूरॉन का सबसे लंबा भाग बनाता है?",
+options:[
+"तंत्रिकाक्ष",
+"अंतर्ग्रथन",
+"तंत्रिका सिरा",
+"कोशिका काय"
+],
+answer:0,
+explanation:"Axon सामान्यतः neuron का लंबा भाग होता है और यह cell body से impulse को दूर तक ले जा सकता है।",
+notes:[
+"Axon की लंबाई कुछ neurons में बहुत अधिक हो सकती है।",
+"Myelin sheath कुछ axons को ढकती है और impulse conduction को तेज करने में मदद करती है।"
+]
+},
+
+{
+q:"तंत्रिकाकोशिकाओं के संबंध में निम्नलिखित में से कौन-सा कथन गलत है?",
+options:[
+"डेंड्राइट सिग्नल प्राप्त करते हैं।",
+"तंत्रिकाक्ष सिग्नल बाहर भेजता है।",
+"एक तंत्रिकाकोशिका तीन भागों: डेंड्राइट, कोशिका पिंड और तंत्रिकाक्ष से बनी होती है।",
+"तंत्रिकाकोशिकाओं में केंद्रक का अभाव होता है।"
+],
+answer:3,
+explanation:"Neuron के cell body में nucleus उपस्थित होता है। इसलिए यह कहना गलत है कि neurons में nucleus नहीं होता।",
+notes:[
+"Neuron में nucleus cell body में होता है।",
+"Dendrites → receive.",
+"Axon → transmit."
+]
+},
+
+{
+q:"न्यूरॉन का कौन-सा भाग तंत्रिका आवेग को कोशिका काय से दूर ले जाता है?",
+options:[
+"डेन्ड्राइट",
+"एक्सोन",
+"अन्तर्ग्रथन",
+"नाभिक"
+],
+answer:1,
+explanation:"Axon cell body से impulse को दूर ले जाता है।",
+notes:[
+"Axon → away from cell body.",
+"Dendrite → toward cell body.",
+"Nucleus → genetic material रखता है।"
+]
+},
+
+{
+q:"दो न्यूरॉन के बीच के अंतराल को क्या कहते हैं?",
+options:[
+"ल्यूमेन",
+"सिनेप्स",
+"अंतरकला अवकाश",
+"स्ट्रोमा"
+],
+answer:1,
+explanation:"दो neurons के बीच communication junction को synapse कहा जाता है। Synaptic cleft में neurotransmitters द्वारा संकेत आगे पहुँचता है।",
+notes:[
+"Synapse → neuron-to-neuron communication.",
+"Neurotransmitter → chemical messenger.",
+"उदाहरण: acetylcholine, dopamine आदि।"
+]
+},
+
+{
+q:"एक न्यूरॉन दूसरे न्यूरॉन से __________ के माध्यम से तंत्रिका आवेग प्राप्त करता है।",
+options:[
+"डेंड्राइट",
+"कोशिका काय",
+"एक्सोन",
+"सिनेप्स"
+],
+answer:0,
+explanation:"दिए गए answer key के अनुसार A है। Dendrites incoming signals receive करते हैं। Synapse वह junction है जिसके माध्यम से दो neurons communicate करते हैं।",
+notes:[
+"Dendrite → receives signal.",
+"Synapse → communication junction.",
+"Axon → outgoing impulse."
+]
+},
+
+{
+q:"तंत्रिका आवेग संचरण के दौरान न्यूरोट्रांसमीटर एक तंत्रिकाकोशिका से निकलते हैं और दूसरी तरफ की तंत्रिकाकोशिका द्वारा ग्रहण किए जाते हैं। कौन-सा भाग मुख्यतः इस रासायनिक संचार में शामिल होता है?",
+options:[
+"तंत्रिकाक्ष → माइलिन आच्छद",
+"द्रुमाकृति → समान तंत्रिकाकोशिका का तंत्रिकाक्ष टर्मिनल",
+"कोशिका काय → समान तंत्रिकाकोशिका का तंत्रिकाक्ष",
+"तंत्रिकाक्ष टर्मिनल → अन्य तंत्रिकाकोशिका की द्रुमाकृति"
+],
+answer:3,
+explanation:"एक neuron का axon terminal neurotransmitter छोड़ता है और अगले neuron की dendrite/post-synaptic membrane उसे receive करती है।",
+notes:[
+"Presynaptic terminal → neurotransmitter release.",
+"Postsynaptic membrane → neurotransmitter receive.",
+"Synaptic transmission सामान्यतः chemical होता है।"
+]
+},
+
+{
+q:"निम्नलिखित में से कौन-सी पेशीय संरचना नेत्र लेंस की वक्रता को बदलकर उसकी फोकस दूरी बदलने के लिए उत्तरदायी है?",
+options:[
+"रेटिना",
+"पुतली",
+"सिलियरी पेशियां",
+"आइरिस"
+],
+answer:2,
+explanation:"Ciliary muscles lens की curvature को बदलने में सहायता करती हैं। इस प्रक्रिया को accommodation कहा जाता है।",
+notes:[
+"Ciliary muscles → lens curvature.",
+"Retina → image receives.",
+"Iris → pupil size controls.",
+"Pupil → eye में प्रवेश करने वाले प्रकाश की मात्रा नियंत्रित करता है।"
+]
+},
+
+{
+q:"हमारे शरीर में निम्नलिखित में से किसका पता रससंवेदी ग्राहियों (gustatory receptors) द्वारा लगाया जाता है?",
+options:[
+"प्रकाश",
+"गंध",
+"स्वाद",
+"ध्वनि"
+],
+answer:2,
+explanation:"Gustatory receptors स्वाद का पता लगाते हैं। ये मुख्यतः जीभ की taste buds में पाए जाते हैं।",
+notes:[
+"Gustatory → taste.",
+"Olfactory → smell.",
+"Photoreceptors → light.",
+"Auditory receptors → sound."
+]
+},
+
+{
+q:"निम्नलिखित में से कौन-सा विकल्प मांसपेशीय गति के लिए उत्तरदायी घटनाओं के अनुक्रम का सही वर्णन करता है?",
+options:[
+"रुधिर प्रवाह → प्रोटीन सक्रियण → तंत्रिका आवेग → गति",
+"पाचन → रुधिर परिसंचरण → गति",
+"तंत्रिका आवेग → मांसपेशी प्रोटीन अनुक्रिया → मांसपेशी संकुचन",
+"DNA प्रतिकृति → प्रोटीन संश्लेषण → मांसपेशी गति"
+],
+answer:2,
+explanation:"मोटर neuron से तंत्रिका आवेग muscle तक पहुँचता है। इसके बाद muscle proteins की interaction से muscle contraction होता है और movement उत्पन्न होती है।",
+notes:[
+"Muscle contraction में actin और myosin महत्वपूर्ण हैं।",
+"Calcium ion भी muscle contraction में महत्वपूर्ण भूमिका निभाता है।",
+"Motor neuron → muscle contraction → movement."
+]
+},
+
+{
+q:"पेशियों के संकुचन और शिथिलन के लिए कौन-से प्रोटीन आवश्यक हैं?",
+options:[
+"संकुचनशील प्रोटीन",
+"केराटिन और कोलेजन",
+"इलास्टिन और फाइब्रिन",
+"मायोग्लोबिन और हीमोग्लोबिन"
+],
+answer:0,
+explanation:"Actin और myosin जैसे contractile proteins मांसपेशियों के संकुचन में मुख्य भूमिका निभाते हैं।",
+notes:[
+"Actin और Myosin → contractile proteins.",
+"Myoglobin → muscle में oxygen storage से संबंधित।",
+"Haemoglobin → blood में oxygen transport."
+]
+},
+
+{
+q:"प्रतिवर्ती क्रिया के कार्य में निम्नलिखित में से कौन-सा अंग शामिल है?",
+options:[
+"मेरुरज्जु",
+"वृक्क",
+"मध्य कर्ण",
+"प्लीहा"
+],
+answer:0,
+explanation:"सामान्य spinal reflex में मेरुरज्जु reflex arc का महत्वपूर्ण केंद्र होता है।",
+notes:[
+"Reflex action → rapid and automatic response.",
+"Reflex arc → receptor → sensory neuron → spinal cord → motor neuron → effector.",
+"Brain बाद में sensation को perceive कर सकता है।"
+]
+},
+
+{
+q:"किसी गर्म वस्तु को हाथ से स्पर्श करने पर मनुष्य अपना हाथ तुरंत हटा लेता है, क्योंकि __________।",
+options:[
+"प्रत्येक जीवित जीव ऐसा कर सकता है",
+"मनुष्य दूसरों की तुलना में अधिक बुद्धिमान होता है",
+"मनुष्य स्पर्श के उद्दीपन के प्रति संवेदनशील होता है",
+"मनुष्य जीव जगत का सर्वोच्च प्राणी है"
+],
+answer:2,
+explanation:"गर्म वस्तु त्वचा के receptors को उत्तेजित करती है और reflex pathway के माध्यम से हाथ तेजी से पीछे हटता है।",
+notes:[
+"Stimulus → receptor.",
+"Reflex response rapid होता है।",
+"यह प्रतिक्रिया conscious thinking से पहले हो सकती है।"
+]
+},
+
+{
+q:"प्रतिवर्ती चाप के संदर्भ में तंत्रिका तंत्र का कौन-सा भाग बाह्य उत्तेजनाओं से सिग्नल प्राप्त करने और संचारित करने के लिए उत्तरदायी है?",
+options:[
+"रिले तंत्रिका-कोशिकाएं",
+"संवेदी तंत्रिका-कोशिकाएं",
+"प्रभावक पेशी",
+"प्रेरक तंत्रिका-कोशिकाएं"
+],
+answer:1,
+explanation:"Sensory neurons receptors से प्राप्त संकेतों को केंद्रीय तंत्रिका तंत्र तक ले जाते हैं।",
+notes:[
+"Sensory neuron → receptor से CNS.",
+"Relay neuron → CNS के अंदर connection.",
+"Motor neuron → CNS से effector."
+]
+},
+
+{
+q:"प्रतिवर्ती चाप में निम्नलिखित में से कौन-सा आवेग के सही पथ का निरूपण करता है?",
+options:[
+"ग्राही → मस्तिष्क → मेरु रज्जु → पेशी",
+"ग्राही → मेरु रज्जु → प्रेरक न्यूरॉन → पेशी",
+"ग्राही → मेरु रज्जु → मस्तिष्क → पेशी",
+"ग्राही → प्रेरक न्यूरॉन → मेरु रज्जु → पेशी"
+],
+answer:1,
+explanation:"Spinal reflex में receptor से sensory pathway द्वारा signal spinal cord तक जाता है और फिर motor neuron के माध्यम से muscle तक पहुँचता है।",
+notes:[
+"Basic path: Receptor → Sensory neuron → Spinal cord → Motor neuron → Effector.",
+"Reflex response बहुत तेज होता है।"
+]
+},
+
+{
+q:"किसी गर्म वस्तु को छूने पर हाथ को तेजी से पीछे खींचना __________ का उदाहरण है।",
+options:[
+"प्रतिवर्त क्रिया",
+"हार्मोन संबंधी क्रिया",
+"प्रानुकूलित क्रिया",
+"चिंतन क्रिया"
+],
+answer:0,
+explanation:"गर्म वस्तु से हाथ तुरंत हटाना reflex action का सामान्य उदाहरण है।",
+notes:[
+"Reflex action → rapid, automatic response.",
+"Reflex arc में spinal cord महत्वपूर्ण भूमिका निभाता है।",
+"यह protective response है।"
+]
+},
+
+{
+q:"निम्नलिखित विकल्पों में से कौन-सा प्रतिवर्त क्रिया का कार्य करता है?",
+options:[
+"मेरु रज्जु",
+"हाइपोथैलेमस",
+"कपाल",
+"पीयूष ग्रंथि"
+],
+answer:0,
+explanation:"Spinal reflexes में मेरुरज्जु reflex arc का मुख्य integration center होती है।",
+notes:[
+"Spinal cord → reflex actions.",
+"Pituitary → endocrine regulation.",
+"Hypothalamus → homeostasis और endocrine regulation."
+]
+},
+
+{
+q:"शरीर में प्रतिवर्ती चाप कहाँ बनता है?",
+options:[
+"मेरुरज्जु",
+"पश्च मस्तिष्क",
+"अग्र मस्तिष्क",
+"पेशी"
+],
+answer:0,
+explanation:"सामान्य spinal reflex arc मेरुरज्जु में बनता है। इससे प्रतिक्रिया तेजी से हो सकती है।",
+notes:[
+"Reflex arc → spinal cord.",
+"Brain बाद में reflex action की sensation को interpret कर सकता है।"
+]
+},
+
+{
+q:"कुकिंग के समय उबलते पानी/भाप से हाथ स्पर्श होने पर जलन महसूस होने से पहले ही हाथ क्यों खींच लिया जाता है?",
+options:[
+"क्योंकि मस्तिष्क प्रतिक्रिया में विलंब कर देता है।",
+"क्योंकि ऊष्मा शीघ्र वाष्पित हो जाती है।",
+"क्योंकि मेरु रज्जु प्रतिवर्ती क्रिया आरम्भ कर देता है।",
+"क्योंकि हाथ की पेशियाँ भाप का पता लगा लेती हैं।"
+],
+answer:2,
+explanation:"मेरुरज्जु reflex arc के माध्यम से motor neuron को signal भेजती है और हाथ तेजी से पीछे हट जाता है।",
+notes:[
+"Reflex response protective mechanism है।",
+"Brain को signal बाद में मिलता है और व्यक्ति pain को consciously महसूस करता है।"
+]
+},
+
+{
+q:"अधिवृक्क स्राव (Adrenaline) के संबंध में निम्नलिखित में से कौन-सा कथन गलत है?",
+options:[
+"यह पाचन तंत्र में रक्त की आपूर्ति को कम कर देता है और इसे कंकाल की पेशियों की ओर निर्देशित करता है।",
+"यह पेट में रक्त प्रवाह को बढ़ाकर पाचन को बढ़ावा देता है।",
+"यह शरीर को तनाव या आपात स्थिति में 'लड़ो या भागो' प्रतिक्रिया में सहायक होता है।",
+"यह पेशियों को अधिक ऑक्सीजन की आपूर्ति करने के लिए हृदय गति और श्वास दर को बढ़ाता है।"
+],
+answer:1,
+explanation:"Adrenaline emergency situation में digestive activity को प्राथमिकता नहीं देता। इसके विपरीत शरीर blood flow और energy को muscles तथा vital organs की ओर पुनर्वितरित करता है।",
+notes:[
+"Adrenaline = Fight or Flight hormone.",
+"Heart rate बढ़ती है।",
+"Breathing rate बढ़ सकती है।",
+"Digestive activity कम हो सकती है।"
+]
+},
+
+{
+q:"वयस्कों में वृद्धि हार्मोन के अति-स्रवण के परिणामस्वरूप निम्नलिखित में से क्या होता है?",
+options:[
+"ऐक्रोमिगेली",
+"एडिसन-रोग",
+"वामनता",
+"ग्रेव्स रोग"
+],
+answer:0,
+explanation:"वयस्क अवस्था में Growth Hormone की अधिकता से Acromegaly हो सकती है, जिसमें हाथ, पैर और चेहरे की हड्डियों/ऊतकों का आकार बढ़ सकता है।",
+notes:[
+"GH deficiency in childhood → dwarfism.",
+"GH excess in adults → Acromegaly.",
+"GH pituitary gland से संबंधित है।"
+]
+},
+
+{
+q:"मनुष्यों में वृद्धि हार्मोन (GH) का स्रवण कौन-सी ग्रंथि करती है?",
+options:[
+"एड्रिनल ग्रंथि",
+"थायरॉइड ग्रंथि",
+"पिट्यूटरी ग्रंथि",
+"पैंक्रियाज"
+],
+answer:2,
+explanation:"Growth hormone का secretion anterior pituitary से होता है।",
+notes:[
+"Pituitary = master gland.",
+"GH → body growth.",
+"Thyroid → thyroxine.",
+"Pancreas → insulin और glucagon."
+]
+},
+
+{
+q:"निम्नलिखित में से कौन-सी ग्रंथि मनुष्यों में वृद्धि हार्मोन का स्रवण करती है?",
+options:[
+"पीनियल ग्रंथि",
+"पीयूष ग्रंथि",
+"थायरॉइड",
+"अग्न्याशय"
+],
+answer:1,
+explanation:"पीयूष ग्रंथि यानी Pituitary gland Growth Hormone का स्राव करती है।",
+notes:[
+"Pituitary → Growth hormone.",
+"Thyroid → Thyroxine.",
+"Pancreas → Insulin.",
+"Adrenal → Adrenaline."
+]
+},
+
+{
+q:"थायरॉक्सिन की अनुपस्थिति में चयापचय गतिविधियों पर क्या प्रभाव पड़ता है?",
+options:[
+"वे अनियंत्रित रूप से तेज हो जाती हैं",
+"वे धीमे हो जाती हैं या असंतुलित हो जाती हैं",
+"वे पूरी तरह से रुक जाती हैं",
+"वे केवल पाचन को प्रभावित करती हैं"
+],
+answer:1,
+explanation:"Thyroxine शरीर की metabolic activities के regulation में महत्वपूर्ण है। इसकी कमी से metabolism धीमा हो सकता है।",
+notes:[
+"Thyroxine → thyroid gland.",
+"Iodine → thyroxine synthesis के लिए आवश्यक।",
+"Thyroxine metabolism और growth में महत्वपूर्ण है।"
+]
+},
+
+{
+q:"थायरॉइड ग्रंथि द्वारा थायरॉक्सिन हार्मोन स्रावित करने के लिए कौन-सा तत्व आवश्यक है?",
+options:[
+"ब्रोमीन",
+"क्लोरीन",
+"आयोडीन",
+"फ्लूओरीन"
+],
+answer:2,
+explanation:"थायरॉक्सिन के निर्माण के लिए आयोडीन आवश्यक तत्व है। आहार में आयोडीन की कमी से thyroid-related disorders हो सकते हैं।",
+notes:[
+"Iodine → Thyroxine synthesis.",
+"Thyroxine → metabolism regulation.",
+"Iodine deficiency → goitre का एक प्रमुख कारण हो सकता है।"
+]
+}
+
+];
+
+
+/* ===========================
+   QUIZ ENGINE
+=========================== */
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+let userAnswers = [];
+
+function loadQuestion(){
+
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("progressText").innerText =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    document.getElementById("scoreText").innerText =
+        `Score: ${score}`;
+
+    const percentage =
+        ((currentQuestion) / questions.length) * 100;
+
+    document.getElementById("progressFill").style.width =
+        percentage + "%";
+
+    let html = `
+        <div class="question-card">
+
+            <div class="question-number">
+                प्रश्न ${currentQuestion + 1}
+            </div>
+
+            <div class="question">
+                ${q.q}
+            </div>
+
+            <div id="options">
+    `;
+
+    q.options.forEach((option,index)=>{
+
+        html += `
+            <div class="option"
+                 onclick="selectAnswer(${index})"
+                 id="option-${index}">
+                <b>${String.fromCharCode(65+index)}.</b>
+                ${option}
+            </div>
+        `;
+
+    });
+
+    html += `
+            </div>
+
+            <div class="explanation" id="explanation">
+
+                <div class="answer-title" id="answerTitle"></div>
+
+                <div class="explanation-body">
+
+                    <strong>📖 Explanation:</strong>
+                    <p id="explanationText"></p>
+
+                    <div class="notes">
+                        <strong>📌 Exam में याद रखें:</strong>
+                        <ul id="notesList"></ul>
+                    </div>
+
+                    <div class="result-note" id="resultNote"></div>
+
+                </div>
+
+            </div>
+
+            <div class="buttons">
+                <button id="nextBtn" onclick="nextQuestion()" disabled>
+                    अगला प्रश्न ➜
+                </button>
+            </div>
+
+        </div>
+    `;
+
+    document.getElementById("quiz").innerHTML = html;
+}
+
+
+function selectAnswer(index){
+
+    if(answered) return;
+
+    answered = true;
+
+    const q = questions[currentQuestion];
+
+    userAnswers[currentQuestion] = index;
+
+    const allOptions =
+        document.querySelectorAll(".option");
+
+    allOptions.forEach((option,i)=>{
+
+        option.classList.add("disabled");
+
+        if(i === q.answer){
+            option.classList.add("correct");
+        }
+
+        if(i === index && index !== q.answer){
+            option.classList.add("wrong");
+        }
+
+    });
+
+    if(index === q.answer){
+        score++;
+    }
+
+    document.getElementById("scoreText").innerText =
+        `Score: ${score}`;
+
+    const explanation =
+        document.getElementById("explanation");
+
+    explanation.style.display = "block";
+
+    document.getElementById("answerTitle").innerHTML =
+        `✅ सही उत्तर: ${String.fromCharCode(65+q.answer)}. ${q.options[q.answer]}`;
+
+    document.getElementById("explanationText").innerText =
+        q.explanation;
+
+    const notesList =
+        document.getElementById("notesList");
+
+    notesList.innerHTML = "";
+
+    q.notes.forEach(note=>{
+        const li = document.createElement("li");
+        li.innerText = note;
+        notesList.appendChild(li);
+    });
+
+    if(index === q.answer){
+
+        document.getElementById("resultNote").innerHTML =
+            "🎯 <b>आपका उत्तर सही है!</b> अगला प्रश्न करने से पहले ऊपर दिए गए Exam Notes जरूर पढ़ें।";
+
+    }else{
+
+        document.getElementById("resultNote").innerHTML =
+            `❌ <b>आपका उत्तर गलत है।</b><br>
+             आपने चुना: ${String.fromCharCode(65+index)}. ${q.options[index]}<br>
+             सही उत्तर: ${String.fromCharCode(65+q.answer)}. ${q.options[q.answer]}`;
+
+    }
+
+    document.getElementById("nextBtn").disabled = false;
+
+    document.getElementById("nextBtn").innerText =
+        currentQuestion === questions.length - 1
+        ? "🏁 Test समाप्त करें"
+        : "अगला प्रश्न ➜";
+
+}
+
+
+function nextQuestion(){
+
+    if(!answered) return;
+
+    currentQuestion++;
+
+    if(currentQuestion >= questions.length){
+
+        showResult();
+
+    }else{
+
+        loadQuestion();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+}
+
+
+function showResult(){
+
+    document.getElementById("quiz").style.display = "none";
+
+    document.querySelector(".progress-section").style.display = "none";
+
+    const result =
+        document.getElementById("result");
+
+    result.style.display = "block";
+
+    document.getElementById("finalScore").innerText =
+        `${score}/${questions.length}`;
+
+    const wrong =
+        questions.length - score;
+
+    const percent =
+        Math.round((score / questions.length) * 100);
+
+    document.getElementById("correctCount").innerText =
+        score;
+
+    document.getElementById("wrongCount").innerText =
+        wrong;
+
+    document.getElementById("percentage").innerText =
+        percent + "%";
+
+    let reviewHTML =
+        "<h3>📋 Question Review</h3>";
+
+    questions.forEach((q,i)=>{
+
+        const user =
+            userAnswers[i];
+
+        const isCorrect =
+            user === q.answer;
+
+        reviewHTML += `
+            <div class="review-item
+                ${isCorrect ? 'review-correct':'review-wrong'}">
+
+                <b>Q${i+1}.</b>
+
+                ${isCorrect ? "✅ सही" : "❌ गलत"}
+
+                ${!isCorrect
+                    ? ` — सही उत्तर:
+                       ${String.fromCharCode(65+q.answer)}`
+                    : ""}
+
+            </div>
+        `;
+
+    });
+
+    document.getElementById("review").innerHTML =
+        reviewHTML;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+function restartQuiz(){
+
+    currentQuestion = 0;
+    score = 0;
+    answered = false;
+    userAnswers = [];
+
+    document.getElementById("quiz").style.display = "block";
+
+    document.querySelector(".progress-section").style.display = "block";
+
+    document.getElementById("result").style.display = "none";
+
+    loadQuestion();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* START */
+loadQuestion();
+
+</script>
+
+</body>
+</html>
