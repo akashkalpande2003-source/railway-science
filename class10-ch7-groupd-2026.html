@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Reproduction TCS Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f2f4f7;
+    color:#222;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:64px;
+    background:#172554;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.test-name{
+    font-size:13px;
+    margin-top:3px;
+    opacity:.9;
+}
+
+.timer-box{
+    background:white;
+    color:#b91c1c;
+    padding:9px 15px;
+    min-width:100px;
+    text-align:center;
+    border-radius:6px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* ================= PALETTE BUTTON ================= */
+
+/* Right top button */
+
+.palette-toggle{
+    position:fixed;
+    right:15px;
+    top:78px;
+    z-index:1200;
+
+    background:#172554;
+    color:white;
+
+    border:none;
+    border-radius:6px;
+
+    padding:11px 15px;
+
+    font-size:14px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}
+
+.palette-toggle:hover{
+    background:#1e3a8a;
+}
+
+
+/* ================= PALETTE ================= */
+
+.palette{
+    position:fixed;
+
+    right:15px;
+    top:125px;
+
+    width:245px;
+
+    background:white;
+
+    border-radius:8px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.22);
+
+    padding:14px;
+
+    z-index:1100;
+
+    display:none;
+}
+
+/* जब palette open होगी */
+
+.palette.show{
+    display:block;
+}
+
+.palette-title{
+    color:#172554;
+    font-size:17px;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:12px;
+}
+
+/* ================= LEGEND ================= */
+
+.legend{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+
+    margin-bottom:13px;
+
+    font-size:11px;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.legend-box{
+    width:15px;
+    height:15px;
+    border-radius:3px;
+}
+
+.legend-not{
+    background:#e5e7eb;
+}
+
+.legend-answer{
+    background:#16a34a;
+}
+
+.legend-review{
+    background:#f59e0b;
+}
+
+.legend-review-answer{
+    background:#7c3aed;
+}
+
+/* ================= 3 COLUMN PALETTE ================= */
+
+.palette-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:8px;
+
+    max-height:400px;
+
+    overflow-y:auto;
+
+    padding-right:3px;
+}
+
+.palette-btn{
+    width:100%;
+    height:36px;
+
+    border:none;
+
+    border-radius:5px;
+
+    background:#e5e7eb;
+
+    color:#111827;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    font-size:13px;
+}
+
+.palette-btn:hover{
+    outline:2px solid #2563eb;
+}
+
+.palette-btn.answered{
+    background:#16a34a;
+    color:white;
+}
+
+.palette-btn.review{
+    background:#f59e0b;
+    color:white;
+}
+
+.palette-btn.reviewAnswered{
+    background:#7c3aed;
+    color:white;
+}
+
+.palette-btn.current{
+    outline:3px solid #172554;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    max-width:1000px;
+    margin:auto;
+    padding:20px;
+}
+
+/* ================= QUESTION ================= */
+
+.question-card{
+    background:white;
+
+    border-radius:8px;
+
+    padding:25px;
+
+    min-height:520px;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.08);
+}
+
+.question-number{
+    font-size:19px;
+    font-weight:bold;
+
+    color:#172554;
+
+    margin-bottom:16px;
+}
+
+.question-text{
+    font-size:18px;
+
+    line-height:1.75;
+
+    font-weight:600;
+
+    margin-bottom:22px;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+}
+
+.option{
+    border:1px solid #d1d5db;
+
+    background:#fff;
+
+    padding:14px 15px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    line-height:1.55;
+
+    transition:.2s;
+}
+
+.option:hover{
+    background:#f8fafc;
+
+    border-color:#64748b;
+}
+
+.option.selected{
+    background:#dbeafe;
+
+    border:2px solid #2563eb;
+}
+
+.option input{
+    margin-right:9px;
+}
+
+/* ================= BUTTONS ================= */
+
+.button-area{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:25px;
+
+    padding-top:18px;
+
+    border-top:1px solid #ddd;
+}
+
+.btn{
+    border:none;
+
+    padding:11px 17px;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    font-weight:bold;
+}
+
+.btn:disabled{
+    opacity:.45;
+
+    cursor:not-allowed;
+}
+
+.btn-prev{
+    background:#64748b;
+    color:white;
+}
+
+.btn-clear{
+    background:#e5e7eb;
+    color:#111827;
+}
+
+.btn-review{
+    background:#f59e0b;
+    color:white;
+}
+
+.btn-next{
+    background:#2563eb;
+    color:white;
+}
+
+.btn-submit{
+    background:#dc2626;
+    color:white;
+}
+
+/* ================= RESULT ================= */
+
+.result{
+    display:none;
+
+    max-width:950px;
+
+    margin:30px auto;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.12);
+}
+
+.result h2{
+    text-align:center;
+
+    color:#172554;
+
+    margin-bottom:20px;
+}
+
+.score-box{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:10px;
+}
+
+.score-item{
+    background:#f1f5f9;
+
+    padding:15px;
+
+    border-radius:7px;
+
+    text-align:center;
+}
+
+.score-item strong{
+    display:block;
+
+    font-size:24px;
+
+    margin-top:5px;
+}
+
+.answer-review{
+    margin-top:25px;
+}
+
+.review-question{
+    border:1px solid #ddd;
+
+    border-radius:7px;
+
+    padding:15px;
+
+    margin-bottom:12px;
+
+    line-height:1.6;
+}
+
+.correct-text{
+    color:#15803d;
+
+    font-weight:bold;
+}
+
+.wrong-text{
+    color:#dc2626;
+
+    font-weight:bold;
+}
+
+.unattempted-text{
+    color:#64748b;
+
+    font-weight:bold;
+}
+
+.explanation{
+    margin-top:10px;
+
+    background:#f8fafc;
+
+    border-left:4px solid #2563eb;
+
+    padding:10px;
+
+    line-height:1.6;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .header{
+        height:auto;
+
+        min-height:60px;
+
+        padding:9px 12px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .test-name{
+        display:none;
+    }
+
+    .timer-box{
+        font-size:16px;
+
+        min-width:90px;
+
+        padding:7px 10px;
+    }
+
+    .palette-toggle{
+        right:10px;
+
+        top:72px;
+
+        padding:9px 12px;
+
+        font-size:13px;
+    }
+
+    .palette{
+        right:10px;
+
+        top:116px;
+
+        width:230px;
+
+        max-width:calc(100vw - 20px);
+    }
+
+    .palette-grid{
+        grid-template-columns:repeat(3,1fr);
+
+        max-height:330px;
+    }
+
+    .main{
+        padding:12px;
+    }
+
+    .question-card{
+        padding:17px;
+    }
+
+    .question-text{
+        font-size:16px;
+    }
+
+    .score-box{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .button-area .btn{
+        flex:1 1 45%;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<div class="header">
+
+    <div>
+
+        <div class="logo">
+            Railway Science
+        </div>
+
+        <div class="test-name">
+            Reproduction | TCS Style Mock Test
+        </div>
+
+    </div>
+
+    <div class="timer-box" id="timer">
+        20:00
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     RIGHT TOP PALETTE BUTTON
+===================================================== -->
+
+<button
+    class="palette-toggle"
+    id="paletteToggle"
+    onclick="togglePalette()">
+
+    ☰ Palette
+
+</button>
+
+
+<!-- =====================================================
+     QUESTION PALETTE
+===================================================== -->
+
+<div class="palette" id="paletteBox">
+
+    <div class="palette-title">
+        Question Palette
+    </div>
+
+    <div class="legend">
+
+        <div class="legend-item">
+            <span class="legend-box legend-not"></span>
+            Not Answered
+        </div>
+
+        <div class="legend-item">
+            <span class="legend-box legend-answer"></span>
+            Answered
+        </div>
+
+        <div class="legend-item">
+            <span class="legend-box legend-review"></span>
+            Review
+        </div>
+
+        <div class="legend-item">
+            <span class="legend-box legend-review-answer"></span>
+            Ans + Review
+        </div>
+
+    </div>
+
+    <!-- 3 COLUMNS -->
+
+    <div
+        class="palette-grid"
+        id="palette">
+    </div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+    <div
+        id="questionContainer"
+        class="question-card">
+    </div>
+
+</div>
+
+
+<!-- ================= RESULT ================= -->
+
+<div id="result" class="result">
+
+    <h2>
+        Mock Test Result
+    </h2>
+
+    <div class="score-box">
+
+        <div class="score-item">
+            Total Questions
+            <strong id="totalQ">23</strong>
+        </div>
+
+        <div class="score-item">
+            Correct
+            <strong id="correctCount">0</strong>
+        </div>
+
+        <div class="score-item">
+            Wrong
+            <strong id="wrongCount">0</strong>
+        </div>
+
+        <div class="score-item">
+            Final Score
+            <strong id="finalScore">0</strong>
+        </div>
+
+    </div>
+
+    <div
+        style="
+        margin-top:15px;
+        text-align:center;
+        "
+    >
+
+        Unattempted:
+        <strong id="unattemptedCount">
+            0
+        </strong>
+
+        &nbsp; | &nbsp;
+
+        Negative Marking:
+        <strong>
+            −1/3
+        </strong>
+
+    </div>
+
+    <div class="answer-review">
+
+        <h3
+            style="
+            margin-bottom:15px;
+            color:#172554;
+            "
+        >
+            Question-wise Explanation
+        </h3>
+
+        <div id="reviewContainer"></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   QUESTIONS
+========================================================= */
+
+const questions = [
+
+{
+q:`अमीबा, यीस्ट और हाइड्रा केवल एक जनक जीव की उपस्थिति में भी जनन कर सकते हैं। इससे अलैंगिक प्रजनन के बारे में क्या निष्कर्ष निकलता है?`,
+options:[
+`यह युग्मकों के संलयन के बिना होता है।`,
+`यह केवल बहुकोशिकी जीवों को उत्पन्न करता है।`,
+`जनन के लिए बीज की आवश्यकता होती है।`,
+`दो जनक सदैव आवश्यक होते हैं।`
+],
+answer:0,
+explanation:`अलैंगिक प्रजनन में केवल एक जनक की आवश्यकता होती है और युग्मकों का संलयन नहीं होता। अमीबा में द्विखंडन तथा यीस्ट और हाइड्रा में मुकुलन इसके उदाहरण हैं।`
+},
+
+{
+q:`एक दंपति भविष्य में सगर्भता से बचने के लिए स्थायी सर्जिकल गर्भनिरोध पर विचार कर रहा है। यौन संचारित रोगों के संदर्भ में निम्नलिखित में से क्या इस उपागम की सीमा है?`,
+options:[
+`हार्मोनल दुष्प्रभावों को बढ़ाता है`,
+`मौखिक गोलियों द्वारा प्रतिवर्ती किया जा सकता है`,
+`गर्भाशय क्षोभ का कारण बनता है`,
+`संक्रमण को रोकता नहीं है`
+],
+answer:3,
+explanation:`स्थायी गर्भनिरोध जैसे vasectomy और tubectomy गर्भधारण रोकने के लिए होते हैं, लेकिन ये यौन संचारित संक्रमणों से सुरक्षा नहीं देते।`
+},
+
+{
+q:`एक तालाब में मादा मेंढक द्वारा दिए गए जेली जैसे अंडों का एक बड़ा गुच्छ (cluster) है। मेंढकों में निषेचन का सबसे संभावित तरीका क्या है?`,
+options:[
+`तालाब के पादपों के भीतर आंतरिक निषेचन`,
+`वैज्ञानिकों द्वारा पात्रे निषेचन`,
+`जेली जैसे अंडों का अलैंगिक मुकुलन`,
+`जल में बाह्य निषेचन`
+],
+answer:3,
+explanation:`मेंढकों में मादा पानी में अंडे देती है और नर पानी में शुक्राणु छोड़ता है। इसलिए निषेचन सामान्यतः जल में बाह्य रूप से होता है।`
+},
+
+{
+q:`निम्नलिखित का मिलान कीजिए। कॉलम I: 1. अंडाशय 2. डिंबवाहिनी 3. गर्भाशय। कॉलम II: a. भ्रूण विकास स्थल b. अंडों और हार्मोन का स्राव c. वह स्थल जहाँ निषेचन होता है`,
+options:[
+`1–c, 2–b, 3–a`,
+`1–b, 2–c, 3–a`,
+`1–a, 2–c, 3–b`,
+`1–b, 2–a, 3–c`
+],
+answer:1,
+explanation:`अंडाशय अंडों तथा हार्मोन का स्राव करता है। डिंबवाहिनी में सामान्यतः निषेचन होता है। गर्भाशय भ्रूण के विकास का प्रमुख स्थल है।`
+},
+
+{
+q:`निम्नलिखित में से किस एक को छोड़कर शेष सभी, मानव मादा जनन तंत्र के भाग हैं?`,
+options:[
+`गर्भाशय (Uterus)`,
+`अंडवाहिनी (Oviducts)`,
+`योनि (Vagina)`,
+`शुक्रवाहिका (Vas deferens)`
+],
+answer:3,
+explanation:`गर्भाशय, अंडवाहिनी और योनि महिला जनन तंत्र के भाग हैं। शुक्रवाहिका पुरुष जनन तंत्र की संरचना है।`
+},
+
+{
+q:`नौ सप्ताह की गर्भवती महिला जांच के लिए क्लिनिक जाती है। डॉक्टर बताते हैं कि विकसित हो रहे बच्चे को अब 'भ्रूण' कहा जाता है और अंगों का विकास जारी रहेगा। वह वर्तमान में किस त्रिमास में है?`,
+options:[
+`तीसरे त्रिमास`,
+`पहले त्रिमास`,
+`दूसरे त्रिमास`,
+`बाद की अवस्था`
+],
+answer:1,
+explanation:`9 सप्ताह की गर्भावस्था प्रथम त्रिमास में आती है।`
+},
+
+{
+q:`मनुष्यों में, कौन-सी जनन कोशिका में एक पूंछ (tail) होती है जो उसे अंडे की तरफ ले जाती है?`,
+options:[
+`युग्मनज`,
+`शुक्राणु`,
+`भ्रूण`,
+`अंडा`
+],
+answer:1,
+explanation:`शुक्राणु में पूंछ या flagellum होता है, जो उसकी गति में सहायता करता है।`
+},
+
+{
+q:`शुक्राणु कोशिका के ____________ में निषेचन के लिए आवश्यक आनुवंशिक पदार्थ होता है।`,
+options:[
+`शीर्ष (Head)`,
+`पूँछ (Tail)`,
+`तरल (Fluid)`,
+`झिल्ली (Membrane)`
+],
+answer:0,
+explanation:`शुक्राणु के सिर में केंद्रक होता है, जिसमें आनुवंशिक पदार्थ DNA उपस्थित होता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सी संरचना, पुरुष प्रजनन तंत्र से संबंधित नहीं है?`,
+options:[
+`शिश्न`,
+`डिंबवाहिनी नली`,
+`शुक्रवाहिका`,
+`वृषणकोश`
+],
+answer:1,
+explanation:`डिंबवाहिनी नली महिला जनन तंत्र का भाग है।`
+},
+
+{
+q:`समवृत्तिता (analogy) को पूर्ण कीजिए। शुक्राणु उत्पादन : वृषण :: अंड उत्पादन : ___________`,
+options:[
+`अंडाशय`,
+`योनि`,
+`डिंबवाहिनी नली`,
+`गर्भाशय`
+],
+answer:0,
+explanation:`शुक्राणु वृषण में तथा अंडाणु अंडाशय में विकसित होते हैं।`
+},
+
+{
+q:`एक महिला को मासिक धर्म में अत्यधिक और दीर्घवधि तक रक्तस्राव होता है। उसके डॉक्टर को अंतर्गर्भाशय-कला (endometrium) से संबंधित समस्या होने का संदेह है। इस लक्षण का कारण बनने वाली कौन-सी शरीरक्रियात्मक प्रक्रिया सर्वाधिक प्रत्यक्ष रूप से प्रभावित होती है?`,
+options:[
+`रक्त वाहिका निर्माण में कमी`,
+`डिंब-ग्रंथि हार्मोन के उत्पादन में कमी`,
+`अंतर्गर्भाशयकला ऊतक का अत्यधिक झड़ना`,
+`डिंब के स्राव में विलंब`
+],
+answer:2,
+explanation:`अंतर्गर्भाशयकला के अत्यधिक झड़ने से मासिक धर्म में अधिक और लंबे समय तक रक्तस्राव हो सकता है।`
+},
+
+{
+q:`कौन-सा अंग, मासिक धर्म चक्र को नियंत्रित करने वाले हार्मोन का उत्पादन करता है?`,
+options:[
+`अग्न्याशय`,
+`वृषण`,
+`अंडाशय`,
+`थायराइड`
+],
+answer:2,
+explanation:`अंडाशय estrogen और progesterone जैसे हार्मोन का उत्पादन करते हैं।`
+},
+
+{
+q:`मनुष्यों में, प्रायः प्रत्येक माह किसी एक अंडाशय से एक परिपक्व अंडा मोचित होता है; इस प्रक्रिया को ___________ कहते हैं।`,
+options:[
+`यौवनारंभ`,
+`अंडोत्सर्ग`,
+`रजोनिवृत्ति`,
+`शुक्राणुजनन`
+],
+answer:1,
+explanation:`अंडाशय से परिपक्व अंडाणु के निकलने को अंडोत्सर्ग या ovulation कहते हैं।`
+},
+
+{
+q:`मनुष्यों में, जहाँ पुरुष लाखों शुक्राणु उत्पन्न करते हैं, वहीं महिलाएँ सामान्यतः प्रत्येक माह ___________।`,
+options:[
+`केवल एक परिपक्व अंडा उत्पन्न करती हैं`,
+`कुछ सौ परिपक्व अंडे उत्पन्न करती हैं`,
+`एक भी परिपक्व अंडा उत्पन्न नहीं करती हैं`,
+`हजारों परिपक्व अंडे उत्पन्न करती हैं`
+],
+answer:0,
+explanation:`सामान्य मासिक चक्र में सामान्यतः एक परिपक्व अंडाणु अंडोत्सर्ग के दौरान निकलता है।`
+},
+
+{
+q:`13 वर्षीय एक बालिका के मासिक धर्म शुरू होता है, लेकिन पहले वर्ष में अनियमित चक्र होते हैं। जननीय परिपक्वता के अनुसार, इस पैटर्न में संभवतः कौन-सा अंतर्निहित कारक सर्वाधिक योगदान देता है?`,
+options:[
+`पूर्णतः परिपक्व अंडाशय`,
+`निरंतर अंड का मोचन`,
+`पूर्णतः विकसित गर्भाशय`,
+`अपरिपक्व हार्मोनल विनियमन`
+],
+answer:3,
+explanation:`मासिक धर्म शुरू होने के शुरुआती वर्षों में हार्मोनल नियंत्रण पूरी तरह नियमित नहीं हुआ होता, इसलिए चक्र अनियमित हो सकते हैं।`
+},
+
+{
+q:`समवृत्ति (analogy) को पूर्ण कीजिए। परागण : परागकण स्थानांतरण :: निषेचन : ___________`,
+options:[
+`तने की वृद्धि`,
+`युग्मकों का संलयन`,
+`फलों का पकना`,
+`जल का अवशोषण`
+],
+answer:1,
+explanation:`निषेचन में नर और मादा युग्मकों का संलयन होता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सी, कीट-परागित पुष्पों की अभिलाक्षणिक विशेषता नहीं है?`,
+options:[
+`कीटों को आकर्षित करने वाली चमकीले रंग की पंखुड़ियाँ`,
+`परागकणों को आकर्षित करने के लिए मकरंद और सुगंध का उत्पादन`,
+`कीटों से पराग प्राप्त करने के लिए अनुकूलित चिपचिपा वर्तिकाग्र`,
+`बहुत बड़ी संख्या में हल्के और छोटे पराग कणों का उत्पादन`
+],
+answer:3,
+explanation:`बहुत बड़ी संख्या में हल्के और छोटे परागकण वायु-परागित पुष्पों की विशेषता है।`
+},
+
+{
+q:`मादा में अवरुद्ध अंडवाहिनी के कारण एक दंपति स्वाभाविक रूप से गर्भधारण नहीं कर पा रहा है। कौन-सी चिकित्सा तकनीक उन्हें गर्भधारण करने में सहायता कर सकती है?`,
+options:[
+`कृत्रिम गर्भाधान (Artificial insemination)`,
+`इन-विट्रो फर्टिलाइजेशन (In-vitro Fertilisation)`,
+`अल्ट्रासाउंड इमेजिंग (Ultrasound imaging)`,
+`हार्मोन थेरेपी (Hormone therapy)`
+],
+answer:1,
+explanation:`IVF में निषेचन शरीर के बाहर प्रयोगशाला में किया जाता है और भ्रूण को गर्भाशय में स्थानांतरित किया जाता है।`
+},
+
+{
+q:`एक महिला IVF से गुजरती है और निषेचित अंडे को उसके गर्भाशय में प्रत्यारोपित किया जाता है। इस परिदृश्य में, निम्न में से कौन-सा उसकी गर्भावस्था की नैदानिक शुरुआत को चिह्नित करता है?`,
+options:[
+`प्रयोगशाला में मैनुअल निषेचन`,
+`अंडे का प्राकृतिक अंडोत्सर्ग`,
+`निषेचित अंडे का प्रत्यारोपण`,
+`युग्मनज का प्रारंभिक विभाजन`
+],
+answer:2,
+explanation:`IVF में निषेचन प्रयोगशाला में होता है। गर्भाशय में भ्रूण का implantation गर्भावस्था स्थापित होने की महत्वपूर्ण घटना है।`
+},
+
+{
+q:`हैबरलैंड्ट (Haberlandt) द्वारा प्रस्तावित, एकल परिपक्व पादप कोशिका की पूर्ण पादप में विकसित होने की क्षमता को क्या कहा जाता है?`,
+options:[
+`पारगम्यता (Permeability)`,
+`पूर्णशक्तता (Totipotency)`,
+`संपर्क संदमन (Contact inhibition)`,
+`स्फीति (Turgidity)`
+],
+answer:1,
+explanation:`एकल पादप कोशिका की संपूर्ण पौधे में विकसित होने की क्षमता को totipotency कहते हैं।`
+},
+
+{
+q:`कोशिका संवर्धन का अभिप्राय ___________ कोशिकाओं के वर्धन की प्रक्रिया से है।`,
+options:[
+`काय के अंदर`,
+`केवल मृदा में`,
+`काय के बाहर`,
+`बिना पोषक तत्वों के`
+],
+answer:2,
+explanation:`Cell culture में कोशिकाओं को जीव के शरीर से बाहर उपयुक्त पोषक माध्यम में विकसित किया जाता है।`
+},
+
+{
+q:`कायिक प्रवर्धन के संदर्भ में निम्नलिखित में से कौन-सा कथन गलत है?`,
+options:[
+`संतति आनुवंशिक रूप से जनक के समान होते हैं।`,
+`इस प्रक्रम में केवल एक जनक सम्मिलित होता है।`,
+`बीज-धारक संरचनाओं से नए पादप विकसित होते हैं।`,
+`तनों, मूलों या पत्तियों से नए पौधे उत्पन्न होते हैं।`
+],
+answer:2,
+explanation:`कायिक प्रवर्धन में नए पौधे बीज से नहीं, बल्कि तना, जड़ या पत्ती जैसे कायिक भागों से उत्पन्न होते हैं।`
+},
+
+{
+q:`किसान कई पादपों को समान उपयोगी विशेषकों के साथ उगाने के लिए कर्तन, कलम बांधना और ऊतक संवर्धन का उपयोग करते हैं। इन विधियों को वरीयता क्यों दी जाती है?`,
+options:[
+`क्योंकि वे सदैव नई किस्मों का निर्माण करते हैं`,
+`क्योंकि वे परागण कीटों पर निर्भर करते हैं`,
+`क्योंकि वे आनुवंशिक रूप से एकसमान पादप उत्पन्न करते हैं`,
+`क्योंकि वे पादपों में पुष्पन् को रोक देते हैं`
+],
+answer:2,
+explanation:`इन कायिक प्रवर्धन विधियों से सामान्यतः आनुवंशिक रूप से समान पौधे प्राप्त होते हैं, जिससे वांछित गुण बनाए रखना आसान होता है।`
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentQuestion = 0;
+
+let selectedAnswers =
+    new Array(questions.length).fill(null);
+
+let markedReview =
+    new Array(questions.length).fill(false);
+
+let timeLeft = 20 * 60;
+
+let testSubmitted = false;
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const questionContainer =
+    document.getElementById("questionContainer");
+
+const palette =
+    document.getElementById("palette");
+
+const paletteBox =
+    document.getElementById("paletteBox");
+
+
+/* =========================================================
+   PALETTE OPEN / CLOSE
+========================================================= */
+
+function togglePalette(){
+
+    paletteBox.classList.toggle("show");
+
+    const button =
+        document.getElementById("paletteToggle");
+
+    if(paletteBox.classList.contains("show")){
+
+        button.innerHTML =
+            "✕ Close Palette";
+
+    }
+    else{
+
+        button.innerHTML =
+            "☰ Palette";
+
+    }
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function updateTimer(){
+
+    const minutes =
+        Math.floor(timeLeft / 60);
+
+    const seconds =
+        timeLeft % 60;
+
+    document.getElementById("timer").textContent =
+        String(minutes).padStart(2,"0")
+        + ":" +
+        String(seconds).padStart(2,"0");
+
+    if(timeLeft <= 60){
+
+        document.getElementById("timer").style.background =
+            "#fee2e2";
+
+        document.getElementById("timer").style.color =
+            "#b91c1c";
+
+    }
+
+    if(timeLeft <= 0){
+
+        clearInterval(timerInterval);
+
+        submitTest(true);
+
+        return;
+
+    }
+
+    timeLeft--;
+
+}
+
+const timerInterval =
+    setInterval(updateTimer,1000);
+
+
+/* =========================================================
+   PALETTE RENDER
+========================================================= */
+
+function renderPalette(){
+
+    palette.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "palette-btn";
+
+        button.textContent =
+            index + 1;
+
+        if(
+            selectedAnswers[index] !== null &&
+            markedReview[index]
+        ){
+
+            button.classList.add(
+                "reviewAnswered"
+            );
+
+        }
+        else if(
+            markedReview[index]
+        ){
+
+            button.classList.add(
+                "review"
+            );
+
+        }
+        else if(
+            selectedAnswers[index] !== null
+        ){
+
+            button.classList.add(
+                "answered"
+            );
+
+        }
+
+        if(index === currentQuestion){
+
+            button.classList.add(
+                "current"
+            );
+
+        }
+
+        button.onclick = ()=>{
+
+            currentQuestion = index;
+
+            renderQuestion();
+
+            /*
+              Question select करने के बाद
+              palette automatically close होगी
+            */
+
+            paletteBox.classList.remove("show");
+
+            document.getElementById(
+                "paletteToggle"
+            ).innerHTML =
+                "☰ Palette";
+
+        };
+
+        palette.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion(){
+
+    const q =
+        questions[currentQuestion];
+
+    let html = `
+
+        <div class="question-number">
+            Question ${currentQuestion + 1}
+            of ${questions.length}
+        </div>
+
+        <div class="question-text">
+            ${q.q}
+        </div>
+
+        <div class="options">
+    `;
+
+    q.options.forEach((option,index)=>{
+
+        const selected =
+            selectedAnswers[currentQuestion]
+            === index;
+
+        html += `
+
+            <label
+                class="option
+                ${selected ? "selected" : ""}"
+            >
+
+                <input
+                    type="radio"
+                    name="question${currentQuestion}"
+                    value="${index}"
+                    ${selected ? "checked" : ""}
+                    onchange="selectAnswer(${index})"
+                >
+
+                <strong>
+                    ${String.fromCharCode(65+index)}.
+                </strong>
+
+                ${option}
+
+            </label>
+
+        `;
+
+    });
+
+    html += `
+
+        </div>
+
+        <div class="button-area">
+
+            <button
+                class="btn btn-prev"
+                onclick="previousQuestion()"
+                ${currentQuestion === 0
+                    ? "disabled"
+                    : ""}>
+                ← Previous
+            </button>
+
+            <button
+                class="btn btn-clear"
+                onclick="clearAnswer()">
+                Clear Response
+            </button>
+
+            <button
+                class="btn btn-review"
+                onclick="markReviewAndNext()">
+
+                ${
+                    markedReview[currentQuestion]
+                    ? "Unmark Review"
+                    : "Mark for Review"
+                }
+
+            </button>
+
+            <button
+                class="btn btn-next"
+                onclick="saveAndNext()">
+                Save & Next →
+            </button>
+
+            <button
+                class="btn btn-submit"
+                onclick="confirmSubmit()">
+                Submit Test
+            </button>
+
+        </div>
+    `;
+
+    questionContainer.innerHTML =
+        html;
+
+    renderPalette();
+
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(index){
+
+    selectedAnswers[currentQuestion] =
+        index;
+
+    renderQuestion();
+
+}
+
+
+/* =========================================================
+   CLEAR RESPONSE
+========================================================= */
+
+function clearAnswer(){
+
+    selectedAnswers[currentQuestion] =
+        null;
+
+    renderQuestion();
+
+}
+
+
+/* =========================================================
+   SAVE & NEXT
+========================================================= */
+
+function saveAndNext(){
+
+    if(
+        currentQuestion <
+        questions.length - 1
+    ){
+
+        currentQuestion++;
+
+        renderQuestion();
+
+    }
+    else{
+
+        confirmSubmit();
+
+    }
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        renderQuestion();
+
+    }
+
+}
+
+
+/* =========================================================
+   MARK REVIEW
+========================================================= */
+
+function markReviewAndNext(){
+
+    markedReview[currentQuestion] =
+        !markedReview[currentQuestion];
+
+    if(
+        currentQuestion <
+        questions.length - 1
+    ){
+
+        currentQuestion++;
+
+    }
+
+    renderQuestion();
+
+}
+
+
+/* =========================================================
+   CONFIRM SUBMIT
+========================================================= */
+
+function confirmSubmit(){
+
+    const unanswered =
+        selectedAnswers.filter(
+            x => x === null
+        ).length;
+
+    const reviewed =
+        markedReview.filter(
+            x => x === true
+        ).length;
+
+    const message =
+
+`क्या आप Test Submit करना चाहते हैं?
+
+Unanswered Questions: ${unanswered}
+Marked for Review: ${reviewed}
+
+Correct Answer: +1
+Wrong Answer: −1/3`;
+
+    if(confirm(message)){
+
+        submitTest(false);
+
+    }
+
+}
+
+
+/* =========================================================
+   SUBMIT TEST
+========================================================= */
+
+function submitTest(autoSubmit){
+
+    if(testSubmitted)
+        return;
+
+    testSubmitted = true;
+
+    clearInterval(timerInterval);
+
+    let correct = 0;
+
+    let wrong = 0;
+
+    let unattempted = 0;
+
+    questions.forEach((q,index)=>{
+
+        const answer =
+            selectedAnswers[index];
+
+        if(answer === null){
+
+            unattempted++;
+
+        }
+        else if(
+            answer === q.answer
+        ){
+
+            correct++;
+
+        }
+        else{
+
+            wrong++;
+
+        }
+
+    });
+
+    const score =
+        correct -
+        (wrong / 3);
+
+    document.querySelector(".main")
+        .style.display = "none";
+
+    document.getElementById("paletteBox")
+        .style.display = "none";
+
+    document.getElementById("paletteToggle")
+        .style.display = "none";
+
+    document.getElementById("result")
+        .style.display = "block";
+
+    document.getElementById("totalQ")
+        .textContent =
+        questions.length;
+
+    document.getElementById("correctCount")
+        .textContent =
+        correct;
+
+    document.getElementById("wrongCount")
+        .textContent =
+        wrong;
+
+    document.getElementById("unattemptedCount")
+        .textContent =
+        unattempted;
+
+    document.getElementById("finalScore")
+        .textContent =
+        score.toFixed(2);
+
+    createAnswerReview();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   EXPLANATION / REVIEW
+========================================================= */
+
+function createAnswerReview(){
+
+    const container =
+        document.getElementById(
+            "reviewContainer"
+        );
+
+    container.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const userAnswer =
+            selectedAnswers[index];
+
+        let statusHTML = "";
+
+        if(userAnswer === null){
+
+            statusHTML = `
+                <div class="unattempted-text">
+                    Not Attempted
+                </div>
+            `;
+
+        }
+        else if(
+            userAnswer === q.answer
+        ){
+
+            statusHTML = `
+                <div class="correct-text">
+                    ✓ Correct Answer
+                </div>
+            `;
+
+        }
+        else{
+
+            statusHTML = `
+                <div class="wrong-text">
+                    ✗ Wrong Answer
+                </div>
+            `;
+
+        }
+
+        const userAnswerText =
+            userAnswer === null
+            ? "Not Attempted"
+            : q.options[userAnswer];
+
+        const correctAnswerText =
+            q.options[q.answer];
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "review-question";
+
+        div.innerHTML = `
+
+            <strong>
+                Q${index+1}. ${q.q}
+            </strong>
+
+            <div style="margin-top:10px;">
+                Your Answer:
+                <strong>
+                    ${userAnswerText}
+                </strong>
+            </div>
+
+            <div style="margin-top:5px;">
+                Correct Answer:
+                <strong class="correct-text">
+                    ${correctAnswerText}
+                </strong>
+            </div>
+
+            <div style="margin-top:8px;">
+                ${statusHTML}
+            </div>
+
+            <div class="explanation">
+
+                <strong>
+                    Explanation:
+                </strong>
+                <br>
+
+                ${q.explanation}
+
+            </div>
+
+        `;
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+/* =========================================================
+   START TEST
+========================================================= */
+
+renderQuestion();
+
+</script>
+
+</body>
+</html>
