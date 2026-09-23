@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>कक्षा 10 विज्ञान | अध्याय 9 | प्रकाश - परावर्तन तथा अपवर्तन</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f3f6fa;
+  color:#172033;
+  line-height:1.7;
+}
+
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:18px;
+}
+
+.header{
+  background:linear-gradient(135deg,#102a43,#174a7c);
+  color:white;
+  padding:28px 20px;
+  border-radius:14px;
+  text-align:center;
+  margin-bottom:22px;
+  box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.header h1{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.header p{
+  font-size:16px;
+  opacity:.95;
+}
+
+.part{
+  background:#174a7c;
+  color:white;
+  padding:13px 18px;
+  border-radius:9px;
+  margin:28px 0 16px;
+  font-size:21px;
+  font-weight:bold;
+}
+
+.section{
+  background:white;
+  border-radius:12px;
+  padding:20px;
+  margin:16px 0;
+  box-shadow:0 2px 9px rgba(0,0,0,.08);
+  border-left:5px solid #174a7c;
+}
+
+.section h2{
+  color:#123f68;
+  font-size:21px;
+  margin-bottom:13px;
+}
+
+.section h3{
+  color:#174a7c;
+  margin:15px 0 8px;
+}
+
+ul{
+  padding-left:25px;
+}
+
+li{
+  margin:6px 0;
+}
+
+strong{
+  color:#0f416d;
+}
+
+.formula{
+  background:#eef6ff;
+  border:2px solid #5b9bd5;
+  border-radius:10px;
+  padding:15px;
+  text-align:center;
+  font-size:20px;
+  margin:14px 0;
+  overflow-x:auto;
+}
+
+.note{
+  background:#fff8dc;
+  border-left:5px solid #e3a008;
+  padding:13px 16px;
+  border-radius:8px;
+  margin:14px 0;
+}
+
+.important{
+  background:#fff1f1;
+  border-left:5px solid #d93025;
+  padding:14px 17px;
+  border-radius:8px;
+  margin:15px 0;
+}
+
+.green{
+  background:#edf9f0;
+  border-left:5px solid #2e7d32;
+  padding:14px 17px;
+  border-radius:8px;
+  margin:15px 0;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:14px 0;
+  min-width:700px;
+}
+
+th{
+  background:#174a7c;
+  color:white;
+  padding:10px;
+  border:1px solid #d5dce5;
+}
+
+td{
+  padding:10px;
+  border:1px solid #d5dce5;
+  vertical-align:top;
+}
+
+tr:nth-child(even){
+  background:#f6f9fc;
+}
+
+/* =========================
+   TEXTBOOK STYLE DIAGRAM
+========================= */
+
+.diagram{
+  background:#ffffff;
+  border:1px solid #d6dee8;
+  border-radius:10px;
+  margin:20px 0;
+  padding:12px;
+  overflow:hidden;
+}
+
+.diagram-title{
+  text-align:center;
+  font-weight:bold;
+  color:#174a7c;
+  margin-bottom:10px;
+  font-size:18px;
+}
+
+.diagram svg{
+  display:block;
+  width:100%;
+  max-width:850px;
+  height:auto;
+  margin:auto;
+  overflow:visible;
+}
+
+/* IMAGE DIAGRAM */
+
+.diagram img{
+  display:block;
+  width:100%;
+  max-width:850px;
+  height:auto;
+  margin:auto;
+  border-radius:6px;
+}
+
+/* SVG text */
+
+.diagram text{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+}
+
+.label{
+  font-size:16px;
+  fill:#111;
+}
+
+.small-label{
+  font-size:13px;
+  fill:#111;
+}
+
+.axis-label{
+  font-size:14px;
+  fill:#333;
+}
+
+.svg-red{
+  stroke:#d93025;
+}
+
+.svg-blue{
+  stroke:#174a7c;
+}
+
+.svg-green{
+  stroke:#188038;
+}
+
+.svg-dash{
+  stroke:#777;
+  stroke-dasharray:7 6;
+}
+
+/* =========================
+   FORMULA BOX
+========================= */
+
+.formula-box{
+  background:linear-gradient(135deg,#eef6ff,#ffffff);
+  border:3px solid #174a7c;
+  border-radius:14px;
+  padding:22px;
+  margin-top:22px;
+}
+
+.formula-box h2{
+  text-align:center;
+  background:#174a7c;
+  color:white;
+  padding:12px;
+  border-radius:9px;
+  margin-bottom:18px;
+}
+
+.formula-item{
+  background:white;
+  border:1px solid #c8d8e8;
+  border-radius:9px;
+  padding:13px;
+  margin:10px 0;
+  text-align:center;
+  font-size:20px;
+}
+
+.footer{
+  text-align:center;
+  margin:30px 0 10px;
+  color:#68778a;
+  font-size:14px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+  .container{
+    padding:9px;
+  }
+
+  .header{
+    padding:21px 12px;
+    border-radius:11px;
+  }
+
+  .header h1{
+    font-size:21px;
+  }
+
+  .header p{
+    font-size:14px;
+  }
+
+  .part{
+    font-size:17px;
+    padding:11px 13px;
+    margin:22px 0 12px;
+  }
+
+  .section{
+    padding:13px;
+    border-left-width:4px;
+  }
+
+  .section h2{
+    font-size:18px;
+    line-height:1.45;
+  }
+
+  .section h3{
+    font-size:16px;
+  }
+
+  body{
+    font-size:14px;
+  }
+
+  ul{
+    padding-left:20px;
+  }
+
+  li{
+    margin:5px 0;
+  }
+
+  .formula{
+    font-size:16px;
+    padding:12px 8px;
+  }
+
+  .diagram{
+    padding:8px 5px;
+    margin:15px 0;
+  }
+
+  .diagram-title{
+    font-size:16px;
+  }
+
+  .diagram .label{
+    font-size:14px;
+  }
+
+  .diagram .small-label{
+    font-size:11px;
+  }
+
+  .diagram .axis-label{
+    font-size:11px;
+  }
+
+  .diagram img{
+    width:100%;
+    height:auto;
+  }
+
+  .formula-box{
+    padding:13px;
+  }
+
+  .formula-box h2{
+    font-size:18px;
+    padding:10px 5px;
+  }
+
+  .formula-item{
+    font-size:16px;
+    padding:11px 7px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>कक्षा 10वीं — अध्याय 9</h1>
+  <h1>प्रकाश - परावर्तन तथा अपवर्तन</h1>
+  <p>Light - Reflection and Refraction</p>
+</div>
+
+
+<!-- =====================================================
+     PART 1
+===================================================== -->
+
+<div class="part">
+भाग 1: प्रकाश का परिचय और परावर्तन
+</div>
+
+
+<div class="section">
+<h2>1. प्रकाश के गुण (Properties of Light)</h2>
+
+<ul>
+<li><strong>सरलरेखीय गमन:</strong> प्रकाश हमेशा एक सीधी रेखा (सरल रेखा) में गमन करता है।</li>
+
+<li><strong>प्रकाश किरण:</strong> प्रकाश के इस सरलरेखीय पथ को प्रकाश किरण कहते हैं।</li>
+
+<li><strong>प्रकाश का विवर्तन (Diffraction):</strong> यदि प्रकाश के पथ में रखी अपारदर्शी वस्तु अत्यंत छोटी हो, तो प्रकाश सरल रेखा में चलने के बजाय इसके किनारों पर मुड़ने की प्रवृत्ति दर्शाता है। इस प्रभाव को प्रकाश का विवर्तन कहते हैं।</li>
+
+<li><strong>तरंग रूप:</strong> विवर्तन की व्याख्या के लिए प्रकाश को एक तरंग के रूप में माना जाता है।</li>
+
+<li><strong>आधुनिक क्वांटम सिद्धांत:</strong> प्रकाश के आधुनिक क्वांटम सिद्धांत में प्रकाश को न तो पूरी तरह तरंग माना गया है और न ही कण। यह दोनों के बीच की कड़ी (द्वैत प्रकृति) है।</li>
+</ul>
+</div>
+
+
+<!-- REFLECTION -->
+
+<div class="section">
+<h2>2. प्रकाश का परावर्तन (Reflection of Light)</h2>
+
+<p>
+जब प्रकाश किसी चमकदार सतह से टकराकर वापस उसी माध्यम में लौट आता है,
+तो इसे <strong>परावर्तन</strong> कहते हैं।
+</p>
+
+<h3>परावर्तन के दो मुख्य नियम</h3>
+
+<ul>
+<li><strong>प्रथम नियम:</strong> आपतन कोण (∠i), परावर्तन कोण (∠r) के हमेशा बराबर होता है।
+</li>
+</ul>
+
+<div class="formula">
+∠i = ∠r
+</div>
+
+<ul>
+<li><strong>द्वितीय नियम:</strong> आपतित किरण, दर्पण के आपतन बिंदु पर अभिलंब तथा परावर्तित किरण — ये तीनों एक ही तल (Plane) में होते हैं।</li>
+</ul>
+
+
+<div class="diagram">
+
+<div class="diagram-title">
+परावर्तन का किरण आरेख
+</div>
+
+<svg viewBox="0 0 760 330">
+
+<defs>
+<marker id="arrowBlue1"
+        markerWidth="10"
+        markerHeight="10"
+        refX="8"
+        refY="5"
+        orient="auto">
+<path d="M0,0 L10,5 L0,10 Z" fill="#174a7c"/>
+</marker>
+</defs>
+
+<line x1="90" y1="235" x2="670" y2="235"
+      stroke="#222" stroke-width="4"/>
+
+<g stroke="#777" stroke-width="1.5">
+<line x1="110" y1="235" x2="90" y2="258"/>
+<line x1="150" y1="235" x2="130" y2="258"/>
+<line x1="190" y1="235" x2="170" y2="258"/>
+<line x1="230" y1="235" x2="210" y2="258"/>
+<line x1="270" y1="235" x2="250" y2="258"/>
+<line x1="310" y1="235" x2="290" y2="258"/>
+<line x1="350" y1="235" x2="330" y2="258"/>
+<line x1="390" y1="235" x2="370" y2="258"/>
+<line x1="430" y1="235" x2="410" y2="258"/>
+<line x1="470" y1="235" x2="450" y2="258"/>
+<line x1="510" y1="235" x2="490" y2="258"/>
+<line x1="550" y1="235" x2="530" y2="258"/>
+<line x1="590" y1="235" x2="570" y2="258"/>
+<line x1="630" y1="235" x2="610" y2="258"/>
+</g>
+
+<line x1="380" y1="65" x2="380" y2="300"
+      stroke="#777" stroke-width="2"
+      stroke-dasharray="8 7"/>
+
+<line x1="130" y1="85" x2="380" y2="235"
+      stroke="#174a7c"
+      stroke-width="4"
+      marker-end="url(#arrowBlue1)"/>
+
+<line x1="380" y1="235" x2="630" y2="85"
+      stroke="#174a7c"
+      stroke-width="4"
+      marker-end="url(#arrowBlue1)"/>
+
+<path d="M330 205 A65 65 0 0 1 380 170"
+      fill="none" stroke="#d93025" stroke-width="2"/>
+
+<path d="M380 170 A65 65 0 0 1 430 205"
+      fill="none" stroke="#d93025" stroke-width="2"/>
+
+<text x="105" y="72" class="label">आपतित किरण</text>
+<text x="530" y="72" class="label">परावर्तित किरण</text>
+<text x="392" y="125" class="label">अभिलंब</text>
+
+<text x="350" y="203" class="small-label">∠i</text>
+<text x="405" y="203" class="small-label">∠r</text>
+
+<text x="368" y="257" class="label">O</text>
+<text x="315" y="285" class="label">दर्पण</text>
+
+</svg>
+</div>
+</div>
+
+
+<!-- PLANE MIRROR -->
+
+<div class="section">
+<h2>3. समतल दर्पण (Plane Mirror)</h2>
+
+<p>समतल दर्पण द्वारा बने प्रतिबिंब की निम्नलिखित विशेषताएँ होती हैं:</p>
+
+<ul>
+<li>प्रतिबिंब हमेशा <strong>आभासी (Virtual) तथा सीधा (Erect)</strong> होता है।</li>
+<li>प्रतिबिंब का आकार वस्तु के आकार के बराबर होता है।</li>
+<li>प्रतिबिंब दर्पण के पीछे उतनी ही दूरी पर बनता है, जितनी दूरी पर दर्पण के सामने वस्तु रखी होती है।</li>
+<li>प्रतिबिंब <strong>पार्श्व परिवर्तित (Laterally Inverted)</strong> होता है।</li>
+</ul>
+</div>
+
+
+<!-- SPHERICAL MIRROR -->
+
+<div class="section">
+<h2>4. गोलीय दर्पण (Spherical Mirrors)</h2>
+
+<p>
+ऐसे दर्पण जिनका परावर्तक पृष्ठ गोलीय होता है, उन्हें गोलीय दर्पण कहते हैं।
+ये दो प्रकार के होते हैं:
+</p>
+
+<ul>
+<li><strong>अवतल दर्पण (Concave Mirror):</strong> जिसका परावर्तक पृष्ठ अंदर की ओर (अर्थात गोले के केंद्र की ओर) वक्रित होता है।</li>
+
+<li><strong>उत्तल दर्पण (Convex Mirror):</strong> जिसका परावर्तक पृष्ठ बाहर की ओर वक्रित होता है।</li>
+</ul>
+
+
+<div class="diagram">
+
+<div class="diagram-title">
+अवतल एवं उत्तल दर्पण
+</div>
+
+<svg viewBox="0 0 760 330">
+
+<line x1="40" y1="150" x2="720" y2="150"
+      stroke="#777"
+      stroke-width="2"
+      stroke-dasharray="8 6"/>
+
+<path d="M285 45 Q185 150 285 255"
+      fill="none"
+      stroke="#174a7c"
+      stroke-width="8"/>
+
+<path d="M291 45 Q191 150 291 255"
+      fill="none"
+      stroke="#8aa6bd"
+      stroke-width="13"
+      opacity=".45"/>
+
+<g stroke="#555" stroke-width="1.5">
+<line x1="277" y1="60" x2="300" y2="48"/>
+<line x1="260" y1="82" x2="286" y2="70"/>
+<line x1="247" y1="108" x2="273" y2="95"/>
+<line x1="239" y1="136" x2="264" y2="123"/>
+<line x1="239" y1="164" x2="264" y2="177"/>
+<line x1="247" y1="192" x2="273" y2="205"/>
+<line x1="260" y1="218" x2="286" y2="230"/>
+<line x1="277" y1="240" x2="300" y2="252"/>
+</g>
+
+<path d="M505 45 Q605 150 505 255"
+      fill="none"
+      stroke="#174a7c"
+      stroke-width="8"/>
+
+<path d="M499 45 Q599 150 499 255"
+      fill="none"
+      stroke="#8aa6bd"
+      stroke-width="13"
+      opacity=".45"/>
+
+<g stroke="#555" stroke-width="1.5">
+<line x1="513" y1="48" x2="490" y2="60"/>
+<line x1="530" y1="70" x2="504" y2="82"/>
+<line x1="543" y1="95" x2="517" y2="108"/>
+<line x1="551" y1="123" x2="526" y2="136"/>
+<line x1="551" y1="177" x2="526" y2="164"/>
+<line x1="543" y1="205" x2="517" y2="192"/>
+<line x1="530" y1="230" x2="504" y2="218"/>
+<line x1="513" y1="252" x2="490" y2="240"/>
+</g>
+
+<text x="145" y="295" class="label">अवतल दर्पण</text>
+<text x="515" y="295" class="label">उत्तल दर्पण</text>
+
+<text x="290" y="143" class="small-label">P</text>
+<text x="493" y="143" class="small-label">P</text>
+
+<text x="50" y="135" class="axis-label">मुख्य अक्ष</text>
+
+</svg>
+</div>
+
+
+<h3>गोलीय दर्पण से संबंधित मुख्य पारिभाषिक शब्द</h3>
+
+<ul>
+<li><strong>ध्रुव (P - Pole):</strong> गोलीय दर्पण के परावर्तक पृष्ठ के केंद्र को दर्पण का ध्रुव कहते हैं।</li>
+
+<li><strong>वक्रता केंद्र (C - Center of Curvature):</strong> गोलीय दर्पण का परावर्तक पृष्ठ एक गोले का भाग है। इस गोले के केंद्र को गोलीय दर्पण का वक्रता केंद्र कहते हैं।</li>
+
+<li><strong>वक्रता त्रिज्या (R - Radius of Curvature):</strong> उस गोले की त्रिज्या जिसके परावर्तक पृष्ठ का दर्पण एक भाग है, दर्पण की वक्रता त्रिज्या कहलाती है।</li>
+
+<li><strong>मुख्य अक्ष (Principal Axis):</strong> दर्पण के ध्रुव (P) तथा वक्रता केंद्र (C) से गुजरने वाली एक सीधी काल्पनिक रेखा को मुख्य अक्ष कहते हैं।</li>
+
+<li><strong>मुख्य फोकस (F - Principal Focus):</strong> मुख्य अक्ष के समांतर आने वाली प्रकाश किरणें परावर्तन के पश्चात जिस बिंदु पर मिलती हैं या मिलती हुई प्रतीत होती हैं, उसे मुख्य फोकस कहते हैं।</li>
+
+<li><strong>फोकस दूरी (f - Focal Length):</strong> दर्पण के ध्रुव (P) तथा मुख्य फोकस (F) के बीच की दूरी को फोकस दूरी कहते हैं।</li>
+</ul>
+
+<div class="formula">
+R = 2f
+</div>
+
+<ul>
+<li><strong>द्वारक (Aperture):</strong> गोलीय दर्पण के परावर्तक पृष्ठ की वृत्ताकार सीमा रेखा का प्रभावी व्यास दर्पण का द्वारक कहलाता है।</li>
+</ul>
+</div>
+
+
+<!-- RAY RULES -->
+
+<div class="section">
+<h2>5. गोलीय दर्पणों से किरण आरेख खींचने के नियम</h2>
+
+<ul>
+<li><strong>नियम i:</strong> मुख्य अक्ष के समांतर आने वाली प्रकाश किरण परावर्तन के बाद अवतल दर्पण के मुख्य फोकस से गुजरेगी या उत्तल दर्पण के मुख्य फोकस से अपसरित प्रतीत होगी।</li>
+
+<li><strong>नियम ii:</strong> अवतल दर्पण के मुख्य फोकस से गुजरने वाली या उत्तल दर्पण के मुख्य फोकस की ओर निर्देशित किरण परावर्तन के बाद मुख्य अक्ष के समांतर हो जाती है।</li>
+
+<li><strong>नियम iii:</strong> अवतल दर्पण के वक्रता केंद्र (C) से गुजरने वाली या उत्तल दर्पण के वक्रता केंद्र की ओर निर्देशित किरण परावर्तन के बाद अपने उसी पथ पर वापस लौट जाती है।</li>
+
+<li><strong>नियम iv:</strong> दर्पण के ध्रुव (P) पर मुख्य अक्ष से तिर्यक दिशा में आपतित किरण तिर्यक दिशा में ही परावर्तित होती है।</li>
+</ul>
+</div>
+
+
+<!-- CONCAVE MIRROR TABLE -->
+
+<div class="section">
+<h2>6. अवतल दर्पण द्वारा विभिन्न स्थितियों के लिए प्रतिबिंब निर्माण</h2>
+
+<div class="diagram">
+
+<div class="diagram-title">
+अवतल दर्पण द्वारा विभिन्न स्थितियों के लिए प्रतिबिंब
+</div>
+
+<svg viewBox="0 0 900 500">
+
+<defs>
+<marker id="redArrowConcave"
+        markerWidth="9"
+        markerHeight="9"
+        refX="8"
+        refY="4.5"
+        orient="auto">
+<path d="M0,0 L9,4.5 L0,9 Z" fill="#d93025"/>
+</marker>
+</defs>
+
+<line x1="45" y1="250" x2="855" y2="250"
+      stroke="#555"
+      stroke-width="2"/>
+
+<path d="M790 95 Q700 250 790 405"
+      fill="none"
+      stroke="#174a7c"
+      stroke-width="9"/>
+
+<path d="M797 95 Q707 250 797 405"
+      fill="none"
+      stroke="#8aa6bd"
+      stroke-width="13"
+      opacity=".45"/>
+
+<g stroke="#555" stroke-width="1.5">
+<line x1="780" y1="112" x2="803" y2="100"/>
+<line x1="764" y1="140" x2="789" y2="127"/>
+<line x1="753" y1="170" x2="778" y2="157"/>
+<line x1="747" y1="202" x2="773" y2="188"/>
+<line x1="747" y1="298" x2="773" y2="312"/>
+<line x1="753" y1="330" x2="778" y2="343"/>
+<line x1="764" y1="360" x2="789" y2="373"/>
+<line x1="780" y1="388" x2="803" y2="400"/>
+</g>
+
+<circle cx="510" cy="250" r="5" fill="#111"/>
+<circle cx="650" cy="250" r="5" fill="#111"/>
+
+<text x="502" y="275" class="label">C</text>
+<text x="644" y="275" class="label">F</text>
+<text x="784" y="275" class="label">P</text>
+
+<line x1="280" y1="250" x2="280" y2="145"
+      stroke="#188038"
+      stroke-width="5"/>
+
+<polygon points="280,138 272,154 288,154"
+         fill="#188038"/>
+
+<text x="255" y="130" class="label">वस्तु</text>
+
+<line x1="280" y1="145" x2="780" y2="145"
+      stroke="#d93025"
+      stroke-width="3.5"
+      marker-end="url(#redArrowConcave)"/>
+
+<line x1="780" y1="145" x2="510" y2="250"
+      stroke="#d93025"
+      stroke-width="3.5"
+      marker-end="url(#redArrowConcave)"/>
+
+<line x1="280" y1="145" x2="780" y2="355"
+      stroke="#d93025"
+      stroke-width="3.5"
+      marker-end="url(#redArrowConcave)"/>
+
+<line x1="780" y1="355" x2="510" y2="250"
+      stroke="#d93025"
+      stroke-width="3.5"
+      marker-end="url(#redArrowConcave)"/>
+
+<line x1="575" y1="250" x2="575" y2="205"
+      stroke="#188038"
+      stroke-width="5"/>
+
+<polygon points="575,198 567,214 583,214"
+         fill="#188038"/>
+
+<text x="548" y="190" class="label">प्रतिबिंब</text>
+
+<text x="55" y="235" class="axis-label">मुख्य अक्ष</text>
+
+</svg>
+</div>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>बिम्ब की स्थिति</th>
+<th>प्रतिबिंब की स्थिति</th>
+<th>प्रतिबिंब का साइज़</th>
+<th>प्रतिबिंब की प्रकृति</th>
+</tr>
+
+<tr>
+<td>अनंत पर</td>
+<td>फोकस F पर</td>
+<td>अत्यधिक छोटा</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>C से परे</td>
+<td>F तथा C के बीच</td>
+<td>छोटा</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>C पर</td>
+<td>C पर</td>
+<td>समान साइज़</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>C तथा F के बीच</td>
+<td>C से परे</td>
+<td>विवर्धित</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>F पर</td>
+<td>अनंत पर</td>
+<td>अत्यधिक विवर्धित</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>P तथा F के बीच</td>
+<td>दर्पण के पीछे</td>
+<td>विवर्धित</td>
+<td>आभासी तथा सीधा</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<!-- CONVEX MIRROR -->
+
+<div class="section">
+<h2>7. उत्तल दर्पण द्वारा प्रतिबिंब निर्माण</h2>
+
+<div class="diagram">
+
+<div class="diagram-title">
+उत्तल दर्पण द्वारा प्रतिबिंब
+</div>
+
+<svg viewBox="0 0 900 450">
+
+<defs>
+<marker id="redArrowConvex"
+        markerWidth="9"
+        markerHeight="9"
+        refX="8"
+        refY="4.5"
+        orient="auto">
+<path d="M0,0 L9,4.5 L0,9 Z" fill="#d93025"/>
+</marker>
+</defs>
+
+<line x1="50" y1="260" x2="850" y2="260"
+      stroke="#555"
+      stroke-width="2"/>
+
+<path d="M630 100 Q735 260 630 420"
+      fill="none"
+      stroke="#174a7c"
+      stroke-width="9"/>
+
+<path d="M637 100 Q742 260 637 420"
+      fill="none"
+      stroke="#8aa6bd"
+      stroke-width="13"
+      opacity=".45"/>
+
+<g stroke="#555" stroke-width="1.5">
+<line x1="620" y1="117" x2="645" y2="105"/>
+<line x1="638" y1="145" x2="664" y2="132"/>
+<line x1="650" y1="175" x2="676" y2="162"/>
+<line x1="657" y1="208" x2="683" y2="194"/>
+<line x1="657" y1="312" x2="683" y2="326"/>
+<line x1="650" y1="345" x2="676" y2="358"/>
+<line x1="638" y1="375" x2="664" y2="388"/>
+<line x1="620" y1="403" x2="645" y2="415"/>
+</g>
+
+<circle cx="500" cy="260" r="5" fill="#111"/>
+<circle cx="380" cy="260" r="5" fill="#111"/>
+
+<text x="493" y="285" class="label">F</text>
+<text x="373" y="285" class="label">C</text>
+<text x="624" y="285" class="label">P</text>
+
+<line x1="180" y1="260" x2="180" y2="140"
+      stroke="#188038"
+      stroke-width="5"/>
+
+<polygon points="180,132 172,148 188,148"
+         fill="#188038"/>
+
+<text x="145" y="125" class="label">वस्तु</text>
+
+<line x1="180" y1="140" x2="625" y2="140"
+      stroke="#d93025"
+      stroke-width="3.5"
+      marker-end="url(#redArrowConvex)"/>
+
+<line x1="625" y1="140" x2="760" y2="90"
+      stroke="#d93025"
+      stroke-width="3.5"
+      marker-end="url(#redArrowConvex)"/>
+
+<line x1="625" y1="140" x2="500" y2="260"
+      stroke="#d93025"
+      stroke-width="2.5"
+      stroke-dasharray="7 6"/>
+
+<line x1="180" y1="140" x2="625" y2="350"
+      stroke="#174a7c"
+      stroke-width="3.5"
+      marker-end="url(#redArrowConvex)"/>
+
+<line x1="625" y1="350" x2="500" y2="260"
+      stroke="#174a7c"
+      stroke-width="2.5"
+      stroke-dasharray="7 6"/>
+
+<line x1="555" y1="260" x2="555" y2="225"
+      stroke="#188038"
+      stroke-width="5"/>
+
+<polygon points="555,218 547,234 563,234"
+         fill="#188038"/>
+
+<text x="520" y="210" class="label">प्रतिबिंब</text>
+
+<text x="70" y="245" class="axis-label">मुख्य अक्ष</text>
+
+</svg>
+</div>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>बिम्ब की स्थिति</th>
+<th>प्रतिबिंब की स्थिति</th>
+<th>प्रतिबिंब का साइज़</th>
+<th>प्रतिबिंब की प्रकृति</th>
+</tr>
+
+<tr>
+<td>अनंत पर</td>
+<td>फोकस F पर (दर्पण के पीछे)</td>
+<td>अत्यधिक छोटा</td>
+<td>आभासी तथा सीधा</td>
+</tr>
+
+<tr>
+<td>अनंत व ध्रुव P के बीच</td>
+<td>P तथा F के बीच</td>
+<td>छोटा</td>
+<td>आभासी तथा सीधा</td>
+</tr>
+</table>
+</div>
+</div>
+
+
+<!-- USES -->
+
+<div class="section">
+<h2>8. गोलीय दर्पणों के उपयोग</h2>
+
+<h3>अवतल दर्पण</h3>
+<ul>
+<li>टॉर्च, सर्चलाइट तथा वाहनों की हेडलाइट्स में शक्तिशाली समांतर किरण पुंज प्राप्त करने के लिए।</li>
+<li>शेविंग दर्पण के रूप में।</li>
+<li>दंत विशेषज्ञों द्वारा दांतों का बड़ा प्रतिबिंब देखने के लिए।</li>
+<li>सौर भट्टियों में सूर्य के प्रकाश को केंद्रित करने के लिए।</li>
+</ul>
+
+<h3>उत्तल दर्पण</h3>
+<ul>
+<li>वाहनों में पश्च-दृश्य (Rear-view) दर्पण के रूप में।</li>
+<li>यह हमेशा सीधा प्रतिबिंब बनाता है और इसका दृष्टि-क्षेत्र बहुत बड़ा होता है।</li>
+</ul>
+</div>
+
+
+<!-- =====================================================
+     PART 2
+===================================================== -->
+
+<div class="part">
+भाग 2: चिह्न परिपाटी, दर्पण सूत्र एवं आवर्धन
+</div>
+
+
+<div class="section">
+<h2>1. गोलीय दर्पणों के लिए कार्तिय चिह्न परिपाटी</h2>
+
+<ul>
+<li>बिम्ब को हमेशा दर्पण के बाईं ओर रखा जाता है।</li>
+<li>मुख्य अक्ष के समांतर सभी दूरियाँ दर्पण के ध्रुव P से मापी जाती हैं।</li>
+<li>P के दाईं ओर की दूरियाँ धनात्मक (+) होती हैं।</li>
+<li>P के बाईं ओर की दूरियाँ ऋणात्मक (-) होती हैं।</li>
+<li>मुख्य अक्ष के ऊपर की ऊँचाइयाँ धनात्मक (+) होती हैं।</li>
+<li>मुख्य अक्ष के नीचे की ऊँचाइयाँ ऋणात्मक (-) होती हैं।</li>
+</ul>
+</div>
+
+
+<div class="section">
+<h2>2. दर्पण सूत्र (Mirror Formula)</h2>
+
+<div class="formula">
+1/v + 1/u = 1/f
+</div>
+
+<ul>
+<li><strong>u</strong> = बिम्ब की दूरी</li>
+<li><strong>v</strong> = प्रतिबिंब की दूरी</li>
+<li><strong>f</strong> = मुख्य फोकस दूरी</li>
+</ul>
+</div>
+
+
+<!-- MAGNIFICATION -->
+
+<div class="section">
+<h2>3. आवर्धन (Magnification - m)</h2>
+
+<p>
+गोलीय दर्पण द्वारा उत्पन्न आवर्धन वह आपेक्षिक विस्तार है जिससे ज्ञात होता है कि प्रतिबिंब, वस्तु की अपेक्षा कितना गुना बड़ा या छोटा है।
+</p>
+
+<div class="formula">
+m = h′ / h = −v / u
+</div>
+
+<h3>आवर्धन के चिन्ह का अर्थ</h3>
+
+<div class="important">
+
+<p><strong>यदि m &lt; 0</strong> → प्रतिबिंब <strong>वास्तविक तथा उल्टा</strong> होता है।</p>
+
+<p><strong>यदि m &gt; 0</strong> → प्रतिबिंब <strong>आभासी तथा सीधा</strong> होता है।</p>
+
+<p><strong>यदि |m| &gt; 1</strong> → प्रतिबिंब <strong>बड़ा / विवर्धित</strong> होता है।</p>
+
+<p><strong>यदि |m| &lt; 1</strong> → प्रतिबिंब <strong>छोटा</strong> होता है।</p>
+
+<p><strong>यदि |m| = 1</strong> → प्रतिबिंब <strong>वस्तु के समान आकार</strong> का होता है।</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PART 3
+===================================================== -->
+
+<div class="part">
+भाग 3: प्रकाश का अपवर्तन
+</div>
+
+
+<div class="section">
+<h2>प्रकाश का अपवर्तन (Refraction of Light)</h2>
+
+<p>
+जब प्रकाश की किरण एक पारदर्शी माध्यम से दूसरे पारदर्शी माध्यम में तिरछी प्रवेश करती है,
+तो यह दोनों माध्यमों के इंटरफेस पर अपनी दिशा बदल लेती है।
+इस परिघटना को प्रकाश का अपवर्तन कहते हैं।
+</p>
+
+<h3>दैनिक जीवन में उदाहरण</h3>
+
+<ul>
+<li>पानी से भरे किसी टैंक या बाल्टी की तली का ऊपर उठा हुआ प्रतीत होना।</li>
+<li>पानी में आंशिक रूप से डूबी हुई पेंसिल का सतह पर मुड़ी हुई प्रतीत होना।</li>
+<li>काँच के स्लैब के नीचे रखे अक्षर बड़े या ऊपर उठे हुए दिखाई देना।</li>
+</ul>
+</div>
+
+
+<div class="section">
+<h2>1. काँच के आयताकार स्लैब से अपवर्तन</h2>
+
+<ul>
+<li>जब प्रकाश किरण विरल माध्यम (हवा) से सघन माध्यम (काँच) में प्रवेश करती है, तो वह अभिलंब की ओर झुक जाती है।</li>
+
+<li>जब प्रकाश किरण सघन माध्यम (काँच) से विरल माध्यम (हवा) में जाती है, तो वह अभिलंब से दूर हट जाती है।</li>
+
+<li>काँच के स्लैब से बाहर निकलने वाली किरण को निर्गत किरण (Emergent ray) कहते हैं।</li>
+
+<li>निर्गत किरण आपतित किरण के समानांतर होती है।</li>
+</ul>
+
+
+<div class="diagram">
+
+<div class="diagram-title">
+आयताकार काँच के स्लैब से अपवर्तन
+</div>
+
+<svg viewBox="0 0 760 360">
+
+<defs>
+<marker id="blueArrowGlass"
+        markerWidth="9"
+        markerHeight="9"
+        refX="8"
+        refY="4.5"
+        orient="auto">
+<path d="M0,0 L9,4.5 L0,9 Z" fill="#174a7c"/>
+</marker>
+</defs>
+
+<rect x="270" y="60" width="220" height="230"
+      fill="#eaf4fb"
+      stroke="#174a7c"
+      stroke-width="3"/>
+
+<line x1="350" y1="40" x2="350" y2="310"
+      stroke="#777"
+      stroke-width="2"
+      stroke-dasharray="7 6"/>
+
+<line x1="410" y1="40" x2="410" y2="310"
+      stroke="#777"
+      stroke-width="2"
+      stroke-dasharray="7 6"/>
+
+<line x1="110" y1="30" x2="350" y2="175"
+      stroke="#174a7c"
+      stroke-width="4"
+      marker-end="url(#blueArrowGlass)"/>
+
+<line x1="350" y1="175" x2="410" y2="205"
+      stroke="#174a7c"
+      stroke-width="4"
+      marker-end="url(#blueArrowGlass)"/>
+
+<line x1="410" y1="205" x2="650" y2="350"
+      stroke="#174a7c"
+      stroke-width="4"
+      marker-end="url(#blueArrowGlass)"/>
+
+<text x="90" y="25" class="label">आपतित किरण</text>
+<text x="525" y="340" class="label">निर्गत किरण</text>
+
+<text x="285" y="105" class="small-label">वायु</text>
+<text x="350" y="145" class="small-label">i</text>
+<text x="360" y="195" class="small-label">r</text>
+
+<text x="335" y="330" class="label">काँच का स्लैब</text>
+
+</svg>
+</div>
+</div>
+
+
+<!-- REFRACTION LAWS -->
+
+<div class="section">
+<h2>2. अपवर्तन के नियम (Laws of Refraction)</h2>
+
+<ul>
+<li><strong>प्रथम नियम:</strong> आपतित किरण, अपवर्तित किरण तथा दोनों माध्यमों को अलग करने वाले पृष्ठ के आपतन बिंदु पर खींचा गया अभिलंब — ये तीनों एक ही तल में होते हैं।</li>
+
+<li><strong>द्वितीय नियम (स्नेल का नियम):</strong> किसी निश्चित रंग तथा निश्चित माध्यमों के युग्म के लिए, आपतन कोण की ज्या और अपवर्तन कोण की ज्या का अनुपात हमेशा एक स्थिरांक होता है।</li>
+</ul>
+
+<div class="formula">
+sin i / sin r = constant = n₂₁
+</div>
+</div>
+
+
+<!-- REFRACTIVE INDEX -->
+
+<div class="section">
+<h2>3. अपवर्तनांक (Refractive Index)</h2>
+
+<p>
+निर्वात में प्रकाश की चाल लगभग
+<strong>3 × 10<sup>8</sup> m/s</strong> होती है।
+</p>
+
+<h3>सापेक्ष अपवर्तनांक</h3>
+
+<div class="formula">
+n₂₁ = v₁ / v₂
+</div>
+
+<div class="formula">
+n₁₂ = v₂ / v₁
+</div>
+
+<h3>निरपेक्ष अपवर्तनांक</h3>
+
+<div class="formula">
+n = c / v
+</div>
+
+
+<h3>विभिन्न माध्यमों के निरपेक्ष अपवर्तनांक</h3>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>माध्यम</th>
+<th>अपवर्तनांक</th>
+</tr>
+
+<tr><td>वायु</td><td>1.0003</td></tr>
+<tr><td>बर्फ</td><td>1.31</td></tr>
+<tr><td>जल</td><td>1.33</td></tr>
+<tr><td>अल्कोहल</td><td>1.36</td></tr>
+<tr><td>किरोसिन</td><td>1.44</td></tr>
+<tr><td>संगलित क्वार्ट्ज</td><td>1.46</td></tr>
+<tr><td>तारपीन का तेल</td><td>1.47</td></tr>
+<tr><td>बेंजीन</td><td>1.50</td></tr>
+<tr><td>क्राउन काँच</td><td>1.52</td></tr>
+<tr><td>कनाडा बालसम</td><td>1.53</td></tr>
+<tr><td>खनिज नमक</td><td>1.54</td></tr>
+<tr><td>कार्बन डाइसल्फाइड</td><td>1.63</td></tr>
+<tr><td>सघन फ्लिंट काँच</td><td>1.65</td></tr>
+<tr><td>रूबी</td><td>1.71</td></tr>
+<tr><td>नीलम</td><td>1.77</td></tr>
+<tr><td>हीरा</td><td>2.42</td></tr>
+</table>
+</div>
+
+<div class="note">
+<strong>महत्वपूर्ण नोट:</strong>
+द्रव्यमान घनत्व और प्रकाशिक घनत्व अलग-अलग होते हैं।
+किरोसिन का द्रव्यमान घनत्व पानी से कम है लेकिन इसका प्रकाशिक घनत्व/अपवर्तनांक पानी से अधिक होता है।
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     PART 4
+===================================================== -->
+
+<div class="part">
+भाग 4: गोलीय लेंस द्वारा अपवर्तन
+</div>
+
+
+<div class="section">
+<h2>गोलीय लेंस (Spherical Lens)</h2>
+
+<p>
+दो पृष्ठों से घिरा हुआ कोई पारदर्शी माध्यम, जिसका एक या दोनों पृष्ठ गोलीय होते हैं,
+लेंस कहलाता है।
+</p>
+
+<h3>1. लेंस के प्रकार</h3>
+
+<ul>
+<li><strong>उत्तल लेंस (Convex Lens):</strong> बीच से मोटा तथा किनारों से पतला होता है। यह प्रकाश किरणों को एक बिंदु पर इकट्ठा करता है, इसलिए इसे अभिसारी लेंस कहते हैं।</li>
+
+<li><strong>अवतल लेंस (Concave Lens):</strong> बीच से पतला तथा किनारों से मोटा होता है। यह प्रकाश किरणों को फैलाता है, इसलिए इसे अपसारी लेंस कहते हैं।</li>
+</ul>
+
+
+<!-- =========================
+     IMAGE 1
+========================= -->
+
+<div class="diagram">
+
+<div class="diagram-title">
+उत्तल एवं अवतल लेंस
+</div>
+
+<img src="convex-concave-lens.png"
+     alt="उत्तल एवं अवतल लेंस">
+
+</div>
+</div>
+
+
+<div class="section">
+<h2>2. लेंस से संबंधित मुख्य पारिभाषिक शब्द</h2>
+
+<ul>
+<li><strong>वक्रता केंद्र (C):</strong> लेंस के गोलीय पृष्ठ जिस गोले के भाग होते हैं, उनके केंद्रों को लेंस का वक्रता केंद्र कहते हैं।</li>
+
+<li><strong>मुख्य अक्ष:</strong> लेंस के दोनों वक्रता केंद्रों से होकर गुजरने वाली काल्पनिक सीधी रेखा।</li>
+
+<li><strong>प्रकाशिक केंद्र (O):</strong> लेंस का केंद्रीय बिंदु। यहाँ से गुजरने वाली प्रकाश किरण बिना किसी विचलन के सीधी निकल जाती है।</li>
+
+<li><strong>द्वारक (Aperture):</strong> गोलीय लेंस की वृत्ताकार रूपरेखा का प्रभावी व्यास।</li>
+
+<li><strong>मुख्य फोकस (F):</strong> मुख्य अक्ष के समांतर आने वाली किरणें अपवर्तन के पश्चात जिस बिंदु पर मिलती हैं या मिलती हुई प्रतीत होती हैं, उसे मुख्य फोकस कहते हैं।</li>
+
+<li><strong>फोकस दूरी (f):</strong> प्रकाशिक केंद्र O से मुख्य फोकस F के बीच की दूरी।</li>
+</ul>
+</div>
+
+
+<!-- LENS RAY RULES -->
+
+<div class="section">
+<h2>3. लेंस द्वारा प्रतिबिंब निर्माण के नियम</h2>
+
+<ul>
+<li><strong>नियम i:</strong> मुख्य अक्ष के समांतर आने वाली प्रकाश किरण उत्तल लेंस से अपवर्तन के बाद दूसरी ओर के मुख्य फोकस से गुजरेगी, अथवा अवतल लेंस की स्थिति में मुख्य फोकस से अपसरित प्रतीत होगी।</li>
+
+<li><strong>नियम ii:</strong> मुख्य फोकस से होकर गुजरने वाली किरण या मुख्य फोकस की ओर निर्देशित किरण अपवर्तन के बाद मुख्य अक्ष के समांतर हो जाती है।</li>
+
+<li><strong>नियम iii:</strong> लेंस के प्रकाशिक केंद्र O से गुजरने वाली प्रकाश किरण अपवर्तन के बाद बिना किसी विचलन के अपने सीधे पथ पर निर्गत होती है।</li>
+</ul>
+</div>
+
+
+<!-- CONVEX LENS TABLE -->
+
+<div class="section">
+<h2>4. उत्तल लेंस द्वारा विभिन्न स्थितियों के लिए प्रतिबिंब निर्माण</h2>
+
+<!-- IMAGE 2 -->
+
+<div class="diagram">
+
+<div class="diagram-title">
+उत्तल लेंस द्वारा बनाए प्रतिबिंब
+</div>
+
+<img src="convex-lens-image.png"
+     alt="उत्तल लेंस द्वारा बनाए प्रतिबिंब">
+
+</div>
+
+<div class="table-wrap">
+<table>
+
+<tr>
+<th>बिम्ब की स्थिति</th>
+<th>प्रतिबिंब की स्थिति</th>
+<th>साइज़</th>
+<th>प्रकृति</th>
+</tr>
+
+<tr>
+<td>अनंत पर</td>
+<td>फोकस F₂ पर</td>
+<td>अत्यधिक छोटा</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>2F₁ से परे</td>
+<td>F₂ तथा 2F₂ के बीच</td>
+<td>छोटा</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>2F₁ पर</td>
+<td>2F₂ पर</td>
+<td>समान साइज़</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>2F₁ तथा F₁ के बीच</td>
+<td>2F₂ से परे</td>
+<td>बड़ा</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>फोकस F₁ पर</td>
+<td>अनंत पर</td>
+<td>असीमित रूप से बड़ा</td>
+<td>वास्तविक तथा उल्टा</td>
+</tr>
+
+<tr>
+<td>F₁ तथा O के बीच</td>
+<td>जिस ओर बिम्ब है, उसी ओर</td>
+<td>बड़ा</td>
+<td>आभासी तथा सीधा</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+
+<!-- CONCAVE LENS -->
+
+<div class="section">
+<h2>5. अवतल लेंस द्वारा विभिन्न स्थितियों के लिए प्रतिबिंब निर्माण</h2>
+
+<!-- IMAGE 3 -->
+
+<div class="diagram">
+
+<div class="diagram-title">
+अवतल लेंस द्वारा बनाए प्रतिबिंब
+</div>
+
+<img src="concave-lens-image.png"
+     alt="अवतल लेंस द्वारा बनाए प्रतिबिंब">
+
+</div>
+
+<div class="table-wrap">
+<table>
+
+<tr>
+<th>बिम्ब की स्थिति</th>
+<th>प्रतिबिंब की स्थिति</th>
+<th>साइज़</th>
+<th>प्रकृति</th>
+</tr>
+
+<tr>
+<td>अनंत पर</td>
+<td>फोकस F₁ पर</td>
+<td>अत्यधिक छोटा</td>
+<td>आभासी तथा सीधा</td>
+</tr>
+
+<tr>
+<td>अनंत तथा O के बीच</td>
+<td>F₁ तथा O के बीच</td>
+<td>छोटा</td>
+<td>आभासी तथा सीधा</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+
+<!-- LENS SIGN CONVENTION -->
+
+<div class="section">
+<h2>6. गोलीय लेंसों के लिए चिह्न परिपाटी</h2>
+
+<ul>
+<li>दूरियों को प्रकाशिक केंद्र O से मापा जाता है।</li>
+<li><strong>उत्तल लेंस</strong> की फोकस दूरी हमेशा धनात्मक (+) होती है।</li>
+<li><strong>अवतल लेंस</strong> की फोकस दूरी हमेशा ऋणात्मक (-) होती है।</li>
+</ul>
+
+<h3>लेंस सूत्र</h3>
+
+<div class="formula">
+1/v − 1/u = 1/f
+</div>
+
+<h3>आवर्धन</h3>
+
+<div class="formula">
+m = h′ / h = v / u
+</div>
+
+<div class="note">
+<strong>नोट:</strong> दर्पण के आवर्धन सूत्र में ऋणात्मक चिह्न होता है,
+जबकि लेंस के आवर्धन सूत्र में धनात्मक चिह्न होता है।
+</div>
+</div>
+
+
+<!-- POWER -->
+
+<div class="section">
+<h2>7. लेंस की क्षमता (Power of a Lens - P)</h2>
+
+<p>
+किसी लेंस द्वारा प्रकाश किरणों को अभिसरण या अपसरण करने की मात्रा/सामर्थ्य को
+लेंस की क्षमता के रूप में व्यक्त किया जाता है।
+यह इसकी फोकस दूरी का व्युत्क्रम होती है।
+</p>
+
+<div class="formula">
+P = 1 / f
+</div>
+
+<ul>
+<li>यहाँ f मीटर में होना चाहिए।</li>
+<li>लेंस की क्षमता का SI मात्रक <strong>डाइऑप्टर (D)</strong> है।</li>
+<li>1 D उस लेंस की क्षमता है जिसकी फोकस दूरी 1 m हो।</li>
+<li>उत्तल लेंस की क्षमता धनात्मक (+) होती है।</li>
+<li>अवतल लेंस की क्षमता ऋणात्मक (-) होती है।</li>
+</ul>
+
+<h3>लेंसों का संयोजन</h3>
+
+<div class="formula">
+P = P₁ + P₂ + P₃ + ...
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FINAL FORMULA BOX
+===================================================== -->
+
+<div class="formula-box">
+
+<h2>⭐ Most Important Formula Box ⭐</h2>
+
+<div class="formula-item">
+<strong>गोलीय दर्पण:</strong><br>
+R = 2f
+</div>
+
+<div class="formula-item">
+<strong>दर्पण सूत्र:</strong><br>
+1/v + 1/u = 1/f
+</div>
+
+<div class="formula-item">
+<strong>दर्पण का आवर्धन:</strong><br>
+m = h′/h = −v/u
+</div>
+
+<div class="formula-item">
+<strong>सापेक्ष अपवर्तनांक:</strong><br>
+n₂₁ = v₁/v₂
+</div>
+
+<div class="formula-item">
+<strong>निरपेक्ष अपवर्तनांक:</strong><br>
+n = c/v
+</div>
+
+<div class="formula-item">
+<strong>स्नेल का नियम:</strong><br>
+sin i / sin r = n₂₁
+</div>
+
+<div class="formula-item">
+<strong>लेंस सूत्र:</strong><br>
+1/v − 1/u = 1/f
+</div>
+
+<div class="formula-item">
+<strong>लेंस का आवर्धन:</strong><br>
+m = h′/h = v/u
+</div>
+
+<div class="formula-item">
+<strong>लेंस की क्षमता:</strong><br>
+P = 1/f
+</div>
+
+<div class="formula-item">
+<strong>लेंसों का संयोजन:</strong><br>
+P = P₁ + P₂ + P₃ + ...
+</div>
+
+</div>
+
+
+<div class="footer">
+कक्षा 10 विज्ञान • अध्याय 9 • प्रकाश - परावर्तन तथा अपवर्तन
+</div>
+
+</div>
+
+</body>
+</html>
