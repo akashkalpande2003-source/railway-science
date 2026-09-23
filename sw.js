@@ -1,4 +1,4 @@
-const CACHE_NAME = "railway-warrior-v2";
+const CACHE_NAME = "railway-warrior-v3";
 
 const CORE_FILES = [
   "./",
