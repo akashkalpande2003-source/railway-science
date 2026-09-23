@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science Chapter 8 | Heredity | Railway Science</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#eef3f8;
+    color:#172033;
+    line-height:1.7;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:linear-gradient(135deg,#071a38,#123d72);
+    color:white;
+    padding:28px 15px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
+}
+
+.header .chapter{
+    display:inline-block;
+    background:#ffb703;
+    color:#111;
+    padding:5px 15px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.header h1{
+    font-size:30px;
+    margin:3px 0;
+}
+
+.header p{
+    font-size:15px;
+    opacity:.9;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:94%;
+    max-width:1100px;
+    margin:22px auto 50px;
+}
+
+/* ================= CARDS ================= */
+
+.card{
+    background:#fff;
+    border-radius:16px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 5px 18px rgba(16,40,70,.08);
+    border:1px solid #dce5ef;
+}
+
+.card h2{
+    color:#0b3b70;
+    font-size:23px;
+    margin-bottom:14px;
+    border-left:5px solid #ff9f1c;
+    padding-left:12px;
+}
+
+.card h3{
+    color:#123f72;
+    margin:16px 0 8px;
+    font-size:19px;
+}
+
+p{
+    margin:8px 0;
+}
+
+/* ================= BADGES ================= */
+
+.tag{
+    display:inline-block;
+    background:#e8f2ff;
+    color:#07529b;
+    padding:4px 10px;
+    border-radius:15px;
+    font-size:13px;
+    font-weight:bold;
+    margin:3px;
+}
+
+/* ================= IMPORTANT ================= */
+
+.important{
+    background:#fff7d6;
+    border-left:6px solid #ffb703;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
+}
+
+.exam{
+    background:#e8f8ef;
+    border-left:6px solid #16a34a;
+    padding:15px;
+    border-radius:10px;
+    margin:15px 0;
+}
+
+.warning{
+    background:#fff0f0;
+    border-left:6px solid #ef4444;
+    padding:15px;
+    border-radius:10px;
+}
+
+/* ================= MIND MAP ================= */
+
+.mindmap{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:15px;
+    margin-top:20px;
+}
+
+.mind-center{
+    background:linear-gradient(135deg,#073b76,#0b65b1);
+    color:white;
+    padding:16px 30px;
+    border-radius:35px;
+    font-size:20px;
+    font-weight:bold;
+    box-shadow:0 6px 15px rgba(0,0,0,.18);
+}
+
+.mind-row{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.mind-box{
+    background:white;
+    border:2px solid #b9d2ea;
+    padding:13px 18px;
+    border-radius:12px;
+    min-width:160px;
+    text-align:center;
+    font-weight:bold;
+    color:#173c62;
+    position:relative;
+}
+
+.mind-box small{
+    display:block;
+    font-weight:normal;
+    color:#5d6b7b;
+}
+
+/* ================= COMPARISON ================= */
+
+.compare{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.compare-box{
+    padding:18px;
+    border-radius:14px;
+    background:#f6f9fc;
+    border:1px solid #d9e4ef;
+}
+
+.compare-box h3{
+    margin-top:0;
+    text-align:center;
+}
+
+/* ================= FLOW ================= */
+
+.flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:20px 0;
+}
+
+.flow-box{
+    background:#edf5ff;
+    border:2px solid #4385c5;
+    border-radius:12px;
+    padding:13px 18px;
+    text-align:center;
+    font-weight:bold;
+    min-width:130px;
+}
+
+.arrow{
+    font-size:25px;
+    color:#f28c28;
+    font-weight:bold;
+}
+
+/* ================= MENDEL DIAGRAM ================= */
+
+.cross{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:20px 0;
+}
+
+.plant{
+    width:150px;
+    text-align:center;
+    padding:15px;
+    border-radius:14px;
+    background:#f7fbf5;
+    border:2px solid #8bc34a;
+}
+
+.stem{
+    width:6px;
+    height:65px;
+    background:#4d9a3a;
+    margin:8px auto 0;
+    position:relative;
+}
+
+.leaf{
+    width:35px;
+    height:17px;
+    background:#65b84b;
+    border-radius:50%;
+    position:absolute;
+}
+
+.leaf.left{
+    left:-28px;
+    top:25px;
+    transform:rotate(-25deg);
+}
+
+.leaf.right{
+    right:-28px;
+    top:40px;
+    transform:rotate(25deg);
+}
+
+.flower{
+    width:35px;
+    height:35px;
+    background:#c084fc;
+    border-radius:50%;
+    margin:0 auto 4px;
+    box-shadow:
+        15px 0 #d8b4fe,
+        -15px 0 #d8b4fe,
+        0 15px #e9d5ff,
+        0 -15px #e9d5ff;
+}
+
+.cross-symbol{
+    font-size:30px;
+    font-weight:bold;
+    color:#e67e22;
+}
+
+/* ================= PUNNETT ================= */
+
+.punnett-wrap{
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+.punnett{
+    border-collapse:collapse;
+    margin:auto;
+    min-width:430px;
+    text-align:center;
+}
+
+.punnett th,
+.punnett td{
+    border:2px solid #7da8ce;
+    padding:14px 18px;
+    font-size:17px;
+}
+
+.punnett th{
+    background:#dceeff;
+    color:#123e68;
+}
+
+.punnett td{
+    background:#fff;
+    font-weight:bold;
+}
+
+.tall{
+    color:#087f23;
+}
+
+.dwarf{
+    color:#b42318;
+}
+
+/* ================= RATIO ================= */
+
+.ratio{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin:15px 0;
+}
+
+.ratio-box{
+    padding:12px 20px;
+    background:#edf5ff;
+    border-radius:10px;
+    border:2px solid #9fc5e5;
+    font-weight:bold;
+}
+
+/* ================= DNA DIAGRAM ================= */
+
+.dna-diagram{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    margin:20px 0;
+}
+
+.dna-box{
+    padding:14px 28px;
+    border-radius:12px;
+    font-weight:bold;
+    color:white;
+    min-width:190px;
+    text-align:center;
+}
+
+.dna{
+    background:#7c3aed;
+}
+
+.gene{
+    background:#2563eb;
+}
+
+.protein{
+    background:#0891b2;
+}
+
+.enzyme{
+    background:#059669;
+}
+
+.trait{
+    background:#ea580c;
+}
+
+.dna-arrow{
+    font-size:23px;
+    color:#52616b;
+}
+
+/* ================= SEX DETERMINATION ================= */
+
+.sex-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:15px;
+}
+
+.sex-card{
+    text-align:center;
+    padding:20px;
+    border-radius:14px;
+    border:2px solid #cbd8e5;
+    background:#f9fbfd;
+}
+
+.chromosome{
+    font-size:30px;
+    font-weight:bold;
+    color:#174f83;
+}
+
+/* ================= 4 BOX ================= */
+
+.four-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.four-box{
+    padding:16px;
+    background:#f8fafc;
+    border:1px solid #d6e1ec;
+    border-radius:12px;
+    text-align:center;
+}
+
+.four-box strong{
+    display:block;
+    font-size:24px;
+    color:#0b5794;
+}
+
+/* ================= TABLE ================= */
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table.info{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:12px;
+}
+
+table.info th,
+table.info td{
+    border:1px solid #cbd8e5;
+    padding:11px;
+    text-align:left;
+}
+
+table.info th{
+    background:#0d477d;
+    color:#fff;
+}
+
+table.info tr:nth-child(even){
+    background:#f5f8fb;
+}
+
+/* ================= REVISION ================= */
+
+.revision{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.rev{
+    background:#f8fbff;
+    border:1px solid #cbdff1;
+    border-radius:12px;
+    padding:14px;
+}
+
+.rev b{
+    color:#0b4c82;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background:#071a38;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+    font-size:14px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px){
+
+    .header h1{
+        font-size:23px;
+    }
+
+    .card{
+        padding:16px;
+    }
+
+    .card h2{
+        font-size:20px;
+    }
+
+    .compare,
+    .sex-grid,
+    .revision{
+        grid-template-columns:1fr;
+    }
+
+    .four-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .flow{
+        flex-direction:column;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+
+    .mind-box{
+        width:100%;
+        max-width:280px;
+    }
+
+}
+
+@media(max-width:430px){
+
+    .four-grid{
+        grid-template-columns:1fr;
+    }
+
+    .header{
+        padding:22px 10px;
+    }
+
+    .header h1{
+        font-size:21px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="chapter">CLASS 10 SCIENCE • CHAPTER 8</div>
+
+    <h1>आनुवंशिकता</h1>
+
+    <p>Heredity & Variation | Complete Digital Notes</p>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- ================= OVERVIEW ================= -->
+
+<section class="card">
+
+<h2>🧬 Chapter Overview</h2>
+
+<div class="mindmap">
+
+    <div class="mind-center">
+        आनुवंशिकता (Heredity)
+    </div>
+
+    <div class="mind-row">
+
+        <div class="mind-box">
+            आनुवंशिकता
+            <small>Heredity</small>
+        </div>
+
+        <div class="mind-box">
+            विविधता
+            <small>Variation</small>
+        </div>
+
+        <div class="mind-box">
+            मेंडल
+            <small>Gregor Mendel</small>
+        </div>
+
+        <div class="mind-box">
+            जीन
+            <small>Gene</small>
+        </div>
+
+    </div>
+
+    <div class="mind-row">
+
+        <div class="mind-box">
+            प्रभावी लक्षण
+            <small>Dominant</small>
+        </div>
+
+        <div class="mind-box">
+            अप्रभावी लक्षण
+            <small>Recessive</small>
+        </div>
+
+        <div class="mind-box">
+            लिंग निर्धारण
+            <small>Sex Determination</small>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= HEREDITY ================= -->
+
+<section class="card">
+
+<h2>1. आनुवंशिकता (Heredity)</h2>
+
+<p>
+<strong>आनुवंशिकता</strong> वह प्रक्रिया है जिसके द्वारा
+<strong>जनकों (Parents)</strong> के लक्षण उनकी
+<strong>संतति (Offspring)</strong> में स्थानांतरित होते हैं।
+</p>
+
+<div class="flow">
+
+    <div class="flow-box">
+        माता
+        <br>
+        Mother
+    </div>
+
+    <div class="arrow">+</div>
+
+    <div class="flow-box">
+        पिता
+        <br>
+        Father
+    </div>
+
+    <div class="arrow">→</div>
+
+    <div class="flow-box">
+        संतति
+        <br>
+        Offspring
+    </div>
+
+</div>
+
+<div class="important">
+
+<strong>महत्वपूर्ण:</strong><br>
+संतति को आनुवंशिक पदार्थ (Genetic Material) माता और पिता दोनों से प्राप्त होता है।
+</div>
+
+</section>
+
+
+<!-- ================= VARIATION ================= -->
+
+<section class="card">
+
+<h2>2. विविधता (Variation)</h2>
+
+<p>
+एक ही प्रजाति के जीवों में पाए जाने वाले छोटे-छोटे आनुवंशिक अंतर
+<strong>विविधता (Variation)</strong> कहलाते हैं।
+</p>
+
+<div class="compare">
+
+<div class="compare-box">
+
+<h3>लैंगिक जनन</h3>
+
+<p>दो जनकों की आनुवंशिक सामग्री शामिल होती है।</p>
+
+<p>इसमें विविधता अधिक होती है।</p>
+
+<span class="tag">Variation: अधिक</span>
+
+</div>
+
+<div class="compare-box">
+
+<h3>अलैंगिक जनन</h3>
+
+<p>सामान्यतः केवल एक जनक शामिल होता है।</p>
+
+<p>संतति जनक के लगभग समान होती है।</p>
+
+<span class="tag">Variation: कम</span>
+
+</div>
+
+</div>
+
+<div class="exam">
+
+<strong>Exam Point:</strong>
+
+<br>
+
+लैंगिक जनन में विविधता की संभावना
+अलैंगिक जनन की तुलना में अधिक होती है।
+</div>
+
+</section>
+
+
+<!-- ================= MENDEL ================= -->
+
+<section class="card">
+
+<h2>3. ग्रेगर जॉन मेंडल</h2>
+
+<div class="four-grid">
+
+<div class="four-box">
+<strong>1822</strong>
+जन्म
+</div>
+
+<div class="four-box">
+<strong>1884</strong>
+मृत्यु
+</div>
+
+<div class="four-box">
+<strong>🌱</strong>
+मटर के पौधे
+</div>
+
+<div class="four-box">
+<strong>🧬</strong>
+Father of Genetics
+</div>
+
+</div>
+
+<p style="margin-top:15px;">
+<strong>Gregor Johann Mendel</strong> ने मटर के पौधों पर प्रयोग करके
+वंशागति (Inheritance) के नियमों को समझाने में महत्वपूर्ण योगदान दिया।
+</p>
+
+<div class="important">
+
+<strong>मटर का पौधा क्यों?</strong>
+
+<br>
+
+मटर में स्पष्ट विपरीत लक्षण पाए जाते हैं और इसमें
+स्व-परागण तथा पर-परागण दोनों कराया जा सकता है।
+</div>
+
+</section>
+
+
+<!-- ================= MENDEL TRAITS ================= -->
+
+<section class="card">
+
+<h2>4. मटर के पौधे के विपरीत लक्षण</h2>
+
+<div class="table-wrap">
+
+<table class="info">
+
+<tr>
+<th>लक्षण</th>
+<th>प्रभावी (Dominant)</th>
+<th>अप्रभावी (Recessive)</th>
+</tr>
+
+<tr>
+<td>तने की लंबाई</td>
+<td>लंबा (Tall)</td>
+<td>बौना (Dwarf)</td>
+</tr>
+
+<tr>
+<td>बीज का आकार</td>
+<td>गोल (Round)</td>
+<td>झुर्रीदार (Wrinkled)</td>
+</tr>
+
+<tr>
+<td>बीज का रंग</td>
+<td>पीला (Yellow)</td>
+<td>हरा (Green)</td>
+</tr>
+
+<tr>
+<td>फूल का रंग</td>
+<td>बैंगनी (Violet)</td>
+<td>सफेद (White)</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- ================= DOMINANT RECESSIVE ================= -->
+
+<section class="card">
+
+<h2>5. प्रभावी और अप्रभावी लक्षण</h2>
+
+<div class="compare">
+
+<div class="compare-box">
+
+<h3>Dominant Trait</h3>
+
+<p>
+जो लक्षण किसी जोड़े में उपस्थित होने पर
+अपना प्रभाव दिखाता है, उसे प्रभावी लक्षण कहते हैं।
+</p>
+
+<div class="ratio-box">
+T = लंबा
+</div>
+
+</div>
+
+<div class="compare-box">
+
+<h3>Recessive Trait</h3>
+
+<p>
+जो लक्षण प्रभावी लक्षण की उपस्थिति में दिखाई नहीं देता,
+उसे अप्रभावी लक्षण कहते हैं।
+</p>
+
+<div class="ratio-box">
+t = बौना
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MONOHYBRID ================= -->
+
+<section class="card">
+
+<h2>6. एकल संकरण (Monohybrid Cross)</h2>
+
+<p>
+जब केवल <strong>एक जोड़ी विपरीत लक्षणों</strong> को लेकर संकरण किया जाता है,
+तो इसे <strong>Monohybrid Cross</strong> कहते हैं।
+</p>
+
+<h3>लंबा × बौना</h3>
+
+<div class="cross">
+
+<div class="plant">
+
+<div class="flower"></div>
+
+<div class="stem">
+
+<div class="leaf left"></div>
+<div class="leaf right"></div>
+
+</div>
+
+<strong>TT</strong>
+<br>
+लंबा
+
+</div>
+
+<div class="cross-symbol">×</div>
+
+<div class="plant">
+
+<div class="flower"></div>
+
+<div class="stem">
+
+<div class="leaf left"></div>
+<div class="leaf right"></div>
+
+</div>
+
+<strong>tt</strong>
+<br>
+बौना
+
+</div>
+
+</div>
+
+<div class="flow">
+
+<div class="flow-box">
+P Generation
+<br>
+TT
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+Gametes
+<br>
+T + t
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+F₁ Generation
+<br>
+Tt
+</div>
+
+</div>
+
+<div class="exam">
+
+<strong>F₁ Result:</strong>
+
+<br>
+
+F₁ पीढ़ी के सभी पौधे <strong>लंबे (Tt)</strong> होते हैं।
+</div>
+
+</section>
+
+
+<!-- ================= F1 SELFING ================= -->
+
+<section class="card">
+
+<h2>7. F₁ पीढ़ी का स्व-निषेचन</h2>
+
+<p>
+F₁ पीढ़ी के पौधों में स्व-निषेचन कराया जाता है:
+</p>
+
+<div class="flow">
+
+<div class="flow-box">
+Tt
+</div>
+
+<div class="arrow">×</div>
+
+<div class="flow-box">
+Tt
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+F₂ Generation
+</div>
+
+</div>
+
+<h3>Punnett Square</h3>
+
+<div class="punnett-wrap">
+
+<table class="punnett">
+
+<tr>
+<th>×</th>
+<th>T</th>
+<th>t</th>
+</tr>
+
+<tr>
+<th>T</th>
+<td class="tall">TT</td>
+<td class="tall">Tt</td>
+</tr>
+
+<tr>
+<th>t</th>
+<td class="tall">Tt</td>
+<td class="dwarf">tt</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="ratio">
+
+<div class="ratio-box">
+TT = 1
+</div>
+
+<div class="ratio-box">
+Tt = 2
+</div>
+
+<div class="ratio-box">
+tt = 1
+</div>
+
+</div>
+
+<div class="exam">
+
+<strong>Genotypic Ratio:</strong>
+
+<br>
+
+1 TT : 2 Tt : 1 tt
+
+<br><br>
+
+<strong>Phenotypic Ratio:</strong>
+
+<br>
+
+3 लंबे : 1 बौना
+
+</div>
+
+</section>
+
+
+<!-- ================= DIHYBRID ================= -->
+
+<section class="card">
+
+<h2>8. द्विसंकरण (Dihybrid Cross)</h2>
+
+<p>
+जब एक साथ <strong>दो जोड़ी विपरीत लक्षणों</strong> का अध्ययन किया जाता है,
+तो इसे <strong>Dihybrid Cross</strong> कहते हैं।
+</p>
+
+<div class="mindmap">
+
+<div class="mind-center">
+दो लक्षण
+</div>
+
+<div class="mind-row">
+
+<div class="mind-box">
+बीज का आकार
+<small>Round / Wrinkled</small>
+</div>
+
+<div class="mind-box">
+बीज का रंग
+<small>Yellow / Green</small>
+</div>
+
+</div>
+
+</div>
+
+<h3>F₂ पीढ़ी का परिणाम</h3>
+
+<div class="ratio">
+
+<div class="ratio-box">9 → गोल पीले</div>
+
+<div class="ratio-box">3 → गोल हरे</div>
+
+<div class="ratio-box">3 → झुर्रीदार पीले</div>
+
+<div class="ratio-box">1 → झुर्रीदार हरे</div>
+
+</div>
+
+<div class="exam">
+
+<strong>F₂ Phenotypic Ratio = 9 : 3 : 3 : 1</strong>
+
+</div>
+
+</section>
+
+
+<!-- ================= GENE ================= -->
+
+<section class="card">
+
+<h2>9. जीन (Gene)</h2>
+
+<p>
+<strong>जीन DNA का वह भाग है जिसमें किसी विशेष प्रोटीन के निर्माण की सूचना होती है।</strong>
+</p>
+
+<div class="dna-diagram">
+
+<div class="dna-box dna">
+DNA
+</div>
+
+<div class="dna-arrow">↓</div>
+
+<div class="dna-box gene">
+GENE
+</div>
+
+<div class="dna-arrow">↓</div>
+
+<div class="dna-box protein">
+PROTEIN
+</div>
+
+<div class="dna-arrow">↓</div>
+
+<div class="dna-box enzyme">
+ENZYME
+</div>
+
+<div class="dna-arrow">↓</div>
+
+<div class="dna-box trait">
+TRAIT / लक्षण
+</div>
+
+</div>
+
+<div class="important">
+
+<strong>उदाहरण:</strong>
+
+<br>
+
+पौधे की लंबाई किसी विशेष जैव-रासायनिक प्रक्रिया से प्रभावित हो सकती है।
+जीन ऐसे प्रोटीन/एंजाइम के निर्माण को नियंत्रित करने में भूमिका निभाता है
+जो उस प्रक्रिया को प्रभावित करता है।
+</div>
+
+</section>
+
+
+<!-- ================= CHROMOSOME ================= -->
+
+<section class="card">
+
+<h2>10. गुणसूत्र, DNA और जीन का संबंध</h2>
+
+<div class="flow">
+
+<div class="flow-box">
+गुणसूत्र
+<br>
+Chromosome
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+DNA
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+जीन
+<br>
+Gene
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box">
+लक्षण
+<br>
+Trait
+</div>
+
+</div>
+
+<div class="exam">
+
+<strong>मानव की सामान्य शारीरिक कोशिका:</strong>
+
+<br>
+
+46 गुणसूत्र = 23 जोड़े
+
+<br><br>
+
+एक सेट माता से और एक सेट पिता से प्राप्त होता है।
+</div>
+
+</section>
+
+
+<!-- ================= SEX DETERMINATION ================= -->
+
+<section class="card">
+
+<h2>11. लिंग निर्धारण (Sex Determination)</h2>
+
+<p>
+मनुष्य में लिंग निर्धारण <strong>Sex Chromosomes</strong> द्वारा होता है।
+</p>
+
+<div class="sex-grid">
+
+<div class="sex-card">
+
+<h3>महिला (Female)</h3>
+
+<div class="chromosome">
+44 + XX
+</div>
+
+<p>कुल = 46 गुणसूत्र</p>
+
+<p>अंडाणु → X</p>
+
+</div>
+
+<div class="sex-card">
+
+<h3>पुरुष (Male)</h3>
+
+<div class="chromosome">
+44 + XY
+</div>
+
+<p>कुल = 46 गुणसूत्र</p>
+
+<p>शुक्राणु → X या Y</p>
+
+</div>
+
+</div>
+
+<h3>बच्चे का लिंग निर्धारण</h3>
+
+<div class="mindmap">
+
+<div class="mind-center">
+पिता के शुक्राणु से मिलने वाला X या Y
+</div>
+
+<div class="mind-row">
+
+<div class="mind-box">
+माता का X
+</div>
+
+<div class="mind-box">
+पिता का X
+<br>
+<strong>XX</strong>
+<small>लड़की</small>
+</div>
+
+</div>
+
+<div class="mind-row">
+
+<div class="mind-box">
+माता का X
+</div>
+
+<div class="mind-box">
+पिता का Y
+<br>
+<strong>XY</strong>
+<small>लड़का</small>
+</div>
+
+</div>
+
+</div>
+
+<div class="exam">
+
+<strong>महत्वपूर्ण:</strong>
+
+<br>
+
+माता का अंडाणु हमेशा X गुणसूत्र देता है,
+जबकि पिता के शुक्राणु X या Y गुणसूत्र दे सकते हैं।
+इसलिए बच्चे के लिंग निर्धारण में पिता से प्राप्त X या Y
+लिंग गुणसूत्र निर्णायक होता है।
+</div>
+
+</section>
+
+
+<!-- ================= OTHER ORGANISMS ================= -->
+
+<section class="card">
+
+<h2>12. अन्य जीवों में लिंग निर्धारण</h2>
+
+<div class="compare">
+
+<div class="compare-box">
+
+<h3>सरीसृप (Reptiles)</h3>
+
+<p>
+कुछ सरीसृपों में लिंग निर्धारण
+<strong>तापमान (Temperature)</strong> पर निर्भर कर सकता है।
+</p>
+
+</div>
+
+<div class="compare-box">
+
+<h3>कुछ अन्य जीव</h3>
+
+<p>
+कुछ जीवों में जीवन के दौरान लिंग परिवर्तन
+देखा जा सकता है।
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= QUICK REVISION ================= -->
+
+<section class="card">
+
+<h2>13. ⚡ Quick Revision</h2>
+
+<div class="revision">
+
+<div class="rev">
+<b>आनुवंशिकता</b><br>
+जनकों के लक्षणों का संतति में स्थानांतरण।
+</div>
+
+<div class="rev">
+<b>विविधता</b><br>
+जीवों के लक्षणों में होने वाले अंतर।
+</div>
+
+<div class="rev">
+<b>Genetics के जनक</b><br>
+Gregor Johann Mendel
+</div>
+
+<div class="rev">
+<b>मेंडल ने प्रयोग किया</b><br>
+मटर के पौधे पर।
+</div>
+
+<div class="rev">
+<b>Monohybrid F₂ Ratio</b><br>
+3 : 1
+</div>
+
+<div class="rev">
+<b>Genotypic Ratio</b><br>
+1 : 2 : 1
+</div>
+
+<div class="rev">
+<b>Dihybrid Ratio</b><br>
+9 : 3 : 3 : 1
+</div>
+
+<div class="rev">
+<b>मानव गुणसूत्र</b><br>
+46 = 23 जोड़े
+</div>
+
+<div class="rev">
+<b>Female</b><br>
+44 + XX
+</div>
+
+<div class="rev">
+<b>Male</b><br>
+44 + XY
+</div>
+
+<div class="rev">
+<b>Girl</b><br>
+XX
+</div>
+
+<div class="rev">
+<b>Boy</b><br>
+XY
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= EXAM BOX ================= -->
+
+<section class="card">
+
+<h2>🎯 परीक्षा में जरूर याद रखें</h2>
+
+<div class="important">
+
+1. आनुवंशिकता = Heredity
+
+<br>
+
+2. विविधता = Variation
+
+<br>
+
+3. मेंडल = Father of Genetics
+
+<br>
+
+4. मटर का पौधा = Pea plant
+
+<br>
+
+5. Monohybrid F₂ Phenotypic Ratio = <strong>3 : 1</strong>
+
+<br>
+
+6. Monohybrid Genotypic Ratio = <strong>1 : 2 : 1</strong>
+
+<br>
+
+7. Dihybrid Ratio = <strong>9 : 3 : 3 : 1</strong>
+
+<br>
+
+8. मानव में कुल गुणसूत्र = <strong>46</strong>
+
+<br>
+
+9. Female = <strong>XX</strong>
+
+<br>
+
+10. Male = <strong>XY</strong>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+
+Railway Science | Class 10 Science | Chapter 8 – Heredity
+
+</footer>
+
+</body>
+</html>
