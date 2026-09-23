@@ -1,0 +1,2322 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Class 10 Heredity Mock Test</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#eef2f7;
+    color:#172033;
+    line-height:1.6;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:linear-gradient(135deg,#071a38,#123f73);
+    color:white;
+    padding:14px 16px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.18);
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.title h1{
+    font-size:20px;
+}
+
+.title p{
+    font-size:12px;
+    opacity:.85;
+}
+
+/* ================= TIMER ================= */
+
+.timer{
+    background:#fff;
+    color:#c62828;
+    border-radius:9px;
+    padding:7px 13px;
+    font-weight:bold;
+    font-size:17px;
+    min-width:95px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.timer.warning{
+    background:#ffebee;
+    color:#d32f2f;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.05);
+    }
+}
+
+/* ================= PALETTE BUTTON ================= */
+
+.palette-btn{
+    position:fixed;
+    top:85px;
+    right:12px;
+    z-index:1100;
+    border:none;
+    background:#ff9800;
+    color:#fff;
+    font-weight:bold;
+    padding:10px 13px;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
+
+.palette-btn:hover{
+    background:#f57c00;
+}
+
+/* ================= PALETTE ================= */
+
+.palette{
+    position:fixed;
+    top:132px;
+    right:10px;
+    width:310px;
+    max-width:calc(100% - 20px);
+    background:white;
+    border-radius:15px;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
+    z-index:1050;
+    padding:16px;
+    display:none;
+    border:1px solid #d9e1ea;
+}
+
+.palette.show{
+    display:block;
+}
+
+.palette-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.palette-header h3{
+    color:#123f73;
+}
+
+.close-palette{
+    border:none;
+    background:#f1f3f5;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+    max-height:280px;
+    overflow-y:auto;
+    padding:3px;
+}
+
+.pal-q{
+    height:38px;
+    border-radius:8px;
+    border:1px solid #cbd5df;
+    background:#f1f3f5;
+    cursor:pointer;
+    font-weight:bold;
+    color:#374151;
+}
+
+.pal-q:hover{
+    transform:scale(1.05);
+}
+
+.pal-q.current{
+    outline:3px solid #1976d2;
+}
+
+.pal-q.answered{
+    background:#22c55e;
+    color:white;
+    border-color:#16a34a;
+}
+
+.pal-q.review{
+    background:#8b5cf6;
+    color:white;
+    border-color:#7c3aed;
+}
+
+.pal-q.answered-review{
+    background:linear-gradient(135deg,#22c55e 50%,#8b5cf6 50%);
+    color:white;
+}
+
+/* ================= LEGEND ================= */
+
+.legend{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+    margin-top:13px;
+    font-size:12px;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.dot{
+    width:15px;
+    height:15px;
+    border-radius:4px;
+    display:inline-block;
+}
+
+.dot.not{
+    background:#f1f3f5;
+    border:1px solid #bbb;
+}
+
+.dot.answer{
+    background:#22c55e;
+}
+
+.dot.review{
+    background:#8b5cf6;
+}
+
+.dot.ar{
+    background:linear-gradient(135deg,#22c55e 50%,#8b5cf6 50%);
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    width:94%;
+    max-width:1000px;
+    margin:25px auto 60px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-area{
+    margin-bottom:18px;
+}
+
+.progress-text{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#52616f;
+    margin-bottom:5px;
+}
+
+.progress{
+    height:8px;
+    background:#dce3ea;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    background:#0d63a5;
+    width:2.5%;
+    transition:.3s;
+}
+
+/* ================= QUESTION ================= */
+
+.question-card{
+    background:#fff;
+    border-radius:17px;
+    padding:22px;
+    box-shadow:0 4px 18px rgba(0,0,0,.07);
+    border:1px solid #dde5ed;
+}
+
+.q-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+    gap:10px;
+}
+
+.q-number{
+    background:#0d477d;
+    color:white;
+    padding:6px 13px;
+    border-radius:20px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.review-status{
+    color:#7c3aed;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.question-text{
+    font-size:19px;
+    font-weight:bold;
+    color:#172033;
+    margin-bottom:18px;
+}
+
+/* ================= OPTIONS ================= */
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.option{
+    border:2px solid #d9e1e8;
+    border-radius:11px;
+    padding:12px 14px;
+    cursor:pointer;
+    transition:.2s;
+    background:#fff;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.option:hover{
+    border-color:#4b8ac2;
+    background:#f7fbff;
+}
+
+.option input{
+    margin-top:5px;
+    accent-color:#0d5ca6;
+    transform:scale(1.15);
+}
+
+.option.selected{
+    border-color:#1769aa;
+    background:#eaf4ff;
+}
+
+.option-label{
+    font-weight:bold;
+    min-width:23px;
+    color:#0d477d;
+}
+
+/* ================= ACTIONS ================= */
+
+.actions{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:22px;
+    padding-top:17px;
+    border-top:1px solid #e2e8ef;
+}
+
+.left-actions,
+.right-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    border-radius:9px;
+    padding:10px 15px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.previous{
+    background:#64748b;
+    color:white;
+}
+
+.next{
+    background:#0d63a5;
+    color:white;
+}
+
+.review{
+    background:#7c3aed;
+    color:white;
+}
+
+.clear{
+    background:#f1f3f5;
+    color:#374151;
+    border:1px solid #ccd4dd;
+}
+
+.submit{
+    background:#16a34a;
+    color:white;
+}
+
+.review-note{
+    background:#f5f3ff;
+    border-left:5px solid #7c3aed;
+    padding:12px;
+    margin-top:15px;
+    border-radius:8px;
+    font-size:13px;
+}
+
+/* ================= RESULT ================= */
+
+.result{
+    display:none;
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    box-shadow:0 5px 25px rgba(0,0,0,.12);
+}
+
+.result-title{
+    text-align:center;
+    color:#0d477d;
+    margin-bottom:5px;
+}
+
+.result-subtitle{
+    text-align:center;
+    color:#64748b;
+    margin-bottom:20px;
+}
+
+/* ================= SCORE ================= */
+
+.score-card{
+    background:linear-gradient(135deg,#0d477d,#0d63a5);
+    color:white;
+    border-radius:17px;
+    padding:25px;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.score-label{
+    font-size:14px;
+    opacity:.9;
+}
+
+.score{
+    font-size:42px;
+    font-weight:bold;
+    margin:4px 0;
+}
+
+.score-small{
+    font-size:13px;
+    opacity:.9;
+}
+
+/* ================= RESULT GRID ================= */
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin:20px 0;
+}
+
+.result-box{
+    padding:15px;
+    border-radius:11px;
+    background:#f5f8fb;
+    text-align:center;
+    border:1px solid #e0e7ef;
+}
+
+.result-box strong{
+    display:block;
+    font-size:23px;
+}
+
+.correct{
+    color:#16a34a;
+}
+
+.wrong{
+    color:#dc2626;
+}
+
+.unattempted{
+    color:#64748b;
+}
+
+.negative{
+    color:#dc2626;
+}
+
+/* ================= SOLUTION ================= */
+
+.solution-title{
+    color:#0d477d;
+    margin:28px 0 14px;
+    border-left:5px solid #ff9800;
+    padding-left:10px;
+}
+
+.solution-card{
+    border:1px solid #dce4ec;
+    border-radius:14px;
+    margin-bottom:14px;
+    overflow:hidden;
+    background:#fff;
+}
+
+.solution-header{
+    padding:12px 15px;
+    background:#f5f8fb;
+    font-weight:bold;
+    color:#123f73;
+}
+
+.solution-body{
+    padding:15px;
+}
+
+.status{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:15px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.status.correct-status{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.status.wrong-status{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.status.skip-status{
+    background:#e5e7eb;
+    color:#4b5563;
+}
+
+.question-solution{
+    font-weight:bold;
+    font-size:16px;
+    margin-bottom:10px;
+}
+
+.answer-row{
+    padding:9px 11px;
+    border-radius:8px;
+    margin:7px 0;
+}
+
+.your-answer{
+    background:#fff7ed;
+    border-left:4px solid #f97316;
+}
+
+.correct-answer{
+    background:#ecfdf5;
+    border-left:4px solid #16a34a;
+}
+
+.explanation{
+    background:#eff6ff;
+    border-left:4px solid #2563eb;
+    padding:12px;
+    margin-top:10px;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.restart{
+    display:block;
+    margin:25px auto 5px;
+    background:#0d63a5;
+    color:white;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .header-inner{
+        align-items:flex-start;
+    }
+
+    .title h1{
+        font-size:16px;
+    }
+
+    .timer{
+        font-size:14px;
+        min-width:82px;
+        padding:6px 8px;
+    }
+
+    .palette-btn{
+        top:78px;
+        right:8px;
+        font-size:12px;
+        padding:8px 10px;
+    }
+
+    .palette{
+        top:120px;
+        right:8px;
+        width:290px;
+    }
+
+    .question-card{
+        padding:16px;
+    }
+
+    .question-text{
+        font-size:17px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .btn{
+        padding:9px 11px;
+        font-size:13px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="header-inner">
+
+<div class="title">
+
+<h1>
+Railway Science | Heredity Mock Test
+</h1>
+
+<p>
+Class 10 Science • Chapter 8 • 40 Questions
+</p>
+
+</div>
+
+<div class="timer" id="timer">
+20:00
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     PALETTE BUTTON
+===================================================== -->
+
+<button class="palette-btn" onclick="togglePalette()">
+📋 Question Palette
+</button>
+
+
+<!-- =====================================================
+     QUESTION PALETTE
+===================================================== -->
+
+<div class="palette" id="palette">
+
+<div class="palette-header">
+
+<h3>
+Question Palette
+</h3>
+
+<button class="close-palette"
+onclick="togglePalette()">
+×
+</button>
+
+</div>
+
+<div class="palette-grid"
+id="paletteGrid">
+</div>
+
+<div class="legend">
+
+<div class="legend-item">
+<span class="dot not"></span>
+Not Visited
+</div>
+
+<div class="legend-item">
+<span class="dot answer"></span>
+Answered
+</div>
+
+<div class="legend-item">
+<span class="dot review"></span>
+Review
+</div>
+
+<div class="legend-item">
+<span class="dot ar"></span>
+Answered + Review
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     TEST
+===================================================== -->
+
+<main class="container"
+id="testArea">
+
+
+<!-- Progress -->
+
+<div class="progress-area">
+
+<div class="progress-text">
+
+<span id="progressText">
+Question 1 of 40
+</span>
+
+<span id="answeredText">
+Answered: 0
+</span>
+
+</div>
+
+<div class="progress">
+
+<div class="progress-fill"
+id="progressFill">
+</div>
+
+</div>
+
+</div>
+
+
+<!-- Question Card -->
+
+<div class="question-card">
+
+<div class="q-top">
+
+<div class="q-number"
+id="qNumber">
+Question 1
+</div>
+
+<div class="review-status"
+id="reviewStatus">
+</div>
+
+</div>
+
+
+<div class="question-text"
+id="questionText">
+</div>
+
+
+<div class="options"
+id="options">
+</div>
+
+
+<div class="actions">
+
+<div class="left-actions">
+
+<button class="btn previous"
+onclick="previousQuestion()">
+⬅ Previous
+</button>
+
+<button class="btn review"
+onclick="toggleReview()">
+🔖 Mark Review
+</button>
+
+<button class="btn clear"
+onclick="clearResponse()">
+↻ Clear
+</button>
+
+</div>
+
+
+<div class="right-actions">
+
+<button class="btn next"
+onclick="nextQuestion()">
+Next ➡
+</button>
+
+<button class="btn submit"
+onclick="submitTest(false)">
+🏁 Submit
+</button>
+
+</div>
+
+</div>
+
+
+<div class="review-note">
+
+<strong>Mark for Review:</strong>
+
+अगर किसी प्रश्न पर दोबारा विचार करना है तो
+<strong>Mark Review</strong> दबाएँ।
+
+Palette से बाद में उस प्रश्न पर सीधे जा सकते हैं।
+
+</div>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     RESULT
+===================================================== -->
+
+<section class="container">
+
+<div class="result"
+id="result">
+
+
+<h2 class="result-title">
+🎉 Test Completed
+</h2>
+
+<p class="result-subtitle">
+Class 10 Science – Chapter 8: Heredity
+</p>
+
+
+<!-- SCORE -->
+
+<div class="score-card">
+
+<div class="score-label">
+FINAL SCORE
+</div>
+
+<div class="score"
+id="finalScore">
+0
+</div>
+
+<div class="score-small">
+Correct answers − Wrong answers × 1/3
+</div>
+
+</div>
+
+
+<!-- RESULT STATISTICS -->
+
+<div class="result-grid">
+
+<div class="result-box">
+
+<strong class="correct"
+id="correctCount">
+0
+</strong>
+
+Correct
+
+</div>
+
+
+<div class="result-box">
+
+<strong class="wrong"
+id="wrongCount">
+0
+</strong>
+
+Wrong
+
+</div>
+
+
+<div class="result-box">
+
+<strong class="unattempted"
+id="unattemptedCount">
+0
+</strong>
+
+Unattempted
+
+</div>
+
+
+<div class="result-box">
+
+<strong class="negative"
+id="negativeCount">
+0
+</strong>
+
+Negative Marks
+
+</div>
+
+</div>
+
+
+<!-- PERCENTAGE -->
+
+<div class="explanation">
+
+<strong>Score Details:</strong>
+
+<br>
+
+Total Questions: <span id="totalResult"></span>
+
+<br>
+
+Correct: <span id="correctResult"></span>
+
+<br>
+
+Wrong: <span id="wrongResult"></span>
+
+<br>
+
+Unattempted: <span id="unattemptedResult"></span>
+
+<br>
+
+Negative Marks: <span id="negativeResult"></span>
+
+<br>
+
+Final Score: <strong id="scoreResult"></strong>
+
+<br>
+
+Percentage: <strong id="percentageResult"></strong>
+
+</div>
+
+
+<h2 class="solution-title">
+📖 Complete Solutions & Answer Review
+</h2>
+
+
+<div id="solutions">
+</div>
+
+
+<button class="btn restart"
+onclick="restartTest()">
+
+🔄 Restart Test
+
+</button>
+
+
+</div>
+
+</section>
+
+
+<script>
+
+
+/* =====================================================
+   QUESTIONS + ANSWERS + SOLUTIONS
+===================================================== */
+
+const questions = [
+
+{
+q:"आनुवंशिकता (Heredity) से क्या तात्पर्य है?",
+options:[
+"जीवों में भोजन का पाचन",
+"जनकों के लक्षणों का संतति में स्थानांतरण",
+"जीवों में वृद्धि की प्रक्रिया",
+"कोशिका का विभाजन"
+],
+answer:1,
+explanation:"आनुवंशिकता वह प्रक्रिया है जिसमें जनकों के लक्षण आनुवंशिक पदार्थ के माध्यम से संतति में स्थानांतरित होते हैं।"
+},
+
+{
+q:"निम्न में से किस जनन में विविधता अधिक उत्पन्न होने की संभावना होती है?",
+options:[
+"मुकुलन",
+"विखंडन",
+"लैंगिक जनन",
+"कायिक प्रवर्धन"
+],
+answer:2,
+explanation:"लैंगिक जनन में दो जनकों की आनुवंशिक सामग्री का संयोजन होता है, इसलिए विविधता की संभावना अधिक होती है।"
+},
+
+{
+q:"एक ही प्रजाति के जीवों में पाए जाने वाले आनुवंशिक अंतर कहलाते हैं—",
+options:[
+"अनुकूलन",
+"विविधता",
+"उत्परिवर्तन",
+"निषेचन"
+],
+answer:1,
+explanation:"एक ही प्रजाति के जीवों के लक्षणों में पाए जाने वाले अंतर को Variation अर्थात विविधता कहते हैं।"
+},
+
+{
+q:"अलैंगिक जनन में संतति सामान्यतः जनक के समान क्यों होती है?",
+options:[
+"इसमें दो जनक भाग लेते हैं",
+"इसमें आनुवंशिक पदार्थ का मिश्रण अधिक होता है",
+"इसमें सामान्यतः केवल एक जनक शामिल होता है",
+"इसमें गुणसूत्र नहीं होते"
+],
+answer:2,
+explanation:"अलैंगिक जनन में सामान्यतः केवल एक जनक शामिल होता है और आनुवंशिक पदार्थ का मिश्रण नहीं होता, इसलिए संतति लगभग समान होती है।"
+},
+
+{
+q:"लैंगिक जनन में विविधता का प्रमुख कारण क्या है?",
+options:[
+"दो जनकों की आनुवंशिक सामग्री का संयोजन",
+"DNA का पूर्ण अभाव",
+"केवल एक जनक का होना",
+"कोशिका का आकार बढ़ना"
+],
+answer:0,
+explanation:"लैंगिक जनन में दो जनकों से प्राप्त आनुवंशिक सामग्री मिलती है, जिससे संतति में विविधता उत्पन्न हो सकती है।"
+},
+
+{
+q:"आनुवंशिकी का जनक (Father of Genetics) किसे कहा जाता है?",
+options:[
+"Charles Darwin",
+"Gregor Johann Mendel",
+"Robert Hooke",
+"Louis Pasteur"
+],
+answer:1,
+explanation:"Gregor Johann Mendel ने मटर के पौधों पर प्रयोग करके वंशागति के महत्वपूर्ण नियम बताए, इसलिए उन्हें Father of Genetics कहा जाता है।"
+},
+
+{
+q:"Mendel ने अपने आनुवंशिकता संबंधी प्रयोग किस पौधे पर किए थे?",
+options:[
+"गेहूँ",
+"मक्का",
+"मटर",
+"चना"
+],
+answer:2,
+explanation:"Mendel ने अपने प्रसिद्ध आनुवंशिकता संबंधी प्रयोग Garden Pea यानी मटर के पौधे पर किए थे।"
+},
+
+{
+q:"Mendel ने मटर के पौधे को अपने प्रयोगों के लिए क्यों चुना?",
+options:[
+"उसमें कोई आनुवंशिक विविधता नहीं थी",
+"उसमें स्पष्ट विपरीत लक्षण पाए जाते थे",
+"वह केवल अलैंगिक जनन करता था",
+"उसमें गुणसूत्र नहीं होते थे"
+],
+answer:1,
+explanation:"मटर में कई स्पष्ट विपरीत लक्षण पाए जाते हैं, जैसे लंबा और बौना, गोल और झुर्रीदार बीज।"
+},
+
+{
+q:"निम्न में से कौन-सा मटर के पौधे का विपरीत लक्षणों का सही जोड़ा है?",
+options:[
+"लंबा – मध्यम",
+"लंबा – बौना",
+"हरा – नीला",
+"गोल – चौकोर"
+],
+answer:1,
+explanation:"मटर में तने की लंबाई के दो विपरीत लक्षण Tall और Dwarf थे।"
+},
+
+{
+q:"मटर के पौधे में लंबा तना किस प्रकार का लक्षण माना गया?",
+options:[
+"अप्रभावी",
+"प्रभावी",
+"अर्जित",
+"परिवर्तित"
+],
+answer:1,
+explanation:"Mendel के प्रयोग में Tallness अर्थात लंबाई Dominant trait थी।"
+},
+
+{
+q:"जो लक्षण प्रभावी लक्षण की उपस्थिति में भी दिखाई देता है, वह कहलाता है—",
+options:[
+"अप्रभावी",
+"प्रभावी",
+"अर्जित",
+"परिवेशीय"
+],
+answer:1,
+explanation:"Dominant trait वह लक्षण है जो संबंधित allele pair में अपना प्रभाव व्यक्त करता है।"
+},
+
+{
+q:"यदि T = लंबा और t = बौना है, तो निम्न में से कौन-सा शुद्ध लंबा पौधा होगा?",
+options:[
+"Tt",
+"tt",
+"TT",
+"TTT"
+],
+answer:2,
+explanation:"TT में दोनों alleles समान और dominant हैं, इसलिए यह homozygous tall genotype है।"
+},
+
+{
+q:"यदि T प्रभावी और t अप्रभावी है, तो Tt पौधा कैसा होगा?",
+options:[
+"बौना",
+"लंबा",
+"आधा लंबा",
+"इसमें कोई लक्षण नहीं होगा"
+],
+answer:1,
+explanation:"T dominant है और इसलिए Tt genotype में dominant Tall trait व्यक्त होगा।"
+},
+
+{
+q:"अप्रभावी लक्षण कब दिखाई देता है?",
+options:[
+"केवल TT में",
+"केवल Tt में",
+"जब दोनों allele अप्रभावी हों",
+"जब केवल एक allele मौजूद हो"
+],
+answer:2,
+explanation:"Recessive trait तभी व्यक्त होता है जब दोनों संबंधित alleles recessive हों, जैसे tt।"
+},
+
+{
+q:"निम्न में से कौन-सा genotype heterozygous है?",
+options:[
+"TT",
+"tt",
+"Tt",
+"XX"
+],
+answer:2,
+explanation:"Heterozygous genotype में दोनों alleles अलग होते हैं। Tt इसका उदाहरण है।"
+},
+
+{
+q:"Monohybrid cross में कितने जोड़ी विपरीत लक्षणों का अध्ययन किया जाता है?",
+options:[
+"एक",
+"दो",
+"तीन",
+"चार"
+],
+answer:0,
+explanation:"Monohybrid cross में एक जोड़ी विपरीत लक्षणों का अध्ययन किया जाता है।"
+},
+
+{
+q:"यदि शुद्ध लंबे पौधे का genotype TT और बौने पौधे का genotype tt है, तो TT × tt की F₁ पीढ़ी में क्या प्राप्त होगा?",
+options:[
+"सभी बौने",
+"सभी लंबे",
+"आधे लंबे और आधे बौने",
+"सभी झुर्रीदार"
+],
+answer:1,
+explanation:"TT × tt से सभी संतति Tt होंगी। T dominant होने के कारण सभी पौधे लंबे दिखाई देंगे।"
+},
+
+{
+q:"TT × tt के परिणामस्वरूप F₁ पीढ़ी का genotype क्या होगा?",
+options:[
+"TT",
+"tt",
+"Tt",
+"TTT"
+],
+answer:2,
+explanation:"TT से T और tt से t gamete मिलता है। इसलिए सभी F₁ offspring Tt होंगे।"
+},
+
+{
+q:"F₁ पीढ़ी के Tt × Tt cross में निम्न में से कौन-सा genotype प्राप्त नहीं होगा?",
+options:[
+"TT",
+"Tt",
+"tt",
+"TTt"
+],
+answer:3,
+explanation:"Tt × Tt में केवल TT, Tt और tt genotypes प्राप्त होते हैं। TTt एक वैध genotype नहीं है।"
+},
+
+{
+q:"Tt × Tt के परिणामस्वरूप genotypic ratio क्या होगा?",
+options:[
+"3 : 1",
+"1 : 1",
+"1 : 2 : 1",
+"9 : 3 : 3 : 1"
+],
+answer:2,
+explanation:"Punnett square से TT : Tt : tt = 1 : 2 : 1 प्राप्त होता है।"
+},
+
+{
+q:"Tt × Tt के परिणामस्वरूप phenotypic ratio क्या होगा?",
+options:[
+"1 : 2 : 1",
+"3 : 1",
+"1 : 1",
+"9 : 3 : 3 : 1"
+],
+answer:1,
+explanation:"TT और Tt दोनों लंबे होते हैं जबकि केवल tt बौना होता है। इसलिए phenotypic ratio 3 : 1 होता है।"
+},
+
+{
+q:"Tt × Tt में बौने पौधे प्राप्त होने की संभावना कितनी होगी?",
+options:[
+"100%",
+"75%",
+"50%",
+"25%"
+],
+answer:3,
+explanation:"Tt × Tt से एक चौथाई संतति tt होती है। इसलिए dwarf plants की संभावना 25% है।"
+},
+
+{
+q:"Tt × Tt में लंबे पौधे प्राप्त होने की संभावना कितनी होगी?",
+options:[
+"25%",
+"50%",
+"75%",
+"100%"
+],
+answer:2,
+explanation:"Tt × Tt में TT और दो Tt लंबे होते हैं। इसलिए 3/4 यानी 75% पौधे लंबे होंगे।"
+},
+
+{
+q:"Dihybrid cross में कितने जोड़ी विपरीत लक्षणों का अध्ययन किया जाता है?",
+options:[
+"एक",
+"दो",
+"तीन",
+"चार"
+],
+answer:1,
+explanation:"Dihybrid cross में एक साथ दो जोड़ी विपरीत लक्षणों का अध्ययन किया जाता है।"
+},
+
+{
+q:"Mendel के dihybrid cross में F₂ पीढ़ी का phenotypic ratio क्या था?",
+options:[
+"3 : 1",
+"1 : 2 : 1",
+"9 : 3 : 3 : 1",
+"1 : 1"
+],
+answer:2,
+explanation:"Dihybrid cross की F₂ generation में सामान्य phenotypic ratio 9 : 3 : 3 : 1 प्राप्त होता है।"
+},
+
+{
+q:"Dihybrid cross में 9 : 3 : 3 : 1 अनुपात किस पीढ़ी में देखा जाता है?",
+options:[
+"P",
+"F₁",
+"F₂",
+"केवल parental generation"
+],
+answer:2,
+explanation:"9 : 3 : 3 : 1 ratio F₂ generation में प्राप्त होता है।"
+},
+
+{
+q:"यदि R = Round और r = Wrinkled तथा Y = Yellow और y = Green है, तो RY से संबंधित लक्षण कौन-सा होगा?",
+options:[
+"झुर्रीदार हरा",
+"गोल पीला",
+"गोल हरा",
+"झुर्रीदार पीला"
+],
+answer:1,
+explanation:"R और Y दोनों dominant alleles हैं। इसलिए RY combination गोल और पीले बीज से संबंधित है।"
+},
+
+{
+q:"Dihybrid cross में 9 : 3 : 3 : 1 अनुपात किस प्रकार के अध्ययन से संबंधित है?",
+options:[
+"एक लक्षण",
+"दो लक्षण",
+"केवल DNA",
+"केवल sex determination"
+],
+answer:1,
+explanation:"Dihybrid cross में दो अलग-अलग लक्षणों का एक साथ अध्ययन किया जाता है।"
+},
+
+{
+q:"जीन (Gene) क्या है?",
+options:[
+"कोशिका का बाहरी आवरण",
+"DNA का वह भाग जिसमें विशेष प्रोटीन के निर्माण की सूचना होती है",
+"कोशिका का ऊर्जा केंद्र",
+"कोशिका का द्रव"
+],
+answer:1,
+explanation:"Gene DNA का एक functional segment है जिसमें किसी विशेष protein या functional product से संबंधित आनुवंशिक सूचना होती है।"
+},
+
+{
+q:"आनुवंशिक सूचना का मुख्य वाहक कौन-सा अणु है?",
+options:[
+"वसा",
+"ग्लूकोज",
+"DNA",
+"जल"
+],
+answer:2,
+explanation:"DNA अधिकांश जीवों में आनुवंशिक सूचना को संग्रहित और आगे स्थानांतरित करता है।"
+},
+
+{
+q:"जीन मुख्य रूप से किससे संबंधित है?",
+options:[
+"आनुवंशिक सूचना",
+"भोजन के पाचन",
+"रक्त परिसंचरण",
+"श्वसन की गति"
+],
+answer:0,
+explanation:"Gene आनुवंशिक सूचना की एक मूल इकाई है जो किसी विशेष लक्षण से संबंधित हो सकती है।"
+},
+
+{
+q:"मनुष्य की सामान्य शारीरिक कोशिका में कुल कितने गुणसूत्र होते हैं?",
+options:[
+"23",
+"44",
+"46",
+"48"
+],
+answer:2,
+explanation:"मानव की सामान्य somatic cell में 46 chromosomes अर्थात 23 pairs होते हैं।"
+},
+
+{
+q:"मनुष्य में गुणसूत्र कितने जोड़ों में पाए जाते हैं?",
+options:[
+"22",
+"23",
+"44",
+"46"
+],
+answer:1,
+explanation:"मनुष्य में कुल 46 chromosomes 23 pairs में व्यवस्थित होते हैं।"
+},
+
+{
+q:"मनुष्य में गुणसूत्रों का एक सेट किससे और दूसरा सेट किससे प्राप्त होता है?",
+options:[
+"दोनों माता से",
+"दोनों पिता से",
+"एक माता से और एक पिता से",
+"केवल पर्यावरण से"
+],
+answer:2,
+explanation:"संतति को एक chromosome set माता से और दूसरा पिता से प्राप्त होता है।"
+},
+
+{
+q:"मानव महिला के sex chromosomes कौन-से होते हैं?",
+options:[
+"XY",
+"XX",
+"YY",
+"XO"
+],
+answer:1,
+explanation:"सामान्य मानव female में sex chromosomes XX होते हैं।"
+},
+
+{
+q:"मानव पुरुष के sex chromosomes कौन-से होते हैं?",
+options:[
+"XX",
+"YY",
+"XY",
+"XO"
+],
+answer:2,
+explanation:"सामान्य मानव male में sex chromosomes XY होते हैं।"
+},
+
+{
+q:"मानव अंडाणु में कौन-सा sex chromosome होता है?",
+options:[
+"केवल X",
+"केवल Y",
+"X या Y",
+"XX"
+],
+answer:0,
+explanation:"मानव female XX होती है, इसलिए उसके सभी ova में X chromosome होता है।"
+},
+
+{
+q:"मानव पुरुष के शुक्राणु किस प्रकार के हो सकते हैं?",
+options:[
+"केवल X",
+"केवल Y",
+"X या Y",
+"केवल XX"
+],
+answer:2,
+explanation:"पुरुष XY होता है, इसलिए उसके sperm X या Y chromosome में से कोई एक ले जा सकते हैं।"
+},
+
+{
+q:"निम्न में से कौन-सा संयोजन लड़की के जन्म से संबंधित है?",
+options:[
+"X + X = XX",
+"X + Y = XY",
+"Y + Y = YY",
+"XX + Y = XXX"
+],
+answer:0,
+explanation:"माता का ovum X chromosome देता है। यदि पिता का sperm भी X chromosome देता है, तो XX combination बनता है।"
+},
+
+{
+q:"मानव में बच्चे के लिंग निर्धारण में पिता की भूमिका क्यों महत्वपूर्ण होती है?",
+options:[
+"पिता हमेशा Y देता है",
+"पिता हमेशा X देता है",
+"पिता का शुक्राणु X या Y दोनों में से कोई एक दे सकता है",
+"माता का अंडाणु X या Y दोनों दे सकता है"
+],
+answer:2,
+explanation:"माता के ova में X chromosome होता है, जबकि पिता के sperm X या Y में से कोई एक chromosome दे सकते हैं।"
+}
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let currentQuestion=0;
+
+let userAnswers=
+new Array(questions.length).fill(null);
+
+let markedReview=
+new Array(questions.length).fill(false);
+
+let visited=
+new Array(questions.length).fill(false);
+
+let timeLeft=20*60;
+
+let testSubmitted=false;
+
+
+/* =====================================================
+   PALETTE
+===================================================== */
+
+function createPalette(){
+
+    const grid=
+    document.getElementById("paletteGrid");
+
+    grid.innerHTML="";
+
+    questions.forEach((q,index)=>{
+
+        const btn=
+        document.createElement("button");
+
+        btn.className="pal-q";
+
+        btn.textContent=index+1;
+
+        btn.onclick=function(){
+
+            currentQuestion=index;
+
+            visited[index]=true;
+
+            renderQuestion();
+
+            document
+            .getElementById("palette")
+            .classList
+            .remove("show");
+
+        };
+
+        grid.appendChild(btn);
+
+    });
+
+    updatePalette();
+
+}
+
+
+function updatePalette(){
+
+    const buttons=
+    document.querySelectorAll(".pal-q");
+
+    buttons.forEach((btn,index)=>{
+
+        btn.className="pal-q";
+
+        if(index===currentQuestion){
+
+            btn.classList.add("current");
+
+        }
+
+        if(
+            userAnswers[index]!==null &&
+            markedReview[index]
+        ){
+
+            btn.classList.add(
+                "answered-review"
+            );
+
+        }
+
+        else if(markedReview[index]){
+
+            btn.classList.add("review");
+
+        }
+
+        else if(userAnswers[index]!==null){
+
+            btn.classList.add("answered");
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   PALETTE OPEN/CLOSE
+===================================================== */
+
+function togglePalette(){
+
+    document
+    .getElementById("palette")
+    .classList
+    .toggle("show");
+
+}
+
+
+/* =====================================================
+   RENDER QUESTION
+===================================================== */
+
+function renderQuestion(){
+
+    const q=
+    questions[currentQuestion];
+
+    visited[currentQuestion]=true;
+
+    document
+    .getElementById("qNumber")
+    .textContent=
+    "Question "+(currentQuestion+1);
+
+    document
+    .getElementById("questionText")
+    .textContent=q.q;
+
+
+    const container=
+    document.getElementById("options");
+
+    container.innerHTML="";
+
+    const letters=[
+        "A","B","C","D"
+    ];
+
+
+    q.options.forEach(
+    (option,index)=>{
+
+        const label=
+        document.createElement("label");
+
+        label.className="option";
+
+
+        if(
+            userAnswers[currentQuestion]===index
+        ){
+
+            label.classList.add(
+                "selected"
+            );
+
+        }
+
+
+        label.innerHTML=`
+
+        <input
+        type="radio"
+        name="question${currentQuestion}"
+        value="${index}"
+        ${
+        userAnswers[currentQuestion]===index
+        ?"checked":""
+        }
+        >
+
+        <span class="option-label">
+        ${letters[index]}.
+        </span>
+
+        <span>
+        ${option}
+        </span>
+
+        `;
+
+
+        label.addEventListener(
+        "click",
+        function(){
+
+            userAnswers[currentQuestion]=index;
+
+            renderQuestion();
+
+        });
+
+
+        container.appendChild(label);
+
+    });
+
+
+    if(
+        markedReview[currentQuestion]
+    ){
+
+        document
+        .getElementById("reviewStatus")
+        .textContent=
+        "🔖 Marked for Review";
+
+    }
+
+    else{
+
+        document
+        .getElementById("reviewStatus")
+        .textContent="";
+
+    }
+
+
+    updateProgress();
+
+    updatePalette();
+
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+function updateProgress(){
+
+    const answered=
+    userAnswers.filter(
+        a=>a!==null
+    ).length;
+
+
+    const percentage=
+    ((currentQuestion+1)/
+    questions.length)*100;
+
+
+    document
+    .getElementById("progressFill")
+    .style.width=
+    percentage+"%";
+
+
+    document
+    .getElementById("progressText")
+    .textContent=
+    "Question "+
+    (currentQuestion+1)+
+    " of "+
+    questions.length;
+
+
+    document
+    .getElementById("answeredText")
+    .textContent=
+    "Answered: "+
+    answered;
+
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextQuestion(){
+
+    if(
+        currentQuestion<
+        questions.length-1
+    ){
+
+        currentQuestion++;
+
+        visited[currentQuestion]=true;
+
+        renderQuestion();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+    else{
+
+        alert(
+        "यह अंतिम प्रश्न है। Test submit करने के लिए Submit button दबाएँ।"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+function previousQuestion(){
+
+    if(currentQuestion>0){
+
+        currentQuestion--;
+
+        visited[currentQuestion]=true;
+
+        renderQuestion();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* =====================================================
+   MARK REVIEW
+===================================================== */
+
+function toggleReview(){
+
+    markedReview[currentQuestion]=
+    !markedReview[currentQuestion];
+
+    renderQuestion();
+
+}
+
+
+/* =====================================================
+   CLEAR
+===================================================== */
+
+function clearResponse(){
+
+    userAnswers[currentQuestion]=null;
+
+    renderQuestion();
+
+}
+
+
+/* =====================================================
+   TIMER
+===================================================== */
+
+function updateTimer(){
+
+    const timer=
+    document.getElementById("timer");
+
+
+    let minutes=
+    Math.floor(timeLeft/60);
+
+
+    let seconds=
+    timeLeft%60;
+
+
+    minutes=
+    String(minutes)
+    .padStart(2,"0");
+
+
+    seconds=
+    String(seconds)
+    .padStart(2,"0");
+
+
+    timer.textContent=
+    minutes+":"+seconds;
+
+
+    if(timeLeft<=120){
+
+        timer.classList.add(
+            "warning"
+        );
+
+    }
+
+
+    if(timeLeft<=0){
+
+        clearInterval(
+            timerInterval
+        );
+
+
+        alert(
+        "⏰ समय समाप्त हो गया है। Test automatically submit किया जा रहा है।"
+        );
+
+
+        submitTest(true);
+
+        return;
+
+    }
+
+
+    timeLeft--;
+
+}
+
+
+const timerInterval=
+setInterval(
+    updateTimer,
+    1000
+);
+
+
+/* =====================================================
+   SUBMIT TEST
+===================================================== */
+
+function submitTest(autoSubmit){
+
+    if(testSubmitted){
+        return;
+    }
+
+
+    if(!autoSubmit){
+
+        const confirmSubmit=
+        confirm(
+        "क्या आप test submit करना चाहते हैं?"
+        );
+
+
+        if(!confirmSubmit){
+            return;
+        }
+
+    }
+
+
+    testSubmitted=true;
+
+
+    clearInterval(
+        timerInterval
+    );
+
+
+    let correct=0;
+
+    let wrong=0;
+
+    let unattempted=0;
+
+
+    questions.forEach(
+    (q,index)=>{
+
+        if(
+            userAnswers[index]===null
+        ){
+
+            unattempted++;
+
+        }
+
+        else if(
+            userAnswers[index]===q.answer
+        ){
+
+            correct++;
+
+        }
+
+        else{
+
+            wrong++;
+
+        }
+
+    });
+
+
+    const negative=
+    wrong/3;
+
+
+    const score=
+    correct-negative;
+
+
+    const percentage=
+    (score/questions.length)*100;
+
+
+    /* RESULT VALUES */
+
+    document
+    .getElementById("correctCount")
+    .textContent=correct;
+
+
+    document
+    .getElementById("wrongCount")
+    .textContent=wrong;
+
+
+    document
+    .getElementById("unattemptedCount")
+    .textContent=unattempted;
+
+
+    document
+    .getElementById("negativeCount")
+    .textContent=
+    negative.toFixed(2);
+
+
+    document
+    .getElementById("finalScore")
+    .textContent=
+    score.toFixed(2)+
+    " / "+
+    questions.length;
+
+
+    document
+    .getElementById("totalResult")
+    .textContent=
+    questions.length;
+
+
+    document
+    .getElementById("correctResult")
+    .textContent=
+    correct;
+
+
+    document
+    .getElementById("wrongResult")
+    .textContent=
+    wrong;
+
+
+    document
+    .getElementById("unattemptedResult")
+    .textContent=
+    unattempted;
+
+
+    document
+    .getElementById("negativeResult")
+    .textContent=
+    negative.toFixed(2);
+
+
+    document
+    .getElementById("scoreResult")
+    .textContent=
+    score.toFixed(2)+
+    " / 40";
+
+
+    document
+    .getElementById("percentageResult")
+    .textContent=
+    percentage.toFixed(2)+"%";
+
+
+    /* BUILD COMPLETE SOLUTIONS */
+
+    createSolutions();
+
+
+    document
+    .getElementById("testArea")
+    .style.display="none";
+
+
+    document
+    .getElementById("result")
+    .style.display="block";
+
+
+    document
+    .getElementById("palette")
+    .classList
+    .remove("show");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   COMPLETE SOLUTIONS
+===================================================== */
+
+function createSolutions(){
+
+    const container=
+    document.getElementById("solutions");
+
+    container.innerHTML="";
+
+
+    const letters=[
+        "A","B","C","D"
+    ];
+
+
+    questions.forEach(
+    (q,index)=>{
+
+        const card=
+        document.createElement("div");
+
+        card.className=
+        "solution-card";
+
+
+        let statusHTML="";
+
+        let statusClass="";
+
+
+        if(
+            userAnswers[index]===null
+        ){
+
+            statusHTML=
+            "⚪ Unattempted";
+
+            statusClass=
+            "skip-status";
+
+        }
+
+        else if(
+            userAnswers[index]===q.answer
+        ){
+
+            statusHTML=
+            "✅ Correct";
+
+            statusClass=
+            "correct-status";
+
+        }
+
+        else{
+
+            statusHTML=
+            "❌ Wrong";
+
+            statusClass=
+            "wrong-status";
+
+        }
+
+
+        const correctAnswer=
+        letters[q.answer]+
+        ". "+
+        q.options[q.answer];
+
+
+        let yourAnswer=
+        "Not Attempted";
+
+
+        if(
+            userAnswers[index]!==null
+        ){
+
+            yourAnswer=
+            letters[userAnswers[index]]+
+            ". "+
+            q.options[userAnswers[index]];
+
+        }
+
+
+        card.innerHTML=`
+
+        <div class="solution-header">
+
+        Question ${index+1}
+
+        </div>
+
+
+        <div class="solution-body">
+
+        <span class="status ${statusClass}">
+        ${statusHTML}
+        </span>
+
+
+        <div class="question-solution">
+        ${q.q}
+        </div>
+
+
+        <div class="answer-row your-answer">
+
+        <strong>
+        आपका उत्तर:
+        </strong>
+
+        <br>
+
+        ${yourAnswer}
+
+        </div>
+
+
+        <div class="answer-row correct-answer">
+
+        <strong>
+        सही उत्तर:
+        </strong>
+
+        <br>
+
+        ${correctAnswer}
+
+        </div>
+
+
+        <div class="explanation">
+
+        <strong>
+        💡 Solution / Explanation:
+        </strong>
+
+        <br>
+
+        ${q.explanation}
+
+        </div>
+
+
+        </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =====================================================
+   RESTART
+===================================================== */
+
+function restartTest(){
+
+    location.reload();
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+createPalette();
+
+visited[0]=true;
+
+renderQuestion();
+
+updateTimer();
+
+
+/* =====================================================
+   PREVENT ACCIDENTAL REFRESH
+===================================================== */
+
+window.addEventListener(
+"beforeunload",
+function(e){
+
+    if(!testSubmitted){
+
+        e.preventDefault();
+
+        e.returnValue="";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
