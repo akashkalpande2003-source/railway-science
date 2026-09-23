@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>कक्षा 10 विज्ञान | अध्याय 4 | कार्बन एवं उसके यौगिक</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    background:#f2f6fb;
+    color:#172033;
+    line-height:1.75;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:linear-gradient(135deg,#082b5c,#075e9b,#0086a8);
+    color:white;
+    border-radius:20px;
+    padding:30px 22px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+    margin-bottom:20px;
+}
+
+.header .chapter{
+    font-size:15px;
+    letter-spacing:1px;
+    opacity:.9;
+    margin-bottom:5px;
+}
+
+.header h1{
+    font-size:clamp(25px,5vw,40px);
+    margin:5px 0;
+}
+
+.header .english{
+    font-size:18px;
+    opacity:.95;
+}
+
+/* ================= NAV ================= */
+
+.nav{
+    background:white;
+    padding:12px;
+    border-radius:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    margin-bottom:22px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    justify-content:center;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#075e9b;
+    background:#eaf5ff;
+    padding:7px 13px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.nav a:hover{
+    background:#075e9b;
+    color:white;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    background:white;
+    border-radius:18px;
+    margin-bottom:22px;
+    padding:22px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    border-left:6px solid #087fbe;
+}
+
+.section-title{
+    background:linear-gradient(90deg,#e5f4ff,#f7fbff);
+    border-left:5px solid #087fbe;
+    border-radius:10px;
+    padding:10px 14px;
+    margin-bottom:18px;
+    color:#063d68;
+    font-size:22px;
+    font-weight:800;
+}
+
+.sub-title{
+    margin:18px 0 10px;
+    color:#075e9b;
+    font-size:19px;
+    font-weight:800;
+    border-bottom:2px solid #d9edf8;
+    padding-bottom:5px;
+}
+
+/* ================= TEXT ================= */
+
+p{
+    margin:8px 0;
+}
+
+ul,ol{
+    padding-left:25px;
+    margin:8px 0;
+}
+
+li{
+    margin:5px 0;
+}
+
+strong{
+    color:#063d68;
+}
+
+.highlight{
+    background:#fff4bd;
+    padding:2px 6px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+.red{
+    color:#d62828;
+    font-weight:bold;
+}
+
+.green{
+    color:#16803c;
+    font-weight:bold;
+}
+
+.blue{
+    color:#075e9b;
+    font-weight:bold;
+}
+
+/* ================= INFO BOX ================= */
+
+.info{
+    background:#edf8ff;
+    border:1px solid #a9d9f5;
+    border-left:5px solid #0086c9;
+    border-radius:10px;
+    padding:13px 16px;
+    margin:13px 0;
+}
+
+.note{
+    background:#fff9df;
+    border:1px solid #f0d76c;
+    border-left:5px solid #e6b800;
+    border-radius:10px;
+    padding:13px 16px;
+    margin:13px 0;
+}
+
+.important{
+    background:#fff0f0;
+    border:1px solid #f0b5b5;
+    border-left:5px solid #d62828;
+    border-radius:10px;
+    padding:13px 16px;
+    margin:13px 0;
+}
+
+.success{
+    background:#eefaf1;
+    border:1px solid #a8dfb4;
+    border-left:5px solid #218838;
+    border-radius:10px;
+    padding:13px 16px;
+    margin:13px 0;
+}
+
+/* ================= FORMULA ================= */
+
+.formula{
+    background:#102a43;
+    color:#fff;
+    border-radius:10px;
+    padding:13px;
+    text-align:center;
+    font-family:"Courier New",monospace;
+    font-size:17px;
+    margin:12px 0;
+    overflow-x:auto;
+}
+
+.formula.light{
+    background:#eaf6ff;
+    color:#073b5c;
+    border:1px solid #b9dff5;
+}
+
+/* ================= TABLE ================= */
+
+.table-wrap{
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+    background:white;
+}
+
+th{
+    background:#075e9b;
+    color:white;
+    padding:10px;
+    border:1px solid #ddd;
+}
+
+td{
+    padding:9px 10px;
+    border:1px solid #d9dfe5;
+    vertical-align:top;
+}
+
+tr:nth-child(even){
+    background:#f5faff;
+}
+
+/* ================= DIAGRAM ================= */
+
+.diagram{
+    background:#f8fbff;
+    border:1px solid #d7e8f5;
+    border-radius:15px;
+    padding:15px;
+    margin:18px auto;
+    text-align:center;
+    overflow-x:auto;
+}
+
+.diagram-title{
+    color:#075e9b;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+svg{
+    max-width:100%;
+    height:auto;
+}
+
+/* ================= STRUCTURE ================= */
+
+.structure{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:15px 0;
+}
+
+.atom{
+    min-width:48px;
+    height:48px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    border:3px solid #075e9b;
+    background:#eaf6ff;
+    color:#073b5c;
+}
+
+.bond{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.double-bond{
+    display:flex;
+    flex-direction:column;
+    line-height:7px;
+    font-size:24px;
+}
+
+.triple-bond{
+    font-size:22px;
+    letter-spacing:-2px;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+    margin:15px 0;
+}
+
+.card{
+    background:#f8fbff;
+    border:1px solid #d8e8f3;
+    border-radius:14px;
+    padding:15px;
+}
+
+.card h3{
+    color:#075e9b;
+    margin-bottom:5px;
+}
+
+/* ================= REACTION ================= */
+
+.reaction{
+    background:#f7faff;
+    border:2px dashed #8bc5e6;
+    padding:14px;
+    border-radius:12px;
+    margin:12px 0;
+    overflow-x:auto;
+    text-align:center;
+}
+
+.arrow{
+    color:#d62828;
+    font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    background:#082b5c;
+    color:white;
+    text-align:center;
+    padding:22px;
+    border-radius:18px;
+    margin-top:25px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .container{
+        padding:10px;
+    }
+
+    .section{
+        padding:15px;
+        border-left-width:4px;
+    }
+
+    .section-title{
+        font-size:19px;
+    }
+
+    .sub-title{
+        font-size:17px;
+    }
+
+    body{
+        font-size:15px;
+    }
+
+    .formula{
+        font-size:14px;
+    }
+
+    table{
+        font-size:14px;
+    }
+
+    .nav a{
+        font-size:12px;
+        padding:6px 9px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+    <div class="chapter">कक्षा 10 विज्ञान • Class 10 Science</div>
+    <h1>अध्याय 4 : कार्बन एवं उसके यौगिक</h1>
+    <div class="english">Chapter 4 : Carbon and Its Compounds</div>
+</header>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="nav">
+    <a href="#presence">उपस्थिति</a>
+    <a href="#covalent">सहसंयोजक आबंध</a>
+    <a href="#properties">गुणधर्म</a>
+    <a href="#allotropes">अपररूप</a>
+    <a href="#versatile">सर्वतोमुखी प्रकृति</a>
+    <a href="#hydrocarbon">Hydrocarbons</a>
+    <a href="#isomerism">समावयवता</a>
+    <a href="#functional">Functional Groups</a>
+    <a href="#homologous">समजातीय श्रेणी</a>
+    <a href="#nomenclature">नामपद्धति</a>
+    <a href="#chemical">रासायनिक गुण</a>
+    <a href="#ethanol">Ethanol</a>
+    <a href="#ethanoic">Ethanoic Acid</a>
+    <a href="#soap">Soap & Detergent</a>
+</nav>
+
+
+<!-- =====================================================
+     1. कार्बन की उपस्थिति
+====================================================== -->
+
+<section class="section" id="presence">
+
+<h2 class="section-title">1. कार्बन की उपस्थिति (Occurrence of Carbon)</h2>
+
+<p>
+कार्बन एक अत्यंत महत्वपूर्ण तत्व है। यह पृथ्वी पर विभिन्न रूपों में पाया जाता है।
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>भूपर्पटी (Earth's Crust)</h3>
+<p>
+भूपर्पटी में लगभग <strong>0.02%</strong> कार्बन पाया जाता है।
+</p>
+</div>
+
+<div class="card">
+<h3>वायुमंडल (Atmosphere)</h3>
+<p>
+वायुमंडल में लगभग <strong>0.03% CO₂</strong> कार्बन डाइऑक्साइड के रूप में उपस्थित है।
+</p>
+</div>
+
+</div>
+
+<div class="info">
+<strong>मुख्य बात:</strong> कार्बन अपने विशेष गुणों के कारण बड़ी संख्या में यौगिक बनाता है।
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     2. कार्बन की इलेक्ट्रॉनिक संरचना
+====================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">2. कार्बन की इलेक्ट्रॉनिक संरचना (Electronic Configuration)</h2>
+
+<p>
+कार्बन का परमाणु क्रमांक <strong>6</strong> है।
+</p>
+
+<div class="formula">
+Electronic Configuration = K = 2, L = 4
+</div>
+
+<p>
+कार्बन के बाहरी कोश (L-shell) में <strong>चार इलेक्ट्रॉन</strong> होते हैं।
+</p>
+
+<div class="diagram">
+
+<div class="diagram-title">कार्बन परमाणु की इलेक्ट्रॉनिक संरचना</div>
+
+<svg width="360" height="280" viewBox="0 0 360 280">
+
+<circle cx="180" cy="140" r="35"
+        fill="#ffcf70" stroke="#d68a00" stroke-width="3"/>
+
+<text x="180" y="147" text-anchor="middle"
+      font-size="20" font-weight="bold">C</text>
+
+<circle cx="180" cy="140" r="75"
+        fill="none" stroke="#1982c4" stroke-width="3"/>
+
+<circle cx="180" cy="140" r="120"
+        fill="none" stroke="#36a269" stroke-width="3"/>
+
+<!-- K shell electrons -->
+<circle cx="180" cy="65" r="7" fill="#1982c4"/>
+<circle cx="180" cy="215" r="7" fill="#1982c4"/>
+
+<!-- L shell electrons -->
+<circle cx="300" cy="140" r="7" fill="#36a269"/>
+<circle cx="60" cy="140" r="7" fill="#36a269"/>
+<circle cx="180" cy="20" r="7" fill="#36a269"/>
+<circle cx="180" cy="260" r="7" fill="#36a269"/>
+
+<text x="180" y="38" text-anchor="middle"
+      font-size="15">K-shell = 2</text>
+
+<text x="180" y="278" text-anchor="middle"
+      font-size="15">L-shell = 4</text>
+
+</svg>
+
+</div>
+
+<h3 class="sub-title">कार्बन चार इलेक्ट्रॉन क्यों नहीं खोता या प्राप्त करता?</h3>
+
+<p>
+कार्बन के बाहरी कोश में चार इलेक्ट्रॉन होते हैं। यदि कार्बन चार इलेक्ट्रॉन प्राप्त करता है,
+तो <strong>C⁴⁻</strong> आयन बनेगा, जो अत्यधिक अस्थिर होगा।
+</p>
+
+<p>
+यदि कार्बन चार इलेक्ट्रॉन खोता है, तो <strong>C⁴⁺</strong> आयन बनेगा और इसके लिए बहुत अधिक ऊर्जा की आवश्यकता होगी।
+</p>
+
+<p>
+इसलिए कार्बन इलेक्ट्रॉनों का <strong>साझा (sharing)</strong> करके <strong>सहसंयोजक आबंध (Covalent Bond)</strong> बनाता है।
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     3. सहसंयोजक आबंध
+====================================================== -->
+
+<section class="section" id="covalent">
+
+<h2 class="section-title">3. सहसंयोजक आबंध (Covalent Bond)</h2>
+
+<p>
+जब दो परमाणु अपने इलेक्ट्रॉनों की साझेदारी करते हैं, तब बनने वाले आबंध को
+<strong>सहसंयोजक आबंध (Covalent Bond)</strong> कहते हैं।
+</p>
+
+<div class="info">
+<strong>सहसंयोजक आबंध:</strong> इलेक्ट्रॉनों की साझेदारी द्वारा बनने वाला रासायनिक आबंध।
+</div>
+
+<h3 class="sub-title">एकल आबंध (Single Bond)</h3>
+
+<div class="structure">
+<div class="atom">H</div>
+<div class="bond">—</div>
+<div class="atom">H</div>
+</div>
+
+<div class="formula light">
+H₂ = H–H
+</div>
+
+<p>
+दो हाइड्रोजन परमाणु एक-एक इलेक्ट्रॉन की साझेदारी करके एकल आबंध बनाते हैं।
+</p>
+
+
+<h3 class="sub-title">द्विआबंध (Double Bond)</h3>
+
+<div class="structure">
+<div class="atom">O</div>
+<div class="double-bond">=</div>
+<div class="atom">O</div>
+</div>
+
+<div class="formula light">
+O₂ = O=O
+</div>
+
+
+<h3 class="sub-title">त्रिआबंध (Triple Bond)</h3>
+
+<div class="structure">
+<div class="atom">N</div>
+<div class="triple-bond">≡</div>
+<div class="atom">N</div>
+</div>
+
+<div class="formula light">
+N₂ = N≡N
+</div>
+
+
+<h3 class="sub-title">मीथेन (Methane) में सहसंयोजक आबंध</h3>
+
+<div class="diagram">
+
+<div class="diagram-title">Methane – CH₄</div>
+
+<svg width="360" height="300" viewBox="0 0 360 300">
+
+<line x1="180" y1="150" x2="180" y2="60"
+stroke="#333" stroke-width="4"/>
+
+<line x1="180" y1="150" x2="180" y2="240"
+stroke="#333" stroke-width="4"/>
+
+<line x1="180" y1="150" x2="90" y2="150"
+stroke="#333" stroke-width="4"/>
+
+<line x1="180" y1="150" x2="270" y2="150"
+stroke="#333" stroke-width="4"/>
+
+<circle cx="180" cy="150" r="32"
+fill="#222" stroke="#111" stroke-width="3"/>
+
+<text x="180" y="158" fill="white"
+text-anchor="middle" font-size="21"
+font-weight="bold">C</text>
+
+<circle cx="180" cy="45" r="23"
+fill="#e8f1f8" stroke="#555" stroke-width="2"/>
+<text x="180" y="52" text-anchor="middle"
+font-size="18">H</text>
+
+<circle cx="180" cy="255" r="23"
+fill="#e8f1f8" stroke="#555" stroke-width="2"/>
+<text x="180" y="262" text-anchor="middle"
+font-size="18">H</text>
+
+<circle cx="70" cy="150" r="23"
+fill="#e8f1f8" stroke="#555" stroke-width="2"/>
+<text x="70" y="157" text-anchor="middle"
+font-size="18">H</text>
+
+<circle cx="290" cy="150" r="23"
+fill="#e8f1f8" stroke="#555" stroke-width="2"/>
+<text x="290" y="157" text-anchor="middle"
+font-size="18">H</text>
+
+</svg>
+
+</div>
+
+<p>
+मीथेन (CH₄) में कार्बन अपने चार इलेक्ट्रॉनों की साझेदारी चार हाइड्रोजन परमाणुओं के साथ करता है।
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     4. सहसंयोजक यौगिकों के सामान्य गुण
+====================================================== -->
+
+<section class="section" id="properties">
+
+<h2 class="section-title">4. सहसंयोजक यौगिकों के सामान्य गुणधर्म</h2>
+
+<ul>
+<li>इनके गलनांक (Melting Point) और क्वथनांक (Boiling Point) सामान्यतः कम होते हैं।</li>
+<li>ये सामान्यतः विद्युत के कुचालक होते हैं।</li>
+<li>इनमें स्वतंत्र आयन नहीं होते हैं।</li>
+<li>अधिकांश सहसंयोजक यौगिक जल में कम घुलनशील होते हैं।</li>
+</ul>
+
+<div class="note">
+<strong>ध्यान दें:</strong> ये सामान्य गुण हैं। विशाल सहसंयोजक संरचनाएँ (Giant Covalent Structures),
+जैसे Diamond, इनके अपवाद हो सकती हैं।
+</div>
+
+<h3 class="sub-title">कुछ कार्बन यौगिकों के गलनांक एवं क्वथनांक</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>यौगिक (Compound)</th>
+<th>सूत्र (Formula)</th>
+<th>गलनांक (K)</th>
+<th>क्वथनांक (K)</th>
+</tr>
+
+<tr>
+<td>Acetic acid</td>
+<td>CH₃COOH</td>
+<td>290</td>
+<td>391</td>
+</tr>
+
+<tr>
+<td>Chloroform</td>
+<td>CHCl₃</td>
+<td>209</td>
+<td>334</td>
+</tr>
+
+<tr>
+<td>Ethanol</td>
+<td>C₂H₅OH</td>
+<td>156</td>
+<td>351</td>
+</tr>
+
+<tr>
+<td>Methane</td>
+<td>CH₄</td>
+<td>90</td>
+<td>111</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     5. अपररूप
+====================================================== -->
+
+<section class="section" id="allotropes">
+
+<h2 class="section-title">5. कार्बन के अपररूप (Allotropes of Carbon)</h2>
+
+<p>
+एक ही तत्व के विभिन्न संरचनात्मक रूपों को <strong>अपररूप (Allotropes)</strong> कहते हैं।
+कार्बन के प्रमुख अपररूप हैं:
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>Diamond</h3>
+<p>हीरा</p>
+</div>
+
+<div class="card">
+<h3>Graphite</h3>
+<p>ग्रेफाइट</p>
+</div>
+
+<div class="card">
+<h3>Fullerene</h3>
+<p>फुलरीन</p>
+</div>
+
+</div>
+
+
+<h3 class="sub-title">5.1 हीरा (Diamond)</h3>
+
+<ul>
+<li>प्रत्येक कार्बन परमाणु चार अन्य कार्बन परमाणुओं से जुड़ा होता है।</li>
+<li>इसकी संरचना कठोर त्रिविमीय (Three-dimensional) होती है।</li>
+<li>यह बहुत कठोर होता है।</li>
+</ul>
+
+<div class="diagram">
+
+<div class="diagram-title">Diamond – 3D Carbon Network</div>
+
+<svg width="500" height="300" viewBox="0 0 500 300">
+
+<line x1="250" y1="70" x2="150" y2="140"
+stroke="#555" stroke-width="4"/>
+<line x1="250" y1="70" x2="350" y2="140"
+stroke="#555" stroke-width="4"/>
+<line x1="250" y1="70" x2="250" y2="190"
+stroke="#555" stroke-width="4"/>
+
+<line x1="150" y1="140" x2="100" y2="230"
+stroke="#555" stroke-width="4"/>
+<line x1="350" y1="140" x2="400" y2="230"
+stroke="#555" stroke-width="4"/>
+<line x1="250" y1="190" x2="100" y2="230"
+stroke="#555" stroke-width="4"/>
+<line x1="250" y1="190" x2="400" y2="230"
+stroke="#555" stroke-width="4"/>
+
+<circle cx="250" cy="70" r="18" fill="#222"/>
+<circle cx="150" cy="140" r="18" fill="#444"/>
+<circle cx="350" cy="140" r="18" fill="#444"/>
+<circle cx="250" cy="190" r="18" fill="#444"/>
+<circle cx="100" cy="230" r="18" fill="#666"/>
+<circle cx="400" cy="230" r="18" fill="#666"/>
+
+</svg>
+
+</div>
+
+
+<h3 class="sub-title">5.2 ग्रेफाइट (Graphite)</h3>
+
+<ul>
+<li>प्रत्येक कार्बन परमाणु तीन अन्य कार्बन परमाणुओं से जुड़ा होता है।</li>
+<li>कार्बन परमाणु एक ही तल में षट्कोणीय (Hexagonal) परतें बनाते हैं।</li>
+<li>ग्रेफाइट विद्युत का सुचालक है।</li>
+<li>इसकी परतें आसानी से एक-दूसरे पर फिसल सकती हैं, इसलिए यह चिकना और मुलायम होता है।</li>
+</ul>
+
+<div class="diagram">
+
+<div class="diagram-title">Graphite – Layered Structure</div>
+
+<svg width="500" height="280" viewBox="0 0 500 280">
+
+<g stroke="#555" stroke-width="3" fill="#e8f3fa">
+
+<polygon points="70,90 110,65 150,90 150,135 110,160 70,135"/>
+<polygon points="150,90 190,65 230,90 230,135 190,160 150,135"/>
+<polygon points="230,90 270,65 310,90 310,135 270,160 230,135"/>
+<polygon points="310,90 350,65 390,90 390,135 350,160 310,135"/>
+
+</g>
+
+<line x1="70" y1="195" x2="390" y2="195"
+stroke="#16803c" stroke-width="7"/>
+
+<line x1="100" y1="220" x2="420" y2="220"
+stroke="#16803c" stroke-width="7"/>
+
+<text x="250" y="260" text-anchor="middle"
+font-size="17">कार्बन की परतें (Layers)</text>
+
+</svg>
+
+</div>
+
+
+<h3 class="sub-title">5.3 फुलरीन (Fullerene)</h3>
+
+<p>
+फुलरीन कार्बन का एक अपररूप है। C₆₀ फुलरीन की संरचना फुटबॉल जैसी होती है।
+</p>
+
+<div class="diagram">
+
+<div class="diagram-title">C₆₀ Fullerene</div>
+
+<svg width="300" height="280" viewBox="0 0 300 280">
+
+<circle cx="150" cy="140" r="95"
+fill="#eaf6ff" stroke="#075e9b" stroke-width="4"/>
+
+<path d="M80 95 L125 65 L175 65 L220 95
+L235 145 L205 190 L150 215 L95 190
+L65 145 Z"
+fill="none" stroke="#555" stroke-width="3"/>
+
+<path d="M80 95 L95 190
+M125 65 L150 215
+M175 65 L205 190
+M220 95 L95 190
+M65 145 L205 190"
+fill="none" stroke="#555" stroke-width="2"/>
+
+<text x="150" y="145"
+text-anchor="middle"
+font-size="22"
+font-weight="bold">C₆₀</text>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     6. कार्बन की सर्वतोमुखी प्रकृति
+====================================================== -->
+
+<section class="section" id="versatile">
+
+<h2 class="section-title">6. कार्बन की सर्वतोमुखी प्रकृति (Versatile Nature of Carbon)</h2>
+
+<p>
+कार्बन बहुत बड़ी संख्या में यौगिक बनाता है। इसके मुख्य कारण हैं:
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>1. श्रृंखलन (Catenation)</h3>
+<p>
+कार्बन परमाणुओं का आपस में जुड़कर लंबी श्रृंखला, शाखित श्रृंखला और वलय बनाना।
+</p>
+</div>
+
+<div class="card">
+<h3>2. चतुसंयोजकता (Tetravalency)</h3>
+<p>
+कार्बन की संयोजकता 4 है, इसलिए यह चार सहसंयोजक आबंध बना सकता है।
+</p>
+</div>
+
+</div>
+
+
+<h3 class="sub-title">श्रृंखलन (Catenation)</h3>
+
+<p>
+कार्बन की वह विशेषता जिसमें कार्बन परमाणु एक-दूसरे से जुड़कर लंबी श्रृंखला बनाते हैं,
+<strong>श्रृंखलन (Catenation)</strong> कहलाती है।
+</p>
+
+<div class="diagram">
+
+<div class="diagram-title">Carbon Chain</div>
+
+<svg width="600" height="150" viewBox="0 0 600 150">
+
+<line x1="80" y1="75" x2="180" y2="75"
+stroke="#333" stroke-width="5"/>
+
+<line x1="180" y1="75" x2="280" y2="75"
+stroke="#333" stroke-width="5"/>
+
+<line x1="280" y1="75" x2="380" y2="75"
+stroke="#333" stroke-width="5"/>
+
+<line x1="380" y1="75" x2="480" y2="75"
+stroke="#333" stroke-width="5"/>
+
+<circle cx="70" cy="75" r="25" fill="#222"/>
+<circle cx="180" cy="75" r="25" fill="#222"/>
+<circle cx="280" cy="75" r="25" fill="#222"/>
+<circle cx="380" cy="75" r="25" fill="#222"/>
+<circle cx="490" cy="75" r="25" fill="#222"/>
+
+<text x="70" y="82" text-anchor="middle" fill="white">C</text>
+<text x="180" y="82" text-anchor="middle" fill="white">C</text>
+<text x="280" y="82" text-anchor="middle" fill="white">C</text>
+<text x="380" y="82" text-anchor="middle" fill="white">C</text>
+<text x="490" y="82" text-anchor="middle" fill="white">C</text>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     7. हाइड्रोकार्बन
+====================================================== -->
+
+<section class="section" id="hydrocarbon">
+
+<h2 class="section-title">7. हाइड्रोकार्बन (Hydrocarbons)</h2>
+
+<p>
+वे यौगिक जिनमें केवल <strong>कार्बन (C)</strong> और <strong>हाइड्रोजन (H)</strong> उपस्थित होते हैं,
+उन्हें <strong>हाइड्रोकार्बन (Hydrocarbons)</strong> कहते हैं।
+</p>
+
+<h3 class="sub-title">संतृप्त हाइड्रोकार्बन (Saturated Hydrocarbons)</h3>
+
+<p>
+जिन हाइड्रोकार्बनों में कार्बन-कार्बन के बीच केवल एकल आबंध (Single Bond) होते हैं,
+उन्हें संतृप्त हाइड्रोकार्बन कहते हैं।
+</p>
+
+<div class="formula light">
+Alkanes → केवल C–C Single Bonds
+</div>
+
+
+<h3 class="sub-title">असंतृप्त हाइड्रोकार्बन (Unsaturated Hydrocarbons)</h3>
+
+<p>
+जिन हाइड्रोकार्बनों में कार्बन-कार्बन के बीच द्विआबंध (Double Bond) या त्रिआबंध
+(Triple Bond) उपस्थित होते हैं, उन्हें असंतृप्त हाइड्रोकार्बन कहते हैं।
+</p>
+
+<div class="formula light">
+Alkenes → C=C
+<br>
+Alkynes → C≡C
+</div>
+
+<div class="diagram">
+
+<div class="diagram-title">Saturated vs Unsaturated</div>
+
+<svg width="650" height="220" viewBox="0 0 650 220">
+
+<text x="160" y="30" text-anchor="middle"
+font-size="19" font-weight="bold">Saturated</text>
+
+<circle cx="70" cy="100" r="25" fill="#222"/>
+<circle cx="160" cy="100" r="25" fill="#222"/>
+<circle cx="250" cy="100" r="25" fill="#222"/>
+
+<line x1="95" y1="100" x2="135" y2="100"
+stroke="#333" stroke-width="5"/>
+<line x1="185" y1="100" x2="225" y2="100"
+stroke="#333" stroke-width="5"/>
+
+<text x="160" y="160" text-anchor="middle"
+font-size="17">C–C–C</text>
+
+<text x="490" y="30" text-anchor="middle"
+font-size="19" font-weight="bold">Unsaturated</text>
+
+<circle cx="400" cy="100" r="25" fill="#222"/>
+<circle cx="500" cy="100" r="25" fill="#222"/>
+
+<line x1="425" y1="94" x2="475" y2="94"
+stroke="#333" stroke-width="4"/>
+<line x1="425" y1="106" x2="475" y2="106"
+stroke="#333" stroke-width="4"/>
+
+<text x="450" y="160" text-anchor="middle"
+font-size="17">C=C</text>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     8. ऐल्केन तालिका
+====================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">8. कुछ सामान्य हाइड्रोकार्बन (Alkanes)</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>क्रमांक</th>
+<th>नाम (Name)</th>
+<th>आणविक सूत्र (Molecular Formula)</th>
+<th>संरचनात्मक सूत्र (Structural Formula)</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>मीथेन (Methane)</td>
+<td>CH₄</td>
+<td>H₃C–H</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>एथेन (Ethane)</td>
+<td>C₂H₆</td>
+<td>H₃C–CH₃</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>प्रोपेन (Propane)</td>
+<td>C₃H₈</td>
+<td>H₃C–CH₂–CH₃</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>ब्यूटेन (Butane)</td>
+<td>C₄H₁₀</td>
+<td>H₃C–CH₂–CH₂–CH₃</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>पेन्टेन (Pentane)</td>
+<td>C₅H₁₂</td>
+<td>H₃C–(CH₂)₃–CH₃</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>हेक्सेन (Hexane)</td>
+<td>C₆H₁₄</td>
+<td>H₃C–(CH₂)₄–CH₃</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     9. समावयवता
+====================================================== -->
+
+<section class="section" id="isomerism">
+
+<h2 class="section-title">9. समावयवता (Isomerism)</h2>
+
+<p>
+वे यौगिक जिनका <strong>आणविक सूत्र (Molecular Formula)</strong> समान होता है लेकिन
+उनकी संरचनाएँ अलग-अलग होती हैं, उन्हें <strong>समावयवी (Isomers)</strong> कहते हैं।
+इस गुण को <strong>समावयवता (Isomerism)</strong> कहते हैं।
+</p>
+
+<h3 class="sub-title">ब्यूटेन के समावयवी (Isomers of Butane)</h3>
+
+<div class="cards">
+
+<div class="card">
+<h3>n-Butane</h3>
+
+<div class="formula light">
+CH₃–CH₂–CH₂–CH₃
+</div>
+
+<p>सीधी श्रृंखला (Straight Chain)</p>
+</div>
+
+<div class="card">
+<h3>Isobutane</h3>
+
+<div class="formula light">
+CH₃–CH(CH₃)–CH₃
+</div>
+
+<p>शाखित श्रृंखला (Branched Chain)</p>
+</div>
+
+</div>
+
+
+<h3 class="sub-title">वलयाकार संरचना (Cyclic Structure)</h3>
+
+<p>
+कार्बन परमाणु आपस में जुड़कर वलय (Ring) भी बना सकते हैं।
+उदाहरण: <strong>Cyclohexane – C₆H₁₂</strong>
+</p>
+
+<div class="diagram">
+
+<div class="diagram-title">Cyclohexane – C₆H₁₂</div>
+
+<svg width="330" height="260" viewBox="0 0 330 260">
+
+<polygon points="165,30 270,90 270,190 165,230 60,190 60,90"
+fill="#eaf6ff" stroke="#075e9b" stroke-width="5"/>
+
+<text x="165" y="138"
+text-anchor="middle"
+font-size="20"
+font-weight="bold">C₆H₁₂</text>
+
+</svg>
+
+</div>
+
+
+<h3 class="sub-title">बेंजीन (Benzene)</h3>
+
+<p>
+बेंजीन का आणविक सूत्र <strong>C₆H₆</strong> है।
+इसकी संरचना षट्कोणीय वलय की होती है जिसमें एकांतर क्रम में तीन एकल आबंध और तीन द्विआबंध दर्शाए जाते हैं।
+</p>
+
+<div class="diagram">
+
+<div class="diagram-title">Benzene – C₆H₆</div>
+
+<svg width="320" height="270" viewBox="0 0 320 270">
+
+<polygon points="160,30 250,80 250,180 160,230 70,180 70,80"
+fill="none" stroke="#075e9b" stroke-width="5"/>
+
+<circle cx="160" cy="130" r="62"
+fill="none" stroke="#d62828" stroke-width="4"/>
+
+<text x="160" y="137"
+text-anchor="middle"
+font-size="20"
+font-weight="bold">C₆H₆</text>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     10. प्रकार्यात्मक समूह
+====================================================== -->
+
+<section class="section" id="functional">
+
+<h2 class="section-title">10. प्रकार्यात्मक समूह (Functional Groups)</h2>
+
+<p>
+किसी कार्बन यौगिक में उपस्थित वह परमाणु या परमाणुओं का समूह जो यौगिक के विशेष
+रासायनिक गुणों को निर्धारित करता है, <strong>प्रकार्यात्मक समूह (Functional Group)</strong> कहलाता है।
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>प्रकार्यात्मक समूह</th>
+<th>सूत्र</th>
+<th>नाम</th>
+</tr>
+
+<tr>
+<td>Halogen</td>
+<td>–Cl, –Br</td>
+<td>हैलोजन</td>
+</tr>
+
+<tr>
+<td>Alcohol</td>
+<td>–OH</td>
+<td>ऐल्कोहॉल</td>
+</tr>
+
+<tr>
+<td>Aldehyde</td>
+<td>–CHO</td>
+<td>ऐल्डिहाइड</td>
+</tr>
+
+<tr>
+<td>Ketone</td>
+<td>–CO– / &gt;C=O</td>
+<td>कीटोन</td>
+</tr>
+
+<tr>
+<td>Carboxylic Acid</td>
+<td>–COOH</td>
+<td>कार्बोक्सिलिक अम्ल</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="diagram">
+
+<div class="diagram-title">Common Functional Groups</div>
+
+<svg width="700" height="300" viewBox="0 0 700 300">
+
+<g font-size="17" text-anchor="middle">
+
+<text x="100" y="40" font-weight="bold">Alcohol</text>
+<text x="100" y="85" font-size="22">–OH</text>
+
+<text x="250" y="40" font-weight="bold">Aldehyde</text>
+<text x="250" y="85" font-size="22">–CHO</text>
+
+<text x="400" y="40" font-weight="bold">Ketone</text>
+<text x="400" y="85" font-size="22">–CO–</text>
+
+<text x="550" y="40" font-weight="bold">Carboxylic Acid</text>
+<text x="550" y="85" font-size="22">–COOH</text>
+
+<text x="100" y="170" font-weight="bold">Chloro</text>
+<text x="100" y="215" font-size="22">–Cl</text>
+
+<text x="250" y="170" font-weight="bold">Bromo</text>
+<text x="250" y="215" font-size="22">–Br</text>
+
+</g>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     11. समजातीय श्रेणी
+====================================================== -->
+
+<section class="section" id="homologous">
+
+<h2 class="section-title">11. समजातीय श्रेणी (Homologous Series)</h2>
+
+<p>
+ऐसे कार्बन यौगिकों की श्रेणी जिनका एक ही प्रकार्यात्मक समूह और समान सामान्य सूत्र होता है
+तथा क्रमिक सदस्यों में <strong>–CH₂–</strong> का अंतर होता है, उन्हें
+<strong>समजातीय श्रेणी (Homologous Series)</strong> कहते हैं।
+</p>
+
+<div class="formula">
+CH₄ → C₂H₆ → C₃H₈ → C₄H₁₀
+</div>
+
+<div class="info">
+क्रमिक सदस्यों के आणविक द्रव्यमान में अंतर = <strong>14 u</strong>
+</div>
+
+<ul>
+<li>सभी सदस्यों में समान प्रकार्यात्मक समूह होता है।</li>
+<li>सदस्यों के रासायनिक गुणधर्म समान होते हैं।</li>
+<li>भौतिक गुणधर्मों में क्रमिक परिवर्तन होता है।</li>
+<li>दो क्रमिक सदस्यों में <strong>–CH₂–</strong> का अंतर होता है।</li>
+</ul>
+
+</section>
+
+
+<!-- =====================================================
+     12. कार्बन यौगिकों की नामपद्धति
+====================================================== -->
+
+<section class="section" id="nomenclature">
+
+<h2 class="section-title">
+    12. कार्बन यौगिकों की नामपद्धति (Nomenclature)
+</h2>
+
+<p>
+कार्बन यौगिकों के नामकरण के लिए एक निश्चित नियम का पालन किया जाता है।
+इसे <strong>नामपद्धति (Nomenclature)</strong> कहते हैं।
+कार्बन यौगिक का नाम मुख्यतः उसकी <strong>Carbon Chain</strong>,
+<strong>Carbon-Carbon Bond</strong> और <strong>Functional Group</strong>
+के आधार पर निर्धारित किया जाता है।
+</p>
+
+
+<!-- ================= STEP 1 ================= -->
+
+<h3 class="sub-title">
+    Step 1: सबसे लंबी कार्बन श्रृंखला चुनना
+</h3>
+
+<p>
+सबसे पहले यौगिक में उपस्थित कार्बन परमाणुओं की
+<strong>सबसे लंबी सतत श्रृंखला (Longest Continuous Carbon Chain)</strong>
+चुनी जाती है।
+इसी श्रृंखला के आधार पर यौगिक का मुख्य नाम निर्धारित किया जाता है।
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Carbon Atoms</th>
+<th>Prefix</th>
+<th>उदाहरण</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>Meth-</td>
+<td>Methane</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>Eth-</td>
+<td>Ethane</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>Prop-</td>
+<td>Propane</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>But-</td>
+<td>Butane</td>
+</tr>
+
+<tr>
+<td>5</td>
+<td>Pent-</td>
+<td>Pentane</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>Hex-</td>
+<td>Hexane</td>
+</tr>
+
+<tr>
+<td>7</td>
+<td>Hept-</td>
+<td>Heptane</td>
+</tr>
+
+<tr>
+<td>8</td>
+<td>Oct-</td>
+<td>Octane</td>
+</tr>
+
+<tr>
+<td>9</td>
+<td>Non-</td>
+<td>Nonane</td>
+</tr>
+
+<tr>
+<td>10</td>
+<td>Dec-</td>
+<td>Decane</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="info">
+
+<strong>याद रखने की ट्रिक:</strong><br>
+
+1 → Meth<br>
+2 → Eth<br>
+3 → Prop<br>
+4 → But<br>
+5 → Pent<br>
+6 → Hex<br>
+7 → Hept<br>
+8 → Oct<br>
+9 → Non<br>
+10 → Dec
+
+</div>
+
+
+<!-- ================= STEP 2 ================= -->
+
+<h3 class="sub-title">
+    Step 2: Carbon-Carbon Bond की पहचान
+</h3>
+
+<p>
+अब यह देखा जाता है कि कार्बन परमाणुओं के बीच किस प्रकार का आबंध
+<strong>(Bond)</strong> उपस्थित है।
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Bond</th>
+<th>Suffix</th>
+<th>उदाहरण</th>
+</tr>
+
+<tr>
+<td>Single Bond (C–C)</td>
+<td><strong>–ane</strong></td>
+<td>Ethane</td>
+</tr>
+
+<tr>
+<td>Double Bond (C=C)</td>
+<td><strong>–ene</strong></td>
+<td>Ethene</td>
+</tr>
+
+<tr>
+<td>Triple Bond (C≡C)</td>
+<td><strong>–yne</strong></td>
+<td>Ethyne</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Single Bond</h3>
+
+<div class="formula light">
+C–C → –ane
+</div>
+
+<p>
+उदाहरण: CH₃–CH₃ → Ethane
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Double Bond</h3>
+
+<div class="formula light">
+C=C → –ene
+</div>
+
+<p>
+उदाहरण: CH₂=CH₂ → Ethene
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>Triple Bond</h3>
+
+<div class="formula light">
+C≡C → –yne
+</div>
+
+<p>
+उदाहरण: CH≡CH → Ethyne
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ================= STEP 3 ================= -->
+
+<h3 class="sub-title">
+    Step 3: Functional Group की पहचान
+</h3>
+
+<p>
+यदि कार्बन यौगिक में कोई <strong>Functional Group</strong> उपस्थित है,
+तो उसके अनुसार नाम का suffix निर्धारित किया जाता है।
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Functional Group</th>
+<th>Formula</th>
+<th>Suffix</th>
+<th>उदाहरण</th>
+</tr>
+
+<tr>
+<td>Alcohol</td>
+<td>–OH</td>
+<td>–ol</td>
+<td>Propanol</td>
+</tr>
+
+<tr>
+<td>Aldehyde</td>
+<td>–CHO</td>
+<td>–al</td>
+<td>Propanal</td>
+</tr>
+
+<tr>
+<td>Ketone</td>
+<td>–CO–</td>
+<td>–one</td>
+<td>Propanone</td>
+</tr>
+
+<tr>
+<td>Carboxylic Acid</td>
+<td>–COOH</td>
+<td>–oic acid</td>
+<td>Propanoic acid</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- ================= STEP 4 ================= -->
+
+<h3 class="sub-title">
+    Step 4: Numbering करना
+</h3>
+
+<p>
+यदि carbon chain में <strong>Functional Group</strong>, double bond या triple bond
+उपस्थित हो, तो carbon chain को उस दिशा से numbering दी जाती है जिससे संबंधित
+group या bond को <strong>सबसे छोटी संख्या (Lowest Number)</strong> प्राप्त हो।
+</p>
+
+<div class="diagram">
+
+<div class="diagram-title">
+    उदाहरण: Propan-1-ol
+</div>
+
+<svg width="600" height="190" viewBox="0 0 600 190">
+
+<text x="300" y="30"
+text-anchor="middle"
+font-size="20"
+font-weight="bold">
+CH₃ – CH₂ – CH₂OH
+</text>
+
+<text x="190" y="80"
+text-anchor="middle"
+font-size="16"
+font-weight="bold">
+1
+</text>
+
+<text x="300" y="80"
+text-anchor="middle"
+font-size="16"
+font-weight="bold">
+2
+</text>
+
+<text x="410" y="80"
+text-anchor="middle"
+font-size="16"
+font-weight="bold">
+3
+</text>
+
+<line x1="175" y1="95"
+x2="425" y2="95"
+stroke="#075e9b"
+stroke-width="3"/>
+
+<text x="300" y="135"
+text-anchor="middle"
+font-size="17">
+–OH को सबसे छोटी संख्या मिलती है
+</text>
+
+<text x="300" y="165"
+text-anchor="middle"
+font-size="18"
+font-weight="bold"
+fill="#d62828">
+Propan-1-ol
+</text>
+
+</svg>
+
+</div>
+
+
+<!-- ================= STEP 5 ================= -->
+
+<h3 class="sub-title">
+    Step 5: Prefix और Suffix को जोड़ना
+</h3>
+
+<p>
+अंत में carbon chain के prefix और bond या functional group के suffix को
+उचित रूप से जोड़कर यौगिक का नाम बनाया जाता है।
+</p>
+
+<div class="formula">
+Prefix + Bond / Functional Group Suffix
+</div>
+
+
+<!-- ================= EXAMPLES ================= -->
+
+<h3 class="sub-title">
+    नामकरण के उदाहरण (Examples)
+</h3>
+
+
+<div class="card">
+
+<h3>Example 1: CH₃–CH₃</h3>
+
+<p>
+<strong>Step 1:</strong> इसमें 2 carbon atoms हैं → Eth-</p>
+
+<p>
+<strong>Step 2:</strong> सभी bonds single हैं → –ane
+</p>
+
+<div class="formula light">
+Eth + ane = Ethane
+</div>
+
+<p>
+<strong>अतः नाम = Ethane</strong>
+</p>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h3>Example 2: CH₃–CH₂–CH₃</h3>
+
+<p>
+<strong>Step 1:</strong> 3 carbon atoms → Prop-
+</p>
+
+<p>
+<strong>Step 2:</strong> सभी bonds single हैं → –ane
+</p>
+
+<div class="formula light">
+Prop + ane = Propane
+</div>
+
+<p>
+<strong>अतः नाम = Propane</strong>
+</p>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h3>Example 3: CH₂=CH–CH₃</h3>
+
+<p>
+<strong>Step 1:</strong> 3 carbon atoms → Prop-
+</p>
+
+<p>
+<strong>Step 2:</strong> Double bond उपस्थित है → –ene
+</p>
+
+<div class="formula light">
+Prop + ene = Propene
+</div>
+
+<p>
+<strong>अतः नाम = Propene</strong>
+</p>
+
+</div>
+
+
+<br>
+
+
+<div class="card">
+
+<h3>Example 4: CH₃–CH₂–CH₂OH</h3>
+
+<p>
+<strong>Step 1:</strong> 3 carbon atoms → Prop-
+</p>
+
+<p>
+<strong>Step 2:</strong> Functional group = –OH → Alcohol
+</p>
+
+<p>
+Alcohol का suffix = <strong>–ol</strong>
+</p>
+
+<div class="formula light">
+Prop + an + ol = Propanol
+</div>
+
+<p>
+Functional group की position बताने के लिए:
+</p>
+
+<div class="formula light">
+CH₃–CH₂–CH₂OH
+<br>
+3 ← 2 ← 1
+</div>
+
+<p>
+–OH को सबसे छोटी संख्या देने पर:
+</p>
+
+<div class="formula">
+Propan-1-ol
+</div>
+
+</div>
+
+
+<!-- ================= IMPORTANT RULE ================= -->
+
+<div class="important">
+
+<h3>⭐ नामकरण के मुख्य नियम</h3>
+
+<ol>
+
+<li>
+सबसे पहले <strong>Longest Carbon Chain</strong> चुनें।
+</li>
+
+<li>
+Carbon atoms की संख्या के अनुसार सही <strong>Prefix</strong> चुनें।
+</li>
+
+<li>
+Single, Double या Triple Bond की पहचान करें।
+</li>
+
+<li>
+Functional Group उपस्थित हो तो उसकी पहचान करें।
+</li>
+
+<li>
+आवश्यकतानुसार carbon chain की <strong>Numbering</strong> करें।
+</li>
+
+<li>
+सबसे छोटी संख्या Functional Group या Multiple Bond को देने का प्रयास करें।
+</li>
+
+<li>
+अंत में उचित <strong>Suffix</strong> लगाकर पूरा नाम बनाएं।
+</li>
+
+</ol>
+
+</div>
+
+
+<!-- ================= QUICK CHART ================= -->
+
+<h3 class="sub-title">
+    Quick Revision Chart
+</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>स्थिति</th>
+<th>क्या पहचानना है?</th>
+<th>उदाहरण</th>
+</tr>
+
+<tr>
+<td>Carbon atoms की संख्या</td>
+<td>Prefix</td>
+<td>1 = Meth-, 2 = Eth-, 3 = Prop-</td>
+</tr>
+
+<tr>
+<td>Single Bond</td>
+<td>–ane</td>
+<td>Ethane</td>
+</tr>
+
+<tr>
+<td>Double Bond</td>
+<td>–ene</td>
+<td>Ethene</td>
+</tr>
+
+<tr>
+<td>Triple Bond</td>
+<td>–yne</td>
+<td>Ethyne</td>
+</tr>
+
+<tr>
+<td>–OH</td>
+<td>–ol</td>
+<td>Ethanol</td>
+</tr>
+
+<tr>
+<td>–CHO</td>
+<td>–al</td>
+<td>Ethanal</td>
+</tr>
+
+<tr>
+<td>–CO–</td>
+<td>–one</td>
+<td>Propanone</td>
+</tr>
+
+<tr>
+<td>–COOH</td>
+<td>–oic acid</td>
+<td>Ethanoic acid</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="success">
+
+<strong>याद रखने का आसान तरीका:</strong>
+
+<div class="formula light">
+Carbon संख्या → Prefix
+<br>
+↓
+<br>
+Bond / Functional Group पहचानें
+<br>
+↓
+<br>
+Numbering करें
+<br>
+↓
+<br>
+Suffix लगाएँ
+<br>
+↓
+<br>
+Final Name
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     13. रासायनिक गुण
+====================================================== -->
+
+<section class="section" id="chemical">
+
+<h2 class="section-title">13. कार्बन यौगिकों के रासायनिक गुण (Chemical Properties)</h2>
+
+
+<h3 class="sub-title">13.1 दहन (Combustion)</h3>
+
+<p>
+कार्बन और उसके यौगिक ऑक्सीजन में जलने पर सामान्यतः कार्बन डाइऑक्साइड,
+ऊष्मा और प्रकाश उत्पन्न करते हैं।
+</p>
+
+<div class="reaction">
+CH₄ + 2O₂ → CO₂ + 2H₂O + Heat + Light
+</div>
+
+<p>
+संतृप्त हाइड्रोकार्बन सामान्यतः नीली लौ के साथ जलते हैं जबकि असंतृप्त हाइड्रोकार्बन
+पीली और धुएँ वाली लौ दे सकते हैं।
+</p>
+
+
+<h3 class="sub-title">13.2 ऑक्सीकरण (Oxidation)</h3>
+
+<p>
+कुछ पदार्थ ऑक्सीकरण अभिकर्मकों जैसे <strong>क्षारीय KMnO₄</strong> या
+<strong>acidified K₂Cr₂O₇</strong> की उपस्थिति में ऑक्सीकृत होते हैं।
+</p>
+
+<div class="reaction">
+Ethanol
+<span class="arrow">→ Oxidation →</span>
+Ethanoic Acid
+</div>
+
+
+<h3 class="sub-title">13.3 योग अभिक्रिया (Addition Reaction)</h3>
+
+<p>
+असंतृप्त हाइड्रोकार्बन हाइड्रोजन के साथ अभिक्रिया करके संतृप्त हाइड्रोकार्बन बनाते हैं।
+इस प्रक्रिया को <strong>Hydrogenation</strong> कहते हैं।
+</p>
+
+<div class="reaction">
+Unsaturated Hydrocarbon + H₂
+<span class="arrow">→ Ni / Pd / Pt →</span>
+Saturated Hydrocarbon
+</div>
+
+<div class="info">
+वनस्पति तेलों के हाइड्रोजनीकरण में इस अभिक्रिया का उपयोग किया जाता है।
+</div>
+
+
+<h3 class="sub-title">13.4 प्रतिस्थापन अभिक्रिया (Substitution Reaction)</h3>
+
+<p>
+संतृप्त हाइड्रोकार्बन सामान्यतः प्रतिस्थापन अभिक्रिया देते हैं।
+</p>
+
+<div class="reaction">
+CH₄ + Cl₂
+<span class="arrow">→ Sunlight →</span>
+CH₃Cl + HCl
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     14. ETHANOL
+====================================================== -->
+
+<section class="section" id="ethanol">
+
+<h2 class="section-title">14. एथेनॉल (Ethanol)</h2>
+
+<div class="formula">
+C₂H₅OH
+</div>
+
+<p>
+एथेनॉल एक कार्बन यौगिक है। यह कमरे के तापमान पर द्रव अवस्था में पाया जाता है।
+</p>
+
+<ul>
+<li>यह एक अच्छा विलायक (Solvent) है।</li>
+<li>इसका उपयोग tincture iodine में किया जाता है।</li>
+<li>इसका उपयोग cough syrups आदि में किया जाता है।</li>
+</ul>
+
+
+<h3 class="sub-title">विकृत एल्कोहॉल (Denatured Alcohol)</h3>
+
+<p>
+एथेनॉल को पीने से रोकने के लिए उसमें methanol और blue dye जैसे पदार्थ मिलाए जाते हैं।
+ऐसे एथेनॉल को <strong>Denatured Alcohol</strong> कहते हैं।
+</p>
+
+
+<h3 class="sub-title">एथेनॉल की सोडियम के साथ अभिक्रिया</h3>
+
+<div class="reaction">
+2Na + 2CH₃CH₂OH → 2CH₃CH₂ONa + H₂
+</div>
+
+<p>
+इस अभिक्रिया में हाइड्रोजन गैस निकलती है।
+</p>
+
+
+<h3 class="sub-title">एथेनॉल का निर्जलीकरण (Dehydration)</h3>
+
+<p>
+एथेनॉल को 443 K तापमान पर सांद्र H₂SO₄ की उपस्थिति में गर्म करने पर एथीन प्राप्त होता है।
+</p>
+
+<div class="reaction">
+CH₃CH₂OH
+<span class="arrow">→ Conc. H₂SO₄, 443 K →</span>
+CH₂=CH₂ + H₂O
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     15. ETHANOIC ACID
+====================================================== -->
+
+<section class="section" id="ethanoic">
+
+<h2 class="section-title">15. एथेनॉइक अम्ल (Ethanoic Acid)</h2>
+
+<div class="formula">
+CH₃COOH
+</div>
+
+<p>
+एथेनॉइक अम्ल का सामान्य नाम <strong>Acetic Acid</strong> है।
+</p>
+
+<p>
+जल में एथेनॉइक अम्ल का <strong>5–8%</strong> विलयन <strong>Vinegar</strong> कहलाता है।
+</p>
+
+<div class="note">
+शुद्ध एथेनॉइक अम्ल का गलनांक लगभग <strong>290 K</strong> होता है।
+ठंडे क्षेत्रों में यह जम सकता है। इसे <strong>Glacial Acetic Acid</strong> कहा जाता है।
+</div>
+
+
+<h3 class="sub-title">15.1 एस्टरीकरण (Esterification)</h3>
+
+<p>
+एथेनॉइक अम्ल और एथेनॉल की अभिक्रिया सांद्र अम्ल की उपस्थिति में कराने पर
+एस्टर बनता है।
+</p>
+
+<div class="reaction">
+CH₃COOH + C₂H₅OH
+<span class="arrow">→ H⁺ →</span>
+CH₃COOC₂H₅ + H₂O
+</div>
+
+<p>
+बनने वाले एस्टर <strong>Ethyl Ethanoate</strong> की गंध मीठी होती है।
+</p>
+
+
+<h3 class="sub-title">15.2 एथेनॉइक अम्ल की NaOH के साथ अभिक्रिया</h3>
+
+<div class="reaction">
+CH₃COOH + NaOH → CH₃COONa + H₂O
+</div>
+
+
+<h3 class="sub-title">15.3 सोडियम कार्बोनेट के साथ अभिक्रिया</h3>
+
+<div class="reaction">
+2CH₃COOH + Na₂CO₃ → 2CH₃COONa + H₂O + CO₂
+</div>
+
+
+<h3 class="sub-title">15.4 सोडियम हाइड्रोजन कार्बोनेट के साथ अभिक्रिया</h3>
+
+<div class="reaction">
+CH₃COOH + NaHCO₃ → CH₃COONa + H₂O + CO₂
+</div>
+
+<div class="important">
+<strong>परीक्षा बिंदु:</strong> कार्बोक्सिलिक अम्ल और Na₂CO₃/NaHCO₃ की अभिक्रिया में
+<strong>CO₂ गैस</strong> निकलती है।
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     16. साबुनीकरण
+====================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">16. साबुनीकरण (Saponification)</h2>
+
+<p>
+एस्टर की क्षार के साथ अभिक्रिया द्वारा अल्कोहॉल और कार्बोक्सिलिक अम्ल का लवण बनने की प्रक्रिया
+<strong>साबुनीकरण (Saponification)</strong> कहलाती है।
+</p>
+
+<div class="reaction">
+Ester + NaOH → Alcohol + Sodium Salt of Carboxylic Acid
+</div>
+
+<div class="note">
+वसा और तेल जैसे लंबे-श्रृंखला वाले एस्टरों के साबुनीकरण से
+<strong>Soap + Glycerol</strong> प्राप्त होते हैं।
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     17. SOAP
+====================================================== -->
+
+<section class="section" id="soap">
+
+<h2 class="section-title">17. साबुन (Soap)</h2>
+
+<p>
+साबुन लंबी श्रृंखला वाले कार्बोक्सिलिक अम्लों के सोडियम या पोटैशियम लवण होते हैं।
+</p>
+
+<div class="formula light">
+Soap = Sodium / Potassium salts of long-chain carboxylic acids
+</div>
+
+
+<h3 class="sub-title">साबुन के अणु की संरचना</h3>
+
+<div class="diagram">
+
+<div class="diagram-title">Hydrophilic Head + Hydrophobic Tail</div>
+
+<svg width="650" height="250" viewBox="0 0 650 250">
+
+<circle cx="120" cy="125" r="38"
+fill="#55a7d6" stroke="#075e9b" stroke-width="4"/>
+
+<text x="120" y="132"
+text-anchor="middle"
+font-size="16"
+font-weight="bold">Head</text>
+
+<line x1="158" y1="125" x2="520" y2="125"
+stroke="#d68a00" stroke-width="10"
+stroke-linecap="round"/>
+
+<text x="335" y="100"
+text-anchor="middle"
+font-size="17">Hydrophobic Tail</text>
+
+<text x="120" y="195"
+text-anchor="middle"
+font-size="16">Hydrophilic</text>
+
+<text x="120" y="220"
+text-anchor="middle"
+font-size="14">जल-प्रिय सिरा</text>
+
+<text x="335" y="165"
+text-anchor="middle"
+font-size="16">Hydrocarbon chain</text>
+
+</svg>
+
+</div>
+
+<ul>
+<li><strong>Hydrophilic head</strong> पानी की ओर आकर्षित होता है।</li>
+<li><strong>Hydrophobic tail</strong> पानी से दूर रहता है और तेल/ग्रीस की ओर आकर्षित होता है।</li>
+</ul>
+
+</section>
+
+
+<!-- =====================================================
+     18. MICELLE
+====================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">18. मिसेल (Micelle)</h2>
+
+<p>
+साबुन के अणु जल में एक विशेष संरचना बनाते हैं जिसे <strong>Micelle</strong> कहते हैं।
+</p>
+
+<div class="diagram">
+
+<div class="diagram-title">Soap Micelle</div>
+
+<svg width="500" height="400" viewBox="0 0 500 400">
+
+<circle cx="250" cy="200" r="90"
+fill="#f3f3f3"
+stroke="#bbb"
+stroke-width="2"/>
+
+<!-- heads -->
+<g fill="#55a7d6" stroke="#075e9b" stroke-width="2">
+
+<circle cx="250" cy="75" r="15"/>
+<circle cx="315" cy="95" r="15"/>
+<circle cx="365" cy="145" r="15"/>
+<circle cx="375" cy="210" r="15"/>
+<circle cx="350" cy="270" r="15"/>
+<circle cx="290" cy="315" r="15"/>
+<circle cx="220" cy="320" r="15"/>
+<circle cx="155" cy="285" r="15"/>
+<circle cx="125" cy="225" r="15"/>
+<circle cx="135" cy="160" r="15"/>
+<circle cx="175" cy="105" r="15"/>
+
+</g>
+
+<!-- tails -->
+<g stroke="#d68a00" stroke-width="6">
+
+<line x1="250" y1="90" x2="250" y2="160"/>
+<line x1="315" y1="110" x2="275" y2="165"/>
+<line x1="350" y1="150" x2="300" y2="180"/>
+<line x1="360" y1="210" x2="310" y2="205"/>
+<line x1="335" y1="260" x2="290" y2="225"/>
+<line x1="280" y1="300" x2="265" y2="240"/>
+<line x1="225" y1="305" x2="240" y2="240"/>
+<line x1="165" y1="270" x2="210" y2="225"/>
+<line x1="140" y1="220" x2="190" y2="205"/>
+<line x1="150" y1="170" x2="195" y2="185"/>
+<line x1="180" y1="115" x2="220" y2="170"/>
+
+</g>
+
+<ellipse cx="250" cy="200" rx="65" ry="45"
+fill="#e5e5e5"
+stroke="#aaa"/>
+
+<text x="250" y="195"
+text-anchor="middle"
+font-size="17"
+font-weight="bold">Oil / Dirt</text>
+
+<text x="250" y="218"
+text-anchor="middle"
+font-size="14">inside micelle</text>
+
+</svg>
+
+</div>
+
+<p>
+Micelle में साबुन के <strong>hydrophobic tails</strong> अंदर की ओर तथा
+<strong>ionic/hydrophilic heads</strong> बाहर की ओर रहते हैं।
+</p>
+
+<p>
+तेल और गंदगी micelle के अंदर फँस जाती है और पानी से धुल जाती है।
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     19. HARD WATER
+====================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">19. कठोर जल और साबुन (Hard Water and Soap)</h2>
+
+<p>
+कठोर जल में <strong>Ca²⁺</strong> और <strong>Mg²⁺</strong> आयन उपस्थित होते हैं।
+</p>
+
+<p>
+साबुन इन आयनों के साथ अभिक्रिया करके अघुलनशील पदार्थ बनाता है जिसे
+<strong>Scum</strong> कहते हैं।
+</p>
+
+<div class="reaction">
+Soap + Ca²⁺ / Mg²⁺ → Insoluble Scum
+</div>
+
+<div class="important">
+<strong>परिणाम:</strong> कठोर जल में साबुन कम झाग देता है और सफाई की क्षमता कम हो जाती है।
+</div>
+
+<div class="diagram">
+
+<div class="diagram-title">Hard Water + Soap</div>
+
+<svg width="650" height="250" viewBox="0 0 650 250">
+
+<rect x="30" y="70" width="180" height="100"
+rx="15" fill="#eaf6ff" stroke="#075e9b" stroke-width="3"/>
+
+<text x="120" y="110"
+text-anchor="middle"
+font-size="18"
+font-weight="bold">Hard Water</text>
+
+<text x="120" y="140"
+text-anchor="middle"
+font-size="16">Ca²⁺ + Mg²⁺</text>
+
+<text x="250" y="130"
+font-size="35"
+font-weight="bold">+</text>
+
+<rect x="300" y="70" width="140" height="100"
+rx="15" fill="#fff4bd" stroke="#d68a00" stroke-width="3"/>
+
+<text x="370" y="110"
+text-anchor="middle"
+font-size="18"
+font-weight="bold">Soap</text>
+
+<text x="370" y="140"
+text-anchor="middle"
+font-size="16">RCOO⁻</text>
+
+<text x="465" y="130"
+font-size="35"
+font-weight="bold">→</text>
+
+<rect x="500" y="70" width="120" height="100"
+rx="15" fill="#ffe5e5" stroke="#d62828" stroke-width="3"/>
+
+<text x="560" y="110"
+text-anchor="middle"
+font-size="17"
+font-weight="bold">Scum</text>
+
+<text x="560" y="140"
+text-anchor="middle"
+font-size="15">Insoluble</text>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     20. DETERGENTS
+====================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">20. अपमार्जक (Detergents)</h2>
+
+<p>
+अपमार्जक (Detergents) सामान्यतः लंबी श्रृंखला वाले यौगिकों के
+<strong>सल्फोनेट (Sulphonate)</strong> या संबंधित लवण होते हैं।
+</p>
+
+<p>
+अपमार्जक कठोर जल में भी प्रभावी रहते हैं क्योंकि इनके कैल्शियम और मैग्नीशियम लवण
+जल में अपेक्षाकृत घुलनशील होते हैं।
+</p>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>साबुन (Soap)</th>
+<th>अपमार्जक (Detergent)</th>
+</tr>
+
+<tr>
+<td>कठोर जल में scum बनाता है।</td>
+<td>कठोर जल में भी प्रभावी रहता है।</td>
+</tr>
+
+<tr>
+<td>Ca²⁺ और Mg²⁺ के साथ अघुलनशील लवण बनाता है।</td>
+<td>Ca²⁺ और Mg²⁺ के साथ बनने वाले लवण अपेक्षाकृत घुलनशील होते हैं।</td>
+</tr>
+
+<tr>
+<td>झाग की मात्रा कठोर जल में कम होती है।</td>
+<td>कठोर जल में भी अच्छी cleansing action देता है।</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     21. CLEANING ACTION
+====================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">21. साबुन की सफाई की क्रिया (Cleansing Action of Soap)</h2>
+
+<ol>
+<li>साबुन का hydrophobic tail तेल और ग्रीस की ओर आकर्षित होता है।</li>
+<li>Hydrophilic head पानी की ओर आकर्षित होता है।</li>
+<li>साबुन के अणु तेल/गंदगी को घेर लेते हैं।</li>
+<li>Micelle बनता है।</li>
+<li>पानी से धोने पर गंदगी और तेल हट जाते हैं।</li>
+</ol>
+
+<div class="diagram">
+
+<div class="diagram-title">Cleansing Action – सरल क्रम</div>
+
+<svg width="750" height="180" viewBox="0 0 750 180">
+
+<rect x="20" y="50" width="130" height="80"
+rx="12" fill="#fff4bd" stroke="#d68a00" stroke-width="3"/>
+
+<text x="85" y="85" text-anchor="middle"
+font-size="16" font-weight="bold">Oil / Dirt</text>
+
+<text x="85" y="110" text-anchor="middle"
+font-size="13">गंदगी</text>
+
+<text x="165" y="105" font-size="28">→</text>
+
+<rect x="205" y="50" width="150" height="80"
+rx="12" fill="#eaf6ff" stroke="#075e9b" stroke-width="3"/>
+
+<text x="280" y="85" text-anchor="middle"
+font-size="16" font-weight="bold">Soap</text>
+
+<text x="280" y="110" text-anchor="middle"
+font-size="13">Tail enters dirt</text>
+
+<text x="370" y="105" font-size="28">→</text>
+
+<rect x="410" y="50" width="140" height="80"
+rx="12" fill="#eefaf1" stroke="#218838" stroke-width="3"/>
+
+<text x="480" y="85" text-anchor="middle"
+font-size="16" font-weight="bold">Micelle</text>
+
+<text x="480" y="110" text-anchor="middle"
+font-size="13">गंदगी घिरी</text>
+
+<text x="565" y="105" font-size="28">→</text>
+
+<rect x="600" y="50" width="130" height="80"
+rx="12" fill="#eaf6ff" stroke="#075e9b" stroke-width="3"/>
+
+<text x="665" y="85" text-anchor="middle"
+font-size="16" font-weight="bold">Washing</text>
+
+<text x="665" y="110" text-anchor="middle"
+font-size="13">गंदगी दूर</text>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     22. IMPORTANT EXAM POINTS
+====================================================== -->
+
+<section class="section">
+
+<h2 class="section-title">22. परीक्षा के लिए महत्वपूर्ण बिंदु (Important Exam Points)</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Carbon</h3>
+<p>Atomic Number = <strong>6</strong></p>
+<p>Valency = <strong>4</strong></p>
+</div>
+
+<div class="card">
+<h3>Bond</h3>
+<p>Carbon मुख्यतः <strong>Covalent Bond</strong> बनाता है।</p>
+</div>
+
+<div class="card">
+<h3>Catenation</h3>
+<p>Carbon का अपने ही परमाणुओं के साथ जुड़कर श्रृंखला बनाना।</p>
+</div>
+
+<div class="card">
+<h3>Tetravalency</h3>
+<p>Carbon की संयोजकता <strong>4</strong> है।</p>
+</div>
+
+<div class="card">
+<h3>Hydrocarbon</h3>
+<p>केवल Carbon और Hydrogen से बने यौगिक।</p>
+</div>
+
+<div class="card">
+<h3>Alkane</h3>
+<p>केवल Single Bond वाले saturated hydrocarbons.</p>
+</div>
+
+<div class="card">
+<h3>Alkene</h3>
+<p>कम से कम एक C=C bond.</p>
+</div>
+
+<div class="card">
+<h3>Alkyne</h3>
+<p>कम से कम एक C≡C bond.</p>
+</div>
+
+<div class="card">
+<h3>Ethanol</h3>
+<p>Formula = <strong>C₂H₅OH</strong></p>
+</div>
+
+<div class="card">
+<h3>Ethanoic Acid</h3>
+<p>Formula = <strong>CH₃COOH</strong></p>
+</div>
+
+<div class="card">
+<h3>Vinegar</h3>
+<p>Acetic acid का <strong>5–8%</strong> aqueous solution.</p>
+</div>
+
+<div class="card">
+<h3>Micelle</h3>
+<p>Hydrophobic tail अंदर और hydrophilic head बाहर।</p>
+</div>
+
+</div>
+
+
+<div class="important">
+
+<h3>⭐ बहुत महत्वपूर्ण</h3>
+
+<ul>
+<li>Carbon की <strong>Tetravalency</strong> और <strong>Catenation</strong> उसकी सर्वतोमुखी प्रकृति के मुख्य कारण हैं।</li>
+
+<li>Diamond बहुत कठोर होता है जबकि Graphite विद्युत का सुचालक होता है।</li>
+
+<li>Saturated hydrocarbons में केवल single bonds होते हैं।</li>
+
+<li>Unsaturated hydrocarbons में double या triple bonds होते हैं।</li>
+
+<li>दो क्रमिक homologous members में <strong>–CH₂–</strong> का अंतर होता है।</li>
+
+<li>Ethene का hydrogenation करके Ethane बनाया जा सकता है।</li>
+
+<li>Ethanol के dehydration से Ethene प्राप्त होता है।</li>
+
+<li>Ethanoic acid + Ethanol → Ester + Water.</li>
+
+<li>Hard water में Soap scum बनाता है।</li>
+
+<li>Detergents hard water में भी प्रभावी रहते हैं।</li>
+
+<li>Micelle में hydrophobic tails अंदर और hydrophilic heads बाहर होते हैं।</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<strong>कक्षा 10 विज्ञान | अध्याय 4</strong><br>
+कार्बन एवं उसके यौगिक • Carbon and Its Compounds
+
+</footer>
+
+</div>
+
+</body>
+</html>
