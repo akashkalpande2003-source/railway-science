@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-      viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>RAILWAY WARRIOR | BADNERA (RLY)</title>
 
-<link rel="manifest" href="./manifest.json">
-
-<meta name="theme-color" content="#07111f">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="RAILWAY WARRIOR">
-
-<link rel="icon"
-      type="image/svg+xml"
-      href="./railway-warrior-icon.svg">
-
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
+}
+
+:root{
+  --navy:#06152f;
+  --blue:#087cff;
+  --cyan:#00d9ff;
+  --purple:#8a4dff;
+  --pink:#ff3d81;
+  --orange:#ff9d2e;
+  --green:#00d084;
+  --yellow:#ffd43b;
+  --white:#ffffff;
 }
 
 html{
@@ -36,17 +31,54 @@ html{
 
 body{
   font-family:Arial,"Noto Sans Devanagari",sans-serif;
-  background:
-    radial-gradient(
-      circle at top left,
-      #193b75 0,
-      #0b1730 38%,
-      #050b18 100%
-    );
   color:#fff;
   min-height:100vh;
-  overscroll-behavior-y:none;
-  -webkit-tap-highlight-color:transparent;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(0,217,255,.20),transparent 28%),
+    radial-gradient(circle at 90% 20%,rgba(138,77,255,.22),transparent 30%),
+    radial-gradient(circle at 50% 100%,rgba(255,61,129,.14),transparent 35%),
+    linear-gradient(135deg,#020816,#071b3d 45%,#080d25);
+}
+
+/* ================= ANIMATED BACKGROUND ================= */
+
+body:before,
+body:after{
+  content:"";
+  position:fixed;
+  z-index:-1;
+  border-radius:50%;
+  filter:blur(5px);
+  pointer-events:none;
+}
+
+body:before{
+  width:350px;
+  height:350px;
+  top:-130px;
+  left:-120px;
+  background:rgba(0,217,255,.12);
+  animation:floatOne 9s ease-in-out infinite;
+}
+
+body:after{
+  width:400px;
+  height:400px;
+  right:-160px;
+  bottom:-170px;
+  background:rgba(255,61,129,.11);
+  animation:floatTwo 11s ease-in-out infinite;
+}
+
+@keyframes floatOne{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(35px,25px)}
+}
+
+@keyframes floatTwo{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(-35px,-25px)}
 }
 
 /* ================= PASSWORD ================= */
@@ -55,134 +87,134 @@ body{
   position:fixed;
   inset:0;
   z-index:99999;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   padding:20px;
-
   background:
-    radial-gradient(
-      circle at 20% 20%,
-      #164b91 0,
-      #0b1730 42%,
-      #030711 100%
-    );
+    radial-gradient(circle at 20% 10%,#0b69bd 0,transparent 28%),
+    radial-gradient(circle at 90% 90%,#7136b9 0,transparent 30%),
+    linear-gradient(135deg,#020713,#071d43,#160d36);
 }
 
 .password-box{
+  position:relative;
   width:100%;
-  max-width:390px;
-  padding:32px 25px;
-  border-radius:26px;
-
-  background:rgba(255,255,255,.09);
-  border:1px solid rgba(255,255,255,.18);
-
-  backdrop-filter:blur(18px);
-
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.45);
-
+  max-width:410px;
+  padding:34px 26px 28px;
   text-align:center;
+  overflow:hidden;
+  border-radius:30px;
+  background:rgba(255,255,255,.09);
+  border:1px solid rgba(255,255,255,.20);
+  backdrop-filter:blur(25px);
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.60),
+    0 0 60px rgba(0,153,255,.13);
+}
+
+.password-box:before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  right:-80px;
+  top:-80px;
+  border-radius:50%;
+  background:rgba(0,217,255,.18);
+}
+
+.password-box:after{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  left:-70px;
+  bottom:-80px;
+  border-radius:50%;
+  background:rgba(255,61,129,.15);
 }
 
 .lock-icon{
-  width:70px;
-  height:70px;
-  margin:0 auto 18px;
-
-  border-radius:22px;
-
+  position:relative;
+  z-index:2;
+  width:82px;
+  height:82px;
+  margin:0 auto 17px;
   display:flex;
   align-items:center;
   justify-content:center;
-
-  font-size:34px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #18a0ff,
-      #536dfe
-    );
-
+  border-radius:27px;
+  font-size:40px;
+  background:linear-gradient(135deg,#00cfff,#536dfe,#9a4dff);
   box-shadow:
-    0 12px 30px rgba(24,160,255,.35);
+    0 15px 35px rgba(0,162,255,.35),
+    inset 0 1px 0 rgba(255,255,255,.4);
 }
 
 .password-box h1{
-  font-size:25px;
-  margin-bottom:6px;
+  position:relative;
+  z-index:2;
+  font-size:26px;
+  letter-spacing:.8px;
 }
 
 .password-box p{
-  color:#b9c8df;
+  position:relative;
+  z-index:2;
+  margin-top:7px;
+  color:#aebfdb;
   font-size:13px;
-  margin-bottom:22px;
 }
 
 #passwordInput{
+  position:relative;
+  z-index:2;
   width:100%;
-  padding:14px 16px;
-
-  border:1px solid rgba(255,255,255,.2);
-  border-radius:14px;
-
-  background:rgba(0,0,0,.22);
-  color:#fff;
-
+  margin-top:22px;
+  padding:15px 17px;
+  border-radius:15px;
   outline:none;
-
-  font-size:16px;
+  border:1px solid rgba(255,255,255,.20);
+  background:rgba(0,0,0,.24);
+  color:#fff;
   text-align:center;
-  letter-spacing:2px;
-}
-
-#passwordInput:focus{
-  border-color:#18a0ff;
-  box-shadow:0 0 0 3px rgba(24,160,255,.12);
+  font-size:16px;
+  letter-spacing:3px;
 }
 
 #passwordInput::placeholder{
-  color:#91a1ba;
+  color:#8295b4;
   letter-spacing:0;
 }
 
 .unlock-btn{
+  position:relative;
+  z-index:2;
   width:100%;
-  margin-top:13px;
-  padding:14px;
-
-  border:none;
-  border-radius:14px;
-
-  cursor:pointer;
-
+  margin-top:12px;
+  padding:15px;
+  border:0;
+  border-radius:15px;
   color:#fff;
+  cursor:pointer;
   font-size:15px;
-  font-weight:700;
-
-  background:
-    linear-gradient(
-      135deg,
-      #00a8ff,
-      #536dfe
-    );
-
-  box-shadow:
-    0 10px 25px rgba(0,168,255,.25);
+  font-weight:800;
+  background:linear-gradient(135deg,#008cff,#536dfe,#9a4dff);
+  box-shadow:0 12px 30px rgba(45,114,255,.30);
+  transition:.25s;
 }
 
-.unlock-btn:active{
-  transform:scale(.98);
+.unlock-btn:hover{
+  transform:translateY(-2px);
 }
 
 #errorMsg{
+  position:relative;
+  z-index:2;
   min-height:18px;
-  margin-top:12px;
-  color:#ff8f8f;
+  margin-top:10px;
+  color:#ff8c9d;
   font-size:13px;
 }
 
@@ -194,16 +226,87 @@ body{
 }
 
 .container{
-  width:min(1100px,92%);
+  width:min(1120px,94%);
   margin:auto;
 }
 
 #homePage{
-  padding-bottom:25px;
+  padding-bottom:40px;
 }
 
-.top-space{
-  height:10px;
+/* ================= TOP NAV ================= */
+
+.topbar{
+  position:relative;
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 15px;
+  border-radius:22px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.13);
+  backdrop-filter:blur(15px);
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.mini-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.mini-logo{
+  width:43px;
+  height:43px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  font-size:23px;
+  background:linear-gradient(135deg,#00cfff,#4d6bff,#9a4dff);
+  box-shadow:0 8px 20px rgba(0,155,255,.28);
+}
+
+.mini-brand strong{
+  display:block;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+.mini-brand small{
+  display:block;
+  margin-top:2px;
+  color:#8fdfff;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+.live-pill{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 11px;
+  border-radius:20px;
+  background:rgba(0,208,132,.10);
+  border:1px solid rgba(0,208,132,.25);
+  color:#67f0ba;
+  font-size:10px;
+  font-weight:800;
+}
+
+.live-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#00e88b;
+  box-shadow:0 0 12px #00e88b;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.45;transform:scale(.75)}
 }
 
 /* ================= HERO ================= */
@@ -211,215 +314,227 @@ body{
 .hero{
   position:relative;
   overflow:hidden;
-
-  margin-top:10px;
-  padding:22px 20px 24px;
-
-  border-radius:27px;
-
+  margin-top:15px;
+  padding:40px 30px 34px;
+  border-radius:34px;
   background:
-    linear-gradient(
-      135deg,
-      rgba(18,55,110,.96),
-      rgba(8,20,46,.96)
-    );
-
-  border:1px solid rgba(255,255,255,.14);
-
+    linear-gradient(135deg,
+      rgba(9,73,145,.96),
+      rgba(30,30,102,.94) 48%,
+      rgba(91,29,105,.95));
+  border:1px solid rgba(255,255,255,.17);
   box-shadow:
-    0 25px 65px rgba(0,0,0,.34);
+    0 28px 70px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.10);
 }
 
-.hero:before{
-  content:"";
+.hero-glow-one,
+.hero-glow-two,
+.hero-glow-three{
   position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
 
-  width:240px;
-  height:240px;
-
-  right:-90px;
+.hero-glow-one{
+  width:270px;
+  height:270px;
+  right:-80px;
   top:-100px;
-
-  border-radius:50%;
-
-  background:rgba(0,174,255,.18);
-
-  filter:blur(4px);
+  background:rgba(0,217,255,.20);
+  filter:blur(2px);
 }
 
-.hero:after{
-  content:"";
-  position:absolute;
-
-  width:180px;
-  height:180px;
-
+.hero-glow-two{
+  width:220px;
+  height:220px;
   left:-100px;
+  bottom:-130px;
+  background:rgba(255,61,129,.17);
+}
+
+.hero-glow-three{
+  width:160px;
+  height:160px;
+  right:22%;
   bottom:-100px;
+  background:rgba(255,157,46,.13);
+}
 
-  border-radius:50%;
-
-  background:rgba(78,93,255,.18);
+.hero-content{
+  position:relative;
+  z-index:2;
 }
 
 .brand{
-  position:relative;
-  z-index:2;
-
   display:flex;
   align-items:center;
-
-  gap:14px;
+  gap:20px;
 }
 
-.logo{
+.big-logo{
   flex:0 0 auto;
-
-  width:68px;
-  height:68px;
-
-  border-radius:21px;
-
+  width:94px;
+  height:94px;
   display:flex;
   align-items:center;
   justify-content:center;
-
+  border-radius:30px;
+  font-size:48px;
   background:
-    linear-gradient(
-      145deg,
-      #f7fbff,
-      #dbe9ff
-    );
-
-  color:#123a75;
-
+    linear-gradient(145deg,#f9fdff,#d6e8ff);
+  color:#16488a;
+  border:4px solid rgba(255,255,255,.30);
   box-shadow:
-    0 12px 30px rgba(0,0,0,.28),
-    inset 0 0 0 4px rgba(255,255,255,.6);
-
-  font-size:32px;
+    0 15px 35px rgba(0,0,0,.30),
+    0 0 35px rgba(0,211,255,.17),
+    inset 0 0 20px rgba(0,100,255,.08);
 }
 
 .brand-text h1{
-  font-size:clamp(27px,5vw,46px);
-  line-height:1;
-  letter-spacing:1px;
-  font-weight:900;
+  font-size:clamp(31px,6vw,57px);
+  line-height:.95;
+  font-weight:950;
+  letter-spacing:1.5px;
+  text-shadow:0 5px 25px rgba(0,0,0,.25);
 }
 
 .brand-text .subtitle{
-  margin-top:7px;
-  color:#8fdcff;
-  font-size:12px;
-  letter-spacing:3px;
-  font-weight:700;
+  margin-top:11px;
+  color:#91e4ff;
+  font-size:13px;
+  letter-spacing:4px;
+  font-weight:800;
 }
 
-.hero-line{
-  position:relative;
-  z-index:2;
-
-  margin-top:17px;
+.hero-divider{
   height:1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.35),
-      transparent
-    );
+  margin:27px 0 24px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.45),
+    rgba(0,217,255,.8),
+    rgba(255,255,255,.45),
+    transparent
+  );
 }
 
 .hero-message{
-  position:relative;
-  z-index:2;
-
   text-align:center;
-  margin-top:17px;
 }
 
 .hero-message h2{
-  font-size:clamp(19px,4vw,28px);
-  margin-bottom:6px;
+  font-size:clamp(21px,4vw,31px);
+  font-weight:900;
 }
 
 .hero-message p{
-  color:#b9cbe3;
-  font-size:13px;
+  margin-top:10px;
+  color:#c4d4eb;
+  font-size:14px;
 }
 
 .tagline{
-  display:inline-block;
-
-  margin-top:10px;
-  padding:7px 13px;
-
+  display:inline-flex;
+  margin-top:17px;
+  padding:9px 17px;
   border-radius:30px;
-
-  background:rgba(0,174,255,.11);
-  border:1px solid rgba(0,174,255,.25);
-
-  color:#91ddff;
-
+  background:linear-gradient(
+    90deg,
+    rgba(0,217,255,.13),
+    rgba(138,77,255,.16),
+    rgba(255,61,129,.13)
+  );
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff;
   font-size:11px;
-  font-weight:700;
+  letter-spacing:2px;
+  font-weight:800;
+}
+
+/* ================= RAILWAY TRACK ================= */
+
+.railway-track{
+  position:relative;
+  height:35px;
+  margin:0 18px;
+  overflow:hidden;
+}
+
+.railway-track:before,
+.railway-track:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:4px;
+  border-radius:5px;
+  background:linear-gradient(90deg,#54647e,#dce7f5,#54647e);
+}
+
+.railway-track:before{
+  top:9px;
+}
+
+.railway-track:after{
+  bottom:8px;
+}
+
+.track-sleeper{
+  position:absolute;
+  top:7px;
+  bottom:6px;
+  width:10px;
+  border-radius:4px;
+  background:#394b67;
+  box-shadow:0 0 0 1px rgba(255,255,255,.05);
 }
 
 /* ================= WHATSAPP ================= */
 
 .whatsapp-wrap{
   text-align:center;
-  margin:12px 0 2px;
+  margin-top:14px;
 }
 
 .whatsapp-btn{
   display:inline-flex;
   align-items:center;
-  gap:7px;
-
+  gap:8px;
+  padding:10px 17px;
+  border-radius:30px;
   text-decoration:none;
   color:#fff;
-
-  padding:8px 14px;
-
-  border-radius:30px;
-
-  font-size:11px;
-  font-weight:700;
-
-  background:
-    linear-gradient(
-      135deg,
-      #18b95c,
-      #079447
-    );
-
+  font-size:12px;
+  font-weight:800;
+  background:linear-gradient(135deg,#00b95a,#008f46);
   box-shadow:
-    0 8px 20px rgba(0,180,80,.22);
-
-  transition:.2s;
+    0 10px 25px rgba(0,190,90,.22),
+    inset 0 1px 0 rgba(255,255,255,.2);
+  transition:.25s;
 }
 
 .whatsapp-btn:hover{
-  transform:translateY(-2px);
+  transform:translateY(-3px) scale(1.02);
 }
 
 /* ================= SECTION ================= */
 
 .section-title{
+  margin:35px 0 18px;
   text-align:center;
-  margin:19px 0 10px;
 }
 
 .section-title h2{
-  font-size:20px;
+  font-size:24px;
+  font-weight:900;
 }
 
 .section-title p{
-  color:#92a6c4;
-  margin-top:3px;
-  font-size:11px;
+  margin-top:6px;
+  color:#8298b7;
+  font-size:12px;
 }
 
 /* ================= CLASS CARDS ================= */
@@ -427,264 +542,320 @@ body{
 .class-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
+  gap:20px;
 }
 
 .class-card{
   position:relative;
+  min-height:230px;
   overflow:hidden;
-
-  min-height:160px;
-  padding:18px;
-
-  border-radius:22px;
-
-  text-decoration:none;
-  color:#fff;
-
+  padding:25px;
+  border-radius:27px;
   cursor:pointer;
-
-  border:1px solid rgba(255,255,255,.13);
-
-  box-shadow:
-    0 18px 42px rgba(0,0,0,.28);
-
-  transition:.25s ease;
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 20px 50px rgba(0,0,0,.32);
+  transition:.3s ease;
 }
 
 .class-card:hover{
-  transform:translateY(-4px);
-
+  transform:translateY(-7px) scale(1.012);
   box-shadow:
-    0 25px 50px rgba(0,0,0,.38);
-}
-
-.class-card:before{
-  content:"";
-
-  position:absolute;
-
-  width:150px;
-  height:150px;
-
-  right:-60px;
-  top:-65px;
-
-  border-radius:50%;
-
-  background:rgba(255,255,255,.12);
+    0 30px 60px rgba(0,0,0,.40),
+    0 0 35px rgba(0,180,255,.10);
 }
 
 .class9{
   background:
-    linear-gradient(
-      135deg,
-      #075e9f,
-      #123a82 55%,
-      #17265f
-    );
+    radial-gradient(circle at 90% 10%,rgba(0,238,255,.28),transparent 28%),
+    linear-gradient(135deg,#0069ae,#0754a3 48%,#27327f);
 }
 
 .class10{
   background:
-    linear-gradient(
-      135deg,
-      #713b9f,
-      #51318d 55%,
-      #25245d
-    );
+    radial-gradient(circle at 90% 10%,rgba(255,125,213,.25),transparent 28%),
+    linear-gradient(135deg,#7a269e,#6439a8 48%,#343275);
+}
+
+.class-card:before{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:230px;
+  right:-105px;
+  top:-105px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:
+    0 0 0 25px rgba(255,255,255,.025),
+    0 0 0 50px rgba(255,255,255,.018);
+}
+
+.class-card:after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  right:-90px;
+  bottom:-100px;
+  border-radius:50%;
+  background:rgba(255,255,255,.06);
+}
+
+.class-top{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .class-icon{
-  position:relative;
-  z-index:2;
-
-  width:47px;
-  height:47px;
-
+  width:62px;
+  height:62px;
   display:flex;
   align-items:center;
   justify-content:center;
-
-  border-radius:15px;
-
+  border-radius:20px;
+  font-size:29px;
   background:rgba(255,255,255,.14);
   border:1px solid rgba(255,255,255,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.17);
+}
 
-  font-size:22px;
+.chapter-count{
+  padding:7px 11px;
+  border-radius:20px;
+  background:rgba(0,0,0,.16);
+  border:1px solid rgba(255,255,255,.12);
+  color:#e5efff;
+  font-size:10px;
+  font-weight:800;
 }
 
 .class-card h3{
   position:relative;
   z-index:2;
-
-  margin-top:11px;
-  font-size:22px;
+  margin-top:21px;
+  font-size:29px;
+  font-weight:900;
 }
 
 .class-card p{
   position:relative;
   z-index:2;
-
-  margin-top:4px;
-
-  color:#d4e3f7;
-  font-size:11px;
+  margin-top:7px;
+  color:#d6e6fa;
+  font-size:12px;
 }
 
-.open-label{
+.class-features{
   position:relative;
   z-index:2;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:17px;
+}
 
-  display:inline-block;
-
-  margin-top:9px;
-  padding:6px 11px;
-
-  border-radius:20px;
-
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.15);
-
+.class-feature{
+  padding:6px 9px;
+  border-radius:10px;
+  background:rgba(255,255,255,.10);
+  color:#eaf4ff;
   font-size:10px;
   font-weight:700;
 }
 
-/* ================= QUICK ================= */
+.open-class{
+  position:relative;
+  z-index:2;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:19px;
+  padding:9px 14px;
+  border-radius:12px;
+  background:#fff;
+  color:#143f78;
+  font-size:11px;
+  font-weight:900;
+  box-shadow:0 8px 18px rgba(0,0,0,.17);
+}
+
+/* ================= QUICK ACCESS ================= */
 
 .quick-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:10px;
+  gap:15px;
 }
 
 .quick-btn{
-  min-height:72px;
-
+  position:relative;
+  overflow:hidden;
+  min-height:108px;
+  padding:15px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
-
-  gap:5px;
-
-  text-decoration:none;
+  gap:9px;
   color:#fff;
-
-  border-radius:16px;
-
-  border:1px solid rgba(255,255,255,.12);
-
+  text-decoration:none;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.13);
   background:rgba(255,255,255,.065);
+  box-shadow:0 15px 35px rgba(0,0,0,.22);
+  transition:.25s;
+}
 
-  box-shadow:
-    0 12px 28px rgba(0,0,0,.20);
-
-  transition:.22s;
+.quick-btn:before{
+  content:"";
+  position:absolute;
+  width:100px;
+  height:100px;
+  top:-55px;
+  right:-35px;
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
 }
 
 .quick-btn:hover{
-  transform:translateY(-3px);
-  background:rgba(255,255,255,.10);
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.11);
+}
+
+.quick-btn:nth-child(1){
+  border-top:2px solid #00cfff;
+}
+
+.quick-btn:nth-child(2){
+  border-top:2px solid #ff9d2e;
+}
+
+.quick-btn:nth-child(3){
+  border-top:2px solid #00d084;
 }
 
 .quick-icon{
-  font-size:21px;
+  position:relative;
+  z-index:2;
+  width:45px;
+  height:45px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:15px;
+  font-size:22px;
+  background:rgba(255,255,255,.09);
 }
 
 .quick-btn span:last-child{
-  font-size:10px;
-  color:#cbd8eb;
-  font-weight:700;
-  text-align:center;
+  position:relative;
+  z-index:2;
+  color:#d4e2f4;
+  font-size:11px;
+  font-weight:800;
 }
 
-/* ================= CLASS PAGES ================= */
+/* ================= CLASS PAGE ================= */
 
 .class-page{
   display:none;
-  padding:20px 0 35px;
+  padding:18px 0 40px;
 }
 
 .page-header{
+  position:relative;
+  overflow:hidden;
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:13px;
+  margin-top:18px;
+  padding:17px;
+  border-radius:23px;
+  background:
+    linear-gradient(135deg,rgba(17,70,133,.90),rgba(68,38,120,.90));
+  border:1px solid rgba(255,255,255,.14);
+  box-shadow:0 18px 45px rgba(0,0,0,.28);
+}
 
-  padding:16px 18px;
-  margin-bottom:18px;
-
-  border-radius:21px;
-
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.12);
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,.22);
+.page-header:after{
+  content:"🚆";
+  position:absolute;
+  right:18px;
+  font-size:55px;
+  opacity:.08;
 }
 
 .back-btn{
-  border:none;
-  cursor:pointer;
-
-  min-width:42px;
-  height:42px;
-
-  border-radius:13px;
-
+  position:relative;
+  z-index:2;
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  border:0;
+  border-radius:14px;
   color:#fff;
-  background:rgba(255,255,255,.10);
-
-  font-size:21px;
+  background:rgba(255,255,255,.12);
+  cursor:pointer;
+  font-size:22px;
 }
 
 .page-header h2{
-  font-size:23px;
+  position:relative;
+  z-index:2;
+  font-size:22px;
 }
 
 .page-header p{
+  position:relative;
+  z-index:2;
   margin-top:4px;
-  color:#94a9c5;
-  font-size:12px;
+  color:#a8c0de;
+  font-size:11px;
 }
 
 .chapter-grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:15px;
+  margin-top:18px;
 }
 
 .chapter-card{
+  position:relative;
+  overflow:hidden;
   padding:18px;
-
-  border-radius:20px;
-
-  background:rgba(255,255,255,.065);
+  border-radius:21px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.045));
   border:1px solid rgba(255,255,255,.11);
+  box-shadow:0 13px 32px rgba(0,0,0,.20);
+  transition:.22s;
+}
 
-  box-shadow:
-    0 12px 28px rgba(0,0,0,.18);
+.chapter-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(0,210,255,.25);
 }
 
 .chapter-number{
   display:inline-block;
-
   padding:5px 9px;
-
   border-radius:9px;
-
-  background:rgba(24,160,255,.13);
-  color:#80d5ff;
-
-  font-size:11px;
-  font-weight:800;
+  color:#8ce4ff;
+  background:rgba(0,180,255,.11);
+  border:1px solid rgba(0,180,255,.13);
+  font-size:10px;
+  font-weight:900;
 }
 
 .chapter-card h3{
+  min-height:45px;
   margin:10px 0 14px;
-
-  font-size:16px;
-  line-height:1.4;
+  font-size:15px;
+  line-height:1.45;
 }
 
 .chapter-actions{
@@ -694,50 +865,41 @@ body{
 }
 
 .action-btn{
-  padding:9px 5px;
-
+  display:block;
+  padding:9px 4px;
   border-radius:10px;
-
   text-align:center;
   text-decoration:none;
-
   color:#fff;
-
   font-size:10px;
-  font-weight:700;
-
-  background:#24558e;
-
-  border:1px solid rgba(255,255,255,.09);
+  font-weight:800;
+  background:linear-gradient(135deg,#145ea5,#214b89);
+  border:1px solid rgba(255,255,255,.08);
+  transition:.2s;
 }
 
 .action-btn:hover{
-  filter:brightness(1.15);
+  transform:translateY(-2px);
+  filter:brightness(1.18);
 }
 
 .action-btn.pyq{
-  background:#4656a7;
+  background:linear-gradient(135deg,#554fc1,#63429a);
 }
 
 .action-btn.groupd{
-  background:
-    linear-gradient(
-      135deg,
-      #079447,
-      #12b85e
-    );
+  background:linear-gradient(135deg,#008e4b,#00b965);
 }
 
 /* ================= FOOTER ================= */
 
 .footer{
+  margin-top:34px;
+  padding:20px;
   text-align:center;
-
-  margin-top:22px;
-  padding:14px;
-
-  color:#7185a3;
+  color:#6e84a4;
   font-size:10px;
+  letter-spacing:.5px;
 }
 
 /* ================= MOBILE ================= */
@@ -748,218 +910,166 @@ body{
     width:94%;
   }
 
-  .top-space{
-    height:5px;
+  .topbar{
+    margin-top:10px;
+    padding:10px 11px;
   }
 
-  .hero{
-    margin-top:5px;
-    padding:18px 15px 19px;
-    border-radius:23px;
+  .mini-logo{
+    width:39px;
+    height:39px;
+    font-size:20px;
   }
 
-  .logo{
-    width:56px;
-    height:56px;
-    border-radius:17px;
-    font-size:27px;
-  }
-
-  .brand{
-    gap:10px;
-  }
-
-  .brand-text h1{
-    font-size:26px;
-  }
-
-  .brand-text .subtitle{
-    font-size:9px;
-    letter-spacing:2px;
-  }
-
-  .hero-line{
-    margin-top:13px;
-  }
-
-  .hero-message{
-    margin-top:13px;
-  }
-
-  .hero-message h2{
-    font-size:17px;
-  }
-
-  .hero-message p{
+  .mini-brand strong{
     font-size:11px;
   }
 
-  .tagline{
-    margin-top:7px;
-    padding:6px 11px;
-    font-size:9px;
-  }
-
-  .whatsapp-wrap{
-    margin:8px 0 0;
-  }
-
-  .whatsapp-btn{
-    padding:7px 12px;
-    font-size:10px;
-  }
-
-  .section-title{
-    margin:13px 0 7px;
-  }
-
-  .section-title h2{
-    font-size:18px;
-  }
-
-  .section-title p{
-    font-size:10px;
-  }
-
-  .class-grid{
-    gap:8px;
-  }
-
-  .class-card{
-    min-height:138px;
-    padding:12px;
-    border-radius:17px;
-  }
-
-  .class-icon{
-    width:40px;
-    height:40px;
-    border-radius:12px;
-    font-size:19px;
-  }
-
-  .class-card h3{
-    margin-top:7px;
-    font-size:18px;
-  }
-
-  .class-card p{
-    margin-top:3px;
-    font-size:9px;
-    line-height:1.25;
-  }
-
-  .open-label{
-    margin-top:6px;
-    padding:5px 8px;
+  .mini-brand small{
     font-size:8px;
   }
 
+  .live-pill{
+    font-size:9px;
+    padding:6px 9px;
+  }
+
+  .hero{
+    padding:28px 17px 28px;
+    border-radius:27px;
+  }
+
+  .brand{
+    gap:13px;
+  }
+
+  .big-logo{
+    width:70px;
+    height:70px;
+    border-radius:23px;
+    font-size:35px;
+  }
+
+  .brand-text h1{
+    font-size:29px;
+    letter-spacing:.7px;
+  }
+
+  .brand-text .subtitle{
+    margin-top:8px;
+    font-size:9px;
+    letter-spacing:2.5px;
+  }
+
+  .hero-message h2{
+    font-size:20px;
+  }
+
+  .hero-message p{
+    font-size:12px;
+  }
+
+  .class-grid{
+    gap:11px;
+  }
+
+  .class-card{
+    min-height:215px;
+    padding:18px;
+    border-radius:21px;
+  }
+
+  .class-icon{
+    width:51px;
+    height:51px;
+    border-radius:16px;
+    font-size:25px;
+  }
+
+  .chapter-count{
+    font-size:8px;
+    padding:6px 8px;
+  }
+
+  .class-card h3{
+    font-size:21px;
+    margin-top:16px;
+  }
+
+  .class-card p{
+    font-size:10px;
+  }
+
+  .class-features{
+    gap:5px;
+    margin-top:13px;
+  }
+
+  .class-feature{
+    padding:5px 7px;
+    font-size:8px;
+  }
+
+  .open-class{
+    margin-top:14px;
+    padding:8px 10px;
+    font-size:9px;
+  }
+
   .quick-grid{
-    gap:7px;
+    gap:8px;
   }
 
   .quick-btn{
-    min-height:62px;
-    border-radius:13px;
-    gap:3px;
+    min-height:90px;
+    padding:10px 5px;
+    border-radius:15px;
   }
 
   .quick-icon{
-    font-size:18px;
+    width:39px;
+    height:39px;
+    border-radius:12px;
+    font-size:19px;
   }
 
   .quick-btn span:last-child{
     font-size:9px;
   }
 
-  .footer{
-    margin-top:12px;
-  }
-
   .chapter-grid{
     grid-template-columns:1fr;
   }
 
-  .chapter-actions{
-    grid-template-columns:repeat(3,1fr);
+  .chapter-card h3{
+    min-height:auto;
   }
-
 }
 
 @media(max-width:390px){
 
-  .hero{
-    padding:16px 13px 17px;
-  }
-
-  .logo{
-    width:51px;
-    height:51px;
-    font-size:24px;
-  }
-
   .brand-text h1{
-    font-size:23px;
+    font-size:25px;
+  }
+
+  .big-logo{
+    width:62px;
+    height:62px;
+    font-size:30px;
   }
 
   .class-card{
-    min-height:132px;
-    padding:11px;
-  }
-
-  .class-icon{
-    width:38px;
-    height:38px;
-    font-size:18px;
+    min-height:205px;
   }
 
   .class-card h3{
-    font-size:17px;
-  }
-
-  .class-card p{
-    font-size:8px;
+    font-size:19px;
   }
 
   .quick-btn{
-    min-height:58px;
+    min-height:84px;
   }
-
 }
-
-@media(max-height:700px) and (max-width:700px){
-
-  .hero{
-    padding-top:14px;
-    padding-bottom:15px;
-  }
-
-  .section-title{
-    margin-top:9px;
-    margin-bottom:5px;
-  }
-
-  .class-card{
-    min-height:126px;
-  }
-
-  .class-icon{
-    width:36px;
-    height:36px;
-  }
-
-  .class-card h3{
-    font-size:16px;
-  }
-
-  .open-label{
-    margin-top:4px;
-    padding:4px 7px;
-  }
-
-}
-
 </style>
 </head>
 
@@ -975,9 +1085,7 @@ body{
 
     <h1>RAILWAY WARRIOR</h1>
 
-    <p>
-      Enter password to access the study portal
-    </p>
+    <p>Welcome to the Railway Preparation Portal</p>
 
     <input
       type="password"
@@ -986,11 +1094,7 @@ body{
       autocomplete="off"
     >
 
-    <button
-      type="button"
-      class="unlock-btn"
-      id="unlockButton"
-    >
+    <button class="unlock-btn" onclick="checkPassword()">
       🔓 ENTER PORTAL
     </button>
 
@@ -1005,42 +1109,74 @@ body{
 
 <div id="mainSite">
 
+
+<!-- ================= HOME ================= -->
+
 <div id="homePage" class="container">
 
-  <div class="top-space"></div>
+  <!-- TOP BAR -->
 
-  <section class="hero">
+  <div class="topbar">
 
-    <div class="brand">
+    <div class="mini-brand">
 
-      <div class="logo">🚆</div>
+      <div class="mini-logo">🚆</div>
 
-      <div class="brand-text">
-
-        <h1>RAILWAY WARRIOR</h1>
-
-        <div class="subtitle">
-          BADNERA (RLY)
-        </div>
-
+      <div>
+        <strong>RAILWAY WARRIOR</strong>
+        <small>BADNERA (RLY)</small>
       </div>
 
     </div>
 
-    <div class="hero-line"></div>
+    <div class="live-pill">
+      <span class="live-dot"></span>
+      STUDY MODE
+    </div>
 
-    <div class="hero-message">
+  </div>
 
-      <h2>
-        🚀 Welcome to Your Railway Preparation Hub
-      </h2>
 
-      <p>
-        NCERT Science • Railway PYQs • Group D • Mock Tests
-      </p>
+  <!-- HERO -->
 
-      <div class="tagline">
-        LEARN • PRACTICE • CONQUER
+  <section class="hero">
+
+    <div class="hero-glow-one"></div>
+    <div class="hero-glow-two"></div>
+    <div class="hero-glow-three"></div>
+
+    <div class="hero-content">
+
+      <div class="brand">
+
+        <div class="big-logo">🚆</div>
+
+        <div class="brand-text">
+
+          <h1>RAILWAY<br>WARRIOR</h1>
+
+          <div class="subtitle">
+            BADNERA (RLY) • SCIENCE HUB
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hero-divider"></div>
+
+      <div class="hero-message">
+
+        <h2>⚡ Your Journey to Railway Success Starts Here</h2>
+
+        <p>
+          NCERT Science • Railway PYQs • Group D • Mock Tests • Current Affairs
+        </p>
+
+        <div class="tagline">
+          🚆 LEARN • PRACTICE • CONQUER 🚆
+        </div>
+
       </div>
 
     </div>
@@ -1048,909 +1184,9 @@ body{
   </section>
 
 
-  <div class="whatsapp-wrap">
+  <!-- TRACK -->
 
-    <a
-      class="whatsapp-btn"
-      href="https://chat.whatsapp.com/Fp08w973S017YJ96VROQDp"
-      target="_blank"
-      rel="noopener"
-    >
-      💬 Join WhatsApp Channel
-    </a>
+  <div class="railway-track">
 
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>📚 Science Preparation</h2>
-
-    <p>Select your class to continue</p>
-
-  </div>
-
-
-  <div class="class-grid">
-
-    <div
-      class="class-card class9"
-      onclick="showClass('class9Page')"
-    >
-
-      <div class="class-icon">🔬</div>
-
-      <h3>Class 9 Science</h3>
-
-      <p>
-        13 Chapters • Notes • Railway PYQ • Group D
-      </p>
-
-      <span class="open-label">
-        OPEN CLASS 9 →
-      </span>
-
-    </div>
-
-
-    <div
-      class="class-card class10"
-      onclick="showClass('class10Page')"
-    >
-
-      <div class="class-icon">🧪</div>
-
-      <h3>Class 10 Science</h3>
-
-      <p>
-        13 Chapters • Notes • Railway PYQ • Group D
-      </p>
-
-      <span class="open-label">
-        OPEN CLASS 10 →
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <div class="section-title">
-
-    <h2>⚡ Quick Access</h2>
-
-    <p>Important preparation sections</p>
-
-  </div>
-
-
-  <div class="quick-grid">
-
-    <a
-      class="quick-btn"
-      href="mock-tests.html"
-    >
-      <span class="quick-icon">📝</span>
-      <span>Mock Tests</span>
-    </a>
-
-
-    <a
-      class="quick-btn"
-      href="current-affairs.html"
-    >
-      <span class="quick-icon">📰</span>
-      <span>Current Affairs</span>
-    </a>
-
-
-    <a
-      class="quick-btn"
-      href="RRB_GROUP_D_2025_TOPICWISE_INTERACTIVE_MOCK.html"
-    >
-      <span class="quick-icon">🚉</span>
-      <span>Group D 2026 GK</span>
-    </a>
-
-  </div>
-
-
-  <div class="footer">
-    © 2026 RAILWAY WARRIOR • BADNERA (RLY)
-  </div>
-
-</div>
-
-
-<!-- ================= CLASS 9 PAGE ================= -->
-
-<div
-  id="class9Page"
-  class="container class-page"
->
-
-  <div class="page-header">
-
-    <button
-      type="button"
-      class="back-btn"
-      onclick="showHome()"
-    >
-      ←
-    </button>
-
-    <div>
-
-      <h2>Class 9 Science</h2>
-
-      <p>13 Chapters • Railway Preparation</p>
-
-    </div>
-
-  </div>
-
-
-  <div class="chapter-grid">
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 01</span>
-
-      <h3>
-        Exploration: Entering the World of Secondary Science
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="class9-ch1-infographic.jpg">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="class9-ch1-pyq.html">
-          📋 PYQ
-        </a>
-
-        <a class="action-btn groupd" href="class9-ch1-groupd-2026.html">
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 02</span>
-
-      <h3>
-        Cell: The Building Block of Life
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="class9-ch2-notes.html">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="class9-ch2-mcq.html">
-          📋 PYQ
-        </a>
-
-        <a class="action-btn groupd" href="class9-ch2-groupd-2026.html">
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 03</span>
-
-      <h3>
-        Tissues in Action
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="class9-ch3-notes.html">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="class9-ch3-mcq.html">
-          📋 PYQ
-        </a>
-
-        <a class="action-btn groupd" href="class9-ch3-groupd-2026.html">
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 04</span>
-
-      <h3>
-        Descriding Motion Around Us
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="class9-ch4-notes.html">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="class9-chapter04-mcq.html">
-          📋 PYQ
-        </a>
-
-        <a class="action-btn groupd" href="class9-ch4-groupd-2026.html">
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 05</span>
-
-      <h3>
-        Exploring Mixtures and their Separation
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">📘 Notes</a>
-        <a class="action-btn pyq" href="#">📋 PYQ</a>
-
-        <a class="action-btn groupd" href="class9-ch5-groupd-2026.html">
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 06</span>
-
-      <h3>
-        How Forces Affect Motion
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">📘 Notes</a>
-        <a class="action-btn pyq" href="#">📋 PYQ</a>
-
-        <a class="action-btn groupd" href="class9-ch6-groupd-2026.html">
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 07</span>
-
-      <h3>
-        Work, Energy, and Simple Machines
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">📘 Notes</a>
-        <a class="action-btn pyq" href="#">📋 PYQ</a>
-
-        <a class="action-btn groupd" href="class9-ch7-groupd-2026.html">
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 08</span>
-
-      <h3>
-        Journey Inside the Atom
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">📘 Notes</a>
-        <a class="action-btn pyq" href="#">📋 PYQ</a>
-
-        <a class="action-btn groupd" href="class9-ch8-groupd-2026.html">
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-<div class="chapter-card">
-  <div class="chapter-number">Chapter 09</div>
-  <h3>जीवन की विविधता</h3>
-  <p>Life and its Diversity</p>
-
-  <div class="chapter-buttons">
-    <a href="#" class="notes-btn">📘 PDF Notes</a>
-    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
-    <a href="class9-ch9-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
-  </div>
-</div>
-
-<!-- CHAPTER 10 -->
-<div class="chapter-card">
-  <div class="chapter-number">Chapter 10</div>
-  <h3>बल और गति</h3>
-  <p>Force and Motion</p>
-
-  <div class="chapter-buttons">
-    <a href="#" class="notes-btn">📘 PDF Notes</a>
-    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
-    <a href="class9-ch10-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
-  </div>
-</div>
-
-<!-- CHAPTER 11 -->
-<div class="chapter-card">
-  <div class="chapter-number">Chapter 11</div>
-  <h3>गुरुत्वाकर्षण</h3>
-  <p>Gravitation</p>
-
-  <div class="chapter-buttons">
-    <a href="#" class="notes-btn">📘 PDF Notes</a>
-    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
-    <a href="class9-ch11-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
-  </div>
-</div>
-
-<!-- CHAPTER 12 -->
-<div class="chapter-card">
-  <div class="chapter-number">Chapter 12</div>
-  <h3>कार्य और ऊर्जा</h3>
-  <p>Work and Energy</p>
-
-  <div class="chapter-buttons">
-    <a href="#" class="notes-btn">📘 PDF Notes</a>
-    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
-    <a href="class9-ch12-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
-  </div>
-</div>
-
-<!-- CHAPTER 13 -->
-<div class="chapter-card">
-  <div class="chapter-number">Chapter 13</div>
-  <h3>ध्वनि</h3>
-  <p>Sound</p>
-
-  <div class="chapter-buttons">
-    <a href="#" class="notes-btn">📘 PDF Notes</a>
-    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
-    <a href="class9-ch13-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
-  </div>
-</div>
-
-
-<!-- ========================= -->
-<!-- BACK TO HOME -->
-<!-- ========================= -->
-
-<div class="back-home">
-  <button onclick="showHome()">🏠 Back to Home</button>
-</div>
-
-</div>
-<!-- CLASS 9 PAGE END -->
-
-
-<!-- ========================= -->
-<!-- CLASS 10 PAGE -->
-<!-- ========================= -->
-
-<div id="class10Page" class="page-section">
-
-  <div class="section-header">
-    <button class="back-btn" onclick="showHome()">← Back</button>
-
-    <h2>Class 10 Science</h2>
-    <p>Railway Exam Preparation</p>
-  </div>
-
-
-  <!-- CHAPTER 1 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 01</div>
-    <h3>रासायनिक अभिक्रियाएँ एवं समीकरण</h3>
-    <p>Chemical Reactions and Equations</p>
-
-    <div class="chapter-buttons">
-      <a href="class10-ch1-notes.pdf" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="class10-ch1-mcq.html" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch1-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 2 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 02</div>
-    <h3>अम्ल, क्षारक एवं लवण</h3>
-    <p>Acids, Bases and Salts</p>
-
-    <div class="chapter-buttons">
-      <a href="class10-ch2-notes.html" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="class10-ch2-mcq.html" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch2-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 3 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 03</div>
-    <h3>धातु एवं अधातु</h3>
-    <p>Metals and Non-metals</p>
-
-    <div class="chapter-buttons">
-      <a href="class10-ch3-notes.html" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="class10-ch3-mcq.html" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch3-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 4 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 04</div>
-    <h3>कार्बन एवं उसके यौगिक</h3>
-    <p>Carbon and Its Compounds</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch4-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 5 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 05</div>
-    <h3>तत्वों का आवर्त वर्गीकरण</h3>
-    <p>Periodic Classification of Elements</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch5-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 6 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 06</div>
-    <h3>जैव प्रक्रम</h3>
-    <p>Life Processes</p>
-
-    <div class="chapter-buttons">
-      <a href="class10-ch6-notes.html" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="class10-ch06-mcq.html" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch6-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 7 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 07</div>
-    <h3>नियंत्रण एवं समन्वय</h3>
-    <p>Control and Coordination</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch7-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 8 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 08</div>
-    <h3>जीव जनन कैसे करते हैं?</h3>
-    <p>How do Organisms Reproduce?</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch8-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 9 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 09</div>
-    <h3>आनुवंशिकता</h3>
-    <p>Heredity</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch9-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 10 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 10</div>
-    <h3>प्रकाश — परावर्तन तथा अपवर्तन</h3>
-    <p>Light — Reflection and Refraction</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch10-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 11 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 11</div>
-    <h3>मानव नेत्र तथा रंगीन संसार</h3>
-    <p>The Human Eye and the Colourful World</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch11-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 12 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 12</div>
-    <h3>विद्युत</h3>
-    <p>Electricity</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch12-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- CHAPTER 13 -->
-  <div class="chapter-card">
-    <div class="chapter-number">Chapter 13</div>
-    <h3>विद्युत का चुंबकीय प्रभाव</h3>
-    <p>Magnetic Effects of Electric Current</p>
-
-    <div class="chapter-buttons">
-      <a href="#" class="notes-btn">
-        📘 PDF Notes
-      </a>
-
-      <a href="#" class="pyq-btn">
-        🚆 Railway PYQ
-      </a>
-
-      <a href="class10-ch13-groupd-2026.html" class="groupd-btn">
-        🟢 Group D 2026
-      </a>
-    </div>
-  </div>
-
-
-  <!-- BACK TO HOME -->
-  <div class="back-home">
-    <button onclick="showHome()">🏠 Back to Home</button>
-  </div>
-
-</div>
-<!-- CLASS 10 PAGE END -->
-
-
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
-
-<footer>
-  © 2026 RAILWAY WARRIOR • BADNERA (RLY)
-</footer>
-
-
-<!-- ========================= -->
-<!-- JAVASCRIPT -->
-<!-- ========================= -->
-
-<script>
-
-function checkPassword(){
-
-  const input = document.getElementById("passwordInput");
-  const passwordScreen = document.getElementById("passwordScreen");
-  const mainSite = document.getElementById("mainSite");
-  const errorMsg = document.getElementById("errorMsg");
-
-  if(!input || !passwordScreen || !mainSite){
-    return;
-  }
-
-  if(input.value.trim() === "AKASH"){
-
-    passwordScreen.style.display = "none";
-    mainSite.style.display = "block";
-
-    if(errorMsg){
-      errorMsg.textContent = "";
-    }
-
-    input.value = "";
-
-  }else{
-
-    if(errorMsg){
-      errorMsg.textContent = "❌ Incorrect password";
-    }
-
-    input.value = "";
-    input.focus();
-
-  }
-
-}
-
-
-/* ENTER KEY */
-
-document.addEventListener("DOMContentLoaded", function(){
-
-  const input = document.getElementById("passwordInput");
-
-  if(input){
-
-    input.addEventListener("keydown", function(event){
-
-      if(event.key === "Enter"){
-
-        event.preventDefault();
-
-        checkPassword();
-
-      }
-
-    });
-
-  }
-
-});
-
-
-/* PAGE LOAD */
-
-window.addEventListener("load", function(){
-
-  const passwordScreen =
-    document.getElementById("passwordScreen");
-
-  const mainSite =
-    document.getElementById("mainSite");
-
-  const input =
-    document.getElementById("passwordInput");
-
-  if(!passwordScreen || !mainSite){
-    return;
-  }
-
-  passwordScreen.style.display = "flex";
-  mainSite.style.display = "none";
-
-  if(input){
-
-    input.value = "";
-
-    setTimeout(function(){
-
-      input.focus();
-
-    },200);
-
-  }
-
-});
-
-
-/* CLASS NAVIGATION */
-
-function showClass(id){
-
-  document.getElementById("homePage").style.display = "none";
-
-  document.getElementById("class9Page").style.display = "none";
-
-  document.getElementById("class10Page").style.display = "none";
-
-  document.getElementById(id).style.display = "block";
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* HOME */
-
-function showHome(){
-
-  document.getElementById("class9Page").style.display = "none";
-
-  document.getElementById("class10Page").style.display = "none";
-
-  document.getElementById("homePage").style.display = "block";
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* SERVICE WORKER */
-
-if("serviceWorker" in navigator){
-
-  window.addEventListener("load", function(){
-
-    navigator.serviceWorker.register("./sw.js")
-
-      .then(function(){
-
-        console.log("RAILWAY WARRIOR PWA READY");
-
-      })
-
-      .catch(function(error){
-
-        console.log("PWA ERROR:", error);
-
-      });
-
-  });
-
-}
-
-</script>
-
-</div>
-<!-- MAIN SITE END -->
-
-</body>
-        </html>  
+    <span class="track-sleeper" style="left:3%"></span>
+    <span class=
