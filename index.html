@@ -32,7 +32,6 @@
 
 <!-- ======================================================= -->
 
-
 <style>
 
 *{
@@ -47,12 +46,18 @@ html{
 
 body{
   font-family:Arial,"Noto Sans Devanagari",sans-serif;
+
   background:
-    radial-gradient(circle at top left,#193b75 0,#0b1730 38%,#050b18 100%);
+    radial-gradient(
+      circle at top left,
+      #193b75 0,
+      #0b1730 38%,
+      #050b18 100%
+    );
+
   color:#fff;
   min-height:100vh;
 
-  /* Mobile app feel */
   overscroll-behavior-y:none;
   -webkit-tap-highlight-color:transparent;
 }
@@ -63,40 +68,64 @@ body{
   position:fixed;
   inset:0;
   z-index:9999;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   padding:20px;
   padding-top:env(safe-area-inset-top);
   padding-bottom:env(safe-area-inset-bottom);
 
   background:
-    radial-gradient(circle at 20% 20%,#164b91 0,#0b1730 42%,#030711 100%);
+    radial-gradient(
+      circle at 20% 20%,
+      #164b91 0,
+      #0b1730 42%,
+      #030711 100%
+    );
 }
 
 .password-box{
   width:100%;
   max-width:390px;
+
   padding:32px 25px;
+
   border-radius:26px;
+
   background:rgba(255,255,255,.09);
+
   border:1px solid rgba(255,255,255,.18);
+
   backdrop-filter:blur(18px);
-  box-shadow:0 25px 70px rgba(0,0,0,.45);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45);
+
   text-align:center;
 }
 
 .lock-icon{
   width:70px;
   height:70px;
+
   margin:0 auto 18px;
+
   border-radius:22px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:34px;
 
-  background:linear-gradient(135deg,#18a0ff,#536dfe);
+  background:
+    linear-gradient(
+      135deg,
+      #18a0ff,
+      #536dfe
+    );
 
   box-shadow:
     0 12px 30px rgba(24,160,255,.35);
@@ -115,14 +144,23 @@ body{
 
 #passwordInput{
   width:100%;
+
   padding:14px 16px;
+
   border:1px solid rgba(255,255,255,.2);
+
   border-radius:14px;
+
   background:rgba(0,0,0,.22);
+
   color:#fff;
+
   outline:none;
+
   font-size:16px;
+
   text-align:center;
+
   letter-spacing:2px;
 }
 
@@ -133,16 +171,29 @@ body{
 
 .unlock-btn{
   width:100%;
+
   margin-top:13px;
+
   padding:14px;
+
   border:none;
+
   border-radius:14px;
+
   cursor:pointer;
+
   color:#fff;
+
   font-size:15px;
+
   font-weight:700;
 
-  background:linear-gradient(135deg,#00a8ff,#536dfe);
+  background:
+    linear-gradient(
+      135deg,
+      #00a8ff,
+      #536dfe
+    );
 
   box-shadow:
     0 10px 25px rgba(0,168,255,.25);
@@ -150,8 +201,11 @@ body{
 
 #errorMsg{
   min-height:18px;
+
   margin-top:12px;
+
   color:#ff8f8f;
+
   font-size:13px;
 }
 
@@ -168,11 +222,11 @@ body{
 }
 
 #homePage{
-  padding-bottom:35px;
+  padding-bottom:25px;
 }
 
 .top-space{
-  height:20px;
+  height:10px;
 }
 
 /* ================= HEADER ================= */
@@ -180,12 +234,19 @@ body{
 .hero{
   position:relative;
   overflow:hidden;
-  margin-top:20px;
-  padding:28px 24px 30px;
-  border-radius:30px;
+
+  margin-top:10px;
+
+  padding:22px 20px 24px;
+
+  border-radius:27px;
 
   background:
-    linear-gradient(135deg,rgba(18,55,110,.96),rgba(8,20,46,.96));
+    linear-gradient(
+      135deg,
+      rgba(18,55,110,.96),
+      rgba(8,20,46,.96)
+    );
 
   border:1px solid rgba(255,255,255,.14);
 
@@ -195,47 +256,66 @@ body{
 
 .hero:before{
   content:"";
+
   position:absolute;
+
   width:240px;
   height:240px;
+
   right:-90px;
   top:-100px;
+
   border-radius:50%;
+
   background:rgba(0,174,255,.18);
+
   filter:blur(4px);
 }
 
 .hero:after{
   content:"";
+
   position:absolute;
+
   width:180px;
   height:180px;
+
   left:-100px;
   bottom:-100px;
+
   border-radius:50%;
+
   background:rgba(78,93,255,.18);
 }
 
 .brand{
   position:relative;
   z-index:2;
+
   display:flex;
   align-items:center;
-  gap:16px;
+
+  gap:14px;
 }
 
 .logo{
   flex:0 0 auto;
-  width:76px;
-  height:76px;
-  border-radius:23px;
+
+  width:68px;
+  height:68px;
+
+  border-radius:21px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
   background:
-    linear-gradient(145deg,#f7fbff,#dbe9ff);
+    linear-gradient(
+      145deg,
+      #f7fbff,
+      #dbe9ff
+    );
 
   color:#123a75;
 
@@ -243,29 +323,39 @@ body{
     0 12px 30px rgba(0,0,0,.28),
     inset 0 0 0 4px rgba(255,255,255,.6);
 
-  font-size:36px;
+  font-size:32px;
 }
 
 .brand-text h1{
-  font-size:clamp(28px,5vw,46px);
+  font-size:clamp(27px,5vw,46px);
+
   line-height:1;
+
   letter-spacing:1px;
+
   font-weight:900;
 }
 
 .brand-text .subtitle{
-  margin-top:8px;
+  margin-top:7px;
+
   color:#8fdcff;
-  font-size:13px;
+
+  font-size:12px;
+
   letter-spacing:3px;
+
   font-weight:700;
 }
 
 .hero-line{
   position:relative;
   z-index:2;
-  margin-top:22px;
+
+  margin-top:17px;
+
   height:1px;
+
   background:
     linear-gradient(
       90deg,
@@ -278,24 +368,30 @@ body{
 .hero-message{
   position:relative;
   z-index:2;
+
   text-align:center;
-  margin-top:22px;
+
+  margin-top:17px;
 }
 
 .hero-message h2{
-  font-size:clamp(20px,4vw,28px);
-  margin-bottom:8px;
+  font-size:clamp(19px,4vw,28px);
+
+  margin-bottom:6px;
 }
 
 .hero-message p{
   color:#b9cbe3;
-  font-size:14px;
+  font-size:13px;
 }
 
 .tagline{
   display:inline-block;
-  margin-top:14px;
-  padding:8px 15px;
+
+  margin-top:10px;
+
+  padding:7px 13px;
+
   border-radius:30px;
 
   background:rgba(0,174,255,.11);
@@ -303,7 +399,9 @@ body{
   border:1px solid rgba(0,174,255,.25);
 
   color:#91ddff;
-  font-size:12px;
+
+  font-size:11px;
+
   font-weight:700;
 }
 
@@ -311,24 +409,35 @@ body{
 
 .whatsapp-wrap{
   text-align:center;
-  margin:17px 0 4px;
+
+  margin:12px 0 2px;
 }
 
 .whatsapp-btn{
   display:inline-flex;
+
   align-items:center;
+
   gap:7px;
+
   text-decoration:none;
+
   color:#fff;
 
-  padding:9px 15px;
+  padding:8px 14px;
+
   border-radius:30px;
 
-  font-size:12px;
+  font-size:11px;
+
   font-weight:700;
 
   background:
-    linear-gradient(135deg,#18b95c,#079447);
+    linear-gradient(
+      135deg,
+      #18b95c,
+      #079447
+    );
 
   box-shadow:
     0 8px 20px rgba(0,180,80,.22);
@@ -344,39 +453,47 @@ body{
 
 .section-title{
   text-align:center;
-  margin:30px 0 17px;
+
+  margin:19px 0 10px;
 }
 
 .section-title h2{
-  font-size:22px;
+  font-size:20px;
 }
 
 .section-title p{
   color:#92a6c4;
-  margin-top:5px;
-  font-size:12px;
+
+  margin-top:3px;
+
+  font-size:11px;
 }
 
 /* ================= CLASS CARDS ================= */
 
 .class-grid{
   display:grid;
+
   grid-template-columns:
     repeat(2,minmax(0,1fr));
-  gap:20px;
+
+  gap:14px;
 }
 
 .class-card{
   position:relative;
   overflow:hidden;
 
-  min-height:190px;
-  padding:25px;
+  min-height:160px;
 
-  border-radius:24px;
+  padding:18px;
+
+  border-radius:22px;
 
   text-decoration:none;
+
   color:#fff;
+
   cursor:pointer;
 
   border:1px solid rgba(255,255,255,.13);
@@ -388,7 +505,7 @@ body{
 }
 
 .class-card:hover{
-  transform:translateY(-5px);
+  transform:translateY(-4px);
 
   box-shadow:
     0 25px 50px rgba(0,0,0,.38);
@@ -396,13 +513,14 @@ body{
 
 .class-card:before{
   content:"";
+
   position:absolute;
 
-  width:170px;
-  height:170px;
+  width:150px;
+  height:150px;
 
-  right:-65px;
-  top:-70px;
+  right:-60px;
+  top:-65px;
 
   border-radius:50%;
 
@@ -433,39 +551,41 @@ body{
   position:relative;
   z-index:2;
 
-  width:54px;
-  height:54px;
+  width:47px;
+  height:47px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
-  border-radius:17px;
+  border-radius:15px;
 
   background:rgba(255,255,255,.14);
 
   border:1px solid rgba(255,255,255,.18);
 
-  font-size:25px;
+  font-size:22px;
 }
 
 .class-card h3{
   position:relative;
   z-index:2;
 
-  margin-top:18px;
+  margin-top:11px;
 
-  font-size:27px;
+  font-size:22px;
 }
 
 .class-card p{
   position:relative;
   z-index:2;
 
-  margin-top:6px;
+  margin-top:4px;
 
   color:#d4e3f7;
-  font-size:13px;
+
+  font-size:11px;
 }
 
 .open-label{
@@ -474,9 +594,9 @@ body{
 
   display:inline-block;
 
-  margin-top:17px;
+  margin-top:9px;
 
-  padding:7px 13px;
+  padding:6px 11px;
 
   border-radius:20px;
 
@@ -484,7 +604,8 @@ body{
 
   border:1px solid rgba(255,255,255,.15);
 
-  font-size:11px;
+  font-size:10px;
+
   font-weight:700;
 }
 
@@ -492,25 +613,31 @@ body{
 
 .quick-grid{
   display:grid;
+
   grid-template-columns:
     repeat(3,1fr);
-  gap:13px;
+
+  gap:10px;
 }
 
 .quick-btn{
-  min-height:92px;
+  min-height:72px;
 
   display:flex;
+
   flex-direction:column;
+
   justify-content:center;
+
   align-items:center;
 
-  gap:8px;
+  gap:5px;
 
   text-decoration:none;
+
   color:#fff;
 
-  border-radius:18px;
+  border-radius:16px;
 
   border:1px solid rgba(255,255,255,.12);
 
@@ -529,31 +656,39 @@ body{
 }
 
 .quick-icon{
-  font-size:24px;
+  font-size:21px;
 }
 
 .quick-btn span:last-child{
-  font-size:12px;
+  font-size:10px;
+
   color:#cbd8eb;
+
   font-weight:700;
+
+  text-align:center;
 }
 
 /* ================= CLASS PAGES ================= */
 
 .class-page{
   display:none;
-  padding:25px 0 40px;
+
+  padding:20px 0 35px;
 }
 
 .page-header{
   display:flex;
+
   align-items:center;
+
   gap:12px;
 
-  padding:18px 20px;
-  margin-bottom:20px;
+  padding:16px 18px;
 
-  border-radius:22px;
+  margin-bottom:18px;
+
+  border-radius:21px;
 
   background:rgba(255,255,255,.07);
 
@@ -565,6 +700,7 @@ body{
 
 .back-btn{
   border:none;
+
   cursor:pointer;
 
   min-width:42px;
@@ -585,12 +721,15 @@ body{
 
 .page-header p{
   margin-top:4px;
+
   color:#94a9c5;
+
   font-size:12px;
 }
 
 .chapter-grid{
   display:grid;
+
   grid-template-columns:
     repeat(2,minmax(0,1fr));
 
@@ -622,6 +761,7 @@ body{
   color:#80d5ff;
 
   font-size:11px;
+
   font-weight:800;
 }
 
@@ -629,6 +769,7 @@ body{
   margin:10px 0 14px;
 
   font-size:16px;
+
   line-height:1.4;
 }
 
@@ -647,11 +788,13 @@ body{
   border-radius:10px;
 
   text-align:center;
+
   text-decoration:none;
 
   color:#fff;
 
   font-size:10px;
+
   font-weight:700;
 
   background:#24558e;
@@ -681,12 +824,13 @@ body{
 .footer{
   text-align:center;
 
-  margin-top:30px;
-  padding:18px;
+  margin-top:22px;
+
+  padding:14px;
 
   color:#7185a3;
 
-  font-size:11px;
+  font-size:10px;
 }
 
 /* ================= MOBILE ================= */
@@ -697,73 +841,152 @@ body{
     width:94%;
   }
 
+  .top-space{
+    height:5px;
+  }
+
   .hero{
-    margin-top:12px;
+    margin-top:5px;
 
-    padding:23px 17px 25px;
+    padding:18px 15px 19px;
 
-    border-radius:25px;
+    border-radius:23px;
   }
 
   .logo{
-    width:62px;
-    height:62px;
+    width:56px;
+    height:56px;
 
-    border-radius:19px;
+    border-radius:17px;
 
-    font-size:29px;
+    font-size:27px;
   }
 
   .brand{
-    gap:12px;
+    gap:10px;
   }
 
   .brand-text h1{
-    font-size:28px;
+    font-size:26px;
   }
 
   .brand-text .subtitle{
-    font-size:10px;
+    font-size:9px;
+
     letter-spacing:2px;
   }
 
-  .class-grid{
-    gap:11px;
+  .hero-line{
+    margin-top:13px;
   }
 
-  .class-card{
-    min-height:175px;
-
-    padding:18px;
-
-    border-radius:20px;
+  .hero-message{
+    margin-top:13px;
   }
 
-  .class-card h3{
-    font-size:22px;
+  .hero-message h2{
+    font-size:17px;
   }
 
-  .class-card p{
+  .hero-message p{
     font-size:11px;
   }
 
-  .quick-grid{
+  .tagline{
+    margin-top:7px;
+
+    padding:6px 11px;
+
+    font-size:9px;
+  }
+
+  .whatsapp-wrap{
+    margin:8px 0 0;
+  }
+
+  .whatsapp-btn{
+    padding:7px 12px;
+
+    font-size:10px;
+  }
+
+  .section-title{
+    margin:13px 0 7px;
+  }
+
+  .section-title h2{
+    font-size:18px;
+  }
+
+  .section-title p{
+    font-size:10px;
+  }
+
+  .class-grid{
     gap:9px;
   }
 
-  .quick-btn{
-    min-height:82px;
+  .class-card{
+    min-height:145px;
 
-    border-radius:15px;
+    padding:14px;
+
+    border-radius:18px;
+  }
+
+  .class-icon{
+    width:42px;
+    height:42px;
+
+    border-radius:13px;
+
+    font-size:20px;
+  }
+
+  .class-card h3{
+    margin-top:8px;
+
+    font-size:19px;
+  }
+
+  .class-card p{
+    margin-top:3px;
+
+    font-size:9px;
+
+    line-height:1.3;
+  }
+
+  .open-label{
+    margin-top:7px;
+
+    padding:5px 9px;
+
+    font-size:9px;
+  }
+
+  .quick-grid{
+    gap:7px;
+  }
+
+  .quick-btn{
+    min-height:65px;
+
+    border-radius:13px;
+
+    gap:3px;
   }
 
   .quick-icon{
-    font-size:21px;
+    font-size:18px;
   }
 
   .quick-btn span:last-child{
-    font-size:10px;
-    text-align:center;
+    font-size:9px;
+  }
+
+  .footer{
+    margin-top:12px;
   }
 
   .chapter-grid{
@@ -777,28 +1000,92 @@ body{
 
 }
 
+/* EXTRA SMALL MOBILE */
+
 @media(max-width:390px){
 
+  .hero{
+    padding:16px 13px 17px;
+  }
+
+  .logo{
+    width:51px;
+    height:51px;
+
+    font-size:24px;
+  }
+
+  .brand-text h1{
+    font-size:23px;
+  }
+
   .class-card{
-    min-height:160px;
-    padding:15px;
+    min-height:138px;
+
+    padding:12px;
   }
 
   .class-icon{
-    width:47px;
-    height:47px;
+    width:39px;
+    height:39px;
 
-    font-size:22px;
+    font-size:18px;
   }
 
   .class-card h3{
-    font-size:20px;
+    font-size:18px;
+  }
+
+  .class-card p{
+    font-size:8px;
   }
 
   .quick-btn{
-    min-height:76px;
+    min-height:60px;
   }
 
+}
+
+/* VERY SMALL SCREEN */
+
+@media(max-height:700px) and (max-width:700px){
+
+  .hero{
+    padding-top:14px;
+    padding-bottom:15px;
+  }
+
+  .section-title{
+    margin-top:10px;
+    margin-bottom:6px;
+  }
+
+  .class-card{
+    min-height:130px;
+  }
+
+  .class-icon{
+    width:37px;
+    height:37px;
+  }
+
+  .class-card h3{
+    font-size:17px;
+  }
+
+  .open-label{
+    margin-top:5px;
+    padding:4px 8px;
+  }
+
+}
+
+/* =========================================================
+   CHAPTER PAGE HOME RETURN
+   ========================================================= */
+
+.home-return{
+  cursor:pointer;
 }
 
 </style>
@@ -1073,10 +1360,7 @@ body{
 
 
     <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 01
-      </span>
+      <span class="chapter-number">CHAPTER 01</span>
 
       <h3>
         Exploration: Entering the World of Secondary Science
@@ -1084,37 +1368,24 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="class9-ch1-infographic.jpg"
-        >
+        <a class="action-btn" href="class9-ch1-infographic.jpg">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="class9-ch1-pyq.html"
-        >
+        <a class="action-btn pyq" href="class9-ch1-pyq.html">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch1-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch1-groupd-2026.html">
           🟢 Group D
         </a>
 
       </div>
-
     </div>
 
 
     <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 02
-      </span>
+      <span class="chapter-number">CHAPTER 02</span>
 
       <h3>
         Cell: The Building Block of Life
@@ -1122,37 +1393,24 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="class9-ch2-notes.html"
-        >
+        <a class="action-btn" href="class9-ch2-notes.html">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="class9-ch2-mcq.html"
-        >
+        <a class="action-btn pyq" href="class9-ch2-mcq.html">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch2-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch2-groupd-2026.html">
           🟢 Group D
         </a>
 
       </div>
-
     </div>
 
 
     <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 03
-      </span>
+      <span class="chapter-number">CHAPTER 03</span>
 
       <h3>
         Tissues in Action
@@ -1160,37 +1418,24 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="class9-ch3-notes.html"
-        >
+        <a class="action-btn" href="class9-ch3-notes.html">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="class9-ch3-mcq.html"
-        >
+        <a class="action-btn pyq" href="class9-ch3-mcq.html">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch3-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch3-groupd-2026.html">
           🟢 Group D
         </a>
 
       </div>
-
     </div>
 
 
     <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 04
-      </span>
+      <span class="chapter-number">CHAPTER 04</span>
 
       <h3>
         Descriding Motion Around Us
@@ -1198,37 +1443,24 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="class9-ch4-notes.html"
-        >
+        <a class="action-btn" href="class9-ch4-notes.html">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="class9-chapter04-mcq.html"
-        >
+        <a class="action-btn pyq" href="class9-chapter04-mcq.html">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch4-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch4-groupd-2026.html">
           🟢 Group D
         </a>
 
       </div>
-
     </div>
 
 
     <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 05
-      </span>
+      <span class="chapter-number">CHAPTER 05</span>
 
       <h3>
         Exploring Mixtures and their Separation
@@ -1236,37 +1468,24 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="#"
-        >
+        <a class="action-btn" href="#">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
+        <a class="action-btn pyq" href="#">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch5-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch5-groupd-2026.html">
           🟢 Group D
         </a>
 
       </div>
-
     </div>
 
 
     <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 06
-      </span>
+      <span class="chapter-number">CHAPTER 06</span>
 
       <h3>
         How Forces Affect Motion
@@ -1274,1026 +1493,17 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="#"
-        >
+        <a class="action-btn" href="#">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
+        <a class="action-btn pyq" href="#">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch6-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch6-groupd-2026.html">
           🟢 Group D
         </a>
 
       </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 07
-      </span>
-
-      <h3>
-        Work, Energy, and Simple Machines
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch7-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 08
-      </span>
-
-      <h3>
-        Journey Inside the Atom
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch8-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 09
-      </span>
-
-      <h3>
-        Atomic foundations of Matter
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch9-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 10
-      </span>
-
-      <h3>
-        Sound Waves: Characteristics and Applications
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch10-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 11
-      </span>
-
-      <h3>
-        Reproduction: How Life Continues
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch11-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 12
-      </span>
-
-      <h3>
-        Patterns in Life: Diversity and Classification
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch12-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 13
-      </span>
-
-      <h3>
-        Earth as a System: Energy, Matter, and Life
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch13-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="footer">
-    © 2026 RAILWAY WARRIOR • BADNERA (RLY)
-  </div>
-
-</div>
-
-
-<!-- ================= CLASS 10 PAGE ================= -->
-
-<div
-  id="class10Page"
-  class="container class-page"
->
-
-  <div class="page-header">
-
-    <button
-      class="back-btn"
-      onclick="showHome()"
-    >
-      ←
-    </button>
-
-    <div>
-
-      <h2>
-        Class 10 Science
-      </h2>
-
-      <p>
-        13 Chapters • Railway Preparation
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <div class="chapter-grid">
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 01
-      </span>
-
-      <h3>
-        Chemical Reactions and Equations
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="class10-ch1-notes.pdf"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="class10-ch1-mcq.html"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch1-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 02
-      </span>
-
-      <h3>
-        Acids, Bases and Salts
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="class10-ch2-notes.html"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="class10-ch2-mcq.html"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch2-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 03
-      </span>
-
-      <h3>
-        Metals and Non-metals
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="class10-ch3-notes.html"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="class10-ch3-mcq.html"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch3-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 04
-      </span>
-
-      <h3>
-        Carbon and Its Compounds
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch4-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 05
-      </span>
-
-      <h3>
-        Life Processes
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch5-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 06
-      </span>
-
-      <h3>
-        Control and Coordination
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="class10-ch6-notes.html"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="class10-ch06-mcq.html"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch6-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 07
-      </span>
-
-      <h3>
-        How do Organisms Reproduce?
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch7-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 08
-      </span>
-
-      <h3>
-        Heredity
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch8-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 09
-      </span>
-
-      <h3>
-        Light - Reflection and Refraction
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch9-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 10
-      </span>
-
-      <h3>
-        Human Eye and Colourful World
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch10-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 11
-      </span>
-
-      <h3>
-        Electricity
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch11-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 12
-      </span>
-
-      <h3>
-        Magnetic Effects of Electric Current
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch12-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">
-        CHAPTER 13
-      </span>
-
-      <h3>
-        Our Environment
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="#"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="#"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch13-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="footer">
-    © 2026 RAILWAY WARRIOR • BADNERA (RLY)
-  </div>
-
-</div>
-
-</div>
-
-
-<script>
-
-/* =========================================================
-   PASSWORD
-========================================================= */
-
-function checkPassword(){
-
-  const input =
-    document.getElementById("passwordInput");
-
-  const error =
-    document.getElementById("errorMsg");
-
-
-  if(input.value === "AKASH"){
-
-    document.getElementById(
-      "passwordScreen"
-    ).style.display = "none";
-
-
-    document.getElementById(
-      "mainSite"
-    ).style.display = "block";
-
-
-    error.textContent = "";
-
-  }
-
-  else{
-
-    error.textContent =
-      "❌ Incorrect password";
-
-    input.value = "";
-
-    input.focus();
-
-  }
-
-}
-
-
-/* =========================================================
-   ENTER KEY
-========================================================= */
-
-document
-  .getElementById("passwordInput")
-  .addEventListener(
-    "keydown",
-    function(e){
-
-      if(e.key === "Enter"){
-        checkPassword();
-      }
-
-    }
-  );
-
-
-/* =========================================================
-   PAGE NAVIGATION
-========================================================= */
-
-function showClass(id){
-
-  document.getElementById(
-    "homePage"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "class9Page"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "class10Page"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    id
-  ).style.display = "block";
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-function showHome(){
-
-  document.getElementById(
-    "class9Page"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "class10Page"
-  ).style.display = "none";
-
-
-  document.getElementById(
-    "homePage"
-  ).style.display = "block";
-
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================================================
-   RELOAD = PASSWORD AGAIN
-========================================================= */
-
-window.addEventListener(
-  "load",
-  function(){
-
-    document.getElementById(
-      "passwordScreen"
-    ).style.display = "flex";
-
-
-    document.getElementById(
-      "mainSite"
-    ).style.display = "none";
-
-
-    document.getElementById(
-      "passwordInput"
-    ).value = "";
-
-  }
-);
-
-
-/* =========================================================
-   RAILWAY WARRIOR — SERVICE WORKER
-========================================================= */
-
-if("serviceWorker" in navigator){
-
-  window.addEventListener(
-    "load",
-    function(){
-
-      navigator.serviceWorker
-        .register("./sw.js")
-        .then(function(){
-
-          console.log(
-            "RAILWAY WARRIOR App Ready"
-          );
-
-        })
-        .catch(function(error){
-
-          console.log(
-            "PWA Error:",
-            error
-          );
-
-        });
-
-    }
-  );
-
-}
-
-</script>
-
-</body>
-</html>
+  
