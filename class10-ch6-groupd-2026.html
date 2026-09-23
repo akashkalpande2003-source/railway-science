@@ -1,0 +1,2304 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science | Control and Coordination | TCS Mock Test</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f3f5f7;
+  color:#222;
+  line-height:1.6;
+}
+
+.header{
+  background:#17365d;
+  color:white;
+  padding:14px 16px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:900;
+}
+
+.header h1{
+  font-size:20px;
+}
+
+.header p{
+  font-size:13px;
+}
+
+/* TIMER */
+
+.timer{
+  position:fixed;
+  top:12px;
+  left:12px;
+  background:white;
+  color:#111;
+  border:2px solid #17365d;
+  border-radius:8px;
+  padding:6px 10px;
+  font-weight:bold;
+  font-size:14px;
+  z-index:1200;
+  box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.timer.warning{
+  border-color:#c62828;
+  color:#c62828;
+}
+
+/* PALETTE BUTTON */
+
+.palette-btn{
+  position:fixed;
+  top:10px;
+  right:10px;
+  z-index:1300;
+  width:44px;
+  height:42px;
+  border:none;
+  border-radius:8px;
+  background:#17365d;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* PALETTE */
+
+.palette{
+  position:fixed;
+  top:58px;
+  right:10px;
+  width:280px;
+  max-height:72vh;
+  overflow-y:auto;
+  background:white;
+  border-radius:10px;
+  box-shadow:0 5px 25px rgba(0,0,0,.25);
+  padding:12px;
+  z-index:1250;
+  display:none;
+}
+
+.palette.show{
+  display:block;
+}
+
+.palette h3{
+  text-align:center;
+  color:#17365d;
+  margin-bottom:8px;
+}
+
+.palette-info{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  font-size:11px;
+  margin-bottom:10px;
+}
+
+.legend{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.dot{
+  width:12px;
+  height:12px;
+  border-radius:3px;
+  display:inline-block;
+  border:1px solid #777;
+}
+
+.dot.notvisited{background:#eee;}
+.dot.answered{background:#35a853;}
+.dot.notanswered{background:white;}
+.dot.review{background:#8e44ad;}
+.dot.reviewanswered{background:#f39c12;}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:6px;
+}
+
+.palette-grid button{
+  height:34px;
+  border:1px solid #aaa;
+  border-radius:5px;
+  background:#eee;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.palette-grid button.answered{
+  background:#35a853;
+  color:white;
+}
+
+.palette-grid button.review{
+  background:#8e44ad;
+  color:white;
+}
+
+.palette-grid button.reviewanswered{
+  background:#f39c12;
+  color:white;
+}
+
+.palette-grid button.notanswered{
+  background:white;
+}
+
+/* MAIN */
+
+.container{
+  max-width:900px;
+  margin:20px auto;
+  padding:0 12px;
+}
+
+/* TIME + NEGATIVE */
+
+.test-info{
+  background:white;
+  padding:10px 14px;
+  border-radius:8px;
+  margin-bottom:12px;
+  box-shadow:0 2px 7px rgba(0,0,0,.08);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  color:#17365d;
+  font-size:14px;
+  font-weight:500;
+}
+
+/* PROGRESS */
+
+.progress-box{
+  background:white;
+  padding:10px 14px;
+  border-radius:8px;
+  margin-bottom:12px;
+  box-shadow:0 1px 5px rgba(0,0,0,.08);
+}
+
+.progress-bar{
+  height:8px;
+  background:#ddd;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:5px;
+}
+
+.progress-fill{
+  height:100%;
+  width:0;
+  background:#17365d;
+  transition:.2s;
+}
+
+/* QUESTION */
+
+.question-card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.question-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+  padding-bottom:10px;
+  margin-bottom:16px;
+}
+
+.q-number{
+  font-size:17px;
+  font-weight:bold;
+  color:#17365d;
+}
+
+.topic{
+  font-size:12px;
+  background:#e9eef5;
+  padding:4px 8px;
+  border-radius:5px;
+  color:#17365d;
+}
+
+.question{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.option{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:12px;
+  border:1px solid #cfd4da;
+  border-radius:8px;
+  cursor:pointer;
+  background:white;
+}
+
+.option:hover{
+  background:#f5f8fb;
+}
+
+.option.selected{
+  border-color:#17365d;
+  background:#edf4fc;
+}
+
+.option input{
+  margin-top:5px;
+  transform:scale(1.15);
+}
+
+.option-label{
+  font-weight:bold;
+  min-width:24px;
+}
+
+/* NAVIGATION */
+
+.navigation{
+  display:flex;
+  gap:8px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
+.nav-btn{
+  border:none;
+  border-radius:7px;
+  padding:11px 16px;
+  font-size:14px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.previous{
+  background:#6c757d;
+  color:white;
+}
+
+.next{
+  background:#17365d;
+  color:white;
+}
+
+.review-btn{
+  background:#8e44ad;
+  color:white;
+}
+
+.submit-btn{
+  background:#c62828;
+  color:white;
+}
+
+.nav-btn:disabled{
+  opacity:.5;
+}
+
+.review-row{
+  display:flex;
+  justify-content:center;
+  margin-top:12px;
+}
+
+/* RESULT */
+
+#result{
+  display:none;
+}
+
+.result-card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.result-card h2{
+  color:#17365d;
+}
+
+.score{
+  font-size:30px;
+  font-weight:bold;
+  margin:8px 0;
+}
+
+.result-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin:15px 0;
+}
+
+.stat{
+  padding:10px;
+  border-radius:7px;
+  background:#f2f4f6;
+}
+
+.stat strong{
+  display:block;
+  font-size:20px;
+}
+
+.correct{
+  color:#16843a;
+}
+
+.incorrect{
+  color:#c62828;
+}
+
+.unattempted{
+  color:#555;
+}
+
+.review-stat{
+  color:#8e44ad;
+}
+
+.solutions{
+  margin-top:20px;
+}
+
+.solution-card{
+  background:white;
+  padding:18px;
+  border-radius:10px;
+  margin-bottom:14px;
+  border-left:5px solid #17365d;
+  box-shadow:0 2px 7px rgba(0,0,0,.08);
+}
+
+.solution-card.correct-card{
+  border-left-color:#16843a;
+}
+
+.solution-card.incorrect-card{
+  border-left-color:#c62828;
+}
+
+.solution-q{
+  font-weight:bold;
+  color:#17365d;
+  margin-bottom:8px;
+}
+
+.solution-question{
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.answer-line{
+  padding:8px;
+  border-radius:6px;
+  background:#eef6ef;
+  margin-bottom:8px;
+}
+
+.user-answer{
+  margin:8px 0;
+  font-size:14px;
+}
+
+.explanation{
+  background:#f7f8fa;
+  padding:10px;
+  border-radius:6px;
+  font-size:14px;
+}
+
+/* DIAGRAM */
+
+.diagram{
+  margin:15px auto;
+  padding:15px;
+  border:1px solid #ccd3da;
+  border-radius:8px;
+  background:#fafbfc;
+  max-width:650px;
+  text-align:center;
+}
+
+.diagram-title{
+  font-weight:bold;
+  color:#17365d;
+  margin-bottom:10px;
+}
+
+.neuron{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex-wrap:wrap;
+  min-height:120px;
+}
+
+.dendrites{
+  width:100px;
+  height:90px;
+  position:relative;
+}
+
+.branch{
+  position:absolute;
+  width:65px;
+  height:2px;
+  background:#17365d;
+  left:20px;
+}
+
+.b1{
+  top:20px;
+  transform:rotate(-30deg);
+}
+
+.b2{
+  top:43px;
+}
+
+.b3{
+  top:65px;
+  transform:rotate(30deg);
+}
+
+.cellbody{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  background:#dfeaf6;
+  border:3px solid #17365d;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.axon{
+  width:170px;
+  height:10px;
+  background:#17365d;
+  border-radius:10px;
+}
+
+.terminal{
+  width:50px;
+  height:50px;
+  position:relative;
+}
+
+.terminal span{
+  position:absolute;
+  width:40px;
+  height:2px;
+  background:#17365d;
+  left:0;
+}
+
+.t1{
+  top:12px;
+  transform:rotate(-25deg);
+}
+
+.t2{
+  top:25px;
+}
+
+.t3{
+  top:38px;
+  transform:rotate(25deg);
+}
+
+/* REFLEX */
+
+.reflex{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.reflex-box{
+  padding:9px;
+  border:2px solid #17365d;
+  border-radius:7px;
+  background:white;
+  font-size:12px;
+}
+
+.arrow{
+  font-size:20px;
+  color:#17365d;
+}
+
+/* TROPIC */
+
+.tropic{
+  height:160px;
+  position:relative;
+  max-width:500px;
+  margin:auto;
+  border-bottom:3px solid #777;
+}
+
+.sun{
+  position:absolute;
+  left:10px;
+  top:35px;
+  font-size:35px;
+}
+
+.arrow-light{
+  position:absolute;
+  left:65px;
+  top:55px;
+  font-size:23px;
+}
+
+.stem{
+  position:absolute;
+  left:180px;
+  bottom:10px;
+  width:35px;
+  height:120px;
+  border-left:8px solid #3d7c40;
+  border-radius:50%;
+  transform:rotate(-15deg);
+}
+
+.root{
+  position:absolute;
+  left:180px;
+  bottom:-45px;
+  width:100px;
+  height:55px;
+  border-left:3px solid #8b5a2b;
+  border-radius:50%;
+  transform:rotate(30deg);
+}
+
+.hidden{
+  display:none!important;
+}
+
+.footer{
+  text-align:center;
+  padding:20px;
+  color:#666;
+  font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .header{
+    padding-top:58px;
+  }
+
+  .header h1{
+    font-size:17px;
+  }
+
+  .timer{
+    top:10px;
+    left:10px;
+    font-size:12px;
+  }
+
+  .palette-btn{
+    top:8px;
+    right:8px;
+  }
+
+  .palette{
+    width:250px;
+    right:8px;
+  }
+
+  .test-info{
+    gap:15px;
+    font-size:13px;
+  }
+
+  .question-card{
+    padding:14px;
+  }
+
+  .question{
+    font-size:16px;
+  }
+
+  .option{
+    font-size:14px;
+    padding:10px;
+  }
+
+  .nav-btn{
+    flex:1;
+    min-width:100px;
+    padding:10px;
+  }
+
+  .result-stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- TIMER -->
+<div class="timer" id="timer">20:00</div>
+
+<!-- QUESTION PALETTE -->
+<button class="palette-btn" onclick="togglePalette()">☰</button>
+
+<div class="palette" id="palette">
+
+  <h3>Question Palette</h3>
+
+  <div class="palette-info">
+
+    <span class="legend">
+      <span class="dot notvisited"></span>
+      Not Visited
+    </span>
+
+    <span class="legend">
+      <span class="dot answered"></span>
+      Answered
+    </span>
+
+    <span class="legend">
+      <span class="dot notanswered"></span>
+      Not Answered
+    </span>
+
+    <span class="legend">
+      <span class="dot review"></span>
+      Review
+    </span>
+
+  </div>
+
+  <div class="palette-grid" id="paletteGrid"></div>
+
+</div>
+
+<header class="header">
+
+  <h1>
+    Class 10 Science — Control and Coordination
+  </h1>
+
+  <p>
+    TCS Style Railway Science Mock Test
+  </p>
+
+</header>
+
+<div class="container">
+
+  <!-- ONLY TIME + NEGATIVE MARKING -->
+
+  <div class="test-info" id="testInfo">
+
+    <span>
+      ⏱️ Time: <b>20 Minutes</b>
+    </span>
+
+    <span>
+      ➖ Negative Marking: <b>1/3</b>
+    </span>
+
+  </div>
+
+  <!-- TEST AREA -->
+
+  <div id="testArea">
+
+    <div class="progress-box">
+
+      <b>Progress:</b>
+      <span id="progressText">
+        Question 1 of 34
+      </span>
+
+      <div class="progress-bar">
+
+        <div
+          class="progress-fill"
+          id="progressFill">
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="question-card">
+
+      <div class="question-top">
+
+        <span
+          class="q-number"
+          id="qNumber">
+          Q1
+        </span>
+
+        <span
+          class="topic"
+          id="qTopic">
+        </span>
+
+      </div>
+
+      <div
+        class="question"
+        id="questionText">
+      </div>
+
+      <div id="questionDiagram"></div>
+
+      <div
+        class="options"
+        id="options">
+      </div>
+
+      <div class="review-row">
+
+        <button
+          class="nav-btn review-btn"
+          id="reviewBtn"
+          onclick="toggleReview()">
+
+          ⚑ Mark for Review
+
+        </button>
+
+      </div>
+
+      <!-- NAVIGATION -->
+
+      <div class="navigation">
+
+        <button
+          class="nav-btn previous"
+          id="prevBtn"
+          onclick="previousQuestion()">
+
+          ← Previous
+
+        </button>
+
+        <button
+          class="nav-btn next"
+          id="nextBtn"
+          onclick="nextQuestion()">
+
+          Next →
+
+        </button>
+
+        <!-- SUBMIT BUTTON -->
+
+        <button
+          class="nav-btn submit-btn hidden"
+          id="submitBtn"
+          onclick="submitTest(false)">
+
+          ✓ Submit Test
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RESULT -->
+
+  <div id="result">
+
+    <div class="result-card">
+
+      <h2>
+        Test Result
+      </h2>
+
+      <div
+        class="score"
+        id="scoreText">
+        0
+      </div>
+
+      <div class="result-stats">
+
+        <div class="stat">
+
+          <strong
+            class="correct"
+            id="correctCount">
+            0
+          </strong>
+
+          Correct
+
+        </div>
+
+        <div class="stat">
+
+          <strong
+            class="incorrect"
+            id="incorrectCount">
+            0
+          </strong>
+
+          Incorrect
+
+        </div>
+
+        <div class="stat">
+
+          <strong
+            class="unattempted"
+            id="unattemptedCount">
+            0
+          </strong>
+
+          Unattempted
+
+        </div>
+
+        <div class="stat">
+
+          <strong
+            class="review-stat"
+            id="reviewCount">
+            0
+          </strong>
+
+          Review
+
+        </div>
+
+      </div>
+
+      <p id="percentageText"></p>
+
+      <p id="markingText"></p>
+
+      <button
+        class="nav-btn next"
+        onclick="showSolutions()"
+        style="margin-top:15px;">
+
+        📖 Complete Solution & Explanation
+
+      </button>
+
+    </div>
+
+    <div
+      class="solutions"
+      id="solutions">
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  © 2026 Railway Science | TCS Style Mock Test
+</div>
+
+<script>
+
+/* =========================================================
+   QUESTIONS
+========================================================= */
+
+const questions = [
+
+{
+topic:"Brain and its functions",
+q:`कौन-सा अंग, लेखन या कुर्सी हिलाने जैसी स्वैच्छिक क्रियाओं के लिए पेशियों को संदेश भेजता है?`,
+options:[
+"आमाशय",
+"मस्तिष्क",
+"फुफ्फुस",
+"हृदय"
+],
+answer:1,
+explanation:`मस्तिष्क स्वैच्छिक क्रियाओं को नियंत्रित करता है। लेखन, चलना या किसी वस्तु को जानबूझकर हिलाना जैसी क्रियाओं के लिए मस्तिष्क से पेशियों तक तंत्रिका संदेश भेजे जाते हैं।`
+},
+
+{
+topic:"Brain and its parts",
+q:`मानव मस्तिष्क का कौन-सा भाग मुख्यतः शरीर के संतुलन को बनाए रखने में शामिल होता है?`,
+options:[
+"पॉन्स (Pons)",
+"मेडुला (Medulla)",
+"प्रमस्तिष्क (Cerebrum)",
+"अनुमस्तिष्क (Cerebellum)"
+],
+answer:3,
+explanation:`अनुमस्तिष्क (Cerebellum) शरीर के संतुलन, मुद्रा तथा पेशियों की गतिविधियों के समन्वय में महत्वपूर्ण भूमिका निभाता है।`
+},
+
+{
+topic:"Brain and its parts",
+q:`मस्तिष्क के अन्य क्षेत्रों की तुलना में अग्रमस्तिष्क का एक विशिष्ट प्रकार्य क्या है?`,
+options:[
+"यह संवेदी आवेग प्राप्त करता है",
+"यह हार्मोन मुक्त करता है",
+"यह संतुलन नियंत्रित करता है",
+"यह हृदय स्पंदन को विनियमित करता है"
+],
+answer:0,
+explanation:`अग्रमस्तिष्क का प्रमुख भाग प्रमस्तिष्क है। यह संवेदी सूचनाओं को ग्रहण और संसाधित करता है तथा सोचने, समझने और स्वैच्छिक क्रियाओं से संबंधित होता है।`
+},
+
+{
+topic:"Brain and its parts",
+q:`मानव मस्तिष्क का कौन-सा भाग, चिंतन की अधिकांश गतिविधियों के लिए उत्तरदायी है?`,
+options:[
+"पश्च-मस्तिष्क",
+"मध्य-मस्तिष्क",
+"अनुमस्तिष्क",
+"अग्र-मस्तिष्क"
+],
+answer:3,
+explanation:`अग्र-मस्तिष्क, विशेषकर प्रमस्तिष्क, सोचने, तर्क करने, सीखने, स्मृति और अन्य उच्च मानसिक गतिविधियों में महत्वपूर्ण भूमिका निभाता है।`
+},
+
+{
+topic:"Coordination in plants and animals",
+q:`निम्नलिखित में से कौन-सा कथन, पादपों और जंतुओं में सूचना चालन की सही तुलना करता है?`,
+options:[
+"पादपों में विशिष्टीकृत ऊतकों का अभाव होता है",
+"जंतुओं में चालन का अभाव होता है",
+"पादप तंत्रिकाओं का उपयोग करते हैं",
+"दोनों समान ऊतक का उपयोग करते हैं"
+],
+answer:0,
+explanation:`पादपों में जंतुओं जैसी तंत्रिका तंत्र व्यवस्था नहीं होती। जंतुओं में तंत्रिका ऊतक द्वारा तेजी से संदेशों का संचरण होता है, जबकि पादपों में समन्वय के लिए रासायनिक संकेत तथा विद्युत संकेत जैसी व्यवस्थाएँ होती हैं।`
+},
+
+{
+topic:"Coordination in plants and animals",
+q:`पादपों में स्पर्श बिंदु से दूर होने वाला संचलन, पादप समन्वय के संदर्भ में क्या सुझाव देता है?`,
+options:[
+"संकेत संचरण",
+"जल अवशोषण",
+"प्रकाश संश्लेषण",
+"वृद्धि उद्दीपन"
+],
+answer:0,
+explanation:`स्पर्श के स्थान से दूर स्थित भाग में भी प्रतिक्रिया होना दर्शाता है कि उद्दीपन की सूचना पादप में एक स्थान से दूसरे स्थान तक पहुँचती है। इसे संकेत संचरण से समझा जाता है।`
+},
+
+{
+topic:"Hormones and endocrine glands",
+q:`शरीर में रक्त शर्करा के स्तर को कौन-सा हार्मोन नियंत्रित करता है?`,
+options:[
+"वृद्धि हार्मोन",
+"एड्रिनेलिन",
+"इंसुलिन",
+"थायराइड हार्मोन"
+],
+answer:2,
+explanation:`इंसुलिन अग्न्याशय द्वारा स्रावित हार्मोन है। यह रक्त में ग्लूकोज के स्तर को नियंत्रित करने में महत्वपूर्ण भूमिका निभाता है।`
+},
+
+{
+topic:"Hormones and endocrine glands",
+q:`थायराइड ग्रंथि द्वारा थायरोक्सिन हार्मोन बनाने के लिए _______ आवश्यक है।`,
+options:[
+"विटामिन D",
+"कैल्सियम",
+"आयोडीन",
+"आयरन"
+],
+answer:2,
+explanation:`थायरोक्सिन के निर्माण के लिए आयोडीन आवश्यक है।`
+},
+
+{
+topic:"Hormones and endocrine glands",
+q:`निम्नलिखित में से क्या सीधे रुधिर में स्रावित होता है और शरीर के विभिन्न भागों तक पहुँचाया जाता है?`,
+options:[
+"अग्न्याशयी रस",
+"अधिवृक्क स्राव",
+"पित्त रस",
+"लार"
+],
+answer:1,
+explanation:`अधिवृक्क ग्रंथियाँ हार्मोन जैसे एड्रिनेलिन को सीधे रक्त में स्रावित करती हैं। रक्त इन्हें शरीर के विभिन्न भागों तक पहुँचाता है।`
+},
+
+{
+topic:"Nastic movement in Mimosa",
+q:`कौन-सी क्रियाविधि, छुईमुई को स्पर्श किए जाने के तुरंत बाद अपनी पत्तियों को बंद करने की सुविधा देती है?`,
+options:[
+"विशिष्ट तंत्रिका ऊतक",
+"पेशी ऊतक में विद्युत आवेग",
+"कुछ कोशिकाओं में जल की मात्रा में परिवर्तन होना",
+"जंतु-प्रोटीन जैसे प्रोटीन का उपयोग"
+],
+answer:2,
+explanation:`छुईमुई में जंतुओं जैसा तंत्रिका या पेशी ऊतक नहीं होता। स्पर्श के बाद कुछ कोशिकाओं में जल की मात्रा और तुर्गता में परिवर्तन होता है, जिससे पत्तियाँ मुड़ जाती हैं।`
+},
+
+{
+topic:"Nastic movement in plants",
+q:`किसी संवेदनशील पादप (sensitive plant) की स्पर्श अनुक्रिया में कौन-सा ऊतक अनुपस्थित होता है?`,
+options:[
+"उपकला ऊतक",
+"भरण ऊतक",
+"तंत्रिका ऊतक",
+"संवहनी ऊतक"
+],
+answer:2,
+explanation:`पादपों में जंतुओं जैसा विशिष्ट तंत्रिका ऊतक नहीं होता।`
+},
+
+{
+topic:"Nastic movement in plants",
+q:`जब छुईमुई (मिमोसा) के पादप की पत्तियों को स्पर्श किया जाता है, तो क्या होता है?`,
+options:[
+"वे बड़ी हो जाती हैं",
+"वे पुष्प उत्पन्न करती हैं",
+"वे रंग परिवर्तित कर लेती हैं",
+"वे मुड़ जाती हैं और नीचे झुक जाती हैं"
+],
+answer:3,
+explanation:`छुईमुई की पत्तियों को छूने पर उनमें तेजी से तुर्गता परिवर्तन होता है। परिणामस्वरूप पत्तियाँ मुड़ जाती हैं और नीचे झुक जाती हैं।`
+},
+
+{
+topic:"Nerve impulse",
+q:`तंत्रिका तंतुओं के माध्यम से अन्य कोशिकाओं से संवाद करने के लिए यात्रा करने वाले विशिष्ट सिग्नल को विशेष रूप से __________ के रूप जाना जाता है।`,
+options:[
+"हार्मोन (Hormone)",
+"तंत्रिका आवेग (Nerve impulse)",
+"उद्दीपन (Stimulus)",
+"ऐक्सॉन (Axon)"
+],
+answer:1,
+explanation:`तंत्रिका कोशिकाओं में सूचना विद्युत-रासायनिक संकेत के रूप में आगे बढ़ती है। इस संकेत को तंत्रिका आवेग कहा जाता है।`
+},
+
+{
+topic:"Nervous system organisation",
+q:`निम्नलिखित में से कौन-सी संरचना, मस्तिष्क को पेशियों से जोड़ती है?`,
+options:[
+"ग्रंथि",
+"रक्त",
+"तंत्रिका",
+"अस्थि"
+],
+answer:2,
+explanation:`तंत्रिकाएँ मस्तिष्क और शरीर के विभिन्न भागों के बीच संदेशों का संचार करती हैं।`
+},
+
+{
+topic:"Nervous system structure",
+q:`मनुष्यों में मस्तिष्क से किस प्रकार की तंत्रिकाएं निकलती हैं?`,
+options:[
+"प्रेरक तंत्रिकाएं (Motor nerves)",
+"कपाल तंत्रिकाएं (Spinal nerves)",
+"स्वचालित तंत्रिकाएं (Autonomic nerves)",
+"मेरु तंत्रिकाएं (Spinal nerves)"
+],
+answer:1,
+explanation:`मस्तिष्क से निकलने वाली तंत्रिकाओं को कपाल तंत्रिकाएँ (Cranial nerves) कहा जाता है। प्रश्न के दिए विकल्प के अनुसार B उत्तर है।`
+},
+
+{
+topic:"Neuron structure",
+q:`तंत्रिकाकोशिका में, अन्य तंत्रिकाकोशिकाओं से आवेग प्राप्त करने वाले लघु, शाखित तंतुओं को क्या कहा जाता है?`,
+options:[
+"तंत्रिकाक्ष",
+"उपास्थि डिस्क",
+"पेशी तंतु",
+"द्रुमिका"
+],
+answer:3,
+explanation:`द्रुमिका (Dendrites) न्यूरॉन के छोटे और शाखित भाग होते हैं। वे तंत्रिका संकेतों को ग्रहण करते हैं।`
+},
+
+{
+topic:"Neuron structure",
+q:`तंत्रिकाकोशिका (neuron) का कौन-सा भाग, तंत्रिका आवेगों को कोशिका-काय से दूर ले जाता है?`,
+options:[
+"मूल रोम (Root hair)",
+"अक्षतंतु (Axon)",
+"कशाभ (Flagellum)",
+"सिलिया (Cilia)"
+],
+answer:1,
+explanation:`अक्षतंतु (Axon) कोशिका-काय से तंत्रिका आवेग को दूर ले जाता है।`,
+diagram:"neuron"
+},
+
+{
+topic:"Neuron structure",
+q:`द्रुमिका को सूचना प्राप्त होने के बाद, आवेग किस अगली संरचना में जाता है?`,
+options:[
+"तंत्रिकाक्ष (Axon)",
+"द्रुमिका (Dendrite)",
+"कोशिका-काय (Cell body)",
+"तंत्रिकाक्ष छोर (Axon end)"
+],
+answer:2,
+explanation:`सामान्य न्यूरॉन में संकेत पहले द्रुमिका द्वारा ग्रहण किया जाता है, फिर कोशिका-काय तक पहुँचता है और उसके बाद अक्षतंतु के माध्यम से आगे जाता है।`,
+diagram:"neuron"
+},
+
+{
+topic:"Neuron structure",
+q:`सूचना प्राप्त करने वाला तंत्रिकाकोशिका (neuron) का पहला भाग कौन-सा है?`,
+options:[
+"कोशिका पिंड (Cell body)",
+"द्रुमिका (Dendrite)",
+"अक्षतंतु (Axon)",
+"अक्षतंतु टर्मिनल (Axon terminal)"
+],
+answer:1,
+explanation:`न्यूरॉन में आने वाली सूचनाओं को सामान्यतः द्रुमिकाएँ सबसे पहले ग्रहण करती हैं।`,
+diagram:"neuron"
+},
+
+{
+topic:"Neuron structure",
+q:`तंत्रिका तंत्र में न्यूरॉन्स की भूमिका के लिए उनकी संरचना क्यों महत्वपूर्ण है?`,
+options:[
+"एंजाइमों का उत्पादन करने के लिए",
+"ऊतकों की मरम्मत के लिए",
+"पोषकों का भंडारण करने के लिए",
+"सिग्नल का संचरण होने के लिए"
+],
+answer:3,
+explanation:`न्यूरॉन की विशेष संरचना इसे संकेतों को ग्रहण करने और उन्हें एक स्थान से दूसरे स्थान तक पहुँचाने के लिए उपयुक्त बनाती है।`,
+diagram:"neuron"
+},
+
+{
+topic:"Neuron structure",
+q:`न्यूरॉन का कौन-सा भाग, वातावरण से सूचना प्राप्त करता है?`,
+options:[
+"द्रुमिका (Dendrite)",
+"अंतर्ग्रथन (Synapse)",
+"अक्षतंतु (Axon)",
+"केंद्रक (Nucleus)"
+],
+answer:0,
+explanation:`द्रुमिकाएँ बाहरी उद्दीपन या अन्य न्यूरॉन्स से आने वाले संकेतों को ग्रहण करने में महत्वपूर्ण भूमिका निभाती हैं।`
+},
+
+{
+topic:"Reflex action",
+q:`किसी गर्म वस्तु से हाथ हटाने से पहले सचेत रूप से चिंतन अक्षम (inefficient) क्यों माना जाता है?`,
+options:[
+"क्योंकि मस्तिष्क त्वचा से सीधे भेजे गए आगामी संवेदी संकेतों को प्राप्त नहीं कर सकता है",
+"क्योंकि खतरनाक घटनाओं के दौरान मस्तिष्क द्वारा भेजे गए संकेतों के प्रति पेशियाँ अनुक्रिया नहीं कर सकती हैं",
+"क्योंकि तंत्रिका आवेग केवल शरीर की पेशियों से सीधे वापस मस्तिष्क तक गमन करते हैं",
+"क्योंकि चिंतन में अनेक तंत्रिका आवेगों की समय लेने वाली जटिल अंतर्क्रियाएं शामिल होती हैं"
+],
+answer:3,
+explanation:`गर्म वस्तु से हाथ हटाना प्रतिवर्ती क्रिया है। इसमें मेरुरज्जू के माध्यम से प्रतिक्रिया तेजी से पूरी होती है।`,
+diagram:"reflex"
+},
+
+{
+topic:"Reflex action",
+q:`मानव शरीर में मुख्य रूप से प्रतिवर्ती चाप (reflex arcs) कहाँ बनते हैं?`,
+options:[
+"हृदय",
+"मस्तिष्क",
+"मेरुरज्जू",
+"फेफड़े"
+],
+answer:2,
+explanation:`अधिकांश त्वरित प्रतिवर्ती क्रियाओं में प्रतिवर्ती चाप मेरुरज्जू में बनता है।`,
+diagram:"reflex"
+},
+
+{
+topic:"Synapse",
+q:`दो तंत्रिकाकोशिकाओं के बीच सिनेप्स (synapse) का मुख्य कार्य क्या है?`,
+options:[
+"आवेग अंतरण",
+"ऊर्जा आपूर्ति",
+"संकेत भंडारण",
+"संचार"
+],
+answer:0,
+explanation:`सिनेप्स दो न्यूरॉन्स के बीच संपर्क का क्षेत्र है और एक न्यूरॉन से अगले न्यूरॉन तक तंत्रिका संकेत के अंतरण में सहायता करता है।`
+},
+
+{
+topic:"Tropic movement",
+q:`उद्दीपन के प्रति अनुक्रिया में वृद्धि के कारण किस प्रकार का पादप संचलन होता है?`,
+options:[
+"दिशात्मक वृद्धि",
+"तीव्र संकुचन",
+"यादृच्छिक वृद्धि",
+"वृत्तीय वृद्धि"
+],
+answer:0,
+explanation:`जब पादप की वृद्धि किसी बाहरी उद्दीपन की दिशा के अनुसार होती है, तो इसे अनुवर्तन (tropic movement) कहा जाता है।`
+},
+
+{
+topic:"Tropic movement",
+q:`पादपों में किस गति के कारण प्रतान (tendril) किसी वस्तु के चारों ओर चक्कर लगाकर उससे लिपट जाती है?`,
+options:[
+"चलायमान गति",
+"स्फीति गति",
+"अनुकुंची गति",
+"अनुवर्तनी गति"
+],
+answer:3,
+explanation:`प्रतान का किसी सहारे के चारों ओर लिपटना स्पर्शानुवर्तन (Thigmotropism) का उदाहरण है।`,
+diagram:"tropic"
+},
+
+{
+topic:"Phototropism",
+q:`किस पर्यावरणीय कारक के कारण पादप प्ररोह (plant shoot), खिड़की की ओर मुड़कर अनुक्रिया करता है?`,
+options:[
+"प्रकाश",
+"ताप",
+"जल",
+"गुरुत्व"
+],
+answer:0,
+explanation:`प्ररोह प्रकाश की दिशा में बढ़ता है। इसे प्रकाशानुवर्तन (Phototropism) कहते हैं।`,
+diagram:"tropic"
+},
+
+{
+topic:"Geotropism",
+q:`गुरुत्वानुवर्तन में, गुरुत्व किसके रूप में कार्य करता है?`,
+options:[
+"दिशात्मक उद्दीपक (Directional stimulus)",
+"उत्क्रमणीय सिग्नल (Reversible signal)",
+"जीवीय कारक (Biotic factor)",
+"आंतरिक कारक (Internal factor)"
+],
+answer:0,
+explanation:`गुरुत्वानुवर्तन में गुरुत्व बाहरी दिशात्मक उद्दीपन के रूप में कार्य करता है।`
+},
+
+{
+topic:"Geotropism",
+q:`गुरुत्वानुवर्तन, पादपों में प्रभावी जड़ विकास में किस प्रकार सहायक होता है?`,
+options:[
+"यह प्रकाश संश्लेषक ऊतकों को मृदा में निर्देशित करता है",
+"यह जड़ों को शाखा बनने से रोकता है",
+"यह जड़ों को सूर्य के प्रकाश की ओर बढ़ाता है",
+"यह जड़ों को नीचे की ओर बढ़ने के लिए निर्देशित करता है, जिससे पादप स्थिर हो जाता है और उन्हें नमी एवं पोषकों तक पहुँचने में सहायता करता है"
+],
+answer:3,
+explanation:`जड़ें धनात्मक गुरुत्वानुवर्तन दिखाती हैं। वे गुरुत्व की दिशा में नीचे की ओर बढ़ती हैं, जिससे पादप को स्थिरता तथा जल और खनिजों तक पहुँचने में सहायता मिलती है।`,
+diagram:"tropic"
+},
+
+{
+topic:"Phototropism",
+q:`निम्नलिखित में से किस पर्यावरणीय उद्दीपन के कारण जड़ें स्वयं से दूर बढ़ती हैं?`,
+options:[
+"प्रकाश (Light)",
+"जल (Water)",
+"गुरुत्व (Gravity)",
+"वायु (Air)"
+],
+answer:0,
+explanation:`सामान्यतः जड़ें प्रकाश से दूर बढ़ती हैं। इसे ऋणात्मक प्रकाशानुवर्तन कहा जाता है।`
+},
+
+{
+topic:"Geotropism",
+q:`गुरुत्व की अनुक्रिया में पादपों की मूलों की अधोमुखी वृद्धि को निम्नलिखित में से क्या कहा जाता है?`,
+options:[
+"गुरुत्वानुवर्तन",
+"जलानुवर्तन",
+"प्रकाशानुवर्तन",
+"रसायुवर्तन"
+],
+answer:0,
+explanation:`गुरुत्व के प्रति जड़ों की नीचे की ओर दिशात्मक वृद्धि को गुरुत्वानुवर्तन कहा जाता है।`
+},
+
+{
+topic:"Turgor movement",
+q:`संचलन (movement) के दौरान पादप कोशिकाओं की आकृति में परिवर्तन का क्या कारण है?`,
+options:[
+"जलांश (Water content)",
+"तापमान (Temperature)",
+"विशेष प्रोटीन (Special proteins)",
+"प्रकाश ऊर्जा (Light energy)"
+],
+answer:0,
+explanation:`कुछ पादप संचलनों में कोशिकाओं के अंदर जल की मात्रा और तुर्गता में परिवर्तन से कोशिकाओं का आकार बदलता है।`
+},
+
+{
+topic:"Plant movement",
+q:`उद्दीपन के बाद पादप के तत्काल संचलन में कौन-सा कारक योगदान नहीं करता है?`,
+options:[
+"सिग्नल अंतरण",
+"आकृति परिवर्तन",
+"जल प्रवाह",
+"पेशियों का संकुचन"
+],
+answer:3,
+explanation:`पादपों में जंतुओं जैसी पेशियाँ नहीं होतीं। इसलिए तत्काल पादप संचलन में पेशियों का संकुचन कारण नहीं होता।`
+},
+
+{
+topic:"Voluntary and involuntary actions",
+q:`खाद्य को देखने पर लार स्रवण (Salivation) होना किस प्रकार की क्रिया का उदाहरण है?`,
+options:[
+"स्व-संचारी",
+"अनैच्छिक",
+"नियोजित",
+"स्वैच्छिक"
+],
+answer:1,
+explanation:`लार का स्रवण सामान्यतः हमारे सचेत नियंत्रण के बिना होता है। इसलिए यह अनैच्छिक क्रिया का उदाहरण है।`
+}
+
+];
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentQuestion=0;
+let answers=new Array(questions.length).fill(null);
+let review=new Array(questions.length).fill(false);
+
+let timeLeft=20*60;
+let timerInterval=null;
+let submitted=false;
+
+/* =========================================================
+   START
+========================================================= */
+
+function init(){
+
+  createPalette();
+
+  loadQuestion(0);
+
+  updateTimerDisplay();
+
+  timerInterval=setInterval(updateTimer,1000);
+}
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function createPalette(){
+
+  const grid=document.getElementById("paletteGrid");
+
+  grid.innerHTML="";
+
+  questions.forEach((q,index)=>{
+
+    const btn=document.createElement("button");
+
+    btn.textContent=index+1;
+    btn.id="palette-"+index;
+
+    btn.onclick=function(){
+
+      currentQuestion=index;
+
+      loadQuestion(index);
+
+      document
+      .getElementById("palette")
+      .classList.remove("show");
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    };
+
+    grid.appendChild(btn);
+
+  });
+
+}
+
+function togglePalette(){
+
+  document
+  .getElementById("palette")
+  .classList.toggle("show");
+
+}
+
+function updatePalette(){
+
+  questions.forEach((q,index)=>{
+
+    const btn=
+      document.getElementById("palette-"+index);
+
+    if(!btn)return;
+
+    btn.className="";
+
+    if(review[index] && answers[index]!==null){
+
+      btn.classList.add("reviewanswered");
+
+    }
+    else if(review[index]){
+
+      btn.classList.add("review");
+
+    }
+    else if(answers[index]!==null){
+
+      btn.classList.add("answered");
+
+    }
+    else{
+
+      btn.classList.add("notanswered");
+
+    }
+
+  });
+
+}
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion(index){
+
+  currentQuestion=index;
+
+  const q=questions[index];
+
+  document.getElementById("qNumber").textContent=
+    "Q"+(index+1);
+
+  document.getElementById("qTopic").textContent=
+    q.topic;
+
+  document.getElementById("questionText").innerHTML=
+    q.q;
+
+  const options=
+    document.getElementById("options");
+
+  options.innerHTML="";
+
+  q.options.forEach((option,i)=>{
+
+    const label=document.createElement("label");
+
+    label.className="option";
+
+    if(answers[index]===i){
+
+      label.classList.add("selected");
+
+    }
+
+    label.innerHTML=`
+
+      <input
+        type="radio"
+        name="question${index}"
+        value="${i}"
+        ${answers[index]===i ? "checked":""}
+      >
+
+      <span class="option-label">
+        ${String.fromCharCode(65+i)}.
+      </span>
+
+      <span>
+        ${option}
+      </span>
+    `;
+
+    const radio=label.querySelector("input");
+
+    radio.addEventListener("change",function(){
+
+      answers[index]=i;
+
+      document
+      .querySelectorAll(".option")
+      .forEach(o=>{
+        o.classList.remove("selected");
+      });
+
+      label.classList.add("selected");
+
+      updatePalette();
+
+    });
+
+    options.appendChild(label);
+
+  });
+
+  renderDiagram(q.diagram);
+
+  document.getElementById("prevBtn").disabled=
+    index===0;
+
+  if(index===questions.length-1){
+
+    document
+    .getElementById("nextBtn")
+    .classList.add("hidden");
+
+    document
+    .getElementById("submitBtn")
+    .classList.remove("hidden");
+
+  }
+  else{
+
+    document
+    .getElementById("nextBtn")
+    .classList.remove("hidden");
+
+    document
+    .getElementById("submitBtn")
+    .classList.add("hidden");
+
+  }
+
+  const reviewBtn=
+    document.getElementById("reviewBtn");
+
+  if(review[index]){
+
+    reviewBtn.textContent=
+      "⚑ Remove Review";
+
+  }
+  else{
+
+    reviewBtn.textContent=
+      "⚑ Mark for Review";
+
+  }
+
+  updateProgress();
+
+  updatePalette();
+
+}
+
+/* =========================================================
+   DIAGRAMS
+========================================================= */
+
+function renderDiagram(type){
+
+  const box=
+    document.getElementById("questionDiagram");
+
+  box.innerHTML="";
+
+  if(!type)return;
+
+  if(type==="neuron"){
+
+    box.innerHTML=`
+
+      <div class="diagram">
+
+        <div class="diagram-title">
+          न्यूरॉन की सरल संरचना
+        </div>
+
+        <div class="neuron">
+
+          <div class="dendrites">
+
+            <span class="branch b1"></span>
+            <span class="branch b2"></span>
+            <span class="branch b3"></span>
+
+          </div>
+
+          <div class="cellbody">
+            कोशिका-काय
+          </div>
+
+          <div class="axon"></div>
+
+          <div class="terminal">
+
+            <span class="t1"></span>
+            <span class="t2"></span>
+            <span class="t3"></span>
+
+          </div>
+
+        </div>
+
+        <div style="font-size:12px;">
+          द्रुमिका → कोशिका-काय → अक्षतंतु → तंत्रिकाक्ष छोर
+        </div>
+
+      </div>
+    `;
+
+  }
+
+  if(type==="reflex"){
+
+    box.innerHTML=`
+
+      <div class="diagram">
+
+        <div class="diagram-title">
+          प्रतिवर्ती चाप
+        </div>
+
+        <div class="reflex">
+
+          <div class="reflex-box">
+            उद्दीपन 🔥
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="reflex-box">
+            संवेदी तंत्रिका
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="reflex-box">
+            मेरुरज्जू
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="reflex-box">
+            प्रेरक तंत्रिका
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="reflex-box">
+            पेशी
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+  }
+
+  if(type==="tropic"){
+
+    box.innerHTML=`
+
+      <div class="diagram">
+
+        <div class="diagram-title">
+          पादपों में दिशात्मक वृद्धि
+        </div>
+
+        <div class="tropic">
+
+          <div class="sun">
+            ☀️
+          </div>
+
+          <div class="arrow-light">
+            → प्रकाश
+          </div>
+
+          <div class="stem"></div>
+
+          <div class="root"></div>
+
+        </div>
+
+        <p style="font-size:12px;">
+          प्ररोह प्रकाश की ओर तथा जड़ें सामान्यतः गुरुत्व की दिशा में बढ़ती हैं।
+        </p>
+
+      </div>
+    `;
+
+  }
+
+}
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextQuestion(){
+
+  if(currentQuestion < questions.length-1){
+
+    currentQuestion++;
+
+    loadQuestion(currentQuestion);
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousQuestion(){
+
+  if(currentQuestion>0){
+
+    currentQuestion--;
+
+    loadQuestion(currentQuestion);
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+}
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+function toggleReview(){
+
+  review[currentQuestion]=
+    !review[currentQuestion];
+
+  const btn=
+    document.getElementById("reviewBtn");
+
+  if(review[currentQuestion]){
+
+    btn.textContent=
+      "⚑ Remove Review";
+
+  }
+  else{
+
+    btn.textContent=
+      "⚑ Mark for Review";
+
+  }
+
+  updatePalette();
+
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+function updateProgress(){
+
+  const num=currentQuestion+1;
+
+  document.getElementById("progressText").textContent=
+    "Question "+num+" of "+questions.length;
+
+  document.getElementById("progressFill").style.width=
+    ((num/questions.length)*100)+"%";
+
+}
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function updateTimer(){
+
+  if(submitted)return;
+
+  timeLeft--;
+
+  if(timeLeft<=0){
+
+    timeLeft=0;
+
+    updateTimerDisplay();
+
+    submitTest(true);
+
+    return;
+
+  }
+
+  updateTimerDisplay();
+
+}
+
+function updateTimerDisplay(){
+
+  const minutes=
+    Math.floor(timeLeft/60);
+
+  const seconds=
+    timeLeft%60;
+
+  document.getElementById("timer").textContent=
+    String(minutes).padStart(2,"0")
+    +":"
+    +String(seconds).padStart(2,"0");
+
+  if(timeLeft<=60){
+
+    document
+    .getElementById("timer")
+    .classList.add("warning");
+
+  }
+
+}
+
+/* =========================================================
+   SUBMIT TEST
+========================================================= */
+
+function submitTest(autoSubmit){
+
+  if(submitted)return;
+
+  if(!autoSubmit){
+
+    const unanswered=
+      answers.filter(a=>a===null).length;
+
+    const marked=
+      review.filter(Boolean).length;
+
+    const confirmSubmit=
+      confirm(
+        "क्या आप Test Submit करना चाहते हैं?\n\n"+
+        "Unattempted: "+unanswered+
+        "\nMarked for Review: "+marked+
+        "\n\nSubmit करने के बाद answers बदले नहीं जा सकेंगे।"
+      );
+
+    if(!confirmSubmit){
+
+      return;
+
+    }
+
+  }
+
+  submitted=true;
+
+  clearInterval(timerInterval);
+
+  let correct=0;
+  let incorrect=0;
+  let unattempted=0;
+
+  answers.forEach((ans,index)=>{
+
+    if(ans===null){
+
+      unattempted++;
+
+    }
+    else if(ans===questions[index].answer){
+
+      correct++;
+
+    }
+    else{
+
+      incorrect++;
+
+    }
+
+  });
+
+  const negativeMarks=
+    incorrect/3;
+
+  const score=
+    correct-negativeMarks;
+
+  const percentage=
+    (score/questions.length)*100;
+
+  document.getElementById("testArea").style.display=
+    "none";
+
+  document.getElementById("testInfo").style.display=
+    "none";
+
+  document.getElementById("result").style.display=
+    "block";
+
+  document.getElementById("scoreText").textContent=
+    score.toFixed(2)+" / "+questions.length;
+
+  document.getElementById("correctCount").textContent=
+    correct;
+
+  document.getElementById("incorrectCount").textContent=
+    incorrect;
+
+  document.getElementById("unattemptedCount").textContent=
+    unattempted;
+
+  document.getElementById("reviewCount").textContent=
+    review.filter(Boolean).length;
+
+  document.getElementById("percentageText").innerHTML=
+    "Score Percentage: <b>"+
+    percentage.toFixed(2)+
+    "%</b>";
+
+  document.getElementById("markingText").innerHTML=
+    "Correct: +"+correct+
+    " | Negative: -"+
+    negativeMarks.toFixed(2)+
+    " | Final Score: <b>"+
+    score.toFixed(2)+
+    "</b>";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+/* =========================================================
+   COMPLETE SOLUTIONS
+========================================================= */
+
+function showSolutions(){
+
+  const container=
+    document.getElementById("solutions");
+
+  container.innerHTML="";
+
+  questions.forEach((q,index)=>{
+
+    const card=
+      document.createElement("div");
+
+    let statusClass="";
+
+    if(answers[index]===q.answer){
+
+      statusClass="correct-card";
+
+    }
+    else if(answers[index]!==null){
+
+      statusClass="incorrect-card";
+
+    }
+
+    card.className=
+      "solution-card "+statusClass;
+
+    const correctLetter=
+      String.fromCharCode(65+q.answer);
+
+    let userAnswer=
+      "Not Attempted";
+
+    if(answers[index]!==null){
+
+      userAnswer=
+        String.fromCharCode(65+answers[index])
+        +". "
+        +q.options[answers[index]];
+
+    }
+
+    card.innerHTML=`
+
+      <div class="solution-q">
+        Q${index+1}. ${q.topic}
+      </div>
+
+      <div class="solution-question">
+        ${q.q}
+      </div>
+
+      <div class="answer-line">
+        <b>Correct Answer:</b>
+        ${correctLetter}.
+        ${q.options[q.answer]}
+      </div>
+
+      <div class="user-answer">
+        <b>Your Answer:</b>
+        ${userAnswer}
+      </div>
+
+      <div class="explanation">
+        <b>Explanation:</b><br>
+        ${q.explanation}
+      </div>
+
+      ${getSolutionDiagram(q.diagram)}
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+  container.scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+/* =========================================================
+   SOLUTION DIAGRAMS
+========================================================= */
+
+function getSolutionDiagram(type){
+
+  if(!type)return "";
+
+  if(type==="neuron"){
+
+    return `
+
+      <div class="diagram">
+
+        <div class="diagram-title">
+          न्यूरॉन — संकेत का मार्ग
+        </div>
+
+        <div class="neuron">
+
+          <div class="dendrites">
+
+            <span class="branch b1"></span>
+            <span class="branch b2"></span>
+            <span class="branch b3"></span>
+
+          </div>
+
+          <div class="cellbody">
+            कोशिका-काय
+          </div>
+
+          <div class="axon"></div>
+
+          <div class="terminal">
+
+            <span class="t1"></span>
+            <span class="t2"></span>
+            <span class="t3"></span>
+
+          </div>
+
+        </div>
+
+        <div style="font-size:12px;">
+          द्रुमिका → कोशिका-काय → अक्षतंतु → अगला न्यूरॉन
+        </div>
+
+      </div>
+    `;
+
+  }
+
+  if(type==="reflex"){
+
+    return `
+
+      <div class="diagram">
+
+        <div class="diagram-title">
+          प्रतिवर्ती चाप
+        </div>
+
+        <div class="reflex">
+
+          <div class="reflex-box">
+            उद्दीपन
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="reflex-box">
+            संवेदी न्यूरॉन
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="reflex-box">
+            मेरुरज्जू
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="reflex-box">
+            प्रेरक न्यूरॉन
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="reflex-box">
+            पेशी
+          </div>
+
+        </div>
+
+      </div>
+    `;
+
+  }
+
+  if(type==="tropic"){
+
+    return `
+
+      <div class="diagram">
+
+        <div class="diagram-title">
+          Tropic Movement
+        </div>
+
+        <div class="tropic">
+
+          <div class="sun">
+            ☀️
+          </div>
+
+          <div class="arrow-light">
+            → प्रकाश
+          </div>
+
+          <div class="stem"></div>
+
+          <div class="root"></div>
+
+        </div>
+
+        <div style="font-size:12px;">
+          प्रकाश की ओर प्ररोह की वृद्धि = प्रकाशानुवर्तन
+        </div>
+
+      </div>
+    `;
+
+  }
+
+  return "";
+
+}
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener("keydown",function(e){
+
+  if(submitted)return;
+
+  if(e.key==="ArrowRight"){
+
+    nextQuestion();
+
+  }
+
+  if(e.key==="ArrowLeft"){
+
+    previousQuestion();
+
+  }
+
+});
+
+/* START */
+
+init();
+
+</script>
+
+</body>
+</html>
