@@ -54,7 +54,7 @@ body{
 #passwordScreen{
   position:fixed;
   inset:0;
-  z-index:9999;
+  z-index:99999;
 
   display:flex;
   align-items:center;
@@ -140,6 +140,11 @@ body{
   letter-spacing:2px;
 }
 
+#passwordInput:focus{
+  border-color:#18a0ff;
+  box-shadow:0 0 0 3px rgba(24,160,255,.12);
+}
+
 #passwordInput::placeholder{
   color:#91a1ba;
   letter-spacing:0;
@@ -168,6 +173,10 @@ body{
 
   box-shadow:
     0 10px 25px rgba(0,168,255,.25);
+}
+
+.unlock-btn:active{
+  transform:scale(.98);
 }
 
 #errorMsg{
@@ -978,8 +987,9 @@ body{
     >
 
     <button
+      type="button"
       class="unlock-btn"
-      onclick="checkPassword()"
+      id="unlockButton"
     >
       🔓 ENTER PORTAL
     </button>
@@ -994,8 +1004,6 @@ body{
 <!-- ================= MAIN SITE ================= -->
 
 <div id="mainSite">
-
-<!-- ================= HOME PAGE ================= -->
 
 <div id="homePage" class="container">
 
@@ -1164,6 +1172,7 @@ body{
   <div class="page-header">
 
     <button
+      type="button"
       class="back-btn"
       onclick="showHome()"
     >
@@ -1183,8 +1192,6 @@ body{
 
   <div class="chapter-grid">
 
-    <!-- CHAPTER 01 -->
-
     <div class="chapter-card">
 
       <span class="chapter-number">CHAPTER 01</span>
@@ -1195,24 +1202,15 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="class9-ch1-infographic.jpg"
-        >
+        <a class="action-btn" href="class9-ch1-infographic.jpg">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="class9-ch1-pyq.html"
-        >
+        <a class="action-btn pyq" href="class9-ch1-pyq.html">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch1-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch1-groupd-2026.html">
           🟢 Group D
         </a>
 
@@ -1220,8 +1218,6 @@ body{
 
     </div>
 
-
-    <!-- CHAPTER 02 -->
 
     <div class="chapter-card">
 
@@ -1233,24 +1229,15 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="class9-ch2-notes.html"
-        >
+        <a class="action-btn" href="class9-ch2-notes.html">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="class9-ch2-mcq.html"
-        >
+        <a class="action-btn pyq" href="class9-ch2-mcq.html">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch2-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch2-groupd-2026.html">
           🟢 Group D
         </a>
 
@@ -1258,8 +1245,6 @@ body{
 
     </div>
 
-
-    <!-- CHAPTER 03 -->
 
     <div class="chapter-card">
 
@@ -1271,24 +1256,15 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="class9-ch3-notes.html"
-        >
+        <a class="action-btn" href="class9-ch3-notes.html">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="class9-ch3-mcq.html"
-        >
+        <a class="action-btn pyq" href="class9-ch3-mcq.html">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch3-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch3-groupd-2026.html">
           🟢 Group D
         </a>
 
@@ -1296,8 +1272,6 @@ body{
 
     </div>
 
-
-    <!-- CHAPTER 04 -->
 
     <div class="chapter-card">
 
@@ -1309,24 +1283,15 @@ body{
 
       <div class="chapter-actions">
 
-        <a
-          class="action-btn"
-          href="class9-ch4-notes.html"
-        >
+        <a class="action-btn" href="class9-ch4-notes.html">
           📘 Notes
         </a>
 
-        <a
-          class="action-btn pyq"
-          href="class9-chapter04-mcq.html"
-        >
+        <a class="action-btn pyq" href="class9-chapter04-mcq.html">
           📋 PYQ
         </a>
 
-        <a
-          class="action-btn groupd"
-          href="class9-ch4-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch4-groupd-2026.html">
           🟢 Group D
         </a>
 
@@ -1334,8 +1299,6 @@ body{
 
     </div>
 
-
-    <!-- CHAPTER 05 -->
 
     <div class="chapter-card">
 
@@ -1347,18 +1310,10 @@ body{
 
       <div class="chapter-actions">
 
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
 
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch5-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch5-groupd-2026.html">
           🟢 Group D
         </a>
 
@@ -1366,8 +1321,6 @@ body{
 
     </div>
 
-
-    <!-- CHAPTER 06 -->
 
     <div class="chapter-card">
 
@@ -1379,18 +1332,10 @@ body{
 
       <div class="chapter-actions">
 
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
 
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch6-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch6-groupd-2026.html">
           🟢 Group D
         </a>
 
@@ -1398,8 +1343,6 @@ body{
 
     </div>
 
-
-    <!-- CHAPTER 07 -->
 
     <div class="chapter-card">
 
@@ -1411,18 +1354,10 @@ body{
 
       <div class="chapter-actions">
 
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
 
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch7-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch7-groupd-2026.html">
           🟢 Group D
         </a>
 
@@ -1430,8 +1365,6 @@ body{
 
     </div>
 
-
-    <!-- CHAPTER 08 -->
 
     <div class="chapter-card">
 
@@ -1443,18 +1376,10 @@ body{
 
       <div class="chapter-actions">
 
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
+        <a class="action-btn" href="#">📘 Notes</a>
+        <a class="action-btn pyq" href="#">📋 PYQ</a>
 
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch8-groupd-2026.html"
-        >
+        <a class="action-btn groupd" href="class9-ch8-groupd-2026.html">
           🟢 Group D
         </a>
 
@@ -1463,694 +1388,436 @@ body{
     </div>
 
 
-    <!-- CHAPTER 09 -->
+<div class="chapter-card">
+  <div class="chapter-number">Chapter 09</div>
+  <h3>जीवन की विविधता</h3>
+  <p>Life and its Diversity</p>
 
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 09</span>
-
-      <h3>
-        Atomic foundations of Matter
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch9-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 10 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 10</span>
-
-      <h3>
-        Sound Waves: Characteristics and Applications
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch10-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 11 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 11</span>
-
-      <h3>
-        Reproduction: How Life Continues
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch11-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 12 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 12</span>
-
-      <h3>
-        Patterns in Life: Diversity and Classification
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch12-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 13 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 13</span>
-
-      <h3>
-        Earth as a System: Energy, Matter, and Life
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class9-ch13-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
+  <div class="chapter-buttons">
+    <a href="#" class="notes-btn">📘 PDF Notes</a>
+    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
+    <a href="class9-ch9-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
   </div>
+</div>
 
+<!-- CHAPTER 10 -->
+<div class="chapter-card">
+  <div class="chapter-number">Chapter 10</div>
+  <h3>बल और गति</h3>
+  <p>Force and Motion</p>
+
+  <div class="chapter-buttons">
+    <a href="#" class="notes-btn">📘 PDF Notes</a>
+    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
+    <a href="class9-ch10-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
+  </div>
+</div>
+
+<!-- CHAPTER 11 -->
+<div class="chapter-card">
+  <div class="chapter-number">Chapter 11</div>
+  <h3>गुरुत्वाकर्षण</h3>
+  <p>Gravitation</p>
+
+  <div class="chapter-buttons">
+    <a href="#" class="notes-btn">📘 PDF Notes</a>
+    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
+    <a href="class9-ch11-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
+  </div>
+</div>
+
+<!-- CHAPTER 12 -->
+<div class="chapter-card">
+  <div class="chapter-number">Chapter 12</div>
+  <h3>कार्य और ऊर्जा</h3>
+  <p>Work and Energy</p>
+
+  <div class="chapter-buttons">
+    <a href="#" class="notes-btn">📘 PDF Notes</a>
+    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
+    <a href="class9-ch12-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
+  </div>
+</div>
+
+<!-- CHAPTER 13 -->
+<div class="chapter-card">
+  <div class="chapter-number">Chapter 13</div>
+  <h3>ध्वनि</h3>
+  <p>Sound</p>
+
+  <div class="chapter-buttons">
+    <a href="#" class="notes-btn">📘 PDF Notes</a>
+    <a href="#" class="pyq-btn">🚆 Railway PYQ</a>
+    <a href="class9-ch13-groupd-2026.html" class="groupd-btn">🟢 Group D 2026</a>
+  </div>
 </div>
 
 
-<!-- ================= CLASS 10 PAGE ================= -->
-
-<div
-  id="class10Page"
-  class="container class-page"
->
-
-  <div class="page-header">
-
-    <button
-      class="back-btn"
-      onclick="showHome()"
-    >
-      ←
-    </button>
-
-    <div>
-
-      <h2>Class 10 Science</h2>
-
-      <p>13 Chapters • Railway Preparation</p>
-
-    </div>
-
-  </div>
-
-
-  <div class="chapter-grid">
-
-
-    <!-- CHAPTER 01 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 01</span>
-
-      <h3>
-        Chemical Reactions and Equations
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="class10-ch1-notes.pdf"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="class10-ch1-mcq.html"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch1-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 02 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 02</span>
-
-      <h3>
-        Acids, Bases and Salts
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="class10-ch2-notes.html"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="class10-ch2-mcq.html"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch2-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 03 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 03</span>
-
-      <h3>
-        Metals and Non-metals
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="class10-ch3-notes.html"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="class10-ch3-mcq.html"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch3-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 04 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 04</span>
-
-      <h3>
-        Carbon and Its Compounds
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch4-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 05 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 05</span>
-
-      <h3>
-        Life Processes
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch5-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 06 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 06</span>
-
-      <h3>
-        Control and Coordination
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a
-          class="action-btn"
-          href="class10-ch6-notes.html"
-        >
-          📘 Notes
-        </a>
-
-        <a
-          class="action-btn pyq"
-          href="class10-ch06-mcq.html"
-        >
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch6-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 07 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 07</span>
-
-      <h3>
-        How do Organisms Reproduce?
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch7-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 08 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 08</span>
-
-      <h3>
-        Heredity
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch8-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 09 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 09</span>
-
-      <h3>
-        Light - Reflection and Refraction
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch9-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 10 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 10</span>
-
-      <h3>
-        Human Eye and Colourful World
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch10-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 11 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 11</span>
-
-      <h3>
-        Electricity
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch11-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 12 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 12</span>
-
-      <h3>
-        Magnetic Effects of Electric Current
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch12-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-
-    <!-- CHAPTER 13 -->
-
-    <div class="chapter-card">
-
-      <span class="chapter-number">CHAPTER 13</span>
-
-      <h3>
-        Our Environment
-      </h3>
-
-      <div class="chapter-actions">
-
-        <a class="action-btn" href="#">
-          📘 Notes
-        </a>
-
-        <a class="action-btn pyq" href="#">
-          📋 PYQ
-        </a>
-
-        <a
-          class="action-btn groupd"
-          href="class10-ch13-groupd-2026.html"
-        >
-          🟢 Group D
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<!-- ========================= -->
+<!-- BACK TO HOME -->
+<!-- ========================= -->
+
+<div class="back-home">
+  <button onclick="showHome()">🏠 Back to Home</button>
 </div>
 
 </div>
+<!-- CLASS 9 PAGE END -->
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- ========================= -->
+<!-- CLASS 10 PAGE -->
+<!-- ========================= -->
+
+<div id="class10Page" class="page-section">
+
+  <div class="section-header">
+    <button class="back-btn" onclick="showHome()">← Back</button>
+
+    <h2>Class 10 Science</h2>
+    <p>Railway Exam Preparation</p>
+  </div>
+
+
+  <!-- CHAPTER 1 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 01</div>
+    <h3>रासायनिक अभिक्रियाएँ एवं समीकरण</h3>
+    <p>Chemical Reactions and Equations</p>
+
+    <div class="chapter-buttons">
+      <a href="class10-ch1-notes.pdf" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="class10-ch1-mcq.html" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch1-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 2 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 02</div>
+    <h3>अम्ल, क्षारक एवं लवण</h3>
+    <p>Acids, Bases and Salts</p>
+
+    <div class="chapter-buttons">
+      <a href="class10-ch2-notes.html" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="class10-ch2-mcq.html" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch2-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 3 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 03</div>
+    <h3>धातु एवं अधातु</h3>
+    <p>Metals and Non-metals</p>
+
+    <div class="chapter-buttons">
+      <a href="class10-ch3-notes.html" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="class10-ch3-mcq.html" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch3-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 4 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 04</div>
+    <h3>कार्बन एवं उसके यौगिक</h3>
+    <p>Carbon and Its Compounds</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch4-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 5 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 05</div>
+    <h3>तत्वों का आवर्त वर्गीकरण</h3>
+    <p>Periodic Classification of Elements</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch5-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 6 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 06</div>
+    <h3>जैव प्रक्रम</h3>
+    <p>Life Processes</p>
+
+    <div class="chapter-buttons">
+      <a href="class10-ch6-notes.html" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="class10-ch06-mcq.html" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch6-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 7 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 07</div>
+    <h3>नियंत्रण एवं समन्वय</h3>
+    <p>Control and Coordination</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch7-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 8 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 08</div>
+    <h3>जीव जनन कैसे करते हैं?</h3>
+    <p>How do Organisms Reproduce?</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch8-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 9 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 09</div>
+    <h3>आनुवंशिकता</h3>
+    <p>Heredity</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch9-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 10 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 10</div>
+    <h3>प्रकाश — परावर्तन तथा अपवर्तन</h3>
+    <p>Light — Reflection and Refraction</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch10-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 11 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 11</div>
+    <h3>मानव नेत्र तथा रंगीन संसार</h3>
+    <p>The Human Eye and the Colourful World</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch11-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 12 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 12</div>
+    <h3>विद्युत</h3>
+    <p>Electricity</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch12-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- CHAPTER 13 -->
+  <div class="chapter-card">
+    <div class="chapter-number">Chapter 13</div>
+    <h3>विद्युत का चुंबकीय प्रभाव</h3>
+    <p>Magnetic Effects of Electric Current</p>
+
+    <div class="chapter-buttons">
+      <a href="#" class="notes-btn">
+        📘 PDF Notes
+      </a>
+
+      <a href="#" class="pyq-btn">
+        🚆 Railway PYQ
+      </a>
+
+      <a href="class10-ch13-groupd-2026.html" class="groupd-btn">
+        🟢 Group D 2026
+      </a>
+    </div>
+  </div>
+
+
+  <!-- BACK TO HOME -->
+  <div class="back-home">
+    <button onclick="showHome()">🏠 Back to Home</button>
+  </div>
+
+</div>
+<!-- CLASS 10 PAGE END -->
+
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+  © 2026 RAILWAY WARRIOR • BADNERA (RLY)
+</footer>
+
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
 
 <script>
 
-/* ================= PASSWORD ================= */
-
 function checkPassword(){
 
-  const input =
-    document.getElementById("passwordInput");
-
-  const error =
-    document.getElementById("errorMsg");
-
-  const passwordScreen =
-    document.getElementById("passwordScreen");
-
-  const mainSite =
-    document.getElementById("mainSite");
+  const input = document.getElementById("passwordInput");
+  const passwordScreen = document.getElementById("passwordScreen");
+  const mainSite = document.getElementById("mainSite");
+  const errorMsg = document.getElementById("errorMsg");
 
   if(!input || !passwordScreen || !mainSite){
     return;
   }
 
-  const enteredPassword =
-    input.value.trim();
-
-  if(enteredPassword === "AKASH"){
+  if(input.value.trim() === "AKASH"){
 
     passwordScreen.style.display = "none";
-
     mainSite.style.display = "block";
 
-    if(error){
-      error.textContent = "";
+    if(errorMsg){
+      errorMsg.textContent = "";
     }
 
     input.value = "";
 
   }else{
 
-    if(error){
-      error.textContent =
-        "❌ Incorrect password";
+    if(errorMsg){
+      errorMsg.textContent = "❌ Incorrect password";
     }
 
     input.value = "";
-
     input.focus();
 
   }
@@ -2158,251 +1825,132 @@ function checkPassword(){
 }
 
 
-/* ================= ENTER KEY ================= */
+/* ENTER KEY */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  function(){
+document.addEventListener("DOMContentLoaded", function(){
 
-    const input =
-      document.getElementById("passwordInput");
+  const input = document.getElementById("passwordInput");
 
-    if(input){
+  if(input){
 
-      input.addEventListener(
-        "keydown",
-        function(event){
+    input.addEventListener("keydown", function(event){
 
-          if(event.key === "Enter"){
+      if(event.key === "Enter"){
 
-            event.preventDefault();
+        event.preventDefault();
 
-            checkPassword();
-
-          }
-
-        }
-      );
-
-    }
-
-  }
-);
-
-
-/* ================= SHOW CLASS ================= */
-
-function showClass(id){
-
-  const home =
-    document.getElementById("homePage");
-
-  const class9 =
-    document.getElementById("class9Page");
-
-  const class10 =
-    document.getElementById("class10Page");
-
-  if(home){
-    home.style.display = "none";
-  }
-
-  if(class9){
-    class9.style.display = "none";
-  }
-
-  if(class10){
-    class10.style.display = "none";
-  }
-
-  const selected =
-    document.getElementById(id);
-
-  if(selected){
-    selected.style.display = "block";
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* ================= SHOW HOME ================= */
-
-function showHome(){
-
-  const home =
-    document.getElementById("homePage");
-
-  const class9 =
-    document.getElementById("class9Page");
-
-  const class10 =
-    document.getElementById("class10Page");
-
-  if(class9){
-    class9.style.display = "none";
-  }
-
-  if(class10){
-    class10.style.display = "none";
-  }
-
-  if(home){
-    home.style.display = "block";
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* ================= INTERNAL RETURN CHECK ================= */
-
-/*
-  Chapter/other internal page → Home:
-  Password नहीं आएगा.
-
-  Direct website open:
-  Password आएगा.
-
-  Browser reload:
-  Password आएगा.
-*/
-
-function isInternalReturn(){
-
-  try{
-
-    const ref =
-      document.referrer;
-
-    if(!ref){
-      return false;
-    }
-
-    const refUrl =
-      new URL(
-        ref,
-        window.location.href
-      );
-
-    return (
-      refUrl.origin === window.location.origin &&
-      refUrl.pathname !== window.location.pathname
-    );
-
-  }catch(error){
-
-    return false;
-
-  }
-
-}
-
-
-/* ================= INITIAL PAGE ================= */
-
-window.addEventListener(
-  "load",
-  function(){
-
-    const passwordScreen =
-      document.getElementById("passwordScreen");
-
-    const mainSite =
-      document.getElementById("mainSite");
-
-    const input =
-      document.getElementById("passwordInput");
-
-    if(!passwordScreen || !mainSite){
-      return;
-    }
-
-
-    if(isInternalReturn()){
-
-      /*
-        Same website ke kisi chapter/page se
-        Home par aaye hain.
-      */
-
-      passwordScreen.style.display = "none";
-
-      mainSite.style.display = "block";
-
-    }else{
-
-      /*
-        Direct open / reload
-      */
-
-      passwordScreen.style.display = "flex";
-
-      mainSite.style.display = "none";
-
-      if(input){
-
-        input.value = "";
-
-        setTimeout(
-          function(){
-            input.focus();
-          },
-          150
-        );
+        checkPassword();
 
       }
 
-    }
+    });
 
   }
-);
+
+});
 
 
-/* ================= PWA SERVICE WORKER ================= */
+/* PAGE LOAD */
+
+window.addEventListener("load", function(){
+
+  const passwordScreen =
+    document.getElementById("passwordScreen");
+
+  const mainSite =
+    document.getElementById("mainSite");
+
+  const input =
+    document.getElementById("passwordInput");
+
+  if(!passwordScreen || !mainSite){
+    return;
+  }
+
+  passwordScreen.style.display = "flex";
+  mainSite.style.display = "none";
+
+  if(input){
+
+    input.value = "";
+
+    setTimeout(function(){
+
+      input.focus();
+
+    },200);
+
+  }
+
+});
+
+
+/* CLASS NAVIGATION */
+
+function showClass(id){
+
+  document.getElementById("homePage").style.display = "none";
+
+  document.getElementById("class9Page").style.display = "none";
+
+  document.getElementById("class10Page").style.display = "none";
+
+  document.getElementById(id).style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* HOME */
+
+function showHome(){
+
+  document.getElementById("class9Page").style.display = "none";
+
+  document.getElementById("class10Page").style.display = "none";
+
+  document.getElementById("homePage").style.display = "block";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* SERVICE WORKER */
 
 if("serviceWorker" in navigator){
 
-  window.addEventListener(
-    "load",
-    function(){
+  window.addEventListener("load", function(){
 
-      navigator.serviceWorker
-        .register("./sw.js")
-        .then(
-          function(){
+    navigator.serviceWorker.register("./sw.js")
 
-            console.log(
-              "RAILWAY WARRIOR App Ready"
-            );
+      .then(function(){
 
-          }
-        )
-        .catch(
-          function(error){
+        console.log("RAILWAY WARRIOR PWA READY");
 
-            console.log(
-              "PWA Error:",
-              error
-            );
+      })
 
-          }
-        );
+      .catch(function(error){
 
-    }
-  );
+        console.log("PWA ERROR:", error);
+
+      });
+
+  });
 
 }
 
 </script>
 
+</div>
+<!-- MAIN SITE END -->
+
 </body>
-</html>
+        </html>  
