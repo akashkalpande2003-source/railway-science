@@ -1,4 +1,4 @@
-const CACHE_NAME = "railway-warrior-v1";
+const CACHE_NAME = "railway-warrior-v2";
 
 const CORE_FILES = [
   "./",
@@ -7,6 +7,7 @@ const CORE_FILES = [
   "./railway-warrior-icon.svg"
 ];
 
+/* INSTALL */
 self.addEventListener("install", function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
@@ -17,6 +18,7 @@ self.addEventListener("install", function(event) {
   self.skipWaiting();
 });
 
+/* ACTIVATE */
 self.addEventListener("activate", function(event) {
   event.waitUntil(
     caches.keys().then(function(keys) {
@@ -33,24 +35,65 @@ self.addEventListener("activate", function(event) {
   self.clients.claim();
 });
 
+/* FAST CACHE-FIRST LOADING */
 self.addEventListener("fetch", function(event) {
+
   if (event.request.method !== "GET") {
     return;
   }
 
   event.respondWith(
-    fetch(event.request)
-      .then(function(response) {
-        const copy = response.clone();
 
-        caches.open(CACHE_NAME).then(function(cache) {
-          cache.put(event.request, copy);
+    caches.match(event.request).then(function(cachedResponse) {
+
+      if (cachedResponse) {
+
+        /* Background update */
+        fetch(event.request)
+          .then(function(networkResponse) {
+
+            if (networkResponse && networkResponse.ok) {
+
+              caches.open(CACHE_NAME).then(function(cache) {
+                cache.put(
+                  event.request,
+                  networkResponse.clone()
+                );
+              });
+
+            }
+
+          })
+          .catch(function() {});
+
+        return cachedResponse;
+      }
+
+      /* Not cached → network */
+      return fetch(event.request)
+        .then(function(networkResponse) {
+
+          if (networkResponse && networkResponse.ok) {
+
+            caches.open(CACHE_NAME).then(function(cache) {
+              cache.put(
+                event.request,
+                networkResponse.clone()
+              );
+            });
+
+          }
+
+          return networkResponse;
+
+        })
+        .catch(function() {
+
+          return caches.match("./index.html");
+
         });
 
-        return response;
-      })
-      .catch(function() {
-        return caches.match(event.request);
-      })
+    })
+
   );
 });
