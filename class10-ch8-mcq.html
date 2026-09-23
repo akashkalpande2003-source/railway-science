@@ -1,0 +1,2773 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Heredity TCS Style Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#eef2f7;
+    color:#172033;
+    min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:900;
+    background:#102a56;
+    color:white;
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.logo-area h1{
+    font-size:20px;
+    margin-bottom:4px;
+}
+
+.logo-area p{
+    font-size:12px;
+    opacity:.85;
+}
+
+.header-info{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+}
+
+.badge{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
+    padding:7px 10px;
+    border-radius:7px;
+    font-size:12px;
+}
+
+/* ================= PALETTE BUTTON ================= */
+
+.palette-btn{
+    position:fixed;
+    top:78px;
+    right:15px;
+    z-index:1005;
+    border:none;
+    background:#f59e0b;
+    color:#111827;
+    padding:11px 15px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);
+    transition:.2s;
+}
+
+.palette-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    max-width:900px;
+    margin:30px auto;
+    padding:0 15px 40px;
+}
+
+/* ================= PROGRESS ================= */
+
+.progress-box{
+    background:white;
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:16px;
+    box-shadow:0 2px 10px rgba(0,0,0,.07);
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:9px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.progress-track{
+    height:8px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#2563eb;
+    transition:.3s;
+}
+
+/* ================= QUESTION CARD ================= */
+
+.question-card{
+    background:white;
+    border-radius:14px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+.question-header{
+    background:#f8fafc;
+    border-bottom:1px solid #e5e7eb;
+    padding:17px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.question-number{
+    font-size:15px;
+    font-weight:bold;
+    color:#1d4ed8;
+}
+
+.question-tag{
+    background:#e8efff;
+    color:#1d4ed8;
+    padding:5px 9px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.question-body{
+    padding:25px 22px;
+}
+
+.question-text{
+    font-size:19px;
+    line-height:1.7;
+    font-weight:600;
+    margin-bottom:23px;
+}
+
+/* ================= OPTIONS ================= */
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.option{
+    border:2px solid #dbe1ea;
+    background:#fff;
+    border-radius:10px;
+    padding:14px 15px;
+    cursor:pointer;
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    transition:.2s;
+    line-height:1.55;
+}
+
+.option:hover{
+    border-color:#2563eb;
+    background:#f8fbff;
+}
+
+.option-letter{
+    width:30px;
+    height:30px;
+    min-width:30px;
+    border-radius:50%;
+    background:#edf2f7;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    color:#334155;
+}
+
+.option-text{
+    flex:1;
+    font-size:16px;
+}
+
+.option.selected{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+.option.correct{
+    border-color:#16a34a;
+    background:#f0fdf4;
+}
+
+.option.correct .option-letter{
+    background:#16a34a;
+    color:white;
+}
+
+.option.wrong{
+    border-color:#dc2626;
+    background:#fef2f2;
+}
+
+.option.wrong .option-letter{
+    background:#dc2626;
+    color:white;
+}
+
+.option.disabled{
+    cursor:default;
+}
+
+.option.disabled:hover{
+    border-color:#dbe1ea;
+    background:white;
+}
+
+.option.correct:hover{
+    border-color:#16a34a;
+    background:#f0fdf4;
+}
+
+.option.wrong:hover{
+    border-color:#dc2626;
+    background:#fef2f2;
+}
+
+/* ================= EXPLANATION ================= */
+
+.explanation{
+    display:none;
+    margin-top:22px;
+    border-radius:11px;
+    overflow:hidden;
+}
+
+.explanation.show{
+    display:block;
+}
+
+.answer-status{
+    padding:12px 15px;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.answer-status.correct-status{
+    background:#dcfce7;
+    color:#166534;
+    border-left:5px solid #16a34a;
+}
+
+.answer-status.wrong-status{
+    background:#fee2e2;
+    color:#991b1b;
+    border-left:5px solid #dc2626;
+}
+
+.explanation-content{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-top:none;
+    padding:16px;
+    line-height:1.75;
+}
+
+.explanation-title{
+    font-weight:bold;
+    color:#1e3a8a;
+    margin-bottom:7px;
+}
+
+.correct-answer{
+    margin-bottom:9px;
+    font-weight:bold;
+    color:#166534;
+}
+
+/* ================= NAVIGATION ================= */
+
+.navigation{
+    margin-top:18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.nav-btn{
+    border:none;
+    border-radius:8px;
+    padding:12px 20px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.prev-btn{
+    background:#e5e7eb;
+    color:#374151;
+}
+
+.next-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.finish-btn{
+    background:#16a34a;
+    color:white;
+}
+
+.nav-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.nav-btn:not(:disabled):hover{
+    transform:translateY(-1px);
+}
+
+/* ================= PALETTE ================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.45);
+    z-index:1000;
+    display:none;
+}
+
+.overlay.show{
+    display:block;
+}
+
+.palette-drawer{
+    position:fixed;
+    top:0;
+    right:-370px;
+    width:350px;
+    max-width:92vw;
+    height:100vh;
+    background:white;
+    z-index:1004;
+    box-shadow:-5px 0 20px rgba(0,0,0,.2);
+    transition:right .3s ease;
+    display:flex;
+    flex-direction:column;
+}
+
+.palette-drawer.open{
+    right:0;
+}
+
+.palette-header{
+    background:#102a56;
+    color:white;
+    padding:17px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.palette-header h2{
+    font-size:18px;
+}
+
+.close-palette{
+    background:rgba(255,255,255,.15);
+    color:white;
+    border:none;
+    width:34px;
+    height:34px;
+    border-radius:7px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.palette-info{
+    padding:12px 15px;
+    border-bottom:1px solid #e5e7eb;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.palette-legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:8px;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:11px;
+}
+
+.legend-dot{
+    width:13px;
+    height:13px;
+    border-radius:3px;
+    border:1px solid #cbd5e1;
+}
+
+.dot-current{
+    background:#2563eb;
+}
+
+.dot-correct{
+    background:#16a34a;
+}
+
+.dot-wrong{
+    background:#dc2626;
+}
+
+.dot-unanswered{
+    background:#f1f5f9;
+}
+
+.palette-grid{
+    padding:17px;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:9px;
+    overflow-y:auto;
+}
+
+.palette-number{
+    height:42px;
+    border:1px solid #cbd5e1;
+    background:#f1f5f9;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#334155;
+}
+
+.palette-number.current{
+    background:#2563eb;
+    color:white;
+    border-color:#2563eb;
+}
+
+.palette-number.correct{
+    background:#16a34a;
+    color:white;
+    border-color:#16a34a;
+}
+
+.palette-number.wrong{
+    background:#dc2626;
+    color:white;
+    border-color:#dc2626;
+}
+
+/* ================= RESULT ================= */
+
+.result-screen{
+    display:none;
+    background:white;
+    border-radius:15px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.result-screen.show{
+    display:block;
+}
+
+.result-icon{
+    font-size:50px;
+    margin-bottom:10px;
+}
+
+.result-screen h2{
+    color:#102a56;
+    margin-bottom:20px;
+}
+
+.score-circle{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    background:#eff6ff;
+    border:8px solid #2563eb;
+    margin:0 auto 22px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.score-number{
+    font-size:34px;
+    font-weight:bold;
+    color:#1d4ed8;
+}
+
+.score-label{
+    font-size:12px;
+    color:#64748b;
+}
+
+.result-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    max-width:600px;
+    margin:20px auto;
+}
+
+.stat{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:9px;
+    padding:15px 8px;
+}
+
+.stat strong{
+    display:block;
+    font-size:21px;
+    margin-bottom:4px;
+}
+
+.stat span{
+    font-size:12px;
+    color:#64748b;
+}
+
+.restart-btn{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:12px 25px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+    .header-inner{
+        padding:11px 12px;
+    }
+
+    .logo-area h1{
+        font-size:16px;
+    }
+
+    .logo-area p{
+        font-size:10px;
+    }
+
+    .header-info{
+        display:none;
+    }
+
+    .palette-btn{
+        top:67px;
+        right:10px;
+        padding:9px 11px;
+        font-size:12px;
+    }
+
+    .main{
+        margin:20px auto;
+        padding:0 10px 30px;
+    }
+
+    .question-body{
+        padding:19px 14px;
+    }
+
+    .question-header{
+        padding:13px 14px;
+    }
+
+    .question-text{
+        font-size:17px;
+        line-height:1.65;
+    }
+
+    .option{
+        padding:12px 11px;
+    }
+
+    .option-text{
+        font-size:14px;
+    }
+
+    .option-letter{
+        width:27px;
+        height:27px;
+        min-width:27px;
+    }
+
+    .navigation{
+        flex-wrap:wrap;
+    }
+
+    .nav-btn{
+        padding:11px 13px;
+        font-size:13px;
+    }
+
+    .result-stats{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+    <div class="header-inner">
+
+        <div class="logo-area">
+            <h1>Railway Science</h1>
+            <p>Heredity • TCS Style Mock Test</p>
+        </div>
+
+        <div class="header-info">
+            <div class="badge">58 Questions</div>
+            <div class="badge">No Timer</div>
+            <div class="badge">No Negative Marking</div>
+        </div>
+
+    </div>
+</header>
+
+
+<!-- ================= PALETTE BUTTON ================= -->
+
+<button class="palette-btn" onclick="openPalette()">
+    ☷ Palette
+</button>
+
+
+<!-- ================= OVERLAY ================= -->
+
+<div class="overlay" id="overlay" onclick="closePalette()"></div>
+
+
+<!-- ================= PALETTE DRAWER ================= -->
+
+<div class="palette-drawer" id="paletteDrawer">
+
+    <div class="palette-header">
+
+        <h2>Question Palette</h2>
+
+        <button class="close-palette" onclick="closePalette()">
+            ✕
+        </button>
+
+    </div>
+
+    <div class="palette-info">
+
+        <b>58 Questions</b><br>
+        किसी भी question number पर click करके सीधे उस प्रश्न पर जाएँ।
+
+        <div class="palette-legend">
+
+            <div class="legend-item">
+                <span class="legend-dot dot-current"></span>
+                Current
+            </div>
+
+            <div class="legend-item">
+                <span class="legend-dot dot-correct"></span>
+                Correct
+            </div>
+
+            <div class="legend-item">
+                <span class="legend-dot dot-wrong"></span>
+                Wrong
+            </div>
+
+            <div class="legend-item">
+                <span class="legend-dot dot-unanswered"></span>
+                Unanswered
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="palette-grid" id="paletteGrid"></div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <div class="progress-box">
+
+        <div class="progress-top">
+
+            <span id="progressText">
+                Question 1 of 58
+            </span>
+
+            <span id="scoreText">
+                Score: 0
+            </span>
+
+        </div>
+
+        <div class="progress-track">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= QUESTION ================= -->
+
+    <div class="question-card" id="questionCard">
+
+        <div class="question-header">
+
+            <span
+                class="question-number"
+                id="questionNumber">
+                प्रश्न 1
+            </span>
+
+            <span
+                class="question-tag"
+                id="questionTag">
+                Heredity
+            </span>
+
+        </div>
+
+
+        <div class="question-body">
+
+            <div
+                class="question-text"
+                id="questionText">
+            </div>
+
+            <div
+                class="options"
+                id="optionsContainer">
+            </div>
+
+
+            <!-- ================= EXPLANATION ================= -->
+
+            <div
+                class="explanation"
+                id="explanationBox">
+
+                <div
+                    class="answer-status"
+                    id="answerStatus">
+                </div>
+
+                <div class="explanation-content">
+
+                    <div
+                        class="correct-answer"
+                        id="correctAnswer">
+                    </div>
+
+                    <div class="explanation-title">
+                        💡 Explanation
+                    </div>
+
+                    <div id="explanationText"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <div class="navigation">
+
+        <button
+            class="nav-btn prev-btn"
+            id="prevBtn"
+            onclick="previousQuestion()">
+
+            ← Previous
+
+        </button>
+
+        <button
+            class="nav-btn next-btn"
+            id="nextBtn"
+            onclick="nextQuestion()">
+
+            Next Question →
+
+        </button>
+
+    </div>
+
+
+    <!-- ================= RESULT ================= -->
+
+    <div
+        class="result-screen"
+        id="resultScreen">
+
+        <div class="result-icon">
+            🎯
+        </div>
+
+        <h2>
+            Test Completed
+        </h2>
+
+        <div class="score-circle">
+
+            <div
+                class="score-number"
+                id="finalScore">
+                0/58
+            </div>
+
+            <div class="score-label">
+                Score
+            </div>
+
+        </div>
+
+        <div class="result-stats">
+
+            <div class="stat">
+                <strong id="correctCount">0</strong>
+                <span>Correct</span>
+            </div>
+
+            <div class="stat">
+                <strong id="wrongCount">0</strong>
+                <span>Wrong</span>
+            </div>
+
+            <div class="stat">
+                <strong id="unansweredCount">0</strong>
+                <span>Unanswered</span>
+            </div>
+
+        </div>
+
+        <p style="margin-bottom:20px;color:#64748b;">
+            कोई negative marking नहीं है।
+        </p>
+
+        <button
+            class="restart-btn"
+            onclick="restartTest()">
+
+            🔄 Restart Test
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   58 QUESTIONS
+========================================================= */
+
+const questions = [
+
+/* ================= Q1 ================= */
+
+{
+q:`DNA, RNA, gene, chromosome<br><br>
+प्रजनन के दौरान, DNA प्रतिकृति बनाना क्यों महत्वपूर्ण है?`,
+
+tag:`DNA, RNA, gene, chromosome`,
+
+options:[
+`श्वसन के लिए`,
+`रूधिर परिसंचरण के लिए`,
+`पाचन के लिए`,
+`लक्षणों की वंशागति के लिए`
+],
+
+answer:3,
+
+explanation:
+`DNA में आनुवंशिक जानकारी संग्रहीत होती है। DNA की प्रतिकृति बनने से यह आनुवंशिक जानकारी नई संतति तक पहुँच सकती है। इसलिए लक्षणों की वंशागति के लिए DNA replication महत्वपूर्ण है।`
+},
+
+
+/* ================= Q2 ================= */
+
+{
+q:`DNA, RNA, gene, chromosome<br><br>
+कोशिका केंद्रक में DNA निम्नलिखित में से किस पदार्थ के निर्माण के लिए सूचना स्रोत है?`,
+
+tag:`DNA, RNA, gene, chromosome`,
+
+options:[
+`ग्लूकोज`,
+`प्रोटीन`,
+`फ्रक्टोज`,
+`लिपिड`
+],
+
+answer:1,
+
+explanation:
+`DNA में genes के रूप में आनुवंशिक सूचना होती है। यह सूचना कोशिका में आवश्यक प्रोटीनों के निर्माण के लिए उपयोग की जाती है।`
+},
+
+
+/* ================= Q3 ================= */
+
+{
+q:`DNA, RNA, gene, chromosome<br><br>
+उस अर्ध-संरक्षी प्रक्रिया का नाम क्या है जिसमें DNA , दो समरूप अणुओं में द्विगुणित होता है?`,
+
+tag:`DNA, RNA, gene, chromosome`,
+
+options:[
+`ट्रांसलेशन (Translation)`,
+`उत्परिवर्तन (Mutation)`,
+`प्रतिकृति (Replication)`,
+`अनुलेखन (Transcription)`
+],
+
+answer:2,
+
+explanation:
+`DNA की अपनी समान प्रति बनाने की प्रक्रिया को प्रतिकृति या Replication कहा जाता है। इसे अर्ध-संरक्षी कहा जाता है क्योंकि प्रत्येक नए DNA अणु में एक पुरानी strand और एक नई strand होती है।`
+},
+
+
+/* ================= Q4 ================= */
+
+{
+q:`DNA, RNA, gene, chromosome<br><br>
+प्रजनन के दौरान DNA प्रतियां बनाने का मुख्य उद्देश्य क्या है?`,
+
+tag:`DNA, RNA, gene, chromosome`,
+
+options:[
+`संततियों को आनुवंशिक जानकारी प्रदान करना`,
+`समरूप जुड़वाँ बच्चे पैदा करना`,
+`कोशिकाओं की संरचना बदलना`,
+`जीवों को रोगों से प्रतिरक्षित बनाना`
+],
+
+answer:0,
+
+explanation:
+`DNA की प्रतियां बनने से आनुवंशिक सूचना संतति तक पहुँचती है। इसी कारण माता-पिता के लक्षण अगली पीढ़ी में दिखाई दे सकते हैं।`
+},
+
+
+/* ================= Q5 ================= */
+
+{
+q:`Genetic engineering and GMO basics<br><br>
+निम्नलिखित में से किस तरीके से वैज्ञानिक, फसल किस्मों में वांछनीय गुणों को शामिल कर सकते हैं?`,
+
+tag:`Genetic engineering and GMO basics`,
+
+options:[
+`सिंचाई`,
+`उर्वरक`,
+`संकरण`,
+`खरपतवार नियंत्रण`
+],
+
+answer:2,
+
+explanation:
+`संकरण (Hybridisation) में अलग-अलग वांछनीय गुणों वाली पौध किस्मों को cross करके उपयोगी गुणों को संतति में लाने का प्रयास किया जाता है।`
+},
+
+
+/* ================= Q6 ================= */
+
+{
+q:`Genetic engineering and GMO basics<br><br>
+निम्नलिखित में से कौन-सी एक ऐसी फसल किस्म सुधार विधि है, जिसमें वांछित अभिलक्षण प्रदान करने वाले जीन को समाविष्ट किया जाता है?`,
+
+tag:`Genetic engineering and GMO basics`,
+
+options:[
+`मुकुलन (Budding)`,
+`आनुवंशिकतः विकसित फसलें (Genetically modified crops)`,
+`कलम बांधना (Grafting)`,
+`प्राकृतिक कायिक जनन (Natural vegetative reproduction)`
+],
+
+answer:1,
+
+explanation:
+`Genetically modified crops में वांछित विशेषक प्रदान करने वाले जीन को genetic engineering द्वारा पौधे के genetic material में शामिल किया जाता है।`
+},
+
+
+/* ================= Q7 ================= */
+
+{
+q:`Genetic engineering and GMO basics<br><br>
+निम्नलिखित में से कौन-सी, फसल किस्मों में वांछनीय गुण उत्पन्न करने की एक विधि नहीं है?`,
+
+tag:`Genetic engineering and GMO basics`,
+
+options:[
+`अंतराजीनी संकरण (Intragenic hybridisation)`,
+`अंतःउपजातीय संकरण (Intervarietal hybridisation)`,
+`अंतर्जातीय संकरण (Interspecific hybridisation)`,
+`अंतरवंशीय संकरण (Intergeneric hybridisation)`
+],
+
+answer:0,
+
+explanation:
+`दिए गए विकल्पों में अंतराजीनी संकरण को फसल किस्मों में वांछनीय गुण उत्पन्न करने की विधि के रूप में नहीं माना गया है।`
+},
+
+
+/* ================= Q8 ================= */
+
+{
+q:`Genetic terms (dominant/recessive etc)<br><br>
+लैंगिक प्रजनन करने वाले जीवों में, किसी संतति को प्रत्येक गुण के कितने संस्करण आनुवंशिक रूप से मिलते हैं?`,
+
+tag:`Genetic terms (dominant/recessive etc)`,
+
+options:[
+`प्रत्येक माता-पिता से एक संस्करण`,
+`कुल मिलाकर एक संस्करण`,
+`केवल पिता से एक संस्करण`,
+`केवल माता से दो संस्करण`
+],
+
+answer:0,
+
+explanation:
+`लैंगिक प्रजनन में संतति को किसी gene का एक allele माता से और एक allele पिता से प्राप्त होता है। इसलिए प्रत्येक गुण के सामान्यतः दो संस्करण प्राप्त होते हैं।`
+},
+
+
+/* ================= Q9 ================= */
+
+{
+q:`Heredity & Mendel's Laws<br><br>
+कुछ सरीसृपों में, संतति का लिंग __________ द्वारा निर्धारित होता है।`,
+
+tag:`Heredity & Mendel's Laws`,
+
+options:[
+`अंडों के ऊष्मायन के तापमान`,
+`Y गुणसूत्र की उपस्थिति या अनुपस्थिति`,
+`लिंग गुणसूत्र`,
+`माता में हार्मोन के स्तर`
+],
+
+answer:0,
+
+explanation:
+`कुछ सरीसृपों में Temperature-dependent sex determination पाया जाता है। अंडों के ऊष्मायन के दौरान तापमान संतति के लिंग को प्रभावित कर सकता है।`
+},
+
+
+/* ================= Q10 ================= */
+
+{
+q:`Heredity & Mendel's Laws<br><br>
+निम्नलिखित में से कौन-सा जनन प्रकार यह सुनिश्चित करता है कि जंतुओं में दोनों जनक (parents) के गुण संतानों को वंशागति में प्राप्त होते हैं?`,
+
+tag:`Heredity & Mendel's Laws`,
+
+options:[
+`मुकुलन (Budding)`,
+`द्वि खंडन (Binary fission)`,
+`लैंगिक जनन (Sexual reproduction)`,
+`क्लोनिंग (Cloning)`
+],
+
+answer:2,
+
+explanation:
+`लैंगिक जनन में दो जनकों के genetic material का संयोजन होता है। इसलिए संतति को दोनों parents से आनुवंशिक जानकारी प्राप्त होती है।`
+},
+
+
+/* ================= Q11 ================= */
+
+{
+q:`Heredity & Mendel's Laws<br><br>
+गुणसूत्र योगदान (chromosome contribution) के संदर्भ में, निम्नलिखित में से कौन-सा कथन सही है?`,
+
+tag:`Heredity & Mendel's Laws`,
+
+options:[
+`पिता केवल X गुणसूत्र का योगदान देता है`,
+`माता X या Y का योगदान दे सकती है`,
+`माता-पिता दोनों या तो X या Y का योगदान देते हैं`,
+`माता सदैव X का योगदान देती है, पिता X या Y का योगदान देता है`
+],
+
+answer:3,
+
+explanation:
+`मानव में माता का अंडाणु X chromosome देता है, जबकि पिता का शुक्राणु X या Y chromosome दे सकता है। इसी कारण XX या XY combination बनता है।`
+},
+
+
+/* ================= Q12 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+निम्नलिखित में से कौन-सा, वंशागति के संबंध में मेंडल के निष्कर्ष को सही रूप से दर्शाता है?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`प्रत्येक विशेषक तीन जीनों द्वारा नियंत्रित होते हैं।`,
+`प्रत्येक विशेषक एक गुणसूत्र द्वारा नियंत्रित होते हैं।`,
+`प्रत्येक विशेषक एक कारक द्वारा नियंत्रित होते हैं।`,
+`प्रत्येक विशेषक दो कारकों द्वारा नियंत्रित होते हैं।`
+],
+
+answer:2,
+
+explanation:
+`Mendel ने inheritance की इकाइयों को factors कहा था। आधुनिक आनुवंशिकी में इन्हें genes और उनके alleles से जोड़ा जाता है।`
+},
+
+
+/* ================= Q13 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मेंडल के प्रयोग में, जब उन्होंने एक लंबे (TT) और एक बौने मटर (tt) पौधे का संकरण किया तो F1 पीढ़ी में उन्होंने क्या देखा?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`आधे लंबे थे, आधे बौने थे`,
+`सभी बौने थे`,
+`सभी लंबे थे`,
+`सभी मध्यम लंबाई के थे`
+],
+
+answer:2,
+
+explanation:
+`TT × tt cross में TT parent केवल T gamete और tt parent केवल t gamete देता है। इसलिए सभी F1 offspring Tt होते हैं और dominant tall trait प्रदर्शित करते हैं।`
+},
+
+
+/* ================= Q14 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+यदि लंबा (T), छोटे (t) पर प्रभावी है, और गोल बीज (R), झुर्रीदार (r) पर प्रभावी हैं, तो उस पौधे के जीनोटाइप की पहचान कीजिए जो छोटी ऊंचाई और गोल बीज दर्शाता है।`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`TtRr`,
+`ttRR`,
+`TtRR`,
+`Ttrr`
+],
+
+answer:1,
+
+explanation:
+`छोटी ऊंचाई के लिए genotype tt होना चाहिए क्योंकि tall T dominant है। गोल बीज के लिए R dominant है। इसलिए ttRR सही genotype है।`
+},
+
+
+/* ================= Q15 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+निम्नलिखित में से किस वैज्ञानिक ने वंशागति के नियमों पर पहुंचने के लिए विज्ञान और गणित के अपने ज्ञान को मिश्रित किया?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`ग्रेगर जोहान मेंडल (Gregor Johann Mendel)`,
+`कैमिलो गोल्गी (Camillo Golgi)`,
+`ई. रदरफोर्ड (E Rutherford)`,
+`जॉन डाल्टन (John Dalton)`
+],
+
+answer:0,
+
+explanation:
+`Gregor Johann Mendel ने मटर के पौधों पर प्रयोग करके प्राप्त परिणामों का mathematical analysis किया और inheritance के नियमों तक पहुँचे।`
+},
+
+
+/* ================= Q16 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+दिए गए अभिकथन (A) और कारण (R) को ध्यानपूर्वक पढ़ें और सही विकल्प चुनें।<br><br>
+(A): मेंडल ने अपने प्रयोगों के लिए मटर के पौधों को इसलिए चुना क्योंकि उन्हें उगाना आसान था और उनमें विशिष्ट विपरीत गुण पाए जाते थे।<br>
+(R): मटर के पौधे अलैंगिक रूप से प्रजनन करते हैं, जिससे मेंडल आसानी से संकरों को नियंत्रित कर पाते थे।`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`A और R दोनों सत्य हैं, और R, A की सही व्याख्या है`,
+`A सत्य है, लेकिन R असत्य है`,
+`A और R दोनों सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है`,
+`A असत्य है, लेकिन R सत्य है`
+],
+
+answer:1,
+
+explanation:
+`अभिकथन A सही है क्योंकि pea plants में स्पष्ट contrasting traits थे और उनका cultivation आसान था। कारण R गलत है क्योंकि pea plants sexual reproduction करते हैं, asexual reproduction नहीं।`
+},
+
+
+/* ================= Q17 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+निम्नलिखित में से किस विकल्प को, वंशागति के नियमों के निर्माण में मेंडल की सफलता का कारण माना जा सकता है?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`वह एक भिक्षु थे।`,
+`उन्हें गणित का ज्ञान था।`,
+`उनके पास अलौकिक शक्तियां थीं।`,
+`वह एक सुप्रशिक्षित वैज्ञानिक थे।`
+],
+
+answer:1,
+
+explanation:
+`Mendel ने अपने experiments के परिणामों का संख्यात्मक और mathematical analysis किया। गणित का ज्ञान उनके inheritance ratios को समझने में महत्वपूर्ण था।`
+},
+
+
+/* ================= Q18 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मेंडल ने किस पौधे पर अपने प्रयोग किए?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`टमाटर`,
+`मटर का पौधा`,
+`सेम का पौधा`,
+`सूरजमुखी`
+],
+
+answer:1,
+
+explanation:
+`Gregor Mendel ने garden pea अर्थात मटर के पौधे (Pisum sativum) पर अपने प्रसिद्ध inheritance experiments किए थे।`
+},
+
+
+/* ================= Q19 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+निम्नलिखित में से कौन-से लक्षण का अध्ययन मेंडल ने मटर के पौधों में नहीं किया?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`फूलों की स्थिति`,
+`पत्ती का आकार`,
+`बीज की आकृति`,
+`पौधे की ऊँचाई`
+],
+
+answer:1,
+
+explanation:
+`Mendel के सात प्रमुख contrasting traits में flower position, seed shape और plant height शामिल थे, लेकिन leaf size/shape शामिल नहीं था।`
+},
+
+
+/* ================= Q20 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मटर के पौधों में बौनेपन के लिए 't' जैसे अप्रभावी विशेषक (recessive traits) केवल तभी क्यों दिखाई देते हैं जब दोनों ऐलील (alleles) अप्रभावी होते हैं?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`प्रभावी ऐलील, अप्रभावी ऐलील को ढक लेते हैं।`,
+`अप्रभावी ऐलील अधिक प्रबल होते हैं।`,
+`अप्रभावी ऐलील को आगे नहीं बढ़ाया जा सकता है।`,
+`अप्रभावी ऐलील कभी व्यक्त नहीं होते हैं।`
+],
+
+answer:0,
+
+explanation:
+`यदि genotype Tt है तो T dominant allele, t recessive allele के प्रभाव को mask करता है। Recessive dwarf trait तभी दिखाई देता है जब genotype tt हो।`
+},
+
+
+/* ================= Q21 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मेंडल ने अपने संकरण (crosses) में तद्रूप-प्रजनन वाले पौधों (true-breeding plants) का जनक के रूप में क्यों उपयोग किया?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`पौधों की वृद्धि पर पर्यावरणीय प्रभावों का अध्ययन करने के लिए`,
+`उन्हें समान मृदा स्थिति में उगाने के लिए`,
+`वंशागति पैटर्न का अध्ययन करने के लिए`,
+`शीघ्रता से बड़ी संख्या में पौधे प्राप्त करने के लिए`
+],
+
+answer:2,
+
+explanation:
+`True-breeding plants लगातार एक ही trait को व्यक्त करते हैं। इसलिए Mendel को parental traits स्पष्ट रूप से ज्ञात रहते थे और inheritance pattern का अध्ययन करना आसान हुआ।`
+},
+
+
+/* ================= Q22 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+वंशानुक्रम अध्ययनों के दौरान, मेंडल ने उस कारक की कितनी प्रतियां (copies) प्रस्तावित कीं, जो लैंगिक रूप से प्रजनन करने वाले जीवों में मौजूद विशेषकों (traits) को नियंत्रित करता था?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`चार`,
+`तीन`,
+`दो`,
+`एक`
+],
+
+answer:2,
+
+explanation:
+`Mendel के अनुसार sexual reproduction करने वाले diploid organisms में किसी trait को नियंत्रित करने वाले factor की दो copies होती हैं, एक-एक दोनों parents से।`
+},
+
+
+/* ================= Q23 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+निम्नलिखित में से कौन-सा विकल्प मेंडल के प्रयोग में F1 पीढ़ी में अप्रभावी लक्षणों की अनुपस्थिति और F2 पीढ़ी में उनकी पुनः उपस्थिति की व्याख्या करता है?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`F1 पीढ़ी में अप्रभावी विशेषक पूर्ण रूप से नष्ट हो जाते हैं।`,
+`अप्रभावी विशेषक अनियमित रूप से पीढ़ियों को छोड़ देते हैं।`,
+`अप्रभावी ऐलील F1 में छिपे रहते हैं, लेकिन पृथक्करण के कारण F2 में पुनः प्रकट हो जाते हैं।`,
+`अप्रभावी विशेषक F2 पीढ़ी में प्रभावी हो जाते हैं।`
+],
+
+answer:2,
+
+explanation:
+`F1 generation में recessive allele उपस्थित रहता है लेकिन dominant allele के कारण उसका trait दिखाई नहीं देता। Gamete formation के समय alleles अलग होते हैं और F2 में recessive combination बनने पर trait फिर दिखाई देता है।`
+},
+
+
+/* ================= Q24 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मटर का निम्नलिखित में से कौन-सा लक्षण एक प्रभावी विशेषक था, जिसका उपयोग मेंडल द्वारा अपने प्रयोगों में किया गया था?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`हरे बीज (Green Seeds)`,
+`झुर्रीदार बीज (Wrinkled Seeds)`,
+`छोटे पादप (Dwarf Plants)`,
+`लंबे पादप (Tall Plants)`
+],
+
+answer:3,
+
+explanation:
+`Mendel के pea plant experiments में tallness dominant trait था, जबकि dwarfness recessive trait था।`
+},
+
+
+/* ================= Q25 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मेंडल के अनुसार, जब एक लंबे मटर के पौधे (TT) का संकरण एक बौने मटर के पौधे (tt) के साथ किया जाता है, तो F1 संतति में __________ होंगे।`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`सभी लंबे (Tt)`,
+`50% लंबे (Tt), 50% बौने (tt)`,
+`75% लंबे (TT/Tt), 25% बौने (tt)`,
+`सभी बौने (tt)`
+],
+
+answer:0,
+
+explanation:
+`TT × tt में प्रत्येक F1 offspring को T एक parent से और t दूसरे parent से मिलता है। इसलिए सभी offspring Tt होंगे और सभी लंबे दिखाई देंगे।`
+},
+
+
+/* ================= Q26 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मेंडल ने वंशानुक्रम के नियमों को प्रतिपादित करने के लिए कितने विपरीत लक्षणों का उपयोग किया?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`7`,
+`4`,
+`5`,
+`8`
+],
+
+answer:0,
+
+explanation:
+`Mendel ने garden pea में सात pairs of contrasting traits का अध्ययन किया था।`
+},
+
+
+/* ================= Q27 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मटर (garden peas) के निम्नलिखित विपर्यासी दृश्य लक्षणों में से किसका उपयोग मेंडल द्वारा नहीं किया गया था?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`हरे/सफेद बीज`,
+`लंबे/बौने पौधे`,
+`गोल/झुर्रीदार बीज`,
+`सफेद/बैंगनी पुष्प`
+],
+
+answer:0,
+
+explanation:
+`Mendel ने seed colour के लिए yellow/green का अध्ययन किया था। Green/white seed pair उनके सात contrasting traits में शामिल नहीं था।`
+},
+
+
+/* ================= Q28 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+मेंडल (Mendel) ने अपने एकसंकर संकरण (monohybrid cross) से कौन-सा नियम व्युत्पन्न किया?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`स्वतंत्र अपव्यूहन नियम (Law of Independent Assortment)`,
+`नियत अनुपात का नियम (Law of Constant Proportion)`,
+`विकास का नियम (Law of Evolution)`,
+`पृथक्करण नियम (Law of Segregation)`
+],
+
+answer:3,
+
+explanation:
+`Monohybrid cross से Mendel के Law of Segregation को समझने में सहायता मिली। इसमें allele pair gamete formation के समय अलग हो जाते हैं।`
+},
+
+
+/* ================= Q29 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+आनुवंशिकी में मेंडल का क्या योगदान था?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`वंशागति के नियम`,
+`विकास का सिद्धांत`,
+`DNA की खोज`,
+`उपार्जित लक्षणों की वंशागति`
+],
+
+answer:0,
+
+explanation:
+`Mendel ने pea plant experiments के आधार पर inheritance के मूल नियम प्रस्तुत किए, जिन्हें Mendel's Laws of Inheritance कहा जाता है।`
+},
+
+
+/* ================= Q30 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+निम्नलिखित में से कौन-सा क्रॉस, F1 पीढ़ी में सभी विषमयुग्मजी संतानें उत्पन्न करेगा?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`TT × TT`,
+`tt × tt`,
+`Tt × Tt`,
+`TT × tt`
+],
+
+answer:3,
+
+explanation:
+`TT × tt cross में TT केवल T gametes और tt केवल t gametes बनाता है। इसलिए F1 की सभी संतति Tt अर्थात heterozygous होंगी।`
+},
+
+
+/* ================= Q31 ================= */
+
+{
+q:`Mendel laws of inheritance<br><br>
+एक पादप प्रजनक, मटर के दो शुद्ध-नस्ली पादपों—एक गोल बीज वाला और दूसरा झुर्रीदार बीज वाला—के बीच संकरण कराता है। मेंडल के निष्कर्षों के आधार पर, F1 पीढ़ी के सभी बीजों में कौन-सा लक्षणप्ररूप प्रदर्शित होगा?`,
+
+tag:`Mendel laws of inheritance`,
+
+options:[
+`गोल बीज`,
+`विभिन्न अनुपातों में गोल और झुर्रीदार का मिश्रण`,
+`आधे गोल, आधे झुर्रीदार`,
+`झुर्रीदार बीज`
+],
+
+answer:0,
+
+explanation:
+`Round seed trait dominant है और wrinkled recessive। शुद्ध-नस्ली RR × rr cross में सभी F1 Rr होंगे और सभी round seeds प्रदर्शित करेंगे।`
+},
+
+
+/* ================= Q32 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+निम्नलिखित में से कौन-सी जीवन प्रक्रिया, प्रजातियों में विविधता लाने के लिए महत्वपूर्ण है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`विषमपोषी पोषण (Heterotrophic nutrition)`,
+`लैंगिक जनन (Sexual reproduction)`,
+`स्वपोषी पोषण (Autotrophic nutrition)`,
+`परिवहन (Transportation)`
+],
+
+answer:1,
+
+explanation:
+`Sexual reproduction में दो parents के genetic material का combination होता है। इससे offspring में genetic variation उत्पन्न होती है।`
+},
+
+
+/* ================= Q33 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+लैंगिक जनन करने वाले जंतुओं में आनुवंशिक विविधता निम्नलिखित में से किसके द्वारा सुनिश्चित की जाती है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`युग्मक (Gametes), सूत्रीविभाजन (mitosis) द्वारा बनते हैं`,
+`संतानें दोनों जनकों से जीन प्राप्त करती हैं`,
+`निषेचन शरीर के अंदर होता है।`,
+`केवल एक जनक शामिल होता है`
+],
+
+answer:1,
+
+explanation:
+`Sexual reproduction में offspring को genes दोनों parents से मिलते हैं। इन genes के अलग-अलग combinations genetic variation को बढ़ाते हैं।`
+},
+
+
+/* ================= Q34 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+जीवों की आबादी में विविधता मुख्यतः क्यों महत्वपूर्ण है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`यह सुनिश्चित करता है कि सभी जीव समान हों`,
+`यह जीवों को तेजी से प्रजनन करने में मदद करता है`,
+`यह सदैव एक ही पीढ़ी में तुरन्त परिणाम देता है।`,
+`यह बदलती पर्यावरणीय परिस्थितियों में जीवित रहने की संभावना को बढ़ाता है`
+],
+
+answer:3,
+
+explanation:
+`Population में variations होने से कुछ individuals बदलते environment में बेहतर survive कर सकते हैं। इसलिए variation long-term survival और adaptation के लिए महत्वपूर्ण है।`
+},
+
+
+/* ================= Q35 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+पादपों में लैंगिक जनन द्वारा उत्पन्न विविधता के महत्व के संदर्भ में दिए गए कथनों को पढ़िए और सबसे अधिक उपयुक्त विकल्प का चयन कीजिए।<br><br>
+कथन A: जनन, प्रजातियों की जनसंख्या के स्थायित्व से संबंधित है।<br>
+कथन B: इस प्रकार, समय के साथ प्रजातियों की उत्तरजीविता के लिए विविधता उपयोगी नहीं है।`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`कथन A गलत है, लेकिन कथन B सही है`,
+`कथन A सही है, लेकिन कथन B गलत है`,
+`कथन A और कथन B दोनों सही हैं`,
+`कथन A और कथन B दोनों गलत हैं`
+],
+
+answer:1,
+
+explanation:
+`कथन A सही है क्योंकि reproduction species की continuity में महत्वपूर्ण है। कथन B गलत है क्योंकि variation बदलते environment में species की survival में उपयोगी हो सकती है।`
+},
+
+
+/* ================= Q36 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+जीवों में आनुवंशिक विविधता का महत्व यह है कि __________।`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`यह प्रभावी और अप्रभावी लक्षणों को जन्म देता है`,
+`इससे संतान में एकरूपता आती है`,
+`यह जीव के जीवित रहने की संभावना बढ़ाता है`,
+`यह लैंगिक जनन को सक्षम बनाता है`
+],
+
+answer:2,
+
+explanation:
+`Genetic diversity population में अलग-अलग variations उपलब्ध कराती है। इनमें से कुछ variations बदलते environment में survival advantage दे सकती हैं।`
+},
+
+
+/* ================= Q37 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+प्रजनन के दौरान DNA प्रतिकृतियों में लघु परिवर्तन महत्वपूर्ण होते हैं, क्योंकि वे __________।`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`सदैव हानिकारक प्रभाव डालते हैं`,
+`निषेचन होने से रोकते हैं`,
+`अगली पीढ़ी में प्रजनन को रोकते हैं`,
+`ऐसी विविधताएँ प्रदान करते हैं, जो जीवित रहने में सहायता कर सकती हैं`
+],
+
+answer:3,
+
+explanation:
+`DNA replication में छोटे differences variations उत्पन्न कर सकते हैं। इनमें से कुछ variations environment के अनुसार beneficial हो सकती हैं और survival में सहायता कर सकती हैं।`
+},
+
+
+/* ================= Q38 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+लैंगिक प्रजनन के परिणामस्वरूप संततियों में अधिक विविधता क्यों पाई जाती है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`क्योंकि यह जनक की सटीक प्रतिकृतियां उत्पन्न करता है।`,
+`क्योंकि यह केवल मनुष्यों में ही होता है।`,
+`क्योंकि इसमें समरूप DNA का प्रतिलिपिकरण शामिल है।`,
+`क्योंकि इसमें दो व्यष्टियों से आनुवंशिक पदार्थ का संयोजन होता है।`
+],
+
+answer:3,
+
+explanation:
+`Sexual reproduction में दो individuals के genetic material का combination होता है। इससे offspring में parental genes के नए combinations बनते हैं और variation बढ़ती है।`
+},
+
+
+/* ================= Q39 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+विविधताओं के बारे में निम्नलिखित में से कौन-सा कथन गलत है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`विविधता बदलते वातावरण के अनुकूल ढलने में सक्षम बनाती है।`,
+`रोगों के प्रति लचीलापन प्रदान करता है।`,
+`विविधता के कारण प्रजातियाँ विलुप्त होने की ओर अग्रसर होती हैं।`,
+`आपदाओं के दौरान प्रजातियों के अस्तित्व को सुनिश्चित करता है।`
+],
+
+answer:2,
+
+explanation:
+`Variation अपने आप species को extinction की ओर नहीं ले जाती। इसके विपरीत, favourable variations कुछ individuals को बदलते environment या आपदा में survive करने में सहायता कर सकती हैं।`
+},
+
+
+/* ================= Q40 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+वाक्यांश "बनने वाली DNA प्रतिकृतियाँ एकसमान तो होंगी, परन्तु मौलिक DNA के समरूप नहीं होंगी" का क्या अर्थ है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`प्रत्येक DNA प्रतिकृति पूरी तरह से असंबंधित होती है।`,
+`प्रतिकृति बनने के बाद मौलिक DNA नष्ट हो जाता है।`,
+`सभी DNA प्रतिकृतियां समरूप क्लोन हैं।`,
+`DNA प्रतिकृतियों में थोड़ा अंतर हो सकता है।`
+],
+
+answer:3,
+
+explanation:
+`DNA replication बहुत accurate होती है, लेकिन यह पूरी तरह error-free नहीं है। इसलिए नई DNA copies में मूल DNA की तुलना में छोटे differences हो सकते हैं।`
+},
+
+
+/* ================= Q41 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+लैंगिक जनन करने वाले पौधों में विविधता क्यों महत्वपूर्ण है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`यह सुनिश्चित करता है कि सभी संतानें माता-पिता के समान हों, जिससे एकरूपता बनी रहे।`,
+`यह पर्यावरणीय परिवर्तनों के प्रति अनुकूलन को सक्षम बनाकर जीवित रहने की संभावनाओं को बढ़ाता है।`,
+`इससे जनसंख्या में आनुवंशिक विविधता कम हो जाती है।`,
+`यह प्रजातियों की बदलते वातावरण के प्रति अनुकूलन क्षमता को सीमित करता है।`
+],
+
+answer:1,
+
+explanation:
+`Sexual reproduction से genetic diversity बढ़ती है। यह diversity बदलते environmental conditions में adaptation और survival की संभावना बढ़ा सकती है।`
+},
+
+
+/* ================= Q42 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+पौधों में विभिन्नता के संबंध में गलत कथन का चयन करें।`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`ये DNA की प्रतिलिपि बनाने में अयथार्थता के कारण उत्पन्न होते हैं।`,
+`अलैंगिक जनन किसी समष्टि में विविधता का एक नियमित स्रोत है।`,
+`किसी समष्टि में व्यष्टिगत विविधताओं के कारण अद्वितीय होते हैं।`,
+`ये लैंगिक जनन के दौरान उत्पन्न होते हैं।`
+],
+
+answer:1,
+
+explanation:
+`अलैंगिक जनन सामान्यतः genetic variation का नियमित स्रोत नहीं है क्योंकि इसमें एक ही parent होता है। फिर भी DNA replication की errors से छोटे variations हो सकते हैं।`
+},
+
+
+/* ================= Q43 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+लैंगिक द्वारा उत्पन्न आनुवंशिक विविधता का परिणाम निम्नलिखित में से क्या है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`उत्तरजीविता की संभावना में कमी`,
+`विकास`,
+`आनुवंशिक रूप से समरूप संतति की उत्पत्ति`,
+`समरूप यमज (twins) का निर्माण`
+],
+
+answer:1,
+
+explanation:
+`Sexual reproduction द्वारा उत्पन्न genetic variation populations में differences प्रदान करती है। लंबे समय में ऐसी variation evolutionary change में योगदान कर सकती है।`
+},
+
+
+/* ================= Q44 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+जीवों की आबादी में विविधता क्यों महत्वपूर्ण है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`यह पर्यावरणीय परिस्थितियों में बदलाव होने पर कुछ जीवों को जीवित रहने में सहायता करती है।`,
+`यह प्रजनन को रोकती है।`,
+`यह जीवों को समरूप बनाती है।`,
+`यह सभी जीवों के विलोपन का कारण बनती है।`
+],
+
+answer:0,
+
+explanation:
+`यदि environment बदलता है तो population में मौजूद कुछ variations individuals को नए conditions में survive करने में मदद कर सकती हैं।`
+},
+
+
+/* ================= Q45 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+यदि कोशिका विभाजन द्वारा उत्पादित दो संतति कोशिकाओं की संरचना में मामूली अंतर दिखाई देता है, तो DNA प्रतिकृतियन की प्रक्रिया के दौरान कौन-सी स्थिति इन भिन्नताओं का सबसे संभावित कारण है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`केंद्रक में DNA ब्लूप्रिंट की अनुपस्थिति`,
+`जैव रासायनिक अभिक्रियाओं की अंतर्निहित अविश्वसनीयता के कारण DNA प्रतिकृतियन के दौरान मामूली भिन्नताएं`,
+`DNA प्रतिकृतियन के बाद प्रोटीन संश्लेषण में त्रुटियां`,
+`DNA प्रतिकृति का नई कोशिकाओं में अपूर्ण पृथक्करण`
+],
+
+answer:1,
+
+explanation:
+`DNA replication एक biochemical process है और यह पूरी तरह error-free नहीं होती। इस प्रक्रिया में occasional small errors होने से DNA copies में मामूली differences उत्पन्न हो सकते हैं।`
+},
+
+
+/* ================= Q46 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+किसी प्रजाति के भीतर विविधता क्या सुनिश्चित करती है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`कोई विकास नहीं`,
+`कोई उत्परिवर्तन नहीं`,
+`पर्यावरणीय परिवर्तनों के प्रति समान अनुक्रिया`,
+`बेहतर अनुकूलनशीलता और जीवित रहने की संभावना`
+],
+
+answer:3,
+
+explanation:
+`Species में genetic variation होने से अलग-अलग individuals में अलग-अलग traits हो सकते हैं। बदलते environment में favourable traits survival और adaptation में मदद कर सकते हैं।`
+},
+
+
+/* ================= Q47 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+स्थायी परिस्थितियों में वर्तमान स्वीट पी (sweet pea) पादपों की बृहत् आबादी में, निम्नलिखित में से कौन-सा सर्वोत्तम तरीके से यह वर्णन करता है कि लैंगिक जनन के माध्यम से आनुवंशिक विविधता अब तक उनके दीर्घकालिक अतिजीविता के लिए क्यों महत्वपूर्ण है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`स्वीट पी में प्रच्छन्न (अप्रभावी) ऐलील भावी पर्यावरणीय तनावों के विरुद्ध प्रतिरोध प्रदान कर सकते हैं।`,
+`स्वीट पी के पादप अलैंगिक रूप से अधिक तेजी से लैंगिक रूप से जनन करते हैं, जिससे अधिक बायोमास उत्पादन सुनिश्चित होता है।`,
+`विविधता स्वीट पी के पादपों को पर-परागण से बचने में मदद करती है, जिससे पैतृक वंशक्रम की शुद्धता बनी रहती है।`,
+`आनुवंशिक विविधता भावी पीढ़ियों में पुष्पों के रंग और ऊंचाई में एकरूपता सुनिश्चित करती है।`
+],
+
+answer:0,
+
+explanation:
+`Recessive alleles population में छिपे रह सकते हैं और future generations तक बने रह सकते हैं। यदि environmental conditions बदलती हैं, तो उनसे जुड़े traits favourable हो सकते हैं और survival में सहायता कर सकते हैं।`
+},
+
+
+/* ================= Q48 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+एक ही जनक (parents) के दो बच्चे एक दूसरे के समरूप होते हैं परंतु बिल्कुल एक जैसे नहीं होते क्योंकि __________।`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`उनके माता-पिता अति निम्न आनुवंशिक भिन्नता दर्शाते हैं।`,
+`उनमें से प्रत्येक को सभी आनुवंशिक लक्षण केवल एक ही जनक से प्राप्त होते हैं।`,
+`वे अपने माता-पिता में विद्यमान आनुवंशिक भिन्नता के विभिन्न संयोजन दर्शाते हैं।`,
+`उनमें से प्रत्येक अपने DNA प्रतिकृतिकरण प्रक्रिया में भिन्नता दर्शाता है।`
+],
+
+answer:2,
+
+explanation:
+`दोनों children को genes दोनों parents से मिलते हैं, लेकिन parental genes के combinations अलग हो सकते हैं। इसलिए siblings में समानताएँ होने के बावजूद वे बिल्कुल identical नहीं होते।`
+},
+
+
+/* ================= Q49 ================= */
+
+{
+q:`Mutation and variation basics<br><br>
+लैंगिक जनन करने वाले प्राणियों में दो अलग-अलग व्यष्टियों (individuals) के DNA के संयोजन का क्या लाभ है?`,
+
+tag:`Mutation and variation basics`,
+
+options:[
+`यह जनन प्रक्रिया को तीव्र करता है।`,
+`यह समष्टि के भीतर आनुवंशिक विभेद को बढ़ाता है।`,
+`यह DNA प्रतिकृतियन में त्रुटियों को समाप्त करता है।`,
+`यह विशेषीकृत जननांगों की आवश्यकता को कम करता है।`
+],
+
+answer:1,
+
+explanation:
+`दो अलग individuals के genetic material के combination से offspring में नए gene combinations बनते हैं। इससे population में genetic variation बढ़ती है।`
+},
+
+
+/* ================= Q50 ================= */
+
+{
+q:`Sex determination in humans<br><br>
+एक आनुवंशिक प्रयोगशाला में, एक निषेचित मानव भ्रूण में XX गुणसूत्र पाए जाते हैं। निम्नलिखित में से कौन-सा कथन सत्य है?`,
+
+tag:`Sex determination in humans`,
+
+options:[
+`भ्रूण मानव मादा बन जाएगा।`,
+`भ्रूण मानव नर बन जाएगा।`,
+`भ्रूण में लिंग गुणसूत्रों का अभाव होता है।`,
+`भ्रूण में एक अतिरिक्त Y गुणसूत्र होता है।`
+],
+
+answer:0,
+
+explanation:
+`मानव में सामान्यतः XX sex chromosome combination female developmental pathway से संबंधित होता है। इसलिए दिए गए विकल्पों में A सही है।`
+},
+
+
+/* ================= Q51 ================= */
+
+{
+q:`Sex determination in humans<br><br>
+मानव नर गुणसूत्र का निम्नलिखित में से कौन-सा युग्म, आमाप में बेमेल होता है?`,
+
+tag:`Sex determination in humans`,
+
+options:[
+`अलिंगसूत्र का बीसवां युग्म`,
+`अलिंगसूत्र का प्रथम युग्म`,
+`अलिंगसूत्र का तेरहवां युग्म`,
+`लिंग गुणसूत्र`
+],
+
+answer:3,
+
+explanation:
+`मानव male में sex chromosomes XY होते हैं। X और Y chromosomes आकार और संरचना में समान नहीं होते, इसलिए sex chromosome pair आकार में mismatched होता है।`
+},
+
+
+/* ================= Q52 ================= */
+
+{
+q:`Sex determination in humans<br><br>
+मनुष्यों में, बच्चे का लिंग कैसे निर्धारित होता है?`,
+
+tag:`Sex determination in humans`,
+
+options:[
+`माता से X गुणसूत्र की वंशागति द्वारा`,
+`गर्भ के विकास के दौरान प्रचलित पर्यावरणीय परिस्थितियों द्वारा`,
+`पिता से X या Y गुणसूत्र की वंशागति द्वारा`,
+`बच्चे को वंशागति में मिले गुणसूत्रों की संख्या में अंतर द्वारा`
+],
+
+answer:2,
+
+explanation:
+`Mother का egg X chromosome देता है, जबकि father का sperm X या Y chromosome दे सकता है। X मिलने पर सामान्यतः XX और Y मिलने पर सामान्यतः XY combination बनता है।`
+},
+
+
+/* ================= Q53 ================= */
+
+{
+q:`Sex determination in humans<br><br>
+यदि पिता के लिंग गुणसूत्र XY हैं और माता के लिंग गुणसूत्र XX हैं तो पुत्र होने की संभावना कितने प्रतिशत है?`,
+
+tag:`Sex determination in humans`,
+
+options:[
+`75%`,
+`50%`,
+`25%`,
+`100%`
+],
+
+answer:1,
+
+explanation:
+`Father के लगभग आधे sperm X और आधे Y chromosome वाले हो सकते हैं। Mother का egg X chromosome देता है। इसलिए XY combination की theoretical probability 50% होती है।`
+},
+
+
+/* ================= Q54 ================= */
+
+{
+q:`Sex determination in humans<br><br>
+मनुष्यों में बच्चे का लिंग (sex) निर्धारण किससे होता है?`,
+
+tag:`Sex determination in humans`,
+
+options:[
+`पिता का शुक्राणु`,
+`माइटोकॉन्ड्रियल DNA`,
+`ऑटोसोम की संख्या`,
+`माता का अंडाणु`
+],
+
+answer:0,
+
+explanation:
+`Mother का egg हमेशा X chromosome देता है, जबकि father का sperm X या Y chromosome दे सकता है। इसलिए sex chromosome combination निर्धारित करने में father का sperm निर्णायक होता है।`
+},
+
+
+/* ================= Q55 ================= */
+
+{
+q:`Sex determination in humans<br><br>
+मनुष्यों में, माता-पिता में से कौन बच्चे का लिंग निर्धारित करता है?`,
+
+tag:`Sex determination in humans`,
+
+options:[
+`बच्चे की अपनी पसंद`,
+`पिता`,
+`दोनों समान रूप से`,
+`माता`
+],
+
+answer:1,
+
+explanation:
+`मानव में mother का egg X chromosome देता है। Father का sperm X या Y दे सकता है, इसलिए XX या XY combination father के sperm पर निर्भर करता है।`
+},
+
+
+/* ================= Q56 ================= */
+
+{
+q:`Sex determination in humans<br><br>
+एक बच्चा माता से एक X गुणसूत्र और पिता से एक Y गुणसूत्र लेकर जन्म लेता है। कौन-सा कथन इस गुणसूत्र संयोजन के परिणाम का सटीक वर्णन करता है?`,
+
+tag:`Sex determination in humans`,
+
+options:[
+`दो Y गुणसूत्रों के बिना बच्चे में पुरुष लक्षण विकसित नहीं होंगे।`,
+`Y गुणसूत्र की उपस्थिति के कारण बच्चा लड़का होगा।`,
+`बच्चा लड़की होगा क्योंकि X गुणसूत्र हमेशा Y गुणसूत्र पर प्रभावी होता है।`,
+`बच्चे का लिंग माता द्वारा निर्धारित होता है, क्योंकि वह X गुणसूत्र प्रदान करती है।`
+],
+
+answer:1,
+
+explanation:
+`दिए गए सामान्य human chromosomal sex determination के अनुसार X (mother) और Y (father) मिलने पर XY combination बनता है, जो सामान्यतः male developmental pathway से संबंधित है।`
+},
+
+
+/* ================= Q57 ================= */
+
+{
+q:`General Science<br><br>
+निम्नलिखित में से कौन-सा पर्यावरणीय संकेत कुछ सरीसृपों में निषेचित अंडे के लिंग का निर्धारण करता है?`,
+
+tag:`General Science`,
+
+options:[
+`स्पर्श`,
+`जल`,
+`वायु वेग`,
+`तापमान`
+],
+
+answer:3,
+
+explanation:
+`कुछ reptiles में temperature-dependent sex determination पाया जाता है। इसलिए निषेचित अंडे के incubation के दौरान तापमान sex determination को प्रभावित कर सकता है।`
+},
+
+
+/* ================= Q58 ================= */
+
+{
+q:`General Science<br><br>
+वह प्राथमिक तंत्र क्या है जिसके माध्यम से लैंगिक प्रजनन संततियों में आनुवंशिक विविधता उत्पन्न करता है?`,
+
+tag:`General Science`,
+
+options:[
+`प्रत्येक गुणसूत्र युग्म से युग्मकों में मातृज या पैतृक गुणसूत्रों का यादृच्छिक वितरण`,
+`मातृज और पैतृक माता-पिता में युग्मक निर्माण के दौरान DNA प्रतिलिपिकरण में अशुद्धियां`,
+`युग्मकों के बीच गुणसूत्र संख्या में भिन्नता`,
+`युग्मक निर्माण के दौरान बार-बार कोशिका विभाजन`
+],
+
+answer:0,
+
+explanation:
+`Meiosis के दौरान maternal और paternal chromosomes का random distribution अलग-अलग gametes में अलग-अलग chromosome combinations बनाता है। यह sexual reproduction द्वारा genetic variation उत्पन्न करने का एक प्रमुख तंत्र है।`
+}
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentQuestion = 0;
+
+let userAnswers =
+    new Array(questions.length).fill(null);
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const questionText =
+    document.getElementById("questionText");
+
+const questionTag =
+    document.getElementById("questionTag");
+
+const optionsContainer =
+    document.getElementById("optionsContainer");
+
+const explanationBox =
+    document.getElementById("explanationBox");
+
+const answerStatus =
+    document.getElementById("answerStatus");
+
+const correctAnswer =
+    document.getElementById("correctAnswer");
+
+const explanationText =
+    document.getElementById("explanationText");
+
+const progressText =
+    document.getElementById("progressText");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const scoreText =
+    document.getElementById("scoreText");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const paletteDrawer =
+    document.getElementById("paletteDrawer");
+
+const paletteGrid =
+    document.getElementById("paletteGrid");
+
+const overlay =
+    document.getElementById("overlay");
+
+const questionCard =
+    document.getElementById("questionCard");
+
+const resultScreen =
+    document.getElementById("resultScreen");
+
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion(){
+
+    const question =
+        questions[currentQuestion];
+
+    questionNumber.textContent =
+        `प्रश्न ${currentQuestion + 1}`;
+
+    questionTag.textContent =
+        question.tag;
+
+    progressText.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    questionText.innerHTML =
+        question.q;
+
+    optionsContainer.innerHTML = "";
+
+
+    question.options.forEach((option,index)=>{
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "option";
+
+        div.innerHTML = `
+
+            <div class="option-letter">
+                ${String.fromCharCode(65 + index)}
+            </div>
+
+            <div class="option-text">
+                ${option}
+            </div>
+
+        `;
+
+        div.onclick = ()=>{
+            selectAnswer(index);
+        };
+
+        optionsContainer.appendChild(div);
+
+    });
+
+
+    if(userAnswers[currentQuestion] !== null){
+
+        showAnsweredQuestion();
+
+    }
+    else{
+
+        explanationBox.classList.remove("show");
+
+    }
+
+
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
+
+    progressFill.style.width =
+        progress + "%";
+
+
+    prevBtn.disabled =
+        currentQuestion === 0;
+
+
+    if(currentQuestion === questions.length - 1){
+
+        nextBtn.textContent =
+            "Finish Test ✓";
+
+        nextBtn.className =
+            "nav-btn finish-btn";
+
+    }
+    else{
+
+        nextBtn.textContent =
+            "Next Question →";
+
+        nextBtn.className =
+            "nav-btn next-btn";
+
+    }
+
+
+    updateScore();
+
+    renderPalette();
+
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(selectedIndex){
+
+    if(userAnswers[currentQuestion] !== null){
+        return;
+    }
+
+    userAnswers[currentQuestion] =
+        selectedIndex;
+
+    showAnsweredQuestion();
+
+    updateScore();
+
+    renderPalette();
+
+}
+
+
+/* =========================================================
+   SHOW ANSWER + EXPLANATION
+========================================================= */
+
+function showAnsweredQuestion(){
+
+    const question =
+        questions[currentQuestion];
+
+    const selected =
+        userAnswers[currentQuestion];
+
+    const optionElements =
+        document.querySelectorAll(".option");
+
+
+    optionElements.forEach((optionElement,index)=>{
+
+        optionElement.classList.add("disabled");
+
+
+        if(index === question.answer){
+
+            optionElement.classList.add("correct");
+
+        }
+
+
+        if(
+            index === selected &&
+            selected !== question.answer
+        ){
+
+            optionElement.classList.add("wrong");
+
+        }
+
+
+        if(index === selected){
+
+            optionElement.classList.add("selected");
+
+        }
+
+    });
+
+
+    if(selected === question.answer){
+
+        answerStatus.className =
+            "answer-status correct-status";
+
+        answerStatus.innerHTML =
+            "✓ सही उत्तर! बहुत अच्छा।";
+
+    }
+    else{
+
+        answerStatus.className =
+            "answer-status wrong-status";
+
+        answerStatus.innerHTML =
+            "✗ आपका उत्तर गलत है। सही उत्तर नीचे दिया गया है।";
+
+    }
+
+
+    correctAnswer.innerHTML =
+        `सही उत्तर: ${String.fromCharCode(65 + question.answer)}. ${question.options[question.answer]}`;
+
+
+    explanationText.innerHTML =
+        question.explanation;
+
+
+    explanationBox.classList.add("show");
+
+
+    setTimeout(()=>{
+
+        explanationBox.scrollIntoView({
+            behavior:"smooth",
+            block:"nearest"
+        });
+
+    },100);
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextQuestion(){
+
+    if(currentQuestion === questions.length - 1){
+
+        finishTest();
+
+        return;
+    }
+
+    currentQuestion++;
+
+    renderQuestion();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousQuestion(){
+
+    if(currentQuestion === 0){
+        return;
+    }
+
+    currentQuestion--;
+
+    renderQuestion();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   SCORE
+========================================================= */
+
+function getScore(){
+
+    let score = 0;
+
+    userAnswers.forEach((answer,index)=>{
+
+        if(answer === questions[index].answer){
+
+            score++;
+
+        }
+
+    });
+
+    return score;
+
+}
+
+
+function updateScore(){
+
+    scoreText.textContent =
+        `Score: ${getScore()}`;
+
+}
+
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function renderPalette(){
+
+    paletteGrid.innerHTML = "";
+
+
+    questions.forEach((question,index)=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "palette-number";
+
+        button.textContent =
+            index + 1;
+
+
+        if(index === currentQuestion){
+
+            button.classList.add("current");
+
+        }
+        else if(userAnswers[index] !== null){
+
+            if(userAnswers[index] === question.answer){
+
+                button.classList.add("correct");
+
+            }
+            else{
+
+                button.classList.add("wrong");
+
+            }
+
+        }
+
+
+        button.onclick = ()=>{
+
+            currentQuestion =
+                index;
+
+            closePalette();
+
+            renderQuestion();
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        };
+
+
+        paletteGrid.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   OPEN PALETTE
+========================================================= */
+
+function openPalette(){
+
+    paletteDrawer.classList.add("open");
+
+    overlay.classList.add("show");
+
+}
+
+
+/* =========================================================
+   CLOSE PALETTE
+========================================================= */
+
+function closePalette(){
+
+    paletteDrawer.classList.remove("open");
+
+    overlay.classList.remove("show");
+
+}
+
+
+/* =========================================================
+   FINISH TEST
+========================================================= */
+
+function finishTest(){
+
+    const score =
+        getScore();
+
+    const answered =
+        userAnswers.filter(
+            answer => answer !== null
+        ).length;
+
+    const correct =
+        score;
+
+    const wrong =
+        answered - correct;
+
+    const unanswered =
+        questions.length - answered;
+
+
+    document.getElementById("finalScore").textContent =
+        `${correct}/${questions.length}`;
+
+    document.getElementById("correctCount").textContent =
+        correct;
+
+    document.getElementById("wrongCount").textContent =
+        wrong;
+
+    document.getElementById("unansweredCount").textContent =
+        unanswered;
+
+
+    questionCard.style.display =
+        "none";
+
+    document.querySelector(".progress-box").style.display =
+        "none";
+
+    document.querySelector(".navigation").style.display =
+        "none";
+
+    resultScreen.classList.add("show");
+
+    closePalette();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restartTest(){
+
+    currentQuestion = 0;
+
+    userAnswers =
+        new Array(questions.length).fill(null);
+
+
+    questionCard.style.display =
+        "block";
+
+    document.querySelector(".progress-box").style.display =
+        "block";
+
+    document.querySelector(".navigation").style.display =
+        "flex";
+
+    resultScreen.classList.remove("show");
+
+
+    renderQuestion();
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+renderQuestion();
+
+</script>
+
+</body>
+</html>
