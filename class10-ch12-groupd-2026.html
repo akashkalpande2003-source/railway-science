@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 10 Science | Magnetic Effects Mock Test</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+  background:#f3f5f7;
+  color:#222;
+}
+
+.header{
+  height:62px;
+  background:#263238;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 7px rgba(0,0,0,.25);
+}
+
+.header-title{
+  font-size:18px;
+  font-weight:700;
+}
+
+.header-right{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.timer{
+  background:#fff;
+  color:#222;
+  padding:8px 13px;
+  border-radius:4px;
+  font-weight:700;
+  font-size:16px;
+  min-width:92px;
+  text-align:center;
+}
+
+.palette-btn{
+  width:44px;
+  height:40px;
+  border:none;
+  background:#1976d2;
+  color:white;
+  border-radius:5px;
+  font-size:25px;
+  cursor:pointer;
+  line-height:1;
+}
+
+.container{
+  max-width:1050px;
+  margin:20px auto;
+  padding:0 15px 30px;
+}
+
+.info-bar{
+  background:#fff;
+  border:1px solid #ddd;
+  padding:12px 15px;
+  margin-bottom:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.info-title{
+  font-weight:700;
+  color:#263238;
+}
+
+.marking{
+  font-size:14px;
+}
+
+.green{
+  color:#16843b;
+  font-weight:700;
+}
+
+.red{
+  color:#d32f2f;
+  font-weight:700;
+}
+
+.test-card{
+  background:#fff;
+  border:1px solid #ddd;
+  min-height:480px;
+  padding:24px;
+  box-shadow:0 1px 3px rgba(0,0,0,.08);
+}
+
+.question-no{
+  color:#1565c0;
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:15px;
+}
+
+.question{
+  font-size:18px;
+  line-height:1.75;
+  font-weight:600;
+  margin-bottom:22px;
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.option{
+  border:1px solid #cfd8dc;
+  border-radius:5px;
+  padding:13px 15px;
+  cursor:pointer;
+  background:#fff;
+  transition:.15s;
+  font-size:16px;
+  line-height:1.55;
+}
+
+.option:hover{
+  background:#f5f9fd;
+  border-color:#1976d2;
+}
+
+.option.selected{
+  background:#e3f2fd;
+  border:2px solid #1976d2;
+}
+
+.option input{
+  margin-right:10px;
+  accent-color:#1976d2;
+}
+
+.controls{
+  background:#fff;
+  border:1px solid #ddd;
+  margin-top:15px;
+  padding:13px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.left-controls,
+.right-controls{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:none;
+  padding:10px 16px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:600;
+}
+
+.prev{
+  background:#607d8b;
+  color:white;
+}
+
+.next{
+  background:#1976d2;
+  color:white;
+}
+
+.review{
+  background:#ff9800;
+  color:white;
+}
+
+.submit{
+  background:#2e7d32;
+  color:white;
+  padding:11px 22px;
+}
+
+.btn:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+/* PALETTE */
+.palette-panel{
+  position:fixed;
+  right:-350px;
+  top:0;
+  width:330px;
+  height:100vh;
+  background:#fff;
+  z-index:300;
+  box-shadow:-3px 0 12px rgba(0,0,0,.25);
+  transition:.25s;
+  overflow-y:auto;
+}
+
+.palette-panel.open{
+  right:0;
+}
+
+.palette-head{
+  background:#263238;
+  color:white;
+  padding:17px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:2;
+}
+
+.close-palette{
+  border:none;
+  background:none;
+  color:#fff;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.palette-content{
+  padding:15px;
+}
+
+.legend{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.legend span{
+  padding:7px;
+  border-radius:3px;
+  text-align:center;
+  border:1px solid #ddd;
+}
+
+.legend-answer{
+  background:#c8e6c9;
+}
+
+.legend-review{
+  background:#ffe0b2;
+}
+
+.legend-unattempted{
+  background:#eeeeee;
+}
+
+.legend-current{
+  background:#bbdefb;
+}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.palette-q{
+  height:42px;
+  border:none;
+  border-radius:4px;
+  background:#eeeeee;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.palette-q.current{
+  background:#90caf9;
+  border:2px solid #1565c0;
+}
+
+.palette-q.answered{
+  background:#81c784;
+  color:#fff;
+}
+
+.palette-q.reviewed{
+  background:#ffb74d;
+  color:#fff;
+}
+
+.palette-q.answered.reviewed{
+  background:linear-gradient(135deg,#81c784 50%,#ffb74d 50%);
+  color:#fff;
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  z-index:250;
+}
+
+.overlay.show{
+  display:block;
+}
+
+/* RESULT */
+.result{
+  display:none;
+}
+
+.result.show{
+  display:block;
+}
+
+.result-header{
+  background:#263238;
+  color:#fff;
+  padding:20px;
+  margin-bottom:15px;
+}
+
+.score{
+  font-size:32px;
+  font-weight:800;
+  margin:10px 0;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.stat{
+  background:#fff;
+  border:1px solid #ddd;
+  padding:15px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:23px;
+  margin-bottom:5px;
+}
+
+.result-question{
+  background:#fff;
+  border:1px solid #ddd;
+  margin-bottom:12px;
+  padding:18px;
+}
+
+.result-q-title{
+  font-weight:700;
+  color:#1565c0;
+  margin-bottom:8px;
+}
+
+.result-question-text{
+  font-weight:600;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.answer-line{
+  padding:8px;
+  margin:5px 0;
+  border-radius:3px;
+  font-size:14px;
+}
+
+.correct-answer{
+  background:#e8f5e9;
+  color:#1b5e20;
+}
+
+.wrong-answer{
+  background:#ffebee;
+  color:#b71c1c;
+}
+
+.solution{
+  background:#f5f5f5;
+  border-left:4px solid #1976d2;
+  padding:12px;
+  margin-top:10px;
+  line-height:1.7;
+}
+
+.hidden{
+  display:none!important;
+}
+
+@media(max-width:700px){
+
+  .header{
+    height:58px;
+    padding:0 10px;
+  }
+
+  .header-title{
+    font-size:14px;
+    max-width:190px;
+  }
+
+  .timer{
+    min-width:78px;
+    padding:7px 8px;
+    font-size:14px;
+  }
+
+  .palette-btn{
+    width:40px;
+    height:38px;
+  }
+
+  .container{
+    margin:10px auto;
+    padding:0 8px 20px;
+  }
+
+  .info-bar{
+    padding:10px;
+    font-size:13px;
+  }
+
+  .test-card{
+    padding:16px;
+    min-height:500px;
+  }
+
+  .question{
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  .option{
+    font-size:14px;
+    padding:11px;
+  }
+
+  .controls{
+    padding:9px;
+  }
+
+  .btn{
+    padding:9px 12px;
+    font-size:13px;
+  }
+
+  .palette-panel{
+    width:290px;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .score{
+    font-size:26px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="header-title">Class 10 Science | Magnetic Effects</div>
+
+  <div class="header-right">
+    <div class="timer" id="timer">25:00</div>
+    <button class="palette-btn" onclick="togglePalette()">☰</button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay" onclick="togglePalette()"></div>
+
+<!-- PALETTE -->
+<aside class="palette-panel" id="palettePanel">
+
+  <div class="palette-head">
+    <strong>Question Palette</strong>
+    <button class="close-palette" onclick="togglePalette()">×</button>
+  </div>
+
+  <div class="palette-content">
+
+    <div class="legend">
+      <span class="legend-answer">Answered</span>
+      <span class="legend-review">Review</span>
+      <span class="legend-unattempted">Unattempted</span>
+      <span class="legend-current">Current</span>
+    </div>
+
+    <div class="palette-grid" id="paletteGrid"></div>
+
+  </div>
+</aside>
+
+<main class="container" id="testArea">
+
+  <div class="info-bar">
+    <div class="info-title">Magnetic Effects of Electric Current — Mock Test</div>
+    <div class="marking">
+      <span class="green">✓ सही = +1</span>
+      &nbsp;&nbsp;
+      <span class="red">× गलत = -1/3</span>
+    </div>
+  </div>
+
+  <div class="test-card">
+
+    <div class="question-no" id="questionNo"></div>
+
+    <div class="question" id="questionText"></div>
+
+    <div class="options" id="options"></div>
+
+  </div>
+
+  <div class="controls">
+
+    <div class="left-controls">
+      <button class="btn prev" id="prevBtn" onclick="previousQuestion()">
+        Previous
+      </button>
+
+      <button class="btn review" id="reviewBtn" onclick="toggleReview()">
+        Mark for Review
+      </button>
+    </div>
+
+    <div class="right-controls">
+      <button class="btn next" id="nextBtn" onclick="nextQuestion()">
+        Next
+      </button>
+
+      <button class="btn submit" onclick="submitTest()">
+        Submit Test
+      </button>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- RESULT -->
+<main class="container result" id="resultArea">
+
+  <div class="result-header">
+    <h2>Test Result</h2>
+    <div class="score" id="finalScore">0</div>
+    <div>Magnetic Effects of Electric Current</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong class="green" id="correctCount">0</strong>
+      सही
+    </div>
+
+    <div class="stat">
+      <strong class="red" id="wrongCount">0</strong>
+      गलत
+    </div>
+
+    <div class="stat">
+      <strong id="unattemptedCount">0</strong>
+      अनुत्तरित
+    </div>
+
+    <div class="stat">
+      <strong id="attemptedCount">0</strong>
+      Attempted
+    </div>
+  </div>
+
+  <div id="solutions"></div>
+
+</main>
+
+
+<script>
+
+const questions = [
+
+{
+q:"एक डिवाइस विद्युत ऊर्जा को यांत्रिक ऊर्जा में रूपांतरित करने के लिए धारावाही चालक के चारों ओर चुंबकीय क्षेत्र के सिद्धांत का उपयोग करता है। कौन-सा डिवाइस इस सिद्धांत पर कार्य करता है?",
+o:["विद्युत मोटर","सौर सेल","ट्रांसफॉर्मर","गैल्वेनोमीटर"],
+a:0,
+s:"विद्युत मोटर में धारावाही चालक को चुंबकीय क्षेत्र में रखने पर उस पर बल लगता है। इसी बल के कारण विद्युत ऊर्जा यांत्रिक ऊर्जा में परिवर्तित होती है।"
+},
+
+{
+q:"जब कोई चालक चुंबकीय क्षेत्र से होकर गुजरता है, तो क्या होता है?",
+o:["चालक में प्रकाश उत्पन्न होता है।","चालक गर्म हो जाता है।","इसके सिरों पर एक विभवांतर प्रेरित होता है।","चुंबकीय क्षेत्र की प्रबलता बढ़ जाती है।"],
+a:2,
+s:"चुंबकीय फ्लक्स में परिवर्तन होने पर विद्युतचुंबकीय प्रेरण के कारण चालक के सिरों के बीच प्रेरित विभवांतर उत्पन्न होता है।"
+},
+
+{
+q:"निम्नलिखित में से किस व्यवस्था के परिणामस्वरूप तार पाश (wire loop) में सर्वाधिक प्रेरित धारा उत्पन्न होगी?",
+o:["पाश को शीघ्रता से एक प्रबल चुंबकीय क्षेत्र में गतिमान कराना","पाश को चुंबकीय क्षेत्र में स्थिर रखना","पाश को क्षेत्र रेखाओं के समानांतर गतिमान कराना","पाश को धीरे-धीरे एक दुर्बल चुंबकीय क्षेत्र में गतिमान कराना"],
+a:0,
+s:"फैराडे के नियम के अनुसार प्रेरित emf चुंबकीय फ्लक्स के परिवर्तन की दर पर निर्भर करता है। प्रबल क्षेत्र और तेज गति से फ्लक्स में परिवर्तन अधिक होता है।"
+},
+
+{
+q:"दो समरूप कुंडलियों को एक-दूसरे के निकट रखा गया है। यदि पहली कुंडली में प्रवाहित धारा अचानक बंद कर दी जाए, तो दूसरी कुंडली पर क्या प्रभाव पड़ेगा?",
+o:["दूसरी कुंडली में धारा क्षणिक रूप से उसी दिशा में प्रेरित की जाती है जो चुंबकीय क्षेत्र को नियत रखने का प्रयास करती है","दूसरी कुंडली में कोई धारा प्रेरित नहीं की जाती है क्योंकि कुंडलियां संयोजित नहीं हैं","दूसरी कुंडली में एक धारा प्रेरित होती है जो मूल चुंबकीय क्षेत्र को कम करने में सहायता करती है","जब तक पहली कुंडली बंद रहती है, तब तक दूसरी कुंडली में एक अपरिवर्ती धारा प्रेरित होती रहती है"],
+a:0,
+s:"पहली कुंडली की धारा बंद होने पर चुंबकीय क्षेत्र घटता है। लेंज के नियम के अनुसार दूसरी कुंडली में ऐसी प्रेरित धारा उत्पन्न होती है जो फ्लक्स में इस कमी का विरोध करती है।"
+},
+
+{
+q:"किसै सेटअप से कुंडली में अधिक प्रेरित धारा उत्पन्न होने की संभावना सर्वाधिक है?",
+o:["कुंडली में तार के कम फेरों का उपयोग करना","छोटे चुंबकीय का उपयोग करना","चुंबक को अधिक धीमी गति से गतिमान करना","कुंडली में तार के अधिक फेरों का उपयोग करना"],
+a:3,
+s:"अधिक फेरों वाली कुंडली में प्रत्येक फेरे से जुड़ा फ्लक्स परिवर्तन कुल प्रेरित emf को बढ़ाता है। इसलिए प्रेरित धारा अधिक होने की संभावना होती है।"
+},
+
+{
+q:"तार की एक कुंडली को शीघ्रता से एक प्रबल चुंबकीय क्षेत्र वाले क्षेत्र में घुमाया जाता है। निम्नलिखित में से कौन-सा परिवर्तन कुंडली में प्रेरित धारा के परिमाण को संभवतः बढ़ाएगा?",
+o:["कुंडली के लिए मोटे तार का उपयोग करना","कुंडली को क्षेत्र में समान चाल से घूर्णन कराना","कुंडली के चुंबकीय क्षेत्र में प्रवेश करने की चाल को बढ़ाना","कुंडली को क्षेत्र में स्थिर रखना"],
+a:2,
+s:"कुंडली के चुंबकीय क्षेत्र में प्रवेश की चाल बढ़ाने से चुंबकीय फ्लक्स के परिवर्तन की दर बढ़ती है, जिससे प्रेरित emf और धारा बढ़ती है।"
+},
+
+{
+q:"किसी जनित्र में, यदि कुंडली को समान चुंबकीय क्षेत्र में मूल चाल की दोगुनी चाल से घुमाया जाता है, तो परिणाम क्या होगा?",
+o:["धारा की दिशा उत्क्रमित हो जाएगी","कुंडली का प्रतिरोध आधा हो जाएगा","प्रेरित विभवांतर दोगुना हो जाएगा","चुंबकीय क्षेत्र सामर्थ्य दोगुना हो जाएगा"],
+a:2,
+s:"जनित्र में प्रेरित emf घूर्णन की कोणीय चाल के समानुपाती होता है। चाल दोगुनी करने पर प्रेरित विभवांतर भी दोगुना हो जाता है।"
+},
+
+{
+q:"यदि एक सीधे धारावाही चालक से प्रवाहित धारा की दिशा को उत्क्रमित किया जाए, तो उसके चारों ओर चुंबकीय क्षेत्र पर क्या प्रभाव पड़ेगा?",
+o:["चालक के चारों ओर चुंबकीय क्षेत्र लुप्त हो जाता है","चालक के चारों ओर चुंबकीय क्षेत्र शून्य हो जाता है","चालक के चारों ओर चुंबकीय क्षेत्र की दिशा उत्क्रमित हो जाती है","चालक के चारों ओर चुंबकीय क्षेत्र सामर्थ्य दोगुना हो जाता है"],
+a:2,
+s:"सीधे धारावाही चालक के चारों ओर चुंबकीय क्षेत्र की दिशा धारा की दिशा पर निर्भर करती है। धारा उलटने पर चुंबकीय क्षेत्र की दिशा भी उलट जाती है।"
+},
+
+{
+q:"यदि किसी सीधे चालक में धारा की दिशा उत्क्रमित कर दी जाए, तो परिवेशी चुंबकीय क्षेत्र रेखाओं की दिशा पर क्या प्रभाव पड़ेगा?",
+o:["चुंबकीय क्षेत्र रेखाओं की दिशा भी उत्क्रमित हो जाएगी","चुंबकीय क्षेत्र रेखाएं दुर्बल हो जाएंगी","चुंबकीय क्षेत्र रेखाएं अधिक प्रबल हो जाएंगी","चुंबकीय क्षेत्र रेखाओं की दिशा अपरिवर्तित रहेगी"],
+a:0,
+s:"धारा की दिशा बदलने पर दाहिने हाथ के अंगूठे के नियम के अनुसार चुंबकीय क्षेत्र रेखाओं की दिशा भी बदल जाती है।"
+},
+
+{
+q:"एक विद्यार्थी एक सीधे धारावाही चालक के चारों ओर चुंबकीय क्षेत्र सामर्थ्य को बढ़ाना चाहता है। परिवर्तनों के किस संयोजन द्वारा यह सबसे प्रभावी रूप से प्राप्त होगा?",
+o:["धारा को नियत रखते हुए प्रेक्षण बिंदु को किसी भी स्थान पर बदलना","धारा को कम करते हुए प्रेक्षण बिंदु को चालक से दूर ले जाना","धारा को बढ़ाते हुए प्रेक्षण बिंदु को चालक के निकट लाना","प्रेक्षण बिंदु को दूर ले जाते हुए धारा को बढ़ाना"],
+a:2,
+s:"सीधे चालक के लिए B ∝ I/r। इसलिए धारा बढ़ाने और चालक से दूरी घटाने पर चुंबकीय क्षेत्र सबसे अधिक बढ़ता है।"
+},
+
+{
+q:"एक सीधे चालक में धारा के कारण चुंबकीय क्षेत्र रेखाएँ तार के निकट सघन क्यों होती हैं और दूरी बढ़ने के साथ दूर क्यों होती जाती हैं?",
+o:["क्योंकि दूरी के साथ तार में प्रवाहित धारा घट जाती है","क्योंकि तार से दूरी बढ़ने के साथ चुंबकीय क्षेत्र सामर्थ्य कम हो जाता है","क्योंकि केवल बाह्य चुंबकों के कारण व्यतिकरण होता है","क्योंकि दूरी बढ़ने पर चुंबकीय क्षेत्र एकसमान हो जाता है"],
+a:1,
+s:"चालक से दूरी बढ़ने पर चुंबकीय क्षेत्र की तीव्रता घटती है। इसलिए क्षेत्र रेखाएं दूर-दूर दिखाई देती हैं।"
+},
+
+{
+q:"एक विद्यार्थी एक सीधे, धारावाही चालक के निकट एक कंपास रखता है और सुई के विक्षेपण का प्रेक्षण करता है। यह प्रेक्षण चालक के चारों ओर क्षेत्र के संबंध में क्या इंगित करता है?",
+o:["चालक के चारों ओर विद्युत क्षेत्र उत्पन्न होता है","क्षेत्र गुरुत्वीय रूप से सक्रिय हो जाता है","चालक के चारों ओर ऊष्मा उत्पन्न होती है","चालक के चारों ओर चुंबकीय क्षेत्र उपस्थित होता है"],
+a:3,
+s:"दिक्सूचक की चुंबकीय सुई चुंबकीय क्षेत्र में दिशा बदलती है। इसका विक्षेपण चालक के चारों ओर चुंबकीय क्षेत्र की उपस्थिति दर्शाता है।"
+},
+
+{
+q:"एक प्रयोग में सीधे धारावाही चालक तार के पास एक दिक्सूचक का उपयोग किया जाता है। दिक्सूचक की सुई क्या संकेत करती है?",
+o:["दिक्सूचक की सुई अरीय रूप से तार से दूर इंगित करती है।","दिक्सूचक की सुई कोई गति नहीं दिखाती है","दिक्सूचक की सुई तार के चारों ओर चुंबकीय क्षेत्र वृत्त के स्पर्शरेखीय संरेखित होती है।","दिक्सूचक की सुई तार के समानांतर संरेखित होती है।"],
+a:2,
+s:"सीधे धारावाही चालक के चारों ओर चुंबकीय क्षेत्र रेखाएं संकेंद्रीय वृत्त होती हैं। दिक्सूचक की सुई इन रेखाओं के स्पर्शरेखीय दिशा में संरेखित होती है।"
+},
+
+{
+q:"कोई तकनीशियन, चुंबकीय क्षेत्र में स्थित किसी चालक में विद्युत धारा की दिशा को उत्क्रमित कर देता है। फ्लेमिंग के वामहस्त नियम के अनुसार, चालक पर बल की दिशा पर क्या प्रभाव पड़ेगा?",
+o:["बल सदैव बढ़ेगा","बल की दिशा अपरिवर्तित रहेगी","बल की दिशा उत्क्रमित हो जाएगी","बल समाप्त हो जाएगा"],
+a:2,
+s:"F = BIL के अनुसार बल की दिशा धारा और चुंबकीय क्षेत्र दोनों की दिशा पर निर्भर करती है। केवल धारा उलटने पर बल की दिशा भी उलट जाती है।"
+},
+
+{
+q:"फ्लेमिंग के वाम-हस्त नियम में, कौन-सी उंगली चुंबकीय क्षेत्र की दिशा को निरूपित करती है?",
+o:["अंगूठा","अनामिका","तर्जनी","मध्यमा"],
+a:2,
+s:"फ्लेमिंग के वामहस्त नियम में तर्जनी चुंबकीय क्षेत्र की दिशा, मध्यमा धारा की दिशा और अंगूठा बल/गति की दिशा बताता है।"
+},
+
+{
+q:"कोई इलेक्ट्रॉन एकसमान चुंबकीय क्षेत्र में समकोण पर प्रवेश करता है। यदि चुंबकीय क्षेत्र, कागज में भीतर की ओर निर्देशित है और इलेक्ट्रॉन दाईं ओर को प्रवेश करता है, तो इलेक्ट्रॉन पर लगने वाले बल की दिशा क्या होगी?",
+o:["कागज में भीतर की ओर","कागज में बाहर की ओर","ऊर्ध्वगामी","अधोगामी"],
+a:3,
+s:"धनात्मक आवेश के लिए v × B दिशा ऊपर होगी, लेकिन इलेक्ट्रॉन ऋणात्मक आवेश है, इसलिए बल की दिशा विपरीत अर्थात नीचे की ओर होगी।"
+},
+
+{
+q:"एक विद्यार्थी चालक पर बल की दिशा निर्धारित करने के लिए फ्लेमिंग के वाम-हस्त नियम का उपयोग करता है। यदि तर्जनी उंगली उत्तर की ओर इंगित करती है और मध्यमा उंगली पूर्व की ओर इंगित करती है, तो बल किस दिशा में कार्य करेगा?",
+o:["पश्चिम की ओर","नीचे की ओर","दक्षिण की ओर","ऊपर की ओर"],
+a:3,
+s:"फ्लेमिंग के वामहस्त नियम में तर्जनी = चुंबकीय क्षेत्र और मध्यमा = धारा। इन दोनों के लंबवत अंगूठा बल की दिशा बताता है। दिए गए अभिविन्यास में बल ऊपर की ओर होगा।"
+},
+
+{
+q:"किसी प्रयोग में, कोई धातु की छड़ पूर्व की ओर निर्देशित क्षैतिज चुंबकीय क्षेत्र में उत्तर की ओर गति करती है। फ्लेमिंग के दक्षिण-हस्त नियम के अनुसार, छड़ में प्रेरित धारा की दिशा क्या है?",
+o:["प्रेरित धारा पश्चिम की ओर प्रवाहित होती है","प्रेरित धारा पूर्व की ओर प्रवाहित होती है","प्रेरित धारा ऊर्ध्वाधर ऊपर की ओर प्रवाहित होती है","प्रेरित धारा ऊर्ध्वाधर नीचे की ओर प्रवाहित होती है"],
+a:3,
+s:"यहाँ छड़ की गति उत्तर और चुंबकीय क्षेत्र पूर्व दिशा में है। फ्लेमिंग के दाहिने हाथ के नियम से प्रेरित धारा की दिशा ऊर्ध्वाधर नीचे की ओर प्राप्त होती है।"
+},
+
+{
+q:"यदि चुंबकीय क्षेत्र की दिशा उत्तर से दक्षिण की ओर है और चालक ऊपर की ओर गति करता है, तो फ्लेमिंग के दक्षिण-हस्त नियम का उपयोग करते हुए, प्रेरित धारा की दिशा क्या होगी?",
+o:["प्रेक्षक की ओर","पूर्व की ओर","पश्चिम की ओर","प्रेक्षक से दूर"],
+a:0,
+s:"फ्लेमिंग के दाहिने हाथ के नियम में अंगूठा गति, तर्जनी चुंबकीय क्षेत्र और मध्यमा प्रेरित धारा बताती है। दिए गए अभिविन्यास से धारा प्रेक्षक की ओर होगी।"
+},
+
+{
+q:"यदि किसी चालक में प्रवाहित धारा को दोगुना कर दिया जाए, जबकि वह उसी चुंबकीय क्षेत्र के लंबवत बना रहे, तो चालक पर लगने वाले बल पर क्या प्रभाव पड़ेगा?",
+o:["बल दोगुना हो जाता है","बल अपरिवर्तित रहता है","बल चार गुना कम हो जाता है","बल आधा हो जाता है"],
+a:0,
+s:"धारावाही चालक पर बल F = BIL sinθ होता है। B, L और θ नियत होने पर F ∝ I। इसलिए धारा दोगुनी करने पर बल दोगुना होगा।"
+},
+
+{
+q:"एक आयताकार कुंडली को एकसमान चुंबकीय क्षेत्र में रखा गया है। यदि धारा की दिशा उत्क्रमित कर दी जाए, तो कुंडली के प्रत्येक खंड पर लगने वाले बल पर क्या प्रभाव पड़ता है?",
+o:["बल का परिमाण दोगुना हो जाता है","बल का परिमाण शून्य हो जाता है","बल, कुंडली के तल के लंबवत कार्य करता है","प्रत्येक खंड पर लगने वाले बल की दिशा उत्क्रमित हो जाती है"],
+a:3,
+s:"F = BIL के अनुसार धारा की दिशा बदलने पर बल की दिशा भी बदलती है, जबकि समान B, I और L के लिए बल का परिमाण समान रहता है।"
+},
+
+{
+q:"चुंबकीय क्षेत्र रेखाओं की निकटता की उच्च कोटी (higher degree) क्या दर्शाती है?",
+o:["विद्युत क्षेत्र की उपस्थिति","उस क्षेत्र में प्रबल चुंबकीय क्षेत्र","क्षेत्र रेखाएँ पार होने वाली हैं","उस क्षेत्र में दुर्बल चुंबकीय क्षेत्र"],
+a:1,
+s:"जहाँ चुंबकीय क्षेत्र रेखाएं अधिक सघन होती हैं, वहाँ चुंबकीय क्षेत्र अधिक प्रबल होता है।"
+},
+
+{
+q:"चुंबकीय क्षेत्र रेखाओं का कौन-सा गुणधर्म, चिरसम्मत विद्युत-चुंबकत्व में चुंबकीय एकल ध्रुवों की अनुपस्थिति को स्पष्ट करता है?",
+o:["वे ध्रुवों के निकट सघन हो जाती हैं","वे सतत संवृत वक्र का निर्माण करती हैं","वे सदैव वृत्तीय होती हैं","वे कभी प्रतिच्छेद नहीं करती हैं"],
+a:1,
+s:"चुंबकीय क्षेत्र रेखाएं बंद और सतत वक्र बनाती हैं। वे चुंबक के बाहर उत्तर से दक्षिण तथा अंदर दक्षिण से उत्तर जाती हैं। यह पृथक चुंबकीय ध्रुवों के अभाव को दर्शाता है।"
+},
+
+{
+q:"किसी परिनालिका के अंदर क्षेत्र रेखाओं को समानांतर सरल रेखाओं के रूप में क्यों वर्णित किया जाता है?",
+o:["क्योंकि धारा तेजी से दिशा बदलती है","क्योंकि समानांतर रेखाएं यह दर्शाती हैं कि क्षेत्र में बहुत अधिक भिन्नता है","क्योंकि परिनालिका लंबाई में बहुत छोटी होती है","क्योंकि चुंबकीय क्षेत्र अंदर के सभी बिंदुओं पर समान होता है, जो एकरूपता दर्शाता है"],
+a:3,
+s:"लंबी परिनालिका के अंदर चुंबकीय क्षेत्र लगभग एकसमान होता है। इसलिए क्षेत्र रेखाएं समानांतर और लगभग समान दूरी पर होती हैं।"
+},
+
+{
+q:"एक विद्यार्थी एक धारावाही परिनालिका का उपयोग करके एक छड़ चुंबक (bar magnet) बनाना चाहता है। चुंबकीय क्षेत्र रेखाओं की कौन-सी व्यवस्था यह दर्शाएगी कि परिनालिका एक छड़ चुंबक के रूप में कार्य कर रही है?",
+o:["चुंबकीय क्षेत्र रेखाएं एक सिरे से निकलकर दूसरे सिरे में प्रवेश करती हैं, जिससे बाहर की ओर संवृत पाश बनते हैं","चुंबकीय क्षेत्र रेखाएं परिनालिका के अंदर यादृच्छिक रूप से वक्र होती हैं","चुंबकीय क्षेत्र रेखाएं परिनालिका के चारों ओर एक सिरे से दूसरे सिरे तक सर्पिल होती हैं","चुंबकीय क्षेत्र रेखाएं केवल परिनालिका के बाहर सीधी समानांतर रेखाओं का निर्माण करती हैं"],
+a:0,
+s:"धारावाही परिनालिका छड़ चुंबक की तरह व्यवहार करती है। इसके बाहर क्षेत्र रेखाएं एक ध्रुव से निकलकर दूसरे ध्रुव में प्रवेश करती हैं और संवृत पथ बनाती हैं।"
+},
+
+{
+q:"परिनालिका का एक सिरा उत्तरी ध्रुव के रूप में और दूसरा सिरा दक्षिणी ध्रुव के रूप में क्यों व्यवहार करता है?",
+o:["परिनालिका में कोई धारा नहीं होती है","क्योंकि धारा एक छड़ चुंबक के समान चुंबकीय प्रभाव उत्पन्न करती है","परिनालिका प्राकृतिक रूप से चुंबकीय होती है","विद्युतरोधन ध्रुवों को उत्पन्न करता है"],
+a:1,
+s:"परिनालिका में विद्युत धारा प्रवाहित होने पर उसके अंदर और बाहर चुंबकीय क्षेत्र उत्पन्न होता है। उसका क्षेत्र पैटर्न छड़ चुंबक के समान होता है।"
+},
+
+{
+q:"एक विद्यार्थी कोई ऐसा डिवाइस डिज़ाइन करना चाहता है जिसमें एक सीधे चालक (straight conductor) के कारण चुंबकीय क्षेत्र किसी निश्चित बिंदु पर अधिकतम हो। उस बिंदु पर क्षेत्र तीव्रता बढ़ाने के लिए कौन-सा संशोधन सबसे प्रभावी होगा?",
+o:["अचुंबकीय तार सामग्री का उपयोग करना","चालक को क्षैतिज रखना","तार की मोटाई में वृद्धि करना","चालक के माध्यम से धारा में वृद्धि करना"],
+a:3,
+s:"सीधे धारावाही चालक के लिए B = μ₀I/(2πr)। दूरी समान होने पर धारा बढ़ाने से चुंबकीय क्षेत्र सीधे बढ़ता है।"
+},
+
+{
+q:"एक विद्यार्थी अवलोकन करता है कि दिक्सूची (compass needle) के धारावाही सीधे चालक से दूर जाने पर उसका विक्षेपण कम हो जाता है। इस अवलोकन का सबसे संभावित कारण क्या है?",
+o:["चालक में विद्युत धारा दूरी के साथ घटती जाती है","चालक से दूरी बढ़ने पर चुंबकीय क्षेत्र सामर्थ्य कम हो जाता है","तार की आकृति केवल निकट दूरियों पर ही क्षेत्र सामर्थ्य को प्रभावित करती है","पृथ्वी का चुंबकीय क्षेत्र दूरी के साथ प्रबल होता जाता है"],
+a:1,
+s:"सीधे चालक से दूरी बढ़ने पर चुंबकीय क्षेत्र B ∝ 1/r के अनुसार घटता है। इसलिए कंपास का विक्षेपण कम हो जाता है।"
+},
+
+{
+q:"एक तकनीशियन, तार की सामग्री या परिवेश को बदले बिना किसी धारावाही तार के परितः चुंबकीय प्रभाव को कम करना चाहता है। इसके लिए निम्नलिखित में से किस विधि का उपयोग किया जाना चाहिए?",
+o:["धारा को परिवर्तित किए बिना तार को पतला बनाना","उपयोग किए गए तार की लंबाई बढ़ाना","तार से प्रवाहित होने वाली धारा की मात्रा को कम करना","तार के पथ को सरल रेखा में परिवर्तित करना"],
+a:2,
+s:"सीधे चालक का चुंबकीय क्षेत्र धारा के समानुपाती होता है। इसलिए धारा कम करने पर चुंबकीय क्षेत्र भी कम हो जाता है।"
+},
+
+{
+q:"धारावाही तार द्वारा उत्पन्न चुंबकीय क्षेत्र, तार से दूरी के साथ किस प्रकार परिवर्तित होता है?",
+o:["यह दूरी के साथ यादृच्छिक रूप से घटता-बढ़ता है","यह सभी दूरियों पर नियत रहता है","यह दूरी बढ़ने के साथ बढ़ता है","यह दूरी बढ़ने के साथ घटता है"],
+a:3,
+s:"सीधे धारावाही चालक के लिए B = μ₀I/(2πr), अतः दूरी बढ़ने पर चुंबकीय क्षेत्र घटता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कथन, सीधे धारावाही चालक पर दक्षिण हस्त अंगुष्ठ नियम के अनुप्रयोग का सर्वोत्तम वर्णन करता है?",
+o:["धारा के लिए वाम हस्त का उपयोग किया जाता है, चुंबकीय क्षेत्र के लिए दक्षिण हस्त का उपयोग किया जाता है","अंगूठा चुंबकीय क्षेत्र की दिशा को इंगित करता है, मुड़ी हुई उंगलियां धारा की दिशा को इंगित करती हैं","उंगलियां धारा की दिशा को इंगित करती हैं, मुड़ा हुआ अंगूठा चुंबकीय क्षेत्र की दिशा को इंगित करता है","अंगूठा धारा की दिशा को इंगित करता है, मुड़ी हुई उंगलियां चुंबकीय क्षेत्र की दिशा को इंगित करती हैं"],
+a:3,
+s:"दाहिने हाथ के अंगूठे के नियम में अंगूठा धारा की दिशा बताता है और मुड़ी हुई उंगलियां चुंबकीय क्षेत्र रेखाओं की दिशा बताती हैं।"
+},
+
+{
+q:"दक्षिण हस्त अंगुष्ठ नियम को ____________ के नाम से भी जाना जाता है।",
+o:["फ्लेमिंग के नियम","मैक्सवेल के कॉर्क्सक्रू नियम","ओम के नियम","फैराडे के नियम"],
+a:1,
+s:"दाहिने हाथ के अंगूठे के नियम को मैक्सवेल के कॉर्क्सक्रू नियम के रूप में भी जाना जाता है।"
+},
+
+{
+q:"एक विद्यार्थी धारावाही सीधे चालक के चारों ओर चुंबकीय क्षेत्र की दिशा निर्धारित करने के लिए दक्षिण-हस्त अंगुष्ठ नियम का उपयोग करना चाहता है। इस नियम को सही रूप से लागू करने के लिए निम्नलिखित में से कौन-सा चरण आवश्यक है?",
+o:["अंगूठे को चुंबकीय क्षेत्र के साथ संरेखित करना","अंगूठे को धारा की दिशा में इंगित करना","चालक की दिशा में उंगलियों को मोड़ना","अभिविन्यास के लिए वाम हस्त का उपयोग करना"],
+a:1,
+s:"नियम में दाहिने हाथ का अंगूठा धारा की दिशा में रखा जाता है और मुड़ी हुई उंगलियां चुंबकीय क्षेत्र की दिशा दर्शाती हैं।"
+},
+
+{
+q:"एक प्रयोग के दौरान, एक विद्यार्थी ऊपर की ओर धारा प्रवाहित कर रहे एक ऊर्ध्वाधर तार पर दक्षिण-हस्त अंगुष्ठ नियम लागू करता है। तार के ठीक पूर्व में स्थित एक बिंदु पर चुंबकीय क्षेत्र की दिशा क्या होगी?",
+o:["चुंबकीय क्षेत्र उसी बिंदु पर उत्तर की ओर इंगित होता है","चुंबकीय क्षेत्र उसी बिंदु पर पूर्व की ओर इंगित होता है","चुंबकीय क्षेत्र उसी बिंदु पर पश्चिम की ओर इंगित होता है","चुंबकीय क्षेत्र उसी बिंदु पर दक्षिण की ओर इंगित होता है"],
+a:1,
+s:"दाहिने हाथ का अंगूठा ऊपर रखने पर उंगलियां चुंबकीय क्षेत्र की दिशा बताती हैं। पूर्व दिशा वाले बिंदु पर क्षेत्र उत्तर दिशा में होगा।"
+},
+
+{
+q:"किसी वृत्ताकार धारा वाही परिपथ के केंद्र पर चुंबकीय क्षेत्र की दिशा निर्धारित करने के लिए किस नियम का उपयोग किया जाता है?",
+o:["फ्लेमिंग का बाएं हाथ का नियम","दाहिने हाथ के अंगूठे का नियम","जूल का ताप का नियम","ओम का नियम"],
+a:1,
+s:"वृत्ताकार धारावाही कुंडली के केंद्र पर चुंबकीय क्षेत्र की दिशा ज्ञात करने के लिए दाहिने हाथ के अंगूठे के नियम का उपयोग किया जा सकता है।"
+},
+
+{
+q:"किसी परिनालिका का उपयोग उसके अंदर रखे मृदु लोहे के टुकड़े को चुंबकित करने के लिए क्यों किया जा सकता है?",
+o:["क्योंकि परिनालिका उसके अंदर प्रबल और एकसमान चुंबकीय क्षेत्र उत्पन्न करती है","क्योंकि परिनालिका चुंबकीय क्षेत्रों को मृदु लोहे में प्रवेश करने से रोकती है","क्योंकि परिनालिका केवल उसके बाहर असमान क्षेत्र उत्पन्न करती है","क्योंकि परिनालिका उसके अंदर दुर्बल और प्रकीर्ण चुंबकीय क्षेत्र उत्पन्न करती है"],
+a:0,
+s:"परिनालिका के अंदर प्रबल और लगभग एकसमान चुंबकीय क्षेत्र बनता है। इसमें रखा मृदु लोहा आसानी से चुंबकित हो जाता है और विद्युतचुंबक बनाया जा सकता है।"
+}
+
+];
+
+let current = 0;
+let answers = new Array(questions.length).fill(null);
+let review = new Array(questions.length).fill(false);
+
+let timeLeft = 25 * 60;
+let submitted = false;
+
+function renderQuestion(){
+
+  const q = questions[current];
+
+  document.getElementById("questionNo").textContent =
+    "Question " + (current + 1) + " of " + questions.length;
+
+  document.getElementById("questionText").textContent = q.q;
+
+  const options = document.getElementById("options");
+  options.innerHTML = "";
+
+  q.o.forEach((option,index)=>{
+
+    const label = document.createElement("label");
+    label.className = "option";
+
+    if(answers[current] === index){
+      label.classList.add("selected");
+    }
+
+    label.innerHTML =
+      `<input type="radio" name="answer" value="${index}"
+      ${answers[current] === index ? "checked" : ""}>
+      <b>${String.fromCharCode(65+index)}.</b> ${option}`;
+
+    label.onclick = function(){
+
+      answers[current] = index;
+
+      document.querySelectorAll(".option").forEach(x=>{
+        x.classList.remove("selected");
+      });
+
+      label.classList.add("selected");
+
+      updatePalette();
+    };
+
+    options.appendChild(label);
+  });
+
+  document.getElementById("prevBtn").disabled = current === 0;
+
+  document.getElementById("nextBtn").disabled =
+    current === questions.length - 1;
+
+  document.getElementById("reviewBtn").textContent =
+    review[current] ? "Unmark Review" : "Mark for Review";
+
+  updatePalette();
+}
+
+function nextQuestion(){
+
+  if(current < questions.length - 1){
+    current++;
+    renderQuestion();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+}
+
+function previousQuestion(){
+
+  if(current > 0){
+    current--;
+    renderQuestion();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+}
+
+function toggleReview(){
+
+  review[current] = !review[current];
+
+  document.getElementById("reviewBtn").textContent =
+    review[current] ? "Unmark Review" : "Mark for Review";
+
+  updatePalette();
+}
+
+function togglePalette(){
+
+  document.getElementById("palettePanel").classList.toggle("open");
+  document.getElementById("overlay").classList.toggle("show");
+
+}
+
+function updatePalette(){
+
+  const grid = document.getElementById("paletteGrid");
+
+  grid.innerHTML = "";
+
+  questions.forEach((q,index)=>{
+
+    const btn = document.createElement("button");
+
+    btn.className = "palette-q";
+
+    btn.textContent = index + 1;
+
+    if(answers[index] !== null){
+      btn.classList.add("answered");
+    }
+
+    if(review[index]){
+      btn.classList.add("reviewed");
+    }
+
+    if(index === current){
+      btn.classList.add("current");
+    }
+
+    btn.onclick = function(){
+
+      current = index;
+      renderQuestion();
+
+      document.getElementById("palettePanel").classList.remove("open");
+      document.getElementById("overlay").classList.remove("show");
+
+      window.scrollTo({top:0,behavior:"smooth"});
+    };
+
+    grid.appendChild(btn);
+
+  });
+}
+
+/* TIMER */
+
+function updateTimer(){
+
+  const min = Math.floor(timeLeft / 60);
+  const sec = timeLeft % 60;
+
+  document.getElementById("timer").textContent =
+    String(min).padStart(2,"0") + ":" +
+    String(sec).padStart(2,"0");
+
+  if(timeLeft <= 0){
+
+    clearInterval(timerInterval);
+
+    if(!submitted){
+      submitTest(true);
+    }
+
+    return;
+  }
+
+  timeLeft--;
+
+}
+
+const timerInterval = setInterval(updateTimer,1000);
+
+
+/* SUBMIT */
+
+function submitTest(auto=false){
+
+  if(submitted) return;
+
+  if(!auto){
+
+    const unanswered =
+      answers.filter(x => x === null).length;
+
+    if(!confirm(
+      unanswered > 0
+      ? "आपके " + unanswered +
+        " प्रश्न अनुत्तरित हैं। क्या आप Test Submit करना चाहते हैं?"
+      : "क्या आप Test Submit करना चाहते हैं?"
+    )){
+      return;
+    }
+
+  }
+
+  submitted = true;
+
+  clearInterval(timerInterval);
+
+  let correct = 0;
+  let wrong = 0;
+  let unattempted = 0;
+
+  answers.forEach((ans,index)=>{
+
+    if(ans === null){
+      unattempted++;
+    }
+    else if(ans === questions[index].a){
+      correct++;
+    }
+    else{
+      wrong++;
+    }
+
+  });
+
+  const score =
+    correct - (wrong / 3);
+
+  document.getElementById("testArea").style.display = "none";
+
+  const result = document.getElementById("resultArea");
+
+  result.classList.add("show");
+
+  document.getElementById("finalScore").textContent =
+    score.toFixed(2);
+
+  document.getElementById("correctCount").textContent = correct;
+
+  document.getElementById("wrongCount").textContent = wrong;
+
+  document.getElementById("unattemptedCount").textContent =
+    unattempted;
+
+  document.getElementById("attemptedCount").textContent =
+    correct + wrong;
+
+  generateSolutions();
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+
+/* SOLUTIONS */
+
+function generateSolutions(){
+
+  const container = document.getElementById("solutions");
+
+  container.innerHTML = "";
+
+  questions.forEach((q,index)=>{
+
+    const userAnswer = answers[index];
+
+    let statusHTML = "";
+
+    if(userAnswer === null){
+
+      statusHTML = `
+        <div class="answer-line">
+          <b>आपका उत्तर:</b> Unattempted
+        </div>
+      `;
+
+    }
+    else if(userAnswer === q.a){
+
+      statusHTML = `
+        <div class="answer-line correct-answer">
+          ✓ <b>आपका उत्तर:</b>
+          ${String.fromCharCode(65+userAnswer)}. ${q.o[userAnswer]}
+          <br>
+          <b>+1 अंक</b>
+        </div>
+      `;
+
+    }
+    else{
+
+      statusHTML = `
+        <div class="answer-line wrong-answer">
+          ✗ <b>आपका उत्तर:</b>
+          ${String.fromCharCode(65+userAnswer)}. ${q.o[userAnswer]}
+          <br>
+          <b>-1/3 अंक</b>
+        </div>
+      `;
+
+    }
+
+    const correctHTML = `
+      <div class="answer-line correct-answer">
+        <b>सही उत्तर:</b>
+        ${String.fromCharCode(65+q.a)}. ${q.o[q.a]}
+      </div>
+    `;
+
+    const div = document.createElement("div");
+
+    div.className = "result-question";
+
+    div.innerHTML = `
+      <div class="result-q-title">
+        Q${index+1}. ${q.q.includes("Electromagnetic") ? "" : ""}
+      </div>
+
+      <div class="result-question-text">
+        ${q.q}
+      </div>
+
+      ${statusHTML}
+
+      ${correctHTML}
+
+      <div class="solution">
+        <b>Solution:</b><br>
+        ${q.s}
+      </div>
+    `;
+
+    container.appendChild(div);
+
+  });
+
+}
+
+renderQuestion();
+updateTimer();
+
+</script>
+
+</body>
+</html>
