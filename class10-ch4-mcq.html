@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Carbon and Its Compounds Mock Test</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#eef3f8;
+  color:#172033;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1050px;
+  margin:auto;
+  padding:20px 15px 50px;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,#071d49,#0b4f91);
+  color:white;
+  border-radius:18px;
+  padding:22px 20px;
+  margin-bottom:18px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+.header h1{
+  font-size:25px;
+  margin-bottom:7px;
+}
+
+.header p{
+  font-size:14px;
+  opacity:.92;
+}
+
+.info-bar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:15px;
+}
+
+.info{
+  background:rgba(255,255,255,.14);
+  padding:6px 11px;
+  border-radius:20px;
+  font-size:13px;
+}
+
+/* PALETTE BUTTON */
+.palette-btn{
+  position:fixed;
+  right:15px;
+  top:15px;
+  z-index:1000;
+  border:0;
+  background:#ff8a00;
+  color:white;
+  padding:10px 15px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+/* PALETTE */
+.palette-panel{
+  position:fixed;
+  right:15px;
+  top:62px;
+  width:310px;
+  max-width:calc(100vw - 30px);
+  max-height:75vh;
+  overflow:auto;
+  background:white;
+  border-radius:15px;
+  padding:15px;
+  z-index:999;
+  box-shadow:0 12px 35px rgba(0,0,0,.25);
+  display:none;
+}
+
+.palette-panel.show{
+  display:block;
+}
+
+.palette-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.palette-title h3{
+  color:#08265a;
+  font-size:17px;
+}
+
+.close-palette{
+  border:0;
+  background:#eee;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.palette-legend{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+  font-size:11px;
+}
+
+.legend{
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.dot{
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  display:inline-block;
+}
+
+.dot.correct{background:#20a464;}
+.dot.wrong{background:#e53935;}
+.dot.skipped{background:#f0a000;}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:5px;
+}
+
+.palette-item{
+  height:31px;
+  border:0;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:11px;
+  font-weight:bold;
+  background:#edf1f5;
+  color:#263238;
+}
+
+.palette-item:hover{
+  transform:scale(1.04);
+}
+
+.palette-item.correct{
+  background:#20a464;
+  color:white;
+}
+
+.palette-item.wrong{
+  background:#e53935;
+  color:white;
+}
+
+.palette-item.current{
+  outline:3px solid #ff9800;
+  outline-offset:1px;
+}
+
+.palette-item.skipped{
+  background:#f0a000;
+  color:white;
+}
+
+/* PROGRESS */
+.progress-box{
+  background:white;
+  padding:13px;
+  border-radius:12px;
+  margin-bottom:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.07);
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  margin-bottom:7px;
+  font-weight:bold;
+}
+
+.progress{
+  width:100%;
+  height:8px;
+  background:#e4e8ed;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#0b62a9,#15a2d8);
+  transition:.3s;
+}
+
+/* QUESTION CARD */
+.question-card{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.category{
+  display:inline-block;
+  background:#e7f1ff;
+  color:#07569c;
+  padding:5px 11px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+  margin-bottom:13px;
+}
+
+.question-number{
+  color:#0a5b9e;
+  font-size:17px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.question{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:20px;
+}
+
+.statement{
+  margin-top:8px;
+}
+
+/* OPTIONS */
+.options{
+  display:grid;
+  gap:11px;
+}
+
+.option{
+  border:2px solid #e0e5eb;
+  background:#fafbfd;
+  border-radius:12px;
+  padding:13px 14px;
+  cursor:pointer;
+  transition:.2s;
+  font-size:15px;
+}
+
+.option:hover{
+  border-color:#3186c5;
+  background:#f1f8ff;
+}
+
+.option.disabled{
+  cursor:default;
+}
+
+.option.correct{
+  background:#e7f8ef;
+  border-color:#20a464;
+  color:#086b3c;
+  font-weight:bold;
+}
+
+.option.wrong{
+  background:#fff0f0;
+  border-color:#e53935;
+  color:#b71c1c;
+  font-weight:bold;
+}
+
+.option .letter{
+  display:inline-flex;
+  width:27px;
+  height:27px;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:#e9eef4;
+  margin-right:9px;
+  font-weight:bold;
+}
+
+.option.correct .letter{
+  background:#20a464;
+  color:white;
+}
+
+.option.wrong .letter{
+  background:#e53935;
+  color:white;
+}
+
+/* EXPLANATION */
+.explanation{
+  display:none;
+  margin-top:18px;
+  border-left:5px solid #0b62a9;
+  background:#f1f7fd;
+  padding:14px 16px;
+  border-radius:8px;
+}
+
+.explanation.show{
+  display:block;
+}
+
+.explanation-title{
+  font-weight:bold;
+  color:#07569c;
+  margin-bottom:5px;
+}
+
+.answer-status{
+  margin-top:12px;
+  font-weight:bold;
+}
+
+.status-correct{
+  color:#16834e;
+}
+
+.status-wrong{
+  color:#d32f2f;
+}
+
+/* NAVIGATION */
+.navigation{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:18px;
+}
+
+.nav-btn{
+  border:0;
+  border-radius:10px;
+  padding:12px 25px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.prev{
+  background:#e5e9ee;
+  color:#273444;
+}
+
+.next{
+  background:#0b5c9e;
+  color:white;
+  margin-left:auto;
+}
+
+.nav-btn:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+
+/* RESULT */
+.result{
+  display:none;
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 5px 20px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.result h2{
+  color:#082d63;
+  margin-bottom:20px;
+}
+
+.score-circle{
+  width:125px;
+  height:125px;
+  margin:0 auto 20px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#0b5c9e,#13a1d1);
+  color:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+.score-circle strong{
+  font-size:30px;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin:20px 0;
+}
+
+.result-box{
+  padding:15px 8px;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+.result-box.correct{
+  background:#e7f8ef;
+  color:#16834e;
+}
+
+.result-box.wrong{
+  background:#fff0f0;
+  color:#d32f2f;
+}
+
+.result-box.skipped{
+  background:#fff6df;
+  color:#b36b00;
+}
+
+.restart{
+  border:0;
+  background:#0b5c9e;
+  color:white;
+  padding:12px 25px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .container{
+    padding:12px 9px 35px;
+  }
+
+  .header{
+    padding:17px 14px;
+    border-radius:14px;
+  }
+
+  .header h1{
+    font-size:20px;
+    padding-right:45px;
+  }
+
+  .question-card{
+    padding:16px 13px;
+    border-radius:14px;
+  }
+
+  .question{
+    font-size:16px;
+  }
+
+  .option{
+    font-size:14px;
+    padding:11px;
+  }
+
+  .palette-grid{
+    grid-template-columns:repeat(7,1fr);
+  }
+
+  .palette-panel{
+    right:8px;
+    top:58px;
+    max-width:calc(100vw - 16px);
+  }
+
+  .result-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav-btn{
+    padding:11px 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<button class="palette-btn" onclick="togglePalette()">☷ Palette</button>
+
+<div class="palette-panel" id="palettePanel">
+  <div class="palette-title">
+    <h3>Question Palette</h3>
+    <button class="close-palette" onclick="togglePalette()">✕</button>
+  </div>
+
+  <div class="palette-legend">
+    <span class="legend"><i class="dot correct"></i> Correct</span>
+    <span class="legend"><i class="dot wrong"></i> Wrong</span>
+    <span class="legend"><i class="dot skipped"></i> Unattempted</span>
+  </div>
+
+  <div class="palette-grid" id="paletteGrid"></div>
+</div>
+
+<div class="container">
+
+  <header class="header">
+    <h1>Carbon and Its Compounds | Mock Test</h1>
+    <p>Railway Science • Class 10 Science • Carbon Chemistry</p>
+
+    <div class="info-bar">
+      <span class="info">121 Questions</span>
+      <span class="info">No Timer</span>
+      <span class="info">No Negative Marking</span>
+      <span class="info">4 Options</span>
+    </div>
+  </header>
+
+  <div class="progress-box">
+    <div class="progress-top">
+      <span id="progressText">Question 1 of 121</span>
+      <span id="attemptText">Attempted: 0</span>
+    </div>
+    <div class="progress">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <main id="quizArea">
+
+    <div class="question-card">
+
+      <div class="category" id="category"></div>
+
+      <div class="question-number" id="questionNumber"></div>
+
+      <div class="question" id="questionText"></div>
+
+      <div class="options" id="options"></div>
+
+      <div class="explanation" id="explanation">
+        <div class="explanation-title">Explanation</div>
+        <div id="explanationText"></div>
+        <div class="answer-status" id="answerStatus"></div>
+      </div>
+
+      <div class="navigation">
+        <button class="nav-btn prev" id="prevBtn" onclick="previousQuestion()">
+          ← Previous
+        </button>
+
+        <button class="nav-btn next" id="nextBtn" onclick="nextQuestion()">
+          Next →
+        </button>
+      </div>
+
+    </div>
+
+  </main>
+
+  <section class="result" id="result">
+    <h2>🎯 Test Result</h2>
+
+    <div class="score-circle">
+      <strong id="score">0</strong>
+      <span>Marks</span>
+    </div>
+
+    <div class="result-grid">
+      <div class="result-box correct">
+        Correct<br>
+        <span id="correctCount">0</span>
+      </div>
+
+      <div class="result-box wrong">
+        Wrong<br>
+        <span id="wrongCount">0</span>
+      </div>
+
+      <div class="result-box skipped">
+        Skipped<br>
+        <span id="skippedCount">0</span>
+      </div>
+    </div>
+
+    <p id="resultMessage"></p>
+
+    <br>
+
+    <button class="restart" onclick="restartQuiz()">
+      Restart Test
+    </button>
+  </section>
+
+</div>
+
+<script>
+
+/* =========================================================
+   QUESTION DATA
+   correct = 0 means A
+   correct = 1 means B
+   correct = 2 means C
+   correct = 3 means D
+========================================================= */
+
+const questions = [
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन का वह विशिष्ट लक्षण क्या है, जो इसके अधिक संख्या में कार्बनिक यौगिकों के निर्माण का कारण बनता है?",
+o:["विलेयता","चतुःसंयोजकता (tetravalency) और श्रृंखलन दोनों","केवल श्रृंखलन","केवल चतुःसंयोजकता"],
+correct:1,
+e:"कार्बन की चतुःसंयोजकता और श्रृंखलन (catenation) दोनों उसे बड़ी संख्या में स्थिर कार्बनिक यौगिक बनाने में सक्षम बनाते हैं।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"एथेनॉल (Ethanol) को सांद्र सल्फ्यूरिक अम्ल की अधिकता में 443 K पर गर्म करने पर एथीन (ethene) प्राप्त होता है। होने वाला रासायनिक परिवर्तन __________ होगा।",
+o:["हैलोजनन","अपचयन","निर्जलीकरण","ऑक्सीकरण"],
+correct:2,
+e:"443 K पर सांद्र H₂SO₄ की उपस्थिति में एथेनॉल से जल निकलता है और एथीन बनता है। इसे निर्जलीकरण (dehydration) कहते हैं।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"दिए गए यौगिकों में से, किसका उपयोग ईंधन योज्य के रूप में किया जाता है?",
+o:["एथेन (Ethane)","एथेनैल (Ethanal)","एथेनॉइक अम्ल (Ethanoic acid)","एथेनॉल (Ethanol)"],
+correct:3,
+e:"एथेनॉल को ईंधन तथा पेट्रोल के साथ ईंधन योज्य के रूप में उपयोग किया जाता है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन परमाणुओं का कौन-सा अद्वितीय गुण, उन्हें अन्य कार्बन परमाणुओं के साथ लंबी और स्थिर श्रृंखला बनाने में सक्षम बनाता है?",
+o:["अपररूपता (Allotropy)","चतुःसंयोजकता (Tetravalency)","श्रृंखलन (Catenation)","समावयवता (Isomerism)"],
+correct:2,
+e:"एक ही तत्व के परमाणुओं के बीच स्थिर सहसंयोजक बंध बनाकर लंबी श्रृंखला बनाने की क्षमता को श्रृंखलन कहते हैं।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन के दो मुख्य गुणधर्म क्या हैं जो इसकी 'विविधतायुक्त प्रकृति' और बड़ी संख्या में यौगिक बनाने की क्षमता में योगदान करते हैं?",
+o:["श्रृंखलन और चतुःसंयोजकता","सुचालकता और ध्वानिक प्रकृति","समावयवता और अपररूपता","उच्च गलनांक और तन्यता"],
+correct:0,
+e:"कार्बन की विविधता का मुख्य कारण चतुःसंयोजकता और श्रृंखलन है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कौन-सा कथन कार्बन की विविधता युक्त प्रकृति से संबंधित नहीं है?",
+o:["इसमें श्रृंखलन होता है।","इसमें एकल, द्वि और त्रिबंध हो सकते हैं।","यह चतुःसंयोजी है।","यह आयनिक रूप से बंध बना सकता है।"],
+correct:3,
+e:"कार्बन की विविधता मुख्यतः चतुःसंयोजकता, श्रृंखलन और विभिन्न प्रकार के सहसंयोजक बंधों के कारण है। आयनिक बंध इसकी विविधता का मुख्य कारण नहीं है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बनिक यौगिक में सदैव निम्नलिखित में से क्या होता है?",
+o:["कम से कम एक कार्बन परमाणु","सिलिकॉन और फॉस्फोरस परमाणु","हाइड्रोजन, ऑक्सीजन और नाइट्रोजन","हैलोजन और उत्कृष्ट गैसें"],
+correct:0,
+e:"कार्बनिक यौगिकों की मूल विशेषता उनमें कार्बन की उपस्थिति है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन परमाणु का कौन-सा गुण, एक कार्बन परमाणु को अन्य कार्बन परमाणुओं के साथ आबंध बनाने में सक्षम बनाता है?",
+o:["समावयवन","बहुलकन","श्रृंखलन","संयोजकता"],
+correct:2,
+e:"कार्बन द्वारा स्वयं के परमाणुओं के साथ बंध बनाकर श्रृंखला बनाने की क्षमता को श्रृंखलन (catenation) कहते हैं।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन लंबी श्रृंखलाएं बना सकता है, क्योंकि यह __________ प्रदर्शित करता है तथा __________ दर्शाता है।",
+o:["विद्युतऋणात्मकता; चतुःसंयोजकता","चतुःसंयोजकता; श्रृंखलन","द्विआबंध; त्रिआबंध","त्रिसंयोजकता; श्रृंखलन"],
+correct:1,
+e:"कार्बन चतुःसंयोजी है और कार्बन-कार्बन बंध बनाकर श्रृंखलन प्रदर्शित करता है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"जब एथेनॉल सांद्र H₂SO₄ की उपस्थिति में एथेनॉइक एसिड के साथ अभिक्रिया करता है तो __________ उत्पन्न होता है।",
+o:["एस्टर","एल्डिहाइड","कीटोन","एल्कोहॉल"],
+correct:0,
+e:"एथेनॉल और एथेनॉइक अम्ल की सांद्र H₂SO₄ की उपस्थिति में अभिक्रिया से एस्टर बनता है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन अपने दो विशिष्ट गुणों के कारण बहुत बड़ी संख्या में यौगिक बनाता है। निम्नलिखित में से कौन इन गुणों की सही पहचान करता है?",
+o:["उच्च गलनांक और तन्यता","श्रृंखलन और चतुःसंयोजकता","अपररूपता और समावयवता","अच्छी चालकता और ध्वानिक प्रकृति"],
+correct:1,
+e:"कार्बन की चतुःसंयोजकता और श्रृंखलन इसकी बड़ी संख्या में यौगिक बनाने की मुख्य वजह हैं।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन कई यौगिकों का निर्माण करता है, इसका कारण निम्नलिखित में से क्या है?",
+o:["उत्कृष्ट गैसों के साथ अभिक्रियाशीलता","आयनिक क्रिस्टल बनाने की क्षमता","उच्च परमाणु द्रव्यमान और बड़ा आकार","कैटेनेशन और चतुःसंयोजकता"],
+correct:3,
+e:"Catenation यानी श्रृंखलन और tetravalency यानी चतुःसंयोजकता कार्बन की विविधता के प्रमुख कारण हैं।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"जब एथेनॉइक अम्ल सोडियम कार्बोनेट के साथ अभिक्रिया करता है, तो सामान्यतः कौन सी गैस निकलती है?",
+o:["हाइड्रोजन गैस","कार्बन डाइऑक्साइड गैस","मेथेन गैस","ऑक्सीजन गैस"],
+correct:1,
+e:"अम्ल और कार्बोनेट की अभिक्रिया में लवण, जल और CO₂ गैस बनती है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"निम्नलिखित कथनों पर विचार कीजिए और सही विकल्प चुनिए।<br><span class='statement'>कथन A: गन्ने के रस को किण्वित करके एल्कोहॉल (एथेनॉल) बनाया जा सकता है।<br>कथन B: पेट्रोल में एल्कोहॉल मिलाया जाता है क्योंकि यह एक स्वच्छ ईंधन है।</span>",
+o:["कथन A सही है, लेकिन कथन B गलत है।","कथन A और B दोनों गलत हैं।","कथन A और B दोनों सही हैं।","कथन A गलत है, लेकिन कथन B सही है।"],
+correct:2,
+e:"गन्ने के रस में उपस्थित शर्करा के किण्वन से एथेनॉल बन सकता है। एथेनॉल को पेट्रोल में मिलाकर ईंधन के रूप में प्रयोग किया जाता है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन बड़ी संख्या में यौगिक बनाने में सक्षम क्यों है?",
+o:["यह प्रबल आयनिक बंध बनाता है।","इसका घनत्व उच्च है।","यह अत्यधिक अभिक्रियाशील है।","यह श्रृंखला और चतुःसंयोजकता दर्शाता है।"],
+correct:3,
+e:"कार्बन की श्रृंखला बनाने की क्षमता और चतुःसंयोजकता इसके विशाल यौगिक संसार का आधार हैं।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"एस्टर __________ वाले पदार्थ होते हैं।",
+o:["तिक्त-गंध","तीखी-गंध","खट्टी-गंध","मीठी-गंध"],
+correct:3,
+e:"अधिकांश एस्टर सुखद या मीठी गंध वाले होते हैं और कई फलों जैसी सुगंध देते हैं।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बनिक यौगिकों को परिभाषित करने वाली प्राथमिक विशेषता क्या है?",
+o:["ये ऐसे यौगिक हैं जो पिघली हुई अवस्था में विद्युत का चालन करते हैं।","इनका निर्माण केवल जीवित जीवों द्वारा होता है।","इनमें मुख्यतः कार्बन और हाइड्रोजन परमाणु होते हैं, जो सहसंयोजक बंध बनाते हैं।","उनमें हमेशा ऑक्सीजन परमाणु होते हैं।"],
+correct:2,
+e:"अधिकांश कार्बनिक यौगिकों में कार्बन का सहसंयोजक बंधों के माध्यम से अन्य तत्वों, विशेषकर हाइड्रोजन, के साथ संयोजन होता है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन में कार्बन के अन्य परमाणुओं के साथ आबंध बनाने की अद्वितीय क्षमता होती है, जिससे बड़े अणु बनते हैं। इस गुण को क्या कहते हैं?",
+o:["योगज (addition)","संयुग्मन (conjugation)","एकीकरण (unification)","श्रृंखलन (catenation)"],
+correct:3,
+e:"कार्बन-कार्बन बंधों द्वारा लंबी श्रृंखला या बड़े अणु बनाने की क्षमता catenation कहलाती है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"जब एथेनॉल को क्षारीय KMnO₄ जैसे ऑक्सीकरण कारकों का उपयोग करके ऑक्सीकृत किया जाता है, तो क्या बनता है?",
+o:["ऐसीटोन (Acetone)","मेथेनॉइक अम्ल (Methanoic acid)","मेथेन (Methane)","एथेनॉइक अम्ल (Ethanoic acid)"],
+correct:3,
+e:"एथेनॉल के ऑक्सीकरण से पहले एथेनैल और आगे ऑक्सीकरण पर एथेनॉइक अम्ल बनता है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"एथेनॉइक अम्ल (Ethanoic acid), सांद्र H₂SO₄ की उपस्थिति में एथेनॉल के साथ अभिक्रिया करके __________ बनाता है।",
+o:["सोडियम ऐसीटेट (sodium acetate)","मेथेनॉल (methanol)","ऐसीटोन (acetone)","एथिल एथेनोएट (ethyl ethanoate)"],
+correct:3,
+e:"एथेनॉइक अम्ल + एथेनॉल → एथिल एथेनोएट + जल। यह esterification अभिक्रिया है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कौन-सा गुणधर्म कार्बन को दीर्घ श्रृंखलाएं बनाने में सक्षम बनाता है?",
+o:["बहुलीकरण (Polymerisation)","श्रृंखलन (Catenation)","चतुः संयोजकता (Tetravalency)","समावयवता (Isomerism)"],
+correct:1,
+e:"कार्बन परमाणुओं का आपस में मजबूत बंध बनाकर लंबी श्रृंखला बनाना catenation कहलाता है।"
+},
+
+{
+cat:"Basic Organic Chemistry",
+q:"कार्बन के किस गुणधर्म के कारण वह स्वयं और अन्य तत्वों के साथ आबंध बनाकर बड़ी संख्या में यौगिक बनाता है?",
+o:["समावयवता","चतुःसंयोजकता","दहन","श्रृंखलन"],
+correct:1,
+e:"कार्बन की चतुःसंयोजकता उसे चार सहसंयोजक बंध बनाने देती है, जिससे अनेक प्रकार के यौगिक बनते हैं।"
+},
+
+/* 23-30 */
+
+{
+cat:"Carbon and its allotropes (diamond/graphite/fullerene)",
+q:"निम्नलिखित में से कौन-सा फुलेरीन कार्बन अपररूप का रासायनिक सूत्र है?",
+o:["C6","C0","C","C60"],
+correct:3,
+e:"सबसे प्रसिद्ध फुलेरीन C₆₀ है, जिसे buckminsterfullerene भी कहा जाता है।"
+},
+
+{
+cat:"Carbon and its allotropes (diamond/graphite/fullerene)",
+q:"ग्रेफाइट में, प्रत्येक कार्बन परमाणु एक ही तल में तीन अन्य कार्बन परमाणुओं से आबंधित होता है, जिससे एक __________ व्यूह बनता है।",
+o:["षटकोणीय","पंचभुजीय","वर्ग पिरामिडी","द्विसमलंबाक्ष"],
+correct:0,
+e:"ग्रेफाइट में प्रत्येक कार्बन तीन अन्य कार्बन से जुड़कर षटकोणीय परत बनाता है।"
+},
+
+{
+cat:"Carbon and its allotropes (diamond/graphite/fullerene)",
+q:"निम्नलिखित में से कौन-सा कथन, कार्बन के अपररूपों (allotropes) का सर्वोत्तम वर्णन करता है?",
+o:["ये विभिन्न तत्वों के साथ कार्बन द्वारा निर्मित यौगिक हैं।","वे कार्बन के विभिन्न संरचनात्मक रूप हैं जिनके भौतिक गुणधर्म भिन्न लेकिन रासायनिक गुणधर्म समान होते हैं।","वे कार्बन के विभिन्न समस्थानिक हैं जिनमें न्यूट्रॉनों की संख्या भिन्न-भिन्न होती है।","वे कार्बन के समावयवी हैं, जिनका आणविक सूत्र समान लेकिन संरचना भिन्न होती है।"],
+correct:1,
+e:"अपररूप एक ही तत्व के अलग-अलग संरचनात्मक रूप होते हैं। कार्बन के diamond, graphite और fullerene इसके उदाहरण हैं।"
+},
+
+{
+cat:"Carbon and its allotropes (diamond/graphite/fullerene)",
+q:"किस कार्बन अपररूप में परमाणु षटकोणीय परत संरचना में व्यवस्थित होते हैं, जिसमें परतों के बीच दुर्बल बल होते हैं?",
+o:["ग्रेफाइट","हीरा","कोक","फुलेरीन"],
+correct:0,
+e:"ग्रेफाइट में कार्बन परमाणु षटकोणीय परतों में होते हैं और परतों के बीच कमजोर बल होते हैं।"
+},
+
+{
+cat:"Carbon and its allotropes (diamond/graphite/fullerene)",
+q:"कार्बन का निम्नलिखित में से कौन-सा अपररूप, विद्युत का चालन करता है?",
+o:["ग्रेफाइट","फुलेरीन","चारकोल","हीरा"],
+correct:0,
+e:"ग्रेफाइट में प्रत्येक कार्बन के एक इलेक्ट्रॉन के delocalised होने के कारण यह विद्युत का संचालन करता है।"
+},
+
+{
+cat:"Carbon and its allotropes (diamond/graphite/fullerene)",
+q:"निम्नलिखित विकल्पों में से कौन-सा, कार्बन का एक अपररूप है?",
+o:["हीरा","क्वार्ट्ज","चूना पत्थर","फिटकरी"],
+correct:0,
+e:"हीरा कार्बन का एक अपररूप है।"
+},
+
+{
+cat:"Carbon and its allotropes (diamond/graphite/fullerene)",
+q:"निम्नलिखित में से कौन-सा कार्बन का अपररूप है, जिसकी संरचना पिंजरे-जैसी (cage-like structure) होती है?",
+o:["हीरा","चारकोल","फुलेरीन","ग्रेफाइट"],
+correct:2,
+e:"फुलेरीन में कार्बन परमाणुओं की बंद cage-like संरचना होती है। C₆₀ इसका प्रसिद्ध उदाहरण है।"
+},
+
+{
+cat:"Carbon and its allotropes (diamond/graphite/fullerene)",
+q:"ग्रेफाइट विद्युत का अच्छा सुचालक क्यों है?",
+o:["यह मजबूत आयनिक आबंध बनाता है।","यह कम तापमान पर पिघल जाता है।","यह पानी को आसानी से सोख लेता है।","इसमें मुक्त गतिमान इलेक्ट्रॉन होते हैं।"],
+correct:3,
+e:"ग्रेफाइट में delocalised इलेक्ट्रॉन परत के भीतर गति कर सकते हैं, इसलिए यह विद्युत का सुचालक है।"
+},
+
+/* 31-45 */
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"निम्नलिखित में से किसे, कार्बनिक यौगिक नहीं माना जाता है?",
+o:["सोडियम कार्बोनेट (Na2CO3)","मेथेन (CH4)","ऐसीटिक अम्ल (CH3COOH)","एथेनॉल (C2H5OH)"],
+correct:0,
+e:"Na₂CO₃ एक अकार्बनिक कार्बोनेट है। जबकि methane, acetic acid और ethanol कार्बनिक यौगिक हैं।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"फॉर्मिक अम्ल का सूत्र क्या है?",
+o:["C₂H₅OH","C₂H₄O₂","HCOOH","C₂H₆O"],
+correct:2,
+e:"फॉर्मिक अम्ल का IUPAC नाम methanoic acid है और इसका सूत्र HCOOH है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"निम्नलिखित में से कौन-सा ऐल्कोहॉल, सामान्यतः ईंधन या ईंधन योज्य के रूप में उपयोग किया जाता है?",
+o:["ब्यूटेनॉल (Butanol)","प्रोपेनॉल (Propanol)","मेथेनॉल (Methanol)","एथेनॉल (Ethanol)"],
+correct:3,
+e:"एथेनॉल का उपयोग ईंधन और पेट्रोल के साथ blending/fuel additive के रूप में किया जाता है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"निम्नलिखित में से कौन-सा, इथेनॉल (C₂H₅OH) का सामान्य नाम है?",
+o:["एथिल अल्कोहॉल (Ethyl alcohol)","आइसोप्रोपाइल अल्कोहॉल (Isopropyl alcohol)","मेथिल अल्कोहॉल (Methyl alcohol)","ब्युटाइल अल्कोहॉल (Butyl alcohol)"],
+correct:0,
+e:"Ethanol का common name ethyl alcohol है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"एथेनॉल के संबंध में निम्नलिखित में से कौन-सा कथन सही है?",
+o:["एथेनॉल, जल में विलेय नहीं होता है।","एथेनॉल एक सुखद गंध वाला द्रव होता है और यह जल में मिश्रणीय होता है।","एथेनॉल एक अवाष्पशील ठोस होता है।","एथेनॉल और सोडियम की अभिक्रिया होने पर कार्बन डाइऑक्साइड का निर्माण होता है।"],
+correct:1,
+e:"एथेनॉल एक रंगहीन, वाष्पशील द्रव है और जल के साथ मिश्रणीय है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"निम्नलिखित में से कौन सा कार्बनिक यौगिक है?",
+o:["Na2CO3","CaCO3","C2H6","NaCl"],
+correct:2,
+e:"C₂H₆ यानी ethane एक hydrocarbon और कार्बनिक यौगिक है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"एथेनॉल द्वारा कौन-सा गुणधर्म प्रदर्शित किया जाता है?",
+o:["यह कठोर जल के साथ मिलकर पृष्ठमल बनाता है","यह कक्ष तापमान पर ठोस होता है","यह क्षारीय प्रकृति का होता है","इसकी गंध मीठी होती है और यह वाष्पशील होता है"],
+correct:3,
+e:"एथेनॉल सामान्य तापमान पर एक वाष्पशील द्रव है और इसकी विशिष्ट गंध होती है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"एथेनॉल सोडियम के साथ अभिक्रिया करता है जिसके परिणामस्वरूप सोडियम एथॉक्साइड बनता है और .............. निर्मित होती है।",
+o:["ब्रोमीन गैस (bromine gas)","क्लोरीन गैस (chlorine gas)","नाइट्रोजन गैस (nitrogen gas)","हाइड्रोजन गैस (hydrogen gas)"],
+correct:3,
+e:"2C₂H₅OH + 2Na → 2C₂H₅ONa + H₂। इसलिए hydrogen gas निकलती है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"CH₃COCH₃ का सही IUPAC नाम __________ है।",
+o:["प्रोपेनल है, जिसके तीन-कार्बन श्रृंखला पर एक एल्डिहाइड समूह होता है","प्रोपेनोन है, जो एक कीटोन है जिसके मध्य कार्बन पर कार्बोनिल होता है","प्रोपेनोइक अम्ल है, जिसके अंतिम कार्बन पर एक कार्बोक्सिलिक अम्ल होता है","प्रोपीन है, जो एक एल्कीन है जिसके दो कार्बन के बीच एक द्विआबंध होता है"],
+correct:1,
+e:"CH₃COCH₃ में carbonyl group मध्य कार्बन पर है, इसलिए यह ketone है और इसका IUPAC नाम propanone है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"एथेनोइक अम्ल अल्कोहॉल के साथ अभिक्रिया करके कौन सा यौगिक बनाता है?",
+o:["ऐल्कोहॉल (Alcohols)","एल्डिहाइड (Aldehyde)","कीटोन (Ketone)","एस्टर (Esters)"],
+correct:3,
+e:"Carboxylic acid और alcohol की esterification अभिक्रिया से ester और water बनते हैं।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"एथेनॉल की सोडियम के साथ अभिक्रिया होने पर किस प्रकार की गैस मुक्त होती है?",
+o:["मेथेन","कार्बन डाइऑक्साइड","ऑक्सीजन","हाइड्रोजन"],
+correct:3,
+e:"सोडियम एथेनॉल के -OH समूह से hydrogen को विस्थापित करता है और H₂ गैस निकलती है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"निम्नलिखित में से कौन-सा अल्कोहल सामान्यतः ईंधन के रूप में प्रयोग किया जाता है?",
+o:["प्रोपेनॉल (Propanol)","इथेनॉल (Ethanol)","ब्यूटेनॉल (Butanol)","मेथेनॉल (Methanol)"],
+correct:1,
+e:"एथेनॉल का व्यापक रूप से ईंधन और fuel blending में उपयोग किया जाता है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"एथेनोइक एसिड को आमतौर पर एसीटिक एसिड के नाम से जाना जाता है और इसमें निम्नलिखित में से कौन-से गुण होते हैं?",
+o:["लिटमस या धातुओं पर कोई प्रभाव नहीं","तीक्ष्ण, खट्टी गंध और स्वाद","क्षारीय pH और चिकनापन","जल में फलों जैसी तेज़ सुगंध"],
+correct:1,
+e:"एथेनोइक अम्ल एक अम्ल है जिसकी विशेषता खट्टी गंध/स्वाद तथा अम्लीय प्रकृति है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"निम्नलिखित कथनों पर विचार कीजिए और सही विकल्प का चयन कीजिए।<br><span class='statement'>कथन A: इथेनॉल की थोड़ी मात्रा भी मदहोशी का कारण बनती है।<br>कथन B: शुद्ध इथेनॉल का सेवन स्वास्थ्य के लिए सुरक्षित है।</span>",
+o:["कथन A गलत है, परन्तु B सही है।","कथन A और B दोनों गलत हैं।","कथन A और B दोनों सही हैं।","कथन A सही है, परन्तु B गलत है।"],
+correct:3,
+e:"एथेनॉल की मात्रा शरीर पर नशीला प्रभाव डाल सकती है। शुद्ध/अधिक मात्रा में ethanol का सेवन स्वास्थ्य के लिए सुरक्षित नहीं है।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"मेथेन के एक अणु में एक कार्बन परमाणु, चार हाइड्रोजन परमाणुओं से आबंधित होता है। मेथेन का रासायनिक सूत्र क्या है?",
+o:["CH4","CH3","C2H4","C4H"],
+correct:0,
+e:"एक carbon और चार hydrogen से methane का सूत्र CH₄ होता है।"
+},
+
+/* 46-50 */
+
+{
+cat:"Fossil fuels (coal/petroleum/natural gas)",
+q:"हमें कोयला और पेट्रोलियम का संरक्षण क्यों करना चाहिए?",
+o:["क्योंकि वे ऊर्जा के नवीकरणीय स्रोत हैं।","क्योंकि वे असीमित संसाधन हैं।","क्योंकि वे हर दिन कारखानों में बनाए जाते हैं।","क्योंकि वे ऊर्जा के अनवीकरणीय स्रोत हैं।"],
+correct:3,
+e:"कोयला और पेट्रोलियम बनने में लाखों वर्ष लगते हैं, इसलिए ये non-renewable resources हैं।"
+},
+
+{
+cat:"Fossil fuels (coal/petroleum/natural gas)",
+q:"दिए गए कथनों को पढ़िए और सबसे उपयुक्त विकल्प का चयन कीजिए।<br><span class='statement'>कथन:A: कोयला और पेट्रोलियम का निर्माण जैव-द्रव्यमान (bio-mass) के अपघटन से हुआ था।<br>कथन B: ये क्षयशील संसाधन होते हैं।</span>",
+o:["कथन A और B दोनों सही हैं","न तो कथन A और न ही B सही है","केवल कथन A सही है","केवल कथन B सही है"],
+correct:0,
+e:"कोयला और पेट्रोलियम प्राचीन जैविक पदार्थों के लंबे समय तक दबाव और ताप के प्रभाव से बने। इन्हें exhaustible/non-renewable resources माना जाता है।"
+},
+
+{
+cat:"Fossil fuels (coal/petroleum/natural gas)",
+q:"पेट्रोलियम का संरक्षण क्यों महत्वपूर्ण है?",
+o:["पेट्रोलियम एक नवीकरणीय संसाधन है।","पेट्रोलियम पर्यावरण पर प्रतिकूल प्रभाव नहीं डालता है।","पेट्रोलियम एक अनवीकरणीय संसाधन है।","पेट्रोलियम प्रकृति में प्रचुर मात्रा में पाया जाता है।"],
+correct:2,
+e:"पेट्रोलियम एक अनवीकरणीय जीवाश्म ईंधन है और इसके भंडार सीमित हैं।"
+},
+
+{
+cat:"Fossil fuels (coal/petroleum/natural gas)",
+q:"कोयला और पेट्रोलियम संरक्षण के बारे में निम्नलिखित में से कौन-सा कथन सही है?",
+o:["इनका निष्कर्षण सस्ता होता है।","इनके निर्माण में लाखों वर्ष लगते हैं।","ये प्रदूषणकारी नहीं बनते हैं।","ये ऊर्जा के नवीकरणीय संसाधन हैं।"],
+correct:1,
+e:"कोयला और पेट्रोलियम बनने में लाखों वर्ष लगते हैं, जबकि मानव इनका उपयोग बहुत तेजी से करता है।"
+},
+
+{
+cat:"Fossil fuels (coal/petroleum/natural gas)",
+q:"निम्नलिखित में से कौन-सा विकल्प, कोयले और पेट्रोलियम की उत्पत्ति का सर्वोत्तम वर्णन करता है?",
+o:["उच्च दाब में ज्वालामुखी शैलों का अपघटन","सूर्य के प्रकाश में वन की लकड़ी का संघनन","समुद्र-तल के नीचे खनिजों का क्रिस्टलन","मिलियन वर्षों तक उच्च तापमान और दाब में पादपों और जंतुओं का जीवाश्मीकरण"],
+correct:3,
+e:"जीवाश्म ईंधन प्राचीन पौधों और जीवों के अवशेषों से लाखों वर्षों में ताप और दाब के प्रभाव से बने।"
+},
+
+/* 51-61 */
+
+{
+cat:"Functional groups basics",
+q:"वह प्रकार्यात्मक समूह जिसमें ऑक्सीजन विषम परमाणु (oxygen hetero atom) नहीं होता है, __________ है।",
+o:["कीटोन (ketone)","ऐल्कोहॉल (alcohol)","कार्बोक्सिलिक अम्ल (carboxylic acid)","हेलो ऐल्केन (halo alkane)"],
+correct:3,
+e:"Haloalkane में halogen functional group होता है और इसमें oxygen atom नहीं होता।"
+},
+
+{
+cat:"Functional groups basics",
+q:"कार्बन यौगिकों में निम्नलिखित में से कौन-सा प्रकार्यात्मक समूह -OH द्वारा दर्शाया जाता है?",
+o:["एल्डिहाइड","कीटोन","ऐल्कोहॉल","कार्बोक्सिलिक अम्ल"],
+correct:2,
+e:"-OH को hydroxyl group कहते हैं और carbon compounds में यह alcohol functional group की पहचान है।"
+},
+
+{
+cat:"Functional groups basics",
+q:"एल्डिहाइड में कौन-सा प्रकार्यात्मक समूह उपस्थित होता है?",
+o:["-COOH","-OH","-CHO","-CO"],
+correct:2,
+e:"Aldehyde का functional group -CHO होता है।"
+},
+
+{
+cat:"Functional groups basics",
+q:"एथेनॉल किस प्रकार्यात्मक समूह की उपस्थिति के कारण जल के साथ मिश्रणीय है?",
+o:["द्विक आबंध","कार्बोक्सिल समूह","कार्बन श्रृंखला","हाइड्रोक्सिल समूह"],
+correct:3,
+e:"Ethanol का -OH यानी hydroxyl group जल के साथ hydrogen bonding करता है, इसलिए ethanol पानी के साथ miscible है।"
+},
+
+{
+cat:"Functional groups basics",
+q:"दो कार्बन परमाणुओं और एक हाइड्रोक्सिल (-OH) प्रकार्यात्मक समूह वाले कार्बनिक यौगिक का IUPAC नाम क्या है?",
+o:["प्रोपेनोन (Propanone)","एथेनोइक अम्ल (Ethanoic acid)","मेथेनैल (Methanal)","एथेनॉल (Ethanol)"],
+correct:3,
+e:"दो carbon atoms वाला alcohol ethanol है और इसका functional group -OH है।"
+},
+
+{
+cat:"Functional groups basics",
+q:"नामकरण में \"पूर्वलग्न (prefix)\" या \"अनुलग्न (suffix)\" के साथ मूल संशोधन किसका सूचक है?",
+o:["प्रकार्यात्मक समूह की प्रकृति","पृष्ठ क्षेत्र की प्रकृति","गलनांक की प्रकृति","क्वथनांक की प्रकृति"],
+correct:0,
+e:"IUPAC nomenclature में prefix/suffix functional group तथा उसकी स्थिति/प्रकृति की जानकारी देते हैं।"
+},
+
+{
+cat:"Functional groups basics",
+q:"प्रोपेनोन किस समजातीय श्रेणी से संबंधित है?",
+o:["कीटोन","एल्डिहाइड","एस्टर","ऐल्कोहॉल"],
+correct:0,
+e:"Propanone में carbonyl group chain के बीच में होता है, इसलिए यह ketone है।"
+},
+
+{
+cat:"Functional groups basics",
+q:"तीन कार्बन परमाणुओं की एक सीधी श्रृंखला जिसमें कोई द्विआबंध नहीं है और पहले कार्बन परमाणु पर -OH प्रकार्यात्मक समूह है, उसे क्या नाम दिया गया है?",
+o:["प्रोपेनल","प्रोपेनोन","प्रोपेनॉल","प्रोपेन"],
+correct:2,
+e:"तीन carbon वाली saturated alcohol chain का नाम propanol है।"
+},
+
+{
+cat:"Functional groups basics",
+q:"किसी कार्बनिक यौगिक में 'प्रकार्यात्मक समूह' की प्राथमिक भूमिका क्या है?",
+o:["यौगिक के अभिलाक्षणिक रासायनिक गुणधर्म प्रदान करना","यौगिक की भौतिक अवस्था (ठोस, द्रव, गैस) निर्धारित करना","यौगिक का आणविक द्रव्यमान बढ़ाना","कार्बन श्रृंखला को ऋजु से शाखित में बदलना"],
+correct:0,
+e:"Functional group किसी कार्बनिक यौगिक के characteristic chemical reactions और गुणधर्म निर्धारित करता है।"
+},
+
+{
+cat:"Functional groups basics",
+q:"एस्टरों का निर्माण, __________ की अभिक्रिया द्वारा होता है।",
+o:["अम्लीय माध्यम में ऐल्कोहॉल और अम्ल","निम्न दाब पर ऐल्कोहॉल और अम्ल","क्षारकीय माध्यम में ऐल्कोहॉल और अम्ल","निर्जलन कारक की उपस्थिति में ऐल्कोहॉल और एल्डिहाइड"],
+correct:0,
+e:"Carboxylic acid और alcohol की acidic medium में esterification से ester बनता है।"
+},
+
+{
+cat:"Functional groups basics",
+q:"एक प्रकार्यात्मक समूह का सही उदाहरण चुनें जो अपनी संरचना में किसी भी दोहरे आबंध को निरूपित नहीं करता है।",
+o:["प्रोपेनल","प्रोपेनॉल","प्रोपेनोन","प्रोपेनॉइक अम्ल"],
+correct:1,
+e:"Propanol में C-C single bonds और -OH group होता है; इसमें C=C या C=O जैसा double bond नहीं होता।"
+},
+
+/* 62-105 */
+
+{
+cat:"Hydrocarbons (Methane, Ethane, etc.)",
+q:"निम्नलिखित में से किस गुणधर्म के कारण एथेनॉल, पेट्रोल की तुलना में एक बेहतर वैकल्पिक ईंधन होता है?",
+o:["एथेनॉल का क्वथनांक, पेट्रोल से उच्च होता है।","एथेनॉल का दहन स्वच्छ, धुआँ रहित ज्वाला के साथ होता है।","एथेनॉल के दहन पर हानिकारक धुआँ उत्पन्न होता है।","एथेनॉल एक ठोस ईंधन है।"],
+correct:1,
+e:"एथेनॉल का दहन अपेक्षाकृत स्वच्छ होता है और इसमें पेट्रोल की तुलना में कम धुआँ/कालिख बन सकती है।"
+},
+
+{
+cat:"Hydrocarbons (Methane, Ethane, etc.)",
+q:"साइक्लोहेक्सेन को किस प्रकार के कार्बनिक यौगिक के रूप में वर्गीकृत किया जाता है?",
+o:["एक सुगंधित यौगिक जिसमें एक विस्थानीकृत π-इलेक्ट्रॉन वलय प्रणाली होती है","एक कार्बनिक एल्डिहाइड जिसमें छह कार्बन परमाणुओं की एक रैखिक श्रृंखला होती है","एक संतृप्त ऐलीसाइक्लिक यौगिक जो एक वलय में छह कार्बन परमाणुओं से बना होता है","एक या अधिक असंतृप्त कार्बन बंधों वाला एक शाखित हाइड्रोकार्बन"],
+correct:2,
+e:"Cyclohexane C₆H₁₂ एक saturated cyclic/alicylclic hydrocarbon है जिसमें छह carbon का ring होता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित कार्बनिक यौगिकों में से कौन-सा संतृप्त है?",
+o:["ब्रोमोप्रोपेन (Bromopropane)","2-ब्रोमोप्रोपीन (2-Bromopropene)","प्रोपाइन(Propyne)","प्रोपीन (Propene)"],
+correct:0,
+e:"Bromopropane में carbon-carbon के बीच केवल single bond होते हैं, इसलिए यह saturated compound है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से किसमें ऋजु-श्रृंखला वाले हाइड्रोकार्बन होते हैं?",
+o:["3-मेथिलपेंटेन","2-मेथिलप्रोपेन","ब्यूटेन","आइसोब्यूटेन"],
+correct:2,
+e:"Butane की carbon chain सीधी होती है, जबकि methyl/iso नाम वाले compounds branched structures दर्शाते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"असंतृप्त कार्बन यौगिक का सुस्पष्ट अभिलाक्षणिक क्या है?",
+o:["सभी कार्बन परमाणु केवल एकल आबंधों द्वारा जुड़े होते हैं।","इसमें कार्बन परमाणुओं के बीच कम से कम एक द्वि या त्रि-आबंध होता है।","ये केवल चक्रीय संरचनाओं का निर्माण करते हैं।","इसमें सदैव ऑक्सीजन के साथ एक प्रकार्यात्मक समूह होता है।"],
+correct:1,
+e:"Unsaturated compounds में कम से कम एक C=C या C≡C bond होता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"कार्बन यौगिकों के संदर्भ में, 'शाखित श्रृंखला' संरचना की क्या विशेषता है?",
+o:["कार्बन परमाणु मुख्य कार्बन श्रृंखला से जुड़े होते हैं और पार्श्व समूह बनाते हैं।","कार्बन परमाणु एक सतत, सीधी रेखा में व्यवस्थित होते हैं।","कार्बन परमाणु चार अलग-अलग परमाणुओं से बंधे होते हैं।","कार्बन परमाणु एक बंद वलय संरचना बनाते हैं।"],
+correct:0,
+e:"Branched chain में मुख्य carbon chain से एक या अधिक side groups जुड़े होते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"जब एथीन, ब्रोमीन के साथ अभिक्रिया करता है, तो किस उत्पाद का निर्माण होता है?",
+o:["एथेन","ब्रोमोएथेन","1,2-डाइब्रोमोएथेन","एथेनॉल"],
+correct:2,
+e:"Ethene के C=C double bond पर Br₂ जुड़ता है और 1,2-dibromoethane बनता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा यौगिक संतृप्त हाइड्रोकार्बन के रूप में वर्गीकृत है?",
+o:["एथीन (Ethene)","बेंजीन (Benzene)","एथाइन (Ethyne)","एथेन (Ethane)"],
+correct:3,
+e:"Ethane C₂H₆ एक alkane है और इसमें केवल single C-C bond होता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित यौगिक का IUPAC नाम क्या है?<br><br>CH₃CHBrCH₂CH₂CH₃",
+o:["1-ब्रोमोपेंटेन (1-Bromopentane)","2-ब्रोमोपेंटेन (2-Bromopentane)","2-ब्रोमोपेंटेने (2-Bromopentene)","3-ब्रोमोपेंटेन (3-Bromopentane)"],
+correct:1,
+e:"सबसे लंबी chain में पाँच carbon हैं और bromine दूसरे carbon पर है, इसलिए नाम 2-bromopentane है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा यौगिक असंतृप्त है?",
+o:["मेथेन","प्रोपेन","ब्यूटेन","प्रोपीन"],
+correct:3,
+e:"Propene में C=C double bond है, इसलिए यह unsaturated hydrocarbon है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"(CH₃)₃-C-CH₃ निम्नलिखित में से किस कार्बनिक यौगिक का संरचनात्मक सूत्र दर्शाता है?",
+o:["मेथिल ब्यूटेन (methyl butane)","2,2-डाइमेथिल प्रोपेन (2,2-dimethyl propane)","2,3-डाइमेथिल प्रोपेन (2,3-dimethyl propane)","3-मेथिल ब्यूटेन (3-methyl butane)"],
+correct:1,
+e:"मुख्य chain तीन carbon की है और carbon-2 पर दो methyl groups हैं, इसलिए नाम 2,2-dimethylpropane है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा हाइड्रोकार्बन संतृप्त है?",
+o:["प्रोपीन","बेंजीन","ब्युटीन","ब्यूटेन"],
+correct:3,
+e:"Butane एक alkane है और इसमें केवल single carbon-carbon bonds होते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से किसमें शाखित-श्रृंखला हाइड्रोकार्बन है?",
+o:["एथेन","ब्यूटेन","प्रोपेन","आइसोब्यूटेन"],
+correct:3,
+e:"Isobutane, butane का branched-chain isomer है। इसका IUPAC नाम 2-methylpropane है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"कौन-सा कथन, कार्बनिक यौगिकों की समजातीय श्रेणी का सर्वोत्तम रूप से वर्णन करता है?",
+o:["समान भौतिक गुणों वाले तत्वों की एक श्रेणी","समान सामान्य सूत्र, समान रासायनिक गुणों और -CH₂- समूह द्वारा भिन्न क्रमागत सदस्यों वाले यौगिकों की एक श्रेणी","शाखित श्रृंखलाओं वाले यौगिकों की एक श्रेणी","विभिन्न प्रकार्यात्मक समूहों लेकिन समान आणविक सूत्र वाले यौगिकों की एक श्रेणी"],
+correct:1,
+e:"Homologous series में समान functional group और general formula होते हैं तथा consecutive members में -CH₂- का अंतर होता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"किसी भी समजातीय श्रेणी में आणविक द्रव्यमान में वृद्धि निम्नलिखित में से क्या इंगित करती है?",
+o:["गलनांक और क्वथनांक में वृद्धि","गलनांक में कमी और क्वथनांक में वृद्धि","गलनांक में वृद्धि और क्वथनांक में कमी","गलनांक और क्वथनांक में कमी"],
+correct:0,
+e:"समजातीय श्रेणी में molecular mass बढ़ने के साथ सामान्यतः intermolecular forces बढ़ती हैं और boiling/melting points में वृद्धि की प्रवृत्ति होती है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा यौगिक, संतृप्त हाइड्रोकार्बन है?",
+o:["प्रोपाइन (Propyne)","साइक्लोहेक्सेन (Cyclohexane)","प्रोपीन (Propene)","बेंजीन (Benzene)"],
+correct:1,
+e:"Cyclohexane C₆H₁₂ एक saturated cyclic hydrocarbon है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"ऐल्केन की समजातीय श्रेणी का प्रत्येक अगला सदस्य पिछले सदस्य से एक इकाई द्वारा भिन्न होता है, जिसमें __________ होते हैं।",
+o:["एक कार्बन और तीन हाइड्रोजन","एक कार्बन और दो हाइड्रोजन","दो कार्बन और तीन हाइड्रोजन","दो कार्बन और दो हाइड्रोजन"],
+correct:1,
+e:"Homologous series के consecutive members में एक -CH₂- unit का अंतर होता है, अर्थात 1 carbon और 2 hydrogen।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित विकल्पों में से कौन-सा, संतृप्त हाइड्रोकार्बन है?",
+o:["ब्युटाइन (Butyne)","एथीन (Ethene)","एथाइन (Ethyne)","प्रोपेन (Propane)"],
+correct:3,
+e:"Propane एक alkane है और इसमें केवल single carbon-carbon bonds होते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा, ऐल्काइन समूह से संबंधित है?",
+o:["C3H4","C6H6","C2H4","C3H8"],
+correct:0,
+e:"Acyclic alkynes का सामान्य सूत्र CₙH₂ₙ₋₂ होता है। C₃H₄ इस सूत्र को पूरा करता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"एक समजातीय श्रेणी के दो क्रमिक सदस्यों के बीच आणविक द्रव्यमान में .............. होता है।",
+o:["18u","16u","14u","12u"],
+correct:2,
+e:"दो consecutive homologues में -CH₂- का अंतर होता है। इसका relative molecular mass difference 12 + 2 = 14u है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"क्लोरीन की एल्केन के साथ तीव्र अभिक्रिया के लिए निम्नलिखित में से कौन-सी स्थिति आवश्यक है?",
+o:["उच्च दाब","सूर्य का प्रकाश","उच्च ताप","ऑक्सीजन की उपस्थिति"],
+correct:1,
+e:"Alkanes में chlorine के साथ substitution reaction प्रकाश, विशेषकर sunlight/UV light की उपस्थिति में होती है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सी संतृप्त हाइड्रोकार्बन (एल्केन) की एक विशिष्ट अभिक्रिया है?",
+o:["योगात्मक अभिक्रिया (Addition reaction)","प्रतिस्थापन अभिक्रिया (Substitution reaction)","बहुलीकरण (Polymerisation)","उदासीनीकरण (Neutralisation)"],
+correct:1,
+e:"Alkanes saturated hydrocarbons हैं और इनकी characteristic reaction substitution reaction है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा कार्बन यौगिक शाखित संरचना की उपस्थिति दर्शाता है?",
+o:["ब्यूटेन (C₄H₁₀)","साइक्लोहेक्सेन (C₆H₁₂)","मेथेन (CH₄)","एथेन (C₂H₆)"],
+correct:0,
+e:"C₄H₁₀ का एक branched-chain isomer isobutane (2-methylpropane) होता है। दिए गए विकल्पों में butane branching के लिए isomerism दर्शा सकता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा यौगिक, असंतृप्त हाइड्रोकार्बन है?",
+o:["एथीन (Ethene)","प्रोपेन (Propane)","ब्यूटेन (Butane)","मेथेन (Methane)"],
+correct:0,
+e:"Ethene में C=C double bond होता है, इसलिए यह unsaturated hydrocarbon है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"संतृप्त हाइड्रोकार्बन के लिए निम्नलिखित में से कौन-सा कथन सत्य है?",
+o:["इनमें कार्बन-कार्बन परमाणुओं के बीच कम से कम एक एकल बंध होता है।","इनमें कार्बन-कार्बन परमाणुओं के बीच केवल एकल बंध होता है।","इनमें कार्बन-कार्बन परमाणुओं के बीच कम से कम एक दोहरा बंध होता है।","इनमें कार्बन-कार्बन परमाणुओं के बीच दोहरा या तिहरा बंध हो सकता है।"],
+correct:1,
+e:"Saturated hydrocarbons में carbon-carbon के बीच केवल single bonds होते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से क्या ऋजु श्रृंखला हाइड्रोकार्बन को निरूपित करता है?",
+o:["बेंजीन","आइसोब्यूटेन","ब्यूटेन","साइक्लोपेंटेन"],
+correct:2,
+e:"Butane एक straight-chain alkane है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"संतृप्त हाइड्रोकार्बन में कार्बन परमाणुओं के मध्य किस प्रकार का आबंध पाया जाता है?",
+o:["द्विक और त्रिक दोनों आबंध","एकल आबंध","द्विक आबंध","त्रिक आबंध"],
+correct:1,
+e:"Saturated hydrocarbons में carbon atoms के बीच केवल single covalent bonds होते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"ऐल्केन वाली प्रतिस्थापन अभिक्रिया में, ऐल्केन अणु के हाइड्रोजन परमाणुओं का क्या होता है?",
+o:["इन्हें अणु में जोड़कर एक बड़ी श्रृंखला बनाई जाती है।","द्वि-आबंध बनाने के लिए इन्हें पूरी तरह से हटा दिया जाता है।","उन्हें अन्य परमाणुओं या परमाणुओं के समूहों द्वारा प्रतिस्थापित किया जाता है।","ये ऑक्सीजन के साथ अभिक्रिया करके जल बनाते हैं।"],
+correct:2,
+e:"Substitution reaction में alkane के hydrogen atom को chlorine जैसे दूसरे atom/group द्वारा replace किया जाता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से किस हाइड्रोकार्बन में शाखित श्रृंखला होती है?",
+o:["मेथेन (Methane)","आइसोब्यूटेन (Isobutane)","एथीन (Ethene)","ब्यूटेन (Butane)"],
+correct:1,
+e:"Isobutane एक branched-chain hydrocarbon है। इसका IUPAC नाम 2-methylpropane है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"बेंजीन के लिए निम्नलिखित में से कौन-से कथन सही हैं?<br><br>a. यह छह सदस्यीय चक्रीय कार्बन यौगिक है।<br>b. इसमें तीन एकल और तीन द्वि-आबंध होते हैं।<br>c. आणविक सूत्र C₆H₁₄ है।",
+o:["केवल a और c","केवल b और c","केवल a और b","a, b और c"],
+correct:2,
+e:"Benzene एक six-membered ring है और इसके सामान्य Kekulé representation में तीन single तथा तीन double bonds दिखाए जाते हैं। इसका सूत्र C₆H₆ है, इसलिए c गलत है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्न में से कौन-सी संरचनात्मक विशेषता असंतृप्त कार्बन यौगिकों की उच्च अभिक्रियाशीलता में योगदान करती है?",
+o:["कार्बन संरचना से जुड़े हैलोजन परमाणुओं की उपस्थिति","कार्बन परमाणु की आधारभूत संरचना का अपूर्ण निर्माण","यौगिक अणु में हाइड्रोजन परमाणुओं की पूर्ण अनुपस्थिति","कार्बन परमाणुओं के बीच द्वि-आबंध या त्रि-आबंध का अस्तित्व"],
+correct:3,
+e:"C=C और C≡C में उपस्थित π bonds अपेक्षाकृत अधिक reactive होते हैं, इसलिए unsaturated compounds addition reactions करते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"बेंजीन वलय में कितने कार्बन परमाणु मौजूद होते हैं?",
+o:["4","8","5","6"],
+correct:3,
+e:"Benzene का ring छह carbon atoms से बना होता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा सबसे छोटा ऐल्केन है, जो एक स्थिर वलय बना सकता है?",
+o:["प्रोपेन (Propane)","एथेन (Ethane)","साइक्लोप्रोपेन (Cyclopropane)","मेथेन (Methane)"],
+correct:2,
+e:"Cyclopropane सबसे छोटा cycloalkane है जिसमें तीन carbon का ring होता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"असंतृप्त कार्बन, संतृप्त कार्बन यौगिकों की तुलना में __________ होते हैं।",
+o:["कम अभिक्रियाशील","अधिक संतृप्त","बराबर अभिक्रियाशील","अधिक अभिक्रियाशील"],
+correct:3,
+e:"Double या triple bonds के कारण unsaturated compounds सामान्यतः saturated compounds की तुलना में अधिक reactive होते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"हाइड्रोकार्बन कार्बनिक यौगिकों में __________ तत्व होते हैं।",
+o:["हाइड्रोजन और कार्बन दोनों","कार्बन","ऑक्सीजन","हाइड्रोजन"],
+correct:0,
+e:"Hydrocarbons वे organic compounds हैं जिनमें केवल carbon और hydrogen होते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"समजाती श्रेणी के सदस्य एक-दूसरे से किस प्रकार भिन्न होते हैं?",
+o:["एक ऑक्सीजन परमाणु से","एक कार्बन परमाणु से","दो हाइड्रोजन परमाणु से","एक कार्बन परमाणु और दो हाइड्रोजन परमाणु से"],
+correct:3,
+e:"Consecutive members में -CH₂- unit का अंतर होता है, अर्थात एक carbon और दो hydrogen।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सी सजातीय श्रेणी है?",
+o:["मेथेन, एथेन, प्रोपेन","मेथेन, मेथेनॉल, मेथेनोइक अम्ल","मेथेन, एथेन, एथीन","एथीन, एथाइन, एथेन"],
+correct:0,
+e:"Methane, ethane और propane सभी alkanes हैं और consecutive members के बीच -CH₂- का अंतर है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"योगज अभिक्रिया में सामान्यतः क्या शामिल होता है?",
+o:["अणुओं से परमाणुओं को हटाया जाता है","बिना नए आबंधन के ऑक्सीकरण परिवर्तित होता है","प्रकार्यात्मक समूहों को अन्य समूहों से प्रतिस्थापित किया जाता है","परमाणु असंतृप्त आबंधों में जुड़ जाते हैं"],
+correct:3,
+e:"Addition reaction में atoms/groups असंतृप्त C=C या C≡C bond पर जुड़ते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"समजातीय श्रृंखला के बारे में निम्नलिखित में से कौन सा कथन सत्य है?",
+o:["सभी सदस्यों का क्वथनांक समान होता है।","सभी सदस्यों का अणुभार समान होता है।","सभी सदस्यों के अलग-अलग क्रियात्मक समूह होते हैं।","प्रत्येक उत्तरवर्ती सदस्य -CH₂- समूह द्वारा भिन्न होता है।"],
+correct:3,
+e:"Homologous series के consecutive members में -CH₂- का अंतर होता है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा, चक्रीय हाइड्रोकार्बन का उदाहरण है?",
+o:["ब्यूटेन","मेथेन","साइक्लोहेक्सेन","एथीन"],
+correct:2,
+e:"Cyclohexane एक cyclic hydrocarbon है जिसमें carbon atoms ring बनाते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-सा वलय-श्रृंखला वाला हाइड्रोकार्बन है?",
+o:["बेंजीन (Benzene)","हेप्टीन (Heptyne)","एथीन (Ethene)","प्रोपेन (Propane)"],
+correct:0,
+e:"Benzene छह carbon atoms का cyclic ring hydrocarbon है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"__________ में सामान्यतः लंबी, अस्थायी कार्बन श्रृंखलाएं होती हैं।",
+o:["ग्लूकोज","साधारण नमक","जल","वनस्पति तेल"],
+correct:3,
+e:"Vegetable oils में long-chain fatty acid residues होते हैं।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"निम्नलिखित में से कौन-sa ऋजु-श्रृंखला वाला संतृप्त हाइड्रोकार्बन है?",
+o:["प्रोपीन (Propene)","ब्यूटेन (Butane)","साइक्लोहेक्सेन (Cyclohexane)","बेंजीन (Benzene)"],
+correct:1,
+e:"Butane एक straight-chain saturated hydrocarbon है।"
+},
+
+{
+cat:"Hydrocarbons (alkane/alkene/alkyne)",
+q:"असंतृप्त हाइड्रोकार्बन सामान्यतः कैसी ज्वाला उत्पन्न करते हैं?",
+o:["कोई ज्वाला नहीं","काले धूम्र के साथ पीली ज्वाला","स्वच्छ नीली ज्वाला","चमक के साथ श्वेत ज्वाला"],
+correct:1,
+e:"कई unsaturated hydrocarbons अधिक carbon content के कारण अधिक luminous और sooty yellow flame दे सकते हैं।"
+},
+
+/* 106-121 */
+
+{
+cat:"Isomerism (basic idea)",
+q:"ब्यूटेन (C₄H₁₀) दो अलग-अलग रूपों में पाया जाता है: एक सीधी श्रृंखला वाला और दूसरा शाखित श्रृंखला वाला। इस परिघटना को क्या कहते हैं?",
+o:["श्रृंखलन","समावयवता","ऊर्ध्वपातन","बहुलकीकरण"],
+correct:1,
+e:"समान molecular formula लेकिन अलग-अलग structural arrangement को isomerism कहते हैं।"
+},
+
+{
+cat:"Isomerism (basic idea)",
+q:"2-मेथिलप्रोपेन का आणविक सूत्र निम्नलिखित में से किसके समान है?",
+o:["पेन्टेन (Pentane)","पेन्टीन (Pentene)","ब्यूटीन (Butene)","ब्यूटेन (Butane)"],
+correct:3,
+e:"2-methylpropane में कुल चार carbon और दस hydrogen हैं, इसलिए इसका molecular formula C₄H₁₀ है, जो butane का भी है।"
+},
+
+{
+cat:"LPG, CNG, biogas",
+q:"अपशिष्ट जल उपचार संयंत्र में, बायोगैस निम्नलिखित में से किस पदार्थ से प्राप्त किया जाता है?",
+o:["केले के छिलके (Banana peels)","सूखे पत्ते (Dried leaves)","नारियल की भूसी (Coconut husk)","आपंक (Sludge)"],
+correct:3,
+e:"Sewage treatment plants में anaerobic digestion के दौरान sludge से biogas बनती है।"
+},
+
+{
+cat:"Petroleum fractions and uses",
+q:"आजकल, सड़कों को पक्का करने के लिए डामर के स्थान पर निम्नलिखित में से किस पेट्रोलियम उत्पाद का उपयोग किया जाता है?",
+o:["कोक (Coke)","नैफ्थलीन (Naphthalene)","पैराफिन मोम (Paraffin wax)","बिटुमेन (Bitumen)"],
+correct:3,
+e:"Bitumen petroleum का भारी fraction है और road surfacing में उपयोग होता है।"
+},
+
+{
+cat:"Soaps and detergents",
+q:"साबुन की मार्जन क्रिया में मिसेल (micelles) की मुख्य भूमिका क्या है?",
+o:["कपड़ों से तेल और गंदगी को ट्रैप करना और हटाना","जल की कठोरता कम करना","जल से फेन उत्पन्न करना","जल के पृष्ठ तनाव में वृद्धि करना"],
+correct:0,
+e:"Soap molecules micelles बनाकर grease/oil को अंदर trap करते हैं और उसे पानी में हटाने में मदद करते हैं।"
+},
+
+{
+cat:"Soaps and detergents",
+q:"डिटर्जेंट निम्नलिखित में से किसमें कार्य कर सकते हैं?",
+o:["केवल गर्म जल","केवल आसुत जल","कठोर और मृदु जल दोनों","केवल शीतल जल"],
+correct:2,
+e:"Detergents hard water में Ca²⁺ और Mg²⁺ के साथ insoluble scum नहीं बनाते, इसलिए hard और soft दोनों water में प्रभावी रहते हैं।"
+},
+
+{
+cat:"Soaps and detergents",
+q:"जब एस्टर की अभिक्रिया सोडियम हाइड्रोक्साइड के साथ कराई जाती है, तो कार्बोक्सिलिक अम्ल का सोडियम लवण और ऐल्कोहॉल बनता है। इस प्रक्रिया को क्या कहते हैं?",
+o:["हाइड्रोजनीकरण (hydrogenation)","अम्ल (acidification)","साबुनीकरण (saponification)","एस्टरीकरण (esterification)"],
+correct:2,
+e:"Ester की alkaline hydrolysis को saponification कहते हैं। इससे carboxylate salt और alcohol बनते हैं।"
+},
+
+{
+cat:"Soaps and detergents",
+q:"साबुन में मिसेल के सही गुण का चयन कीजिए जो उन्हें जल के साथ अंतःक्रिया करने में सहायता करता है?",
+o:["जलविरागी पुच्छ (hydrophobic tail)","जलरागी शीर्ष (hydrophillic head)","हाइड्रोकार्बन (hydrocarbon)","जलरागी शीर्ष और जलविरागी पुच्छ दोनों (both hydrophilic head and hydrophobic tail)"],
+correct:3,
+e:"Soap molecule में hydrophilic ionic head पानी से interact करता है और hydrophobic tail oil/grease से।"
+},
+
+{
+cat:"Soaps and detergents",
+q:"साबुन अणु का जलरागी सिरा कैसा होता है?",
+o:["अनायनिक और जल में विलेय","उदासीन और अध्रुवीय","अनायनिक और तेल में विलेय","आयनिक और जल के साथ परस्पर क्रिया करता है"],
+correct:3,
+e:"Soap का hydrophilic head ionic होता है और water molecules के साथ interaction करता है।"
+},
+
+{
+cat:"Soaps and detergents",
+q:"एक विशिष्ट विशेषता जो साबुन से संबंधित नहीं है, वह .................... है।",
+o:["माइसेल्स (micelles) का निर्माण","कठोर जल के साथ पूरी तरह से काम करता है","हाइड्रोफोबिक पुच्छ","हाइड्रोफिलिक हेड"],
+correct:1,
+e:"Soap hard water में Ca²⁺ और Mg²⁺ ions के साथ scum बनाता है, इसलिए hard water में इसकी effectiveness कम हो जाती है।"
+},
+
+{
+cat:"Soaps and detergents",
+q:"साबुन के अणु निर्मलन क्रिया करने के लिए स्वयं को किस रूप में व्यवस्थित करते हैं?",
+o:["क्रिस्टल (Crystal)","अवक्षेप (Precipitation)","मिसेल (Micelles)","कोलॉइड (Colloid)"],
+correct:2,
+e:"Soap molecules water में spherical aggregates यानी micelles बनाते हैं, जो dirt और grease को हटाने में मदद करते हैं।"
+},
+
+{
+cat:"Soaps and detergents",
+q:"साबुन की निर्मलन क्रिया उसके किस गुण के कारण होती है?",
+o:["उच्च गलनांक","प्रबल क्षार होना","मिसेल बनाने की क्षमता","प्रबल अम्ल होना"],
+correct:2,
+e:"Soap की cleansing action मुख्यतः micelle formation और oil/grease को trap करने की क्षमता पर आधारित है।"
+},
+
+{
+cat:"General Science",
+q:"निम्नलिखित में से कौन-सा/से कथन कार्बन की बहुमुखी प्रकृति का वर्णन करता है?<br><br>a. अन्य कार्बन परमाणुओं के साथ आबंध बनाकर बड़े अणुओं का निर्माण करने की क्षमता।<br>b. अन्य कार्बन परमाणुओं के साथ दोहरा आबंध बनाने की क्षमता।<br>c. ऑक्सीजन, नाइट्रोजन, सल्फर, हाइड्रोजन आदि जैसे अन्य परमाणुओं के साथ आबंध बनाने की क्षमता।",
+o:["सभी a, b और c","केवल b और c","केवल a","केवल a और c"],
+correct:0,
+e:"Carbon catenation के कारण बड़े molecules बना सकता है, single/double/triple bonds बना सकता है और अनेक तत्वों के साथ covalent bonds बनाता है।"
+},
+
+{
+cat:"General Science",
+q:"कार्बन में पाए जाने वाले कौन-से दो गुणधर्म, बड़ी संख्या में कार्बन यौगिकों के निर्माण के लिए मुख्य रूप से उत्तरदायी हैं?",
+o:["उच्च परमाणु द्रव्यमान और बड़ा परमाणु आकार","धात्विक लक्षण और चालकता","चतुःसंयोजकता और श्रृंखलन","आयनिक आबंध बनाने और इलेक्ट्रॉन त्याग करने की प्रवृत्ति"],
+correct:2,
+e:"Carbon की tetravalency और catenation उसकी extraordinary diversity के मुख्य कारण हैं।"
+},
+
+{
+cat:"Common organic compounds (methane/ethanol)",
+q:"ग्लूकोज का रासायनिक सूत्र क्या है?",
+o:["CH₄","C₁₁H₂₂O₁₁","CH₃COOH","C₆H₁₂O₆"],
+correct:3,
+e:"Glucose का molecular formula C₆H₁₂O₆ है।"
+},
+
+{
+cat:"Isomerism (basic idea)",
+q:"शाखित श्रृंखला कार्बनिक यौगिक 'नियोपेन्टेन' के संरचनात्मक सूत्र को ____________ द्वारा दर्शाया जा सकता है।",
+o:["CH3-CH(CH3)-CH2-CH3","CH3-CH(CH3)-CH3","C(CH3)4","CH3-CH(CH3)-CH2-CH2-CH3"],
+correct:2,
+e:"Neopentane का IUPAC नाम 2,2-dimethylpropane है और इसका condensed structural formula C(CH₃)₄ है।"
+}
+
+];
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let current = 0;
+let answers = new Array(questions.length).fill(null);
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const categoryEl = document.getElementById("category");
+const questionNumberEl = document.getElementById("questionNumber");
+const questionTextEl = document.getElementById("questionText");
+const optionsEl = document.getElementById("options");
+const explanationEl = document.getElementById("explanation");
+const explanationTextEl = document.getElementById("explanationText");
+const answerStatusEl = document.getElementById("answerStatus");
+
+const progressTextEl = document.getElementById("progressText");
+const attemptTextEl = document.getElementById("attemptText");
+const progressFillEl = document.getElementById("progressFill");
+
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+const paletteGrid = document.getElementById("paletteGrid");
+const quizArea = document.getElementById("quizArea");
+const resultEl = document.getElementById("result");
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion(){
+
+  const q = questions[current];
+  const selected = answers[current];
+
+  categoryEl.textContent = q.cat;
+
+  questionNumberEl.textContent =
+    "Q" + (current + 1);
+
+  questionTextEl.innerHTML = q.q;
+
+  optionsEl.innerHTML = "";
+
+  const letters = ["A","B","C","D"];
+
+  q.o.forEach((option,index)=>{
+
+    const div = document.createElement("div");
+
+    div.className = "option";
+
+    div.innerHTML =
+      '<span class="letter">'+letters[index]+'</span>' +
+      option;
+
+    if(selected !== null){
+
+      div.classList.add("disabled");
+
+      if(index === q.correct){
+        div.classList.add("correct");
+      }
+
+      if(index === selected && selected !== q.correct){
+        div.classList.add("wrong");
+      }
+
+    }else{
+
+      div.onclick = function(){
+        selectAnswer(index);
+      };
+
+    }
+
+    optionsEl.appendChild(div);
+  });
+
+  if(selected !== null){
+
+    explanationEl.classList.add("show");
+
+    explanationTextEl.innerHTML = q.e;
+
+    if(selected === q.correct){
+
+      answerStatusEl.innerHTML =
+        "✓ Correct Answer: " +
+        letters[q.correct];
+
+      answerStatusEl.className =
+        "answer-status status-correct";
+
+    }else{
+
+      answerStatusEl.innerHTML =
+        "✗ Correct Answer: " +
+        letters[q.correct];
+
+      answerStatusEl.className =
+        "answer-status status-wrong";
+    }
+
+  }else{
+
+    explanationEl.classList.remove("show");
+    explanationTextEl.innerHTML = "";
+    answerStatusEl.innerHTML = "";
+  }
+
+  progressTextEl.textContent =
+    "Question " + (current + 1) +
+    " of " + questions.length;
+
+  const attempted =
+    answers.filter(x => x !== null).length;
+
+  attemptTextEl.textContent =
+    "Attempted: " + attempted;
+
+  progressFillEl.style.width =
+    ((current + 1) / questions.length * 100) + "%";
+
+  prevBtn.disabled = current === 0;
+
+  if(current === questions.length - 1){
+    nextBtn.textContent = "Finish Test ✓";
+  }else{
+    nextBtn.textContent = "Next →";
+  }
+
+  updatePalette();
+}
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(index){
+
+  if(answers[current] !== null) return;
+
+  answers[current] = index;
+
+  loadQuestion();
+
+  updatePalette();
+}
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextQuestion(){
+
+  if(current === questions.length - 1){
+
+    showResult();
+
+    return;
+  }
+
+  current++;
+
+  loadQuestion();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousQuestion(){
+
+  if(current === 0) return;
+
+  current--;
+
+  loadQuestion();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function buildPalette(){
+
+  paletteGrid.innerHTML = "";
+
+  questions.forEach((q,index)=>{
+
+    const button =
+      document.createElement("button");
+
+    button.className = "palette-item";
+
+    button.textContent = index + 1;
+
+    button.onclick = function(){
+
+      current = index;
+
+      loadQuestion();
+
+      togglePalette(false);
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+
+    };
+
+    paletteGrid.appendChild(button);
+  });
+}
+
+function updatePalette(){
+
+  const items =
+    document.querySelectorAll(".palette-item");
+
+  items.forEach((item,index)=>{
+
+    item.className = "palette-item";
+
+    if(answers[index] !== null){
+
+      if(answers[index] === questions[index].correct){
+        item.classList.add("correct");
+      }else{
+        item.classList.add("wrong");
+      }
+
+    }else{
+
+      item.classList.add("skipped");
+
+    }
+
+    if(index === current){
+      item.classList.add("current");
+    }
+
+  });
+}
+
+/* =========================================================
+   PALETTE TOGGLE
+========================================================= */
+
+function togglePalette(force){
+
+  const panel =
+    document.getElementById("palettePanel");
+
+  if(typeof force === "boolean"){
+
+    if(force){
+      panel.classList.add("show");
+    }else{
+      panel.classList.remove("show");
+    }
+
+  }else{
+
+    panel.classList.toggle("show");
+
+  }
+}
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function showResult(){
+
+  let correct = 0;
+  let wrong = 0;
+  let skipped = 0;
+
+  answers.forEach((answer,index)=>{
+
+    if(answer === null){
+      skipped++;
+    }
+    else if(answer === questions[index].correct){
+      correct++;
+    }
+    else{
+      wrong++;
+    }
+
+  });
+
+  document.getElementById("score").textContent =
+    correct;
+
+  document.getElementById("correctCount").textContent =
+    correct;
+
+  document.getElementById("wrongCount").textContent =
+    wrong;
+
+  document.getElementById("skippedCount").textContent =
+    skipped;
+
+  document.getElementById("resultMessage").innerHTML =
+    "<b>Total Questions:</b> " + questions.length +
+    "<br><b>No Negative Marking</b>";
+
+  quizArea.style.display = "none";
+  resultEl.style.display = "block";
+
+  document.getElementById("palettePanel")
+    .classList.remove("show");
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restartQuiz(){
+
+  current = 0;
+
+  answers =
+    new Array(questions.length).fill(null);
+
+  quizArea.style.display = "block";
+  resultEl.style.display = "none";
+
+  loadQuestion();
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+buildPalette();
+loadQuestion();
+
+</script>
+
+</body>
+</html>
