@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science | Chapter 11 | Electricity</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#eef3f8;
+    font-family:"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    color:#17202a;
+    line-height:1.65;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.header{
+    background:linear-gradient(135deg,#082b55,#1261a0);
+    color:white;
+    padding:28px 20px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+    margin-bottom:22px;
+}
+
+.header h1{
+    margin:0;
+    font-size:30px;
+}
+
+.header p{
+    margin:6px 0 0;
+    font-size:17px;
+}
+
+.page{
+    background:white;
+    padding:25px;
+    margin-bottom:25px;
+    border-radius:18px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+.page-title{
+    background:#0b4f8a;
+    color:white;
+    padding:11px 18px;
+    border-radius:10px;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.section{
+    margin:22px 0;
+}
+
+.section-title{
+    color:#083b66;
+    background:#e5f2ff;
+    border-left:6px solid #0b72c9;
+    padding:9px 14px;
+    border-radius:8px;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.sub-title{
+    color:#a33b00;
+    background:#fff0e5;
+    border-left:5px solid #f07818;
+    padding:7px 12px;
+    border-radius:7px;
+    font-size:18px;
+    font-weight:bold;
+    margin:15px 0 10px;
+}
+
+ul,ol{
+    padding-left:28px;
+}
+
+li{
+    margin:6px 0;
+}
+
+.formula{
+    background:#f3f0ff;
+    border:2px solid #7655c7;
+    color:#38256f;
+    padding:12px;
+    margin:12px 0;
+    border-radius:10px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.definition{
+    background:#eafaf1;
+    border-left:6px solid #159957;
+    padding:13px 16px;
+    border-radius:9px;
+    margin:12px 0;
+}
+
+.important{
+    background:#fff8dc;
+    border-left:6px solid #e0a800;
+    padding:13px 16px;
+    border-radius:9px;
+    margin:12px 0;
+}
+
+.note{
+    background:#fff1f1;
+    border-left:6px solid #dc3545;
+    padding:13px 16px;
+    border-radius:9px;
+    margin:15px 0;
+}
+
+.unit{
+    background:#eef7ff;
+    border:1px solid #8bc5f5;
+    padding:10px 14px;
+    border-radius:8px;
+    margin:10px 0;
+}
+
+.symbol-table{
+    width:100%;
+    border-collapse:collapse;
+    margin:12px 0;
+}
+
+.symbol-table th{
+    background:#0b4f8a;
+    color:white;
+}
+
+.symbol-table td,
+.symbol-table th{
+    border:1px solid #cbd5e1;
+    padding:9px;
+    text-align:left;
+}
+
+.symbol-table tr:nth-child(even){
+    background:#f5f9fd;
+}
+
+/* ================= DIAGRAM AREA ================= */
+
+.diagram-box{
+    background:#fbfdff;
+    border:2px solid #b9d7ee;
+    border-radius:14px;
+    padding:18px;
+    margin:18px 0;
+    text-align:center;
+}
+
+.diagram-title{
+    color:#084b7a;
+    font-weight:bold;
+    font-size:17px;
+    margin-bottom:15px;
+}
+
+/* Common wire */
+.wire{
+    height:3px;
+    background:#222;
+}
+
+/* Cell */
+.cell-diagram{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    height:90px;
+}
+
+.cell-wire{
+    width:70px;
+    height:3px;
+    background:#222;
+}
+
+.cell-line-short{
+    width:3px;
+    height:32px;
+    background:#222;
+}
+
+.cell-line-long{
+    width:4px;
+    height:55px;
+    background:#222;
+}
+
+.polarity{
+    font-weight:bold;
+    font-size:18px;
+}
+
+/* Battery */
+.battery{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:9px;
+    height:100px;
+}
+
+.battery-wire{
+    width:45px;
+    height:3px;
+    background:#222;
+}
+
+.battery-line-short{
+    width:3px;
+    height:30px;
+    background:#222;
+}
+
+.battery-line-long{
+    width:4px;
+    height:58px;
+    background:#222;
+}
+
+/* Switch */
+.switch{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:90px;
+}
+
+.switch-wire{
+    width:65px;
+    height:3px;
+    background:#222;
+}
+
+.switch-contact{
+    width:10px;
+    height:10px;
+    border:2px solid #222;
+    border-radius:50%;
+    background:white;
+}
+
+.switch-lever-open{
+    width:65px;
+    height:3px;
+    background:#222;
+    transform:rotate(-25deg);
+    transform-origin:left;
+}
+
+.switch-lever-closed{
+    width:65px;
+    height:3px;
+    background:#222;
+}
+
+/* Junction */
+.junction{
+    position:relative;
+    width:180px;
+    height:100px;
+    margin:auto;
+}
+
+.junction .h{
+    position:absolute;
+    top:48px;
+    left:0;
+    width:180px;
+    height:3px;
+    background:#222;
+}
+
+.junction .v{
+    position:absolute;
+    top:0;
+    left:88px;
+    width:3px;
+    height:100px;
+    background:#222;
+}
+
+.junction .dot{
+    position:absolute;
+    top:43px;
+    left:83px;
+    width:13px;
+    height:13px;
+    background:#222;
+    border-radius:50%;
+}
+
+/* Crossing */
+.crossing{
+    position:relative;
+    width:180px;
+    height:100px;
+    margin:auto;
+}
+
+.crossing .line1{
+    position:absolute;
+    top:48px;
+    left:0;
+    width:180px;
+    height:3px;
+    background:#222;
+}
+
+.crossing .line2{
+    position:absolute;
+    top:48px;
+    left:0;
+    width:180px;
+    height:3px;
+    background:#222;
+    transform:rotate(35deg);
+    transform-origin:center;
+}
+
+/* Bulb */
+.bulb{
+    position:relative;
+    width:150px;
+    height:120px;
+    margin:auto;
+}
+
+.bulb-glass{
+    position:absolute;
+    left:48px;
+    top:5px;
+    width:55px;
+    height:65px;
+    border:3px solid #222;
+    border-radius:50% 50% 45% 45%;
+}
+
+.bulb-base{
+    position:absolute;
+    left:57px;
+    top:68px;
+    width:37px;
+    height:28px;
+    border:3px solid #222;
+    border-top:0;
+    background:#ddd;
+}
+
+.bulb-wire1{
+    position:absolute;
+    left:75px;
+    top:23px;
+    width:3px;
+    height:30px;
+    background:#222;
+    transform:rotate(25deg);
+}
+
+.bulb-wire2{
+    position:absolute;
+    left:76px;
+    top:23px;
+    width:3px;
+    height:30px;
+    background:#222;
+    transform:rotate(-25deg);
+}
+
+.bulb-terminal{
+    position:absolute;
+    left:15px;
+    top:95px;
+    width:120px;
+    height:3px;
+    background:#222;
+}
+
+/* Resistor */
+.resistor{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:80px;
+}
+
+.res-wire{
+    width:55px;
+    height:3px;
+    background:#222;
+}
+
+.res-body{
+    width:85px;
+    height:30px;
+    border:3px solid #222;
+    background:#ffe8a8;
+    position:relative;
+}
+
+.res-zig{
+    position:absolute;
+    left:10px;
+    top:12px;
+    width:60px;
+    height:3px;
+    background:#222;
+}
+
+/* Rheostat */
+.rheostat{
+    position:relative;
+    width:240px;
+    height:100px;
+    margin:auto;
+}
+
+.rheo-body{
+    position:absolute;
+    left:40px;
+    top:38px;
+    width:160px;
+    height:25px;
+    border:3px solid #222;
+    border-radius:4px;
+}
+
+.rheo-arrow{
+    position:absolute;
+    left:100px;
+    top:5px;
+    width:3px;
+    height:70px;
+    background:#d33;
+    transform:rotate(25deg);
+}
+
+.rheo-arrow:after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-5px;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-bottom:10px solid #d33;
+}
+
+/* Meter */
+.meter{
+    width:105px;
+    height:105px;
+    border:4px solid #222;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:10px auto;
+    background:#f8f8f8;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.meter-wire{
+    width:70px;
+    height:3px;
+    background:#222;
+    margin:auto;
+}
+
+/* Circuit series */
+.series-circuit{
+    width:90%;
+    height:180px;
+    margin:auto;
+    position:relative;
+}
+
+.series-line{
+    position:absolute;
+    background:#222;
+}
+
+.top-line{
+    top:20px;
+    left:20px;
+    width:90%;
+    height:3px;
+}
+
+.bottom-line{
+    bottom:20px;
+    left:20px;
+    width:90%;
+    height:3px;
+}
+
+.left-line{
+    left:20px;
+    top:20px;
+    width:3px;
+    height:140px;
+}
+
+.right-line{
+    right:20px;
+    top:20px;
+    width:3px;
+    height:140px;
+}
+
+.series-resistor{
+    position:absolute;
+    top:5px;
+    width:55px;
+    height:32px;
+    border:3px solid #222;
+    background:#ffe6a6;
+}
+
+.r1{left:25%;}
+.r2{left:45%;}
+.r3{left:65%;}
+
+/* Parallel circuit */
+.parallel{
+    position:relative;
+    width:90%;
+    height:210px;
+    margin:auto;
+}
+
+.parallel-main{
+    position:absolute;
+    background:#222;
+}
+
+.parallel-top{
+    top:25px;
+    left:20px;
+    width:20%;
+    height:3px;
+}
+
+.parallel-bottom{
+    bottom:25px;
+    left:20px;
+    width:20%;
+    height:3px;
+}
+
+.parallel-left{
+    left:20px;
+    top:25px;
+    height:160px;
+    width:3px;
+}
+
+.parallel-right{
+    right:20px;
+    top:25px;
+    height:160px;
+    width:3px;
+}
+
+.branch{
+    position:absolute;
+    left:20%;
+    width:60%;
+    height:3px;
+    background:#222;
+}
+
+.branch1{top:25px;}
+.branch2{top:103px;}
+.branch3{top:181px;}
+
+.p-res{
+    position:absolute;
+    left:45%;
+    width:55px;
+    height:30px;
+    border:3px solid #222;
+    background:#ffe6a6;
+}
+
+.pr1{top:10px;}
+.pr2{top:88px;}
+.pr3{top:166px;}
+
+.comparison{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.card{
+    background:#f8fbff;
+    border:1px solid #c8dcec;
+    border-radius:12px;
+    padding:15px;
+}
+
+.card h3{
+    margin-top:0;
+    color:#0b4f8a;
+}
+
+.footer{
+    text-align:center;
+    color:#52606d;
+    padding:15px;
+    font-size:14px;
+}
+
+@media(max-width:700px){
+    .container{
+        padding:10px;
+    }
+
+    .page{
+        padding:15px;
+    }
+
+    .comparison{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:24px;
+    }
+
+    .formula{
+        font-size:17px;
+        overflow-x:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+    <h1>Class 10th → Chapter 11</h1>
+    <p>विद्युत (Electricity)</p>
+</div>
+
+
+<!-- ================= PAGE 1 ================= -->
+
+<div class="page">
+
+<div class="page-title">📘 पृष्ठ 1 — विद्युत धारा, विभवांतर एवं ओम का नियम</div>
+
+<div class="section">
+
+<div class="section-title">1. विद्युत परिपथ</div>
+
+<ul>
+<li>स्विच सेल तथा बल्ब के बीच चालक संबंध जोड़ता है।</li>
+<li>विद्युत धारा के सतत तथा बंद परिपथ को विद्युत परिपथ कहते हैं।</li>
+</ul>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">2. विद्युत धारा (Electric Current)</div>
+
+<div class="definition">
+<strong>परिभाषा:</strong> आवेश के प्रवाह की दर को विद्युत धारा कहते हैं।
+</div>
+
+<p>
+किसी विद्युत परिपथ में Electron का प्रवाह ही आवेश प्रवाह की दर को दर्शाता है
+जो कि Electron के विपरीत दिशा में प्रवाहित होता है (यानी धन आवेश की दिशा)।
+</p>
+
+<div class="formula">
+I = Q / t
+</div>
+
+<table class="symbol-table">
+<tr>
+<th>प्रतीक</th>
+<th>अर्थ</th>
+</tr>
+<tr>
+<td>I</td>
+<td>विद्युत धारा</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>आवेश</td>
+</tr>
+<tr>
+<td>t</td>
+<td>समय</td>
+</tr>
+</table>
+
+<div class="important">
+<strong>विद्युत आवेश का SI मात्रक:</strong> कुलम्ब (C)
+<br><br>
+1 C = 6 × 10<sup>18</sup> Electron
+<br>
+1 e = 1.6 × 10<sup>−19</sup> C
+</div>
+
+<div class="unit">
+<strong>विद्युत धारा का मात्रक:</strong> ऐम्पियर (A)
+<br>
+1 A = 1 C / 1 s
+</div>
+
+<p>
+विद्युत धारा को एक मानक जिसे ऐम्पियर (A) कहते हैं में व्यक्त किया जाता है।
+</p>
+
+<div class="important">
+<strong>धारा के छोटे मात्रक:</strong>
+<br>
+1 mA = 10<sup>−3</sup> A
+<br>
+1 μA = 10<sup>−6</sup> A
+</div>
+
+<p>
+विद्युत धारा को मापने के लिए ऐमीटर का उपयोग करते हैं।
+परिपथ में विद्युत धारा सेल के धन टर्मिनल से सेल के ऋण टर्मिनल तक
+बल्ब और ऐमीटर से होकर प्रवाहित होती है।
+</p>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">3. विद्युत विभव और विभवांतर</div>
+
+<p>
+किसी चालक तार में आवेश के प्रवाह के लिए वास्तव में गुरुत्व बल की कोई भूमिका नहीं होती।
+Electron केवल तभी गति करते हैं जब चालक के अनुदिश वैद्युत दाब में कोई अंतर होता है
+जिसे विभवांतर कहते हैं।
+</p>
+
+<p>
+किसी विद्युत परिपथ में विद्युत धारा बनाए रखने के लिए सेल अपनी रासायनिक ऊर्जा खर्च करता है।
+</p>
+
+<div class="formula">
+विभवांतर (V) = किया गया कार्य (W) / आवेश (Q)
+<br><br>
+V = W / Q
+</div>
+
+<div class="unit">
+<strong>विद्युत विभवांतर का SI मात्रक:</strong> वोल्ट (V)
+<br><br>
+1 V = 1 J / 1 C
+<br>
+1 V = 1 J C<sup>−1</sup>
+</div>
+
+<p>
+विभवांतर को वोल्टमीटर द्वारा मापा जाता है।
+</p>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">4. विद्युत परिपथ आरेख</div>
+
+<p>
+विद्युत परिपथ सेल (या बैटरी), प्लग कुंजी, वैद्युत अवयव तथा संयोजी तारों से मिलकर बनती है।
+</p>
+
+
+<!-- CELL -->
+<div class="diagram-box">
+<div class="diagram-title">विद्युत सेल</div>
+
+<div class="cell-diagram">
+<span class="polarity">+</span>
+<div class="cell-wire"></div>
+<div class="cell-line-long"></div>
+<div class="cell-line-short"></div>
+<div class="cell-wire"></div>
+<span class="polarity">−</span>
+</div>
+</div>
+
+
+<!-- BATTERY -->
+<div class="diagram-box">
+<div class="diagram-title">बैटरी</div>
+
+<div class="battery">
+<span>+</span>
+<div class="battery-wire"></div>
+
+<div class="battery-line-long"></div>
+<div class="battery-line-short"></div>
+
+<div class="battery-line-long"></div>
+<div class="battery-line-short"></div>
+
+<div class="battery-wire"></div>
+<span>−</span>
+</div>
+</div>
+
+
+<!-- OPEN SWITCH -->
+<div class="diagram-box">
+<div class="diagram-title">प्लग कुंजी — खुली</div>
+
+<div class="switch">
+<div class="switch-wire"></div>
+<div class="switch-contact"></div>
+<div class="switch-lever-open"></div>
+<div class="switch-contact"></div>
+<div class="switch-wire"></div>
+</div>
+</div>
+
+
+<!-- CLOSED SWITCH -->
+<div class="diagram-box">
+<div class="diagram-title">प्लग कुंजी — बंद</div>
+
+<div class="switch">
+<div class="switch-wire"></div>
+<div class="switch-contact"></div>
+<div class="switch-lever-closed"></div>
+<div class="switch-contact"></div>
+<div class="switch-wire"></div>
+</div>
+</div>
+
+
+<!-- JUNCTION -->
+<div class="diagram-box">
+<div class="diagram-title">तार संधि</div>
+
+<div class="junction">
+<div class="h"></div>
+<div class="v"></div>
+<div class="dot"></div>
+</div>
+</div>
+
+
+<!-- CROSSING -->
+<div class="diagram-box">
+<div class="diagram-title">तार क्रॉसिंग</div>
+
+<div class="crossing">
+<div class="line1"></div>
+<div class="line2"></div>
+</div>
+</div>
+
+
+<!-- BULB -->
+<div class="diagram-box">
+<div class="diagram-title">विद्युत बल्ब</div>
+
+<div class="bulb">
+<div class="bulb-glass"></div>
+<div class="bulb-wire1"></div>
+<div class="bulb-wire2"></div>
+<div class="bulb-base"></div>
+<div class="bulb-terminal"></div>
+</div>
+</div>
+
+
+<!-- RESISTOR -->
+<div class="diagram-box">
+<div class="diagram-title">प्रतिरोधक</div>
+
+<div class="resistor">
+<div class="res-wire"></div>
+<div class="res-body">
+<div class="res-zig"></div>
+</div>
+<div class="res-wire"></div>
+</div>
+</div>
+
+
+<!-- RHEOSTAT -->
+<div class="diagram-box">
+<div class="diagram-title">धारा नियंत्रक</div>
+
+<div class="rheostat">
+<div class="rheo-body"></div>
+<div class="rheo-arrow"></div>
+</div>
+</div>
+
+
+<!-- AMMETER -->
+<div class="diagram-box">
+<div class="diagram-title">ऐमीटर</div>
+
+<div class="meter">A</div>
+<div class="meter-wire"></div>
+</div>
+
+
+<!-- VOLTMETER -->
+<div class="diagram-box">
+<div class="diagram-title">वोल्टमीटर</div>
+
+<div class="meter">V</div>
+<div class="meter-wire"></div>
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">5. ओम का नियम</div>
+
+<div class="definition">
+एक विद्युत परिपथ में धातु के तार के दो सिरों के बीच विभवांतर उसमें प्रवाहित होने वाली
+विद्युत धारा के समानुपाती होता है, परंतु तार का तापमान समान रहना चाहिए इसे
+<strong>ओम का नियम</strong> कहते हैं।
+</div>
+
+<div class="formula">
+V ∝ I
+<br>
+V / I = नियतांक
+<br>
+V = IR
+</div>
+
+<p>
+R = नियतांक, किसी चालक का वह गुण है कि वह अपने में प्रवाहित होने वाले आवेश के प्रवाह का विरोध करता है।
+</p>
+
+<div class="unit">
+<strong>प्रतिरोध का SI मात्रक:</strong> ओम (Ω)
+<br><br>
+R = V / I
+<br>
+1 ओम = 1 वोल्ट / 1 ऐम्पियर
+</div>
+
+<div class="important">
+किसी प्रतिरोधक से प्रवाहित होने वाली विद्युत धारा उसके प्रतिरोध के व्युत्क्रमानुपाती होती है।
+यदि प्रतिरोध दोगुना हो जाए तो धारा आधी हो जाती है।
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">6. परिवर्ती प्रतिरोध एवं धारा नियंत्रक</div>
+
+<ul>
+<li>
+स्रोत की वोल्टता में बिना कोई परिवर्तन किए परिपथ की विद्युत धारा को नियंत्रित करने के लिए
+जिस अवयव का उपयोग किया जाता है उसे परिवर्ती प्रतिरोध कहते हैं।
+</li>
+
+<li>
+परिपथ के प्रतिरोध को परिवर्तित करने के लिए प्रायः एक युक्ति का उपयोग करते हैं
+जिसे धारा नियंत्रक कहते हैं।
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">7. चालक में इलेक्ट्रॉन की गति</div>
+
+<ul>
+<li>विभिन्न अवयव के अनुसार विद्युत धारा भिन्न होती है।</li>
+<li>कुछ अवयव विद्युत धारा के प्रवाह के लिए सरल पथ प्रदान करते हैं जबकि अन्य इस प्रवाह का विरोध करते हैं।</li>
+<li>इलेक्ट्रॉन की गति से परिपथ में विद्युत धारा बनती है।</li>
+<li>किसी चालक से होकर इलेक्ट्रॉन की गति प्रतिरोध द्वारा मंद हो जाती है।</li>
+<li>किसी चालक के भीतर इलेक्ट्रॉन पूर्णतः स्वतंत्र गति करने के लिए स्वतंत्र नहीं होते वे परमाणु के आकर्षण बल से बंधे होते हैं।</li>
+<li>एक ही साइज के चालकों में वह चालक जिसका प्रतिरोध कम होता है अधिक अच्छा चालक होता है।</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- ================= PAGE 2 ================= -->
+
+<div class="page">
+
+<div class="page-title">📗 पृष्ठ 2 — प्रतिरोध, संयोजन एवं तापीय प्रभाव</div>
+
+
+<div class="section">
+
+<div class="section-title">8. चालक के प्रतिरोध पर निर्भर करने वाले कारक</div>
+
+<div class="definition">
+चालक का प्रतिरोध निर्भर करता है:
+</div>
+
+<ol>
+<li>चालक की लंबाई पर</li>
+<li>उसके अनुप्रस्थ काट के क्षेत्रफल पर</li>
+<li>पदार्थ की प्रकृति पर</li>
+</ol>
+
+<ul>
+<li>प्रयोगों में समान पदार्थ तथा समान लंबाई का मोटा तार लेने पर उसका प्रतिरोध कम होता है।</li>
+</ul>
+
+<div class="formula">
+R ∝ l
+<br>
+R ∝ 1/A
+<br><br>
+R = ρl/A
+</div>
+
+<p>
+किसी धातु के एकसमान चालक का प्रतिरोध उसकी लंबाई (l) के अनुक्रमानुपाती तथा
+उसकी अनुप्रस्थ काट के क्षेत्रफल (A) के व्युत्क्रमानुपाती होती है।
+</p>
+
+<div class="unit">
+जहाँ ρ → आनुपातिक नियतांक
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">9. प्रतिरोधकता (ρ)</div>
+
+<div class="unit">
+<strong>प्रतिरोधकता (ρ) का SI मात्रक:</strong> ओम मीटर (Ω m)
+</div>
+
+<ul>
+<li>
+धातुओं तथा मिश्रधातुओं की प्रतिरोधकता अत्यंत कम होती है जिसका परिसर
+10<sup>−8</sup> Ω m से 10<sup>−6</sup> Ω m है और यह विद्युत की अच्छी चालक होती है।
+</li>
+
+<li>
+काँच तथा रबड़ जैसे विद्युतरोधी पदार्थों की प्रतिरोधकता
+10<sup>12</sup> से 10<sup>17</sup> Ω m कोटि की होती है।
+</li>
+
+<li>किसी पदार्थ का प्रतिरोध तथा प्रतिरोधकता ताप में परिवर्तन के साथ परिवर्तित होता है।</li>
+
+<li>
+विद्युत बल्बों के तंतुओं के निर्माण में टंगस्टन का प्रयोग होता है क्योंकि इसकी
+उच्च प्रतिरोधकता तथा उच्च गलनांक होता है।
+</li>
+</ul>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">10. प्रतिरोधकों के निकाय का प्रतिरोध</div>
+
+
+<div class="sub-title">i) श्रेणीक्रम संयोजन</div>
+
+<div class="formula">
+R<sub>s</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub>
+</div>
+
+<div class="diagram-box">
+<div class="diagram-title">श्रेणीक्रम संयोजन</div>
+
+<div class="series-circuit">
+
+<div class="series-line top-line"></div>
+<div class="series-line bottom-line"></div>
+<div class="series-line left-line"></div>
+<div class="series-line right-line"></div>
+
+<div class="series-resistor r1"></div>
+<div class="series-resistor r2"></div>
+<div class="series-resistor r3"></div>
+
+</div>
+
+<p><strong>R₁ → R₂ → R₃</strong></p>
+</div>
+
+
+<div class="sub-title">श्रेणीक्रम संयोजन की विशेषताएँ</div>
+
+<ul>
+<li>ऐमीटर में विद्युत धारा का मान वही रहता है, यह परिपथ में ऐमीटर की स्थिति पर निर्भर नहीं करता।</li>
+<li>परिपथ के हर भाग में विद्युत धारा समान होती है।</li>
+</ul>
+
+<div class="formula">
+विभवांतर (V) = V<sub>1</sub> + V<sub>2</sub> + V<sub>3</sub>
+</div>
+
+
+<div class="sub-title">ii) पार्श्वक्रम संयोजन</div>
+
+<div class="formula">
+1/R<sub>p</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub>
+</div>
+
+<div class="diagram-box">
+<div class="diagram-title">पार्श्वक्रम संयोजन</div>
+
+<div class="parallel">
+
+<div class="parallel-main parallel-top"></div>
+<div class="parallel-main parallel-bottom"></div>
+<div class="parallel-main parallel-left"></div>
+<div class="parallel-main parallel-right"></div>
+
+<div class="branch branch1"></div>
+<div class="branch branch2"></div>
+<div class="branch branch3"></div>
+
+<div class="p-res pr1"></div>
+<div class="p-res pr2"></div>
+<div class="p-res pr3"></div>
+
+</div>
+
+<p><strong>R₁, R₂ और R₃ अलग-अलग शाखाओं में जुड़े हैं।</strong></p>
+
+</div>
+
+
+<div class="sub-title">पार्श्वक्रम संयोजन की विशेषताएँ</div>
+
+<ul>
+<li>कुल विद्युत धारा (I), संयोजन की प्रत्येक शाखा में प्रवाहित होने वाली पृथक धाराओं के योग के बराबर है।</li>
+</ul>
+
+<div class="formula">
+I = I<sub>1</sub> + I<sub>2</sub> + I<sub>3</sub>
+<br><br>
+I = V / R<sub>p</sub>
+</div>
+
+
+<div class="note">
+<strong>Note:</strong>
+<br>
+• श्रेणी परिपथ में एक अवयव कार्य करना बंद करें तो परिपथ टूट जाता है और परिपथ का अन्य कोई अवयव कार्य नहीं कर पाता।
+<br><br>
+• पार्श्वक्रम परिपथ में भिन्न-भिन्न विद्युत धारा की आवश्यकता होती है।
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">11. विद्युत धारा का तापीय प्रभाव</div>
+
+<ul>
+<li>बैटरी अथवा सेल विद्युत ऊर्जा के स्रोत हैं।</li>
+
+<li>
+सेल के भीतर होने वाली रासायनिक अभिक्रिया सेल के दो टर्मिनलों के बीच विभवांतर उत्पन्न करती है
+जो कि इलेक्ट्रॉन में गति स्थापित करने के लिए विद्युत धारा प्रवाहित करने के लिए आवश्यक होती है।
+</li>
+
+<li>उपयोग: विद्युत हीटर, विद्युत इस्तरी।</li>
+</ul>
+
+<div class="formula">
+P = V × Q/t = VI
+</div>
+
+<div class="unit">
+P → Power
+</div>
+
+<ul>
+<li>स्रोत द्वारा परिपथ को प्रदान की गई ऊर्जा ऊष्मा के रूप में प्रति सेकंड क्षयित हो जाती है।</li>
+</ul>
+
+<div class="formula">
+H = VIt
+<br><br>
+H = I²Rt
+</div>
+
+<div class="definition">
+<strong>जूल का तापन नियम:</strong>
+किसी समय t में उत्पन्न ऊष्मा की मात्रा:
+<br><br>
+<strong>H = I²Rt</strong>
+</div>
+
+<div class="important">
+<strong>इस नियम के अनुसार:</strong>
+
+<ol>
+<li>किसी प्रतिरोधक में उत्पन्न होने वाली ऊष्मा धारा के वर्ग के अनुक्रमानुपाती होती है।</li>
+<li>दी गई विद्युत धारा के लिए प्रतिरोध के अनुक्रमानुपाती होती है।</li>
+<li>समय के अनुक्रमानुपाती होती है।</li>
+</ol>
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">12. जूल के तापन पर आधारित उदाहरण</div>
+
+<div class="comparison">
+
+<div class="card">
+<h3>विद्युत उपकरण</h3>
+<ul>
+<li>विद्युत इस्तरी</li>
+<li>विद्युत टोस्टर</li>
+<li>विद्युत तंदूर</li>
+<li>विद्युत केतली</li>
+<li>विद्युत हीटर</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>विद्युत बल्ब</h3>
+<ul>
+<li>विद्युत बल्ब का उपयोग प्रकाश ऊर्जा उत्पन्न करने में भी होता है।</li>
+<li>टंगस्टन का गलनांक → 3380°C</li>
+<li>बल्ब में गैस → Nitrogen &amp; Argon gas.</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">13. फ्यूज</div>
+
+<div class="definition">
+<strong>फ्यूज:</strong> Aluminium, copper, iron, lead.
+</div>
+
+<ul>
+<li>उच्च गलनांक होता है।</li>
+<li>
+अवांछित विद्युत धारा प्रवाहित होने पर सबसे पहले तार पिघल जाता है और टूट जाता है
+जिससे परिपथ टूट जाता है।
+</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<!-- ================= PAGE 3 ================= -->
+
+<div class="page">
+
+<div class="page-title">📕 पृष्ठ 3 — फ्यूज एवं विद्युत शक्ति</div>
+
+
+<div class="section">
+
+<div class="section-title">14. फ्यूज तार</div>
+
+<p>
+फ्यूज तार प्रायः धातु के सिरे वाले पोर्सिलेन अथवा इसी प्रकार के विद्युतरोधी पदार्थ के
+कार्टरिज (Cartridge) में रखा जाता है।
+</p>
+
+<div class="important">
+<strong>घरेलू फ्यूज तार की अनुमतित विद्युत धारा:</strong>
+<br><br>
+1 A, 2 A, 3 A, 5 A, 10 A
+<br><br>
+(→ 220 V)
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">15. विद्युत शक्ति</div>
+
+<div class="definition">
+कार्य करने की दर को शक्ति कहते हैं।
+<br><br>
+ऊर्जा के उपभुक्त होने की दर को भी शक्ति कहते हैं।
+</div>
+
+<div class="formula">
+P = VI
+<br><br>
+P = I²R
+<br><br>
+P = V²/R
+</div>
+
+<div class="unit">
+<strong>शक्ति का SI मात्रक:</strong> वाट (W)
+<br><br>
+1 W = 1 वोल्ट × 1 ऐम्पियर
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">16. विद्युत ऊर्जा की इकाई — kWh</div>
+
+<div class="formula">
+1 kWh = 1000 वाट × 3600 सेकंड
+<br><br>
+= 3.6 × 10<sup>6</sup> वाट सेकंड
+<br><br>
+= 3.6 × 10<sup>6</sup> जूल
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="section-title">⭐ त्वरित सूत्र संग्रह</div>
+
+<table class="symbol-table">
+
+<tr>
+<th>राशि</th>
+<th>सूत्र</th>
+</tr>
+
+<tr>
+<td>विद्युत धारा</td>
+<td>I = Q/t</td>
+</tr>
+
+<tr>
+<td>विभवांतर</td>
+<td>V = W/Q</td>
+</tr>
+
+<tr>
+<td>ओम का नियम</td>
+<td>V = IR</td>
+</tr>
+
+<tr>
+<td>प्रतिरोध</td>
+<td>R = V/I</td>
+</tr>
+
+<tr>
+<td>प्रतिरोध</td>
+<td>R = ρl/A</td>
+</tr>
+
+<tr>
+<td>श्रेणीक्रम प्रतिरोध</td>
+<td>R<sub>s</sub> = R<sub>1</sub> + R<sub>2</sub> + R<sub>3</sub></td>
+</tr>
+
+<tr>
+<td>पार्श्वक्रम प्रतिरोध</td>
+<td>1/R<sub>p</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> + 1/R<sub>3</sub></td>
+</tr>
+
+<tr>
+<td>विद्युत शक्ति</td>
+<td>P = VI</td>
+</tr>
+
+<tr>
+<td>विद्युत शक्ति</td>
+<td>P = I²R</td>
+</tr>
+
+<tr>
+<td>विद्युत शक्ति</td>
+<td>P = V²/R</td>
+</tr>
+
+<tr>
+<td>उत्पन्न ऊष्मा</td>
+<td>H = VIt</td>
+</tr>
+
+<tr>
+<td>जूल का तापन नियम</td>
+<td>H = I²Rt</td>
+</tr>
+
+<tr>
+<td>विद्युत ऊर्जा</td>
+<td>1 kWh = 3.6 × 10<sup>6</sup> J</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+Class 10th Science • Chapter 11 • Electricity
+</div>
+
+</div>
+
+</body>
+</html>
