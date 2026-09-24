@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Carbon and Its Compounds | TCS Style Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#eef2f7;
+    color:#172033;
+    line-height:1.6;
+}
+
+.header{
+    background:linear-gradient(135deg,#071b3a,#123d70);
+    color:#fff;
+    padding:15px 18px;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:800;
+}
+
+.subtitle{
+    font-size:12px;
+    opacity:.85;
+}
+
+.timer-box{
+    background:#fff;
+    color:#0b2550;
+    border-radius:10px;
+    padding:7px 14px;
+    text-align:center;
+    min-width:105px;
+    font-weight:bold;
+}
+
+.timer-label{
+    display:block;
+    font-size:10px;
+    color:#667085;
+}
+
+#timer{
+    font-size:20px;
+    font-weight:900;
+}
+
+/* PALETTE BUTTON */
+
+.palette-btn{
+    position:fixed;
+    right:14px;
+    top:92px;
+    z-index:200;
+    border:0;
+    background:#0d6efd;
+    color:#fff;
+    padding:10px 14px;
+    border-radius:8px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+.palette-btn:hover{
+    background:#084db3;
+}
+
+/* PALETTE */
+
+.palette-panel{
+    position:fixed;
+    right:14px;
+    top:140px;
+    width:310px;
+    max-width:calc(100vw - 28px);
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
+    z-index:190;
+    padding:14px;
+    display:none;
+    max-height:75vh;
+    overflow-y:auto;
+}
+
+.palette-panel.show{
+    display:block;
+}
+
+.palette-title{
+    font-weight:800;
+    color:#123d70;
+    margin-bottom:10px;
+}
+
+.legend{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+    margin-bottom:13px;
+    font-size:12px;
+}
+
+.legend span{
+    padding:5px 7px;
+    border-radius:5px;
+    font-weight:700;
+}
+
+.l-answered{
+    background:#d1fae5;
+    color:#065f46;
+}
+
+.l-review{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.l-unattempted{
+    background:#f1f5f9;
+    color:#475569;
+}
+
+.l-current{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:6px;
+}
+
+.pal-btn{
+    width:100%;
+    aspect-ratio:1;
+    border:1px solid #d0d5dd;
+    border-radius:6px;
+    background:#f8fafc;
+    cursor:pointer;
+    font-weight:700;
+    font-size:12px;
+}
+
+.pal-btn.answered{
+    background:#10b981;
+    color:white;
+    border-color:#059669;
+}
+
+.pal-btn.review{
+    background:#f59e0b;
+    color:white;
+    border-color:#d97706;
+}
+
+.pal-btn.current{
+    outline:3px solid #2563eb;
+    outline-offset:1px;
+}
+
+.container{
+    max-width:1050px;
+    margin:25px auto 50px;
+    padding:0 15px;
+}
+
+.instructions{
+    background:#fff;
+    border-left:5px solid #0d6efd;
+    border-radius:10px;
+    padding:14px 17px;
+    margin-bottom:18px;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.instructions h2{
+    font-size:18px;
+    color:#123d70;
+    margin-bottom:7px;
+}
+
+.instructions p{
+    font-size:14px;
+}
+
+.test-card{
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 3px 14px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+.question-header{
+    background:#f7f9fc;
+    padding:13px 17px;
+    border-bottom:1px solid #e5e7eb;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.q-number{
+    font-size:16px;
+    font-weight:800;
+    color:#123d70;
+}
+
+.q-status{
+    font-size:12px;
+    font-weight:700;
+    padding:4px 8px;
+    border-radius:5px;
+    background:#f1f5f9;
+    color:#475569;
+}
+
+.question-body{
+    padding:20px;
+}
+
+.question-text{
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:17px;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.option{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    border:1px solid #d9dee7;
+    padding:11px 13px;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.15s;
+    background:#fff;
+}
+
+.option:hover{
+    background:#f5f9ff;
+    border-color:#78aaf5;
+}
+
+.option.selected{
+    background:#eaf3ff;
+    border-color:#1976d2;
+}
+
+.option input{
+    margin-top:5px;
+    accent-color:#0d6efd;
+}
+
+.option-label{
+    font-weight:800;
+    min-width:20px;
+    color:#123d70;
+}
+
+.option-text{
+    flex:1;
+    font-size:14px;
+}
+
+.action-bar{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:8px;
+    padding:13px 17px;
+    background:#f8fafc;
+    border-top:1px solid #e5e7eb;
+}
+
+.btn{
+    border:0;
+    border-radius:7px;
+    padding:10px 15px;
+    font-weight:800;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.prev{
+    background:#64748b;
+    color:#fff;
+}
+
+.next{
+    background:#0d6efd;
+    color:#fff;
+}
+
+.review{
+    background:#f59e0b;
+    color:#fff;
+}
+
+.clear{
+    background:#e2e8f0;
+    color:#334155;
+}
+
+.submit{
+    background:#dc2626;
+    color:#fff;
+}
+
+.btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.progress{
+    margin-bottom:12px;
+    background:#e2e8f0;
+    height:7px;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+    background:#0d6efd;
+    width:0%;
+    transition:.2s;
+}
+
+/* RESULT */
+
+.result-screen{
+    display:none;
+}
+
+.result-header{
+    background:linear-gradient(135deg,#071b3a,#0d6efd);
+    color:#fff;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    margin-bottom:18px;
+}
+
+.result-header h1{
+    margin-bottom:6px;
+}
+
+.score-number{
+    font-size:42px;
+    font-weight:900;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.stat{
+    background:#fff;
+    border-radius:10px;
+    padding:16px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+
+.stat strong{
+    display:block;
+    font-size:25px;
+    color:#123d70;
+}
+
+.stat small{
+    color:#667085;
+}
+
+.solutions-title{
+    background:#123d70;
+    color:#fff;
+    padding:13px 16px;
+    border-radius:9px;
+    margin:18px 0 10px;
+}
+
+.solution-card{
+    background:#fff;
+    border-radius:10px;
+    padding:16px;
+    margin-bottom:10px;
+    box-shadow:0 2px 9px rgba(0,0,0,.06);
+    border-left:4px solid #0d6efd;
+}
+
+.solution-card.correct{
+    border-left-color:#10b981;
+}
+
+.solution-card.wrong{
+    border-left-color:#ef4444;
+}
+
+.solution-q{
+    font-weight:900;
+    color:#123d70;
+    margin-bottom:7px;
+}
+
+.solution-answer{
+    font-weight:800;
+    color:#059669;
+}
+
+.solution-explain{
+    margin-top:7px;
+    font-size:14px;
+    color:#334155;
+}
+
+.retry{
+    background:#0d6efd;
+    color:#fff;
+    margin-top:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .header{
+        padding:10px 12px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .subtitle{
+        display:none;
+    }
+
+    .timer-box{
+        min-width:88px;
+        padding:5px 9px;
+    }
+
+    #timer{
+        font-size:17px;
+    }
+
+    .palette-btn{
+        top:76px;
+        right:9px;
+        padding:8px 10px;
+        font-size:12px;
+    }
+
+    .palette-panel{
+        top:120px;
+        right:8px;
+    }
+
+    .palette-grid{
+        grid-template-columns:repeat(7,1fr);
+    }
+
+    .container{
+        margin-top:18px;
+        padding:0 9px;
+    }
+
+    .question-body{
+        padding:15px;
+    }
+
+    .question-text{
+        font-size:15px;
+    }
+
+    .option{
+        padding:10px;
+    }
+
+    .option-text{
+        font-size:13px;
+    }
+
+    .action-bar{
+        justify-content:center;
+    }
+
+    .action-bar .btn{
+        flex:1 1 42%;
+    }
+
+    .result-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:400px){
+    .palette-grid{
+        grid-template-columns:repeat(6,1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div>
+            <div class="logo">Railway Science</div>
+            <div class="subtitle">Carbon & Its Compounds | TCS Style Mock Test</div>
+        </div>
+
+        <div class="timer-box">
+            <span class="timer-label">TIME LEFT</span>
+            <span id="timer">50:00</span>
+        </div>
+    </div>
+</header>
+
+<button class="palette-btn" onclick="togglePalette()">☰ Palette</button>
+
+<div class="palette-panel" id="palettePanel">
+    <div class="palette-title">Question Palette</div>
+
+    <div class="legend">
+        <span class="l-answered">Answered</span>
+        <span class="l-review">Review</span>
+        <span class="l-unattempted">Unattempted</span>
+        <span class="l-current">Current</span>
+    </div>
+
+    <div class="palette-grid" id="paletteGrid"></div>
+</div>
+
+<main class="container" id="testContainer">
+
+    <div class="instructions">
+        <h2>Carbon & Its Compounds — TCS Style Mock Test</h2>
+        <p>
+            <b>Total Questions:</b> 67 &nbsp; | &nbsp;
+            <b>Time:</b> 50 Minutes &nbsp; | &nbsp;
+            <b>Correct:</b> +1 &nbsp; | &nbsp;
+            <b>Wrong:</b> −1/3
+        </p>
+        <p>
+            प्रत्येक प्रश्न का एक सही उत्तर चुनें। आवश्यकता होने पर
+            <b>Mark for Review</b> का उपयोग करें।
+        </p>
+    </div>
+
+    <div class="progress">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <div class="test-card">
+
+        <div class="question-header">
+            <div class="q-number" id="qNumber">Question 1 of 67</div>
+            <div class="q-status" id="qStatus">Unattempted</div>
+        </div>
+
+        <div class="question-body">
+            <div class="question-text" id="questionText"></div>
+            <div class="options" id="options"></div>
+        </div>
+
+        <div class="action-bar">
+
+            <button class="btn prev" id="prevBtn" onclick="previousQuestion()">
+                ← Previous
+            </button>
+
+            <button class="btn clear" onclick="clearAnswer()">
+                Clear Answer
+            </button>
+
+            <button class="btn review" onclick="toggleReview()">
+                Mark for Review
+            </button>
+
+            <button class="btn next" id="nextBtn" onclick="nextQuestion()">
+                Next →
+            </button>
+
+            <button class="btn submit" onclick="submitTest(false)">
+                Submit Test
+            </button>
+
+        </div>
+
+    </div>
+</main>
+
+<!-- RESULT -->
+
+<main class="container result-screen" id="resultScreen">
+
+    <div class="result-header">
+        <h1>Test Submitted</h1>
+        <div class="score-number" id="finalScore">0</div>
+        <div>Final Score</div>
+    </div>
+
+    <div class="result-grid">
+
+        <div class="stat">
+            <strong id="correctCount">0</strong>
+            <small>Correct</small>
+        </div>
+
+        <div class="stat">
+            <strong id="wrongCount">0</strong>
+            <small>Wrong</small>
+        </div>
+
+        <div class="stat">
+            <strong id="unattemptedCount">0</strong>
+            <small>Unattempted</small>
+        </div>
+
+        <div class="stat">
+            <strong id="reviewCount">0</strong>
+            <small>Marked for Review</small>
+        </div>
+
+    </div>
+
+    <h2 class="solutions-title">
+        Systematic Solutions — All 67 Questions
+    </h2>
+
+    <div id="solutions"></div>
+
+    <button class="btn retry" onclick="location.reload()">
+        Restart Test
+    </button>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   QUESTIONS
+   EXACTLY Q1-Q67 FROM USER
+   ========================================================= */
+
+const questions = [
+
+{
+q:`निम्नलिखित में से कौन-सा, चतुष्फलकीय संरचना वाला कार्बन अपररूप है?`,
+o:[
+`ग्रेफाइट`,
+`हीरा`,
+`फुलेरीन`,
+`ग्राफीन`
+],
+a:1,
+s:`हीरे में प्रत्येक कार्बन परमाणु चार अन्य कार्बन परमाणुओं से सहसंयोजक बंध द्वारा जुड़ा होता है। इसलिए इसकी संरचना चतुष्फलकीय (tetrahedral) होती है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन कार्बन के एक अपररूप, हीरे, के एक प्रमुख गुणधर्म की सही पहचान करता है जो इसे ग्रेफाइट से विभेदित करता है?`,
+o:[
+`हीरा विस्थापित इलेक्ट्रॉनों के कारण विद्युत का चालन करता है।`,
+`हीरे में नरम परतें होती हैं जो एक-दूसरे के ऊपर फिसलती हैं।`,
+`हीरा, ग्रेफाइट जैसी स्तरित संरचना में विद्यमान है।`,
+`हीरे में मुक्त इलेक्ट्रॉनों की अनुपस्थिति के कारण यह विद्युत का कुचालक होता है।`
+],
+a:3,
+s:`हीरे में सभी चार संयोजक इलेक्ट्रॉन सहसंयोजक बंधों में भाग लेते हैं, इसलिए मुक्त इलेक्ट्रॉन उपलब्ध नहीं होते।`
+},
+
+{
+q:`हीरा, विद्युत का चालन क्यों नहीं करता है जबकि ग्रेफाइट विद्युत का चालन करता है?`,
+o:[
+`अक्रिस्टलीय कार्बन में विस्थानीकृत इलेक्ट्रॉन होते हैं`,
+`हीरे के सभी इलेक्ट्रॉन आबंधन में शामिल होते हैं`,
+`फुलेरीन के पिंजरों (cage) में गतिशील इलेक्ट्रॉन होते हैं`,
+`हीरे में ऐसी परतें होती हैं जो सर्पण और चालन करती हैं`
+],
+a:1,
+s:`हीरे में प्रत्येक कार्बन के चारों इलेक्ट्रॉन सहसंयोजक आबंध बनाने में लगे रहते हैं। इसलिए मुक्त इलेक्ट्रॉन नहीं होते।`
+},
+
+{
+q:`कार्बन के निम्नलिखित गुणधर्मों में से कौन-सा गुणधर्म, बड़ी संख्या में यौगिकों के निर्माण में सहायक होता है?`,
+o:[
+`गैर-नम्यता`,
+`दहनशीलता और तन्यता`,
+`शृंखलन और चतुः संयोजकता`,
+`आघातवर्ध्यता और श्रव्यता`
+],
+a:2,
+s:`कार्बन की catenation अर्थात् शृंखलन क्षमता तथा tetravalency अर्थात् चतुःसंयोजकता बड़ी संख्या में यौगिक बनाने में सहायक हैं।`
+},
+
+{
+q:`कार्बन से बड़ी संख्या में यौगिकों के निर्माण होने का क्या कारण है?`,
+o:[
+`कार्बन अत्यधिक अभिक्रियाशील होता है`,
+`कार्बन केवल एकल आबंध बनाता है`,
+`कार्बन-कार्बन आबंध बहुत प्रबल और स्थायी होता है`,
+`कार्बन वलय नहीं बना सकता है`
+],
+a:2,
+s:`C–C आबंध मजबूत और स्थायी होने के कारण कार्बन लंबी शृंखलाएँ, शाखाएँ और वलय बना सकता है।`
+},
+
+{
+q:`एक रसायनज्ञ एक नई औषधि के लिए एक कृत्रिम मार्ग डिज़ाइन कर रहा है और उसे प्रारंभिक सामग्री के रूप में एक कार्बन यौगिक का चयन करना होगा। कार्बन का कौन-सा गुणधर्म उसे इस कार्य के लिए उपयुक्त विभिन्न प्रकार के कार्बनिक अणु बनाने की सुविधा देता है?`,
+o:[
+`कार्बन की इलेक्ट्रॉनों को प्रबलता से आकर्षित करने की क्षमता`,
+`कार्बन की ऑक्सीजन के साथ द्वि-आबंध बनाने की क्षमता`,
+`कार्बन की चार प्रबल सहसंयोजक बंध बनाने की क्षमता`,
+`कार्बन की सुगमता से इलेक्ट्रॉनों का त्याग करने की क्षमता`
+],
+a:2,
+s:`कार्बन चार प्रबल सहसंयोजक बंध बना सकता है, इसलिए यह विभिन्न प्रकार की संरचनाएँ और कार्बनिक अणु बना सकता है।`
+},
+
+{
+q:`अन्य अधिकांश तत्वों के विपरीत, कार्बन लाखों स्थिर यौगिक बनाता है। गुणों का कौन-सा संयोजन इस प्रकृति की सटीक व्याख्या करता है?`,
+o:[
+`उच्च रासायनिक अभिक्रियाशीलता और चतुःसंयोजकता एक साथ`,
+`प्रबल सहसंयोजक आबंध और चतुःसंयोजकता एक साथ`,
+`समस्थानिकों की उपस्थिति और नाभिकीय स्थायित्व`,
+`निम्न परमाणु-द्रव्यमान और छोटा परमाण्विक आकार`
+],
+a:1,
+s:`प्रबल C–C सहसंयोजक बंध कार्बन की शृंखलाओं को स्थायी बनाते हैं और चतुःसंयोजकता अनेक संयोजन संभव करती है।`
+},
+
+{
+q:`हीरा और ग्रेफाइट जैसे कार्बन-अपररूपों के दहन से _______ उत्पन्न होता है।`,
+o:[
+`केवल कार्बन डाइऑक्साइड`,
+`कार्बन डाइऑक्साइड, ऊष्मा और प्रकाश`,
+`केवल कार्बन डाइऑक्साइड और प्रकाश`,
+`केवल कार्बन डाइऑक्साइड और ऊष्मा`
+],
+a:1,
+s:`कार्बन का पूर्ण दहन ऑक्सीजन की उपस्थिति में CO₂ उत्पन्न करता है तथा ऊष्मा और प्रकाश भी निकलते हैं।`
+},
+
+{
+q:`जब एथेनॉल को 170°C पर अत्यधिक सांद्र सल्फ्यूरिक अम्ल के साथ गर्म किया जाता है, तो क्या होता है?`,
+o:[
+`एथेनॉइक अम्ल बनता है`,
+`कार्बन डाइऑक्साइड मुक्त होती है`,
+`निर्जलन के फलस्वरूप एथीन बनता है`,
+`गैस के रूप में मेथेन बनता है`
+],
+a:2,
+s:`443 K अर्थात लगभग 170°C पर सांद्र H₂SO₄ की उपस्थिति में ethanol का dehydration होकर ethene बनता है।`
+},
+
+{
+q:`जब एथेनॉइक अम्ल, एक अम्ल उत्प्रेरक की उपस्थिति में एथेनॉल के साथ अभिक्रिया करता है, तो किस प्रकार की अभिक्रिया होती है?`,
+o:[
+`उदासीनीकरण अभिक्रिया`,
+`दहन अभिक्रिया`,
+`एस्टरीकरण अभिक्रिया`,
+`साबुनीकरण अभिक्रिया`
+],
+a:2,
+s:`Ethanoic acid और ethanol, concentrated H₂SO₄ की उपस्थिति में ester और water बनाते हैं। इसे esterification कहते हैं।`
+},
+
+{
+q:`नीचे दिए गए दो कथनों का संदर्भ लीजिए तथा सही विकल्प का चयन कीजिए।कथन A: एथेनॉइक अम्ल, क्षार के साथ अभिक्रिया करके लवण और जल का निर्माण करता है।कथन B: इस अभिक्रिया को ऑक्सीकरण अभिक्रिया के रूप में वर्गीकृत किया गया है।`,
+o:[
+`कथन A और B दोनों गलत हैं`,
+`कथन A और B दोनों सही हैं`,
+`कथन A गलत है लेकिन B सही है`,
+`कथन A सही है लेकिन B गलत है`
+],
+a:3,
+s:`Ethanoic acid और base की अभिक्रिया neutralisation है, oxidation नहीं। इसलिए A सही और B गलत है।`
+},
+
+{
+q:`एथेनॉइक अम्ल के संबंध में निम्नलिखित में से कौन-sa कथन सत्य है?`,
+o:[
+`यह जल में विलीन नहीं होता है`,
+`यह नीले लिटमस को लाल कर देता है और कार्बोनेट के साथ अभिक्रिया करके CO2 उत्पन्न करता है`,
+`इसका उपयोग इसके शर्करा अंश के कारण खाद्य को मीठा करने के लिए किया जाता है`,
+`यह साबुन जैसा लगता है और इसका स्वाद कड़वा होता है`
+],
+a:1,
+s:`Ethanoic acid एक अम्ल है, इसलिए blue litmus को red करता है और carbonate के साथ CO₂ उत्पन्न करता है।`
+},
+
+{
+q:`एथेनॉल का कौन-सा गुणधर्म इसे औषधियों में विलायक के रूप में उपयोग किए जाने के लिए उपयुक्त बनाता है?`,
+o:[
+`यह एस्टर बनाता है`,
+`विलेयता`,
+`यह अत्यधिक ज्वलनशील है`,
+`यह प्रकृति में अम्लीय है`
+],
+a:1,
+s:`Ethanol की अच्छी solvent property और कई पदार्थों को घोलने की क्षमता इसे औषधीय preparations में solvent के रूप में उपयोगी बनाती है।`
+},
+
+{
+q:`कौन-सा कथन एथेनॉल की विलेयता का सही वर्णन करता है?`,
+o:[
+`जल में अल्प विलेय`,
+`केवल अम्लों में विलेय`,
+`जल के साथ पूर्णतः मिश्रणीय`,
+`जल में अविलेय`
+],
+a:2,
+s:`Ethanol जल के साथ सभी अनुपातों में मिश्रणीय है।`
+},
+
+{
+q:`ऐल्कोहॉल का कौन-सा गुण इसे वाहनों में वैकल्पिक ईंधन के रूप में उपयोग के लिए उपयुक्त बनाता है?`,
+o:[
+`यह स्वच्छ रूप से जलता है, जिससे धुआं और हानिकारक गैसें कम उत्पन्न होती हैं।`,
+`यह पेट्रोल से भारी होता है।`,
+`यह एक गैसीय ईंधन है।`,
+`इसका क्वथनांक जल की तुलना में कम होता है।`
+],
+a:0,
+s:`Alcohol अपेक्षाकृत स्वच्छ रूप से जल सकता है और उचित परिस्थितियों में प्रदूषक उत्सर्जन कम कर सकता है।`
+},
+
+{
+q:`पेट्रोल में ऐल्कोहॉल को मुख्य रूप से इसलिए मिलाया जाता है, क्योंकि यह एक _______ है।`,
+o:[
+`सघन ईंधन योज्य`,
+`स्वच्छ ईंधन योज्य`,
+`भारी ईंधन योज्य`,
+`प्रबल ईंधन योज्य`
+],
+a:1,
+s:`Ethanol को fuel blending में cleaner fuel additive के रूप में प्रयोग किया जाता है।`
+},
+
+{
+q:`निम्नलिखित में से किस यौगिक में अमीन (amine) और कार्बोक्सिल (carboxyl) दोनों कार्यात्मक समूह मौजूद होते हैं?`,
+o:[
+`एथेनॉल (Ethanol)`,
+`ग्लाइसिन (Glycine)`,
+`एथेनल (Ethanal)`,
+`प्रोपेनोन (Propanone)`
+],
+a:1,
+s:`Glycine में –NH₂ amino group और –COOH carboxyl group दोनों होते हैं।`
+},
+
+{
+q:`एस्टर में कौन-सा प्रकार्यात्मक समूह पाया जाता है?`,
+o:[
+`-COOH`,
+`-OH`,
+`-NH₂`,
+`-COO-`
+],
+a:3,
+s:`Ester का characteristic functional group –COO– होता है।`
+},
+
+{
+q:`सजातीय श्रेणी के संबंध में निम्नलिखित में से कौन-से कथन सही हैं?
+1. सभी सदस्यों का सामान्य सूत्र समान होता है।
+2. प्रत्येक क्रमिक सदस्य में एक $-CH_2-$ समूह का अंतर होता है।
+3. सभी सदस्यों के भौतिक गुण समान रहते हैं।`,
+o:[
+`केवल 1 और 3`,
+`केवल 2 और 3`,
+`केवल 1 और 2`,
+`1, 2 और 3`
+],
+a:2,
+s:`Homologous series के सदस्यों का general formula समान होता है और consecutive members में –CH₂– का अंतर होता है। Physical properties समान नहीं बल्कि क्रमिक रूप से बदलती हैं।`
+},
+
+{
+q:`कार्बन यौगिकों के अध्ययन में मेथेन, एथेन और प्रोपेन क्या दर्शाते हैं?`,
+o:[
+`एकल कार्बन परमाणु वाली शृंखला`,
+`वर्धमान कार्बन परमाणुओं वाली शृंखला`,
+`मिश्रित धातु परमाणुओं वाली शृंखला`,
+`ऐरोमैटिक कार्बन परमाणुओं वाली शृंखला`
+],
+a:1,
+s:`Methane, ethane और propane में क्रमशः 1, 2 और 3 carbon atoms होते हैं।`
+},
+
+{
+q:`वे यौगिक जिनमें $-CH_2-$ यूनिट का अंतर होता है, किस प्रकार के रासायनिक समूह से संबंधित होते हैं?`,
+o:[
+`संरचनात्मक समावयव`,
+`आयनिक यौगिक`,
+`प्रकार्यात्मक समूह`,
+`सजातीय श्रेणी`
+],
+a:3,
+s:`Consecutive members of a homologous series differ by one –CH₂– unit.`
+},
+
+{
+q:`यदि ऐल्केन में कार्बन शृंखला की लंबाई में वृद्धि होती है, तो निम्नलिखित में से कौन-सा गुणधर्म सर्वाधिक प्रभावित होता है?`,
+o:[
+`विद्युत चालकता`,
+`ज्वलनशीलता`,
+`रंग`,
+`क्वथनांक`
+],
+a:3,
+s:`Carbon chain length बढ़ने पर molecular mass और intermolecular forces बढ़ते हैं, जिससे boiling point बढ़ता है।`
+},
+
+{
+q:`समजातीय श्रेणी के सभी सदस्यों में कौन-सी विशेषता समान होती है?`,
+o:[
+`उनका आणविक द्रव्यमान समान होता है`,
+`उनका आणविक सूत्र समान होता है`,
+`उनका भौतिक गुणधर्म सर्वसम होता है`,
+`उनका रासायनिक गुणधर्म सदृश होता है`
+],
+a:3,
+s:`Homologous series के सदस्यों में समान functional group होने के कारण chemical properties similar होती हैं।`
+},
+
+{
+q:`यौगिक $CH_3-CH_2-CHO$ का सही IUPAC नाम क्या है?`,
+o:[
+`प्रोपेनोन (Propanone)`,
+`प्रोपेनल (Propanal)`,
+`प्रोपेनॉल (Propanol)`,
+`प्रोपेनोइक अम्ल (Propanoic acid)`
+],
+a:1,
+s:`तीन carbon की aldehyde chain CH₃–CH₂–CHO का नाम propanal है।`
+},
+
+{
+q:`[चित्र में दिए गए प्रश्न के विकल्प निम्न हैं]:`,
+o:[
+`ब्यूटेन-2-अल`,
+`ब्यूटेन-2-ओल`,
+`ब्यूटेन-2-ऑन`,
+`ब्यूटेन-2-ओइक अम्ल`
+],
+a:1,
+s:`दिए गए विकल्पों में alcohol functional group के लिए butan-2-ol उपयुक्त नाम है।`
+},
+
+{
+q:`$CH_3-C(CH_3)_2-CH_2-CH_3$ यौगिक का IUPAC नाम क्या है?`,
+o:[
+`3,3-डाइमेथिलब्यूटेन (3,3-Dimethylbutane)`,
+`2,2-डाइमेथिलब्यूटेन (2,2-Dimethylbutane)`,
+`1,2-डाइमेथिलब्यूटेन (1,2-Dimethylbutane)`,
+`2,3-डाइमेथिलब्यूटेन (2,3-Dimethylbutane)`
+],
+a:1,
+s:`सबसे लंबी chain में चार carbon हैं और दूसरे carbon पर दो methyl groups हैं। इसलिए 2,2-dimethylbutane।`
+},
+
+{
+q:`यौगिक $CH_3-CH_2-C(CH_3)_2-CH_2-CH_3$ का IUPAC नाम क्या है?`,
+o:[
+`2,2-डाइमेथिलपेन्टेन (2,2-dimethylpentane)`,
+`3-एथिलपेन्टेन (3-ethylpentane)`,
+`3,3-डाइमेथिलपेन्टेन (3,3-dimethylpentane)`,
+`2-मेथिलहेक्सेन (2-methylhexane)`
+],
+a:2,
+s:`सबसे लंबी chain पाँच carbon की है और carbon-3 पर दो methyl groups हैं। नाम 3,3-dimethylpentane है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा एक कार्बनिक यौगिक है?`,
+o:[
+`NaCl`,
+`$CaCO_3$`,
+`$CH_3Cl$`,
+`$CO_2$`
+],
+a:2,
+s:`CH₃Cl एक carbon-containing covalent organic compound है।`
+},
+
+{
+q:`निम्नलिखित में से किस पदार्थ के रासायनिक संघटन में कार्बन नहीं होता है?`,
+o:[
+`कार्बोहाइड्रेट`,
+`प्रोटीन`,
+`DNA`,
+`जल`
+],
+a:3,
+s:`Water का chemical formula H₂O है और इसमें carbon नहीं होता।`
+},
+
+{
+q:`एथेनॉल के एक मोल के पूर्ण ऑक्सीकरण से $CO_2$ के कितने मोल मुक्त होते हैं?`,
+o:[
+`दो`,
+`चार`,
+`एक`,
+`तीन`
+],
+a:0,
+s:`C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O. इसलिए 1 mol ethanol से 2 mol CO₂ बनते हैं।`
+},
+
+{
+q:`अम्लीकृत पोटैशियम डाइक्रोमेट का उपयोग करके एथेनॉल ($CH_3CH_2OH$) को एसीटिक अम्ल ($CH_3COOH$) में रूपांतरित करने पर विचार करें:कथन I: यह ऑक्सीकरण प्रतिक्रिया का एक उदाहरण है।कथन II: अम्लीकृत पोटैशियम डाइक्रोमेट एक ऑक्सीकरण कर्मक है।कथन III: अम्लीकृत पोटैशियम डाइक्रोमेट एक अपचायक है।निम्नलिखित में से कौन-सा सत्य है?`,
+o:[
+`I और III सत्य हैं`,
+`केवल I सत्य है`,
+`I और II सत्य हैं`,
+`II और III सत्य हैं`
+],
+a:2,
+s:`Ethanol से ethanoic acid बनना oxidation है और acidified potassium dichromate oxidising agent है। इसलिए I और II सही हैं।`
+},
+
+{
+q:`निम्नलिखित दो कथनों को ध्यानपूर्वक पढ़िए और सही विकल्प का चयन कीजिए।कथन I: क्षारीय पोटैशियम परमैंगनेट के साथ ऑक्सीकरण करने पर एथेनॉल से एथेनॉइक अम्ल प्राप्त होता है।कथन II: एथेनॉल के ऑक्सीकरण में हाइड्रोजन परमाणुओं का निष्कासन होता है और ऑक्सीजन का योग शामिल होता है।निम्नलिखित में से कौन-सा सही है?`,
+o:[
+`दोनों कथन सही हैं, लेकिन कथन II, कथन I की व्याख्या नहीं करता है।`,
+`केवल कथन II सही है।`,
+`केवल कथन I सही है।`,
+`दोनों कथन सही हैं, और कथन II, कथन I की सही व्याख्या करता है।`
+],
+a:3,
+s:`Ethanol का oxidation करके ethanoic acid बन सकता है। Oxidation को hydrogen removal और oxygen addition के रूप में भी समझा जाता है।`
+},
+
+{
+q:`एक विद्यार्थी एथेनॉल को क्षारीय पोटैशियम परमैंगनेट के साथ गर्म करता है। कौन सा अवलोकन इस बात की पुष्टि करता है कि ऑक्सीकरण प्रक्रिया हुई?`,
+o:[
+`एक मीठी सुगंध वाले एस्टर का निर्माण`,
+`जलने की गंध वाली गैस का उत्सर्जन`,
+`रंग या गंध में कोई परिवर्तन नहीं हुआ।`,
+`$KMnO_4$ का बैंगनी रंग फीका पड़ जाता है और एक तीखी गंध वाला तरल पदार्थ बन जाता है।`
+],
+a:3,
+s:`Permanganate oxidising agent है; oxidation के दौरान उसका characteristic purple colour decolourise हो सकता है।`
+},
+
+{
+q:`निम्नलिखित दो कथनों, अभिकथन (A) और कारण (R) के संबंध में सही विकल्प का चयन कीजिए।अभिकथन (A): ऑक्सीकरण अभिक्रियाओं में, पोटैशियम परमैंगनेट का रंग प्रारंभ में लुप्त हो जाता है।कारण (R): पोटैशियम परमैंगनेट ऐल्कोहॉल के साथ अभिक्रिया करके अपचयित हो जाता है, जिससे रंगहीनता आ जाती है।`,
+o:[
+`A सत्य है, लेकिन R असत्य है।`,
+`A और R दोनों सत्य हैं, और R, A की सही व्याख्या है।`,
+`A और R दोनों सत्य हैं, और R, A की सही व्याख्या नहीं है।`,
+`A असत्य है, लेकिन R सत्य है।`
+],
+a:1,
+s:`KMnO₄ alcohol को oxidise करते समय स्वयं reduce होता है। इसी कारण उसका purple colour कम/लुप्त होता है।`
+},
+
+{
+q:`गन्ने से चीनी उत्पादन का उपोत्पाद, शीरा, किण्वन के माध्यम से निम्नलिखित में से किस कार्बन यौगिक के उत्पादन के लिए प्रभरण-स्टॉक (feedstock) के रूप में उपयोग किया जा सकता है?`,
+o:[
+`प्रोपेनोइक अम्ल (propanoic acid)`,
+`प्रोपेनल (propanal)`,
+`एथेनॉल (ethanol)`,
+`ब्यूटेनोन (butanone)`
+],
+a:2,
+s:`Molasses में sugars होते हैं जिन्हें fermentation द्वारा ethanol में बदला जा सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन सर्वोत्तम रूप से यह स्पष्ट करता है कि एथेनॉल, द्रव होने तथा ध्रुवीय O-H आबंध होने के बावजूद विद्युत का अल्प चालन क्यों करता है?`,
+o:[
+`यह एक दुर्बल क्षार है जो प्रोटॉनों को ग्रहण करता है`,
+`यह जल में CO2 और H2O में अपघटित हो जाता है`,
+`यह एक सहसंयोजक यौगिक है और विलयन में आयनित नहीं होता है`,
+`यह जल में पूरी तरह से आयनों में विघटित हो जाता है`
+],
+a:2,
+s:`Ethanol covalent molecular compound है और पर्याप्त मात्रा में ions उत्पन्न नहीं करता, इसलिए इसकी electrical conductivity बहुत कम होती है।`
+},
+
+{
+q:`एथेनॉल के संबंध में निम्नलिखित में से कौन-सा कथन सही है?`,
+o:[
+`एथेनॉल, स्पष्ट नीली ज्वाला के साथ जलता है, जिससे carbon dioxide और जल का उत्पादन होता है।`,
+`एथेनॉल, बेकिंग सोडा के साथ अभिक्रिया करके हाइड्रोजन गैस मुक्त करता है।`,
+`एथेनॉल, जल में बिल्कुल भी नहीं घुलता है।`,
+`एथेनॉल एक रंगहीन, गंधहीन द्रव है, जो आसानी से वाष्पित नहीं होता है।`
+],
+a:0,
+s:`Ethanol का complete combustion CO₂ और H₂O देता है तथा सामान्यतः clean blue flame के साथ जल सकता है।`
+},
+
+{
+q:`जब एथेनॉल की सोडियम धातु के साथ अभिक्रिया होती है, तो अभिक्रिया के परिणामस्वरूप कौन-सी गैस मुक्त होती है?`,
+o:[
+`नाइट्रोजन गैस`,
+`हाइड्रोजन गैस`,
+`कार्बन डाइऑक्साइड`,
+`ऑक्सीजन गैस`
+],
+a:1,
+s:`2C₂H₅OH + 2Na → 2C₂H₅ONa + H₂. इसलिए hydrogen gas निकलती है।`
+},
+
+{
+q:`जब एथेनॉल को 443 K पर आधिक्य सांद्र सल्फ्यूरिक अम्ल के साथ गर्म किया जाता है, तो कौन-सा प्रक्रम, एथेनॉल को एथीन में परिवर्तित करता है?`,
+o:[
+`एथेनॉल का जल-अपघटन`,
+`एथेनॉल का अपचयन`,
+`एथेनॉल का ऑक्सीकरण`,
+`एथेनॉल का निर्जलीकरण`
+],
+a:3,
+s:`443 K पर excess concentrated H₂SO₄ ethanol से water हटाता है और ethene बनता है।`
+},
+
+{
+q:`एक शिक्षक, विद्यार्थियों को ब्यूटेन और आइसोब्यूटेन की संरचना आरेखित करने के लिए कहता है। इन दो अणुओं के बीच मुख्य अंतर क्या है?`,
+o:[
+`ब्यूटेन एक सीधी-शृंखला है, जबकि आइसोब्यूटेन एक शाखित-शृंखला समावयवी है`,
+`दोनों चक्रीय हाइड्रोकार्बन हैं`,
+`ब्यूटेन में एक ऐरोमैटिक वलय होता है, जबकि आइसोब्यूटेन में नहीं होता है`,
+`आइसोब्यूटेन में ब्यूटेन की तुलना में कम कार्बन परमाणु होते हैं`
+],
+a:0,
+s:`Butane और isobutane दोनों C₄H₁₀ हैं, लेकिन butane straight-chain और isobutane branched-chain structural isomers हैं।`
+},
+
+{
+q:`यौगिकों के निम्नलिखित किस युग्म का आणविक सूत्र समान होने के बावजूद उनके रासायनिक गुण भिन्न हैं?`,
+o:[
+`एथेन (Ethane) और एथीन (ethene)`,
+`ब्यूटेन (Butane) और आइसोब्यूटेन (isobutane)`,
+`एथेनॉल (Ethanol) और एथेनॉइक अम्ल (ethanoic acid)`,
+`प्रोपेनॉल (Propanol) और मेथेनॉल (methanol)`
+],
+a:1,
+s:`Butane और isobutane दोनों C₄H₁₀ के structural isomers हैं; उनकी संरचनाएँ अलग होने से गुणों में अंतर होता है।`
+},
+
+{
+q:`एक यौगिक का आणविक सूत्र C4H10 है। निम्नलिखित में से कौन-सा कथन उसकी संरचना का सर्वोत्तम वर्णन करता है?`,
+o:[
+`यह सीधी या शाखायुक्त शृंखलाओं वाले दो अलग-अलग समावयव के रूप में विद्यमान हो सकता है`,
+`यह केवल एक संभावित संरचना बनाता है`,
+`इसमें कार्बन-कार्बन द्वि-आबंध होना अनिवार्य है`,
+`इसकी संरचना चक्रीय है और इसका केवल एक समावयव है`
+],
+a:0,
+s:`C₄H₁₀ के दो structural isomers हैं: n-butane और isobutane (2-methylpropane)।`
+},
+
+{
+q:`कार्बन की बहुआयामिता (versatility) को ध्यान में रखते हुए, कौन-सा परिदृश्य पर्यावरण विज्ञान में इसकी भूमिका को सर्वोत्तम तरीके से दर्शाता है?`,
+o:[
+`श्वसन के दौरान कार्बन डाइऑक्साइड का बनना`,
+`जल में सोडियम कार्बोनेट का बनना`,
+`चट्टानों में मैग्नीशियम ऑक्साइड का बनना`,
+`अस्थियों में कैल्सियम कार्बोनेट का उपयोग`
+],
+a:0,
+s:`Respiration में carbon compounds के oxidation से CO₂ बनती है, जो carbon cycle का महत्वपूर्ण भाग है।`
+},
+
+{
+q:`फ्रेडरिक वोह्लर (Friedrich Wöhler) ने कार्बनिक यौगिक संश्लेषण के जीवन शक्ति सिद्धांत को किस प्रकार चुनौती दी?`,
+o:[
+`सजीव तंत्रों से प्राकृतिक पदार्थों का निष्कर्षण करके`,
+`कार्बन के शृंखलन गुण की खोज करके`,
+`प्रयोगशाला में कार्बन डाइऑक्साइड का संश्लेषण करके`,
+`अमोनियम सायनेट से यूरिया तैयार करके`
+],
+a:3,
+s:`Wöhler ने laboratory में ammonium cyanate से urea तैयार किया, जिससे vital force theory को चुनौती मिली।`
+},
+
+{
+q:`कार्बन यौगिकों में योगज और प्रतिस्थापन अभिक्रिया के बीच मुख्य अंतर क्या है?`,
+o:[
+`योगज अभिक्रियाएं, एक परमाणु को दूसरे परमाणु से प्रतिस्थापित करती हैं`,
+`योगज अभिक्रियाएं, केवल संतृप्त यौगिकों में होती हैं`,
+`योगज अभिक्रियाएं, अणुओं से परमाणुओं को हटा देती हैं`,
+`योगज अभिक्रियाएं, अणु में परमाणुओं की संख्या में वृद्धि करती हैं`
+],
+a:3,
+s:`Addition reaction में reactant molecule में नए atoms/groups जुड़ते हैं और सामान्यतः multiple bond टूटकर single bonds में बदलता है।`
+},
+
+{
+q:`निम्नलिखित में से किस हाइड्रोकार्बन की हाइड्रोजन के साथ योगज अभिक्रिया होती है?`,
+o:[
+`एलिसाइक्लिक हाइड्रोकार्बन`,
+`संतृप्त हाइड्रोकार्बन`,
+`ऐरोमैटिक हाइड्रोकार्बन`,
+`असंतृप्त हाइड्रोकार्बन`
+],
+a:3,
+s:`Unsaturated hydrocarbons में C=C या C≡C bonds होते हैं, इसलिए वे hydrogen की addition reaction दे सकते हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा हाइड्रोकार्बन, योगज अभिक्रिया में सर्वाधिक सुगमता से भाग लेता है?`,
+o:[
+`मेथेन (Methane)`,
+`एथेन (Ethane)`,
+`एथीन (Ethene)`,
+`प्रोपेन (Propane)`
+],
+a:2,
+s:`Ethene में C=C double bond होता है, इसलिए यह addition reaction आसानी से करता है।`
+},
+
+{
+q:`निम्नलिखित कथनों का संदर्भ लीजिए तथा सही विकल्प का चयन कीजिए।कथन A: योगात्मक अभिक्रियाएं तब होती हैं जब दो या दो से अधिक अभिकारक मिलकर एकल उत्पाद बनाते हैं।कथन B: एल्कीन और एल्काइन सामान्यतः योगात्मक अभिक्रियाओं से गुजरते हैं।`,
+o:[
+`कथन A और B दोनों गलत हैं।`,
+`कथन A गलत है लेकिन B सही है।`,
+`कथन A सही है लेकिन B गलत है।`,
+`कथन A और B दोनों सही हैं।`
+],
+a:3,
+s:`Addition reactions में reactants मिलकर एक product बनाते हैं और alkenes/alkynes multiple bonds के कारण addition reactions देते हैं।`
+},
+
+{
+q:`असंतृप्त हाइड्रोकार्बन प्रायः निम्नलिखित में से किस अभिक्रिया क्रियाविधि से गुजरते हैं?`,
+o:[
+`योगज`,
+`उदासीनीकरण`,
+`दहन`,
+`प्रतिस्थापन`
+],
+a:0,
+s:`Unsaturated hydrocarbons की characteristic reaction addition reaction है।`
+},
+
+{
+q:`एथीन (ethene) में बनने वाले आबंधों की संख्या बताइए।`,
+o:[
+`5`,
+`3`,
+`6`,
+`4`
+],
+a:2,
+s:`Ethene C₂H₄ में चार C–H single bonds और एक C=C double bond होता है। यदि double bond को दो covalent bonds माना जाए तो कुल 6 bonds होते हैं।`
+},
+
+{
+q:`जब ब्रोमीन जल को एथीन में मिलाया जाता है, तो निम्नलिखित में से कौन-सा दृश्य परिवर्तन प्रदर्शित होता है?`,
+o:[
+`विलयन, योगज अभिक्रिया के बाद नीला हो जाता है`,
+`योगज अभिक्रिया के बाद जल में एक श्वेत अवक्षेप बनता है`,
+`ब्रोमीन जल का रंग अभिक्रिया के पश्चात नारंगी बना रहता है`,
+`ब्रोमीन जल का रंग नारंगी से रंगहीन हो जाता है`
+],
+a:3,
+s:`Ethene bromine water के साथ addition reaction करता है, जिससे bromine का orange colour decolourise हो जाता है।`
+},
+
+{
+q:`एक विद्यार्थी वायु में एथेनॉल जलाता है और नीली ज्वाला का अवलोकन करता है। कौन-सा कथन इस अवलोकन की स्पष्ट रूप से व्याख्या करता है?`,
+o:[
+`वायु में जलाने पर एथेनॉल लाल ज्वाला उत्पन्न करता है`,
+`पर्याप्त ऑक्सीजन आपूर्ति के कारण पूर्ण दहन से नीली ज्वाला उत्पन्न होती है`,
+`अल्प ऑक्सीजन के कारण अपूर्ण दहन से नीली ज्वाला उत्पन्न होती है`,
+`एथेनॉल में अशुद्धियां ज्वाला के नीले रंग का कारण बनती हैं`
+],
+a:1,
+s:`Adequate oxygen supply complete combustion को बढ़ावा देती है, जिसके कारण ethanol clean blue flame के साथ जल सकता है।`
+},
+
+{
+q:`अभिकथन (A) और कारण (R) नामक निम्नलिखित दो कथनों के संबंध में सही विकल्प का चयन कीजिए।अभिकथन (A): असंतृप्त हाइड्रोकार्बन काले धुएं के साथ पीली ज्वाला प्रदान करते हैं।कारण (R): ऑक्सीजन की कमी होने पर ये पूर्ण रूप से जल जाते हैं।`,
+o:[
+`A सत्य है, लेकिन R असत्य है।`,
+`A और R दोनों सत्य हैं, और R, A की सही व्याख्या है।`,
+`A असत्य है, लेकिन R सत्य है।`,
+`A और R दोनों सत्य हैं, और R, A की सही व्याख्या नहीं है।`
+],
+a:0,
+s:`Assertion सही है, लेकिन oxygen की कमी में hydrocarbons incomplete combustion करते हैं, complete combustion नहीं। इसलिए R गलत है।`
+},
+
+{
+q:`निम्नलिखित में से किस कार्बन यौगिक के अदीप्त ज्वाला के साथ जलने की सर्वाधिक संभावना है?`,
+o:[
+`एथेनॉल (Ethanol)`,
+`चारकोल (Charcoal)`,
+`कपूर (Camphor)`,
+`किरोसिन (Kerosene)`
+],
+a:0,
+s:`Ethanol अपेक्षाकृत clean burning fuel है और पर्याप्त oxygen में non-luminous/blue flame दे सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन इस तथ्य का सटीक वर्णन करता है कि संतृप्त हाइड्रोकार्बन नीली लौ के साथ क्यों जलते हैं, जबकि असंतृप्त हाइड्रोकार्बन पीली, कालिख जैसी लौ के साथ जलते हैं?`,
+o:[
+`असंतृप्त हाइड्रोकार्बन में अधिक ऑक्सीजन होती है, जिसके कारण उनका अपूर्ण दहन होता है।`,
+`संतृप्त हाइड्रोकार्बन वायु में उपस्थित नाइट्रोजन के साथ अभिक्रिया करके कालिख बनने से रोकते हैं।`,
+`असंतृप्त हाइड्रोकार्बन में कार्बन-हाइड्रोजन अनुपात अधिक होता है, जिसके कारण अपूर्ण दहन और कालिख का निर्माण होता है।`,
+`संतृप्त हाइड्रोकार्बन में दुर्बल आबंध होते हैं, इसलिए वे अधिक पूर्ण रूप से जलते हैं।`
+],
+a:2,
+s:`Unsaturated hydrocarbons का carbon content comparatively अधिक होने और oxygen की अपर्याप्त उपलब्धता में incomplete combustion होने से soot/yellow flame बन सकती है।`
+},
+
+{
+q:`जब असंतृप्त कार्बन यौगिकों को वायु में दहन किया जाता है तो किस प्रकार की ज्वाला निकलती है?`,
+o:[
+`स्वच्छ ज्वाला`,
+`अत्यधिक काले धुएं वाली नीली ज्वाला`,
+`बिना धुएं वाली पीली ज्वाला`,
+`अत्यधिक काले धुएं वाली पीली ज्वाला`
+],
+a:3,
+s:`Unsaturated carbon compounds सामान्यतः smoky yellow flame दे सकते हैं, विशेषकर incomplete combustion की स्थिति में।`
+},
+
+{
+q:`कौन-सा उदाहरण, घरेलू गैस बर्नर में ईंधन के पूर्ण दहन को सर्वोत्तम रूप से दर्शाता है?`,
+o:[
+`एक नीली, अदीप्त ज्वाला देखी जाती है जिसमें कोई अवशेष नहीं बचता है`,
+`सफेद राख के साथ एक मंद, टिमटिमाती ज्वाला उपस्थित होती है`,
+`एक नारंगी ज्वाला जो रसोईघर में तेज गैस गंध उत्पन्न करती है`,
+`बर्तन पर काले अवशेषों के साथ एक पीली ज्वाला बनती है`
+],
+a:0,
+s:`Complete combustion को clean blue, non-luminous flame और soot की अनुपस्थिति से पहचाना जाता है।`
+},
+
+{
+q:`कार्बन या उसके यौगिकों के दहन से क्या उत्पन्न होता है?`,
+o:[
+`केवल प्रकाश`,
+`विद्युत`,
+`केवल ऊष्मा`,
+`ऊष्मा और प्रकाश`
+],
+a:3,
+s:`Combustion एक exothermic process है जिसमें heat और अक्सर light energy उत्पन्न होती है।`
+},
+
+{
+q:`निम्नलिखित में से कार्बनिक यौगिकों का कौन-सा आणविक सूत्र, वलय संरचना को प्रदर्शित नहीं करता है?`,
+o:[
+`C6H6`,
+`C6H14`,
+`C6H8`,
+`C6H10`
+],
+a:1,
+s:`C₆H₁₄ alkane formula है और इसका acyclic saturated structure हो सकता है; यह ring structure प्रदर्शित नहीं करता।`
+},
+
+{
+q:`किस संतृप्त हाइड्रोकार्बन का आणविक सूत्र $C_3H_6$ होता है?`,
+o:[
+`साइक्लोप्रोपेन`,
+`प्रोपेन`,
+`प्रोपाइन`,
+`प्रोपीन`
+],
+a:0,
+s:`Cyclopropane एक saturated cyclic hydrocarbon है और उसका formula C₃H₆ है।`
+},
+
+{
+q:`'n' कार्बन परमाणुओं वाले ऐल्केन का सामान्य सूत्र क्या है?`,
+o:[
+`CnH2n+2`,
+`CnH2n-2`,
+`CnH2n`,
+`CnH2n+1`
+],
+a:0,
+s:`Acyclic alkanes का general formula CₙH₂ₙ₊₂ है।`
+},
+
+{
+q:`हाइड्रोजनीकरण अभिक्रियाओं के लिए सामान्यतः उपयोग किए जाने वाले उत्प्रेरक _______ और _______ हैं।`,
+o:[
+`निकेल, सोडियम हाइड्रॉक्साइड`,
+`पैलेडियम, सांद्र सल्फ्यूरिक अम्ल`,
+`पैलेडियम, निकेल`,
+`सांद्र सल्फ्यूरिक अम्ल, निकेल`
+],
+a:2,
+s:`Hydrogenation में commonly used catalysts nickel (Ni), palladium (Pd) आदि हैं। दिए विकल्प में Pd और Ni सही हैं।`
+},
+
+{
+q:`जब किसी उत्प्रेरक की उपस्थिति में ऐल्कीन में हाइड्रोजन ($H_2$) का योग किया जाता है, तो क्या होता है?`,
+o:[
+`ऐल्कीन प्रतिस्थापन से होकर गुजरता है`,
+`ऐल्कीन, ऐल्कोहॉल का निर्माण करता है`,
+`ऐल्कीन विघटित हो जाता है`,
+`ऐल्कीन, ऐल्केन में रूपांतरित हो जाता है`
+],
+a:3,
+s:`Alkene में H₂ की addition double bond को single bond में बदलकर alkane बनाती है।`
+},
+
+{
+q:`संतृप्त हाइड्रोकार्बन, असंतृप्त हाइड्रोकार्बन की तुलना में कम अभिक्रियाशील क्यों होते हैं?`,
+o:[
+`ये ऐरोमैटिक होते हैं।`,
+`इनमें ऑक्सीजन होती है।`,
+`इनके एकल आबंध प्रबल होते हैं।`,
+`इनमें द्वि-आबंध होते हैं।`
+],
+a:2,
+s:`Saturated hydrocarbons में strong single C–C and C–H bonds होते हैं और कोई reactive multiple bond नहीं होता।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन, संतृप्त कार्बन यौगिक का सर्वोत्तम वर्णन करता है?`,
+o:[
+`एक संतृप्त कार्बन यौगिक में कार्बन परमाणुओं के बीच कम से कम एक द्वि-आबंध होता है।`,
+`एक संतृप्त कार्बन यौगिक में कार्बन परमाणुओं के बीच कम से कम एक त्रि-आबंध होता है।`,
+`एक संतृप्त कार्बन यौगिक में कार्बन परमाणुओं के बीच केवल एकल आबंध होते हैं।`,
+`एक संतृप्त कार्बन यौगिक की संरचना में एक बेन्जीन वलय होता है।`
+],
+a:2,
+s:`Saturated carbon compounds में carbon-carbon के बीच केवल single covalent bonds होते हैं।`
+},
+
+{
+q:`मेथेन ($CH_4$) और एथीन ($C_2H_4$) की तुलना करने के दौरान, उनके सहसंयोजक आबंधों के संदर्भ में क्या सत्य है?`,
+o:[
+`मेथेन में एक द्वि-सहसंयोजक आबंध होता है`,
+`एथीन में हाइड्रोजन परमाणुओं के बीच द्वि-आबंध होते हैं`,
+`मेथेन में केवल एकल सहसंयोजक आबंध होते हैं, जबकि एथीन में एक द्वि-आबंध होता है`,
+`दोनों में केवल गैर-ध्रुवीय सहसंयोजक आबंध होते हैं`
+],
+a:2,
+s:`Methane में चार C–H single bonds होते हैं, जबकि ethene में C=C double bond और C–H single bonds होते हैं।`
+},
+
+{
+q:`निम्नलिखित दो कथनों को ध्यानपूर्वक पढ़िए और सही विकल्प का चयन कीजिए।कथन I: जब सूर्य के प्रकाश की उपस्थिति में क्लोरिन के साथ अभिक्रिया करती है, तो मेथेन में मौजूद हाइड्रोजन परमाणु धीरे-धीरे क्लोरीन परमाणुओं द्वारा प्रतिस्थापित हो जाते हैं।कथन II: मेथेन और क्लोरीन के बीच होने वाली इस अभिक्रिया को योगज अभिक्रिया कहा जाता है।`,
+o:[
+`दोनों कथन गलत हैं।`,
+`दोनों कथन सही हैं।`,
+`केवल कथन I सही है।`,
+`केवल कथन II सही है।`
+],
+a:2,
+s:`Methane sunlight/UV की उपस्थिति में chlorine के साथ substitution reaction देता है। इसलिए Statement I सही और II गलत है।`
+}
+
+];
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let current = 0;
+let answers = new Array(questions.length).fill(null);
+let review = new Array(questions.length).fill(false);
+
+let timeLeft = 50 * 60;
+let submitted = false;
+
+
+/* =========================================================
+   PALETTE
+   ========================================================= */
+
+function togglePalette(){
+    document.getElementById("palettePanel").classList.toggle("show");
+}
+
+function buildPalette(){
+
+    const grid = document.getElementById("paletteGrid");
+    grid.innerHTML = "";
+
+    questions.forEach((_,i)=>{
+
+        const b = document.createElement("button");
+
+        b.className = "pal-btn";
+        b.textContent = i + 1;
+
+        if(answers[i] !== null){
+            b.classList.add("answered");
+        }
+
+        if(review[i]){
+            b.classList.add("review");
+        }
+
+        if(i === current){
+            b.classList.add("current");
+        }
+
+        b.onclick = ()=>{
+            current = i;
+            renderQuestion();
+            document.getElementById("palettePanel").classList.remove("show");
+        };
+
+        grid.appendChild(b);
+    });
+}
+
+
+/* =========================================================
+   RENDER QUESTION
+   ========================================================= */
+
+function renderQuestion(){
+
+    const q = questions[current];
+
+    document.getElementById("qNumber").textContent =
+        `Question ${current + 1} of ${questions.length}`;
+
+    document.getElementById("questionText").innerHTML =
+        q.q;
+
+    const options = document.getElementById("options");
+    options.innerHTML = "";
+
+    q.o.forEach((option,i)=>{
+
+        const label = document.createElement("label");
+        label.className = "option";
+
+        if(answers[current] === i){
+            label.classList.add("selected");
+        }
+
+        label.innerHTML = `
+            <input type="radio"
+                   name="question"
+                   value="${i}"
+                   ${answers[current] === i ? "checked" : ""}>
+            <span class="option-label">${String.fromCharCode(65+i)}.</span>
+            <span class="option-text">${option}</span>
+        `;
+
+        label.querySelector("input").addEventListener("change",()=>{
+
+            answers[current] = i;
+
+            document.querySelectorAll(".option").forEach(x=>{
+                x.classList.remove("selected");
+            });
+
+            label.classList.add("selected");
+
+            updateStatus();
+            buildPalette();
+        });
+
+        options.appendChild(label);
+    });
+
+    document.getElementById("prevBtn").disabled = current === 0;
+    document.getElementById("nextBtn").disabled =
+        current === questions.length - 1;
+
+    updateStatus();
+    updateProgress();
+    buildPalette();
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+function updateStatus(){
+
+    const status = document.getElementById("qStatus");
+
+    if(answers[current] !== null && review[current]){
+        status.textContent = "Answered + Review";
+        status.style.background = "#fef3c7";
+        status.style.color = "#92400e";
+    }
+    else if(answers[current] !== null){
+        status.textContent = "Answered";
+        status.style.background = "#d1fae5";
+        status.style.color = "#065f46";
+    }
+    else if(review[current]){
+        status.textContent = "Marked for Review";
+        status.style.background = "#fef3c7";
+        status.style.color = "#92400e";
+    }
+    else{
+        status.textContent = "Unattempted";
+        status.style.background = "#f1f5f9";
+        status.style.color = "#475569";
+    }
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+function updateProgress(){
+
+    const attempted = answers.filter(x=>x !== null).length;
+
+    document.getElementById("progressFill").style.width =
+        ((attempted / questions.length) * 100) + "%";
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function nextQuestion(){
+
+    if(current < questions.length - 1){
+        current++;
+        renderQuestion();
+        window.scrollTo({top:0,behavior:"smooth"});
+    }
+}
+
+function previousQuestion(){
+
+    if(current > 0){
+        current--;
+        renderQuestion();
+        window.scrollTo({top:0,behavior:"smooth"});
+    }
+}
+
+function clearAnswer(){
+
+    answers[current] = null;
+    renderQuestion();
+}
+
+function toggleReview(){
+
+    review[current] = !review[current];
+    updateStatus();
+    buildPalette();
+}
+
+
+/* =========================================================
+   TIMER
+   ========================================================= */
+
+function updateTimer(){
+
+    if(submitted) return;
+
+    const min = Math.floor(timeLeft / 60);
+    const sec = timeLeft % 60;
+
+    document.getElementById("timer").textContent =
+        String(min).padStart(2,"0") + ":" +
+        String(sec).padStart(2,"0");
+
+    if(timeLeft <= 0){
+        submitTest(true);
+        return;
+    }
+
+    timeLeft--;
+}
+
+setInterval(updateTimer,1000);
+
+
+/* =========================================================
+   SUBMIT
+   ========================================================= */
+
+function submitTest(auto=false){
+
+    if(submitted) return;
+
+    if(!auto){
+
+        const unanswered =
+            answers.filter(x=>x === null).length;
+
+        const msg =
+            unanswered > 0
+            ? `आपने ${unanswered} प्रश्न attempt नहीं किए हैं। क्या आप Test Submit करना चाहते हैं?`
+            : "क्या आप Test Submit करना चाहते हैं?";
+
+        if(!confirm(msg)){
+            return;
+        }
+    }
+
+    submitted = true;
+
+    let correct = 0;
+    let wrong = 0;
+    let unattempted = 0;
+
+    questions.forEach((q,i)=>{
+
+        if(answers[i] === null){
+            unattempted++;
+        }
+        else if(answers[i] === q.a){
+            correct++;
+        }
+        else{
+            wrong++;
+        }
+
+    });
+
+    const score =
+        correct - (wrong / 3);
+
+    document.getElementById("correctCount").textContent = correct;
+    document.getElementById("wrongCount").textContent = wrong;
+    document.getElementById("unattemptedCount").textContent = unattempted;
+
+    document.getElementById("reviewCount").textContent =
+        review.filter(x=>x).length;
+
+    document.getElementById("finalScore").textContent =
+        score.toFixed(2);
+
+    document.getElementById("testContainer").style.display = "none";
+    document.getElementById("resultScreen").style.display = "block";
+
+    document.querySelector(".palette-panel").classList.remove("show");
+
+    showSolutions();
+
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+
+/* =========================================================
+   SOLUTIONS
+   ========================================================= */
+
+function showSolutions(){
+
+    const box = document.getElementById("solutions");
+
+    box.innerHTML = "";
+
+    questions.forEach((q,i)=>{
+
+        const userAns =
+            answers[i] === null
+            ? "Not Attempted"
+            : String.fromCharCode(65 + answers[i]);
+
+        const correctAns =
+            String.fromCharCode(65 + q.a);
+
+        let cls = "";
+
+        if(answers[i] === q.a){
+            cls = "correct";
+        }
+        else if(answers[i] !== null){
+            cls = "wrong";
+        }
+
+        const div = document.createElement("div");
+
+        div.className = `solution-card ${cls}`;
+
+        div.innerHTML = `
+            <div class="solution-q">
+                Q${i+1}. ${q.q}
+            </div>
+
+            <div>
+                <b>Your Answer:</b>
+                ${userAns}
+            </div>
+
+            <div class="solution-answer">
+                Correct Answer: ${correctAns}. ${q.o[q.a]}
+            </div>
+
+            <div class="solution-explain">
+                <b>Systematic Solution:</b> ${q.s}
+            </div>
+        `;
+
+        box.appendChild(div);
+    });
+}
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+renderQuestion();
+updateTimer();
+
+</script>
+
+</body>
+</html>
