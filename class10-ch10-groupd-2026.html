@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science | TCS Style Mock Test</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f3f6fa;
+  color:#172033;
+  line-height:1.55;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+  background:linear-gradient(135deg,#082b5c,#1261a0);
+  color:white;
+  padding:12px 16px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.exam-title{
+  font-size:20px;
+  font-weight:700;
+}
+
+.exam-subtitle{
+  font-size:12px;
+  opacity:.9;
+}
+
+.timer{
+  background:white;
+  color:#b00020;
+  padding:7px 14px;
+  border-radius:7px;
+  font-size:19px;
+  font-weight:bold;
+  min-width:92px;
+  text-align:center;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+  max-width:1000px;
+  margin:18px auto;
+  padding:0 14px 100px;
+}
+
+.info-box{
+  background:white;
+  border:1px solid #dbe3ed;
+  border-radius:10px;
+  padding:12px 15px;
+  margin-bottom:15px;
+  box-shadow:0 2px 7px rgba(0,0,0,.05);
+}
+
+.info-box strong{
+  color:#0b4d89;
+}
+
+/* ================= QUESTION ================= */
+
+.question-card{
+  background:white;
+  border:1px solid #d8e0ea;
+  border-radius:10px;
+  padding:20px;
+  margin-bottom:15px;
+  box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.q-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.q-number{
+  background:#0b5cab;
+  color:white;
+  padding:5px 11px;
+  border-radius:5px;
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.topic{
+  color:#666;
+  font-size:13px;
+  font-weight:bold;
+}
+
+.question{
+  font-size:17px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.option{
+  border:1px solid #cfd8e3;
+  border-radius:7px;
+  padding:11px 13px;
+  cursor:pointer;
+  background:#fff;
+  transition:.15s;
+}
+
+.option:hover{
+  background:#f1f7ff;
+  border-color:#4285c5;
+}
+
+.option.selected{
+  background:#e8f2ff;
+  border:2px solid #0b66c3;
+  padding:10px 12px;
+}
+
+.option input{
+  margin-right:9px;
+  accent-color:#0b66c3;
+}
+
+/* ================= PALETTE BUTTON ================= */
+
+.palette-btn{
+  position:fixed;
+  right:12px;
+  top:105px;
+  z-index:950;
+  background:#172b4d;
+  color:white;
+  border:none;
+  border-radius:8px;
+  box-shadow:0 3px 12px rgba(0,0,0,.25);
+  padding:10px 13px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ================= PALETTE ================= */
+
+.palette{
+  position:fixed;
+  right:12px;
+  top:150px;
+  width:290px;
+  max-height:75vh;
+  overflow-y:auto;
+  background:white;
+  border:1px solid #ccd6e2;
+  border-radius:10px;
+  box-shadow:0 5px 25px rgba(0,0,0,.25);
+  padding:15px;
+  z-index:940;
+  display:none;
+}
+
+.palette.show{
+  display:block;
+}
+
+.palette h3{
+  font-size:17px;
+  margin-bottom:10px;
+  color:#153d68;
+}
+
+.palette-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:7px;
+}
+
+.p-item{
+  height:37px;
+  border-radius:5px;
+  border:1px solid #ccd4dd;
+  background:#eef1f4;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.p-item:hover{
+  transform:scale(1.04);
+}
+
+.p-item.answered{
+  background:#2e9d55;
+  color:white;
+  border-color:#21783d;
+}
+
+.p-item.review{
+  background:#f2a622;
+  color:white;
+  border-color:#d58b0b;
+}
+
+.p-item.answered.review{
+  background:linear-gradient(135deg,#2e9d55 50%,#f2a622 50%);
+  color:white;
+}
+
+.legend{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  font-size:12px;
+}
+
+.legend span{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.dot{
+  width:14px;
+  height:14px;
+  border-radius:3px;
+  display:inline-block;
+}
+
+.dot.green{
+  background:#2e9d55;
+}
+
+.dot.orange{
+  background:#f2a622;
+}
+
+.dot.gray{
+  background:#eef1f4;
+  border:1px solid #ccd4dd;
+}
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-bar{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:white;
+  border-top:1px solid #ccd5df;
+  box-shadow:0 -3px 12px rgba(0,0,0,.12);
+  z-index:900;
+}
+
+.bottom-inner{
+  max-width:1000px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:9px 14px;
+  gap:8px;
+}
+
+.nav-buttons{
+  display:flex;
+  gap:7px;
+}
+
+button{
+  border:none;
+  border-radius:6px;
+  padding:9px 15px;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.prev-btn{
+  background:#e8edf3;
+  color:#243447;
+}
+
+.next-btn{
+  background:#1261a0;
+  color:white;
+}
+
+.mark-btn{
+  background:#f4a62a;
+  color:#111;
+}
+
+.submit-btn{
+  background:#14863d;
+  color:white;
+}
+
+/* ================= RESULT ================= */
+
+.result{
+  display:none;
+  background:white;
+  border-radius:12px;
+  padding:20px;
+  margin-bottom:20px;
+  box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
+
+.score-box{
+  text-align:center;
+  background:linear-gradient(135deg,#0b5cab,#173c73);
+  color:white;
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:18px;
+}
+
+.score{
+  font-size:40px;
+  font-weight:bold;
+  margin:4px 0;
+}
+
+.result-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.stat{
+  border:1px solid #d7dfe8;
+  border-radius:8px;
+  padding:12px;
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:23px;
+}
+
+.correct-stat strong{
+  color:#198754;
+}
+
+.wrong-stat strong{
+  color:#d62828;
+}
+
+.unattempted-stat strong{
+  color:#555;
+}
+
+/* ================= SOLUTIONS ================= */
+
+.solution{
+  border-top:1px solid #ddd;
+  padding:15px 0;
+  margin-top:10px;
+}
+
+.solution.correct{
+  border-left:5px solid #198754;
+  padding-left:12px;
+}
+
+.solution.wrong{
+  border-left:5px solid #d62828;
+  padding-left:12px;
+}
+
+.solution.unattempted{
+  border-left:5px solid #777;
+  padding-left:12px;
+}
+
+.solution-title{
+  font-weight:bold;
+  color:#0b4d89;
+  margin-bottom:6px;
+}
+
+.answer-label{
+  font-weight:bold;
+}
+
+.explanation{
+  background:#f5f8fb;
+  border-radius:6px;
+  padding:10px;
+  margin-top:8px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+  .header{
+    padding:9px 10px;
+  }
+
+  .exam-title{
+    font-size:15px;
+  }
+
+  .exam-subtitle{
+    font-size:10px;
+  }
+
+  .timer{
+    font-size:15px;
+    min-width:80px;
+    padding:6px 8px;
+  }
+
+  .main{
+    padding:0 8px 105px;
+    margin-top:10px;
+  }
+
+  .info-box{
+    font-size:12px;
+  }
+
+  .question-card{
+    padding:14px;
+  }
+
+  .question{
+    font-size:15px;
+  }
+
+  .option{
+    font-size:14px;
+    padding:10px;
+  }
+
+  .palette-btn{
+    top:82px;
+    right:8px;
+    font-size:12px;
+    padding:8px 10px;
+  }
+
+  .palette{
+    top:125px;
+    right:8px;
+    width:270px;
+    max-height:65vh;
+  }
+
+  .bottom-inner{
+    padding:7px;
+  }
+
+  button{
+    padding:8px 9px;
+    font-size:11px;
+  }
+
+  .nav-buttons{
+    flex:1;
+  }
+
+  .nav-buttons button{
+    flex:1;
+  }
+
+  .mark-btn{
+    font-size:10px;
+  }
+
+  .submit-btn{
+    font-size:10px;
+  }
+
+  .result{
+    padding:14px;
+  }
+
+  .score{
+    font-size:34px;
+  }
+
+  .stat{
+    padding:8px 3px;
+    font-size:11px;
+  }
+
+  .stat strong{
+    font-size:19px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+  <div class="header-inner">
+
+    <div>
+      <div class="exam-title">
+        Class 10 Science — TCS Style Mock Test
+      </div>
+
+      <div class="exam-subtitle">
+        Light • Human Eye • Refraction • Dispersion • Scattering
+      </div>
+    </div>
+
+    <div class="timer" id="timer">
+      15:00
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ================= PALETTE BUTTON ================= -->
+
+<button
+  class="palette-btn"
+  onclick="togglePalette()"
+  type="button">
+  ☰ Palette
+</button>
+
+
+<!-- ================= QUESTION PALETTE ================= -->
+
+<div class="palette" id="palette">
+
+  <h3>Question Palette</h3>
+
+  <div
+    class="palette-grid"
+    id="paletteGrid">
+  </div>
+
+  <div class="legend">
+
+    <span>
+      <i class="dot green"></i>
+      Answered
+    </span>
+
+    <span>
+      <i class="dot orange"></i>
+      Review
+    </span>
+
+    <span>
+      <i class="dot gray"></i>
+      Unattempted
+    </span>
+
+  </div>
+
+</div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+  <div class="info-box">
+
+    <strong>Test Instructions:</strong>
+
+    Total Questions:
+    <b>25</b>
+
+    &nbsp; | &nbsp;
+
+    Time:
+    <b>15 Minutes</b>
+
+    &nbsp; | &nbsp;
+
+    Correct:
+    <b>+1</b>
+
+    &nbsp; | &nbsp;
+
+    Wrong:
+    <b>-1/3</b>
+
+    &nbsp; | &nbsp;
+
+    Unattempted:
+    <b>0</b>
+
+  </div>
+
+
+  <!-- RESULT -->
+
+  <div
+    id="result"
+    class="result">
+  </div>
+
+
+  <!-- QUESTIONS -->
+
+  <form id="quizForm"></form>
+
+</main>
+
+
+<!-- ================= BOTTOM NAVIGATION ================= -->
+
+<div class="bottom-bar">
+
+  <div class="bottom-inner">
+
+    <div class="nav-buttons">
+
+      <button
+        class="prev-btn"
+        onclick="previousQuestion()"
+        type="button">
+        ← Previous
+      </button>
+
+      <button
+        class="next-btn"
+        onclick="nextQuestion()"
+        type="button">
+        Next →
+      </button>
+
+    </div>
+
+    <button
+      class="mark-btn"
+      onclick="markReview()"
+      type="button">
+      ⚑ Mark for Review
+    </button>
+
+    <button
+      class="submit-btn"
+      onclick="submitTest()"
+      type="button">
+      Submit Test
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   QUESTIONS
+========================================================= */
+
+const questions = [
+
+{
+topic:"Atmospheric refraction",
+
+q:`सूर्योदय या सूर्यास्त के समय, पृथ्वी से देखने पर सूर्य की डिस्क सपाट (flattened) क्यों दिखाई देती है?`,
+
+options:[
+"पृथ्वी द्वारा गुरुत्वीय लेंसिंग के कारण",
+"वायु द्वारा सूर्य के प्रकाश के अवशोषण के कारण",
+"वायुमंडल में सूर्य के प्रकाश के प्रकीर्णन के कारण",
+"वायुमंडलीय अपवर्तन के कारण सूर्य की डिस्क पर प्रकाश का असमान रूप से मुड़ना"
+],
+
+answer:3,
+
+explanation:
+"वायुमंडल की विभिन्न परतों में वायु का घनत्व और अपवर्तनांक अलग-अलग होता है। सूर्य की डिस्क के निचले भाग से आने वाला प्रकाश अधिक अपवर्तित होता है, जिससे सूर्य की डिस्क ऊर्ध्वाधर दिशा में संकुचित यानी flattened दिखाई देती है।"
+},
+
+{
+topic:"Dispersion and recombination",
+
+q:`एक शिक्षक दो समरूप प्रिज़्मों को विपरीत अभिविन्यास में रखकर उनके माध्यम से श्वेत प्रकाश की किरण-पुंज को गुज़राता है। दूसरे प्रिज़्म के बाद रखे पर्दे पर क्या परिणाम प्राप्त होगा?`,
+
+options:[
+"किरणपुंज के अंत में एक काला क्षेत्र दिखाई देता है",
+"मूल रंगों से परे रंगों का एक नया समूह उभरता है",
+"पर्दे पर एक एकल श्वेत धब्बा दिखाई देता है",
+"विपरीत रंग क्रम वाला एक स्पेक्ट्रम बनता है"
+],
+
+answer:2,
+
+explanation:
+"पहला प्रिज्म श्वेत प्रकाश को उसके घटक रंगों में विभाजित करता है। विपरीत दिशा में रखा समान दूसरा प्रिज्म इन रंगों को पुनः संयोजित कर देता है और पर्दे पर श्वेत प्रकाश का धब्बा प्राप्त होता है।"
+},
+
+{
+topic:"Dispersion of light",
+
+q:`जब श्वेत प्रकाश कांच के प्रिज़्म से होकर गुज़रता है, तो क्या होता है?`,
+
+options:[
+"यह सात रंगों के एक बैंड में विभक्त हो जाता है",
+"इसका एक ही रंग में परिवर्तन हो जाता है",
+"यह पुनः संयुक्त होकर श्वेत प्रकाश में बदल जाता है",
+"यह अदृश्य हो जाता है"
+],
+
+answer:0,
+
+explanation:
+"प्रिज्म में अलग-अलग रंगों के लिए अपवर्तनांक अलग होता है। इसलिए श्वेत प्रकाश अपने सात प्रमुख रंगों के बैंड अर्थात स्पेक्ट्रम में विभाजित हो जाता है।"
+},
+
+{
+topic:"Dispersion of light",
+
+q:`प्रकीर्णन से संबंधित निम्नलिखित में से कौन-से कथन सत्य हैं?(1) कांच के प्रिज्म से गुजरते समय लाल प्रकाश सबसे अधिक मुड़ता है।(2) सभी रंगों के लिए विचलन कोण समान होता है।(3) प्रकीर्णन, इंद्रधनुष के निर्माण के लिए उत्तरदायी परिघटना में से एक है।(4) जब प्रकाश वायु से प्रिज्म में प्रवेश करता है तो उसकी चाल कम हो जाती है।`,
+
+options:[
+"केवल कथन 3 और 4 दोनों",
+"केवल कथन 1 और 3 दोनों",
+"केवल कथन 2 और 4 दोनों",
+"केवल कथन 1 और 2 दोनों"
+],
+
+answer:0,
+
+explanation:
+"कथन 3 सही है क्योंकि इंद्रधनुष के निर्माण में dispersion महत्वपूर्ण है। कथन 4 भी सही है क्योंकि कांच में प्रकाश की चाल वायु की तुलना में कम होती है। लाल रंग सबसे कम विचलित होता है, इसलिए कथन 1 गलत है।"
+},
+
+{
+topic:"Dispersion of light",
+
+q:`सफेद प्रकाश की एक किरणपुंज किसी कांच के प्रिज्म से होकर गुजरती है और अलग-अलग रंगों में विभक्त हो जाती है। प्रिज्म के माध्यम से अपवर्तन के बाद रंगों के पृथक्करण के लिए मुख्य रूप से कौन-सी भौतिक घटना उत्तरदायी है?`,
+
+options:[
+"प्रकाश का अवशोषण",
+"प्रकाश का परिक्षेपण",
+"प्रकाश का परावर्तन",
+"प्रकाश का प्रकीर्णन"
+],
+
+answer:1,
+
+explanation:
+"प्रिज्म द्वारा श्वेत प्रकाश का विभिन्न रंगों में विभाजन प्रकाश के dispersion या परिक्षेपण के कारण होता है।"
+},
+
+{
+topic:"Dispersion of white light",
+
+q:`प्रिज्म से गुजरने के बाद सूर्य के प्रकाश के सात रंग पृथक-पृथक रूप से क्यों निर्गत होते हैं?`,
+
+options:[
+"क्योंकि कांच में विभिन्न रंग, विभिन्न चाल से गमन करते हैं",
+"क्योंकि रंग, विभिन्न दरों पर अवशोषित होते हैं",
+"क्योंकि कांच में सभी रंग, समान चाल से गति करते हैं",
+"क्योंकि प्रिज्म की आकृति कुछ रंगों को अवरुद्ध करती है"
+],
+
+answer:0,
+
+explanation:
+"कांच में विभिन्न रंगों की चाल और उनके लिए अपवर्तनांक अलग-अलग होते हैं। इसी कारण वे अलग-अलग मात्रा में अपवर्तित होकर पृथक हो जाते हैं।"
+},
+
+{
+topic:"Dispersion of white light",
+
+q:`प्रिज्म से गुजरने पर श्वेत प्रकाश विभिन्न रंगों में विभक्त हो जाता है, लेकिन कांच के स्लैब से गुजरने पर ऐसा क्यों नहीं होता है?`,
+
+options:[
+"क्योंकि प्रिज्म पारदर्शी होता है",
+"क्योंकि प्रिज्म में गैर-समानांतर भुजाएं होती हैं",
+"क्योंकि प्रिज्म एक अलग सामग्री से बना होता है",
+"क्योंकि प्रिज्म एक स्लैब से पतला होता है"
+],
+
+answer:1,
+
+explanation:
+"प्रिज्म के अपवर्तक फलक एक-दूसरे के समानांतर नहीं होते। इसलिए अलग-अलग रंग अलग-अलग दिशाओं में निकलते हैं। कांच के स्लैब में विपरीत फलक समानांतर होते हैं, इसलिए रंगों का कोणीय पृथक्करण नहीं दिखता।"
+},
+
+{
+topic:"Dispersion of white light",
+
+q:`प्रिज्म से निकलने वाली किरण पुंज (beam) एकल श्वेत बैंड के बजाय विभिन्न रंग क्यों दर्शाती है?`,
+
+options:[
+"सभी रंग समानांतर रूप से निकलते हैं",
+"कुछ रंग अवशोषित हो जाते हैं",
+"प्रत्येक रंग विभिन्न कोणों पर मुड़ते हैं",
+"सभी रंग समान कोणों पर मुड़ते हैं"
+],
+
+answer:2,
+
+explanation:
+"प्रिज्म में विभिन्न रंगों का अपवर्तन अलग-अलग मात्रा में होता है। इसलिए प्रत्येक रंग अलग कोण पर मुड़ता है और स्पेक्ट्रम बनता है।"
+},
+
+{
+topic:"Dispersion of white light",
+
+q:`एक विद्यार्थी कांच के प्रिज्म का उपयोग करके श्वेत प्रकाश के परिक्षेपण को प्रदर्शित करने के लिए एक प्रयोग की रूपरेखा तैयार करना चाहता है। इस लक्ष्य को प्राप्त करने के लिए निम्नलिखित में से कौन-सी कार्य-विधि सर्वाधिक उपयुक्त होगी?`,
+
+options:[
+"एक श्वेत प्रकाश स्रोत के सामने कांच के प्रिज्म को यादृच्छिक दिशा में घुमाइए और किसी भी रंग में होने वाले परिवर्तनों को रिकॉर्ड करें",
+"एक संकीर्ण श्वेत प्रकाश किरणपुंज के पथ में एक त्रिभुजाकार कांच के प्रिज्म को रखें और श्वेत पर्दे पर निर्गत स्पेक्ट्रम का अवलोकन करें",
+"एक उत्तल लेंस से श्वेत प्रकाश को गुजारें और एक दूरस्थ दीवार पर रंग परिवर्तन देखें",
+"श्वेत प्रकाश को दीवार पर परावर्तित कराने के लिए एक अवतल दर्पण का उपयोग करें"
+],
+
+answer:1,
+
+explanation:
+"संकीर्ण श्वेत किरणपुंज को त्रिभुजाकार प्रिज्म से गुजारने पर प्रिज्म dispersion के कारण स्पेक्ट्रम बनाता है। पर्दे पर इस स्पेक्ट्रम को स्पष्ट रूप से देखा जा सकता है।"
+},
+
+{
+topic:"Electromagnetic spectrum",
+
+q:`भारत में एक सौर पैनल को स्वच्छ आकाश परिस्थितियों के अंतर्गत सूर्य के प्रकाश के संपर्क में रखा जाता है। भारत में विद्युत उत्पादन के लिए कौन-सा विद्युतचुंबकीय स्पेक्ट्रम खंड, सौर पैनल को सूर्य की सर्वाधिक ऊर्जा प्रदान करता है?`,
+
+options:[
+"अवरक्त विकिरण",
+"गामा किरणें",
+"पराबैंगनी प्रकाश",
+"दृश्य प्रकाश"
+],
+
+answer:3,
+
+explanation:
+"दिए गए विकल्पों में दृश्य प्रकाश सौर पैनल के विद्युत उत्पादन में प्रमुख उपयोगी क्षेत्र है।"
+},
+
+{
+topic:"Electromagnetic spectrum",
+
+q:`एक वैज्ञानिक इस बात की जांच कर रहा है कि सूर्य की कुछ निश्चित EM तरंगें पृथ्वी की सतह तक क्यों नहीं पहुंचती हैं। गामा किरणों का कौन-सा गुणधर्म, मुख्य रूप से भूमि के स्तर पर उनकी अनुपस्थिति को स्पष्ट करता है?`,
+
+options:[
+"वे ऊपरी वायुमंडल द्वारा अवशोषित कर ली जाती हैं",
+"इनकी तरंगदैर्घ्य लंबी होती है",
+"वे पृथ्वी की सतह द्वारा परावर्तित होती हैं",
+"वे मेघ द्वारा प्रकीर्णित हो जाती हैं"
+],
+
+answer:0,
+
+explanation:
+"सूर्य से आने वाली गामा किरणों का अधिकांश भाग पृथ्वी के ऊपरी वायुमंडल द्वारा अवशोषित हो जाता है। इसलिए वे सामान्यतः पृथ्वी की सतह तक नहीं पहुंचतीं।"
+},
+
+{
+topic:"Electromagnetic spectrum uses",
+
+q:`जल शोधन प्रणाली में जीवाणुओं को मारने के लिए विद्युतचुंबकीय ऊर्जा का उपयोग किया जाता है। इस कार्य के लिए स्पेक्ट्रम के किस क्षेत्र का उपयोग किया जा रहा है?`,
+
+options:[
+"स्पेक्ट्रम का अवरक्त भाग",
+"स्पेक्ट्रम का गामा भाग",
+"स्पेक्ट्रम का पराबैंगनी भाग",
+"स्पेक्ट्रम का दृश्य भाग"
+],
+
+answer:2,
+
+explanation:
+"पराबैंगनी (UV) विकिरण सूक्ष्मजीवों के DNA/RNA को नुकसान पहुंचाकर उन्हें निष्क्रिय करने में उपयोग किया जाता है।"
+},
+
+{
+topic:"Mirage",
+
+q:`एक कार चालक देखता है कि तप्त धूप वाले दिन में आगे की सड़क आर्द्र दिखाई देती है, परंतु उस स्थान पर पहुंचने पर पता चलता है कि सड़क शुष्क है। कौन-सी भौतिक घटना, इस अवलोकन की सर्वोत्तम व्याख्या करती है?`,
+
+options:[
+"जल की सूक्ष्म बूंदों के भीतर प्रकाश का संपूर्ण आंतरिक परावर्तन",
+"धूल के कणों द्वारा सूर्य के प्रकाश का प्रकीर्णन",
+"वायु के अणुओं द्वारा सूर्य के प्रकाश का विक्षेपण",
+"सड़क के ऊपर की वायु के तापमान में परिवर्तनों के कारण प्रकाश का अपवर्तन"
+],
+
+answer:3,
+
+explanation:
+"गर्म सड़क के पास वायु अधिक गर्म और कम घनी होती है, जबकि ऊपर की वायु अपेक्षाकृत ठंडी और अधिक घनी होती है। इन परतों में अपवर्तनांक के अंतर से प्रकाश मुड़ता है और mirage दिखाई देता है।"
+},
+
+{
+topic:"Prism and angle of deviation",
+
+q:`प्रिज्म के संदर्भ में, आपतित और निर्गत किरण के बीच के कोण को क्या कहा जाता है?`,
+
+options:[
+"आपतन कोण",
+"अपवर्तन कोण",
+"विचलन कोण",
+"निर्गमन कोण"
+],
+
+answer:2,
+
+explanation:
+"प्रिज्म में आपतित किरण की मूल दिशा और निर्गत किरण की दिशा के बीच बने कोण को विचलन कोण कहते हैं।"
+},
+
+{
+topic:"Recombination of white light",
+
+q:`यदि पहले प्रिज्म के बाद एक दूसरे समरूप प्रिज्म को उल्टी स्थिति में रखा जाए, तो स्पेक्ट्रम में रंगों के प्रसार पर क्या प्रभाव पड़ेगा?`,
+
+options:[
+"रंगों का प्रसार पुनः संयोजित होकर श्वेत प्रकाश बनाता है",
+"रंग और दूर तक प्रसारित हो जाते हैं",
+"केवल लाल और वायलेट रंग का विलय होता है",
+"स्पेक्ट्रम एक तरफ विस्थापित हो जाता है"
+],
+
+answer:0,
+
+explanation:
+"उल्टे अभिविन्यास वाला दूसरा समान प्रिज्म पहले प्रिज्म के कारण हुए dispersion को विपरीत दिशा में करता है। परिणामस्वरूप सात रंग पुनः संयोजित होकर श्वेत प्रकाश बनाते हैं।"
+},
+
+{
+topic:"Refraction through prism",
+
+q:`जब प्रकाश की कोई किरण किसी त्रिभुजाकार कांच के प्रिज्म से होकर गुजरती है, तो निर्गत किरण सामान्यतः आपतित किरण के समानांतर नहीं होती है। इस प्रेक्षण की सर्वोत्तम व्याख्या निम्नलिखित में से क्या है?`,
+
+options:[
+"प्रिज्म के समानांतर फलक समान अपवर्तन करते हैं जो एक-दूसरे को निरस्त कर देते हैं।",
+"प्रकाश किरण बिना किसी दिशा परिवर्तन के प्रिज्म से एकसमान रूप से गुजरती है।",
+"प्रिज्म के दो अपवर्तक फलक एक-दूसरे की ओर आनत होते हैं, जिससे प्रकाश किरण का समग्र विचलन होता है।",
+"प्रकाश किरण प्रिज्म के दोनों फलकों पर पूर्ण परावर्तन से गुजरती है।"
+],
+
+answer:2,
+
+explanation:
+"प्रिज्म के दो अपवर्तक फलक समानांतर नहीं होते बल्कि एक-दूसरे की ओर झुके होते हैं। इसलिए दोनों फलकों पर अपवर्तन के बाद प्रकाश की दिशा बदलती है और कुल विचलन प्राप्त होता है।"
+},
+
+{
+topic:"Refraction through prism",
+
+q:`त्रिभुजाकार कांच के प्रिज्म के दो पार्श्व फलकों के बीच का कोण क्या कहलाता है?`,
+
+options:[
+"अपवर्तन कोण",
+"विचलन कोण",
+"प्रिज्म कोण",
+"आपतन कोण"
+],
+
+answer:2,
+
+explanation:
+"प्रिज्म के दो अपवर्तक पार्श्व फलकों के बीच बने कोण को प्रिज्म कोण कहते हैं।"
+},
+
+{
+topic:"Refraction through prism",
+
+q:`अपवर्तित किरण प्रिज्म के अंदर ______ मुड़ जाती है।`,
+
+options:[
+"प्रिज्म के आधार की ओर",
+"आधार के लंबवत",
+"आधार के अनुदिश",
+"आधार से दूर"
+],
+
+answer:0,
+
+explanation:
+"वायु से कांच जैसे सघन माध्यम में प्रवेश करते समय प्रकाश अभिलंब की ओर मुड़ता है। प्रिज्म की ज्यामिति के कारण प्रिज्म के अंदर किरण सामान्यतः आधार की ओर मुड़ती है।"
+},
+
+{
+topic:"Scattering and blue sky",
+
+q:`एक वैज्ञानिक, जल से भरी कांच वाली टंकी (glass tank of water), एक टॉर्च और थोड़ी मात्रा में दूध का उपयोग करके यह प्रदर्शित करना चाहता है कि दिन के समय आकाश का रंग नीला और सूर्यास्त के समय रक्ताभ (reddish) क्यों दिखाई देता है। निम्नलिखित में से कौन-सा सेटअप, वायुमंडल में प्रेक्षित प्रकाश के प्रकीर्णन के समान प्रकाश के प्रकीर्णन को सर्वोत्तम रूप से प्रदर्शित करेगा?`,
+
+options:[
+"जल में अधिक मात्रा में दूध मिलाना और मिश्रण के माध्यम से टॉर्च को ऊपर से प्रकाशमान करना",
+"जल में थोड़ी मात्रा में दूध मिलाना और प्रकीर्णित प्रकाश का प्रेक्षण करने के लिए बगल से टंकी के माध्यम से टॉर्च को प्रकाशमान करना",
+"टॉर्च को स्वच्छ जल के माध्यम से प्रकाशमान करना और विपरीत दिशा से संचरित प्रकाश का प्रेक्षण करना",
+"टॉर्च को ऊपर से स्वच्छ जल पर प्रकाशमान करना और प्रदीप क्षेत्र का प्रेक्षण करना"
+],
+
+answer:1,
+
+explanation:
+"पानी में थोड़ी मात्रा में दूध मिलाने से सूक्ष्म कणों का मॉडल बनता है। बगल से टॉर्च की रोशनी डालने पर प्रकाश का प्रकीर्णन देखा जा सकता है।"
+},
+
+{
+topic:"Scattering of light",
+
+q:`मानव प्रेक्षकों को दिन के समय आकाश नीला क्यों दिखाई देता है?`,
+
+options:[
+"क्योंकि नीला प्रकाश वायुमंडलीय कणों द्वारा अवशोषित और पुनः उत्सर्जित होता है",
+"क्योंकि नीला प्रकाश अपनी लघु तरंगदैर्घ्य के कारण लाल प्रकाश की तुलना में अधिक प्रकीर्णित होता है",
+"क्योंकि लाल प्रकाश अपनी दीर्घ तरंगदैर्घ्य के कारण नीले प्रकाश की तुलना में अधिक प्रकीर्णित होता है",
+"क्योंकि सभी तरंगदैर्घ्य वायुमंडल में समान रूप से प्रकीर्णित होती हैं"
+],
+
+answer:1,
+
+explanation:
+"वायुमंडलीय छोटे कण छोटी तरंगदैर्घ्य वाले प्रकाश को अधिक प्रकीर्णित करते हैं। दृश्य प्रकाश में नीला प्रकाश लाल की तुलना में अधिक प्रकीर्णित होता है।"
+},
+
+{
+topic:"Scattering of light",
+
+q:`कौन-सी घटना सर्वोत्तम रूप से वर्णन करती है कि दिन के समय आकाश नीला क्यों दिखाई देता है?`,
+
+options:[
+"वायुमंडल में उपस्थित ओजोन नीले रंग को छोड़कर अन्य सभी रंगों को अवशोषित कर लेती है",
+"बादलों द्वारा सूर्य के प्रकाश के परावर्तन से नीला रंग बनता है",
+"सूर्य दिन के समय मुख्यतः नीला प्रकाश उत्सर्जित करता है",
+"सूर्य के प्रकाश की छोटी तरंगदैर्घ्य, लंबी तरंगदैर्घ्य की तुलना में अधिक प्रकीर्णित होती हैं"
+],
+
+answer:3,
+
+explanation:
+"छोटी तरंगदैर्घ्य वाला प्रकाश वायुमंडल के छोटे कणों से अधिक प्रकीर्णित होता है। इसी कारण आकाश से हमारी आंखों तक नीले प्रकाश का प्रकीर्णन अधिक दिखाई देता है।"
+},
+
+{
+topic:"Scattering of light",
+
+q:`एक विज्ञान संग्रहालय एक ऐसा प्रदर्शन तैयार कर रहा है जो यह समझाए कि दिन के दौरान आकाश नीला क्यों दिखाई देता है, लेकिन सूर्योदय और सूर्यास्त के समय लाल रंग का क्यों हो जाता है। वायुमंडल में प्रकाश के प्रकीर्णन के आधार पर, कौन-सी व्याख्या इन अवलोकनों को सबसे अच्छी तरह से स्पष्ट करती है?`,
+
+options:[
+"सूर्य दिन में अधिक नीला प्रकाश उत्सर्जित करता है, जबकि सूर्यास्त के समय अधिक लाल प्रकाश उत्सर्जित करता है।",
+"धूल के कण सभी तरंगदैर्घ्य को समान रूप से प्रकीर्णित करते हैं, जबकि सूर्यास्त के समय धूल बढ़ने से लाल प्रकाश अधिक दृश्य होता है।",
+"वायुमंडलीय अवशोषण दिन में लाल प्रकाश को हटा देता है, जबकि सूर्यास्त के समय नीले प्रकाश को हटा देता है।",
+"लघु तरंगदैर्घ्य अधिक प्रबलता से प्रकीर्णित होती हैं, जबकि सूर्यास्त के समय लंबे वायुमंडलीय मार्ग लाल तरंगदैर्घ्य के लिए अनुकूल होते हैं।"
+],
+
+answer:3,
+
+explanation:
+"छोटी तरंगदैर्घ्य वाले नीले प्रकाश का प्रकीर्णन अधिक होता है। सूर्यास्त के समय प्रकाश को वायुमंडल में लंबी दूरी तय करनी पड़ती है, जिससे छोटी तरंगदैर्घ्य का अधिक भाग प्रकीर्णित हो जाता है और सीधा प्रकाश लाल/नारंगी दिखाई देता है।"
+},
+
+{
+topic:"Scattering of light",
+
+q:`वायुमंडलीय कणों का आकार, सूर्य के प्रकाश के प्रकीर्णन को कैसे प्रभावित करता है?`,
+
+options:[
+"अनियमित कण केवल पीले प्रकाश को ही अधिक प्रकीर्णित करते हैं",
+"बड़े कण केवल लाल प्रकाश को ही प्रभावी रूप से प्रकीर्णित करते हैं",
+"छोटे कण छोटी तरंगदैर्घ्य को अधिक दक्षतापूर्ण रूप से प्रकीर्णित करते हैं",
+"मध्यम कण केवल हरे प्रकाश को ही दक्षतापूर्ण रूप से प्रकीर्णित करते हैं"
+],
+
+answer:2,
+
+explanation:
+"बहुत छोटे कणों के लिए छोटी तरंगदैर्घ्य का प्रकीर्णन अधिक होता है। यही Rayleigh scattering की मूल विशेषता है।"
+},
+
+{
+topic:"Twinkling of stars",
+
+q:`पृथ्वी से देखने पर निशाकाश (night sky) में तारे के टिमटिमाते हुए प्रतीत होने का मुख्य कारण क्या है?`,
+
+options:[
+"तारे परिवर्ती तीव्रताओं पर प्रकाश उत्सर्जित करते हैं।",
+"पृथ्वी के घूमने के कारण तारों का प्रकाश टिमटमाता है।",
+"तारे, ग्रहों की तुलना में पृथ्वी के अधिक निकट होते हैं।",
+"तारों से निकलने वाला प्रकाश, परिवर्ती वायुमंडलीय परतों द्वारा अपवर्तित होता है।"
+],
+
+answer:3,
+
+explanation:
+"वायुमंडल की विभिन्न परतों का तापमान, घनत्व और अपवर्तनांक लगातार बदलते रहते हैं। तारों का प्रकाश इन परतों से गुजरते हुए अपवर्तित होता है, जिससे तारे की आभासी चमक बदलती हुई दिखाई देती है।"
+},
+
+{
+topic:"Twinkling of stars",
+
+q:`पृथ्वी से देखने पर तारे टिमटिमाते हुए क्यों दिखाई देते हैं?`,
+
+options:[
+"वायुमंडल में विभिन्न वायु परतों के कारण होने वाले अपवर्तन के कारण",
+"बादलों से प्रकाश के परावर्तन के कारण",
+"वायु में धूल के कणों द्वारा प्रकाश के प्रकीर्णन के कारण",
+"वायुमंडलीय गैसों द्वारा प्रकाश के अवशोषण के कारण"
+],
+
+answer:0,
+
+explanation:
+"तारों का प्रकाश पृथ्वी के वायुमंडल की असमान घनत्व वाली परतों से होकर गुजरता है। इन परतों में अपवर्तन के निरंतर परिवर्तन के कारण तारे टिमटिमाते दिखाई देते हैं।"
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+let currentQuestion = 0;
+
+let selectedAnswers =
+  new Array(questions.length).fill(null);
+
+let marked =
+  new Array(questions.length).fill(false);
+
+let submitted = false;
+
+/* 15 MINUTES */
+
+let timeLeft = 15 * 60;
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const quizForm =
+  document.getElementById("quizForm");
+
+const paletteGrid =
+  document.getElementById("paletteGrid");
+
+
+/* =========================================================
+   RENDER QUESTIONS
+========================================================= */
+
+function renderQuestions(){
+
+  quizForm.innerHTML = "";
+
+  questions.forEach((item,index)=>{
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "question-card";
+
+    card.id =
+      "question-" + index;
+
+    card.innerHTML = `
+
+      <div class="q-header">
+
+        <span class="q-number">
+          Q${index+1}
+        </span>
+
+        <span class="topic">
+          ${item.topic}
+        </span>
+
+      </div>
+
+      <div class="question">
+        ${item.q}
+      </div>
+
+      <div class="options">
+
+        ${item.options.map((option,optIndex)=>`
+
+          <label
+            class="option"
+            id="option-${index}-${optIndex}"
+          >
+
+            <input
+              type="radio"
+              name="q${index}"
+              value="${optIndex}"
+              onchange="selectAnswer(${index},${optIndex})"
+            >
+
+            <b>
+              ${String.fromCharCode(65+optIndex)}.
+            </b>
+
+            ${option}
+
+          </label>
+
+        `).join("")}
+
+      </div>
+    `;
+
+    quizForm.appendChild(card);
+
+  });
+
+  /* ONLY Q1 VISIBLE */
+
+  showOnlyQuestion(0);
+
+  renderPalette();
+}
+
+
+/* =========================================================
+   SHOW ONLY ONE QUESTION
+========================================================= */
+
+function showOnlyQuestion(index){
+
+  if(index < 0 || index >= questions.length)
+    return;
+
+  document
+    .querySelectorAll(".question-card")
+    .forEach((card,i)=>{
+
+      if(i === index){
+
+        card.style.display = "block";
+
+      }else{
+
+        card.style.display = "none";
+
+      }
+
+    });
+
+  currentQuestion = index;
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  updateNavigationButtons();
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(qIndex,optIndex){
+
+  if(submitted)
+    return;
+
+  selectedAnswers[qIndex] =
+    optIndex;
+
+  document
+    .querySelectorAll(
+      `#question-${qIndex} .option`
+    )
+    .forEach(el=>{
+
+      el.classList.remove("selected");
+
+    });
+
+  document
+    .getElementById(
+      `option-${qIndex}-${optIndex}`
+    )
+    .classList.add("selected");
+
+  renderPalette();
+}
+
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function renderPalette(){
+
+  paletteGrid.innerHTML = "";
+
+  questions.forEach((_,index)=>{
+
+    const btn =
+      document.createElement("button");
+
+    btn.type = "button";
+
+    btn.className = "p-item";
+
+    /* Answered */
+
+    if(
+      selectedAnswers[index] !== null
+    ){
+
+      btn.classList.add("answered");
+
+    }
+
+    /* Review */
+
+    if(marked[index]){
+
+      btn.classList.add("review");
+
+    }
+
+    btn.textContent =
+      index + 1;
+
+    btn.onclick = ()=>{
+
+      goToQuestion(index);
+
+      document
+        .getElementById("palette")
+        .classList.remove("show");
+
+    };
+
+    paletteGrid.appendChild(btn);
+
+  });
+}
+
+
+/* =========================================================
+   GO TO QUESTION
+========================================================= */
+
+function goToQuestion(index){
+
+  if(
+    index < 0 ||
+    index >= questions.length
+  )
+    return;
+
+  showOnlyQuestion(index);
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+function nextQuestion(){
+
+  if(
+    currentQuestion <
+    questions.length - 1
+  ){
+
+    showOnlyQuestion(
+      currentQuestion + 1
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousQuestion(){
+
+  if(currentQuestion > 0){
+
+    showOnlyQuestion(
+      currentQuestion - 1
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   NAVIGATION BUTTONS
+========================================================= */
+
+function updateNavigationButtons(){
+
+  const prev =
+    document.querySelector(".prev-btn");
+
+  const next =
+    document.querySelector(".next-btn");
+
+  if(currentQuestion === 0){
+
+    prev.disabled = true;
+
+    prev.style.opacity = ".5";
+
+  }else{
+
+    prev.disabled = false;
+
+    prev.style.opacity = "1";
+
+  }
+
+  if(
+    currentQuestion ===
+    questions.length - 1
+  ){
+
+    next.textContent =
+      "Last Question";
+
+    next.disabled = true;
+
+    next.style.opacity = ".5";
+
+  }else{
+
+    next.textContent =
+      "Next →";
+
+    next.disabled = false;
+
+    next.style.opacity = "1";
+
+  }
+
+}
+
+
+/* =========================================================
+   MARK FOR REVIEW
+========================================================= */
+
+function markReview(){
+
+  if(submitted)
+    return;
+
+  marked[currentQuestion] =
+    !marked[currentQuestion];
+
+  renderPalette();
+
+}
+
+
+/* =========================================================
+   PALETTE TOGGLE
+========================================================= */
+
+function togglePalette(){
+
+  document
+    .getElementById("palette")
+    .classList.toggle("show");
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function updateTimer(){
+
+  if(submitted)
+    return;
+
+  const minutes =
+    Math.floor(timeLeft / 60);
+
+  const seconds =
+    timeLeft % 60;
+
+  document
+    .getElementById("timer")
+    .textContent =
+      String(minutes).padStart(2,"0")
+      + ":" +
+      String(seconds).padStart(2,"0");
+
+  /* Last 1 minute */
+
+  if(timeLeft <= 60){
+
+    document
+      .getElementById("timer")
+      .style.color = "#d00000";
+
+  }
+
+  /* TIME UP */
+
+  if(timeLeft <= 0){
+
+    submitTest(true);
+
+    return;
+
+  }
+
+  timeLeft--;
+
+}
+
+
+/* =========================================================
+   SUBMIT TEST
+========================================================= */
+
+function submitTest(autoSubmit=false){
+
+  if(submitted)
+    return;
+
+  if(!autoSubmit){
+
+    const unanswered =
+      selectedAnswers.filter(
+        a => a === null
+      ).length;
+
+    if(unanswered > 0){
+
+      const confirmSubmit =
+        confirm(
+          `अभी ${unanswered} प्रश्न अनुत्तरित हैं।\n\nक्या आप Test Submit करना चाहते हैं?`
+        );
+
+      if(!confirmSubmit)
+        return;
+
+    }
+
+    const finalConfirm =
+      confirm(
+        "क्या आप Test Submit करना चाहते हैं?\n\nSubmit करने के बाद उत्तर बदले नहीं जा सकेंगे।"
+      );
+
+    if(!finalConfirm)
+      return;
+
+  }
+
+  submitted = true;
+
+  clearInterval(timerInterval);
+
+  calculateResult();
+
+}
+
+
+/* =========================================================
+   CALCULATE RESULT
+========================================================= */
+
+function calculateResult(){
+
+  let correct = 0;
+
+  let wrong = 0;
+
+  let unattempted = 0;
+
+
+  selectedAnswers.forEach(
+    (answer,index)=>{
+
+      if(answer === null){
+
+        unattempted++;
+
+      }
+
+      else if(
+        answer === questions[index].answer
+      ){
+
+        correct++;
+
+      }
+
+      else{
+
+        wrong++;
+
+      }
+
+    }
+  );
+
+
+  const score =
+    correct - (wrong / 3);
+
+
+  showResult(
+    correct,
+    wrong,
+    unattempted,
+    score
+  );
+
+}
+
+
+/* =========================================================
+   SHOW RESULT
+========================================================= */
+
+function showResult(
+  correct,
+  wrong,
+  unattempted,
+  score
+){
+
+  const result =
+    document.getElementById("result");
+
+  result.style.display =
+    "block";
+
+
+  result.innerHTML = `
+
+    <div class="score-box">
+
+      <div>
+        FINAL SCORE
+      </div>
+
+      <div class="score">
+        ${score.toFixed(2)} / 25
+      </div>
+
+      <div>
+        15 Minutes Test
+      </div>
+
+    </div>
+
+
+    <div class="result-stats">
+
+      <div class="stat correct-stat">
+
+        <strong>
+          ${correct}
+        </strong>
+
+        सही
+
+      </div>
+
+
+      <div class="stat wrong-stat">
+
+        <strong>
+          ${wrong}
+        </strong>
+
+        गलत
+
+      </div>
+
+
+      <div class="stat unattempted-stat">
+
+        <strong>
+          ${unattempted}
+        </strong>
+
+        अनुत्तरित
+
+      </div>
+
+    </div>
+
+
+    <div style="margin-top:18px">
+
+      <b>Marking Scheme:</b>
+
+      सही = +1
+
+      &nbsp; | &nbsp;
+
+      गलत = −1/3
+
+      &nbsp; | &nbsp;
+
+      अनुत्तरित = 0
+
+    </div>
+
+
+    <h2
+      style="
+        margin-top:25px;
+        color:#123f70;
+      "
+    >
+      सभी 25 प्रश्नों के Systematic Solutions
+    </h2>
+
+    <div id="solutions"></div>
+
+  `;
+
+
+  const solutions =
+    document.getElementById(
+      "solutions"
+    );
+
+
+  questions.forEach(
+    (item,index)=>{
+
+      const userAnswer =
+        selectedAnswers[index];
+
+
+      let statusClass =
+        "unattempted";
+
+      let statusText =
+        "Unattempted";
+
+
+      if(userAnswer !== null){
+
+        if(
+          userAnswer === item.answer
+        ){
+
+          statusClass =
+            "correct";
+
+          statusText =
+            "Correct";
+
+        }
+
+        else{
+
+          statusClass =
+            "wrong";
+
+          statusText =
+            "Wrong";
+
+        }
+
+      }
+
+
+      const userAnswerText =
+        userAnswer === null
+
+        ? "कोई उत्तर नहीं चुना गया"
+
+        : `${String.fromCharCode(65+userAnswer)}. ${item.options[userAnswer]}`;
+
+
+      const correctAnswerText =
+        `${String.fromCharCode(65+item.answer)}. ${item.options[item.answer]}`;
+
+
+      const div =
+        document.createElement("div");
+
+
+      div.className =
+        `solution ${statusClass}`;
+
+
+      div.innerHTML = `
+
+        <div class="solution-title">
+
+          Q${index+1}.
+          ${item.topic}
+
+          —
+          ${statusText}
+
+        </div>
+
+
+        <div
+          style="
+            margin:6px 0;
+            font-weight:bold;
+          "
+        >
+
+          ${item.q}
+
+        </div>
+
+
+        <div>
+
+          <span class="answer-label">
+            Your Answer:
+          </span>
+
+          ${userAnswerText}
+
+        </div>
+
+
+        <div>
+
+          <span class="answer-label">
+            Correct Answer:
+          </span>
+
+          ${correctAnswerText}
+
+        </div>
+
+
+        <div class="explanation">
+
+          <b>Solution:</b>
+
+          ${item.explanation}
+
+        </div>
+
+      `;
+
+
+      solutions.appendChild(div);
+
+    }
+  );
+
+
+  /* Hide questions */
+
+  document
+    .querySelectorAll(".question-card")
+    .forEach(
+      card =>
+        card.style.display = "none"
+    );
+
+
+  /* Hide navigation */
+
+  document
+    .querySelector(".bottom-bar")
+    .style.display = "none";
+
+
+  /* Hide palette */
+
+  document
+    .querySelector(".palette-btn")
+    .style.display = "none";
+
+
+  document
+    .getElementById("palette")
+    .classList.remove("show");
+
+
+  result.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+}
+
+
+/* =========================================================
+   START TEST
+========================================================= */
+
+renderQuestions();
+
+
+/* TIMER START */
+
+const timerInterval =
+  setInterval(
+    updateTimer,
+    1000
+  );
+
+
+/* Initial timer display */
+
+updateTimer();
+
+</script>
+
+</body>
+</html>
