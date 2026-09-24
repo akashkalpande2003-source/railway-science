@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science | Chapter 13 - Our Environment</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+    background:#eef4f8;
+    color:#17202a;
+    line-height:1.65;
+    overflow-x:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:1050px;
+    margin:auto;
+    padding:12px;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    width:100%;
+    background:linear-gradient(135deg,#123c69,#176b87,#16a085);
+    color:white;
+    padding:25px 15px;
+    border-radius:0 0 22px 22px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.18);
+}
+
+.header h1{
+    font-size:27px;
+    margin-bottom:4px;
+}
+
+.header p{
+    font-size:15px;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    background:white;
+    margin:15px auto;
+    padding:10px;
+    border-radius:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.menu a{
+    text-decoration:none;
+    background:#e8f4ff;
+    color:#075985;
+    padding:6px 11px;
+    border-radius:18px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    width:100%;
+    background:white;
+    margin:18px 0;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    border-left:6px solid #1677c8;
+}
+
+.section-title{
+    color:#075985;
+    font-size:22px;
+    margin-bottom:13px;
+    border-bottom:2px solid #d7edf8;
+    padding-bottom:7px;
+}
+
+.sub-title{
+    font-size:18px;
+    color:#0f766e;
+    margin:17px 0 8px;
+}
+
+ul{
+    padding-left:23px;
+}
+
+li{
+    margin:6px 0;
+}
+
+strong{
+    color:#075985;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin:15px 0;
+}
+
+.card{
+    padding:15px;
+    border-radius:14px;
+    border:2px solid;
+}
+
+.card h3{
+    margin-bottom:5px;
+}
+
+.bio{
+    background:#e9f8ed;
+    border-color:#38a169;
+}
+
+.abiotic{
+    background:#e9f4ff;
+    border-color:#3182ce;
+}
+
+.producer{
+    background:#effbea;
+    border-color:#48a868;
+}
+
+.consumer{
+    background:#fff7df;
+    border-color:#e6a817;
+}
+
+.decomposer{
+    background:#f5edff;
+    border-color:#8957b8;
+}
+
+/* ================= INFO BOX ================= */
+
+.info,
+.warning,
+.success,
+.exam{
+    padding:13px 15px;
+    margin:13px 0;
+    border-radius:9px;
+}
+
+.info{
+    background:#f0f9ff;
+    border-left:5px solid #0284c7;
+}
+
+.warning{
+    background:#fff7ed;
+    border-left:5px solid #f97316;
+}
+
+.success{
+    background:#ecfdf5;
+    border-left:5px solid #10b981;
+}
+
+.exam{
+    background:#fff7c7;
+    border:2px solid #e5b700;
+}
+
+/* ================= DIAGRAM ================= */
+
+.diagram{
+    width:100%;
+    background:#f8fbfd;
+    border:2px solid #d7e8f1;
+    border-radius:15px;
+    padding:10px;
+    margin:17px 0;
+    overflow:hidden;
+}
+
+.diagram-title{
+    text-align:center;
+    font-weight:bold;
+    color:#075985;
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.diagram svg{
+    display:block;
+    width:100%;
+    max-width:100%;
+    height:auto;
+    min-width:0;
+    overflow:visible;
+}
+
+/* ================= FLOW ================= */
+
+.flow{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:17px 0;
+}
+
+.flow-box{
+    padding:10px 12px;
+    border-radius:11px;
+    color:white;
+    font-weight:bold;
+    text-align:center;
+    min-width:105px;
+    max-width:145px;
+}
+
+.sun{background:#f59e0b;}
+.prod{background:#16a34a;}
+.herb{background:#65a30d;}
+.carn{background:#dc2626;}
+.top{background:#7c3aed;}
+
+.arrow{
+    font-size:21px;
+    font-weight:bold;
+    color:#334155;
+}
+
+/* ================= ENERGY PYRAMID ================= */
+
+.energy-pyramid{
+    width:100%;
+    max-width:520px;
+    margin:18px auto;
+}
+
+.energy-level{
+    color:white;
+    text-align:center;
+    margin:3px auto;
+    padding:9px 5px;
+    font-weight:bold;
+    border-radius:6px;
+}
+
+.l4{
+    width:35%;
+    background:#7c3aed;
+}
+
+.l3{
+    width:50%;
+    background:#dc2626;
+}
+
+.l2{
+    width:70%;
+    background:#65a30d;
+}
+
+.l1{
+    width:90%;
+    background:#16a34a;
+}
+
+/* ================= TABLE ================= */
+
+.table-wrap{
+    width:100%;
+    overflow:hidden;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin:14px 0;
+    font-size:14px;
+}
+
+th{
+    background:#075985;
+    color:white;
+    padding:9px 6px;
+}
+
+td{
+    padding:8px 5px;
+    border:1px solid #d6e2e8;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f4f9fc;
+}
+
+/* ================= HIGHLIGHT ================= */
+
+.highlight{
+    background:#fff2a8;
+    padding:2px 5px;
+    border-radius:5px;
+    font-weight:bold;
+}
+
+/* ================= IMPORTANT LIST ================= */
+
+.important-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+    list-style:none;
+    padding:0;
+}
+
+.important-list li{
+    background:#f8fafc;
+    border-left:5px solid #2563eb;
+    padding:9px;
+    border-radius:8px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    width:100%;
+    background:#123c69;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:20px;
+    border-radius:18px 18px 0 0;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    body{
+        font-size:14px;
+    }
+
+    .container{
+        padding:8px;
+    }
+
+    .header{
+        padding:20px 10px;
+    }
+
+    .header h1{
+        font-size:21px;
+    }
+
+    .header p{
+        font-size:13px;
+    }
+
+    .section{
+        padding:14px;
+        margin:12px 0;
+        border-left-width:4px;
+    }
+
+    .section-title{
+        font-size:19px;
+    }
+
+    .sub-title{
+        font-size:16px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .important-list{
+        grid-template-columns:1fr;
+    }
+
+    .diagram{
+        padding:7px;
+        margin:13px 0;
+    }
+
+    .diagram-title{
+        font-size:15px;
+    }
+
+    .diagram svg{
+        width:100%;
+        height:auto;
+        min-width:0 !important;
+        max-width:100%;
+    }
+
+    .flow{
+        gap:5px;
+    }
+
+    .flow-box{
+        min-width:90px;
+        max-width:120px;
+        padding:8px 5px;
+        font-size:12px;
+    }
+
+    .arrow{
+        font-size:18px;
+    }
+
+    .energy-level{
+        font-size:12px;
+        padding:8px 3px;
+    }
+
+    table{
+        font-size:12px;
+    }
+
+    th,
+    td{
+        padding:7px 4px;
+    }
+}
+
+/* ================= VERY SMALL MOBILE ================= */
+
+@media(max-width:380px){
+
+    .header h1{
+        font-size:19px;
+    }
+
+    .section{
+        padding:12px;
+    }
+
+    .flow-box{
+        min-width:82px;
+        max-width:105px;
+        font-size:11px;
+    }
+
+    .arrow{
+        font-size:16px;
+    }
+
+    .diagram{
+        padding:5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <h1>CLASS 10th → अध्याय 13</h1>
+    <h1>OUR ENVIRONMENT</h1>
+    <p>हमारा पर्यावरण • Complete Hindi Notes • Labelled Diagrams</p>
+</header>
+
+<div class="container">
+
+<nav class="menu">
+    <a href="#ecosystem">पारितंत्र</a>
+    <a href="#foodchain">आहार श्रृंखला</a>
+    <a href="#energy">ऊर्जा प्रवाह</a>
+    <a href="#biomagnification">जैव आवर्धन</a>
+    <a href="#ozone">ओजोन</a>
+    <a href="#waste">कचरा प्रबंधन</a>
+    <a href="#important">Important</a>
+</nav>
+
+
+<!-- =====================================================
+     1. ECOSYSTEM
+===================================================== -->
+
+<section class="section" id="ecosystem">
+
+<h2 class="section-title">🌱 1. पारितंत्र (Ecosystem)</h2>
+
+<ul>
+
+<li>
+पारितंत्र में सभी सजीव <strong>जैव</strong> व
+<strong>अजैव</strong> घटक होते हैं।
+</li>
+
+<li>
+<strong>अजैव घटक :-</strong>
+ताप, वर्षा, वायु, जल, मृदा आदि।
+</li>
+
+<li>
+<strong>जैव घटक :-</strong>
+मेंढक, कीट, पौधे, जंतु आदि सभी सजीव मिलकर
+जैव घटक बनाते हैं।
+</li>
+
+<li>
+मानव जनित क्रियाएँ पारितंत्र के
+<strong>जैव एवं अजैव दोनों घटकों</strong>
+को प्रभावित करती हैं।
+</li>
+
+<li>
+<strong>प्राकृतिक पारितंत्र :-</strong>
+वन, तालाब, झील।
+</li>
+
+<li>
+<strong>कृत्रिम पारितंत्र :-</strong>
+बगीचा, खेत।
+</li>
+
+<li>
+भोजन निर्वाह के आधार पर जीवों को
+<strong>उत्पादक, उपभोक्ता एवं अपघटक</strong>
+में बाँटा गया है।
+</li>
+
+</ul>
+
+
+<!-- ECOSYSTEM DIAGRAM -->
+
+<div class="diagram">
+
+<div class="diagram-title">
+पारितंत्र के मुख्य घटक
+</div>
+
+<svg viewBox="0 0 800 390">
+
+<defs>
+
+<marker id="arrowEco"
+markerWidth="10"
+markerHeight="10"
+refX="9"
+refY="3"
+orient="auto">
+
+<path d="M0,0 L10,3 L0,6 Z"
+fill="#334155"/>
+
+</marker>
+
+</defs>
+
+<!-- MAIN -->
+
+<rect
+x="280"
+y="25"
+width="240"
+height="65"
+rx="15"
+fill="#123c69"/>
+
+<text
+x="400"
+y="65"
+text-anchor="middle"
+fill="white"
+font-size="25"
+font-weight="bold">
+पारितंत्र
+</text>
+
+
+<!-- BIO -->
+
+<rect
+x="80"
+y="145"
+width="250"
+height="80"
+rx="15"
+fill="#d9f7df"
+stroke="#16a34a"
+stroke-width="3"/>
+
+<text
+x="205"
+y="177"
+text-anchor="middle"
+font-size="21"
+font-weight="bold">
+जैव घटक
+</text>
+
+<text
+x="205"
+y="203"
+text-anchor="middle"
+font-size="15">
+पौधे • जंतु • सूक्ष्मजीव
+</text>
+
+
+<!-- ABIOTIC -->
+
+<rect
+x="470"
+y="145"
+width="250"
+height="80"
+rx="15"
+fill="#e1f1ff"
+stroke="#1683c4"
+stroke-width="3"/>
+
+<text
+x="595"
+y="177"
+text-anchor="middle"
+font-size="21"
+font-weight="bold">
+अजैव घटक
+</text>
+
+<text
+x="595"
+y="203"
+text-anchor="middle"
+font-size="15">
+ताप • वायु • जल • मृदा
+</text>
+
+
+<!-- ARROWS -->
+
+<line
+x1="350"
+y1="90"
+x2="245"
+y2="145"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowEco)"/>
+
+<line
+x1="450"
+y1="90"
+x2="555"
+y2="145"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowEco)"/>
+
+
+<!-- INTERACTION -->
+
+<rect
+x="190"
+y="295"
+width="420"
+height="60"
+rx="15"
+fill="#fff3c4"
+stroke="#e5a900"
+stroke-width="3"/>
+
+<text
+x="400"
+y="332"
+text-anchor="middle"
+font-size="18"
+font-weight="bold">
+जैव + अजैव घटकों की परस्पर क्रिया
+</text>
+
+<line
+x1="205"
+y1="225"
+x2="300"
+y2="295"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowEco)"/>
+
+<line
+x1="595"
+y1="225"
+x2="500"
+y2="295"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowEco)"/>
+
+</svg>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card abiotic">
+
+<h3>🌤️ अजैव घटक</h3>
+
+<p>
+ताप, वर्षा, वायु, जल, मृदा आदि।
+</p>
+
+</div>
+
+
+<div class="card bio">
+
+<h3>🌿 जैव घटक</h3>
+
+<p>
+पौधे, जंतु, जीवाणु, कवक आदि।
+</p>
+
+</div>
+
+
+<div class="card producer">
+
+<h3>🌳 प्राकृतिक पारितंत्र</h3>
+
+<p>
+वन, तालाब, झील आदि।
+</p>
+
+</div>
+
+
+<div class="card consumer">
+
+<h3>🏡 कृत्रिम पारितंत्र</h3>
+
+<p>
+बगीचा, खेत आदि।
+</p>
+
+</div>
+
+</div>
+
+
+<h3 class="sub-title">
+🌿 उत्पादक (Producers)
+</h3>
+
+<ul>
+
+<li>
+सभी हरे पौधे एवं नील-हरित शैवाल जिनमें
+प्रकाश संश्लेषण की क्षमता होती है,
+<strong>उत्पादक</strong> कहलाते हैं।
+</li>
+
+<li>
+उत्पादक सूर्य के प्रकाश की ऊर्जा का उपयोग करके
+<strong>प्रकाश संश्लेषण</strong> द्वारा अपना भोजन
+स्वयं बनाते हैं।
+</li>
+
+</ul>
+
+
+<h3 class="sub-title">
+🐄 उपभोक्ता (Consumers)
+</h3>
+
+<ul>
+
+<li>
+सभी जीव प्रत्यक्ष अथवा परोक्ष रूप से अपने निर्वाह
+हेतु उत्पादकों पर निर्भर होते हैं।
+</li>
+
+<li>
+जो जीव उत्पादक द्वारा उत्पादित भोजन पर प्रत्यक्ष
+अथवा परोक्ष रूप से निर्भर करते हैं,
+<strong>उपभोक्ता</strong> कहलाते हैं।
+</li>
+
+<li>
+उपभोक्ता →
+<strong>शाकाहारी, मांसाहारी, सर्वाहारी, परजीवी</strong>
+</li>
+
+</ul>
+
+
+<h3 class="sub-title">
+🦠 अपघटक (Decomposers)
+</h3>
+
+<ul>
+
+<li>
+<strong>जीवाणु और कवक</strong> जैसे सूक्ष्मजीव
+मृत पौधों एवं जंतुओं के अवशेषों का अपघटन करते हैं।
+</li>
+
+<li>
+ये जटिल कार्बनिक पदार्थों को सरल पदार्थों में
+बदल देते हैं।
+</li>
+
+<li>
+ये सरल पदार्थ मिट्टी में मिल जाते हैं तथा पौधों
+द्वारा पुनः उपयोग में लाए जाते हैं।
+</li>
+
+<li>
+अपघटक <strong>पोषक तत्वों के पुनर्चक्रण</strong>
+में महत्वपूर्ण भूमिका निभाते हैं।
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- =====================================================
+     2. FOOD CHAIN
+===================================================== -->
+
+<section class="section" id="foodchain">
+
+<h2 class="section-title">
+🍃 2. आहार श्रृंखला एवं आहार जाल
+</h2>
+
+<ul>
+
+<li>
+विभिन्न जैविक स्तरों पर भाग लेने वाले जीवों की
+श्रृंखला <strong>आहार श्रृंखला (Food Chain)</strong>
+कहलाती है।
+</li>
+
+<li>
+आहार श्रृंखला का प्रत्येक चरण या स्तर
+<strong>पोषी स्तर (Trophic Level)</strong>
+कहलाता है।
+</li>
+
+</ul>
+
+
+<h3 class="sub-title">
+📊 पोषी स्तर
+</h3>
+
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+
+<th>पोषी स्तर</th>
+<th>जीव</th>
+<th>उदाहरण</th>
+
+</tr>
+
+<tr>
+
+<td>प्रथम</td>
+<td>उत्पादक</td>
+<td>घास, पौधे</td>
+
+</tr>
+
+<tr>
+
+<td>द्वितीय</td>
+<td>प्राथमिक उपभोक्ता</td>
+<td>हिरण, खरगोश</td>
+
+</tr>
+
+<tr>
+
+<td>तृतीय</td>
+<td>द्वितीयक उपभोक्ता</td>
+<td>मेंढक, छोटा मांसाहारी</td>
+
+</tr>
+
+<tr>
+
+<td>चौथा</td>
+<td>तृतीयक उपभोक्ता</td>
+<td>साँप, बाज आदि</td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<!-- FOOD CHAIN -->
+
+<div class="diagram">
+
+<div class="diagram-title">
+आहार श्रृंखला — Food Chain
+</div>
+
+<div class="flow">
+
+<div class="flow-box sun">
+☀️ सूर्य<br>
+प्रकाश ऊर्जा
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box prod">
+🌿 उत्पादक<br>
+घास
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box herb">
+🐇 शाकाहारी<br>
+खरगोश
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box carn">
+🐍 मांसाहारी<br>
+साँप
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box top">
+🦅 शीर्ष<br>
+मांसाहारी
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FOOD WEB -->
+
+<h3 class="sub-title">
+🕸️ आहार जाल (Food Web)
+</h3>
+
+<p>
+एक सीधी आहार श्रृंखला के बजाय जीवों के मध्य आहार संबंध
+शाखान्वित होते हैं। इन शाखान्वित आहार श्रृंखलाओं का जाल
+<strong>आहार जाल</strong> कहलाता है।
+</p>
+
+
+<div class="diagram">
+
+<div class="diagram-title">
+आहार जाल — Labelled Diagram
+</div>
+
+<svg viewBox="0 0 800 430">
+
+<defs>
+
+<marker
+id="arrowFood"
+markerWidth="10"
+markerHeight="10"
+refX="9"
+refY="3"
+orient="auto">
+
+<path
+d="M0,0 L10,3 L0,6 Z"
+fill="#334155"/>
+
+</marker>
+
+</defs>
+
+
+<!-- PRODUCER -->
+
+<circle
+cx="120"
+cy="215"
+r="55"
+fill="#50b95b"/>
+
+<text
+x="120"
+y="207"
+text-anchor="middle"
+font-size="18"
+font-weight="bold">
+🌿 पौधे
+</text>
+
+<text
+x="120"
+y="230"
+text-anchor="middle"
+font-size="14">
+उत्पादक
+</text>
+
+
+<!-- HERBIVORES -->
+
+<circle
+cx="325"
+cy="110"
+r="55"
+fill="#a3d65c"/>
+
+<text
+x="325"
+y="103"
+text-anchor="middle"
+font-size="17"
+font-weight="bold">
+🐛 कीट
+</text>
+
+<text
+x="325"
+y="126"
+text-anchor="middle"
+font-size="14">
+शाकाहारी
+</text>
+
+
+<circle
+cx="325"
+cy="320"
+r="55"
+fill="#a3d65c"/>
+
+<text
+x="325"
+y="313"
+text-anchor="middle"
+font-size="17"
+font-weight="bold">
+🐇 खरगोश
+</text>
+
+<text
+x="325"
+y="336"
+text-anchor="middle"
+font-size="14">
+शाकाहारी
+</text>
+
+
+<!-- CARNIVORES -->
+
+<circle
+cx="535"
+cy="110"
+r="55"
+fill="#e67e22"/>
+
+<text
+x="535"
+y="103"
+text-anchor="middle"
+font-size="17"
+font-weight="bold">
+🐸 मेंढक
+</text>
+
+<text
+x="535"
+y="126"
+text-anchor="middle"
+font-size="14">
+मांसाहारी
+</text>
+
+
+<circle
+cx="535"
+cy="320"
+r="55"
+fill="#e67e22"/>
+
+<text
+x="535"
+y="313"
+text-anchor="middle"
+font-size="17"
+font-weight="bold">
+🐍 साँप
+</text>
+
+<text
+x="535"
+y="336"
+text-anchor="middle"
+font-size="14">
+मांसाहारी
+</text>
+
+
+<!-- TOP -->
+
+<circle
+cx="700"
+cy="215"
+r="60"
+fill="#7c3aed"/>
+
+<text
+x="700"
+y="207"
+text-anchor="middle"
+font-size="17"
+font-weight="bold"
+fill="white">
+🦅 बाज
+</text>
+
+<text
+x="700"
+y="230"
+text-anchor="middle"
+font-size="13"
+fill="white">
+शीर्ष उपभोक्ता
+</text>
+
+
+<!-- ARROWS -->
+
+<line
+x1="175"
+y1="190"
+x2="270"
+y2="125"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowFood)"/>
+
+<line
+x1="175"
+y1="240"
+x2="270"
+y2="305"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowFood)"/>
+
+<line
+x1="380"
+y1="110"
+x2="480"
+y2="110"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowFood)"/>
+
+<line
+x1="380"
+y1="320"
+x2="480"
+y2="320"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowFood)"/>
+
+<line
+x1="590"
+y1="130"
+x2="650"
+y2="190"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowFood)"/>
+
+<line
+x1="590"
+y1="300"
+x2="650"
+y2="240"
+stroke="#334155"
+stroke-width="3"
+marker-end="url(#arrowFood)"/>
+
+</svg>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     3. ENERGY
+===================================================== -->
+
+<section class="section" id="energy">
+
+<h2 class="section-title">
+⚡ 3. ऊर्जा का प्रवाह एवं 10% नियम
+</h2>
+
+<ul>
+
+<li>
+स्वपोषी सौर प्रकाश में निहित ऊर्जा को ग्रहण करके
+उसे <strong>रासायनिक ऊर्जा</strong> में बदल देते हैं।
+</li>
+
+<li>
+एक स्थलीय पारितंत्र में हरे पौधों की पत्तियों द्वारा
+प्राप्त सौर ऊर्जा का लगभग <strong>1%</strong> भाग
+खाद्य ऊर्जा में परिवर्तित होता है।
+</li>
+
+<li>
+जब हरे पौधे प्राथमिक उपभोक्ता द्वारा खाए जाते हैं,
+तो ऊर्जा की बड़ी मात्रा का ह्रास होता है।
+</li>
+
+<li>
+ऊर्जा का कुछ भाग <strong>श्वसन, उपापचय तथा अन्य
+जैविक क्रियाओं</strong> में खर्च हो जाता है।
+</li>
+
+<li>
+केवल लगभग <strong>10% ऊर्जा</strong> ही अगले पोषी
+स्तर को उपलब्ध हो पाती है।
+</li>
+
+</ul>
+
+
+<!-- ENERGY PYRAMID -->
+
+<div class="diagram">
+
+<div class="diagram-title">
+10% ऊर्जा का नियम
+</div>
+
+<div class="energy-pyramid">
+
+<div class="energy-level l4">
+
+चौथा पोषी स्तर — शीर्ष उपभोक्ता<br>
+लगभग 1% ऊर्जा
+
+</div>
+
+<div class="energy-level l3">
+
+तृतीय पोषी स्तर — द्वितीयक उपभोक्ता<br>
+लगभग 10% ऊर्जा
+
+</div>
+
+<div class="energy-level l2">
+
+द्वितीय पोषी स्तर — शाकाहारी<br>
+लगभग 100 इकाई से 10 इकाई
+
+</div>
+
+<div class="energy-level l1">
+
+प्रथम पोषी स्तर — उत्पादक<br>
+1000 इकाई ऊर्जा
+
+</div>
+
+</div>
+
+
+<p style="text-align:center;font-weight:bold;color:#075985;">
+
+प्रत्येक अगले पोषी स्तर को लगभग 10% ऊर्जा ही मिलती है।
+
+</p>
+
+</div>
+
+
+<div class="success">
+
+<strong>⭐ याद रखें:</strong>
+
+ऊर्जा का प्रवाह हमेशा
+<span class="highlight">एकदिशिक</span>
+होता है।
+
+</div>
+
+
+<div class="flow">
+
+<div class="flow-box sun">
+☀️ सूर्य
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box prod">
+🌿 उत्पादक
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box herb">
+🐄 शाकाहारी
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box carn">
+🦁 मांसाहारी
+</div>
+
+</div>
+
+
+<p>
+
+स्वपोषियों द्वारा ग्रहण की गई ऊर्जा पुनः सौर ऊर्जा
+में परिवर्तित होकर उपलब्ध नहीं होती।
+
+शाकाहारियों को स्थानांतरित ऊर्जा पुनः स्वपोषी जीवों
+को उपलब्ध नहीं होती।
+
+</p>
+
+</section>
+
+
+<!-- =====================================================
+     4. BIOMAGNIFICATION
+===================================================== -->
+
+<section class="section" id="biomagnification">
+
+<h2 class="section-title">
+☠️ 4. जैव आवर्धन (Biomagnification)
+</h2>
+
+<ul>
+
+<li>
+आहार श्रृंखला में कुछ हानिकारक रसायन एवं प्रदूषक
+जीवों के शरीर में प्रवेश कर जाते हैं।
+</li>
+
+<li>
+इन हानिकारक पदार्थों की सांद्रता पोषी स्तर के ऊपर
+जाने के साथ बढ़ती जाती है।
+</li>
+
+<li>
+हानिकारक पदार्थों की मात्रा का क्रमशः बढ़ना
+<strong>जैव आवर्धन</strong> कहलाता है।
+</li>
+
+<li>
+इसका प्रभाव <strong>शीर्ष उपभोक्ताओं</strong> पर
+अधिक पड़ता है।
+</li>
+
+<li>
+मनुष्य भी आहार श्रृंखला में उच्च पोषी स्तर पर होने
+के कारण प्रभावित हो सकता है।
+</li>
+
+</ul>
+
+
+<div class="diagram">
+
+<div class="diagram-title">
+जैव आवर्धन — प्रदूषक की बढ़ती सांद्रता
+</div>
+
+<div class="flow">
+
+<div class="flow-box prod">
+
+🌿 पौधे<br>
+कम प्रदूषक
+
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box herb">
+
+🐟 छोटी मछली<br>
+अधिक
+
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box carn">
+
+🐟 बड़ी मछली<br>
+और अधिक
+
+</div>
+
+<div class="arrow">→</div>
+
+<div class="flow-box top">
+
+👤 मनुष्य<br>
+सबसे अधिक
+
+</div>
+
+</div>
+
+
+<div class="warning">
+
+<strong>
+जैसे-जैसे पोषी स्तर बढ़ता है →
+हानिकारक पदार्थों की सांद्रता बढ़ सकती है।
+</strong>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     5. OZONE
+===================================================== -->
+
+<section class="section" id="ozone">
+
+<h2 class="section-title">
+🌎 5. ओजोन परत एवं उसका क्षय
+</h2>
+
+<ul>
+
+<li>
+<strong>ओजोन (O₃)</strong> ऑक्सीजन का एक रूप है।
+</li>
+
+<li>
+ऊपरी वायुमंडल में उपस्थित ओजोन परत सूर्य की
+हानिकारक <strong>UV विकिरण</strong> से पृथ्वी पर
+जीवन की सुरक्षा करती है।
+</li>
+
+<li>
+अत्यधिक UV विकिरण मनुष्यों में
+<strong>त्वचा कैंसर</strong> सहित अन्य स्वास्थ्य
+समस्याएँ उत्पन्न कर सकता है।
+</li>
+
+<li>
+<strong>CFCs (क्लोरोफ्लुओरोकार्बन)</strong> जैसे
+मानव-संश्लेषित रसायन ओजोन क्षय का प्रमुख कारण रहे हैं।
+</li>
+
+<li>
+CFCs का उपयोग रेफ्रिजरेटर तथा एयर-कंडीशनर में
+रेफ्रिजरेंट आदि के रूप में किया जाता था।
+</li>
+
+</ul>
+
+
+<!-- OZONE DIAGRAM -->
+
+<div class="diagram">
+
+<div class="diagram-title">
+ओजोन का निर्माण — Labelled Diagram
+</div>
+
+<svg viewBox="0 0 800 330">
+
+<defs>
+
+<marker
+id="arrowOzone"
+markerWidth="10"
+markerHeight="10"
+refX="9"
+refY="3"
+orient="auto">
+
+<path
+d="M0,0 L10,3 L0,6 Z"
+fill="#334155"/>
+
+</marker>
+
+</defs>
+
+
+<!-- O2 -->
+
+<rect
+x="50"
+y="110"
+width="190"
+height="80"
+rx="18"
+fill="#dbeafe"
+stroke="#2563eb"
+stroke-width="3"/>
+
+<text
+x="145"
+y="145"
+text-anchor="middle"
+font-size="25"
+font-weight="bold">
+O₂
+</text>
+
+<text
+x="145"
+y="170"
+text-anchor="middle"
+font-size="16">
+ऑक्सीजन अणु
+</text>
+
+
+<!-- ARROW -->
+
+<line
+x1="240"
+y1="150"
+x2="350"
+y2="150"
+stroke="#334155"
+stroke-width="4"
+marker-end="url(#arrowOzone)"/>
+
+<text
+x="295"
+y="128"
+text-anchor="middle"
+font-size="15"
+font-weight="bold">
+UV विकिरण
+</text>
+
+
+<!-- O ATOMS -->
+
+<rect
+x="350"
+y="110"
+width="160"
+height="80"
+rx="18"
+fill="#fff3cd"
+stroke="#e0a800"
+stroke-width="3"/>
+
+<text
+x="430"
+y="145"
+text-anchor="middle"
+font-size="25"
+font-weight="bold">
+O + O
+</text>
+
+<text
+x="430"
+y="170"
+text-anchor="middle"
+font-size="15">
+ऑक्सीजन परमाणु
+</text>
+
+
+<!-- ARROW -->
+
+<line
+x1="510"
+y1="150"
+x2="590"
+y2="150"
+stroke="#334155"
+stroke-width="4"
+marker-end="url(#arrowOzone)"/>
+
+
+<!-- OZONE -->
+
+<rect
+x="590"
+y="110"
+width="160"
+height="80"
+rx="18"
+fill="#d1fae5"
+stroke="#16a34a"
+stroke-width="3"/>
+
+<text
+x="670"
+y="145"
+text-anchor="middle"
+font-size="25"
+font-weight="bold">
+O₃
+</text>
+
+<text
+x="670"
+y="170"
+text-anchor="middle"
+font-size="16">
+ओजोन
+</text>
+
+
+<text
+x="400"
+y="260"
+text-anchor="middle"
+font-size="20"
+font-weight="bold"
+fill="#075985">
+
+O + O₂ → O₃
+
+</text>
+
+</svg>
+
+</div>
+
+
+<div class="warning">
+
+<strong>⚠️ Ozone Depletion:</strong><br>
+
+CFCs से निकलने वाले क्लोरीन परमाणु ओजोन अणुओं
+को तोड़ने में भूमिका निभाते हैं।
+
+ओजोन परत के क्षय से अधिक UV विकिरण पृथ्वी की
+सतह तक पहुँच सकता है।
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     6. WASTE MANAGEMENT
+===================================================== -->
+
+<section class="section" id="waste">
+
+<h2 class="section-title">
+♻️ 6. कचरा प्रबंधन (Waste Management)
+</h2>
+
+<ul>
+
+<li>
+किसी विशेष प्रकार के पदार्थ के पाचन/अपघटन के लिए
+विशेष प्रकार के <strong>एंजाइम</strong> की आवश्यकता
+होती है।
+</li>
+
+<li>
+जो पदार्थ जैविक प्रक्रम द्वारा अपघटित हो जाते हैं,
+<strong>जैव निम्नीकरणीय</strong> कहलाते हैं।
+</li>
+
+<li>
+जो पदार्थ जैविक प्रक्रम द्वारा अपघटित नहीं होते,
+<strong>अजैव निम्नीकरणीय</strong> कहलाते हैं।
+</li>
+
+</ul>
+
+
+<div class="cards">
+
+<div class="card bio">
+
+<h3>🍂 जैव निम्नीकरणीय</h3>
+
+<p>
+फल-सब्जियों के छिलके, पत्तियाँ,
+भोजन के अवशेष, कागज, लकड़ी आदि।
+</p>
+
+</div>
+
+
+<div class="card consumer">
+
+<h3>🧴 अजैव निम्नीकरणीय</h3>
+
+<p>
+प्लास्टिक, काँच तथा कुछ अन्य पदार्थ
+जो जैविक प्रक्रम से आसानी से अपघटित नहीं होते।
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 3R -->
+
+<div class="diagram">
+
+<div class="diagram-title">
+कचरा प्रबंधन के 3R
+</div>
+
+<svg viewBox="0 0 800 300">
+
+<defs>
+
+<marker
+id="arrowWaste"
+markerWidth="10"
+markerHeight="10"
+refX="9"
+refY="3"
+orient="auto">
+
+<path
+d="M0,0 L10,3 L0,6 Z"
+fill="#334155"/>
+
+</marker>
+
+</defs>
+
+
+<!-- REDUCE -->
+
+<circle
+cx="170"
+cy="150"
+r="80"
+fill="#16a34a"/>
+
+<text
+x="170"
+y="142"
+text-anchor="middle"
+fill="white"
+font-size="27"
+font-weight="bold">
+REDUCE
+</text>
+
+<text
+x="170"
+y="170"
+text-anchor="middle"
+fill="white"
+font-size="16">
+उपयोग कम करें
+</text>
+
+
+<!-- ARROW -->
+
+<line
+x1="250"
+y1="150"
+x2="310"
+y2="150"
+stroke="#334155"
+stroke-width="4"
+marker-end="url(#arrowWaste)"/>
+
+
+<!-- REUSE -->
+
+<circle
+cx="400"
+cy="150"
+r="80"
+fill="#0284c7"/>
+
+<text
+x="400"
+y="142"
+text-anchor="middle"
+fill="white"
+font-size="29"
+font-weight="bold">
+REUSE
+</text>
+
+<text
+x="400"
+y="170"
+text-anchor="middle"
+fill="white"
+font-size="16">
+दोबारा उपयोग
+</text>
+
+
+<!-- ARROW -->
+
+<line
+x1="480"
+y1="150"
+x2="540"
+y2="150"
+stroke="#334155"
+stroke-width="4"
+marker-end="url(#arrowWaste)"/>
+
+
+<!-- RECYCLE -->
+
+<circle
+cx="630"
+cy="150"
+r="80"
+fill="#7c3aed"/>
+
+<text
+x="630"
+y="142"
+text-anchor="middle"
+fill="white"
+font-size="27"
+font-weight="bold">
+RECYCLE
+</text>
+
+<text
+x="630"
+y="170"
+text-anchor="middle"
+fill="white"
+font-size="16">
+पुनर्चक्रण
+</text>
+
+</svg>
+
+</div>
+
+
+<h3 class="sub-title">
+🌱 कचरे के प्रभाव
+</h3>
+
+<ul>
+
+<li>
+अजैव निम्नीकरणीय पदार्थ लंबे समय तक पर्यावरण
+में बने रह सकते हैं।
+</li>
+
+<li>
+प्लास्टिक मिट्टी और जल को प्रदूषित कर सकता है।
+</li>
+
+<li>
+प्लास्टिक एवं अन्य ठोस कचरा जलाने पर
+हानिकारक गैसें उत्पन्न हो सकती हैं।
+</li>
+
+<li>
+कचरे का उचित निपटान न होने पर
+<strong>मृदा, जल एवं वायु प्रदूषण</strong>
+हो सकता है।
+</li>
+
+</ul>
+
+
+<div class="success">
+
+<strong>
+🌿 जैव निम्नीकरणीय कचरा → कम्पोस्ट →
+पौधों के लिए उपयोगी खाद
+</strong>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     IMPORTANT
+===================================================== -->
+
+<section class="section" id="important">
+
+<h2 class="section-title">
+⭐ परीक्षा के लिए बहुत महत्वपूर्ण
+</h2>
+
+<ul class="important-list">
+
+<li>
+1. पारितंत्र =
+<strong>जैव घटक + अजैव घटक</strong>
+</li>
+
+<li>
+2. उत्पादक =
+<strong>हरे पौधे एवं नील-हरित शैवाल</strong>
+</li>
+
+<li>
+3. अपघटक =
+<strong>मुख्यतः जीवाणु एवं कवक</strong>
+</li>
+
+<li>
+4. प्रथम पोषी स्तर =
+<strong>उत्पादक</strong>
+</li>
+
+<li>
+5. द्वितीय पोषी स्तर =
+<strong>प्राथमिक उपभोक्ता</strong>
+</li>
+
+<li>
+6. तृतीय पोषी स्तर =
+<strong>द्वितीयक उपभोक्ता</strong>
+</li>
+
+<li>
+7. चौथा पोषी स्तर =
+<strong>तृतीयक उपभोक्ता</strong>
+</li>
+
+<li>
+8. 10% नियम =
+<strong>अगले पोषी स्तर को लगभग 10% ऊर्जा</strong>
+</li>
+
+<li>
+9. ऊर्जा का प्रवाह =
+<strong>एकदिशिक</strong>
+</li>
+
+<li>
+10. आहार श्रृंखलाओं का जाल =
+<strong>आहार जाल</strong>
+</li>
+
+<li>
+11. हानिकारक पदार्थों की सांद्रता का बढ़ना =
+<strong>जैव आवर्धन</strong>
+</li>
+
+<li>
+12. ओजोन का सूत्र =
+<strong>O₃</strong>
+</li>
+
+<li>
+13. ओजोन परत =
+<strong>UV विकिरण से सुरक्षा</strong>
+</li>
+
+<li>
+14. CFCs =
+<strong>ओजोन क्षय का प्रमुख मानव-जनित कारण</strong>
+</li>
+
+<li>
+15. Biodegradable =
+<strong>जैविक प्रक्रम द्वारा अपघटित पदार्थ</strong>
+</li>
+
+<li>
+16. Non-biodegradable =
+<strong>जैविक प्रक्रम द्वारा आसानी से अपघटित
+न होने वाले पदार्थ</strong>
+</li>
+
+<li>
+17. कचरा प्रबंधन =
+<strong>Reduce → Reuse → Recycle</strong>
+</li>
+
+</ul>
+
+
+<div class="exam">
+
+<h3>
+🔥 सबसे जरूरी Flow याद करें
+</h3>
+
+<p style="
+text-align:center;
+font-weight:bold;
+font-size:17px;
+margin-top:10px;
+">
+
+☀️ सूर्य
+→
+🌿 उत्पादक
+→
+🐇 शाकाहारी
+→
+🐍 मांसाहारी
+→
+🦅 शीर्ष मांसाहारी
+
+</p>
+
+<hr style="
+margin:15px 0;
+border:0;
+border-top:1px solid #d4b000;
+">
+
+<p style="
+text-align:center;
+font-weight:bold;
+">
+
+ऊर्जा का प्रवाह → एकदिशिक<br>
+
+अगले पोषी स्तर को → लगभग 10% ऊर्जा<br>
+
+हानिकारक पदार्थों की सांद्रता बढ़ना
+→ जैव आवर्धन<br>
+
+ओजोन का सूत्र → O₃
+
+</p>
+
+</div>
+
+</section>
+
+</div>
+
+
+<footer class="footer">
+
+<h3>
+CLASS 10 SCIENCE
+</h3>
+
+<p>
+Chapter 13 — Our Environment
+</p>
+
+<p>
+Hindi Notes • Colourful Diagrams • Exam Revision
+</p>
+
+</footer>
+
+</body>
+</html>
