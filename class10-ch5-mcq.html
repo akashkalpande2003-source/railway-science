@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Life Processes | TCS Style Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f4f6f9;
+    color:#222;
+    line-height:1.6;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#172554;
+    color:white;
+    padding:14px 18px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+}
+
+.header-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.header-title{
+    font-size:19px;
+    font-weight:700;
+}
+
+.header-sub{
+    font-size:12px;
+    opacity:.9;
+    margin-top:2px;
+}
+
+/* ================= PALETTE BUTTON ================= */
+
+.palette-btn{
+    position:fixed;
+    right:14px;
+    top:76px;
+    z-index:1200;
+    background:#f59e0b;
+    color:#111827;
+    border:none;
+    border-radius:8px;
+    padding:10px 13px;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow:0 3px 10px rgba(0,0,0,.25);
+}
+
+/* ================= PALETTE ================= */
+
+.palette{
+    position:fixed;
+    top:118px;
+    right:12px;
+    width:310px;
+    max-width:calc(100% - 24px);
+    background:white;
+    border-radius:10px;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
+    z-index:1150;
+    padding:15px;
+    display:none;
+    border:1px solid #ddd;
+}
+
+.palette.show{
+    display:block;
+}
+
+.palette-title{
+    font-size:17px;
+    font-weight:bold;
+    color:#172554;
+    border-bottom:1px solid #ddd;
+    padding-bottom:8px;
+    margin-bottom:10px;
+}
+
+.palette-info{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    font-size:11px;
+    margin-bottom:12px;
+}
+
+.legend{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:3px;
+    display:inline-block;
+}
+
+.dot.correct{
+    background:#16a34a;
+}
+
+.dot.wrong{
+    background:#dc2626;
+}
+
+.dot.skip{
+    background:#e5e7eb;
+    border:1px solid #bbb;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:6px;
+    max-height:390px;
+    overflow-y:auto;
+}
+
+.palette-item{
+    height:31px;
+    border:1px solid #cbd5e1;
+    border-radius:5px;
+    background:#f8fafc;
+    cursor:pointer;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.palette-item:hover{
+    transform:scale(1.04);
+}
+
+.palette-item.correct{
+    background:#16a34a;
+    color:white;
+    border-color:#16a34a;
+}
+
+.palette-item.wrong{
+    background:#dc2626;
+    color:white;
+    border-color:#dc2626;
+}
+
+.palette-item.current{
+    outline:3px solid #f59e0b;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    max-width:900px;
+    margin:25px auto;
+    padding:0 15px 40px;
+}
+
+/* ================= TOP INFO ================= */
+
+.test-info{
+    background:white;
+    border-radius:10px;
+    padding:17px;
+    margin-bottom:15px;
+    border-left:5px solid #172554;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.test-info h1{
+    font-size:21px;
+    color:#172554;
+    margin-bottom:5px;
+}
+
+.test-info p{
+    font-size:13px;
+    color:#555;
+}
+
+.badges{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-top:10px;
+}
+
+.badge{
+    background:#eef2ff;
+    color:#172554;
+    border-radius:15px;
+    padding:4px 9px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+/* ================= QUESTION CARD ================= */
+
+.question-card{
+    background:white;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+.question-header{
+    background:#172554;
+    color:white;
+    padding:12px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.question-number{
+    font-size:16px;
+    font-weight:bold;
+}
+
+.question-count{
+    font-size:12px;
+    opacity:.9;
+}
+
+.question-body{
+    padding:20px;
+}
+
+.question-text{
+    font-size:17px;
+    font-weight:600;
+    line-height:1.75;
+    margin-bottom:18px;
+}
+
+/* ================= OPTIONS ================= */
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.option{
+    width:100%;
+    text-align:left;
+    padding:13px 15px;
+    border:1px solid #cbd5e1;
+    background:#fff;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.15s;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.option:hover{
+    background:#f8fafc;
+    border-color:#172554;
+}
+
+.option-letter{
+    min-width:27px;
+    height:27px;
+    border-radius:50%;
+    background:#e5e7eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    font-size:12px;
+}
+
+.option-text{
+    flex:1;
+}
+
+.option.correct{
+    background:#dcfce7;
+    border-color:#16a34a;
+    color:#166534;
+}
+
+.option.correct .option-letter{
+    background:#16a34a;
+    color:white;
+}
+
+.option.wrong{
+    background:#fee2e2;
+    border-color:#dc2626;
+    color:#991b1b;
+}
+
+.option.wrong .option-letter{
+    background:#dc2626;
+    color:white;
+}
+
+.option.disabled{
+    cursor:default;
+}
+
+/* ================= EXPLANATION ================= */
+
+.explanation{
+    margin-top:18px;
+    border-radius:8px;
+    overflow:hidden;
+    display:none;
+}
+
+.explanation.show{
+    display:block;
+}
+
+.explanation-title{
+    background:#172554;
+    color:white;
+    padding:9px 12px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.explanation-content{
+    background:#f8fafc;
+    border:1px solid #dbe2ea;
+    border-top:none;
+    padding:13px;
+    font-size:14px;
+}
+
+.answer-line{
+    margin-bottom:7px;
+    font-weight:bold;
+}
+
+.result-correct{
+    color:#15803d;
+}
+
+.result-wrong{
+    color:#dc2626;
+}
+
+/* ================= NAVIGATION ================= */
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:18px;
+}
+
+.nav-btn{
+    border:none;
+    border-radius:7px;
+    padding:11px 22px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.prev-btn{
+    background:#e5e7eb;
+    color:#111827;
+}
+
+.next-btn{
+    background:#172554;
+    color:white;
+}
+
+.nav-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+/* ================= RESULT ================= */
+
+.result-screen{
+    display:none;
+    background:white;
+    border-radius:12px;
+    padding:25px 18px;
+    box-shadow:0 3px 15px rgba(0,0,0,.1);
+    text-align:center;
+}
+
+.result-screen.show{
+    display:block;
+}
+
+.result-screen h2{
+    color:#172554;
+    margin-bottom:15px;
+}
+
+.result-total{
+    font-size:30px;
+    font-weight:bold;
+    color:#172554;
+    margin-bottom:18px;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:20px 0;
+}
+
+.result-box{
+    border-radius:8px;
+    padding:15px 8px;
+}
+
+.result-box strong{
+    display:block;
+    font-size:25px;
+}
+
+.result-box span{
+    font-size:12px;
+}
+
+.correct-box{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.wrong-box{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.skip-box{
+    background:#f1f5f9;
+    color:#475569;
+}
+
+.restart-btn{
+    border:none;
+    background:#f59e0b;
+    color:#111827;
+    padding:12px 24px;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    text-align:center;
+    color:#64748b;
+    font-size:11px;
+    padding:20px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .header{
+        padding:11px 12px;
+    }
+
+    .header-title{
+        font-size:16px;
+    }
+
+    .header-sub{
+        font-size:10px;
+    }
+
+    .palette-btn{
+        top:62px;
+        right:9px;
+        padding:8px 10px;
+        font-size:11px;
+    }
+
+    .palette{
+        top:101px;
+        right:8px;
+        width:295px;
+    }
+
+    .palette-grid{
+        grid-template-columns:repeat(7,1fr);
+    }
+
+    .container{
+        margin-top:18px;
+        padding:0 9px 30px;
+    }
+
+    .test-info{
+        padding:13px;
+    }
+
+    .test-info h1{
+        font-size:18px;
+    }
+
+    .question-body{
+        padding:14px;
+    }
+
+    .question-text{
+        font-size:15px;
+    }
+
+    .option{
+        font-size:14px;
+        padding:11px;
+    }
+
+    .navigation{
+        position:sticky;
+        bottom:0;
+        background:#f4f6f9;
+        padding:8px 0;
+        z-index:500;
+    }
+
+    .nav-btn{
+        flex:1;
+        padding:10px 8px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+    <div class="header-inner">
+        <div>
+            <div class="header-title">Railway Science</div>
+            <div class="header-sub">Life Processes | TCS Style Mock Test</div>
+        </div>
+    </div>
+</header>
+
+<!-- ================= PALETTE BUTTON ================= -->
+
+<button class="palette-btn" onclick="togglePalette()">
+    ☰ Palette
+</button>
+
+<!-- ================= PALETTE ================= -->
+
+<div class="palette" id="palette">
+
+    <div class="palette-title">
+        Question Palette
+    </div>
+
+    <div class="palette-info">
+        <div class="legend">
+            <span class="dot correct"></span> Correct
+        </div>
+
+        <div class="legend">
+            <span class="dot wrong"></span> Wrong
+        </div>
+
+        <div class="legend">
+            <span class="dot skip"></span> Unattempted
+        </div>
+    </div>
+
+    <div class="palette-grid" id="paletteGrid"></div>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+    <div class="test-info">
+
+        <h1>अध्याय 5: जैव प्रक्रम</h1>
+
+        <p>
+            Life Processes — RRB ALP / Technician / JE
+            TCS Style Mock Test
+        </p>
+
+        <div class="badges">
+            <span class="badge">50 Questions</span>
+            <span class="badge">No Timer</span>
+            <span class="badge">No Negative Marking</span>
+            <span class="badge">Instant Explanation</span>
+        </div>
+
+    </div>
+
+    <!-- QUESTION AREA -->
+
+    <div id="quizArea">
+
+        <div class="question-card">
+
+            <div class="question-header">
+
+                <div class="question-number" id="questionNumber">
+                    प्रश्न 1
+                </div>
+
+                <div class="question-count" id="questionCount">
+                    1 / 50
+                </div>
+
+            </div>
+
+            <div class="question-body">
+
+                <div class="question-text" id="questionText"></div>
+
+                <div class="options" id="options"></div>
+
+                <div class="explanation" id="explanation">
+
+                    <div class="explanation-title">
+                        Explanation
+                    </div>
+
+                    <div class="explanation-content">
+
+                        <div class="answer-line" id="answerLine"></div>
+
+                        <div id="explanationText"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- NAVIGATION -->
+
+        <div class="navigation">
+
+            <button
+                class="nav-btn prev-btn"
+                id="prevBtn"
+                onclick="previousQuestion()">
+                ← Previous
+            </button>
+
+            <button
+                class="nav-btn next-btn"
+                id="nextBtn"
+                onclick="nextQuestion()">
+                Next →
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= RESULT ================= -->
+
+    <div class="result-screen" id="resultScreen">
+
+        <h2>🎯 Test Result</h2>
+
+        <div class="result-total" id="resultTotal">
+            0 / 50
+        </div>
+
+        <div class="result-grid">
+
+            <div class="result-box correct-box">
+                <strong id="correctCount">0</strong>
+                <span>Correct</span>
+            </div>
+
+            <div class="result-box wrong-box">
+                <strong id="wrongCount">0</strong>
+                <span>Wrong</span>
+            </div>
+
+            <div class="result-box skip-box">
+                <strong id="skipCount">0</strong>
+                <span>Skipped</span>
+            </div>
+
+        </div>
+
+        <button
+            class="restart-btn"
+            onclick="restartTest()">
+            Restart Test
+        </button>
+
+    </div>
+
+</main>
+
+<div class="footer">
+    Railway Science | Life Processes Mock Test
+</div>
+
+<script>
+
+/* =========================================================
+   QUESTION DATABASE
+========================================================= */
+
+const questions = [
+
+{
+q:`निम्नलिखित में से कौन-सी जीवन प्रक्रिया, ऑक्सीजन की अनुपस्थिति में ग्लूकोज के विघटन का कारण बनती है?`,
+options:[
+`पाचन`,
+`उत्सर्जन`,
+`वायवीय श्वसन`,
+`किण्वन`
+],
+answer:3,
+exp:`ऑक्सीजन की अनुपस्थिति में ग्लूकोज के अपूर्ण विघटन से किण्वन जैसी अवायवीय प्रक्रिया होती है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा विकल्प जंतुओं में अनॉक्सी श्वसन के अंतिम उत्पाद को निरूपित करता है?`,
+options:[
+`कार्बन मोनोऑक्साइड`,
+`ऑक्सीजन`,
+`लैक्टिक अम्ल`,
+`ग्लूकोज़`
+],
+answer:2,
+exp:`जंतुओं की पेशी कोशिकाओं में ऑक्सीजन की कमी होने पर पाइरुवेट लैक्टिक अम्ल में बदल जाता है।`
+},
+
+{
+q:`अत्यधिक व्यायाम के बाद हमें पेशियों में ऐंठन का अनुभव क्यों होता है?`,
+options:[
+`क्योंकि पेशियाँ संकुचन करना बंद कर देती हैं`,
+`क्योंकि व्यायाम के दौरान रक्त प्रवाह पूरी तरह से रुक जाता है`,
+`शरीर के तापमान में कमी के कारण`,
+`लैक्टिक अम्ल के संचय के कारण`
+],
+answer:3,
+exp:`अधिक व्यायाम में ऑक्सीजन की कमी के कारण पेशियों में अवायवीय श्वसन होता है और लैक्टिक अम्ल का संचय ऐंठन से संबंधित होता है।`
+},
+
+{
+q:`व्यायाम के बाद पेशी कोशिकाएँ अधिक माइटोकांड्रियल सक्रियता प्रदर्शित करती हैं। परिणाम निम्नलिखित में से किसका संकेत देते हैं?`,
+options:[
+`कोशिकाएँ बड़ी हो जाती हैं।`,
+`सक्रियता के दौरान अधिक ऊर्जा की आवश्यकता होती है।`,
+`कोशिका विभाजन रुक जाता है।`,
+`माइटोकांड्रिया थकान का कारण बनती हैं।`
+],
+answer:1,
+exp:`माइटोकांड्रिया कोशिकीय श्वसन और ATP उत्पादन से जुड़ा है। अधिक सक्रियता में ऊर्जा की आवश्यकता बढ़ती है।`
+},
+
+{
+q:`पृथ्वी पर जीवन समस्त जीवों के लिए ऊर्जा के मुख्य स्रोत के रूप में ______ अणुओं पर निर्भर करता है।`,
+options:[
+`नाइट्रोजन-आधारित`,
+`प्रोटीन-आधारित`,
+`ऑक्सीजन-आधारित`,
+`कार्बन-आधारित`
+],
+answer:3,
+exp:`जीवों में ऊर्जा प्रदान करने वाले अधिकांश जैविक अणु कार्बन-आधारित होते हैं।`
+},
+
+{
+q:`श्वसन के बारे में निम्नलिखित कथनों का उनकी सही विशेषताओं से मिलान करें।
+
+a. वायवीय श्वसन
+i. ऑक्सीजन की आवश्यकता नहीं होती है
+
+d. अवायवीय श्वसन
+ii. माइटोकांड्रिया
+
+c. ऑक्सीजन की उपस्थिति में पायरुवेट का विघटन होता है
+iii. कोशिका द्रव्य
+
+b. ऑक्सीजन की अनुपस्थिति में ग्लूकोज का विघटन होता है
+iv. ऑक्सीजन की आवश्यकता होती है`,
+options:[
+`a - iv, b - i, c - iii, d - ii`,
+`a - i, b - iv, c - ii, d - iii`,
+`a - iv, b - i, c - ii, d - iii`,
+`a - i, b - iii, c - ii, d - iv`
+],
+answer:2,
+exp:`वायवीय श्वसन में ऑक्सीजन आवश्यक होती है और पाइरुवेट का आगे का विघटन माइटोकांड्रिया में होता है। अवायवीय प्रक्रिया में ऑक्सीजन की आवश्यकता नहीं होती।`
+},
+
+{
+q:`जब ATP में टर्मिनल फॉस्फेट लिंकेज को जल का उपयोग करके तोड़ा जाता है, तो ______ kJ/mol के बराबर ऊर्जा मुक्त होती है।`,
+options:[
+`71.5`,
+`50`,
+`30.5`,
+`5`
+],
+answer:2,
+exp:`ATP के terminal phosphate bond के hydrolysis से लगभग 30.5 kJ/mol ऊर्जा मुक्त होने का मान दिया जाता है।`
+},
+
+{
+q:`पर्यावरण में ऑक्सीजन की उपलब्धता में कमी सबसे पहले जंतु कोशिकाओं में वायु श्वसन के किस चरण को प्रभावित कर सकती है?`,
+options:[
+`ग्लाइकोलिसिस (Glycolysis)`,
+`इलेक्ट्रॉन अभिगमन श्रृंखला (Electron transport chain)`,
+`क्रेब चक्र (Krebs cycle)`,
+`लैक्टिक अम्ल किण्वन (Lactic acid fermentation)`
+],
+answer:1,
+exp:`Electron transport chain में ऑक्सीजन अंतिम electron acceptor की भूमिका निभाती है, इसलिए ऑक्सीजन की कमी इसे सीधे प्रभावित करती है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा एंजाइम पाचन प्रक्रिया के दौरान आमाशय में स्रावित होता है?`,
+options:[
+`पेप्सिन (Pepsin)`,
+`म्यूकस (Mucus)`,
+`ट्रिप्सिन (Trypsin)`,
+`एमाइलेज (Amylase)`
+],
+answer:0,
+exp:`पेप्सिन आमाशय में प्रोटीन के पाचन में महत्वपूर्ण भूमिका निभाने वाला enzyme है।`
+},
+
+{
+q:`मानव लार में पाए जाने वाले लाला एमाइलेज (salivary amylase) का क्या कार्य है?`,
+options:[
+`यह सामान्य शर्करा को स्टार्च में परिवर्तित करता है।`,
+`यह ऐमिनो अम्लों को प्रोटीन में परिवर्तित करता है।`,
+`यह स्टार्च को सामान्य शर्करा में परिवर्तित करता है।`,
+`यह प्रोटीन को ऐमिनो अम्ल में परिवर्तित करता है।`
+],
+answer:2,
+exp:`Salivary amylase लार में उपस्थित enzyme है जो starch के पाचन की शुरुआत करता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा एंजाइम, लार (saliva) में होता है?`,
+options:[
+`सलाइवरी एमाइलेज`,
+`सलाइवरी प्रोटीएज`,
+`कोई एंजाइम नहीं होता है।`,
+`सलाइवरी लाइपेज`
+],
+answer:0,
+exp:`लार में salivary amylase पाया जाता है, जो starch के पाचन में सहायता करता है।`
+},
+
+{
+q:`मनुष्यों में जटिल शर्करा अणुओं को सरल ग्लूकोज में तोड़ने के लिए कौन-सा एंजाइम जिम्मेदार है?`,
+options:[
+`पित्त रस (Bile Juice)`,
+`एमाइलेज (Amylase)`,
+`लाइपेज (Lipase)`,
+`पेप्सिन (Pepsin)`
+],
+answer:1,
+exp:`Amylase carbohydrate/starch के पाचन में सहायता करता है।`
+},
+
+{
+q:`लार में मौजूद कौन-सा एंजाइम, स्टार्च को तोड़ने में सहायक होता है?`,
+options:[
+`लाइपेज़ (लाइपेज)`,
+`ट्रिप्सिन (Trypsin)`,
+`एमाइलेज (Amylase)`,
+`पेप्सिन (Pepsin)`
+],
+answer:2,
+exp:`Salivary amylase starch के पाचन में सहायता करता है।`
+},
+
+{
+q:`जीभ मुख्य रूप से ______ पाचन में सहायता करती है।`,
+options:[
+`भोजन को छोटे टुकड़ों में पीसकर`,
+`भोजन को लार के साथ मिलाकर`,
+`पोषक तत्वों को अवशोषित करके`,
+`पाचन एंजाइमों का स्राव करके`
+],
+answer:1,
+exp:`जीभ भोजन को घुमाकर और लार के साथ मिलाकर निगलने योग्य bolus बनाने में सहायता करती है।`
+},
+
+{
+q:`मनुष्यों जैसे बहुकोशिकीय जीवों में, पाचन ______ में होती है।`,
+options:[
+`केन्द्रक (nucleus)`,
+`संपूर्ण कोशिका सतह (entire cell surface)`,
+`खाद्य रस्धानियों (food vacuoles)`,
+`विशिष्ट पाचक अंगों (specialised digestive organs)`
+],
+answer:3,
+exp:`बहुकोशिकीय जंतुओं में भोजन का पाचन विशिष्ट digestive organs के माध्यम से होता है।`
+},
+
+{
+q:`मानव पाचन तंत्र में क्रमाकुंचक गतियों (peristaltic movements) की क्या भूमिका है?`,
+options:[
+`पाचक एंजाइमों का उत्पादन करना`,
+`भोजन को पाचन पथ में आगे की ओर धकेलना`,
+`रक्त में पोषक तत्वों को अवशोषित करना`,
+`आमाशय में प्रोटीन का पाचन करना`
+],
+answer:1,
+exp:`Peristaltic movements पाचन नली की पेशियों के क्रमिक संकुचन द्वारा भोजन को आगे बढ़ाती हैं।`
+},
+
+{
+q:`मानव पाचन में पित्त का मुख्य कार्य क्या है?`,
+options:[
+`आमाशय में प्रोटीन को पूरी तरह से पचाना`,
+`भोजन को क्षारीय बनाना और बड़ी वसा की बूंदों का इमल्सीकरण करना`,
+`आसानी से निगलने के लिए भोजन को लार के साथ मिलाना`,
+`यकृत में ग्लूकोज को ग्लाइकोजन में परिवर्तित करना`
+],
+answer:1,
+exp:`Bile भोजन को alkaline बनाने और fats की बड़ी बूंदों को छोटी बूंदों में emulsify करने में सहायता करता है।`
+},
+
+{
+q:`पशुओं में मुख्य परिवहन तंत्र कौन-सा होता है?`,
+options:[
+`तंत्रिका-तंत्र`,
+`पेशी-तंत्र`,
+`परिसंचारी-तंत्र`,
+`श्वसन-तंत्र`
+],
+answer:2,
+exp:`बहुकोशिकीय जंतुओं में पदार्थों के transport के लिए circulatory system महत्वपूर्ण है।`
+},
+
+{
+q:`बहुकोशिकीय जीवों में, केवल सरल विसरण (simple diffusion) ही सभी कोशिकाओं की आवश्यकताओं को पूर्ण क्यों नहीं कर सकता?`,
+options:[
+`क्योंकि सभी कोशिकाएं प्रत्यक्ष रूप से वायु के संपर्क में होती हैं`,
+`क्योंकि विसरण केवल ऑक्सीजन का परिवहन करता है`,
+`क्योंकि विसरण के लिए प्रकाश की आवश्यकता होती है`,
+`क्योंकि शरीर का आकार और जटिलता बढ़ जाती है`
+],
+answer:3,
+exp:`जैसे-जैसे जीव का आकार और जटिलता बढ़ती है, सभी कोशिकाओं तक पदार्थों को केवल diffusion से पहुँचाना पर्याप्त नहीं रहता।`
+},
+
+{
+q:`रक्त में, ऑक्सीजन का परिवहन ______ द्वारा होता है।`,
+options:[
+`रक्त बिंबाणु`,
+`लसीका`,
+`श्वेत रक्त कणिकाओं`,
+`लाल रक्त कणिकाओं`
+],
+answer:3,
+exp:`RBC में haemoglobin होता है, जो oxygen को बाँधकर उसका transport करता है।`
+},
+
+{
+q:`मछलियों के हृदयों में ______ कक्ष होते हैं और उनका रक्त एक पूर्ण चक्र में केवल ______ हृदय से होकर गुजरता है।`,
+options:[
+`चार; एक बार`,
+`दो; दो बार`,
+`तीन; दो बार`,
+`दो; एक बार`
+],
+answer:3,
+exp:`मछली का हृदय दो कक्षों वाला होता है और single circulation में रक्त एक पूर्ण चक्र में हृदय से एक बार गुजरता है।`
+},
+
+{
+q:`उच्च ऊर्जा आवश्यकताओं और नियत शरीर तापमान वाले जंतुओं, जैसे कि पक्षियों और स्तनधारियों, में ______ कोष्ठीय हृदय होता है।`,
+options:[
+`दो`,
+`एक`,
+`चार`,
+`तीन`
+],
+answer:2,
+exp:`पक्षियों और स्तनधारियों में चार-कक्षीय हृदय पाया जाता है, जिससे oxygenated और deoxygenated blood अलग रहता है।`
+},
+
+{
+q:`एल्वियोली ______ के एक व्यापक नेटवर्क से घिरी होती है, जहां ______ का आदान-प्रदान होता है।`,
+options:[
+`तंत्रिकाओं; आवेगों`,
+`श्वसनी; वायु`,
+`केशिकाओं; गैसों`,
+`पेशियों; दाब`
+],
+answer:2,
+exp:`Alveoli के चारों ओर blood capillaries का विस्तृत network होता है, जहाँ oxygen और carbon dioxide का exchange होता है।`
+},
+
+{
+q:`निम्नलिखित में से क्या केंद्रीय तंत्रिका तंत्र और शरीर के अन्य भागों के बीच संचार को सुगम बनाता है?`,
+options:[
+`मेरूदंड`,
+`ऐच्छिक पेशियाँ`,
+`परिधीय तंत्रिकातंत्र`,
+`अनेच्छिक पेशियाँ`
+],
+answer:2,
+exp:`Peripheral nervous system केंद्रीय तंत्रिका तंत्र को शरीर के विभिन्न भागों से जोड़ता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, मानव में केंद्रीय तंत्रिका तंत्र का एक भाग है?`,
+options:[
+`कपाल तंत्रिकाएँ (Cranial nerves)`,
+`मेरु तंत्रिकाएँ (Spinal nerves)`,
+`ग्रसनी (Pharynx)`,
+`मेरु रज्जु (Spinal cord)`
+],
+answer:3,
+exp:`Central nervous system में brain और spinal cord शामिल होते हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, हमारे शरीर के केंद्रीय तंत्रिका तंत्र का भाग है?`,
+options:[
+`आमाशय`,
+`अग्न्याशय`,
+`मेरुरज्जू`,
+`यकृत`
+],
+answer:2,
+exp:`मेरुरज्जू (spinal cord) केंद्रीय तंत्रिका तंत्र का प्रमुख भाग है।`
+},
+
+{
+q:`निम्नलिखित अंगों में से कौन-सा अंग वृद्धि हार्मोन मोचन कारक को विमोचित करता है, जो वृद्धि हार्मोन विमोचित करने के लिए पीयूष ग्रंथि को उद्दीपित करता है?`,
+options:[
+`अधिवृक्क ग्रंथियां`,
+`अधश्चेतक (हाइपोथैलेमस)`,
+`अग्न्याशय`,
+`थाइमस`
+],
+answer:1,
+exp:`Hypothalamus growth hormone releasing hormone के माध्यम से pituitary gland को growth hormone release करने के लिए stimulate करता है।`
+},
+
+{
+q:`मानव मादाओं में निम्नलिखित में से कौन-सा अंग हार्मोन उत्पन्न कर सकता है?`,
+options:[
+`लार ग्रंथियाँ (Salivary glands)`,
+`गर्भाशय ग्रीवा (Cervix)`,
+`फैलोपियन ट्यूब (Fallopian tubes)`,
+`अंडाशय (Ovaries)`
+],
+answer:3,
+exp:`Ovaries female sex hormones जैसे estrogen और progesterone के उत्पादन में महत्वपूर्ण हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, सीधे रक्त में स्रावित किया जाता है और शरीर के विभिन्न अंगों तक पहुँचाया जाता है?`,
+options:[
+`पित्त रस (Bile juice)`,
+`एड्रिनेलिन (Adrenaline)`,
+`लार (Saliva)`,
+`अग्न्याशयी रस (Pancreatic juice)`
+],
+answer:1,
+exp:`Hormones जैसे adrenaline endocrine glands द्वारा सीधे blood में release किए जाते हैं और target organs तक पहुँचते हैं।`
+},
+
+{
+q:`कई एककोशिकीय जीवों में चयापचयी-अपशिष्ट (metabolic waste) के निष्कासन का तरीका क्या है?`,
+options:[
+`किडनी से फिल्ट्रेशन के द्वारा`,
+`एक सरल विसरण प्रक्रम के द्वारा`,
+`विशिष्ट अंगों के उपयोग के द्वारा`,
+`परासरण (osmosis) के द्वारा`
+],
+answer:1,
+exp:`एककोशिकीय जीवों में metabolic wastes सामान्यतः diffusion द्वारा शरीर से बाहर निकल सकते हैं।`
+},
+
+{
+q:`जब जल guard cells में प्रवेश करता है, तो guard cells ______ और stomatal pore ______।`,
+options:[
+`सिकुड़ते हैं, बंद होता है`,
+`फूलते हैं, खुलता है`,
+`सिकुड़ते हैं, खुलता है`,
+`फूलते हैं, बंद होता है`
+],
+answer:1,
+exp:`Guard cells में water प्रवेश करने पर वे turgid हो जाती हैं और stomatal pore खुल जाता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सी प्रक्रिया organism के बाहर से food/energy को शरीर के अंदर लाने से संबंधित है?`,
+options:[
+`Respiration`,
+`Nutrition`,
+`Excretion`,
+`Transportation`
+],
+answer:1,
+exp:`Nutrition वह प्रक्रिया है जिसमें जीव बाहरी स्रोत से food और nutrients प्राप्त करता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा human excretory system से incorrectly matched है?`,
+options:[
+`Ureter — Pair`,
+`Kidney — Pair`,
+`Urinary bladder — Unpaired`,
+`Urethra — Pair`
+],
+answer:3,
+exp:`मानव में urethra सामान्यतः एकल संरचना होती है; kidneys और ureters जोड़ी में होते हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा blood का liquid component है?`,
+options:[
+`RBC`,
+`WBC`,
+`Plasma`,
+`Platelet`
+],
+answer:2,
+exp:`Plasma रक्त का तरल भाग है, जिसमें विभिन्न dissolved substances का transport होता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा plant में food transportation करता है?`,
+options:[
+`Xylem`,
+`Phloem`,
+`Epidermis`,
+`Stomata`
+],
+answer:1,
+exp:`Phloem पौधे में leaves में बने food को अन्य भागों तक transport करता है।`
+},
+
+{
+q:`पौधों में water और minerals का transport मुख्य रूप से किस tissue द्वारा होता है?`,
+options:[
+`Phloem`,
+`Xylem`,
+`Parenchyma`,
+`Collenchyma`
+],
+answer:1,
+exp:`Xylem roots से water और minerals को plant के ऊपरी भागों तक पहुँचाता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सी प्रक्रिया roots से leaves तक water और dissolved minerals की absorption तथा upward movement में सहायता करती है?`,
+options:[
+`Transpiration`,
+`Translocation`,
+`Photosynthesis`,
+`Respiration`
+],
+answer:0,
+exp:`Transpiration से उत्पन्न transpiration pull water और dissolved minerals के upward movement में सहायता करता है।`
+},
+
+{
+q:`मानव शरीर में urine कहाँ store होता है?`,
+options:[
+`Kidney`,
+`Ureter`,
+`Urinary bladder`,
+`Urethra`
+],
+answer:2,
+exp:`Kidneys urine बनाती हैं, ureters इसे bladder तक पहुँचाते हैं और urinary bladder urine को store करता है।`
+},
+
+{
+q:`Blood से CO₂ को हटाने के लिए यह किस अंग तक पहुँचती है?`,
+options:[
+`Kidney`,
+`Liver`,
+`Lungs`,
+`Stomach`
+],
+answer:2,
+exp:`Blood carbon dioxide को lungs तक लाता है, जहाँ alveoli के माध्यम से CO₂ बाहर निकलती है।`
+},
+
+{
+q:`Yeast में oxygen की अनुपस्थिति में pyruvate किसमें परिवर्तित होता है?`,
+options:[
+`Lactic acid`,
+`Ethanol और CO₂`,
+`केवल CO₂`,
+`Water और CO₂`
+],
+answer:1,
+exp:`Yeast में anaerobic respiration/fermentation के दौरान pyruvate ethanol और carbon dioxide में बदलता है।`
+},
+
+{
+q:`मांसपेशियों में oxygen की कमी होने पर pyruvate किसमें परिवर्तित होता है?`,
+options:[
+`Ethanol`,
+`Glucose`,
+`Lactic acid`,
+`Acetic acid`
+],
+answer:2,
+exp:`Oxygen की कमी में muscle cells में pyruvate lactic acid में परिवर्तित हो सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा/से कथन respiration के संबंध में सही है?
+
+(i) Alveoli में gases का exchange होता है।
+(ii) Alveoli की दीवारों में blood vessels का विस्तृत network होता है।
+(iii) मानव respiratory pigment haemoglobin है।`,
+options:[
+`केवल (i)`,
+`केवल (i) और (ii)`,
+`केवल (ii) और (iii)`,
+`(i), (ii) और (iii)`
+],
+answer:3,
+exp:`तीनों कथन सही हैं। Alveoli gas exchange के लिए अनुकूलित हैं और उनके चारों ओर capillary network होता है। Haemoglobin respiratory pigment है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा kidney की filtration unit है?`,
+options:[
+`Ureter`,
+`Nephron`,
+`Urinary bladder`,
+`Urethra`
+],
+answer:1,
+exp:`Nephron kidney की structural और functional unit है तथा urine formation में filtration सहित कई प्रक्रियाएँ होती हैं।`
+},
+
+{
+q:`मानव शरीर में kidney किस region में स्थित होती है?`,
+options:[
+`Thoracic region`,
+`Abdominal region`,
+`Cranial region`,
+`Pelvic region`
+],
+answer:1,
+exp:`Kidneys abdomen के posterior भाग में स्थित होती हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन मानव excretory system के संबंध में गलत है?`,
+options:[
+`Ureter एक जोड़ी होता है।`,
+`Urinary bladder unpaired होता है।`,
+`Kidney एक जोड़ी होती है।`,
+`Urethra एक जोड़ी होती है।`
+],
+answer:3,
+exp:`Urethra एक single tube होती है, जबकि kidneys और ureters pair में होते हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा plant में water और minerals के transport से संबंधित है?`,
+options:[
+`Xylem`,
+`Phloem`,
+`Stomata`,
+`Guard cells`
+],
+answer:0,
+exp:`Xylem roots से water और minerals को plant के अन्य भागों तक पहुँचाता है।`
+},
+
+{
+q:`पौधों में food का एक भाग से दूसरे भाग तक transport किस प्रक्रिया द्वारा होता है?`,
+options:[
+`Transpiration`,
+`Translocation`,
+`Respiration`,
+`Diffusion`
+],
+answer:1,
+exp:`Phloem के माध्यम से food का source से अन्य भागों तक transport translocation कहलाता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा ATP के संबंध में सही है?`,
+options:[
+`ATP कोशिका में ऊर्जा का प्रमुख मुद्रा-अणु है।`,
+`ATP केवल nucleus में पाया जाता है।`,
+`ATP digestion enzyme है।`,
+`ATP oxygen का transport करता है।`
+],
+answer:0,
+exp:`ATP को कोशिका की energy currency कहा जाता है क्योंकि इसके hydrolysis से उपयोगी ऊर्जा उपलब्ध होती है।`
+},
+
+{
+q:`मानव शरीर में oxygen का transport मुख्यतः किसके द्वारा किया जाता है?`,
+options:[
+`Plasma`,
+`Platelets`,
+`Haemoglobin`,
+`WBC`
+],
+answer:2,
+exp:`Haemoglobin RBC में उपस्थित respiratory pigment है जो oxygen को बाँधकर transport करता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा human respiratory system का भाग है?`,
+options:[
+`Alveoli`,
+`Nephron`,
+`Villi`,
+`Ureter`
+],
+answer:0,
+exp:`Alveoli lungs में उपस्थित microscopic air sacs हैं जहाँ oxygen और carbon dioxide का exchange होता है।`
+}
+
+];
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentQuestion = 0;
+
+let userAnswers = new Array(questions.length).fill(null);
+
+/*
+   null = unattempted
+   0/1/2/3 = selected option
+*/
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function createPalette(){
+
+    const grid = document.getElementById("paletteGrid");
+
+    grid.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const btn = document.createElement("button");
+
+        btn.className = "palette-item";
+
+        btn.textContent = index + 1;
+
+        btn.onclick = function(){
+
+            currentQuestion = index;
+
+            document.getElementById("resultScreen")
+                .classList.remove("show");
+
+            document.getElementById("quizArea")
+                .style.display = "block";
+
+            renderQuestion();
+
+            document.getElementById("palette")
+                .classList.remove("show");
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        };
+
+        grid.appendChild(btn);
+
+    });
+
+    updatePalette();
+
+}
+
+/* =========================================================
+   UPDATE PALETTE
+========================================================= */
+
+function updatePalette(){
+
+    const items =
+        document.querySelectorAll(".palette-item");
+
+    items.forEach((item,index)=>{
+
+        item.classList.remove(
+            "correct",
+            "wrong",
+            "current"
+        );
+
+        if(userAnswers[index] !== null){
+
+            if(userAnswers[index] === questions[index].answer){
+                item.classList.add("correct");
+            }else{
+                item.classList.add("wrong");
+            }
+
+        }
+
+        if(index === currentQuestion){
+            item.classList.add("current");
+        }
+
+    });
+
+}
+
+/* =========================================================
+   TOGGLE PALETTE
+========================================================= */
+
+function togglePalette(){
+
+    document
+        .getElementById("palette")
+        .classList.toggle("show");
+
+}
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion(){
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        "प्रश्न " + (currentQuestion + 1);
+
+    document.getElementById("questionCount").textContent =
+        (currentQuestion + 1) + " / " + questions.length;
+
+    document.getElementById("questionText").innerHTML =
+        formatQuestion(q.q);
+
+    const options =
+        document.getElementById("options");
+
+    options.innerHTML = "";
+
+    const letters = ["A","B","C","D"];
+
+    q.options.forEach((option,index)=>{
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.innerHTML = `
+            <span class="option-letter">
+                ${letters[index]}
+            </span>
+
+            <span class="option-text">
+                ${formatQuestion(option)}
+            </span>
+        `;
+
+        button.onclick = function(){
+
+            selectAnswer(index);
+
+        };
+
+        options.appendChild(button);
+
+    });
+
+    const explanation =
+        document.getElementById("explanation");
+
+    const answerLine =
+        document.getElementById("answerLine");
+
+    const explanationText =
+        document.getElementById("explanationText");
+
+    explanation.classList.remove("show");
+
+    answerLine.innerHTML = "";
+    explanationText.innerHTML = "";
+
+    /* Already answered */
+
+    if(userAnswers[currentQuestion] !== null){
+
+        showAnswer(
+            userAnswers[currentQuestion],
+            false
+        );
+
+    }
+
+    /* Previous button */
+
+    document.getElementById("prevBtn").disabled =
+        currentQuestion === 0;
+
+    /* Next button */
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+    if(currentQuestion === questions.length - 1){
+        nextBtn.textContent = "Finish Test ✓";
+    }else{
+        nextBtn.textContent = "Next →";
+    }
+
+    updatePalette();
+
+}
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(index){
+
+    /*
+       Once answered, do not allow changing.
+    */
+
+    if(userAnswers[currentQuestion] !== null){
+        return;
+    }
+
+    userAnswers[currentQuestion] = index;
+
+    showAnswer(index,true);
+
+    updatePalette();
+
+}
+
+/* =========================================================
+   SHOW ANSWER
+========================================================= */
+
+function showAnswer(selected,scrollToExplanation){
+
+    const q = questions[currentQuestion];
+
+    const optionButtons =
+        document.querySelectorAll(".option");
+
+    optionButtons.forEach((button,index)=>{
+
+        button.classList.add("disabled");
+
+        if(index === q.answer){
+
+            button.classList.add("correct");
+
+        }
+
+        if(
+            index === selected &&
+            selected !== q.answer
+        ){
+
+            button.classList.add("wrong");
+
+        }
+
+    });
+
+    const explanation =
+        document.getElementById("explanation");
+
+    const answerLine =
+        document.getElementById("answerLine");
+
+    const explanationText =
+        document.getElementById("explanationText");
+
+    const correctLetter =
+        ["A","B","C","D"][q.answer];
+
+    if(selected === q.answer){
+
+        answerLine.innerHTML =
+            `<span class="result-correct">
+                ✓ सही उत्तर: ${correctLetter}. ${q.options[q.answer]}
+            </span>`;
+
+    }else{
+
+        answerLine.innerHTML =
+            `<span class="result-wrong">
+                ✗ आपका उत्तर गलत है<br>
+                ✓ सही उत्तर: ${correctLetter}. ${q.options[q.answer]}
+            </span>`;
+
+    }
+
+    explanationText.textContent = q.exp;
+
+    explanation.classList.add("show");
+
+    if(scrollToExplanation){
+
+        setTimeout(()=>{
+
+            explanation.scrollIntoView({
+                behavior:"smooth",
+                block:"nearest"
+            });
+
+        },100);
+
+    }
+
+}
+
+/* =========================================================
+   NEXT QUESTION
+========================================================= */
+
+function nextQuestion(){
+
+    if(currentQuestion < questions.length - 1){
+
+        currentQuestion++;
+
+        renderQuestion();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }else{
+
+        showResult();
+
+    }
+
+}
+
+/* =========================================================
+   PREVIOUS QUESTION
+========================================================= */
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        renderQuestion();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function showResult(){
+
+    let correct = 0;
+    let wrong = 0;
+    let skipped = 0;
+
+    questions.forEach((q,index)=>{
+
+        if(userAnswers[index] === null){
+
+            skipped++;
+
+        }else if(
+            userAnswers[index] === q.answer
+        ){
+
+            correct++;
+
+        }else{
+
+            wrong++;
+
+        }
+
+    });
+
+    document.getElementById("correctCount")
+        .textContent = correct;
+
+    document.getElementById("wrongCount")
+        .textContent = wrong;
+
+    document.getElementById("skipCount")
+        .textContent = skipped;
+
+    document.getElementById("resultTotal")
+        .textContent =
+        correct + " / " + questions.length;
+
+    document.getElementById("quizArea")
+        .style.display = "none";
+
+    document.getElementById("resultScreen")
+        .classList.add("show");
+
+    document.getElementById("palette")
+        .classList.remove("show");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restartTest(){
+
+    userAnswers =
+        new Array(questions.length).fill(null);
+
+    currentQuestion = 0;
+
+    document.getElementById("resultScreen")
+        .classList.remove("show");
+
+    document.getElementById("quizArea")
+        .style.display = "block";
+
+    renderQuestion();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+/* =========================================================
+   FORMAT QUESTION
+========================================================= */
+
+function formatQuestion(text){
+
+    return text
+        .replace(/\n/g,"<br>")
+        .replace(/\*\*(.*?)\*\*/g,"<strong>$1</strong>");
+
+}
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+createPalette();
+renderQuestion();
+
+</script>
+
+</body>
+</html>
+```1
