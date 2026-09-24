@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science | Our Environment | TCS Style Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+    background:#f3f6fa;
+    color:#172033;
+    min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:64px;
+    background:#ffffff;
+    border-bottom:1px solid #dce3eb;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:800;
+    color:#164b88;
+}
+
+.logo small{
+    display:block;
+    font-size:11px;
+    color:#718096;
+    font-weight:500;
+}
+
+/* TIMER */
+
+.timer{
+    background:#fff5f5;
+    border:1px solid #ffd0d0;
+    color:#d62828;
+    padding:8px 14px;
+    border-radius:8px;
+    font-weight:800;
+    font-size:16px;
+    min-width:105px;
+    text-align:center;
+}
+
+.timer.warning{
+    background:#fff3cd;
+    color:#9a6700;
+    border-color:#ffe08a;
+}
+
+.timer.danger{
+    background:#ffe1e1;
+    color:#c1121f;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    50%{transform:scale(1.04);}
+}
+
+/* PALETTE BUTTON */
+
+.palette-btn{
+    width:44px;
+    height:44px;
+    border:none;
+    background:#164b88;
+    color:white;
+    border-radius:8px;
+    font-size:25px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.palette-btn:hover{
+    background:#0e3969;
+}
+
+/* ================= TOP INFO ================= */
+
+.exam-info{
+    background:#ffffff;
+    border-bottom:1px solid #dce3eb;
+    padding:10px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.exam-title{
+    font-weight:800;
+    color:#26364a;
+}
+
+.exam-meta{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.badge{
+    padding:5px 9px;
+    border-radius:6px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.badge.negative{
+    background:#fff0f0;
+    color:#c62828;
+}
+
+.badge.correct{
+    background:#e9f8ef;
+    color:#178447;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    max-width:1000px;
+    margin:22px auto 90px;
+    padding:0 15px;
+}
+
+/* PROGRESS */
+
+.progress-box{
+    background:white;
+    border:1px solid #dce3eb;
+    border-radius:10px;
+    padding:12px 15px;
+    margin-bottom:15px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.progress{
+    width:100%;
+    height:7px;
+    background:#e9edf2;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:#164b88;
+    width:0%;
+    transition:.3s;
+}
+
+/* QUESTION CARD */
+
+.question-card{
+    background:#ffffff;
+    border:1px solid #dce3eb;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(20,40,70,.04);
+}
+
+.question-header{
+    background:#f7f9fc;
+    border-bottom:1px solid #e2e7ee;
+    padding:14px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.q-number{
+    color:#164b88;
+    font-size:17px;
+    font-weight:800;
+}
+
+.q-topic{
+    font-size:12px;
+    color:#68778a;
+    background:#edf3f9;
+    padding:5px 9px;
+    border-radius:5px;
+    font-weight:700;
+}
+
+.question-body{
+    padding:22px 20px;
+}
+
+.question-text{
+    font-size:19px;
+    line-height:1.8;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* OPTIONS */
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.option{
+    border:1.5px solid #d9e0e8;
+    border-radius:9px;
+    padding:13px 14px;
+    cursor:pointer;
+    display:flex;
+    align-items:flex-start;
+    gap:11px;
+    transition:.15s;
+    background:#fff;
+}
+
+.option:hover{
+    border-color:#8da9c5;
+    background:#f7faff;
+}
+
+.option.selected{
+    border-color:#164b88;
+    background:#edf5ff;
+}
+
+.option-letter{
+    min-width:29px;
+    height:29px;
+    border-radius:50%;
+    border:1px solid #cbd5df;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:800;
+    font-size:13px;
+    color:#425466;
+    background:#fff;
+}
+
+.option.selected .option-letter{
+    background:#164b88;
+    color:white;
+    border-color:#164b88;
+}
+
+.option-text{
+    font-size:16px;
+    line-height:1.6;
+    flex:1;
+}
+
+/* NAVIGATION */
+
+.navigation{
+    background:#fff;
+    border:1px solid #dce3eb;
+    border-radius:10px;
+    padding:12px;
+    margin-top:15px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.nav-left,
+.nav-right{
+    display:flex;
+    gap:8px;
+}
+
+.btn{
+    border:none;
+    border-radius:7px;
+    padding:10px 16px;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.btn-prev{
+    background:#edf1f5;
+    color:#334155;
+}
+
+.btn-next{
+    background:#164b88;
+    color:#fff;
+}
+
+.btn-review{
+    background:#fff4d6;
+    color:#946200;
+    border:1px solid #f2d68a;
+}
+
+.btn-review.active{
+    background:#f59e0b;
+    color:#fff;
+}
+
+.btn-submit{
+    background:#198754;
+    color:#fff;
+}
+
+.btn-submit:hover{
+    background:#147346;
+}
+
+/* ================= PALETTE ================= */
+
+.palette-panel{
+    position:fixed;
+    top:72px;
+    right:15px;
+    width:330px;
+    max-width:calc(100vw - 30px);
+    background:white;
+    border:1px solid #d8e0e8;
+    border-radius:12px;
+    box-shadow:0 10px 35px rgba(0,0,0,.18);
+    z-index:200;
+    display:none;
+    overflow:hidden;
+}
+
+.palette-panel.show{
+    display:block;
+}
+
+.palette-head{
+    padding:14px;
+    background:#164b88;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.palette-head h3{
+    font-size:16px;
+}
+
+.close-palette{
+    border:none;
+    background:transparent;
+    color:#fff;
+    font-size:23px;
+    cursor:pointer;
+}
+
+.palette-stats{
+    padding:10px 14px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    border-bottom:1px solid #e4e9ef;
+}
+
+.status-key{
+    font-size:11px;
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+}
+
+.dot-answered{background:#198754;}
+.dot-review{background:#f59e0b;}
+.dot-unattempted{background:#cbd5e1;}
+
+.palette-grid{
+    padding:14px;
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:7px;
+    max-height:340px;
+    overflow-y:auto;
+}
+
+.palette-q{
+    height:34px;
+    border:1px solid #cbd5e1;
+    border-radius:5px;
+    background:#f8fafc;
+    cursor:pointer;
+    font-weight:800;
+    color:#475569;
+}
+
+.palette-q.answered{
+    background:#198754;
+    color:#fff;
+    border-color:#198754;
+}
+
+.palette-q.review{
+    background:#f59e0b;
+    color:#fff;
+    border-color:#f59e0b;
+}
+
+.palette-q.answered.review{
+    background:#198754;
+    box-shadow:inset 0 0 0 3px #f59e0b;
+}
+
+/* ================= RESULT ================= */
+
+.result-section{
+    display:none;
+}
+
+.result-section.show{
+    display:block;
+}
+
+.result-card{
+    background:white;
+    border:1px solid #dce3eb;
+    border-radius:12px;
+    padding:22px;
+    margin-bottom:18px;
+}
+
+.result-title{
+    font-size:24px;
+    color:#164b88;
+    font-weight:900;
+    margin-bottom:18px;
+}
+
+.score-big{
+    text-align:center;
+    padding:20px;
+    background:#f6f9fc;
+    border-radius:10px;
+    margin-bottom:18px;
+}
+
+.score-number{
+    font-size:42px;
+    font-weight:900;
+    color:#164b88;
+}
+
+.score-label{
+    color:#68778a;
+    font-weight:700;
+}
+
+.result-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+}
+
+.stat{
+    padding:15px 10px;
+    border-radius:8px;
+    text-align:center;
+    font-weight:800;
+}
+
+.stat-total{
+    background:#eef3f8;
+    color:#405266;
+}
+
+.stat-correct{
+    background:#e9f8ef;
+    color:#198754;
+}
+
+.stat-wrong{
+    background:#fff0f0;
+    color:#d62828;
+}
+
+.stat-unattempted{
+    background:#f4f4f4;
+    color:#68778a;
+}
+
+.solution-card{
+    background:#fff;
+    border:1px solid #dce3eb;
+    border-radius:10px;
+    margin-bottom:14px;
+    overflow:hidden;
+}
+
+.solution-header{
+    padding:12px 15px;
+    background:#f5f8fb;
+    border-bottom:1px solid #e0e6ed;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.solution-q{
+    font-weight:900;
+    color:#164b88;
+}
+
+.result-status{
+    padding:4px 8px;
+    border-radius:5px;
+    font-size:11px;
+    font-weight:900;
+}
+
+.status-correct{
+    background:#dff5e8;
+    color:#167542;
+}
+
+.status-wrong{
+    background:#ffe0e0;
+    color:#bd2020;
+}
+
+.status-unattempted{
+    background:#e9edf1;
+    color:#64748b;
+}
+
+.solution-body{
+    padding:15px;
+}
+
+.solution-question{
+    font-size:16px;
+    font-weight:800;
+    line-height:1.7;
+    margin-bottom:12px;
+}
+
+.answer-line{
+    padding:9px 11px;
+    border-radius:6px;
+    margin:6px 0;
+    font-size:14px;
+}
+
+.correct-answer{
+    background:#eaf8ef;
+    color:#176b3a;
+}
+
+.user-answer{
+    background:#f4f6f8;
+    color:#475569;
+}
+
+.explanation{
+    margin-top:12px;
+    background:#f8fafc;
+    border-left:4px solid #164b88;
+    padding:12px;
+    font-size:14px;
+    line-height:1.75;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .header{
+        height:58px;
+        padding:0 10px;
+    }
+
+    .logo{
+        font-size:15px;
+    }
+
+    .logo small{
+        font-size:9px;
+    }
+
+    .timer{
+        font-size:14px;
+        padding:7px 9px;
+        min-width:90px;
+    }
+
+    .palette-btn{
+        width:40px;
+        height:40px;
+        font-size:22px;
+    }
+
+    .exam-info{
+        padding:8px 10px;
+        display:block;
+    }
+
+    .exam-title{
+        font-size:13px;
+        margin-bottom:6px;
+    }
+
+    .main{
+        margin-top:12px;
+        padding:0 8px;
+    }
+
+    .question-header{
+        padding:11px 12px;
+    }
+
+    .q-number{
+        font-size:15px;
+    }
+
+    .q-topic{
+        font-size:10px;
+    }
+
+    .question-body{
+        padding:16px 13px;
+    }
+
+    .question-text{
+        font-size:17px;
+        line-height:1.7;
+    }
+
+    .option{
+        padding:11px 10px;
+    }
+
+    .option-text{
+        font-size:14px;
+    }
+
+    .navigation{
+        position:sticky;
+        bottom:0;
+        z-index:50;
+        border-radius:9px 9px 0 0;
+        padding:9px 7px;
+    }
+
+    .btn{
+        padding:9px 10px;
+        font-size:12px;
+    }
+
+    .btn-review{
+        padding:9px 9px;
+    }
+
+    .palette-grid{
+        grid-template-columns:repeat(6,1fr);
+    }
+
+    .result-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .result-card{
+        padding:15px;
+    }
+
+    .score-number{
+        font-size:35px;
+    }
+
+    .solution-question{
+        font-size:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        CLASS 10 SCIENCE
+        <small>OUR ENVIRONMENT — TCS STYLE MOCK</small>
+    </div>
+
+    <div id="timer" class="timer">
+        30:00
+    </div>
+
+    <button class="palette-btn" onclick="togglePalette()" aria-label="Question Palette">
+        ☰
+    </button>
+
+</header>
+
+<!-- ================= INFO ================= -->
+
+<div class="exam-info">
+
+    <div class="exam-title">
+        अध्याय: हमारा पर्यावरण (Our Environment)
+    </div>
+
+    <div class="exam-meta">
+        <span class="badge negative">× 1/3 Negative Marking</span>
+        <span class="badge correct">सही = +1</span>
+        <span class="badge negative">गलत = −1/3</span>
+    </div>
+
+</div>
+
+<!-- ================= PALETTE ================= -->
+
+<div id="palettePanel" class="palette-panel">
+
+    <div class="palette-head">
+        <h3>Question Palette</h3>
+        <button class="close-palette" onclick="togglePalette()">×</button>
+    </div>
+
+    <div class="palette-stats">
+
+        <div class="status-key">
+            <span class="status-dot dot-answered"></span>
+            Answered
+        </div>
+
+        <div class="status-key">
+            <span class="status-dot dot-review"></span>
+            Review
+        </div>
+
+        <div class="status-key">
+            <span class="status-dot dot-unattempted"></span>
+            Unattempted
+        </div>
+
+    </div>
+
+    <div id="paletteGrid" class="palette-grid"></div>
+
+</div>
+
+<!-- ================= TEST ================= -->
+
+<main class="main" id="testSection">
+
+    <div class="progress-box">
+
+        <div class="progress-top">
+            <span id="progressText">Question 1 of 47</span>
+            <span id="attemptText">Attempted: 0 / 47</span>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+    </div>
+
+    <div class="question-card">
+
+        <div class="question-header">
+
+            <div class="q-number" id="questionNumber">
+                Q1
+            </div>
+
+            <div class="q-topic" id="questionTopic">
+                Ecosystem
+            </div>
+
+        </div>
+
+        <div class="question-body">
+
+            <div class="question-text" id="questionText"></div>
+
+            <div class="options" id="options"></div>
+
+        </div>
+
+    </div>
+
+    <div class="navigation">
+
+        <div class="nav-left">
+
+            <button class="btn btn-prev"
+                    id="prevBtn"
+                    onclick="previousQuestion()">
+                ← Previous
+            </button>
+
+            <button class="btn btn-review"
+                    id="reviewBtn"
+                    onclick="toggleReview()">
+                Mark for Review
+            </button>
+
+        </div>
+
+        <div class="nav-right">
+
+            <button class="btn btn-next"
+                    id="nextBtn"
+                    onclick="nextQuestion()">
+                Next →
+            </button>
+
+            <button class="btn btn-submit"
+                    onclick="submitTest(false)">
+                Submit Test
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- ================= RESULT ================= -->
+
+<section class="main result-section" id="resultSection">
+
+    <div class="result-card">
+
+        <div class="result-title">
+            Test Result
+        </div>
+
+        <div class="score-big">
+
+            <div class="score-number" id="finalScore">
+                0
+            </div>
+
+            <div class="score-label">
+                Final Score
+            </div>
+
+        </div>
+
+        <div class="result-stats">
+
+            <div class="stat stat-total">
+                <div>47</div>
+                <small>Total</small>
+            </div>
+
+            <div class="stat stat-correct">
+                <div id="correctCount">0</div>
+                <small>Correct</small>
+            </div>
+
+            <div class="stat stat-wrong">
+                <div id="wrongCount">0</div>
+                <small>Wrong</small>
+            </div>
+
+            <div class="stat stat-unattempted">
+                <div id="unattemptedCount">0</div>
+                <small>Unattempted</small>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="result-card">
+
+        <div class="result-title">
+            सभी प्रश्नों के Systematic Solutions
+        </div>
+
+        <div id="solutions"></div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================================================
+   QUESTION DATA
+========================================================= */
+
+const questions = [
+
+{
+topic:"Ecosystem & Its Components",
+q:"निम्नलिखित में से कौन-सा, पारिस्थितिकी तंत्र को सर्वोत्तम रूप से परिभाषित करता है?",
+options:[
+"केवल जंतुओं का निवास स्थान",
+"जैविक और अजैविक घटकों की अन्योन्यक्रिया से निर्मित एक प्रणाली",
+"केवल पादपों का एक समूह",
+"भौतिक कारकों से रहित एक समुदाय"
+],
+answer:1,
+explanation:"पारितंत्र जैविक घटकों (पादप, जंतु, सूक्ष्मजीव) और अजैविक घटकों (वायु, जल, मृदा, ताप आदि) के बीच होने वाली अन्योन्यक्रियाओं से बनी प्रणाली है।"
+},
+
+{
+topic:"Natural & Artificial Ecosystems",
+q:"निम्नलिखित में से कौन-सा कृत्रिम पारितंत्र का उदाहरण है?",
+options:[
+"वन",
+"तालाब",
+"झील",
+"खेत"
+],
+answer:3,
+explanation:"खेत मानव द्वारा बनाया और नियंत्रित किया जाने वाला पारितंत्र है, इसलिए यह कृत्रिम पारितंत्र का उदाहरण है।"
+},
+
+{
+topic:"Producers & Trophic Levels",
+q:"खाद्य श्रृंखला की शुरुआत में सदैव किस प्रकार के जीव पाए जाते हैं?",
+options:[
+"शाकाहारी",
+"मांसाहारी",
+"अपघटक",
+"उत्पादक"
+],
+answer:3,
+explanation:"उत्पादक प्रकाश संश्लेषण द्वारा अपना भोजन बनाते हैं और खाद्य श्रृंखला में ऊर्जा का प्रारंभिक स्रोत प्रदान करते हैं।"
+},
+
+{
+topic:"Producers",
+q:"गुलाब के पौधों, चमेली के पौधों, कीटों, साँप और पक्षियों वाले बगीचे के पारिस्थितिकी तंत्र में कौन-सा समूह, सौर ऊर्जा को अवशोषित करके इसे अन्य जीवों के लिए खाद्य में रूपांतरित करता है?",
+options:[
+"गुलाब और चमेली के पौधे",
+"केवल गुलाब के पौधे",
+"कीट",
+"पक्षी"
+],
+answer:0,
+explanation:"हरे पौधे उत्पादक होते हैं। गुलाब और चमेली जैसे पौधे प्रकाश संश्लेषण द्वारा सौर ऊर्जा को रासायनिक ऊर्जा में बदलकर भोजन बनाते हैं।"
+},
+
+{
+topic:"Trophic Levels",
+q:"जीवों का कौन-सा समूह, भोजन के लिए पूर्णतः और प्रत्यक्ष रूप से उत्पादकों पर निर्भर करता है?",
+options:[
+"मांसाहारी",
+"सर्वाहारी",
+"अपघटक",
+"शाकाहारी"
+],
+answer:3,
+explanation:"शाकाहारी सीधे उत्पादकों यानी पौधों को खाते हैं। इसलिए वे प्रथम उपभोक्ता या प्राथमिक उपभोक्ता होते हैं।"
+},
+
+{
+topic:"Producers, Consumers & Decomposers",
+q:"खाद्य जाल में, शाकाहारी सामान्यतः ________ होते हैं।",
+options:[
+"द्वितीयक उपभोक्ता",
+"प्राथमिक उपभोक्ता",
+"उत्पादक",
+"अपघटक"
+],
+answer:1,
+explanation:"शाकाहारी सीधे उत्पादकों पर निर्भर होते हैं, इसलिए उन्हें प्राथमिक उपभोक्ता कहा जाता है।"
+},
+
+{
+topic:"Producers, Consumers & Decomposers",
+q:"जीवों के निम्नलिखित में से किस समूह को उपभोक्ता के रूप में वर्गीकृत नहीं किया जाता है?",
+options:[
+"अपघटक",
+"मांसाहारी",
+"शाकाहारी",
+"उत्पादक"
+],
+answer:3,
+explanation:"उत्पादक स्वयं अपना भोजन बनाते हैं, इसलिए वे उपभोक्ता नहीं होते।"
+},
+
+{
+topic:"Decomposers",
+q:"कौन-सा कथन पारिस्थितिकी तंत्र में अपघटकों की भूमिका का सही ढंग से वर्णन करता है?",
+options:[
+"वे सौर ऊर्जा को रासायनिक ऊर्जा में रूपांतरित करते हैं",
+"वे वायुमंडलीय प्रदूषण बढ़ाते हैं",
+"वे कार्बनिक पदार्थों को सरल अकार्बनिक पदार्थों में विघटित करते हैं",
+"वे प्रथम पोषी स्तर पर होते हैं"
+],
+answer:2,
+explanation:"अपघटक मृत पौधों और जंतुओं के जटिल कार्बनिक पदार्थों को सरल पदार्थों में तोड़कर पोषक तत्वों को पर्यावरण में वापस पहुँचाते हैं।"
+},
+
+{
+topic:"Decomposers",
+q:"किसी पारिस्थितिकी तंत्र में, अपघटक क्या भूमिका निभाते हैं?",
+options:[
+"वे प्रकाश संश्लेषण द्वारा भोजन का संश्लेषण करते हैं",
+"वे मांसाहारी जीवों को सीधे ऊर्जा स्थानांतरित करते हैं",
+"ये मृदा में जल स्तर को नियंत्रित करते हैं",
+"वे मृत कार्बनिक पदार्थों को विघटित करते हैं"
+],
+answer:3,
+explanation:"अपघटक मृत कार्बनिक पदार्थों को विघटित करके पोषक तत्वों के पुनर्चक्रण में सहायता करते हैं।"
+},
+
+{
+topic:"Decomposers",
+q:"निम्नलिखित में से कौन-सा जीव, मृत जीवों के जटिल कार्बनिक पदार्थों को सरल अकार्बनिक पदार्थों में विघटित करता है?",
+options:[
+"अपघटक (Decomposers)",
+"शाकाहारी (Herbivores)",
+"स्वपोषी (Autotrophs)",
+"परजीवी (Parasites)"
+],
+answer:0,
+explanation:"बैक्टीरिया और कवक जैसे अपघटक मृत कार्बनिक पदार्थों को सरल पदार्थों में परिवर्तित करते हैं।"
+},
+
+{
+topic:"Decomposers",
+q:"पारितंत्र में, मृत पदार्थों (Dead Matter) को विघटित करके पोषक तत्वों का पुनर्चक्रण करने वाले जीवों को _______ कहा जाता है।",
+options:[
+"शाकाहारी (Herbivore)",
+"निर्माता (Producer)",
+"उपभोक्ता (Consumer)",
+"अपघटक (Decomposer)"
+],
+answer:3,
+explanation:"मृत पदार्थों का अपघटन करके पोषक तत्वों को पुनः पर्यावरण में उपलब्ध कराने वाले जीव अपघटक कहलाते हैं।"
+},
+
+{
+topic:"Decomposers",
+q:"पारिस्थितिकी तंत्र में अपघटकों की क्या भूमिका है?",
+options:[
+"जीवों के मृत अवशेषों को विघटित करना",
+"पादपों की मृत्यु का कारण बनना",
+"अकार्बनिक पदार्थों से कार्बनिक पदार्थों का संश्लेषण करना",
+"प्रकाश ऊर्जा को रासायनिक ऊर्जा में परिवर्तित करना"
+],
+answer:0,
+explanation:"अपघटक मृत जीवों के अवशेषों को विघटित करते हैं और पोषक तत्वों को पुनः पर्यावरण में लौटाते हैं।"
+},
+
+{
+topic:"Food Chain",
+q:"निम्नलिखित में से कौन-सा, खाद्य श्रृंखला को सटीक रूप से दर्शाता है?",
+options:[
+"बाघ → घास → हिरण",
+"घास → हिरण → बाघ",
+"घास → बाघ → हिरण",
+"हिरण → घास → बाघ"
+],
+answer:1,
+explanation:"खाद्य श्रृंखला में ऊर्जा उत्पादक से प्राथमिक उपभोक्ता और फिर उच्च उपभोक्ता की ओर प्रवाहित होती है। इसलिए घास → हिरण → बाघ सही क्रम है।"
+},
+
+{
+topic:"Food Chain & Food Web",
+q:"खाद्य श्रृंखला और खाद्य जाल के बीच क्या अंतर है?",
+options:[
+"खाद्य श्रृंखला में ऊर्जा स्थानांतरण दक्षता खाद्य जाल की तुलना में उच्च होती है",
+"खाद्य श्रृंखलाएँ जलीय पारिस्थितिकी तंत्र में पाई जाती हैं, जबकि खाद्य जाल केवल स्थलीय पारिस्थितिकी तंत्र में पाए जाते हैं",
+"खाद्य श्रृंखला में हमेशा अपघटक शामिल होते हैं, जबकि खाद्य जाल में नहीं",
+"खाद्य श्रृंखला एक एकल रैखिक मार्ग को दर्शाती है, जबकि खाद्य जाल परस्पर जुड़े हुए आहार संबंधों को दर्शाता है"
+],
+answer:3,
+explanation:"खाद्य श्रृंखला ऊर्जा प्रवाह का एक रैखिक मार्ग दिखाती है, जबकि खाद्य जाल कई आपस में जुड़ी खाद्य श्रृंखलाओं का नेटवर्क होता है।"
+},
+
+{
+topic:"Food Chain & Food Web",
+q:"निम्नलिखित कथनों पर विचार कीजिए तथा सही विकल्प का चयन कीजिए। कथन 1: किसी पारितंत्र में खाद्य श्रृंखलाएँ अंतराबंधित होकर एक खाद्य जाल का निर्माण करती हैं। कथन 2: खाद्य जाल जीवों की परस्पर-निर्भरता को दर्शाते हैं।",
+options:[
+"कथन 1 असत्य है और कथन 2 सत्य है",
+"कथन 1 सत्य है और कथन 2 असत्य है",
+"दोनों कथन असत्य हैं",
+"दोनों कथन सत्य हैं"
+],
+answer:3,
+explanation:"एक पारितंत्र में कई खाद्य श्रृंखलाएँ आपस में जुड़कर खाद्य जाल बनाती हैं और यह जीवों के बीच खाद्य संबंध तथा परस्पर निर्भरता को दर्शाता है।"
+},
+
+{
+topic:"Food Web",
+q:"निम्नलिखित में से कौन-सा विकल्प खाद्य जाल का सर्वोत्तम वर्णन करता है?",
+options:[
+"खाद्य श्रृंखलाओं में अनेक पोषी स्तरों पर अपघटकों की भूमिका",
+"खाद्य श्रृंखलाओं में ऊर्जा अंतरण का द्वि-दिशामक मार्ग",
+"विभिन्न खाद्य श्रृंखलाओं में उत्पादकों के बीच संबंध",
+"कई खाद्य श्रृंखलाओं में पोषी स्तरों के बीच अंतर्संबंध"
+],
+answer:3,
+explanation:"खाद्य जाल विभिन्न खाद्य श्रृंखलाओं के बीच मौजूद अंतर्संबंधों को दर्शाता है।"
+},
+
+{
+topic:"Food Web",
+q:"खाद्य जाल, पारिस्थितिकी तंत्र के स्थायित्व को बनाए रखने में सहायता करते हैं क्योंकि वे _______।",
+options:[
+"प्रतिस्पर्धा में वृद्धि करते हैं",
+"ऊर्जा प्रवाह को रोकते हैं",
+"वैकल्पिक खाद्य स्रोत प्रदान करते हैं",
+"उपभोक्ताओं की संख्या में कमी करते हैं"
+],
+answer:2,
+explanation:"खाद्य जाल में किसी जीव के लिए एक से अधिक खाद्य विकल्प हो सकते हैं। इसलिए एक खाद्य स्रोत कम होने पर वैकल्पिक स्रोत उपलब्ध हो सकते हैं।"
+},
+
+{
+topic:"Food Web",
+q:"खाद्य श्रृंखलाओं की तुलना में खाद्य जालों को अधिक स्थायी क्यों माना जाता है?",
+options:[
+"ये पोषी स्तरों के बीच ऊर्जा अंतरण नहीं दर्शाते हैं",
+"इनमें कोई मांसाहारी नहीं होते हैं",
+"इनमें उत्पादकों की संख्या अधिक होती है",
+"ये कई खाद्य संभावनाएँ प्रदर्शित करते हैं"
+],
+answer:3,
+explanation:"खाद्य जाल कई वैकल्पिक खाद्य संबंध प्रदान करता है, जिससे पारितंत्र में स्थिरता बनी रहने में सहायता मिलती है।"
+},
+
+{
+topic:"Food Web",
+q:"घास स्थल के खाद्य जाल में, घास को खरगोश और कीट खाते हैं। मेंढक, कीटों को खाते हैं, जबकि लोमड़ियाँ, खरगोशों को खाती हैं। यदि कीटों की संख्या में तीव्र गिरावट आती है, तो सबसे संभावित प्रभाव क्या हो सकता है?",
+options:[
+"लोमड़ियों की संख्या तीव्रता से बढ़ेगी",
+"घास समष्टि नष्ट हो जाएगी",
+"मेंढकों की संख्या एकाएक कम हो जाएगी",
+"खरगोशों की संख्या में ह्रास होगा"
+],
+answer:2,
+explanation:"मेंढक कीटों पर निर्भर हैं। कीटों की संख्या में तेज कमी होने पर मेंढकों के लिए भोजन कम हो जाएगा और उनकी संख्या घट सकती है।"
+},
+
+{
+topic:"Food Chain",
+q:"यदि किसी खाद्य श्रृंखला के सभी सर्प लुप्त हो जाते हैं, तो खाद्य श्रृंखला पर तात्कालिक प्रभाव क्या होगा?",
+options:[
+"बाघों की समष्टि में वृद्धि होगी",
+"घास की समष्टि में कमी होगी",
+"वृक्षों की समष्टि में कमी होगी",
+"मेंढकों की समष्टि में वृद्धि होगी"
+],
+answer:3,
+explanation:"यदि साँप मेंढकों का शिकार करते हैं, तो साँपों के समाप्त होने पर मेंढकों पर शिकार का दबाव कम होगा और उनकी संख्या बढ़ सकती है।"
+},
+
+{
+topic:"Trophic Levels",
+q:"किसी घास के मैदान के पारिस्थितिकी तंत्र में, किस जीव की संख्या सर्वाधिक होगी?",
+options:[
+"मेंढक",
+"घास",
+"सर्प",
+"बाज"
+],
+answer:1,
+explanation:"घास उत्पादक है और खाद्य पिरामिड के आधार पर होती है। सामान्यतः उत्पादकों की संख्या/जैवभार सबसे अधिक होता है।"
+},
+
+{
+topic:"Trophic Levels",
+q:"निम्नलिखित में से किस जीव के एक से अधिक पोषी स्तरों (Trophic Levels) पर होने की संभावना है?",
+options:[
+"बाघ",
+"खरगोश",
+"मोर",
+"हिरण"
+],
+answer:2,
+explanation:"मोर पौधों के भागों के साथ-साथ कीटों जैसे जीवों को भी खा सकता है। इसलिए अलग-अलग खाद्य श्रृंखलाओं में इसका पोषी स्तर बदल सकता है।"
+},
+
+{
+topic:"Energy Flow",
+q:"स्वपोषियों द्वारा स्थिर की गई अधिकांश ऊर्जा प्रत्येक पोषी स्तर पर ________।",
+options:[
+"कार्बनिक पदार्थ में परिवर्तित हो जाती है",
+"संचलन के लिए उपयोग की जाती है",
+"ऊष्मा के रूप में पर्यावरण में नष्ट हो जाती है",
+"जीव में संग्रहीत हो जाती है"
+],
+answer:2,
+explanation:"जीव अपनी उपापचयी क्रियाओं में ऊर्जा का उपयोग करते हैं और ऊर्जा का बड़ा भाग ऊष्मा के रूप में पर्यावरण में मुक्त हो जाता है।"
+},
+
+{
+topic:"Energy Flow",
+q:"पारिस्थितिकी तंत्र में ऊर्जा प्रवाह के संबंध में निम्नलिखित में से कौन-सा कथन सही है?",
+options:[
+"पारिस्थितिकी तंत्र में अधिकांश ऊर्जा जैवभार निर्माण के लिए उपयोग होती है",
+"पारिस्थितिकी तंत्र में अपघटकों द्वारा ऊर्जा का पुनर्चक्रण किया जाता है",
+"पारिस्थितिकी तंत्र में ऊर्जा प्रवाह एकदिशीय होता है",
+"पारिस्थितिकी तंत्र में ऊर्जा स्थिर रहती है"
+],
+answer:2,
+explanation:"ऊर्जा सूर्य से उत्पादकों और फिर विभिन्न उपभोक्ता स्तरों तक जाती है तथा अंततः ऊष्मा के रूप में नष्ट होती है। इसलिए ऊर्जा प्रवाह एकदिशीय है।"
+},
+
+{
+topic:"Ten Percent Law",
+q:"खाद्य श्रृंखलाओं में सामान्यतः केवल 3–4 पोषी स्तर ही क्यों होते हैं?",
+options:[
+"अगले पोषी स्तर तक ऊर्जा उपलब्धता अत्यंत निम्न होती है",
+"अपघटक खाद्य श्रृंखला को समाप्त कर देते हैं",
+"शीर्ष मांसाहारियों को कोई अन्य जीव नहीं खा सकते हैं",
+"उत्पादक समष्टि निम्न होती है"
+],
+answer:0,
+explanation:"10% नियम के अनुसार एक पोषी स्तर की लगभग 10% ऊर्जा ही अगले पोषी स्तर तक पहुँचती है। इसलिए उच्च स्तरों पर उपलब्ध ऊर्जा बहुत कम रह जाती है।"
+},
+
+{
+topic:"Biological Magnification",
+q:"पोषी स्तरों के माध्यम से हानिकारक रसायनों की सांद्रता में क्रमिक रूप से होने वाली वृद्धि को _______ कहा जाता है।",
+options:[
+"अपघटन",
+"जैव आवर्धन",
+"पुनर्चक्रण",
+"प्रदूषण"
+],
+answer:1,
+explanation:"खाद्य श्रृंखला में गैर-जैवनिम्नीकरणीय रसायनों की सांद्रता के बढ़ते जाने को जैव आवर्धन कहते हैं।"
+},
+
+{
+topic:"Biological Magnification",
+q:"गैर-जैव निम्नीकरणीय पदार्थ जैविक आवर्धन क्यों प्रदर्शित करते हैं?",
+options:[
+"वे जीवों में बने रहते हैं",
+"उन्हें जीवों द्वारा शीघ्र विघटित किया जाता है",
+"वे जीवों को ऊर्जा प्रदान करते हैं",
+"उन्हें जीवों द्वारा ग्रहण नहीं किया जाता है"
+],
+answer:0,
+explanation:"अजैव-निम्नीकरणीय पदार्थ आसानी से विघटित नहीं होते और जीवों के ऊतकों में बने रह सकते हैं। खाद्य श्रृंखला में आगे बढ़ने पर उनकी सांद्रता बढ़ सकती है।"
+},
+
+{
+topic:"Biological Magnification",
+q:"किस प्रकार के प्रदूषक मुख्य रूप से जैविक आवर्धन के लिए उत्तरदायी होते हैं?",
+options:[
+"रव प्रदूषक (Noise pollutants)",
+"तापीय प्रदूषक (Thermal pollutants)",
+"अपघटनशील प्रदूषक (Decomposable pollutants)",
+"अजैव-निम्नीकरणीय प्रदूषक (Non-biodegradable pollutants)"
+],
+answer:3,
+explanation:"DDT जैसे अजैव-निम्नीकरणीय प्रदूषक जीवों में लंबे समय तक बने रहते हैं और खाद्य श्रृंखला में जैव आवर्धन करते हैं।"
+},
+
+{
+topic:"Biological Magnification",
+q:"उच्चतर पोषी स्तरों पर जैविक आवर्धन क्यों बढ़ता है?",
+options:[
+"खाद्य श्रृंखला में उच्चतर स्तरों पर ऊर्जा बढ़ती है",
+"रसायन निम्नीकृत नहीं होते हैं और वे प्रत्येक पोषी स्तर पर संचित होते हैं",
+"प्रत्येक पोषी स्तर पर जलांश बढ़ता है",
+"रसायन निम्नीकृत होते हैं और वे केवल उच्चतर पोषी स्तरों पर ही संचित होते हैं"
+],
+answer:1,
+explanation:"अजैव-निम्नीकरणीय रसायन आसानी से टूटते नहीं हैं। प्रत्येक उच्च पोषी स्तर पर उनका संचयन बढ़ता जाता है।"
+},
+
+{
+topic:"Biological Magnification",
+q:"खाद्य श्रृंखला में, जैविक आवर्धन से शीर्ष-स्तरीय उपभोक्ता सर्वाधिक प्रभावित क्यों होते हैं?",
+options:[
+"वे खाद्य श्रृंखला के माध्यम से उच्चतम सांद्रता में विष संचित करते हैं",
+"वे अन्यों की तुलना में अल्प मात्रा में खाद्य ग्रहण करते हैं",
+"पारिस्थितिकी तंत्र में इनका जीवनकाल सबसे कम होता है",
+"वे प्राथमिक उत्पादक हैं और इस प्रकार विष के संपर्क में आने वाले प्रथम होते हैं"
+],
+answer:0,
+explanation:"शीर्ष उपभोक्ता कई निम्न पोषी स्तरों के जीवों को खाते हैं, इसलिए अजैव-निम्नीकरणीय विषैले पदार्थों की अधिकतम सांद्रता उनमें जमा हो सकती है।"
+},
+
+{
+topic:"Biological Magnification",
+q:"किसी खाद्य श्रृंखला में, अजैव-निम्नीकरणीय प्रदूषकों की अधिकतम सांद्रता निम्नलिखित में से किसमें पाई जाती है?",
+options:[
+"अपघटक",
+"शीर्ष मांसाहारी",
+"उत्पादक",
+"शाकाहारी"
+],
+answer:1,
+explanation:"जैव आवर्धन के कारण खाद्य श्रृंखला के उच्चतम पोषी स्तर पर मौजूद शीर्ष मांसाहारी में प्रदूषक की सांद्रता सर्वाधिक हो सकती है।"
+},
+
+{
+topic:"Biological Magnification",
+q:"यदि एक अजैव-निम्नीकरणीय रसायन जल में 0.02 ppm की सांद्रता से खाद्य श्रृंखला में प्रवेश करता है, तो समय के साथ क्या होगा?",
+options:[
+"यह पारिस्थितिकी तंत्र से पूर्णतः लुप्त हो जाएगा",
+"यह केवल उत्पादकों तक ही सीमित रहेगा",
+"यह उच्चतम पोषी स्तरों पर अधिकतम संचयन दर्शाएगा",
+"उच्चतम पोषी स्तरों पर इसकी सांद्रता कम हो जाएगी"
+],
+answer:2,
+explanation:"अजैव-निम्नीकरणीय पदार्थ खाद्य श्रृंखला में ऊपर जाते हुए जैव आवर्धन के कारण उच्च पोषी स्तरों पर अधिक मात्रा में जमा होते हैं।"
+},
+
+{
+topic:"Biological Magnification",
+q:"खाद्य श्रृंखला: घास → टिड्डा → मेंढक → सर्प → गरुड़ में, DDT का संचय सर्वाधिक ________ में होगा।",
+options:[
+"टिड्डा",
+"गरुड़",
+"घास",
+"मेंढक"
+],
+answer:1,
+explanation:"गरुड़ इस खाद्य श्रृंखला का शीर्ष उपभोक्ता है। इसलिए जैव आवर्धन के कारण DDT की सांद्रता इसमें सर्वाधिक होगी।"
+},
+
+{
+topic:"Biological Magnification",
+q:"घासस्थल की खाद्य श्रृंखला में, रासायनिक पीड़कनाशी का अधिकतम संचय निम्न में से किसमें पाया जाता है?",
+options:[
+"टिड्डा",
+"हॉक",
+"मेंढक",
+"घास"
+],
+answer:1,
+explanation:"हॉक शीर्ष पोषी स्तर का उपभोक्ता है। जैव आवर्धन के कारण पीड़कनाशी का अधिकतम संचय शीर्ष उपभोक्ता में होता है।"
+},
+
+{
+topic:"Biological Magnification",
+q:"कौन-सा अनुक्रम, किसी खाद्य श्रृंखला में पीड़कनाशी की सांद्रता में वृद्धि को सही ढंग से दर्शाता है?",
+options:[
+"घास → टिड्डा → मेंढक → साँप → बाज",
+"बाज → साँप → मेंढक → टिड्डा → घास",
+"टिड्डा → घास → मेंढक → बाज → साँप",
+"घास → मेंढक → टिड्डा → साँप → बाज"
+],
+answer:0,
+explanation:"उत्पादक से शीर्ष उपभोक्ता की ओर बढ़ते हुए पीड़कनाशी का जैव आवर्धन होता है। इसलिए घास → टिड्डा → मेंढक → साँप → बाज सही क्रम है।"
+},
+
+{
+topic:"Pesticides",
+q:"धावन द्वारा खाद्य पदार्थों से पीड़कनाशी अवशेष सदैव क्यों नहीं हटाए जा सकते हैं?",
+options:[
+"क्योंकि वे सरलता से वाष्पित हो जाते हैं",
+"क्योंकि वे केवल पृष्ठ पर उपस्थित होते हैं",
+"क्योंकि वे जल में विलीन होते हैं",
+"क्योंकि वे ऊतकों में संचित होते हैं"
+],
+answer:3,
+explanation:"कुछ पीड़कनाशी पौधों और खाद्य पदार्थों के ऊतकों में प्रवेश या संचय कर सकते हैं। इसलिए केवल धोने से सभी अवशेष हटना सुनिश्चित नहीं होता।"
+},
+
+{
+topic:"Biological Magnification",
+q:"हमारे द्वारा की गई कौन-सी कार्रवाई प्रत्यक्ष रूप से जैविक आवर्धन (Biological Magnification) को कम कर सकती है?",
+options:[
+"अनाज के स्थान पर मांस खाना",
+"उपयोग करने से पहले अनाज को अच्छी तरह धो लेना",
+"कटाई के बाद फसल के अवशेषों को जलाना",
+"फसलों पर रासायनिक पीड़कनाशकों का उपयोग कम करना"
+],
+answer:3,
+explanation:"रासायनिक पीड़कनाशकों का उपयोग कम करने से अजैव-निम्नीकरणीय रसायनों का पर्यावरण में प्रवेश कम होगा और उनके जैव आवर्धन की संभावना घटेगी।"
+},
+
+{
+topic:"Ozone Layer",
+q:"वायुमंडल के ऊपरी भाग में ओजोन परत का मुख्य कार्य क्या है?",
+options:[
+"वायुजीवी जीवन को समर्थन प्रदान करने के लिए ऑक्सीजन उत्पन्न करना",
+"वायुमंडलीय कार्बन डाइऑक्साइड के स्तर में वृद्धि करना",
+"वर्षा करना",
+"सूर्य से आने वाली पराबैंगनी विकिरण को अवशोषित करना"
+],
+answer:3,
+explanation:"ओजोन परत सूर्य से आने वाली हानिकारक पराबैंगनी (UV) विकिरण का बड़ा भाग अवशोषित करके पृथ्वी पर जीवन की रक्षा करती है।"
+},
+
+{
+topic:"Ozone Depletion & CFCs",
+q:"निम्नलिखित में से कौन-सा रासायनिक यौगिक, मुख्यतः ऊपरी वायुमंडल में ओजोन अवक्षय के लिए उत्तरदायी है?",
+options:[
+"मेथेन",
+"सल्फर डाइऑक्साइड",
+"क्लोरोफ्लोरोकार्बन",
+"नाइट्रोजन के ऑक्साइड"
+],
+answer:2,
+explanation:"CFCs ऊपरी वायुमंडल में पहुँचकर क्लोरीन मुक्त कर सकते हैं, जो ओजोन के विनाश में भाग लेता है।"
+},
+
+{
+topic:"Ozone Depletion & CFCs",
+q:"निम्नलिखित में से किस डिवाइस में पहले CFC का व्यापक रूप से उपयोग किया जाता था?",
+options:[
+"सोलर कुकर",
+"साइकिल",
+"वॉटर प्यूरीफायर",
+"रेफ्रिजरेटर"
+],
+answer:3,
+explanation:"CFCs का उपयोग पहले रेफ्रिजरेटर और एयर-कंडीशनिंग प्रणालियों में refrigerants के रूप में व्यापक रूप से किया जाता था।"
+},
+
+{
+topic:"Ozone Depletion",
+q:"क्लोरोफ्लोरोकार्बन (CFC) द्वारा ओजोन परत का अवक्षय जीवों के लिए खतरनाक क्यों माना जाता है?",
+options:[
+"इससे अवरक्त विकिरण का उत्पादन होता है",
+"यह वायुमंडलीय ऑक्सीजन के स्तर में वृद्धि का कारण बनता है",
+"यह वर्षा में कमी का कारण बनता है",
+"यह UV किरणों को वायुमंडल में प्रवेश करने देता है"
+],
+answer:3,
+explanation:"ओजोन परत के क्षरण से अधिक UV विकिरण पृथ्वी की सतह तक पहुँच सकता है, जो जीवों के लिए हानिकारक है।"
+},
+
+{
+topic:"Ozone Depletion",
+q:"निम्नलिखित में से कौन-सी पर्यावरणीय समस्या हमारे वायुमंडल में हानिकारक UV किरणों के प्रवेश से संबंधित है?",
+options:[
+"अम्ल वर्षा",
+"ग्रीनहाउस प्रभाव",
+"भूमंडलीय तापन",
+"ओजोन छिद्र"
+],
+answer:3,
+explanation:"ओजोन छिद्र या ओजोन परत का क्षरण UV विकिरण की अधिक मात्रा को पृथ्वी तक पहुँचने देता है।"
+},
+
+{
+topic:"Ozone Depletion",
+q:"यदि ओजोन परत पतली हो जाए, तो पृथ्वी पर निम्नलिखित में से क्या हो सकता है?",
+options:[
+"केवल पृथ्वी के वायुमंडल का ठंडा होना",
+"पौधों तक पहुँचने वाले सूर्य के प्रकाश में कमी",
+"ऑक्सीजन स्तर में कमी",
+"पृथ्वी तक पहुँचने वाले पराबैंगनी विकिरण में वृद्धि"
+],
+answer:3,
+explanation:"ओजोन परत पतली होने पर UV विकिरण को अवशोषित करने की क्षमता घटती है, इसलिए पृथ्वी की सतह तक अधिक UV विकिरण पहुँचता है।"
+},
+
+{
+topic:"Effects of UV Radiation",
+q:"यदि ओजोन परत द्वारा UV विकिरण को अवरुद्ध नहीं किया जाता है, तो इसका मानव पर प्राथमिक हानिकारक प्रभाव क्या होता है?",
+options:[
+"दमा",
+"अतिरक्तदाब",
+"एनीमिया",
+"त्वचा कैंसर"
+],
+answer:3,
+explanation:"अत्यधिक UV विकिरण मानव त्वचा को नुकसान पहुँचा सकता है और त्वचा कैंसर के जोखिम को बढ़ा सकता है।"
+},
+
+{
+topic:"Fertilisers & Environment",
+q:"निम्नलिखित में से किस एक को छोड़कर शेष सभी नाइट्रोजन उर्वरकों के अति उपयोग के परिणाम हैं?",
+options:[
+"जल निकायों में ऑक्सीजन वृद्धि",
+"ऑक्सीजन की कमी के कारण मछलियों की मृत्यु",
+"मृदा और जल निम्नीकरण",
+"शैवाल प्रस्फुटन निर्माण"
+],
+answer:0,
+explanation:"नाइट्रोजन उर्वरकों की अधिकता से जल निकायों में पोषक तत्व बढ़ सकते हैं, जिससे algal bloom और बाद में ऑक्सीजन की कमी हो सकती है। इसलिए 'ऑक्सीजन वृद्धि' सामान्य परिणाम नहीं है।"
+},
+
+{
+topic:"Waste Management",
+q:"किसी शहर में जीवनशैली में बदलाव और डिस्पोजेबल पैकेजिंग के कारण अपशिष्ट उत्पादन में वृद्धि देखी जाती है। अपशिष्ट प्रबंधन सिद्धांतों के अनुसार पर्यावरणीय प्रभाव को कम करने का सबसे प्रभावी उपाय क्या है?",
+options:[
+"सभी प्रकार के अपशिष्टों के लिए लैंडफिल स्थान में वृद्धि करना",
+"अजैव-निम्नीकरणीय अपशिष्ट के पृथक्करण और पुनर्चक्रण को बढ़ावा देना",
+"आयतन को कम करने के लिए सभी अपशिष्टों को जलाना",
+"पृथक्करण की उपेक्षा करना और केवल जैवनिम्नीकरणीय अपशिष्ट पर फोकस करना"
+],
+answer:1,
+explanation:"अपशिष्ट का स्रोत पर पृथक्करण और पुनर्चक्रण संसाधनों की बचत करता है तथा लैंडफिल में जाने वाले अजैव-निम्नीकरणीय कचरे को कम करता है।"
+},
+
+{
+topic:"Waste Management",
+q:"निम्नलिखित में से कौन-सा व्यवहार अजैव-निम्नीकरणीय अपशिष्ट की मात्रा को कम कर सकता है?",
+options:[
+"उपयोग-पश्चात् फेंकने वाली (डिस्पोजेबल) प्लेटों और कपों का प्रयोग करें",
+"सभी अपशिष्ट को जल निकायों में फेंकें",
+"पुनः उपयोग योग्य और पुनर्चक्रणीय उत्पादों का उपयोग करें",
+"अजैव-निम्नीकरणीय अपशिष्ट को मिट्टी के साथ मिलाएँ"
+],
+answer:2,
+explanation:"पुनः उपयोग योग्य और पुनर्चक्रणीय वस्तुओं का उपयोग करने से एकल-उपयोग तथा अजैव-निम्नीकरणीय कचरे की मात्रा कम होती है।"
+}
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentQuestion = 0;
+
+let selectedAnswers = new Array(questions.length).fill(null);
+
+let markedReview = new Array(questions.length).fill(false);
+
+let submitted = false;
+
+let timeLeft = 30 * 60;
+
+let timerInterval;
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const questionText =
+    document.getElementById("questionText");
+
+const optionsBox =
+    document.getElementById("options");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const questionTopic =
+    document.getElementById("questionTopic");
+
+const progressText =
+    document.getElementById("progressText");
+
+const attemptText =
+    document.getElementById("attemptText");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const reviewBtn =
+    document.getElementById("reviewBtn");
+
+const timer =
+    document.getElementById("timer");
+
+const paletteGrid =
+    document.getElementById("paletteGrid");
+
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion(){
+
+    const q = questions[currentQuestion];
+
+    questionNumber.textContent =
+        "Q" + (currentQuestion + 1);
+
+    questionTopic.textContent =
+        q.topic;
+
+    questionText.textContent =
+        q.q;
+
+    optionsBox.innerHTML = "";
+
+    const letters = ["A","B","C","D"];
+
+    q.options.forEach((option,index)=>{
+
+        const div = document.createElement("div");
+
+        div.className = "option";
+
+        if(selectedAnswers[currentQuestion] === index){
+            div.classList.add("selected");
+        }
+
+        div.innerHTML = `
+            <div class="option-letter">
+                ${letters[index]}
+            </div>
+
+            <div class="option-text">
+                ${option}
+            </div>
+        `;
+
+        div.onclick = () => selectAnswer(index);
+
+        optionsBox.appendChild(div);
+
+    });
+
+    progressText.textContent =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+    const attempted =
+        selectedAnswers.filter(a => a !== null).length;
+
+    attemptText.textContent =
+        `Attempted: ${attempted} / ${questions.length}`;
+
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
+
+    progressBar.style.width =
+        progress + "%";
+
+    prevBtn.disabled =
+        currentQuestion === 0;
+
+    nextBtn.disabled =
+        currentQuestion === questions.length - 1;
+
+    updateReviewButton();
+
+    updatePalette();
+
+}
+
+
+/* =========================================================
+   SELECT ANSWER
+========================================================= */
+
+function selectAnswer(index){
+
+    if(submitted) return;
+
+    selectedAnswers[currentQuestion] = index;
+
+    renderQuestion();
+
+}
+
+
+/* =========================================================
+   NEXT / PREVIOUS
+========================================================= */
+
+function nextQuestion(){
+
+    if(currentQuestion < questions.length - 1){
+
+        currentQuestion++;
+
+        renderQuestion();
+
+    }
+
+}
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        renderQuestion();
+
+    }
+
+}
+
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+function toggleReview(){
+
+    if(submitted) return;
+
+    markedReview[currentQuestion] =
+        !markedReview[currentQuestion];
+
+    updateReviewButton();
+
+    updatePalette();
+
+}
+
+function updateReviewButton(){
+
+    if(markedReview[currentQuestion]){
+
+        reviewBtn.textContent =
+            "✓ Marked for Review";
+
+        reviewBtn.classList.add("active");
+
+    }else{
+
+        reviewBtn.textContent =
+            "Mark for Review";
+
+        reviewBtn.classList.remove("active");
+
+    }
+
+}
+
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function togglePalette(){
+
+    const panel =
+        document.getElementById("palettePanel");
+
+    panel.classList.toggle("show");
+
+}
+
+function updatePalette(){
+
+    paletteGrid.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const btn =
+            document.createElement("button");
+
+        btn.className = "palette-q";
+
+        btn.textContent = index + 1;
+
+        const answered =
+            selectedAnswers[index] !== null;
+
+        const review =
+            markedReview[index];
+
+        if(answered)
+            btn.classList.add("answered");
+
+        if(review)
+            btn.classList.add("review");
+
+        btn.onclick = () => {
+
+            currentQuestion = index;
+
+            renderQuestion();
+
+            document
+                .getElementById("palettePanel")
+                .classList.remove("show");
+
+        };
+
+        paletteGrid.appendChild(btn);
+
+    });
+
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function startTimer(){
+
+    timerInterval =
+        setInterval(()=>{
+
+            if(timeLeft <= 0){
+
+                clearInterval(timerInterval);
+
+                submitTest(true);
+
+                return;
+
+            }
+
+            timeLeft--;
+
+            updateTimer();
+
+        },1000);
+
+}
+
+function updateTimer(){
+
+    const minutes =
+        Math.floor(timeLeft / 60);
+
+    const seconds =
+        timeLeft % 60;
+
+    timer.textContent =
+        `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+
+    timer.classList.remove("warning","danger");
+
+    if(timeLeft <= 300){
+
+        timer.classList.add("danger");
+
+    }else if(timeLeft <= 600){
+
+        timer.classList.add("warning");
+
+    }
+
+}
+
+
+/* =========================================================
+   SUBMIT TEST
+========================================================= */
+
+function submitTest(autoSubmit){
+
+    if(submitted) return;
+
+    if(!autoSubmit){
+
+        const unanswered =
+            selectedAnswers.filter(a => a === null).length;
+
+        let message =
+            "क्या आप Test Submit करना चाहते हैं?";
+
+        if(unanswered > 0){
+
+            message +=
+                `\n\n${unanswered} प्रश्न Unattempted हैं।`;
+
+        }
+
+        if(!confirm(message))
+            return;
+
+    }
+
+    submitted = true;
+
+    clearInterval(timerInterval);
+
+    calculateResult();
+
+}
+
+
+/* =========================================================
+   CALCULATE RESULT
+========================================================= */
+
+function calculateResult(){
+
+    let correct = 0;
+
+    let wrong = 0;
+
+    let unattempted = 0;
+
+    questions.forEach((q,index)=>{
+
+        const userAnswer =
+            selectedAnswers[index];
+
+        if(userAnswer === null){
+
+            unattempted++;
+
+        }else if(userAnswer === q.answer){
+
+            correct++;
+
+        }else{
+
+            wrong++;
+
+        }
+
+    });
+
+    const score =
+        correct - (wrong / 3);
+
+    document.getElementById("finalScore")
+        .textContent = score.toFixed(2);
+
+    document.getElementById("correctCount")
+        .textContent = correct;
+
+    document.getElementById("wrongCount")
+        .textContent = wrong;
+
+    document.getElementById("unattemptedCount")
+        .textContent = unattempted;
+
+    document.getElementById("testSection")
+        .style.display = "none";
+
+    document.getElementById("resultSection")
+        .classList.add("show");
+
+    document.getElementById("palettePanel")
+        .classList.remove("show");
+
+    generateSolutions();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   GENERATE SYSTEMATIC SOLUTIONS
+========================================================= */
+
+function generateSolutions(){
+
+    const container =
+        document.getElementById("solutions");
+
+    container.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const userAnswer =
+            selectedAnswers[index];
+
+        const isCorrect =
+            userAnswer === q.answer;
+
+        let statusClass;
+        let statusText;
+
+        if(userAnswer === null){
+
+            statusClass =
+                "status-unattempted";
+
+            statusText =
+                "Unattempted";
+
+        }else if(isCorrect){
+
+            statusClass =
+                "status-correct";
+
+            statusText =
+                "Correct";
+
+        }else{
+
+            statusClass =
+                "status-wrong";
+
+            statusText =
+                "Wrong";
+
+        }
+
+        const letters =
+            ["A","B","C","D"];
+
+        const correctText =
+            `${letters[q.answer]}. ${q.options[q.answer]}`;
+
+        const userText =
+            userAnswer === null
+            ? "Attempt नहीं किया"
+            : `${letters[userAnswer]}. ${q.options[userAnswer]}`;
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "solution-card";
+
+        card.innerHTML = `
+
+            <div class="solution-header">
+
+                <div class="solution-q">
+                    Q${index + 1} — ${q.topic}
+                </div>
+
+                <div class="result-status ${statusClass}">
+                    ${statusText}
+                </div>
+
+            </div>
+
+            <div class="solution-body">
+
+                <div class="solution-question">
+                    ${q.q}
+                </div>
+
+                <div class="answer-line correct-answer">
+                    <strong>सही उत्तर:</strong>
+                    ${correctText}
+                </div>
+
+                <div class="answer-line user-answer">
+                    <strong>आपका उत्तर:</strong>
+                    ${userText}
+                </div>
+
+                <div class="explanation">
+
+                    <strong>Solution:</strong><br>
+
+                    ${q.explanation}
+
+                </div>
+
+            </div>
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderQuestion();
+
+updateTimer();
+
+startTimer();
+
+</script>
+
+</body>
+</html>
