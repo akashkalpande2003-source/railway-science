@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | TCS Style Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+    line-height:1.65;
+}
+
+.header{
+    background:#102a43;
+    color:white;
+    padding:15px 20px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.header-inner{
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.subtitle{
+    font-size:13px;
+    color:#d9e8f5;
+}
+
+.palette-btn{
+    border:none;
+    background:#ff8a00;
+    color:white;
+    font-weight:bold;
+    padding:9px 14px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+.container{
+    max-width:900px;
+    margin:25px auto;
+    padding:0 15px 40px;
+}
+
+.test-info{
+    background:white;
+    border-radius:12px;
+    padding:16px 18px;
+    margin-bottom:18px;
+    box-shadow:0 2px 8px rgba(0,0,0,.07);
+    border-left:5px solid #1677ff;
+}
+
+.test-info h1{
+    font-size:21px;
+    margin-bottom:5px;
+    color:#102a43;
+}
+
+.test-info p{
+    color:#667085;
+    font-size:14px;
+}
+
+.question-card{
+    background:white;
+    border-radius:14px;
+    padding:22px;
+    box-shadow:0 2px 10px rgba(0,0,0,.07);
+}
+
+.q-top{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.q-number{
+    background:#102a43;
+    color:white;
+    padding:5px 11px;
+    border-radius:6px;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.topic{
+    background:#eaf3ff;
+    color:#1261a0;
+    padding:5px 9px;
+    border-radius:5px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.question{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.option{
+    width:100%;
+    border:2px solid #dce3eb;
+    background:#fff;
+    border-radius:9px;
+    padding:12px 14px;
+    text-align:left;
+    font-size:15px;
+    cursor:pointer;
+    transition:.2s;
+    color:#202b3c;
+}
+
+.option:hover{
+    border-color:#1677ff;
+    background:#f5f9ff;
+}
+
+.option.correct{
+    background:#e8f8ee;
+    border-color:#20a05a;
+    color:#08763b;
+    font-weight:bold;
+}
+
+.option.wrong{
+    background:#fff0f0;
+    border-color:#e04444;
+    color:#b42318;
+    font-weight:bold;
+}
+
+.option.disabled{
+    cursor:default;
+}
+
+.feedback{
+    display:none;
+    margin-top:18px;
+    padding:14px 16px;
+    border-radius:9px;
+    font-size:14px;
+}
+
+.feedback.correct-box{
+    display:block;
+    background:#edf9f1;
+    border-left:4px solid #20a05a;
+}
+
+.feedback.wrong-box{
+    display:block;
+    background:#fff1f1;
+    border-left:4px solid #e04444;
+}
+
+.feedback-title{
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.explanation{
+    color:#384860;
+}
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:20px;
+}
+
+.nav-btn{
+    border:none;
+    padding:11px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.prev{
+    background:#e7edf4;
+    color:#344054;
+}
+
+.next{
+    background:#1677ff;
+    color:white;
+}
+
+.nav-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+/* Palette */
+
+.palette-panel{
+    position:fixed;
+    top:0;
+    right:-330px;
+    width:320px;
+    max-width:90%;
+    height:100vh;
+    background:white;
+    z-index:2000;
+    box-shadow:-4px 0 15px rgba(0,0,0,.2);
+    transition:.3s;
+    overflow-y:auto;
+    padding:20px;
+}
+
+.palette-panel.open{
+    right:0;
+}
+
+.palette-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.palette-header h2{
+    font-size:19px;
+    color:#102a43;
+}
+
+.close-btn{
+    border:none;
+    background:#eee;
+    border-radius:6px;
+    padding:6px 10px;
+    cursor:pointer;
+}
+
+.palette-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+    margin-bottom:15px;
+}
+
+.stat{
+    padding:8px 4px;
+    border-radius:7px;
+    text-align:center;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.stat.correct-stat{
+    background:#e8f8ee;
+    color:#08763b;
+}
+
+.stat.wrong-stat{
+    background:#fff0f0;
+    color:#b42318;
+}
+
+.stat.skip-stat{
+    background:#f0f2f5;
+    color:#667085;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+}
+
+.palette-number{
+    height:40px;
+    border:1px solid #d5dbe3;
+    background:#f3f5f7;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+    color:#344054;
+}
+
+.palette-number.correct{
+    background:#20a05a;
+    color:white;
+    border-color:#20a05a;
+}
+
+.palette-number.wrong{
+    background:#e04444;
+    color:white;
+    border-color:#e04444;
+}
+
+.palette-number.current{
+    outline:3px solid #1677ff;
+}
+
+.palette-number.skipped{
+    background:#eef1f4;
+}
+
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    z-index:1500;
+}
+
+.overlay.show{
+    display:block;
+}
+
+/* Result */
+
+.result{
+    display:none;
+    background:white;
+    border-radius:14px;
+    padding:28px 20px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.result h2{
+    color:#102a43;
+    margin-bottom:18px;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:20px 0;
+}
+
+.result-box{
+    padding:15px 8px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.result-correct{
+    background:#e8f8ee;
+    color:#08763b;
+}
+
+.result-wrong{
+    background:#fff0f0;
+    color:#b42318;
+}
+
+.result-skipped{
+    background:#f0f2f5;
+    color:#667085;
+}
+
+.restart{
+    background:#1677ff;
+    color:white;
+    border:none;
+    padding:11px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .header{
+        padding:12px 12px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .subtitle{
+        display:none;
+    }
+
+    .container{
+        margin:15px auto;
+        padding:0 10px 30px;
+    }
+
+    .test-info{
+        padding:13px;
+    }
+
+    .test-info h1{
+        font-size:18px;
+    }
+
+    .question-card{
+        padding:16px 13px;
+    }
+
+    .question{
+        font-size:16px;
+    }
+
+    .option{
+        font-size:14px;
+        padding:11px;
+    }
+
+    .navigation{
+        position:sticky;
+        bottom:8px;
+        background:rgba(244,247,251,.95);
+        padding:7px 0;
+    }
+
+    .nav-btn{
+        flex:1;
+    }
+
+    .palette-panel{
+        width:300px;
+    }
+
+    .palette-grid{
+        grid-template-columns:repeat(5,1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div>
+            <div class="logo">Railway Science</div>
+            <div class="subtitle">TCS Style Science Mock Test</div>
+        </div>
+
+        <button class="palette-btn" onclick="openPalette()">
+            ☰ Palette
+        </button>
+    </div>
+</header>
+
+<div class="overlay" id="overlay" onclick="closePalette()"></div>
+
+<aside class="palette-panel" id="palette">
+
+    <div class="palette-header">
+        <h2>Question Palette</h2>
+        <button class="close-btn" onclick="closePalette()">✕</button>
+    </div>
+
+    <div class="palette-stats">
+        <div class="stat correct-stat">
+            Correct<br>
+            <span id="correctCount">0</span>
+        </div>
+
+        <div class="stat wrong-stat">
+            Wrong<br>
+            <span id="wrongCount">0</span>
+        </div>
+
+        <div class="stat skip-stat">
+            Unattempted<br>
+            <span id="skipCount">32</span>
+        </div>
+    </div>
+
+    <div class="palette-grid" id="paletteGrid"></div>
+
+</aside>
+
+<main class="container">
+
+    <section class="test-info">
+        <h1>Class 10 Science — TCS Style Mock Test</h1>
+        <p>
+            Chapters: Dispersion & Spectrum / Rainbow + Human Eye & Defects
+            <br>
+            Total Questions: 32 | No Timer | No Negative Marking
+        </p>
+    </section>
+
+    <section id="quizArea"></section>
+
+    <section class="result" id="result">
+
+        <h2>🎯 Test Result</h2>
+
+        <div class="result-grid">
+
+            <div class="result-box result-correct">
+                Correct<br>
+                <span id="finalCorrect">0</span>
+            </div>
+
+            <div class="result-box result-wrong">
+                Wrong<br>
+                <span id="finalWrong">0</span>
+            </div>
+
+            <div class="result-box result-skipped">
+                Skipped<br>
+                <span id="finalSkipped">0</span>
+            </div>
+
+        </div>
+
+        <p id="finalMessage"></p>
+
+        <br>
+
+        <button class="restart" onclick="restartTest()">
+            Restart Test
+        </button>
+
+    </section>
+
+</main>
+
+<script>
+
+const questions = [
+
+{
+q:`जब श्वेत प्रकाश कांच के प्रिज्म पर आपतित होता है, तो उसके सभी घटक रंगों में से बैंगनी रंग सबसे अधिक बंकन करता है। यह किस कारण होता है?`,
+options:[
+`बैंगनी रंग की तरंगदैर्ध्य अधिकतम होती है और इसलिए इसका अपवर्तनांक अधिकतम होता है`,
+`बैंगनी रंग की तरंगदैर्ध्य अधिकतम होती है और इसलिए इसका अपवर्तनांक न्यूनतम होता है`,
+`बैंगनी रंग की तरंगदैर्ध्य न्यूनतम होती है और इसलिए इसका अपवर्तनांक अधिकतम होता है`,
+`बैंगनी रंग की तरंगदैर्ध्य न्यूनतम होती है और इसलिए इसका अपवर्तनांक न्यूनतम होता है`
+],
+answer:2,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`बैंगनी प्रकाश की तरंगदैर्ध्य दृश्यमान प्रकाश में सबसे कम होती है। काँच में इसकी चाल सबसे कम तथा अपवर्तनांक सबसे अधिक होता है, इसलिए यह सबसे अधिक विचलित होता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, काँच के प्रिज्म द्वारा श्वेत प्रकाश के विक्षेपण के लिए उत्तरदायी है?`,
+options:[
+`काँच में विभिन्न रंगों के प्रकाश, समान चाल से गमन करते हैं।`,
+`काँच में विभिन्न रंगों के प्रकाश, भिन्न-भिन्न चालों से गमन करते हैं।`,
+`प्रिज्म कुछ रंगों को अवशोषित कर लेता है।`,
+`श्वेत प्रकाश में केवल एक ही रंग होता है।`
+],
+answer:1,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`काँच में विभिन्न रंगों के प्रकाश की चाल अलग-अलग होती है। इसी कारण उनके अपवर्तनांक अलग होते हैं और वे अलग-अलग मात्रा में विचलित होते हैं।`
+},
+
+{
+q:`प्रकीर्णन के कारण स्क्रीन पर प्राप्त सात रंगों के बैंड को __________ कहा जाता है।`,
+options:[
+`स्पेक्ट्रम (Spectrum)`,
+`प्रतिबिंब (Image)`,
+`प्रतिछाया (Shadow)`,
+`परावर्तन प्रतिरूप (Reflection pattern)`
+],
+answer:0,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`श्वेत प्रकाश के विक्षेपण से प्राप्त सात रंगों के क्रमबद्ध बैंड को स्पेक्ट्रम (Spectrum) कहा जाता है।`
+},
+
+{
+q:`एक त्रिभुजाकार कांच के प्रिज्म में कितने आयताकार पार्श्व पृष्ठ होते हैं?`,
+options:[
+`चार`,
+`एक`,
+`दो`,
+`तीन`
+],
+answer:3,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`त्रिभुजाकार प्रिज्म में दो त्रिभुजाकार आधार और तीन आयताकार पार्श्व पृष्ठ होते हैं।`
+},
+
+{
+q:`वह प्रक्रिया क्या कहलाती है, जिसमें श्वेत प्रकाश विभिन्न रंगों में विभक्त हो जाता है?`,
+options:[
+`प्रकीर्णन (Scattering)`,
+`विक्षेपण (Dispersion)`,
+`अपवर्तन (Refraction)`,
+`परावर्तन (Reflection)`
+],
+answer:1,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`श्वेत प्रकाश का अपने घटक रंगों में विभक्त होना विक्षेपण (Dispersion) कहलाता है।`
+},
+
+{
+q:`प्रिज्म की आपतित किरण और निर्गत किरण के बीच के कोण को ..............कहते हैं।`,
+options:[
+`निर्गमन कोण`,
+`अपवर्तन कोण`,
+`आपतन कोण`,
+`विचलन कोण`
+],
+answer:3,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`आपतित किरण की प्रारंभिक दिशा और निर्गत किरण की अंतिम दिशा के बीच के कोण को विचलन कोण (Angle of Deviation) कहते हैं।`
+},
+
+{
+q:`श्वेत प्रकाश, काँच के एक प्रिज्म पर तिर्यकत: आपतित होता है, निम्नलिखित में से कौन-से कथन सत्य हैं?(i) लाल रंग का विचलन अधिकतम होता है।(ii) प्रिज्म से गुजरते समय बैंगनी रंग की चाल सबसे कम होती है।(iii) बैंगनी रंग का अपवर्तनांक न्यूनतम होता है।(iv) लाल रंग का अपवर्तनांक न्यूनतम होता है।`,
+options:[
+`(ii) और (iii) दोनों`,
+`(i) और (iii) दोनों`,
+`(ii) और (iv) दोनों`,
+`(i) और (iv) दोनों`
+],
+answer:2,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`बैंगनी रंग की चाल सबसे कम होती है और लाल रंग का अपवर्तनांक सबसे कम होता है। इसलिए (ii) और (iv) सही हैं।`
+},
+
+{
+q:`प्रिज्म से आपतित किरण और निर्गत किरण के बीच के कोण को ____________ कहा जाता है।`,
+options:[
+`विचलन कोण`,
+`प्रिज्म कोण`,
+`आपतन कोण`,
+`क्रांतिक कोण`
+],
+answer:0,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`आपतित किरण और निर्गत किरण के बीच का कोण विचलन कोण कहलाता है।`
+},
+
+{
+q:`जब न्यूटन ने पहले प्रिज्म के बाद एक दूसरा प्रिज्म उल्टी स्थिति में रखा, तो निर्गत किरणपुंज _________ था।`,
+options:[
+`श्वेत प्रकाश`,
+`केवल लाल प्रकाश`,
+`रंगों का इंद्रधनुष`,
+`केवल बैंगनी प्रकाश`
+],
+answer:0,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`दूसरे उल्टे प्रिज्म ने पहले प्रिज्म द्वारा विभाजित रंगों को पुनः मिला दिया, जिससे श्वेत प्रकाश प्राप्त हुआ।`
+},
+
+{
+q:`कांच के प्रिज्म के माध्यम से श्वेत प्रकाश का विक्षेपण इसलिए होता है क्योंकि _____________ ।`,
+options:[
+`काँच में विभिन्न रंग समान गति से चलते हैं`,
+`काँच में विभिन्न रंग भिन्न गति से चलते हैं`,
+`प्रिज्म के अंदर परावर्तन के कारण श्वेत प्रकाश विभाजित हो जाता है`,
+`प्रिज्म कुछ रंगों को अवशोषित करता है और कुछ को संचारित करता है`
+],
+answer:1,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`विभिन्न रंगों की प्रकाश किरणें काँच में अलग-अलग चाल से चलती हैं। इसलिए उनके अपवर्तनांक अलग होते हैं और विक्षेपण होता है।`
+},
+
+{
+q:`प्रिज्म के माध्यम से सूर्य के प्रकाश के प्रकीर्णन से बने स्पेक्ट्रम में कौन-सा रंग सबसे अधिक विचलित होता है?`,
+options:[
+`पीला`,
+`बैंगनी`,
+`हरा`,
+`लाल`
+],
+answer:1,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`बैंगनी रंग की तरंगदैर्ध्य सबसे कम और अपवर्तनांक सबसे अधिक होता है, इसलिए यह सबसे अधिक विचलित होता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन, परिक्षेपण (dispersion) की परिघटना का सर्वोत्तम रूप से वर्णन करता है?`,
+options:[
+`श्वेत प्रकाश का काँच के प्रिज्म से गुजरते समय अपने सात घटक रंगों में विभक्त होना ही परिक्षेपण कहलाता है।`,
+`एकल तरंगदैर्ध्य वाली प्रकाश किरण का एक माध्यम से दूसरे माध्यम में जाने पर प्रकाश का बंकन ही परिक्षेपण कहलाता है।`,
+`प्रकाश का किसी पृष्ठ से टकराकर वापस लौटना ही परिक्षेपण कहलाता है।`,
+`प्रकाश का कोलाइडी कणों द्वारा प्रकीर्णन ही परिक्षेपण कहलाता है।`
+],
+answer:0,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`श्वेत प्रकाश का अपने सात घटक रंगों में विभक्त होना प्रकाश का विक्षेपण (Dispersion) कहलाता है।`
+},
+
+{
+q:`प्रकाश के प्रकीर्णन की घटना को सबसे पहले ____________ द्वारा स्पष्ट किया गया था।`,
+options:[
+`जेम्स क्लर्क मैक्सवेल (James Clerk Maxwell)`,
+`अल्बर्ट आइंस्टीन (Albert Einstein)`,
+`आइजैक न्यूटन (Isaac Newton)`,
+`क्रिस्टियान ह्यूजेंस (Christiaan Huygens)`
+],
+answer:2,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`आइजैक न्यूटन ने प्रिज्म के प्रयोगों द्वारा श्वेत प्रकाश के विभिन्न रंगों में विभाजन को स्पष्ट किया था।`
+},
+
+{
+q:`इंद्रधनुष, जो वर्षा के बाद आकाश में दिखाई देने वाला एक प्राकृतिक स्पेक्ट्रम है, मुख्यतः सूर्य के प्रकाश पर जल की बूंदों की किस क्रिया के कारण होता है?`,
+options:[
+`केवल पूर्ण आंतरिक परावर्तन`,
+`अपवर्तन और परिक्षेपण, उसके बाद आंतरिक परावर्तन, और फिर अंतिम अपवर्तन`,
+`आंतरिक परावर्तन के बाद प्रकीर्णन`,
+`वायु घनत्व में परिवर्तन के कारण प्रकाश का बंकन`
+],
+answer:1,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`वर्षा की बूंद में प्रवेश करते समय प्रकाश का अपवर्तन और विक्षेपण होता है, फिर आंतरिक परावर्तन तथा बाहर निकलते समय पुनः अपवर्तन होता है।`
+},
+
+{
+q:`बारिश के बाद आकाश में इंद्रधनुष बनता है, जो ..................के कारण होता है।`,
+options:[
+`वर्षा की बूंदों द्वारा प्रकाश का अपवर्तन और परिक्षेपण`,
+`वायु द्वारा प्रकाश का प्रकीर्णन`,
+`जल द्वारा प्रकाश का अवशोषण`,
+`केवल परावर्तन`
+],
+answer:0,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`जल की बूंदों में सूर्य के प्रकाश का अपवर्तन, विक्षेपण और आंतरिक परावर्तन इंद्रधनुष के निर्माण में मुख्य भूमिका निभाते हैं।`
+},
+
+{
+q:`निम्नलिखित में से किस परिदृश्य का वर्णन, प्रकाश के प्रकीर्णन के बिना नहीं किया सकता है?`,
+options:[
+`तारों का टिमटिमाना (Twinkling of stars)।`,
+`इंद्रधनुष का निर्माण (Rainbow formation)।`,
+`मरीचिका (Mirages)।`,
+`समयपूर्व सूर्योदय (Advanced sunrise)।`
+],
+answer:1,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`इंद्रधनुष में जल की बूंदों द्वारा अपवर्तन, विक्षेपण और आंतरिक परावर्तन मुख्य घटनाएँ हैं। दिए गए विकल्पों में यह प्रश्न सामान्यतः इंद्रधनुष से संबंधित है।`
+},
+
+{
+q:`जब श्वेत प्रकाश अपने मानक अभिविन्यास में एक प्रिज्म से गुजरता है, तो निम्नलिखित में से कौन-सा विकल्प स्क्रीन पर देखे गए रंगों के अनुक्रम को सही ढंग से दर्शाता है?`,
+options:[
+`GYORVIB`,
+`VIBGYOR`,
+`BYVROIG`,
+`ROYGBIV`
+],
+answer:1,
+topic:`Dispersion and spectrum / rainbow`,
+exp:`प्रिज्म के बाद रंगों का क्रम VIBGYOR होता है: Violet, Indigo, Blue, Green, Yellow, Orange, Red।`
+},
+
+{
+q:`जब कोई व्यक्ति पास की किसी वस्तु को देखता है, तो सिलियरी पेशियां ................।`,
+options:[
+`शिथिल होती हैं और लेंस को मोटा करती हैं`,
+`सिकुड़ती हैं और लेंस को मोटा करती हैं`,
+`शिथिल होती हैं और लेंस को पतला करती हैं`,
+`सिकुड़ती हैं और लेंस को पतला करती हैं`
+],
+answer:1,
+topic:`Human Eye & Defects`,
+exp:`पास की वस्तु देखने के लिए सिलियरी पेशियाँ सिकुड़ती हैं, जिससे नेत्र लेंस अधिक मोटा और अधिक अभिसारी हो जाता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा नेत्र दोष, मुख्य रूप से उम्र के साथ समंजन क्षमता के दुर्बल होने के कारण होता है?`,
+options:[
+`जरा दूरदर्शिता (Presbyopia)`,
+`निकटदृष्टि दोष (Myopia)`,
+`अबिंदुकता (Astigmatism)`,
+`दूरदृष्टिदोष (Hypermetropia)`
+],
+answer:0,
+topic:`Human Eye & Defects`,
+exp:`उम्र बढ़ने पर सिलियरी पेशियों की क्षमता कम होने और लेंस के लचीलेपन में कमी से Presbyopia हो सकता है।`
+},
+
+{
+q:`वह दोष जिसमें व्यक्ति दूर की वस्तुओं को स्पष्ट रूप से नहीं देख सकता लेकिन पास की वस्तुओं को देख सकता है, _____________ कहलाता है।`,
+options:[
+`निकटदृष्टिदोष (myopia)`,
+`दीर्घदृष्टि (hypermetropia)`,
+`दृष्टिवैषम्य (astigmatism)`,
+`जरादूरदृष्टि (presbyopia)`
+],
+answer:0,
+topic:`Human Eye & Defects`,
+exp:`Myopia में दूर की वस्तुएँ स्पष्ट नहीं दिखाई देतीं, जबकि पास की वस्तुएँ स्पष्ट दिखाई दे सकती हैं।`
+},
+
+{
+q:`नेत्र का क्रिस्टलीय लेंस मुख्यतः _________ सहायता करता है।`,
+options:[
+`नेत्र में प्रवेश करने वाले प्रकाश की मात्रा को नियंत्रित करने में`,
+`वस्तुओं के रंग का पता लगाने में`,
+`मस्तिष्क को सिग्नल भेजने में`,
+`फोकस दूरी का सूक्ष्म समायोजन प्रदान करने में`
+],
+answer:3,
+topic:`Human Eye & Defects`,
+exp:`क्रिस्टलीय लेंस अपनी वक्रता बदलकर विभिन्न दूरियों की वस्तुओं पर फोकस करने में सहायता करता है।`
+},
+
+{
+q:`एक विद्यार्थी दूर रखी वस्तुओं को स्पष्ट रूप से नहीं देख सकता, लेकिन आराम से किताब पढ़ सकता है। आँख में ................दोष है।`,
+options:[
+`दूरदृष्टि (hypermetropia)`,
+`निकटदृष्टि (myopia)`,
+`जरा दूरदर्शिता (presbyopia)`,
+`दृष्टिवैषम्य (astigmatism)`
+],
+answer:1,
+topic:`Human Eye & Defects`,
+exp:`दूर की वस्तुओं को स्पष्ट न देख पाना और पास की वस्तुओं को स्पष्ट देख पाना निकटदृष्टि (Myopia) की विशेषता है।`
+},
+
+{
+q:`एक विद्यार्थी कक्षा में पीछे बैठकर ब्लैकबोर्ड को स्पष्ट रूप से पढ़ने में कठिनाई की शिकायत करता है, लेकिन 25 cm की दूरी पर रखी किताब को बिना किसी कठिनाई के पढ़ सकता है। उसकी स्थिति के लिए कौन-सा कथन सही है?`,
+options:[
+`उसे दूरदृष्टि दोष है और उसे उत्तल लेंस की आवश्यकता है`,
+`उसे मोतियाबिंद है और सर्जरी की ज़रूरत है`,
+`उसे निकट दृष्टिदोष है और उसे अवतल लेंस की आवश्यकता है`,
+`उसे जरादूरदृष्टि दोष है और उसे बाइफोकल चश्मे की ज़रूरत है`
+],
+answer:2,
+topic:`Human Eye & Defects`,
+exp:`दूर की वस्तुएँ स्पष्ट न दिखना Myopia है। इसे अवतल (Concave) लेंस द्वारा ठीक किया जाता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा लेंस नेत्र दोष निकटदृष्टिता (मायोपिया) को ठीक करने के लिए इस्तेमाल किया जा सकता है?`,
+options:[
+`बेलनाकार लेंस`,
+`प्लैनो-कन्वेक्स लेंस`,
+`अवतल लेंस`,
+`उत्तल लेंस`
+],
+answer:2,
+topic:`Human Eye & Defects`,
+exp:`निकटदृष्टिता (Myopia) को अवतल (Concave) लेंस से ठीक किया जाता है।`
+},
+
+{
+q:`यदि एक सामान्य मानव आँख की समंजन शक्ति अधिकतम है, तो सिलियरी मांसपेशियों (ciliary muscles) के लिए निम्नलिखित में से कौन-सा कथन सही है?`,
+options:[
+`आंशिक रूप से शिथिल`,
+`आंशिक रूप से संकुचित`,
+`पूरी तरह से शिथिल`,
+`पूरी तरह से संकुचित`
+],
+answer:3,
+topic:`Human Eye & Defects`,
+exp:`अधिकतम समंजन के समय पास की वस्तु पर फोकस करने के लिए सिलियरी पेशियाँ अधिकतम रूप से संकुचित होती हैं।`
+},
+
+{
+q:`दूरदृष्टिता (हाइपरमेट्रोपिया) के दोष को निम्नलिखित में से किसके उपयोग से ठीक किया जा सकता है?`,
+options:[
+`प्रिज्म`,
+`अवतल लेंस`,
+`बेलनाकार लेंस`,
+`उत्तल लेंस`
+],
+answer:3,
+topic:`Human Eye & Defects`,
+exp:`Hypermetropia को उत्तल (Convex) लेंस द्वारा ठीक किया जाता है।`
+},
+
+{
+q:`जरा दूरदर्शिता (Presbyopia) के संबंध में निम्नलिखित में से कौन-सा कथन सही है?`,
+options:[
+`इसे केवल अवतल लेंस द्वारा ठीक किया जाता है।`,
+`यह पक्ष्माभी पेशियों के कमजोर होने तथा लेंस के लचीलेपन में कमी के कारण होता है।`,
+`निकट बिंदु 25 cm से कम हो जाता है।`,
+`यह सामान्यतः छोटे बच्चों में होता है।`
+],
+answer:1,
+topic:`Human Eye & Defects`,
+exp:`Presbyopia उम्र के साथ सिलियरी पेशियों की क्षमता घटने और लेंस के लचीलेपन में कमी के कारण होता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा विकल्प दूरदृष्टिता (हाइपरमेट्रोपिया) से पीड़ित व्यक्ति का सबसे अच्छा वर्णन करता है?`,
+options:[
+`उनकी दृष्टि निकट और दूर दोनों वस्तुओं के लिए समान रूप से धुंधली होती है`,
+`वे पास की वस्तुओं को स्पष्ट रूप से देख सकते हैं लेकिन दूर की वस्तुएं धुंधली दिखाई देती हैं`,
+`वे चश्मे के बिना कुछ भी देखने में असमर्थ होते हैं`,
+`वे दूर की वस्तुओं को स्पष्ट रूप से देख सकते हैं लेकिन पास की चीजों को देखने में संघर्ष करते हैं`
+],
+answer:3,
+topic:`Human Eye & Defects`,
+exp:`Hypermetropia में पास की वस्तुएँ स्पष्ट रूप से देखने में कठिनाई होती है, जबकि दूर की वस्तुएँ अपेक्षाकृत स्पष्ट दिखाई देती हैं।`
+},
+
+{
+q:`मानव नेत्र के रेटिना पर बनने वाला प्रतिबिंब कैसा होता है?`,
+options:[
+`वास्तविक और उल्टा`,
+`आभासी और उल्टा`,
+`वास्तविक और सीधा`,
+`आभासी और सीधा`
+],
+answer:0,
+topic:`Human Eye & Defects`,
+exp:`रेटिना पर बनने वाला प्रतिबिंब वास्तविक और उल्टा होता है।`
+},
+
+{
+q:`आंख का कौन-सा भाग प्रकाश के साथ समायोजन करके पुतली के आकार को नियंत्रित करता है?`,
+options:[
+`रेटिना`,
+`आइरिस`,
+`कॉर्निया`,
+`क्रिस्टलाभ लेंस`
+],
+answer:1,
+topic:`Human Eye & Defects`,
+exp:`आइरिस पुतली के आकार को नियंत्रित करता है और नेत्र में प्रवेश करने वाले प्रकाश की मात्रा को नियंत्रित करता है।`
+},
+
+{
+q:`स्पष्ट और सुविधाजनक दृश्यता के लिए किसी वस्तु को नेत्र से न्यूनतम कितनी दूरी पर रखना चाहिए?`,
+options:[
+`50 cm`,
+`250 cm`,
+`25 cm`,
+`25 m`
+],
+answer:2,
+topic:`Human Eye & Defects`,
+exp:`सामान्य वयस्क मानव आँख का स्पष्ट दृष्टि का न्यूनतम दूरी वाला निकट बिंदु लगभग 25 cm होता है।`
+},
+
+{
+q:`वह प्रक्रिया जिसके द्वारा नेत्र लेंस, निकट या दूरस्थ वस्तुओं पर फोकस करने के लिए अपनी फोकस दूरी बदलती है, __________ कहलाती है।`,
+options:[
+`समंजन (Accommodation)`,
+`समायोजन (Adjustment)`,
+`अनुकूलन (Adaptation)`,
+`परावर्तन (Reflection)`
+],
+answer:0,
+topic:`Human Eye & Defects`,
+exp:`विभिन्न दूरियों की वस्तुओं पर स्पष्ट प्रतिबिंब बनाने के लिए नेत्र लेंस की फोकस दूरी बदलने की क्षमता को समंजन (Accommodation) कहते हैं।`
+}
+
+];
+
+let current = 0;
+
+let userAnswers = new Array(questions.length).fill(null);
+
+function loadQuestion(){
+
+    const q = questions[current];
+
+    const quizArea = document.getElementById("quizArea");
+
+    let optionsHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        optionsHTML += `
+        <button class="option"
+            id="option-${index}"
+            onclick="selectAnswer(${index})">
+            <b>${String.fromCharCode(65+index)}.</b>
+            ${option}
+        </button>
+        `;
+
+    });
+
+    quizArea.innerHTML = `
+
+    <div class="question-card">
+
+        <div class="q-top">
+            <span class="q-number">Q${current+1}</span>
+            <span class="topic">${q.topic}</span>
+        </div>
+
+        <div class="question">
+            ${q.q}
+        </div>
+
+        <div class="options">
+            ${optionsHTML}
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+
+        <div class="navigation">
+
+            <button class="nav-btn prev"
+                onclick="previousQuestion()"
+                ${current===0 ? "disabled":""}>
+                ← Previous
+            </button>
+
+            <button class="nav-btn next"
+                onclick="nextQuestion()">
+                ${current===questions.length-1 ? "Finish Test" : "Next →"}
+            </button>
+
+        </div>
+
+    </div>
+    `;
+
+    if(userAnswers[current] !== null){
+        showAnswer(userAnswers[current]);
+    }
+
+    updatePalette();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function selectAnswer(index){
+
+    if(userAnswers[current] !== null) return;
+
+    userAnswers[current] = index;
+
+    showAnswer(index);
+
+    updatePalette();
+}
+
+function showAnswer(selected){
+
+    const q = questions[current];
+
+    const buttons = document.querySelectorAll(".option");
+
+    buttons.forEach((btn,index)=>{
+
+        btn.classList.add("disabled");
+
+        if(index === q.answer){
+            btn.classList.add("correct");
+        }
+
+        if(index === selected && selected !== q.answer){
+            btn.classList.add("wrong");
+        }
+
+    });
+
+    const feedback = document.getElementById("feedback");
+
+    if(selected === q.answer){
+
+        feedback.className = "feedback correct-box";
+
+        feedback.innerHTML = `
+            <div class="feedback-title">
+                ✓ सही उत्तर
+            </div>
+            <div class="explanation">
+                <b>Explanation:</b> ${q.exp}
+            </div>
+        `;
+
+    }else{
+
+        feedback.className = "feedback wrong-box";
+
+        feedback.innerHTML = `
+            <div class="feedback-title">
+                ✕ गलत उत्तर
+            </div>
+            <div class="explanation">
+                <b>सही उत्तर:</b>
+                ${String.fromCharCode(65+q.answer)}. ${q.options[q.answer]}
+                <br><br>
+                <b>Explanation:</b> ${q.exp}
+            </div>
+        `;
+
+    }
+}
+
+function nextQuestion(){
+
+    if(current === questions.length-1){
+
+        showResult();
+
+        return;
+    }
+
+    current++;
+
+    loadQuestion();
+}
+
+function previousQuestion(){
+
+    if(current > 0){
+
+        current--;
+
+        loadQuestion();
+
+    }
+}
+
+function openPalette(){
+
+    document.getElementById("palette")
+        .classList.add("open");
+
+    document.getElementById("overlay")
+        .classList.add("show");
+}
+
+function closePalette(){
+
+    document.getElementById("palette")
+        .classList.remove("open");
+
+    document.getElementById("overlay")
+        .classList.remove("show");
+}
+
+function updatePalette(){
+
+    const grid = document.getElementById("paletteGrid");
+
+    grid.innerHTML = "";
+
+    userAnswers.forEach((answer,index)=>{
+
+        const btn = document.createElement("button");
+
+        btn.className = "palette-number";
+
+        btn.innerText = index+1;
+
+        if(answer !== null){
+
+            if(answer === questions[index].answer){
+
+                btn.classList.add("correct");
+
+            }else{
+
+                btn.classList.add("wrong");
+
+            }
+
+        }else{
+
+            btn.classList.add("skipped");
+
+        }
+
+        if(index === current){
+
+            btn.classList.add("current");
+
+        }
+
+        btn.onclick = function(){
+
+            current = index;
+
+            closePalette();
+
+            loadQuestion();
+
+        };
+
+        grid.appendChild(btn);
+
+    });
+
+    updateStats();
+}
+
+function updateStats(){
+
+    let correct = 0;
+    let wrong = 0;
+    let skipped = 0;
+
+    userAnswers.forEach((answer,index)=>{
+
+        if(answer === null){
+
+            skipped++;
+
+        }else if(answer === questions[index].answer){
+
+            correct++;
+
+        }else{
+
+            wrong++;
+
+        }
+
+    });
+
+    document.getElementById("correctCount").innerText = correct;
+    document.getElementById("wrongCount").innerText = wrong;
+    document.getElementById("skipCount").innerText = skipped;
+}
+
+function showResult(){
+
+    let correct = 0;
+    let wrong = 0;
+    let skipped = 0;
+
+    userAnswers.forEach((answer,index)=>{
+
+        if(answer === null){
+
+            skipped++;
+
+        }else if(answer === questions[index].answer){
+
+            correct++;
+
+        }else{
+
+            wrong++;
+
+        }
+
+    });
+
+    document.getElementById("quizArea").style.display = "none";
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("finalCorrect").innerText = correct;
+
+    document.getElementById("finalWrong").innerText = wrong;
+
+    document.getElementById("finalSkipped").innerText = skipped;
+
+    document.getElementById("finalMessage").innerHTML =
+        `कुल प्रश्न: <b>${questions.length}</b> |
+         प्रयास किए: <b>${correct+wrong}</b> |
+         अनुत्तरित: <b>${skipped}</b>
+         <br><br>
+         <b>No Negative Marking</b>`;
+
+    closePalette();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function restartTest(){
+
+    userAnswers = new Array(questions.length).fill(null);
+
+    current = 0;
+
+    document.getElementById("quizArea").style.display = "block";
+
+    document.getElementById("result").style.display = "none";
+
+    loadQuestion();
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
