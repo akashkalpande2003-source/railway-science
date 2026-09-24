@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>कक्षा 10 विज्ञान | अध्याय 5 | जैव प्रक्रम</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f3f6fb;
+    color:#172033;
+    line-height:1.75;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:18px;
+}
+
+/* HEADER */
+.hero{
+    background:linear-gradient(135deg,#082567,#1261a8);
+    color:white;
+    border-radius:18px;
+    padding:30px 20px;
+    text-align:center;
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.hero h1{
+    font-size:32px;
+    margin-bottom:6px;
+}
+
+.hero h2{
+    font-size:20px;
+    font-weight:500;
+    opacity:.95;
+}
+
+.badges{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:16px;
+}
+
+.badge{
+    background:white;
+    color:#082567;
+    padding:5px 13px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* SECTION */
+.section{
+    background:white;
+    margin:20px 0;
+    padding:22px;
+    border-radius:15px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    border-left:5px solid #1261a8;
+}
+
+.section-title{
+    background:#082567;
+    color:white;
+    padding:12px 16px;
+    border-radius:10px;
+    font-size:22px;
+    margin-bottom:18px;
+}
+
+.sub-title{
+    color:#0b5798;
+    font-size:20px;
+    margin:20px 0 12px;
+    border-left:5px solid #ff9f00;
+    padding-left:10px;
+}
+
+h4{
+    color:#143f72;
+    margin:14px 0 7px;
+    font-size:18px;
+}
+
+p{
+    margin:8px 0;
+}
+
+ul,ol{
+    margin:8px 0 12px 24px;
+}
+
+li{
+    margin:6px 0;
+}
+
+/* IMPORTANT BOX */
+.info{
+    background:#eef6ff;
+    border-left:5px solid #1976d2;
+    padding:14px 16px;
+    margin:15px 0;
+    border-radius:9px;
+}
+
+.green-box{
+    background:#edf9f0;
+    border-left:5px solid #2e8b57;
+    padding:14px 16px;
+    margin:15px 0;
+    border-radius:9px;
+}
+
+.yellow-box{
+    background:#fff8df;
+    border-left:5px solid #f2a900;
+    padding:14px 16px;
+    margin:15px 0;
+    border-radius:9px;
+}
+
+.red-box{
+    background:#fff0f0;
+    border-left:5px solid #d62828;
+    padding:14px 16px;
+    margin:15px 0;
+    border-radius:9px;
+}
+
+/* FORMULA */
+.formula{
+    background:#f7f7f7;
+    border:2px solid #d8dee8;
+    padding:18px;
+    border-radius:10px;
+    text-align:center;
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0;
+    overflow-x:auto;
+}
+
+/* FLOWCHART */
+.flowchart{
+    background:#f8fbff;
+    border:2px solid #b9d5ef;
+    border-radius:12px;
+    padding:20px;
+    margin:15px 0;
+    overflow-x:auto;
+}
+
+.flow-step{
+    background:white;
+    border:2px solid #1261a8;
+    border-radius:10px;
+    padding:12px;
+    text-align:center;
+    font-weight:bold;
+    margin:8px auto;
+    max-width:620px;
+}
+
+.arrow{
+    text-align:center;
+    font-size:25px;
+    font-weight:bold;
+    color:#1261a8;
+}
+
+/* BRANCH FLOW */
+.branch{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:12px;
+}
+
+.branch-box{
+    background:white;
+    border:2px solid #1261a8;
+    border-radius:10px;
+    padding:14px;
+    text-align:center;
+}
+
+.branch-box h4{
+    margin-top:0;
+    color:#082567;
+}
+
+.branch-arrow{
+    text-align:center;
+    font-size:24px;
+    color:#1261a8;
+    font-weight:bold;
+}
+
+/* IMAGE */
+.diagram{
+    margin:20px 0;
+    text-align:center;
+}
+
+.diagram img{
+    max-width:100%;
+    height:auto;
+    border:2px solid #d7e1ec;
+    border-radius:12px;
+    background:white;
+    padding:6px;
+    box-shadow:0 4px 12px rgba(0,0,0,.07);
+}
+
+.diagram-title{
+    display:block;
+    font-weight:bold;
+    color:#082567;
+    margin-top:8px;
+}
+
+/* TABLE */
+.table-wrap{
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th{
+    background:#082567;
+    color:white;
+    padding:12px;
+    border:1px solid #ddd;
+}
+
+td{
+    padding:11px;
+    border:1px solid #d8dee8;
+    vertical-align:top;
+}
+
+tr:nth-child(even){
+    background:#f7faff;
+}
+
+/* QUICK REVISION */
+.quick{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.quick-card{
+    background:#f8fbff;
+    border:1px solid #cddff0;
+    border-radius:10px;
+    padding:13px;
+}
+
+.footer{
+    text-align:center;
+    background:#082567;
+    color:white;
+    padding:20px;
+    margin-top:25px;
+    border-radius:15px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .container{
+        padding:10px;
+    }
+
+    .hero{
+        padding:22px 12px;
+    }
+
+    .hero h1{
+        font-size:25px;
+    }
+
+    .hero h2{
+        font-size:16px;
+    }
+
+    .section{
+        padding:15px;
+        border-left-width:4px;
+    }
+
+    .section-title{
+        font-size:19px;
+        padding:10px 12px;
+    }
+
+    .sub-title{
+        font-size:18px;
+    }
+
+    .branch{
+        grid-template-columns:1fr;
+    }
+
+    .quick{
+        grid-template-columns:1fr;
+    }
+
+    .formula{
+        font-size:16px;
+    }
+
+    body{
+        font-size:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+
+<header class="hero">
+    <h1>अध्याय 5 : जैव प्रक्रम</h1>
+    <h2>Class 10 Science | Life Processes</h2>
+
+    <div class="badges">
+        <span class="badge">पोषण</span>
+        <span class="badge">श्वसन</span>
+        <span class="badge">वहन</span>
+        <span class="badge">उत्सर्जन</span>
+    </div>
+</header>
+
+
+<!-- =========================================================
+     1. जैव प्रक्रम
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+1. जैव प्रक्रम क्या है? (What is Life Process?)
+</div>
+
+<div class="info">
+
+<p>
+<strong>परिभाषा (Definition):</strong>
+वे सभी प्रक्रम जो सम्मिलित रूप से जीवों के अनुरक्षण (Maintenance) का कार्य करते हैं, जैव प्रक्रम (Life Processes) कहलाते हैं।
+</p>
+
+</div>
+
+<h3 class="sub-title">मुख्य प्रक्रम (Core Processes)</h3>
+
+<p>
+जीवन के अनुरक्षण के लिए निम्नलिखित प्रक्रम आवश्यक हैं:
+</p>
+
+<ul>
+
+<li>
+<strong>पोषण (Nutrition):</strong>
+ऊर्जा के स्रोत (भोजन) को शरीर के अंदर लेने का प्रक्रम।
+</li>
+
+<li>
+<strong>श्वसन (Respiration):</strong>
+शरीर के बाहर से ऑक्सीजन (O₂) ग्रहण करना तथा कोशिकीय आवश्यकता के अनुसार खाद्य स्रोत के विघटन (Breakdown) में उसका उपयोग करना।
+</li>
+
+<li>
+<strong>वहन (Transportation):</strong>
+भोजन एवं ऑक्सीजन को शरीर के एक स्थान से दूसरे स्थान तक ले जाने के लिए वहन-तंत्र (Circulatory System)।
+</li>
+
+<li>
+<strong>उत्सर्जन (Excretion):</strong>
+हानिकारक अपशिष्ट उपोत्पादों (Toxic Waste Products) को शरीर से बाहर निकालना।
+</li>
+
+</ul>
+
+</section>
+
+
+<!-- =========================================================
+     2. पोषण
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+2. पोषण (Nutrition)
+</div>
+
+<p>
+जीवों को वृद्धि, विकास और प्रोटीन संश्लेषण (Protein Synthesis) के लिए बाहर से पदार्थों और ऊर्जा की आवश्यकता होती है, जिसका स्रोत भोजन (Food) है।
+</p>
+
+<h3 class="sub-title">🧬 पोषण के प्रकार (Types of Nutrition)</h3>
+
+<ol>
+
+<li>
+<strong>स्वपोषी पोषण (Autotrophic Nutrition):</strong>
+
+<ul>
+<li>
+इसमें जीव अकार्बनिक स्रोतों (Inorganic Sources) से CO₂ तथा जल (H₂O) के रूप में सरल पदार्थ प्राप्त करते हैं।
+</li>
+
+<li>
+उदाहरण: सभी हरे पौधे (Green Plants) तथा कुछ जीवाणु (Bacteria)।
+</li>
+</ul>
+
+</li>
+
+
+<li>
+<strong>विषमपोषी पोषण (Heterotrophic Nutrition):</strong>
+
+<ul>
+
+<li>
+इसमें जीव जटिल पदार्थों (Complex Substances) का उपयोग करते हैं, जिन्हें एंजाइम (Enzymes / जैव-उत्प्रेरक) की मदद से सरल पदार्थों में खंडित किया जाता है।
+</li>
+
+<li>
+उदाहरण: जंतु (Animals) तथा कवक (Fungi)।
+</li>
+
+</ul>
+
+</li>
+
+</ol>
+
+</section>
+
+
+<!-- =========================================================
+     5.2.1 स्वपोषी पोषण
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+🌱 5.2.1 स्वपोषी पोषण एवं प्रकाश संश्लेषण (Photosynthesis)
+</div>
+
+<p>
+स्वपोषी जीवों की कार्बन तथा ऊर्जा की आवश्यकताएँ प्रकाश संश्लेषण (Photosynthesis) द्वारा पूरी होती हैं।
+</p>
+
+<div class="formula">
+
+6CO₂ + 12H₂O
+<br>
+↓
+<br>
+<strong>क्लोरोफिल + सूर्य का प्रकाश</strong>
+<br>
+↓
+<br>
+C₆H₁₂O₆ (ग्लूकोज) + 6O₂ + 6H₂O
+
+</div>
+
+<h3 class="sub-title">
+प्रकाश संश्लेषण के दौरान होने वाली घटनाएँ (Main Events)
+</h3>
+
+<ol>
+
+<li>
+क्लोरोफिल द्वारा प्रकाश ऊर्जा (Light Energy) को अवशोषित (Absorb) करना।
+</li>
+
+<li>
+प्रकाश ऊर्जा को रासायनिक ऊर्जा (Chemical Energy) में रूपांतरित करना तथा जल अणुओं का हाइड्रोजन तथा ऑक्सीजन में अपघटन (Splitting of Water)।
+</li>
+
+<li>
+कार्बन डाइऑक्साइड (CO₂) का कार्बोहाइड्रेट (Glucose) में अपचयन (Reduction)।
+</li>
+
+</ol>
+
+
+<div class="diagram">
+
+<img src="photosynthesis-diagram.png"
+     alt="प्रकाश संश्लेषण का आरेख">
+
+<span class="diagram-title">
+चित्र: प्रकाश संश्लेषण (Photosynthesis Diagram)
+</span>
+
+</div>
+
+
+<h3 class="sub-title">
+ऊर्जा का संचय (Storage of Energy)
+</h3>
+
+<ul>
+
+<li>
+<strong>पौधों में:</strong>
+कार्बोहाइड्रेट मंड (Starch) के रूप में संचित होता है।
+</li>
+
+<li>
+<strong>मनुष्यों में:</strong>
+खाए गए भोजन से उत्पन्न ऊर्जा ग्लाइकोजन (Glycogen) के रूप में संचित होती है।
+</li>
+
+</ul>
+
+
+<h3 class="sub-title">
+रंध्र (Stomata) का कार्य
+</h3>
+
+<ul>
+
+<li>
+पत्तियों की सतह पर सूक्ष्म छिद्र (Microscopic Pores) होते हैं जिनसे गैसों का आदान-प्रदान (Exchange of Gases) होता है।
+</li>
+
+<li>
+छिद्रों का खुलना और बंद होना द्वार कोशिकाओं (Guard Cells) के फूलने और सिकुड़ने पर निर्भर करता है।
+</li>
+
+</ul>
+
+
+<div class="diagram">
+
+<img src="stomata-diagram.png"
+     alt="रंध्र और द्वार कोशिकाओं का आरेख">
+
+<span class="diagram-title">
+चित्र: रंध्र (Stomata) तथा द्वार कोशिकाएँ (Guard Cells)
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     AMOEBA
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+🦠 5.2.3 अमीबा में पोषण (Nutrition in Amoeba)
+</div>
+
+<p>
+अमीबा एककोशिकीय जीव (Unicellular Organism) है जो अपनी पूरी सतह से भोजन ग्रहण कर सकता है।
+</p>
+
+
+<div class="diagram">
+
+<img src="amoeba-nutrition-diagram.png"
+     alt="अमीबा में पोषण का आरेख">
+
+<span class="diagram-title">
+चित्र: अमीबा में पोषण (Nutrition in Amoeba)
+</span>
+
+</div>
+
+
+<div class="flowchart">
+
+<div class="flow-step">
+अमीबा (Amoeba) + भोजन का कण (Food Particle)
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+पादाभ अथवा कूटपाद (Pseudopodia) द्वारा भोजन को घेरना
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+खाद्य रिक्तिका (Food Vacuole) का निर्माण
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+खाद्य रिक्तिका के अंदर जटिल पदार्थों का सरल पदार्थों में विघटन
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+बचा हुआ अपच पदार्थ (Undigested Food) कोशिका की सतह से बाहर निष्कासित
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     HUMAN DIGESTION
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+🧍 5.2.4 मनुष्य में पोषण (Human Digestive System)
+</div>
+
+<p>
+मनुष्य की आहार नाल (Alimentary Canal) मुँह से गुदा (Anus) तक विस्तृत एक लंबी नली है।
+</p>
+
+
+<div class="diagram">
+
+<img src="human-digestive-system.png"
+     alt="मानव पाचन तंत्र का आरेख">
+
+<span class="diagram-title">
+चित्र: मानव पाचन तंत्र (Human Digestive System)
+</span>
+
+</div>
+
+
+<h3 class="sub-title">
+🍽️ पाचन के मुख्य अंग और उनके कार्य (Digestive Organs & Functions)
+</h3>
+
+
+<h4>मुँह (Mouth)</h4>
+
+<p>
+दाँतों द्वारा भोजन को चबाया जाता है। लाला ग्रंथि (Salivary Gland) से निकलने वाला लार (Saliva) भोजन को गीला करता है।
+</p>
+
+<div class="info">
+<strong>लार एमिलेस एंजाइम (Salivary Amylase):</strong>
+मंड (Starch) के जटिल अणु को सरल शर्करा (Sugar) में खंडित करता है।
+</div>
+
+
+<h4>ग्रसिका (Oesophagus)</h4>
+
+<p>
+भोजन को मुँह से आमाशय तक क्रमाकुंचक गति (Peristaltic Movement) द्वारा ले जाती है।
+</p>
+
+
+<h4>आमाशय (Stomach)</h4>
+
+<p>
+यहाँ जठर ग्रंथियाँ (Gastric Glands) होती हैं जो निम्नलिखित का स्रावण करती हैं:
+</p>
+
+<ol>
+
+<li>
+<strong>हाइड्रोक्लोरिक अम्ल (HCl):</strong>
+अम्लीय माध्यम तैयार करता है जो पेप्सिन की क्रिया में सहायक है।
+</li>
+
+<li>
+<strong>पेप्सिन (Pepsin):</strong>
+प्रोटीन पाचक एंजाइम है।
+</li>
+
+<li>
+<strong>श्लेष्मा (Mucus):</strong>
+आमाशय के आंतरिक आस्तर की अम्ल से रक्षा करता है।
+</li>
+
+</ol>
+
+
+<h4>क्षुद्रांत्र (Small Intestine)</h4>
+
+<p>
+यह आहारनाल का सबसे लंबा भाग और कार्बोहाइड्रेट, प्रोटीन तथा वसा के पूर्ण पाचन का स्थल है।
+</p>
+
+<ul>
+
+<li>
+<strong>यकृत (Liver):</strong>
+पित्तरस (Bile Juice) स्रावित करता है जो वसा की बड़ी गोलिकाओं को छोटी गोलिकाओं में खंडित (इमल्सीकरण - Emulsification) करता है और माध्यम को क्षारीय बनाता है।
+</li>
+
+<li>
+<strong>अग्न्याशय (Pancreas):</strong>
+अग्न्याशयिक रस स्रावित करता है, जिसमें प्रोटीन के लिए ट्रिप्सिन (Trypsin) और इमल्सीकृत वसा के लिए लाइपेज (Lipase) एंजाइम होते हैं।
+</li>
+
+<li>
+<strong>आंत्र रस (Intestinal Juice):</strong>
+अंत में प्रोटीन को अमीनो अम्ल, जटिल कार्बोहाइड्रेट को ग्लूकोज में तथा वसा को वसा अम्ल (Fatty Acids) व ग्लिसरॉल में बदल देता है।
+</li>
+
+<li>
+<strong>दीर्घरोम (Villi):</strong>
+क्षुद्रांत्र की भित्ति पर उंगली जैसे प्रवर्ध होते हैं जो अवशोषण (Absorption) का सतही क्षेत्रफल बढ़ाते हैं।
+</li>
+
+</ul>
+
+
+<div class="diagram">
+
+<img src="small-intestine-villi.png"
+     alt="क्षुद्रांत्र और दीर्घरोम का आरेख">
+
+<span class="diagram-title">
+चित्र: क्षुद्रांत्र की भित्ति तथा दीर्घरोम (Villi)
+</span>
+
+</div>
+
+
+<h4>बृहदांत्र (Large Intestine)</h4>
+
+<p>
+बिना पचा भोजन यहाँ भेजा जाता है जहाँ दीर्घरोम जल का अवशोषण (Water Absorption) कर लेते हैं और शेष वर्ज्य पदार्थ गुदा (Anus) द्वारा बाहर निकाल दिया जाता है।
+</p>
+
+</section>
+
+
+<!-- =========================================================
+     RESPIRATION
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+3. श्वसन (Respiration)
+</div>
+
+
+<h3 class="sub-title">
+📊 5.3.1 ग्लूकोज का विखंडन (Breakdown of Glucose Flowchart)
+</h3>
+
+<div class="yellow-box">
+<strong>यह चार्ट परीक्षा के लिए अत्यंत महत्वपूर्ण है, इसे हूबहू याद रखें:</strong>
+</div>
+
+
+<div class="flowchart">
+
+<div class="flow-step">
+ग्लूकोज (Glucose) [6-कार्बन अणु]
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+(कोशिकाद्रव्य / Cytoplasm में)<br>
+पायरुवेट (Pyruvate) [3-कार्बन अणु] + ऊर्जा
+</div>
+
+<div class="branch">
+
+<div class="branch-box">
+
+<h4>↓</h4>
+
+<strong>O₂ की अनुपस्थिति में</strong>
+
+<p>[यीस्ट में / In Yeast]</p>
+
+<div class="branch-arrow">↓</div>
+
+<p>
+<strong>इथेनॉल + CO₂ + ऊर्जा</strong>
+</p>
+
+<p>
+(2-कार्बन अणु)
+</p>
+
+</div>
+
+
+<div class="branch-box">
+
+<h4>↓</h4>
+
+<strong>O₂ के अभाव में</strong>
+
+<p>[हमारी पेशी कोशिका में]</p>
+
+<div class="branch-arrow">↓</div>
+
+<p>
+<strong>लैक्टिक अम्ल + ऊर्जा</strong>
+</p>
+
+<p>
+(3-कार्बन अणु) → (क्रैम्प का कारण)
+</p>
+
+</div>
+
+
+<div class="branch-box">
+
+<h4>↓</h4>
+
+<strong>O₂ की उपस्थिति में</strong>
+
+<p>[माइटोकॉन्ड्रिया में / Mitochondria]</p>
+
+<div class="branch-arrow">↓</div>
+
+<p>
+<strong>CO₂ + जल (H₂O) + ऊर्जा</strong>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="diagram">
+
+<img src="glucose-breakdown-diagram.png"
+     alt="ग्लूकोज का विखंडन">
+
+<span class="diagram-title">
+चित्र: ग्लूकोज का विखंडन (Breakdown of Glucose)
+</span>
+
+</div>
+
+
+<div class="green-box">
+
+<strong>ATP (Adenosine Triphosphate):</strong>
+अधिकांश कोशिकीय प्रक्रमों के लिए ऊर्जा मुद्रा (Energy Currency) है। इसके खंडित होने पर 30.5 kJ/mol के तुल्य ऊर्जा मोचित होती है।
+
+</div>
+
+
+<h3 class="sub-title">
+🫁 5.3.2 मानव श्वसन तंत्र (Human Respiratory System)
+</h3>
+
+<ul>
+
+<li>
+<strong>मार्ग (Path):</strong>
+नासाद्वार (Nostrils) → ग्रसनी (Pharynx) → कंठ (Larynx) → श्वासनली (Trachea) → श्वसनी (Bronchi) → श्वसनिका (Bronchioles) → कूपिका (Alveoli)।
+</li>
+
+<li>
+<strong>उपास्थि वलय (Rings of Cartilage):</strong>
+कंठ/श्वासनली में उपस्थित होते हैं ताकि वायु मार्ग निपतित (Collapse) न हो।
+</li>
+
+<li>
+<strong>कूपिका (Alveoli):</strong>
+फुफ्फुस (Lungs) के अंदर गुब्बारे जैसी रचना जो गैसों के विनिमय (Exchange of Gases) के लिए विस्तृत सतह उपलब्ध कराती है।
+</li>
+
+<li>
+<strong>श्वसन वर्णक (Respiratory Pigment):</strong>
+मानव में हीमोग्लोबिन (Haemoglobin) है, जो ऑक्सीजन के लिए उच्च बंधुता (High Affinity) रखता है और लाल रुधिर कणिकाओं (RBCs) में पाया जाता है। CO₂ जल में अधिक विलेय है, इसलिए इसका परिवहन रुधिर प्लाज्मा में विलीन अवस्था में होता है।
+</li>
+
+</ul>
+
+
+<div class="diagram">
+
+<img src="human-respiratory-system.png"
+     alt="मानव श्वसन तंत्र">
+
+<span class="diagram-title">
+चित्र: मानव श्वसन तंत्र (Human Respiratory System)
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     TRANSPORTATION
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+4. वहन (Transportation)
+</div>
+
+
+<h3 class="sub-title">
+🩸 5.4.1 मानव में वहन (Transportation in Humans)
+</h3>
+
+<p>
+रुधिर (Blood) एक तरल संयोजी ऊतक (Fluid Connective Tissue) है जो भोजन, ऑक्सीजन और वर्ज्य पदार्थों का वहन करता है।
+</p>
+
+
+<div class="info">
+
+<strong>प्लाज्मा (Plasma):</strong>
+रुधिर का तरल माध्यम जो भोजन, CO₂ और नाइट्रोजनी वर्ज्य पदार्थों का वहन करता है।
+
+</div>
+
+
+<h3 class="sub-title">
+🫀 हमारा पंप – हृदय (The Heart)
+</h3>
+
+<ul>
+
+<li>
+हृदय एक पेशीय अंग है जो हमारी मुट्ठी के आकार का होता है।
+</li>
+
+<li>
+<strong>कोष्ठ (Chambers):</strong>
+मानव हृदय 4 कोष्ठों में बंटा होता है (2 अलिंद - Atrium और 2 निलय - Ventricle) ताकि ऑक्सीजनित (Oxygenated) और विअक्सीजनित (Deoxygenated) रुधिर आपस में न मिलें।
+</li>
+
+<li>
+<strong>दोहरा परिसंचरण (Double Circulation):</strong>
+प्रत्येक चक्र में रुधिर हृदय में दो बार जाता है, इसे दोहरा परिसंचरण कहते हैं (स्तनधारियों और पक्षियों में उच्च ऊर्जा और शरीर का तापमान बनाए रखने के लिए आवश्यक है)।
+</li>
+
+</ul>
+
+
+<div class="diagram">
+
+<img src="human-heart-diagram.png"
+     alt="मानव हृदय का आरेख">
+
+<span class="diagram-title">
+चित्र: मानव हृदय (Human Heart)
+</span>
+
+</div>
+
+
+<h3 class="sub-title">
+🔀 रुधिर वाहिकाएं (Blood Vessels)
+</h3>
+
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>विशेषता</th>
+<th>धमनी (Artery)</th>
+<th>शिरा (Vein)</th>
+</tr>
+
+<tr>
+<td><strong>कार्य</strong></td>
+
+<td>
+रुधिर को हृदय से शरीर के अंगों तक ले जाना।
+</td>
+
+<td>
+रुधिर को अंगों से वापस हृदय तक लाना।
+</td>
+</tr>
+
+<tr>
+
+<td><strong>भित्ति (Wall)</strong></td>
+
+<td>
+मोटी तथा लचीली होती है (क्योंकि रुधिर उच्च दाब पर बहता है)।
+</td>
+
+<td>
+पतली भित्ति होती है।
+</td>
+
+</tr>
+
+<tr>
+
+<td><strong>वाल्व (Valves)</strong></td>
+
+<td>
+वाल्व नहीं होते।
+</td>
+
+<td>
+रुधिर को एक ही दिशा में भेजने के लिए वाल्व होते हैं।
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="info">
+
+<strong>प्लेटलैट्स (Platelets):</strong>
+रक्तस्राव (Bleeding) के स्थान पर रुधिर का थक्का (Blood Clot) बनाकर मार्ग अवरुद्ध करती हैं।
+
+</div>
+
+
+<div class="info">
+
+<strong>लसिका (Lymph):</strong>
+एक रंगहीन द्रव है जिसमें अल्पमात्रा में प्रोटीन होता है। यह वहन तथा क्षुद्रांत्र द्वारा अवशोषित वसा के परिवहन में सहायता करता है।
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PLANTS TRANSPORT
+========================================================= -->
+
+<section class="section">
+
+<h3 class="section-title">
+🪵 5.4.2 पादपों में परिवहन (Transportation in Plants)
+</h3>
+
+<p>
+पौधों में वहन के लिए दो स्वतंत्र संगठित चालन नलिकाएं होती हैं:
+</p>
+
+
+<div class="green-box">
+
+<strong>1. जाइलम (Xylem):</strong>
+
+<p>
+यह मृदा से प्राप्त जल और खनिज लवणों (Water & Minerals) का वहन करता है। इसमें वाष्पोत्सर्जन कर्षण (Transpiration Pull) मुख्य प्रेरक बल होता है।
+</p>
+
+</div>
+
+
+<div class="info">
+
+<strong>2. फ्लोएम (Phloem):</strong>
+
+<p>
+यह पत्तियों से प्रकाश संश्लेषण के उत्पादों (भोजन / सुक्रोज) और अमीनो अम्ल को पौधे के अन्य भागों तक पहुँचाता है, जिसे स्थानांतरण (Translocation) कहते हैं। यह प्रक्रिया ATP से प्राप्त ऊर्जा का उपयोग करके होती है।
+</p>
+
+</div>
+
+
+<div class="diagram">
+
+<img src="xylem-phloem-transport.png"
+     alt="पादपों में जाइलम और फ्लोएम परिवहन">
+
+<span class="diagram-title">
+चित्र: पादपों में जाइलम एवं फ्लोएम का परिवहन
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     EXCRETION
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+5. उत्सर्जन (Excretion)
+</div>
+
+
+<h3 class="sub-title">
+🩺 5.5.1 मानव में उत्सर्जन तंत्र (Human Excretory System)
+</h3>
+
+<p>
+मानव उत्सर्जन तंत्र में निम्नलिखित अंग शामिल हैं:
+</p>
+
+<ul>
+
+<li>
+<strong>एक जोड़ा वृक्क (Pair of Kidneys):</strong>
+उदर में रीढ़ की हड्डी के दोनों ओर स्थित।
+</li>
+
+<li>
+<strong>मूत्रवाहिका (Ureters):</strong>
+वृक्क को मूत्राशय से जोड़ती हैं।
+</li>
+
+<li>
+<strong>मूत्राशय (Urinary Bladder):</strong>
+जहाँ मूत्र (Urine) भंडारित रहता है।
+</li>
+
+<li>
+<strong>मूत्रमार्ग (Urethra):</strong>
+जिसके द्वारा मूत्र बाहर निकलता है।
+</li>
+
+</ul>
+
+
+<div class="diagram">
+
+<img src="human-excretory-system.png"
+     alt="मानव उत्सर्जन तंत्र">
+
+<span class="diagram-title">
+चित्र: मानव उत्सर्जन तंत्र (Human Excretory System)
+</span>
+
+</div>
+
+
+<h3 class="sub-title">
+🧬 वृक्काणु (Nephron) की रचना और कार्यविधि
+</h3>
+
+<ul>
+
+<li>
+वृक्क में आधारी निस्यंदन एकक (Filtration Unit) बहुत पतली भित्ति वाली रुधिर केशिकाओं का गुच्छ होता है, जिसे कोशिका गुच्छ (Glomerulus) कहते हैं।
+</li>
+
+<li>
+यह एक कप के आकार के सिरे के अंदर होता है जिसे बोमन संपुट (Bowman's Capsule) कहते हैं।
+</li>
+
+<li>
+<strong>चयनात्मक पुनरावशोषण (Selective Reabsorption):</strong>
+प्रारंभिक निस्यंद (Filtrate) में ग्लूकोज, अमीनो अम्ल, लवण और प्रचुर मात्रा में जल रह जाते हैं, जिनका नलिका में प्रवाहित होते समय पुनः अवशोषण हो जाता है।
+</li>
+
+<li>
+<strong>अपोहन (Dialysis / कृत्रिम वृक्क):</strong>
+वृक्क के निष्क्रिय होने की अवस्था में रुधिर से नाइट्रोजनी अपशिष्टों को अलग करने वाली एक कृत्रिम युक्ति है।
+</li>
+
+</ul>
+
+
+<div class="diagram">
+
+<img src="nephron-diagram.png"
+     alt="वृक्काणु नेफ्रॉन का आरेख">
+
+<span class="diagram-title">
+चित्र: वृक्काणु (Nephron)
+</span>
+
+</div>
+
+
+<div class="diagram">
+
+<img src="dialysis-diagram.png"
+     alt="अपोहन Dialysis का आरेख">
+
+<span class="diagram-title">
+चित्र: अपोहन (Dialysis / Artificial Kidney)
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     PLANT EXCRETION
+========================================================= -->
+
+<section class="section">
+
+<h3 class="section-title">
+🍂 5.5.2 पादप में उत्सर्जन (Excretion in Plants)
+</h3>
+
+<p>
+पौधे अपशिष्ट पदार्थों से छुटकारा पाने के लिए निम्नलिखित तरीके अपनाते हैं:
+</p>
+
+
+<ul>
+
+<li>
+<strong>ऑक्सीजन (O₂):</strong>
+प्रकाश संश्लेषण का अपशिष्ट उत्पाद है जिसे रंध्रों द्वारा छोड़ा जाता है।
+</li>
+
+<li>
+<strong>अतिरिक्त जल:</strong>
+वाष्पोत्सर्जन (Transpiration) द्वारा बाहर निकाला जाता है।
+</li>
+
+<li>
+<strong>कोशिकीय रिक्तिका (Vacuoles):</strong>
+बहुत से अपशिष्ट उत्पाद इनमें संचित रहते हैं।
+</li>
+
+<li>
+<strong>पत्तियां:</strong>
+अपशिष्ट उत्पाद पुरानी पत्तियों में संचित होते हैं जो बाद में गिर जाती हैं।
+</li>
+
+<li>
+<strong>रेजिन तथा गोंद (Resins & Gums):</strong>
+पुराने जाइलम में संचित होते हैं।
+</li>
+
+<li>
+<strong>मृदा:</strong>
+कुछ अपशिष्ट पदार्थों को पौधे अपने आस-पास की मिट्टी में उत्सर्जित कर देते हैं।
+</li>
+
+</ul>
+
+
+<div class="diagram">
+
+<img src="plant-excretion-diagram.png"
+     alt="पादप में उत्सर्जन">
+
+<span class="diagram-title">
+चित्र: पादप में उत्सर्जन (Excretion in Plants)
+</span>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     COMPLETE FLOW
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+📚 जैव प्रक्रम — Complete Revision Flow
+</div>
+
+<div class="flowchart">
+
+<div class="flow-step">
+जीवों का अनुरक्षण
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+पोषण (Nutrition)
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+श्वसन (Respiration)
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+वहन (Transportation)
+</div>
+
+<div class="arrow">↓</div>
+
+<div class="flow-step">
+उत्सर्जन (Excretion)
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     QUICK REVISION
+========================================================= -->
+
+<section class="section">
+
+<div class="section-title">
+⚡ Quick Revision
+</div>
+
+<div class="quick">
+
+<div class="quick-card">
+<strong>पोषण</strong>
+<br>
+भोजन एवं ऊर्जा का शरीर में लेना।
+</div>
+
+<div class="quick-card">
+<strong>श्वसन</strong>
+<br>
+भोजन के विघटन से ऊर्जा प्राप्त करना।
+</div>
+
+<div class="quick-card">
+<strong>वहन</strong>
+<br>
+भोजन, ऑक्सीजन एवं वर्ज्य पदार्थों का परिवहन।
+</div>
+
+<div class="quick-card">
+<strong>उत्सर्जन</strong>
+<br>
+हानिकारक अपशिष्ट पदार्थों को शरीर से बाहर निकालना।
+</div>
+
+<div class="quick-card">
+<strong>जाइलम</strong>
+<br>
+जल एवं खनिज लवणों का वहन।
+</div>
+
+<div class="quick-card">
+<strong>फ्लोएम</strong>
+<br>
+भोजन का स्थानांतरण।
+</div>
+
+<div class="quick-card">
+<strong>नेफ्रॉन</strong>
+<br>
+वृक्क की आधारी निस्यंदन इकाई।
+</div>
+
+<div class="quick-card">
+<strong>कूपिका</strong>
+<br>
+गैसों के विनिमय के लिए विस्तृत सतह।
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+<strong>Railway Science</strong>
+<br>
+कक्षा 10 विज्ञान | अध्याय 5 : जैव प्रक्रम
+
+</footer>
+
+</div>
+
+</body>
+</html>
