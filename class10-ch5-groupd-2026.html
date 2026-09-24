@@ -1,0 +1,2616 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Life Processes | TCS Style Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,"Noto Sans Devanagari",sans-serif;
+    background:#f1f5f9;
+    color:#172033;
+    line-height:1.6;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#102a43;
+    color:white;
+    padding:12px 15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.header-title{
+    font-size:19px;
+    font-weight:700;
+}
+
+.header-sub{
+    font-size:12px;
+    opacity:.85;
+}
+
+.timer{
+    background:#ffffff;
+    color:#102a43;
+    padding:7px 13px;
+    border-radius:8px;
+    font-weight:700;
+    font-size:15px;
+    min-width:100px;
+    text-align:center;
+}
+
+.timer.warning{
+    background:#fff3cd;
+    color:#856404;
+}
+
+.timer.danger{
+    background:#ffe0e0;
+    color:#b00020;
+}
+
+/* ================= PALETTE BUTTON ================= */
+
+.palette-btn{
+    position:fixed;
+    right:14px;
+    top:82px;
+    z-index:1200;
+    border:none;
+    background:#f59e0b;
+    color:#fff;
+    padding:10px 15px;
+    border-radius:9px;
+    font-weight:700;
+    box-shadow:0 4px 12px rgba(0,0,0,.25);
+}
+
+.palette-btn:hover{
+    background:#d97706;
+}
+
+/* ================= PALETTE ================= */
+
+.palette-panel{
+    position:fixed;
+    right:12px;
+    top:128px;
+    width:320px;
+    max-height:75vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
+    z-index:1199;
+    padding:15px;
+    display:none;
+}
+
+.palette-panel.show{
+    display:block;
+}
+
+.palette-title{
+    font-size:17px;
+    font-weight:700;
+    margin-bottom:10px;
+    color:#102a43;
+}
+
+.palette-info{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin-bottom:12px;
+    font-size:11px;
+}
+
+.status-info{
+    display:flex;
+    align-items:center;
+    gap:4px;
+}
+
+.status-dot{
+    width:11px;
+    height:11px;
+    border-radius:3px;
+    display:inline-block;
+}
+
+.dot-answer{
+    background:#22c55e;
+}
+
+.dot-review{
+    background:#f59e0b;
+}
+
+.dot-unattempted{
+    background:#e5e7eb;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:7px;
+}
+
+.palette-number{
+    height:32px;
+    border:1px solid #d1d5db;
+    border-radius:6px;
+    background:#f8fafc;
+    font-weight:700;
+    font-size:12px;
+}
+
+.palette-number.answered{
+    background:#22c55e;
+    color:white;
+    border-color:#16a34a;
+}
+
+.palette-number.review{
+    background:#f59e0b;
+    color:white;
+    border-color:#d97706;
+}
+
+.palette-number.answered.review{
+    background:linear-gradient(135deg,#22c55e 50%,#f59e0b 50%);
+    color:#fff;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    max-width:1000px;
+    margin:25px auto;
+    padding:0 15px 90px;
+}
+
+.test-info{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,.07);
+    border-left:5px solid #2563eb;
+}
+
+.test-info h2{
+    font-size:20px;
+    color:#102a43;
+    margin-bottom:5px;
+}
+
+.test-info p{
+    font-size:13px;
+    color:#475569;
+}
+
+.stats{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
+}
+
+.stat{
+    padding:5px 9px;
+    border-radius:6px;
+    background:#eff6ff;
+    color:#1d4ed8;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* ================= QUESTION CARD ================= */
+
+.question-card{
+    background:white;
+    border-radius:13px;
+    padding:20px;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+    margin-bottom:15px;
+}
+
+.question-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.question-no{
+    background:#102a43;
+    color:white;
+    padding:5px 10px;
+    border-radius:6px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.topic{
+    font-size:12px;
+    background:#e0f2fe;
+    color:#0369a1;
+    padding:4px 8px;
+    border-radius:5px;
+    font-weight:600;
+}
+
+.question-text{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:17px;
+    color:#172033;
+}
+
+.question-text pre{
+    white-space:pre-wrap;
+    font-family:inherit;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.option{
+    width:100%;
+    text-align:left;
+    padding:12px 14px;
+    background:#f8fafc;
+    border:2px solid #e2e8f0;
+    border-radius:9px;
+    font-size:15px;
+    color:#1e293b;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+.option.selected{
+    border-color:#2563eb;
+    background:#dbeafe;
+}
+
+.option.correct{
+    background:#dcfce7;
+    border-color:#16a34a;
+    color:#166534;
+}
+
+.option.wrong{
+    background:#fee2e2;
+    border-color:#dc2626;
+    color:#991b1b;
+}
+
+.option.disabled{
+    cursor:not-allowed;
+}
+
+/* ================= REVIEW BUTTON ================= */
+
+.review-row{
+    margin-top:15px;
+    display:flex;
+    justify-content:flex-end;
+}
+
+.mark-review{
+    border:1px solid #f59e0b;
+    background:#fff7ed;
+    color:#b45309;
+    border-radius:7px;
+    padding:7px 11px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.mark-review.active{
+    background:#f59e0b;
+    color:#fff;
+}
+
+/* ================= EXPLANATION ================= */
+
+.explanation{
+    display:none;
+    margin-top:17px;
+    padding:14px;
+    border-radius:9px;
+    background:#f0f9ff;
+    border-left:5px solid #0284c7;
+}
+
+.explanation.show{
+    display:block;
+}
+
+.explanation-title{
+    font-weight:700;
+    color:#0369a1;
+    margin-bottom:5px;
+}
+
+.answer-line{
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.result-correct{
+    color:#15803d;
+}
+
+.result-wrong{
+    color:#b91c1c;
+}
+
+/* ================= NAVIGATION ================= */
+
+.navigation{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:white;
+    border-top:1px solid #dbe2ea;
+    padding:10px 15px;
+    z-index:900;
+    box-shadow:0 -3px 15px rgba(0,0,0,.08);
+}
+
+.navigation-inner{
+    max-width:1000px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.nav-btn{
+    border:none;
+    padding:10px 22px;
+    border-radius:8px;
+    font-weight:700;
+    font-size:14px;
+}
+
+.previous{
+    background:#e2e8f0;
+    color:#334155;
+}
+
+.next{
+    background:#2563eb;
+    color:white;
+}
+
+.submit{
+    background:#dc2626;
+    color:white;
+}
+
+.nav-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+/* ================= SUBMIT RESULT ================= */
+
+.result-box{
+    display:none;
+    background:white;
+    border-radius:15px;
+    padding:22px;
+    margin-top:20px;
+    box-shadow:0 3px 15px rgba(0,0,0,.1);
+}
+
+.result-box.show{
+    display:block;
+}
+
+.result-title{
+    text-align:center;
+    font-size:25px;
+    color:#102a43;
+    margin-bottom:15px;
+}
+
+.score{
+    text-align:center;
+    font-size:35px;
+    font-weight:800;
+    color:#2563eb;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:20px 0;
+}
+
+.result-item{
+    padding:13px;
+    border-radius:9px;
+    text-align:center;
+    font-weight:700;
+}
+
+.correct-box{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.wrong-box{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.skip-box{
+    background:#f1f5f9;
+    color:#475569;
+}
+
+.restart-btn{
+    display:block;
+    margin:15px auto 0;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:#102a43;
+    color:#fff;
+    font-weight:700;
+}
+
+/* ================= SOLUTIONS ================= */
+
+.all-solutions{
+    display:none;
+    margin-top:20px;
+}
+
+.all-solutions.show{
+    display:block;
+}
+
+.solution-title{
+    background:#102a43;
+    color:white;
+    padding:13px;
+    border-radius:9px;
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.solution-card{
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:10px;
+    border-left:4px solid #2563eb;
+    box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+
+.solution-q{
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.solution-answer{
+    color:#15803d;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.solution-exp{
+    font-size:14px;
+    color:#475569;
+}
+
+/* ================= HIDDEN ================= */
+
+.hidden{
+    display:none !important;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    .header{
+        padding:10px;
+    }
+
+    .header-title{
+        font-size:15px;
+    }
+
+    .header-sub{
+        font-size:10px;
+    }
+
+    .timer{
+        font-size:13px;
+        min-width:82px;
+        padding:6px 8px;
+    }
+
+    .palette-btn{
+        top:68px;
+        right:8px;
+        padding:8px 11px;
+        font-size:12px;
+    }
+
+    .palette-panel{
+        top:108px;
+        right:6px;
+        width:calc(100% - 12px);
+        max-height:70vh;
+    }
+
+    .container{
+        margin-top:15px;
+        padding:0 9px 85px;
+    }
+
+    .test-info{
+        padding:12px;
+    }
+
+    .test-info h2{
+        font-size:17px;
+    }
+
+    .question-card{
+        padding:14px;
+        border-radius:10px;
+    }
+
+    .question-text{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .option{
+        font-size:14px;
+        padding:10px;
+    }
+
+    .topic{
+        font-size:10px;
+    }
+
+    .navigation{
+        padding:8px;
+    }
+
+    .nav-btn{
+        padding:9px 10px;
+        font-size:12px;
+        flex:1;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+
+    .score{
+        font-size:28px;
+    }
+
+    .palette-grid{
+        grid-template-columns:repeat(7,1fr);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+    <div class="header-inner">
+        <div>
+            <div class="header-title">Railway Science | Life Processes</div>
+            <div class="header-sub">TCS Style Mock Test • Class 10 Biology</div>
+        </div>
+
+        <div id="timer" class="timer">60:00</div>
+    </div>
+</header>
+
+<!-- ================= PALETTE BUTTON ================= -->
+
+<button class="palette-btn" onclick="togglePalette()">
+    ☰ Palette
+</button>
+
+<!-- ================= PALETTE ================= -->
+
+<div id="palettePanel" class="palette-panel">
+
+    <div class="palette-title">Question Palette</div>
+
+    <div class="palette-info">
+        <div class="status-info">
+            <span class="status-dot dot-answer"></span>
+            Answered
+        </div>
+
+        <div class="status-info">
+            <span class="status-dot dot-review"></span>
+            Review
+        </div>
+
+        <div class="status-info">
+            <span class="status-dot dot-unattempted"></span>
+            Unattempted
+        </div>
+    </div>
+
+    <div id="paletteGrid" class="palette-grid"></div>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+    <div class="test-info">
+
+        <h2>अध्याय 5 : जैव प्रक्रम (Life Processes)</h2>
+
+        <p>
+            TCS Pattern Biology Mock Test — Nutrition, Digestion,
+            Photosynthesis, Respiration, Circulation, Blood,
+            Heart, Excretion & Lymph
+        </p>
+
+        <div class="stats">
+            <span class="stat">Total Questions: 90</span>
+            <span class="stat">Time: 60 Minutes</span>
+            <span class="stat">Correct: +1</span>
+            <span class="stat">Wrong: -1/3</span>
+            <span class="stat">Unattempted: 0</span>
+        </div>
+
+    </div>
+
+    <!-- QUESTION AREA -->
+
+    <div id="questionArea"></div>
+
+    <!-- RESULT -->
+
+    <div id="resultBox" class="result-box">
+
+        <div class="result-title">
+            Test Result
+        </div>
+
+        <div id="score" class="score">
+            0
+        </div>
+
+        <div class="result-grid">
+
+            <div class="result-item correct-box">
+                Correct<br>
+                <span id="correctCount">0</span>
+            </div>
+
+            <div class="result-item wrong-box">
+                Wrong<br>
+                <span id="wrongCount">0</span>
+            </div>
+
+            <div class="result-item skip-box">
+                Skipped<br>
+                <span id="skippedCount">0</span>
+            </div>
+
+        </div>
+
+        <button class="restart-btn" onclick="restartTest()">
+            Restart Test
+        </button>
+
+    </div>
+
+    <!-- ALL SOLUTIONS -->
+
+    <div id="allSolutions" class="all-solutions">
+
+        <div class="solution-title">
+            📚 सभी 90 प्रश्नों के Systematic Solutions
+        </div>
+
+        <div id="solutionsArea"></div>
+
+    </div>
+
+</main>
+
+<!-- ================= NAVIGATION ================= -->
+
+<div class="navigation">
+
+    <div class="navigation-inner">
+
+        <button
+            id="prevBtn"
+            class="nav-btn previous"
+            onclick="previousQuestion()">
+            ← Previous
+        </button>
+
+        <button
+            id="nextBtn"
+            class="nav-btn next"
+            onclick="nextQuestion()">
+            Next →
+        </button>
+
+        <button
+            id="submitBtn"
+            class="nav-btn submit"
+            onclick="submitTest()">
+            Submit Test
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   QUESTIONS DATABASE
+   ========================================================= */
+
+const questions = [
+
+/* ================= PART 1 ================= */
+
+{
+q:`क्योंकि पादप सूर्य के प्रकाश का उपयोग करके अपना भोजन स्वयं बनाते हैं, इसलिए उन्हें आमाशय जैसी पाचन अंग की आवश्यकता नहीं होती है। इसके बजाय, उनमें ____________ के लिए विशेष ऊतक होते हैं।`,
+topic:`Autotrophic nutrition`,
+options:[
+`चिंतन`,
+`प्रकाश संश्लेषण`,
+`दौड़ने`,
+`पाचन`
+],
+answer:1,
+exp:`पादप स्वपोषी होते हैं। वे प्रकाश ऊर्जा की सहायता से प्रकाश संश्लेषण द्वारा अपना भोजन स्वयं बनाते हैं। इसलिए उन्हें भोजन के पाचन के लिए आमाशय जैसे पाचन अंग की आवश्यकता नहीं होती।`
+},
+
+{
+q:`स्वपोषी अपनी कार्बन और ऊर्जा आवश्यकताओं को किस प्रकार पूर्ण करते हैं?`,
+topic:`Autotrophic nutrition`,
+options:[
+`किण्वन द्वारा`,
+`पाचन द्वारा`,
+`श्वसन द्वारा`,
+`प्रकाश संश्लेषण द्वारा`
+],
+answer:3,
+exp:`स्वपोषी जीव CO₂ और जल से प्रकाश ऊर्जा की सहायता से कार्बोहाइड्रेट बनाते हैं। यह प्रक्रिया प्रकाश संश्लेषण कहलाती है।`
+},
+
+{
+q:`पाचन क्रिया के दौरान मुंह में लार का मुख्य कार्य क्या होता है?`,
+topic:`Digestive enzymes`,
+options:[
+`यह पोषकों को अवशोषित करती है`,
+`यह सभी जीवाणुओं को नष्ट कर देती है`,
+`यह आमाशय तक भोजन का परिवहन करती है`,
+`यह स्टार्च को सरल शर्करा में विघटित कर देती है`
+],
+answer:3,
+exp:`लार में salivary amylase एंजाइम होता है, जो स्टार्च के पाचन की शुरुआत करता है और उसे सरल शर्करा में बदलने में सहायता करता है।`
+},
+
+{
+q:`आमाशय ग्रंथियों द्वारा स्रावित कौन-सा एंजाइम आमाशय में प्रोटीन के पाचन में सहायक होता है?`,
+topic:`Human digestive system`,
+options:[
+`लाइपेज`,
+`ऐमिलेज`,
+`पेप्सिन`,
+`माल्टेस`
+],
+answer:2,
+exp:`आमाशय में पेप्सिन एंजाइम प्रोटीन के पाचन में सहायता करता है। HCl अम्लीय माध्यम उपलब्ध कराता है।`
+},
+
+{
+q:`खाना खाते समय भोजन को छोटे-छोटे टुकड़ों में संदलित करने में कौन-सा अंग सहायता करता है?`,
+topic:`Human digestive system`,
+options:[
+`आमाशय`,
+`जिह्वा`,
+`लार ग्रंथि`,
+`दांत`
+],
+answer:3,
+exp:`दाँत भोजन को काटने और चबाने के द्वारा छोटे-छोटे टुकड़ों में विभाजित करते हैं। इससे पाचन के लिए भोजन का सतह क्षेत्र बढ़ता है।`
+},
+
+{
+q:`स्वादिष्ट भोजन को देखने या सोचने से हमारे मुंह में "पानी" क्यों आ जाता है?`,
+topic:`Human digestive system`,
+options:[
+`आमाशय अम्ल तेजी से बढ़ता है`,
+`लार ग्रंथियां लार का स्राव करती हैं`,
+`पाचक एंजाइम मुक्त होते हैं`,
+`स्वाद कलिकाएं तेजी से गति करना शुरू कर देती हैं`
+],
+answer:1,
+exp:`भोजन को देखकर या उसके बारे में सोचने पर तंत्रिका संकेत लार ग्रंथियों को सक्रिय करते हैं। इसलिए लार का स्राव बढ़ जाता है।`
+},
+
+{
+q:`छोटी आंत मानव शरीर के भीतर एक सघन स्थान में क्यों फिट हो जाती है?`,
+topic:`Human digestive system`,
+options:[
+`मोटी दीवारें`,
+`विस्तृत कुंडलन`,
+`बड़ा व्यास`,
+`कठोर अस्तर`
+],
+answer:1,
+exp:`छोटी आंत बहुत लंबी होती है और अत्यधिक कुंडलित रहती है। इसी विस्तृत कुंडलन के कारण यह उदर गुहा के सीमित स्थान में फिट हो जाती है।`
+},
+
+{
+q:`सामान्य परिस्थितियों में, आमाशय के आंतरिक अस्तर (lining) को उसके अपने ही अम्ल से होने वाले नुकसान से कौन बचाता है?`,
+topic:`Human digestive system`,
+options:[
+`लार का प्रवेश`,
+`श्लेष्मा स्राव`,
+`पेप्सिन निकलना`,
+`अम्ल वृद्धि`
+],
+answer:1,
+exp:`आमाशय की दीवार पर श्लेष्मा की protective layer होती है। यह HCl तथा पाचक एंजाइमों से आमाशय की lining की रक्षा करती है।`
+},
+
+{
+q:`मनुष्यों में, कार्बोहाइड्रेट का पाचन मुख से शुरू होता है और पाचन पथ के किस भाग में पूर्ण होता है?`,
+topic:`Human digestive system`,
+options:[
+`आमाशय`,
+`बड़ी आंत`,
+`ग्रासनली`,
+`छोटी आंत`
+],
+answer:3,
+exp:`कार्बोहाइड्रेट का पाचन मुख में शुरू होता है और मुख्य रूप से छोटी आंत में पूरा होता है, जहाँ pancreatic तथा intestinal enzymes कार्य करते हैं।`
+},
+
+/* ================= PART 2 ================= */
+
+{
+q:`अमीबा में कौन-सी संरचना मुख्य रूप से खाद्य कणों के परिग्रहण (engulfing) के लिए उत्तरदायी है?`,
+topic:`Nutrition in Amoeba`,
+options:[
+`कोशिका पृष्ठ को आच्छादित करने वाली सिलिया`,
+`अस्थायी पादाभ`,
+`जीव के चारों ओर की कोशिका भित्ति`,
+`कोशिका झिल्ली के भीतर कोशिका द्रव्य`
+],
+answer:1,
+exp:`अमीबा अस्थायी पादाभ या pseudopodia बनाकर खाद्य कणों को घेरता है और उन्हें कोशिका के अंदर ले जाता है।`
+},
+
+{
+q:`निम्नलिखित में से किस जीव में भोजन ग्रहण करने के लिए पादाभ (pseudopodia) का उपयोग किया जाता है?`,
+topic:`Nutrition in Amoeba`,
+options:[
+`हाइड्रा`,
+`पैरामिशियम`,
+`अमीबा`,
+`यूग्लीना`
+],
+answer:2,
+exp:`अमीबा भोजन ग्रहण करने के लिए pseudopodia या पादाभ का उपयोग करता है।`
+},
+
+{
+q:`एक-कोशकीय जीवों द्वारा भोजन ग्रहण करने के संबंध में गलत कथन का चयन कीजिए।`,
+topic:`Nutrition in Amoeba and Paramecium`,
+options:[
+`अमीबा पादाभ बनाकर भोजन ग्रहण करता है।`,
+`पैरामिशियम गति करने और भोजन को पकड़ने के लिए सिलिया का उपयोग करता है।`,
+`अमीबा में पोषण का स्वपोषित मोड होता है।`,
+`अंतःकोशिका की प्रक्रिया द्वारा भोजन अंदर ग्रहण किया जाता है।`
+],
+answer:2,
+exp:`अमीबा heterotrophic nutrition प्रदर्शित करता है। वह pseudopodia द्वारा भोजन को घेरकर food vacuole बनाता है।`
+},
+
+{
+q:`पैरामिशियम भोजन का अंतर्ग्रहण किस प्रकार करता है?`,
+topic:`Nutrition in Amoeba and Paramecium`,
+options:[
+`पक्ष्माभ को एक विशिष्ट स्थान की ओर स्थानांतरित करके`,
+`सतह पर प्रत्यक्ष अवशोषण द्वारा`,
+`अस्थायी पादाभ का विस्तार करके`,
+`अपने पूरे शरीर की आकृति को बदलकर`
+],
+answer:0,
+exp:`पैरामिशियम अपनी cilia की गति द्वारा भोजन के कणों को निश्चित ingestion site अर्थात oral groove की ओर ले जाता है।`
+},
+
+{
+q:`पैरामिशियम (Paramecium) यह कैसे सुनिश्चित करता है कि खाद्य कण (food particles) उसके अंतर्ग्रहण स्थल तक पहुँचें?`,
+topic:`Nutrition in Paramecium`,
+options:[
+`खाद्य कणों को स्थानांतरित करने के लिए एंजाइमों को मुक्त करता है`,
+`खाद्य परिवहन के लिए संकुचनशील रिक्तिकाओं का उपयोग करता है`,
+`खाद्य को निगलने के लिए सूडोपोडिया (pseudopodia) बनाता है`,
+`कोशिका सतह को ढकने वाले पक्ष्माभ (cilia) के संचलन का उपयोग करता है`
+],
+answer:3,
+exp:`पैरामिशियम की cilia की coordinated movement भोजन के कणों को oral groove की ओर ले जाती है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा विकल्प जीव और भोजन अंतर्ग्रहण के लिए उपयोग होने वाले उसके देह अंग को युग्मित करता है?`,
+topic:`Nutrition in unicellular organisms`,
+options:[
+`पैरामिशियम - पक्ष्माभ (सिलिया)`,
+`अमीबा - कशाभ`,
+`हाइड्रा - सूडोपोडिया`,
+`यूग्लीना - स्पर्शक`
+],
+answer:0,
+exp:`पैरामिशियम cilia का उपयोग करता है। अमीबा pseudopodia का उपयोग करता है।`
+},
+
+{
+q:`एककोशिकीय जीवों में पोषण के संदर्भ में निम्नलिखित में से कौन-सा कथन गलत है?`,
+topic:`Nutrition in unicellular organisms`,
+options:[
+`पैरामिशियम अपने पृष्ठ के सभी भागों से भोजन निगलता है`,
+`अमीबा भोजन निगलने के लिए पादाभ का उपयोग करता है`,
+`अमीबा में भोजन का पाचन खाद्य राजधानियों के अंदर होता है`,
+`पैरामिशियम भोजन को एक निश्चित स्थान पर पक्ष्माभ की सहायता से ग्रहण करता है`
+],
+answer:0,
+exp:`पैरामिशियम पूरे शरीर की सतह से भोजन नहीं निगलता। cilia भोजन को एक निश्चित ingestion site तक पहुँचाने में सहायता करती हैं।`
+},
+
+{
+q:`यदि ग्रासनली (Oesophagus) में पुरस्सरण संचलन बाधित हो जाए, तो भोजन के चबाने और निगलने के बाद उसके साथ क्या होने की सबसे अधिक संभावना है?`,
+topic:`Peristalsis`,
+options:[
+`भोजन का पाचन तेजी से होगा।`,
+`लार में वृद्धि होगी।`,
+`स्टार्च का विखंडन अधिक शीघ्रता से होगा।`,
+`भोजन कुशलतापूर्वक आमाशय तक नहीं पहुँच पाएगा।`
+],
+answer:3,
+exp:`Peristalsis ग्रासनली की मांसपेशियों की क्रमिक गति है जो भोजन को आमाशय की ओर धकेलती है। इसके बाधित होने पर भोजन का आमाशय तक पहुँचना प्रभावित होगा।`
+},
+
+/* ================= PART 3 ================= */
+
+{
+q:`प्रकाश संश्लेषण के दौरान पौधों की पत्तियों में रंध्र (stomata) का प्राथमिक कार्य क्या होता है?`,
+topic:`Photosynthesis and stomata`,
+options:[
+`गैसीय विनिमय की अनुमति देना`,
+`ऑक्सीजन का अवशोषण`,
+`CO₂ के प्रवेश को रोकना`,
+`पत्ती का तापमान स्थिर रखना`
+],
+answer:0,
+exp:`Stomata पत्तियों की सतह पर छोटे छिद्र होते हैं। इनके द्वारा CO₂ और O₂ जैसे गैसों का विनिमय होता है तथा जलवाष्प बाहर निकलती है।`
+},
+
+{
+q:`प्रकाश संश्लेषण के दौरान जल अणुओं के विपाटन से क्या उत्पन्न होता है?`,
+topic:`Photosynthesis process`,
+options:[
+`नाइट्रोजन और ऑक्सीजन`,
+`नाइट्रोजन और कार्बन`,
+`ऑक्सीजन और कार्बन`,
+`Hydrogen और ऑक्सीजन`
+],
+answer:3,
+exp:`प्रकाश संश्लेषण की light reaction में water splitting से oxygen तथा hydrogen ions/electrons प्राप्त होते हैं।`
+},
+
+{
+q:`पादपप्लवक जैसे समुद्री जीव __________ की प्रक्रिया के लिए महासागरीय जल में घुलित CO₂ का उपयोग करते हैं।`,
+topic:`Photosynthesis process`,
+options:[
+`अपघटन`,
+`श्वसन`,
+`प्रकाश संश्लेषण`,
+`दहन`
+],
+answer:2,
+exp:`Phytoplankton प्रकाश संश्लेषण के लिए जल में घुले CO₂ का उपयोग करते हैं और कार्बनिक भोजन बनाते हैं।`
+},
+
+{
+q:`पादपों में, प्रकाश-संश्लेषण के दौरान निर्मित कार्बोहाइड्रेट किस रूप में संग्रहीत होते हैं?`,
+topic:`Photosynthesis process`,
+options:[
+`स्टार्च`,
+`ग्लाइकोजन`,
+`प्रोटीन`,
+`सेलुलोस`
+],
+answer:0,
+exp:`प्रकाश संश्लेषण से बनने वाला अतिरिक्त glucose पौधों में मुख्यतः starch के रूप में संग्रहीत किया जाता है।`
+},
+
+{
+q:`एक मरुस्थलीय पौधा रात में कार्बन डाइऑक्साइड को अवशोषित करता है और प्रकाश संश्लेषण के लिए दिन में इसका उपयोग करता है। यह प्रकाश संश्लेषण के किस गुण को दर्शाता है?`,
+topic:`Photosynthesis process`,
+options:[
+`मरुस्थलीय पौधों में प्रकाश संश्लेषण के लिए जल अनावश्यक होता है`,
+`मरुस्थलीय पौधों में प्रकाश संश्लेषण के लिए कार्बन डाइऑक्साइड की आवश्यकता नहीं होती है`,
+`मरुस्थलीय पौधों में प्रकाश संश्लेषण केवल रात में होता है`,
+`प्रकाश संश्लेषण में, बाद में उपयोग के लिए संग्रहीत मध्यवर्ती यौगिक शामिल हो सकते हैं।`
+],
+answer:3,
+exp:`CAM प्रकार के पौधे रात में CO₂ ग्रहण करके उसे intermediate compound के रूप में store करते हैं और दिन में उसका उपयोग करते हैं।`
+},
+
+{
+q:`प्रकाश-संश्लेषण के दौरान प्रकाश को अवशोषित करने के लिए कौन-सा वर्णक उत्तरदायी होता है?`,
+topic:`Photosynthesis process`,
+options:[
+`क्लोरोफिल (Chlorophyll)`,
+`किराटिन (Keratin)`,
+`कैरोटिन (Carotene)`,
+`ऐंथोसाइनिन (Anthocyanin)`
+],
+answer:0,
+exp:`Chlorophyll प्रमुख photosynthetic pigment है जो प्रकाश ऊर्जा को अवशोषित करता है।`
+},
+
+{
+q:`पादपों में निम्नलिखित में से कौन-सी प्रक्रिया, ऊर्जा और कार्बन आवश्यकताओं की पूर्ति के लिए उत्तरदायी है?`,
+topic:`Photosynthesis process`,
+options:[
+`श्वसन`,
+`प्रकाश-संश्लेषण`,
+`वाष्पोत्सर्जन`,
+`स्थानांतरण`
+],
+answer:1,
+exp:`प्रकाश संश्लेषण पौधों को कार्बन स्रोत के रूप में CO₂ और ऊर्जा के स्रोत के रूप में सूर्य के प्रकाश का उपयोग करके भोजन बनाने में सहायता करता है।`
+},
+
+{
+q:`एक मरुपादप में, कार्बन डाइऑक्साइड को रात में ग्रहण किया जाता है और एक मध्यवर्ती के रूप में संग्रहीत किया जाता है, बाद में जिसका उपयोग दिन में कार्बोहाइड्रेट संश्लेषण के लिए किया जाता है। इस अनुकूलन से पौधे को उसके वातावरण में क्या लाभ होता है?`,
+topic:`Photosynthesis process`,
+options:[
+`यह अपेक्षाकृत ठंडी रात में रंध्रों के खुलने से जल की हानि को कम करता है`,
+`इससे क्लोरोफिल की आवश्यकता समाप्त हो जाती है`,
+`यह केवल रात में कार्बोहाइड्रेट संश्लेषण की सुविधा देता है`,
+`यह दिन के दौरान प्रकाश संश्लेषण की दर को बढ़ाता है`
+],
+answer:0,
+exp:`मरुस्थलीय पौधे रात में stomata खोलते हैं। रात में तापमान कम होने के कारण water loss कम होता है। CO₂ को बाद में दिन में उपयोग किया जाता है।`
+},
+
+/* ================= PART 4 ================= */
+
+{
+q:`जंतु कोशिकाओं में कोशिकीय श्वसन के दौरान निर्मुक्त ऊर्जा का उपयोग करके कौन-सा अणु तत्काल संश्लेषित होता है?`,
+topic:`ATP and energy release`,
+options:[
+`ऐडेनोसिन डाइफॉस्फेट (ADP)`,
+`निकोटिनामाइड ऐडेनीन डाइन्यूक्लिओटाइड (NAD)`,
+`ऐडेनोसिन ट्राइफॉस्फेट (ATP)`,
+`ग्वानोसीन डाइफॉस्फेट (GDP)`
+],
+answer:2,
+exp:`Cellular respiration से प्राप्त ऊर्जा का उपयोग ATP बनाने में किया जाता है। ATP कोशिका की energy currency है।`
+},
+
+{
+q:`अभिकथन (A): वायवीय श्वसन में कार्बन डाइऑक्साइड एक अभिकारक है। कारण (R): ग्लूकोज के ऑक्सीकरण के दौरान कार्बन डाइऑक्साइड मुक्त होती है।`,
+topic:`Aerobic and anaerobic respiration`,
+options:[
+`A और R दोनों सत्य हैं, और R, A की सही व्याख्या है`,
+`A और R दोनों सत्य हैं, और R, A की सही व्याख्या नहीं है`,
+`A असत्य है, लेकिन R सत्य है`,
+`A सत्य है, लेकिन R असत्य है`
+],
+answer:2,
+exp:`Aerobic respiration में CO₂ reactant नहीं बल्कि product है। Glucose oxidation के दौरान CO₂ release होती है। इसलिए A false और R true है।`
+},
+
+{
+q:`जंतुओं में वायवीय श्वसन के दौरान मुक्त होने वाली ऊर्जा की मात्रा, अवायवीय श्वसन के दौरान मुक्त होने वाली ऊर्जा की मात्रा _____ होती है।`,
+topic:`Aerobic and anaerobic respiration`,
+options:[
+`से अधिक`,
+`से मंद`,
+`से कम`,
+`के बराबर`
+],
+answer:0,
+exp:`Aerobic respiration में glucose का अधिक पूर्ण oxidation होता है, इसलिए anaerobic respiration की तुलना में अधिक ऊर्जा प्राप्त होती है।`
+},
+
+{
+q:`जंतुओं में वायवीय श्वसन के लिए कौन-सी गैस आवश्यक है?`,
+topic:`Aerobic respiration`,
+options:[
+`कार्बन डाइऑक्साइड`,
+`नाइट्रोजन`,
+`हाइड्रोजन`,
+`ऑक्सीजन`
+],
+answer:3,
+exp:`Aerobic respiration के लिए oxygen आवश्यक होती है।`
+},
+
+{
+q:`वह प्रक्रिया क्या कहलाती है जिसमें जीव ऑक्सीजन ग्रहण करते हैं और इसका उपयोग कोशिकीय गतिविधियों हेतु भोजन के विघटन में करते हैं?`,
+topic:`Aerobic respiration`,
+options:[
+`वाष्पोत्सर्जन`,
+`प्रकाश संश्लेषण`,
+`श्वसन`,
+`किण्वन`
+],
+answer:2,
+exp:`भोजन से ऊर्जा मुक्त करने के लिए उसका cellular breakdown respiration कहलाता है। Oxygen की उपस्थिति में इसे aerobic respiration कहा जाता है।`
+},
+
+{
+q:`जंतुओं में श्वसन की प्रक्रिया ऑक्सीजन की अनुपस्थिति में होती है और कम मात्रा में ऊर्जा मुक्त करती है?`,
+topic:`Aerobic vs anaerobic respiration`,
+options:[
+`अवायवीय श्वसन`,
+`वायवीय श्वसन`,
+`वाष्पोत्सर्जन`,
+`प्रकाश संश्लेषण`
+],
+answer:0,
+exp:`Oxygen की अनुपस्थिति में होने वाला respiration anaerobic respiration कहलाता है और इसमें aerobic respiration की तुलना में कम ऊर्जा मिलती है।`
+},
+
+{
+q:`जंतुओं में वायवीय श्वसन के दौरान, तीन-कार्बन वाले पायरुवेट अणु के विघटन से कार्बन डाइऑक्साइड और _________ उत्पन्न होता है।`,
+topic:`Aerobic respiration`,
+options:[
+`एथेनॉल`,
+`लैक्टिक अम्ल`,
+`जल`,
+`ग्लूकोज`
+],
+answer:2,
+exp:`Aerobic respiration में pyruvate का mitochondria में आगे oxidation होता है और अंततः CO₂ तथा H₂O बनते हैं।`
+},
+
+{
+q:`जंतुओं में, अवायवीय श्वसन के परिणामस्वरूप मुख्य रूप से _________ का निर्माण होता है।`,
+topic:`Anaerobic respiration`,
+options:[
+`कार्बन डाइऑक्साइड`,
+`जल`,
+`ग्लूकोज`,
+`लैक्टिक अम्ल`
+],
+answer:3,
+exp:`मानव पेशियों में oxygen की कमी होने पर pyruvate का anaerobic breakdown होकर lactic acid बनता है।`
+},
+
+{
+q:`कोशिकीय श्वसन के संबंध में निम्नलिखित में से कौन-सा तथ्य गलत है?`,
+topic:`Anaerobic respiration`,
+options:[
+`ग्लूकोज विघटन का प्रथम चरण कोशिका द्रव्य में संपन्न होता है`,
+`यीस्ट में वायवीय श्वसन से मुख्य अंतिम उत्पाद के रूप में जल उत्पन्न होता है`,
+`अवायवीय श्वसन ऑक्सीजन की अनुपस्थिति में होता है`,
+`यीस्ट में अवायवीय श्वसन से एथेनॉल और कार्बन डाइऑक्साइड उत्पन्न होता है`
+],
+answer:1,
+exp:`प्रश्न में गलत कथन B है। Yeast में anaerobic respiration/fermentation से ethanol और CO₂ बनते हैं। Aerobic respiration में water बनता है।`
+},
+
+{
+q:`मानव पेशियों में अवायवीय श्वसन के दौरान कौन-सा उत्पाद बनता है?`,
+topic:`Anaerobic respiration`,
+options:[
+`कार्बन डाइऑक्साइड (Carbon dioxide)`,
+`एथेनॉल (Ethanol)`,
+`लैक्टिक अम्ल (Lactic acid)`,
+`जल (Water)`
+],
+answer:2,
+exp:`पेशियों में oxygen की कमी होने पर pyruvate का conversion lactic acid में होता है।`
+},
+
+{
+q:`यीस्ट कोशिकाओं में अवायवीय श्वसन के दौरान निर्मित अंतिम उत्पाद कौन-से हैं?`,
+topic:`Anaerobic respiration`,
+options:[
+`एथेनॉल और कार्बन डाइऑक्साइड`,
+`लैक्टिक अम्ल और जल`,
+`जल और ऑक्सीजन`,
+`ग्लूकोज और ऑक्सीजन`
+],
+answer:0,
+exp:`Yeast में anaerobic respiration/fermentation से ethanol और carbon dioxide बनते हैं।`
+},
+
+{
+q:`फेफड़ों की गंभीर बीमारी से पीड़ित एक रोगी में ऑक्सीजन का अंतर्ग्रहण कम हो जाता है। आयास के दौरान उसकी पेशी कोशिकाओं में किस कोशिकीय मार्ग के सक्रिय होने की संभावना है, और परिणामस्वरूप कौन-सा उत्पाद संचित होता है?`,
+topic:`Anaerobic respiration and lactic acid`,
+options:[
+`पायरुवेट का लैक्टिक अम्ल में अवायवीय रूपांतरण, जिससे लैक्टिक अम्ल का संचय होता है`,
+`बिना किसी उप-उत्पाद के ग्लूकोज का ATP में प्रत्यक्ष रूपांतरण`,
+`पायरुवेट का एथेनॉल और कार्बन डाइऑक्साइड में अवायवीय रूपांतरण`,
+`पायरुवेट का कार्बन डाइऑक्साइड और जल में वायवीय विघटन`
+],
+answer:0,
+exp:`Oxygen availability कम होने पर muscle cells anaerobic pathway की ओर अधिक निर्भर हो सकती हैं। Pyruvate से lactic acid बनता है।`
+},
+
+{
+q:`जंतुओं में अवायवीय श्वसन के दौरान सामान्यतः कौन-सा उत्पाद बनता है?`,
+topic:`Anaerobic respiration and lactic acid`,
+options:[
+`लैक्टिक अम्ल`,
+`ऑक्सीजन`,
+`ग्लूकोज`,
+`ऐल्कोहॉल`
+],
+answer:0,
+exp:`Animals की muscle cells में anaerobic respiration के दौरान lactic acid बनता है।`
+},
+
+/* ================= PART 5 ================= */
+
+{
+q:`मनुष्यों में अंतःश्वसन के दौरान निम्नलिखित में से क्या नहीं होता है?`,
+topic:`Breathing mechanism`,
+options:[
+`वायु फेफड़ों में प्रवेश करती है`,
+`डायाफ्राम नीचे की ओर सपाट हो जाता है`,
+`रक्त ऑक्सीजन निर्मुक्त करता है`,
+`वक्ष गुहा में प्रसार होता है`
+],
+answer:2,
+exp:`Inhalation के दौरान thoracic cavity का volume बढ़ता है, diaphragm नीचे जाता है और हवा फेफड़ों में प्रवेश करती है। Blood oxygenated होता है, oxygen release नहीं करता।`
+},
+
+{
+q:`एक वनस्पति विज्ञानी एक सुप्त बीज का अवलोकन करता है जिसमें कोई दृश्यमान वृद्धि या संचलन नहीं है। वनस्पति विज्ञानी यह कैसे निर्धारित कर सकता है कि बीज जीवित है या नहीं?`,
+topic:`Criteria for being alive`,
+options:[
+`यदि यह कोई संचलन नहीं दर्शाता है तो निष्कर्ष निकालें कि यह जीवित नहीं है`,
+`इसकी आंतरिक उपापचयी सक्रियता को मॉनिटर करें`,
+`यह जांच करें कि क्या बीज स्वतंत्र रूप से गति कर सकता है या नहीं`,
+`निर्णय लेने से पूर्व केवल दृश्यमान वृद्धि की प्रतीक्षा करें`
+],
+answer:1,
+exp:`जीवन की महत्वपूर्ण विशेषताओं में metabolic activity शामिल है। सुप्त बीज में growth दिखाई न देने के बावजूद metabolism हो सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन सर्वोत्तम रूप से यह वर्णित करता है कि केवल दृश्य संचलन, किसी पादप के जीवित होने का निर्धारण नहीं कर सकता है?`,
+topic:`Criteria for being alive`,
+options:[
+`जीवित रहने के लिए सभी सजीवों में दृश्य संचलन का होना आवश्यक है।`,
+`केवल प्राणी ही बिना दृश्य संचलन के जीवित रह सकते हैं।`,
+`जीवित प्राणियों में सदैव दृश्य जीवित मौजूद होती है।`,
+`पादप बिना किसी दृश्य वृद्धि या संचलन के भी जीवित रह सकते हैं।`
+],
+answer:3,
+exp:`पादपों में जीवन प्रक्रियाएँ लगातार चलती रहती हैं, लेकिन उनका movement हमेशा स्पष्ट रूप से दिखाई नहीं देता।`
+},
+
+{
+q:`तंबाकू का सेवन मुख्य रूप से किस अंग तंत्र को सबसे पहले प्रभावित करता है?`,
+topic:`Effects of smoking`,
+options:[
+`आमाशय और आंत्र सहित पाचन तंत्र`,
+`फेफड़ों और श्वसन मार्ग सहित श्वसन तंत्र`,
+`अस्थियों और संधियों सहित कंकाल तंत्र`,
+`वृक्क और मूत्राशय सहित उत्सर्जन तंत्र`
+],
+answer:1,
+exp:`धूम्रपान का सीधा संपर्क respiratory tract और lungs से होता है। Smoke में मौजूद harmful chemicals respiratory system को नुकसान पहुँचा सकते हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन, मनुष्यों में धूम्रपान से श्वसन तंत्र के प्रभावित होने के कारण की सटीक व्याख्या करता है?`,
+topic:`Effects of smoking`,
+options:[
+`धुएं में मौजूद कार्बन मोनोऑक्साइड, हीमोग्लोबिन के साथ मिलकर ऊतकों तक ऑक्सीजन के परिवहन को कम कर देता है`,
+`धूम्रपान से एल्वियोली का पृष्ठीय क्षेत्रफल बढ़ जाता है, जिससे ऊतकों में गैसों का बेहतर विनिमय होता है`,
+`तंबाकू में टार, एल्वियोली की भित्तियों को मजबूत बनाता है`,
+`निकोटीन विभिन्न ऊतकों तक ऑक्सीजन ले जाने की रक्त की क्षमता को बढ़ाता है`
+],
+answer:0,
+exp:`Carbon monoxide haemoglobin से strongly bind करता है और oxygen transport capacity को कम करता है।`
+},
+
+{
+q:`लंबे समय तक धूम्रपान करने वाले व्यक्ति को चिरकालिक खांसी और बार-बार श्वसन संक्रमण हो जाता है। श्वसन पथ में होने वाला कौन-सा शरीरक्रियात्मक परिवर्तन, मुख्यतः इस वर्धित सुग्राहिता में योगदान देता है?`,
+topic:`Effects of smoking`,
+options:[
+`श्वसनियों का संकुचित होना`,
+`उपरि श्वसन पथ में पक्ष्माभ (cilia) का क्षतिग्रस्त होना`,
+`श्लेष्मा के उत्पादन में वृद्धि`,
+`श्वसनी भित्तियों का स्थूल होना`
+],
+answer:1,
+exp:`Cilia respiratory tract से mucus और trapped particles को बाहर निकालने में सहायता करते हैं। Smoking से cilia damage होने पर clearance कम हो जाता है।`
+},
+
+{
+q:`धूम्रपान शुरू करने के बाद एक रोगी को बार-बार खांसी और श्वसन संक्रमण होने लगता है। कौन-सा शरीरक्रियात्मक परिवर्तन इसकी सर्वोत्तम रूप से व्याख्या करता है?`,
+topic:`Effects of smoking on lungs`,
+options:[
+`मुख गुहा में अत्यधिक लार स्रावण`,
+`पूरे फेफड़ों में श्वसनियों का संकीर्णन`,
+`ऊपरी श्वसन पथ में सिलिया कार्य का ह्रास`,
+`रक्तचाप और हृदय स्पंदन का तेजी से बढ़ना`
+],
+answer:2,
+exp:`Smoking से respiratory cilia की normal cleaning function प्रभावित हो सकती है। इससे mucus और particles जमा होकर cough तथा infection का risk बढ़ा सकते हैं।`
+},
+
+{
+q:`एक क्षेत्र पारिस्थितिकीविद्, निम्न ऑक्सीजन वाली उच्च-तुंगता पर स्थित झील में मछलियों का अध्ययन करता है। गिल (gills) में कौन-सा संरचनात्मक अनुकूलन सर्वाधिक प्रैक्षण किया जाएगा?`,
+topic:`Gaseous exchange and respiratory organs`,
+options:[
+`गैस विनिमय के लिए बृहत्तर पृष्ठीय क्षेत्र होना`,
+`गिल की झिल्लियां स्थूलतर होना`,
+`गिल में रक्त प्रवाह कम होना`,
+`गिल के ऊतक में अल्पतर केशिकाएं होना`
+],
+answer:0,
+exp:`Gills में बड़ा surface area gas exchange को अधिक efficient बनाता है।`
+},
+
+{
+q:`जब फेफड़ों की केशिकाओं (alveolar capillaries) से रक्त गुजरता है, तो क्या होता है?`,
+topic:`Gaseous exchange in lungs`,
+options:[
+`ऑक्सीजन और कार्बन डाइऑक्साइड दोनों कोष्ठिका से रक्त प्रवाह में प्रवेश करते हैं`,
+`carbon dioxide रक्त में प्रवेश करती है और ऑक्सीजन कोष्ठिका में चली जाती है`,
+`परिसंचारी रक्त में दोनों गैसें अपरिवर्तित रहती हैं`,
+`ऑक्सीजन रक्त में प्रवेश करती है और कार्बन डाइऑक्साइड कोष्ठिका में चली जाती है`
+],
+answer:3,
+exp:`Alveoli में diffusion के कारण oxygen alveolar air से blood में जाती है और carbon dioxide blood से alveoli में जाती है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, ग्लूकोज के विघटन के दौरान बनने वाला तीन कार्बन अणु है?`,
+topic:`Glycolysis and pyruvate`,
+options:[
+`फ्रक्टोज-6-फॉस्फेट का निर्माण`,
+`ऐसीटिल-co-A अणु का निर्माण`,
+`ग्लूकोज-6-फॉस्फेट का निर्माण`,
+`पायरुवेट अणु का निर्माण`
+],
+answer:3,
+exp:`Glycolysis में एक glucose molecule टूटकर दो तीन-carbon pyruvate molecules बनाता है।`
+},
+
+{
+q:`मानव फेफड़ों में सबसे छोटी नलिकाओं के अंत में स्थित गुब्बारे जैसी छोटी संरचनाओं को क्या कहा जाता है?`,
+topic:`Human respiratory system`,
+options:[
+`श्वसनी (Bronchi)`,
+`वायु कूपिका (Alveoli)`,
+`विल्ली (Villi)`,
+`श्वसनिका (Bronchioles)`
+],
+answer:1,
+exp:`Alveoli छोटी balloon-like air sacs हैं। इनकी पतली दीवारों के माध्यम से oxygen और carbon dioxide का exchange होता है।`
+},
+
+{
+q:`कंठ में उपस्थित निम्नलिखित में से कौन-सी संरचना मनुष्यों में वायु-मार्ग के निपात की रोकथाम के लिए उत्तरदायी होती है?`,
+topic:`Human respiratory system`,
+options:[
+`उपास्थि के वलय`,
+`ग्रासनली`,
+`ग्रसनी`,
+`स्वरयंत्र`
+],
+answer:3,
+exp:`प्रश्न के दिए गए विकल्पों में larynx (स्वरयंत्र) वायु मार्ग का हिस्सा है। भोजन को respiratory passage में जाने से रोकने में epiglottis की भूमिका होती है, जो laryngeal region में स्थित होता है।`
+},
+
+/* ================= PART 6 ================= */
+
+{
+q:`उत्परिवर्तन किसी पादप में परिवहन तंत्र को बाधित करता है, जिससे पर्ण कोशिकाओं में ऑक्सीजन और अपशिष्ट पदार्थों का संचय होता है। परिणामस्वरूप कौन-से दो जैव प्रक्रम प्रत्यक्ष रूप से सबसे अधिक बाधित होते हैं?`,
+topic:`Life processes overview`,
+options:[
+`श्वसन और उत्सर्जन`,
+`पोषण और श्वसन`,
+`पोषण और वृद्धि`,
+`वृद्धि और उत्सर्जन`
+],
+answer:0,
+exp:`Transport system की बाधा से oxygen supply और waste removal प्रभावित होंगे। इसलिए respiration और excretion सीधे प्रभावित होंगे।`
+},
+
+{
+q:`एककोशकीय जीवों के विपरीत, बहुकोशकीय जीवों में ऊर्जा अंतर्ग्रहण और सामग्रियों के विनिमय के लिए विशेष तंत्रों की आवश्यकता क्यों होती है?`,
+topic:`Need for life processes`,
+options:[
+`क्योंकि वे एक स्थान से दूसरे स्थान तक जाने में पूर्ण रूप से असमर्थ होते हैं`,
+`क्योंकि अधिकांश आंतरिक कोशिकाओं का बाह्य वातावरण से प्रत्यक्ष संपर्क नहीं होता है`,
+`क्योंकि वे एककोशकीय जीवों की तुलना में बहुत भारी होते हैं`,
+`क्योंकि एककोशकीय जीवों को जीवित रहने के लिए कोशिकीय ऊर्जा की आवश्यकता नहीं होती है`
+],
+answer:1,
+exp:`Multicellular organisms में अधिकांश cells सीधे external environment के संपर्क में नहीं होते। इसलिए transport और exchange के लिए specialized systems आवश्यक होते हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन सही ढंग से वर्णित करता है, कि जीवित जीवों के लिए पोषण, श्वसन, परिवहन और उत्सर्जन जैसी जीवन प्रक्रियाएं क्यों आवश्यक हैं?`,
+topic:`Need for life processes`,
+options:[
+`ये स्वतंत्र प्रक्रियाएं हैं जो एक दूसरे को प्रभावित नहीं करती हैं।`,
+`ये केवल पादपों में प्रकाश संश्लेषण को बनाए रखने के लिए होती हैं।`,
+`ये केवल वृद्धि और प्रजनन के लिए आवश्यक हैं।`,
+`ये समस्थिति बनाए रखती हैं और ऊर्जा प्रदान करती हैं।`
+],
+answer:3,
+exp:`Life processes organism के maintenance, energy supply, material transport और waste removal में परस्पर जुड़े हुए हैं।`
+},
+
+{
+q:`एककोशिकीय जीवों को भोजन ग्रहण करने तथा गैसों के आदान-प्रदान के लिए विशिष्ट अंगों की आवश्यकता क्यों नहीं होती है?`,
+topic:`Need for specialised systems`,
+options:[
+`क्योंकि उनके पास एक परिवहन प्रणाली होती है`,
+`क्योंकि उन्हें भोजन या ऑक्सीजन की आवश्यकता नहीं होती है`,
+`क्योंकि उनकी संपूर्ण शरीर की सतह बाहरी पर्यावरण के सीधे संपर्क में होती है`,
+`क्योंकि उनकी शारीरिक संरचना जटिल होती है`
+],
+answer:2,
+exp:`Unicellular organisms में प्रत्येक cell external environment के सीधे संपर्क में होता है, इसलिए diffusion द्वारा gases और nutrients का exchange हो सकता है।`
+},
+
+{
+q:`_________, पादपों में होने वाली वह प्रक्रिया है, जिसमें ग्लूकोज के विघटन (breakdown) से ऊर्जा मुक्त होती है।`,
+topic:`Respiration in plants`,
+options:[
+`श्वसन`,
+`उत्सर्जन`,
+`प्रकाश संश्लेषण`,
+`वाष्पोत्सर्जन`
+],
+answer:0,
+exp:`Glucose breakdown से energy release होने की प्रक्रिया respiration कहलाती है।`
+},
+
+{
+q:`कॉलम A को कॉलम B से सुमेलित कीजिए। (a) एल्वियोली (Alveoli) (i) श्वासनली को ढहने से रोकना (b) हीमोग्लोबिन (Haemoglobin) (ii) गैस विनिमय (c) डायाफ्राम (Diaphragm) (iii) ऑक्सीजन परिवहन (d) एपिग्लोटिस (Epiglottis) (iv) अभिधसन में सहायक`,
+topic:`Human respiratory system`,
+options:[
+`a-iv, b-iii, c-ii, d-i`,
+`a-iii, b-ii, c-iv, d-i`,
+`a-ii, b-iv, c-iii, d-i`,
+`a-ii, b-iii, c-iv, d-i`
+],
+answer:3,
+exp:`Alveoli = gas exchange; haemoglobin = oxygen transport; diaphragm = breathing movement; epiglottis = food को respiratory passage में जाने से रोकने में सहायता। इसलिए D दिए गए matching के अनुसार है।`
+},
+
+/* ================= PART 7 ================= */
+
+{
+q:`एक डॉक्टर, सूक्ष्मदर्शी से मोटी और लचीली भित्ति वाली रक्त वाहिका का अवलोकन करता है। यह किस प्रकार की वाहिका हो सकती है?`,
+topic:`Arteries veins and capillaries`,
+options:[
+`धमनी`,
+`लसीका वाहिका`,
+`शिरा`,
+`केशिका`
+],
+answer:0,
+exp:`Arteries को high-pressure blood receive करना पड़ता है, इसलिए उनकी walls मोटी और elastic होती हैं।`
+},
+
+{
+q:`एक शोधकर्ता को शीघ्र प्रभाव के लिए एक दवा को सीधे किसी अंग की कोशिकाओं तक पहुँचाना होता है। आस-पास की कोशिकाओं में इष्टतम विसरण के लिए डिलीवरी किस रक्त वाहिका को लक्षित करनी चाहिए?`,
+topic:`Arteries veins and capillaries`,
+options:[
+`शिराएं क्योंकि वे रक्त एकत्र करती हैं`,
+`एक-कोशिका की स्थूल भित्तियों के कारण केशिकाएं`,
+`वाल्वों की उपस्थिति के कारण शिराएं`,
+`स्थूल प्रत्यास्थ भित्तियों के कारण धमनियां`
+],
+answer:1,
+exp:`Capillaries की walls बहुत पतली, लगभग one-cell thick होती हैं। इसलिए substances का exchange आसानी से हो सकता है।`
+},
+
+{
+q:`शरीर के ऊतकों के साथ गैसों और पोषक तत्वों के तीव्र विनिमय के लिए किस प्रकार की रुधिर वाहिका सबसे उपयुक्त है?`,
+topic:`Arteries veins and capillaries`,
+options:[
+`लसीका वाहिकाएं`,
+`केशिकाएं`,
+`शिराएं`,
+`धमनियां`
+],
+answer:1,
+exp:`Capillaries tissues के बहुत निकट होती हैं और उनकी walls अत्यंत पतली होती हैं, जिससे gases और nutrients का exchange होता है।`
+},
+
+{
+q:`मानव परिसंचरण तंत्र की निम्न दाब वाली शिराओं के अंदर रक्त को पीछे की ओर बहने से कौन रोकता है?`,
+topic:`Arteries veins and capillaries`,
+options:[
+`सूक्ष्मदर्शीय केशिका`,
+`उच्च पंपिंग बल`,
+`एकमार्गी वाल्व`,
+`मोटी प्रत्यास्थ भित्ति`
+],
+answer:2,
+exp:`Veins में valves blood को केवल एक दिशा में flow करने देते हैं और backflow रोकते हैं।`
+},
+
+{
+q:`अभिकथन (A): शिराओं की भित्तियां, धमनियों की भित्तियों की तुलना में पतली होती हैं। कारण (R): शिराएं उच्च दाब पर रुधिर का वहन करती हैं।`,
+topic:`Arteries veins and capillaries`,
+options:[
+`A असत्य है, लेकिन R सत्य है`,
+`A और R दोनों सत्य हैं, और R, A की सही व्याख्या नहीं है`,
+`A और R दोनों सत्य हैं, तथा R, A की सही व्याख्या है`,
+`A सत्य है, लेकिन R असत्य है`
+],
+answer:3,
+exp:`Assertion सही है क्योंकि veins की walls arteries की तुलना में पतली होती हैं। Reason गलत है क्योंकि veins low-pressure blood carry करती हैं।`
+},
+
+{
+q:`एक रोगी के फेफड़ों का आयतन सामान्य होने के बावजूद, ऑक्सीजन संतृप्ति कम है। कौन-सी स्थिति इसकी सर्वोत्तम व्याख्या करती है?`,
+topic:`Blood and haemoglobin`,
+options:[
+`केशिका घनत्व में वृद्धि`,
+`सांस लेने की दर में वृद्धि`,
+`हीमोग्लोबिन सांद्रता में कमी`,
+`वायु कूपिका की संख्या में कमी`
+],
+answer:2,
+exp:`Haemoglobin oxygen transport के लिए आवश्यक respiratory pigment है। इसकी concentration कम होने पर oxygen-carrying capacity घट सकती है।`
+},
+
+{
+q:`मनुष्यों में, ऑक्सीजन का वहन करने वाला श्वसन वर्णक, ________ है।`,
+topic:`Blood and haemoglobin`,
+options:[
+`मायोसिन`,
+`क्लोरोफिल`,
+`हीमोग्लोबिन`,
+`इंसुलिन`
+],
+answer:2,
+exp:`Human RBCs में haemoglobin oxygen को bind करके transport करता है।`
+},
+
+{
+q:`सादृश्य को पूरा कीजिए। बिम्बाणु : स्कंदन :: श्वेत रुधिर कोशिकाएं : _________।`,
+topic:`Blood components and functions`,
+options:[
+`खनिजों का भंडारण`,
+`जोड़ों को जोड़ना`,
+`शोथ से लड़ना`,
+`ऑक्सीजन परिवहन`
+],
+answer:2,
+exp:`Platelets blood clotting में मदद करते हैं। White blood cells शरीर की immune defence में कार्य करते हैं।`
+},
+
+{
+q:`गंभीर चोट के बाद, किसी रोगी का रक्तदाब कम हो जाता है और वे व्यापक खरोंच में विकसित होने लगती हैं। शरीरक्रियात्मक तंत्रों में कौन-सी दोहरी विफलता इन नैदानिक प्रेक्षणों की सटीक व्याख्या करती है?`,
+topic:`Blood components and lymph`,
+options:[
+`लसीका प्रवाह में वृद्धि और प्लेटलेट समुच्चयन् में वृद्धि`,
+`प्लाज्मा प्रोटीन संश्लेषण में कमी और लाल रक्त कोशिका गणन में वृद्धि`,
+`प्लेटलेट प्रकार्य में कमी और बाधित लसीका-अपवाह`,
+`ऑक्सीजन परिवहन में कमी और ऊतक तरल में वृद्धि`
+],
+answer:2,
+exp:`Platelet dysfunction से clotting/bruising प्रभावित हो सकती है और lymphatic drainage में बाधा से interstitial fluid accumulation हो सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन लसीका और रुधिर प्लाज्मा की प्रोटीन मात्रा (content) की सही तुलना करता है?`,
+topic:`Blood components and lymph`,
+options:[
+`लसीका में प्लाज्मा की तुलना में कम प्रोटीन होता है`,
+`लसीका में प्लाज्मा की तुलना में अधिक प्रोटीन होता है`,
+`लसीका में कोई प्रोटीन नहीं होता है`,
+`लसीका में प्लाज्मा के बराबर प्रोटीन होता है`
+],
+answer:0,
+exp:`Lymph interstitial fluid से बनता है और इसमें plasma की तुलना में protein concentration सामान्यतः कम होती है।`
+},
+
+/* ================= PART 8 ================= */
+
+{
+q:`निम्नलिखित में से कौन-सा कथन मानव परिसंचरण तंत्र में प्रकुंचन और अनुशिथिलन दाब का वर्णन करता है?`,
+topic:`Blood pressure`,
+options:[
+`प्रकुंचन संकुचन है, अनुशिथिलन शिथिलन है`,
+`प्रकुंचन और अनुशिथिलन दोनों शिथिलन हैं`,
+`प्रकुंचन और अनुशिथिलन दोनों संकुचन हैं`,
+`प्रकुंचन शिथिलन है, अनुशिथिलन संकुचन है`
+],
+answer:0,
+exp:`Systole heart muscle contraction की अवस्था है, जबकि diastole relaxation की अवस्था है।`
+},
+
+{
+q:`अभिकथन (A): व्यायाम के दौरान रक्त दाब अस्थायी रूप से बढ़ जाता है। कारण (R): व्यायाम से हृदयगति दर और हृदय द्वारा प्रति मिनट पंप किए जाने वाले रक्त की मात्रा बढ़ जाती है।`,
+topic:`Blood pressure`,
+options:[
+`A असत्य है, लेकिन R सत्य है`,
+`A और R दोनों सत्य हैं, तथा R, A की सही व्याख्या है`,
+`A सत्य है, लेकिन R असत्य है`,
+`A और R दोनों सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है`
+],
+answer:1,
+exp:`Exercise के दौरान heart rate और cardiac output बढ़ते हैं, जिससे blood pressure अस्थायी रूप से बढ़ सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा विकल्प, प्रकुंचन दाब (Systolic Pressure) का सर्वोत्तम वर्णन करता है?`,
+topic:`Blood pressure`,
+options:[
+`शिथिलन के दौरान शिराओं में रक्तदाब`,
+`निलय शिथिलन के दौरान धमनियों में रक्तदाब`,
+`संकुचन के दौरान शिराओं में रक्तदाब`,
+`वेंट्रिकुलर संकुचन के दौरान धमनी में रक्तदाब`
+],
+answer:3,
+exp:`Systolic pressure ventricles के contraction के समय arteries में उत्पन्न होने वाला maximum pressure है।`
+},
+
+{
+q:`हृदय द्वारा शरीर में पंप किए गए रक्त में कौन-सी गैस सबसे प्रचुर मात्रा में होती है?`,
+topic:`Blood transport of gases`,
+options:[
+`ऑक्सीजन`,
+`हीलियम`,
+`हाइड्रोजन`,
+`कार्बन डाइऑक्साइड`
+],
+answer:0,
+exp:`Systemic circulation से शरीर के tissues की ओर जाने वाले oxygenated blood में oxygen प्रमुख respiratory gas होती है।`
+},
+
+{
+q:`मनुष्यों में किस श्वसन वर्णक में ऑक्सीजन के प्रति सबसे अधिक बंधुता (affinity) होती है?`,
+topic:`Haemoglobin and oxygen transport`,
+options:[
+`हीमोसायनिन`,
+`केरेटिन`,
+`हीमीग्लोबिन`,
+`क्लोरोफिल`
+],
+answer:2,
+exp:`मानव रक्त में oxygen-binding respiratory pigment haemoglobin है।`
+},
+
+{
+q:`मानव रक्त में ऑक्सीजन का परिवहन मुख्यतः ________ नामक वर्णक के साथ बंधन से होता है।`,
+topic:`Haemoglobin and oxygen transport`,
+options:[
+`मायोग्लोबिन`,
+`क्लोरोफिल`,
+`प्लाज्मा`,
+`हीमीग्लोबिन`
+],
+answer:3,
+exp:`Oxygen का अधिकांश भाग RBCs में haemoglobin से bind होकर oxyhaemoglobin के रूप में transport होता है।`
+},
+
+{
+q:`परिपक्व RBC में केंद्रक की अनुपस्थिति __________ के लिए अधिक स्थान प्रदान करती है, जो शरीर में ऑक्सीजन का वहन करता है।`,
+topic:`Haemoglobin and oxygen transport`,
+options:[
+`DNA`,
+`हीमीग्लोबिन`,
+`क्लोरोफिल`,
+`लाइसोसोम`
+],
+answer:1,
+exp:`Mature human RBCs में nucleus नहीं होता। इससे haemoglobin के लिए अधिक intracellular space उपलब्ध होता है।`
+},
+
+/* ================= PART 9 ================= */
+
+{
+q:`एक शोधकर्ता तीन-कक्षीय हृदय वाले एक जंतु तथा उसके ऑक्सीजनित और विऑक्सीजनित रक्त के कुछ मिश्रण का अवलोकन करता है। संदर्भ के अनुसार यह जंतु संभवतः कौन-सा ऊर्जा अनुकूलन प्रदर्शित करता है?`,
+topic:`Heart chambers and circulation`,
+options:[
+`यह नियत ऊर्जा का उपयोग करके अपने शरीर के तापमान को नहीं बनाए रखता है`,
+`इसकी ऑक्सीजन आपूर्ति अत्यधिक दक्ष होती है`,
+`इसमें मिश्रण रहित दोहरा परिसंचरण होता है`,
+`यह नियत ऊर्जा का उपयोग करके शरीर के तापमान को बनाए रखता है`
+],
+answer:0,
+exp:`Three-chambered heart सामान्यतः amphibians जैसे animals में पाया जाता है। इनमें oxygenated और deoxygenated blood का कुछ mixing हो सकता है और ये ectothermic होते हैं।`
+},
+
+{
+q:`स्तनधारियों में, फेफड़ों में परिवहन के संबंध में चार-कक्षीय हृदय होने का प्राथमिक लाभ क्या है?`,
+topic:`Heart structure and double circulation`,
+options:[
+`यह फेफड़ों में रक्तदाब को कम करता है`,
+`यह सुनिश्चित करता है कि फेफड़ों के ऊतकों में केवल ऑक्सीजनित रक्त ही प्रवेश करे`,
+`यह रक्त को हृदय के माध्यम से केवल एक बार प्रवाहित होने देता है`,
+`यह ऑक्सीजनित और विऑक्सीजनित रक्त के मिश्रण को रोकता है`
+],
+answer:3,
+exp:`Four-chambered heart oxygenated और deoxygenated blood को अलग रखता है।`
+},
+
+{
+q:`द्वि-परिसंचरण में, निम्नलिखित में से कौन-सी वाहिका ऑक्सीजनित रक्त को हृदय तक पहुँचाती है?`,
+topic:`Heart structure and double circulation`,
+options:[
+`महाधमनी`,
+`फुफ्फुस शिरा`,
+`फुफ्फुस धमनी`,
+`महाशिरा`
+],
+answer:1,
+exp:`Pulmonary veins lungs से oxygenated blood को left atrium तक लाती हैं।`
+},
+
+{
+q:`हृदय के निलयों में अलिंद की तुलना में मोटी पेशीय भित्तियाँ क्यों होती हैं?`,
+topic:`Human heart structure`,
+options:[
+`वे शरीर के सभी अंगों में रक्त पंप करते हैं`,
+`वे प्रत्येक संकुचन से पहले अधिक रक्त संग्रहीत करते हैं`,
+`वे ऑक्सीजनित और विऑक्सीजनित रक्त को पृथक करते हैं`,
+`उन्हें तंत्रिका नियंत्रण के लिए अधिक तंत्रिकाओं की आवश्यकता होती है`
+],
+answer:0,
+exp:`Ventricles को blood को lungs या पूरे body में अधिक pressure पर pump करना होता है, इसलिए उनकी muscular walls मोटी होती हैं।`
+},
+
+{
+q:`हृदय के संकुचन के दौरान कौन-सी संरचना रक्त के पश्च प्रवाह को रोकती है?`,
+topic:`Human heart structure`,
+options:[
+`पेशियां (Muscles)`,
+`सेप्टा (Septa)`,
+`धमनियां (Arteries)`,
+`कपाट (Valves)`
+],
+answer:3,
+exp:`Heart valves blood को एक दिशा में flow कराते हैं और backflow को रोकते हैं।`
+},
+
+{
+q:`मानव हृदय का कौन-सा कोष्ठ (chamber), ऑक्सीजनन के लिए रुधिर को सीधे फुफ्फुसों तक पंप करता है?`,
+topic:`Human heart structure`,
+options:[
+`बायां निलय`,
+`बायां आलिंद`,
+`दायां निलय`,
+`दायां आलिंद`
+],
+answer:2,
+exp:`Right ventricle deoxygenated blood को pulmonary artery के माध्यम से lungs तक pump करता है।`
+},
+
+{
+q:`मानव हृदय में अलग-अलग कक्ष (chambers) होने का मुख्य उद्देश्य क्या है?`,
+topic:`Human heart structure`,
+options:[
+`ऑक्सीजन युक्त और कार्बन डाइऑक्साइड युक्त रक्त के मिश्रण को रोकना`,
+`दैहिक शिराओं में स्थिर रक्तदाब बनाए रखना`,
+`विश्राम की अवधि के दौरान अतिरिक्त रक्त के लिए भंडारण प्रदान करना`,
+`गैसीय विनिमय के लिए रक्त को विशेष रूप से फेफड़ों की ओर पंप करना`
+],
+answer:0,
+exp:`Separate chambers oxygenated और deoxygenated blood को अलग रखने में सहायता करते हैं, जिससे efficient double circulation संभव होता है।`
+},
+
+/* ================= PART 10 ================= */
+
+{
+q:`जंतुओं में मूत्र निर्माण का मुख्य उद्देश्य क्या है?`,
+topic:`Excretion and urine formation`,
+options:[
+`हानिकारक चयापचय अपशिष्ट को हटाना`,
+`भोजन को पचाना और अवशोषित करना`,
+`भविष्य उपयोग के लिए ऊर्जा संग्रहीत करना`,
+`हार्मोन उत्पादन करना`
+],
+answer:0,
+exp:`Urine formation का प्रमुख उद्देश्य nitrogenous metabolic wastes तथा excess water/salts को शरीर से हटाने में सहायता करना है।`
+},
+
+{
+q:`कौन-सा अंग मानव रक्त से नाइट्रोजनयुक्त अपशिष्ट को प्रत्यक्ष रूप से फ़िल्टर करता है?`,
+topic:`Excretion and urine formation`,
+options:[
+`फुफ्फुस`,
+`यकृत`,
+`वृक्क`,
+`हृदय`
+],
+answer:2,
+exp:`Kidneys blood को filter करके nitrogenous waste, विशेषकर urea, को urine के माध्यम से बाहर निकालते हैं।`
+},
+
+{
+q:`इनमें से कौन-सी संरचना मूत्र को वृक्कों से मूत्राशय तक ले जाती है?`,
+topic:`Excretion and urine formation`,
+options:[
+`आंतें`,
+`मूत्रवाहिनी`,
+`मूत्रमार्ग`,
+`श्वासनली`
+],
+answer:1,
+exp:`Ureter एक tube है जो प्रत्येक kidney से urine को urinary bladder तक ले जाती है।`
+},
+
+{
+q:`कॉलम A में दिए गए उत्सर्जी उत्पाद को कॉलम B में दिए गए उसके निष्कासित करने वाले अंग से सुमेलित कीजिए। (a) यूरिया (i) यकृत (b) कार्बन डाइऑक्साइड (ii) फुफ्फुस (c) अतिरिक्त लवण (iii) त्वचा (d) पित्त लवण (iv) वृक्क`,
+topic:`Excretion and urine formation`,
+options:[
+`a-iii, b-iv, c-ii, d-i`,
+`a-iv, b-ii, c-iii, d-i`,
+`a-ii, b-i, c-iv, d-iii`,
+`a-iv, b-iii, c-i, d-ii`
+],
+answer:1,
+exp:`Urea → kidneys; CO₂ → lungs; excess salts → skin/kidneys; bile salts → liver/bile. दिए गए matching में B अपेक्षित उत्तर है।`
+},
+
+{
+q:`मूत्र निर्माण के दौरान कितना जल पुनः अवशोषित होगा, यह निम्नलिखित में से कौन निर्धारित करता है?`,
+topic:`Excretion and urine formation`,
+options:[
+`ऑक्सीजन`,
+`प्रोटीन`,
+`आधिक्य जल`,
+`ग्लूकोज`
+],
+answer:2,
+exp:`Kidneys शरीर की water requirement के अनुसार water reabsorption को regulate करते हैं।`
+},
+
+{
+q:`प्रत्येक वृक्क में पास-पास स्थित निस्यंदन इकाइयों के क्या नाम हैं?`,
+topic:`Human excretory system`,
+options:[
+`नलिका (Tubules)`,
+`केशिकागुच्छ (Glomerulus)`,
+`तंत्रिकाकोशिका (Neurons)`,
+`वृक्काणु (Nephrons)`
+],
+answer:3,
+exp:`Nephron kidney की structural और functional unit है। प्रत्येक kidney में बहुत बड़ी संख्या में nephrons होते हैं।`
+},
+
+{
+q:`कौन-सी संरचना वृक्कों को मूत्राशय से जोड़ती है?`,
+topic:`Human excretory system`,
+options:[
+`मूत्रवाहिनी (Ureter)`,
+`श्रोणि (Pelvis)`,
+`मूत्रमार्ग (Urethra)`,
+`आश्य (Bladder)`
+],
+answer:0,
+exp:`Ureters kidneys को urinary bladder से जोड़ते हैं और urine को bladder तक पहुँचाते हैं।`
+},
+
+{
+q:`ऐसे परिदृश्य में जहां अतिरिक्त कोशिकबाह्य तरल वापस रूधिर में नहीं जाता है, किस तंत्र की खराबी सर्वाधिक उत्तरदायी है?`,
+topic:`Lymph`,
+options:[
+`लसीका तंत्र (Lymphatic system)`,
+`तंत्रिका तंत्र (Nervous system)`,
+`पाचन तंत्र (Digestive system)`,
+`परिसंचरण तंत्र (Circulatory system)`
+],
+answer:0,
+exp:`Lymphatic system excess tissue fluid को collect करके उसे वापस bloodstream में पहुँचाने में सहायता करता है।`
+},
+
+{
+q:`एक रोगी को आंत्र से अवशोषित की गयी वसा के परिवहन में कठिनाई हो रही है। किस तरल के कार्य में बाधा आने से यह समस्या हो सकती है?`,
+topic:`Lymph and its function`,
+options:[
+`रुधिर कोशिकाएं (Blood cells)`,
+`प्लेटलेट्स (Platelets)`,
+`प्लाज्मा (Plasma)`,
+`लसीका (Lymph)`
+],
+answer:3,
+exp:`Small intestine की lacteals dietary fats को lymphatic system में absorb और transport करने में सहायता करती हैं।`
+},
+
+/* ================= PART 11 ================= */
+
+{
+q:`रक्त वाहिकाओं में पेशियों की परतों के संदर्भ में, 'कॉलम A' को 'कॉलम B' के साथ सुमेलित करें। (a) स्थूल मध्य कंचुक (Thick tunica media) (i) शिरा (Vein) (b) सबसे छोटी वाहिका का व्यास (ii) धमनी (Artery) (c) बृहत ल्युमेन (iii) केशिका (Capillary) (d) अंतःस्तर (Endothelium) (iv) सभी रक्त वाहिकाएं (All blood vessels)`,
+topic:`Arteries veins and capillaries`,
+options:[
+`a-ii, b-iv, c-i, d-iii`,
+`a-iii, b-ii, c-i, d-iv`,
+`a-ii, b-iii, c-i, d-iv`,
+`a-i, b-ii, c-iv, d-iii`
+],
+answer:2,
+exp:`Thick tunica media → artery; smallest vessel diameter → capillary; large lumen → vein; endothelium → सभी blood vessels की inner lining का प्रमुख component। इसलिए C सबसे उपयुक्त matching है।`
+}
+
+];
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let currentQuestion = 0;
+
+let userAnswers = new Array(questions.length).fill(null);
+
+let reviewStatus = new Array(questions.length).fill(false);
+
+let submitted = false;
+
+let timeLeft = 60 * 60;
+
+let timerInterval;
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+    createPalette();
+
+    renderQuestion();
+
+    startTimer();
+
+});
+
+/* =========================================================
+   PALETTE
+   ========================================================= */
+
+function createPalette(){
+
+    const grid = document.getElementById("paletteGrid");
+
+    grid.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const btn = document.createElement("button");
+
+        btn.className = "palette-number";
+
+        btn.id = "palette-" + index;
+
+        btn.textContent = index + 1;
+
+        btn.onclick = function(){
+
+            currentQuestion = index;
+
+            renderQuestion();
+
+            togglePalette(false);
+
+        };
+
+        grid.appendChild(btn);
+
+    });
+
+    updatePalette();
+
+}
+
+function updatePalette(){
+
+    questions.forEach((q,index)=>{
+
+        const btn = document.getElementById("palette-" + index);
+
+        if(!btn) return;
+
+        btn.className = "palette-number";
+
+        if(userAnswers[index] !== null){
+
+            btn.classList.add("answered");
+
+        }
+
+        if(reviewStatus[index]){
+
+            btn.classList.add("review");
+
+        }
+
+    });
+
+}
+
+function togglePalette(force){
+
+    const panel = document.getElementById("palettePanel");
+
+    if(force === false){
+
+        panel.classList.remove("show");
+
+        return;
+
+    }
+
+    panel.classList.toggle("show");
+
+}
+
+/* =========================================================
+   RENDER QUESTION
+   ========================================================= */
+
+function renderQuestion(){
+
+    const q = questions[currentQuestion];
+
+    const area = document.getElementById("questionArea");
+
+    area.innerHTML = "";
+
+    const card = document.createElement("div");
+
+    card.className = "question-card";
+
+    let optionsHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        let cls = "option";
+
+        if(userAnswers[currentQuestion] !== null){
+
+            cls += " disabled";
+
+            if(index === q.answer){
+
+                cls += " correct";
+
+            }
+
+            if(
+                index === userAnswers[currentQuestion] &&
+                userAnswers[currentQuestion] !== q.answer
+            ){
+
+                cls += " wrong";
+
+            }
+
+        }
+
+        optionsHTML += `
+            <button
+                class="${cls}"
+                onclick="selectAnswer(${index})"
+                ${userAnswers[currentQuestion] !== null ? "disabled" : ""}
+            >
+                <strong>${String.fromCharCode(65+index)}.</strong>
+                ${option}
+            </button>
+        `;
+
+    });
+
+    let explanationHTML = "";
+
+    if(userAnswers[currentQuestion] !== null){
+
+        const isCorrect =
+            userAnswers[currentQuestion] === q.answer;
+
+        explanationHTML = `
+            <div class="explanation show">
+
+                <div class="explanation-title">
+                    Explanation
+                </div>
+
+                <div class="answer-line ${
+                    isCorrect ? "result-correct" : "result-wrong"
+                }">
+
+                    ${
+                        isCorrect
+                        ? "✓ सही उत्तर"
+                        : "✗ गलत उत्तर"
+                    }
+
+                    : ${String.fromCharCode(65+q.answer)}.
+                    ${q.options[q.answer]}
+
+                </div>
+
+                <div>
+                    ${q.exp}
+                </div>
+
+            </div>
+        `;
+
+    }
+
+    card.innerHTML = `
+
+        <div class="question-meta">
+
+            <span class="question-no">
+                Q${currentQuestion+1} / ${questions.length}
+            </span>
+
+            <span class="topic">
+                ${q.topic}
+            </span>
+
+        </div>
+
+        <div class="question-text">
+            ${q.q}
+        </div>
+
+        <div class="options">
+            ${optionsHTML}
+        </div>
+
+        <div class="review-row">
+
+            <button
+                class="mark-review ${
+                    reviewStatus[currentQuestion]
+                    ? "active"
+                    : ""
+                }"
+                onclick="toggleReview()"
+            >
+                ${
+                    reviewStatus[currentQuestion]
+                    ? "★ Marked for Review"
+                    : "☆ Mark for Review"
+                }
+            </button>
+
+        </div>
+
+        ${explanationHTML}
+
+    `;
+
+    area.appendChild(card);
+
+    updateNavigation();
+
+    updatePalette();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+/* =========================================================
+   SELECT ANSWER
+   ========================================================= */
+
+function selectAnswer(index){
+
+    if(submitted) return;
+
+    if(userAnswers[currentQuestion] !== null) return;
+
+    userAnswers[currentQuestion] = index;
+
+    renderQuestion();
+
+}
+
+/* =========================================================
+   REVIEW
+   ========================================================= */
+
+function toggleReview(){
+
+    if(submitted) return;
+
+    reviewStatus[currentQuestion] =
+        !reviewStatus[currentQuestion];
+
+    renderQuestion();
+
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        renderQuestion();
+
+    }
+
+}
+
+function nextQuestion(){
+
+    if(currentQuestion < questions.length - 1){
+
+        currentQuestion++;
+
+        renderQuestion();
+
+    }
+
+}
+
+function updateNavigation(){
+
+    document.getElementById("prevBtn").disabled =
+        currentQuestion === 0;
+
+    document.getElementById("nextBtn").disabled =
+        currentQuestion === questions.length - 1;
+
+    if(currentQuestion === questions.length - 1){
+
+        document.getElementById("nextBtn").classList.add("hidden");
+
+    }else{
+
+        document.getElementById("nextBtn").classList.remove("hidden");
+
+    }
+
+}
+
+/* =========================================================
+   TIMER
+   ========================================================= */
+
+function startTimer(){
+
+    timerInterval = setInterval(function(){
+
+        if(timeLeft <= 0){
+
+            clearInterval(timerInterval);
+
+            submitTest(true);
+
+            return;
+
+        }
+
+        timeLeft--;
+
+        updateTimer();
+
+    },1000);
+
+}
+
+function updateTimer(){
+
+    const timer = document.getElementById("timer");
+
+    const minutes =
+        Math.floor(timeLeft / 60)
+        .toString()
+        .padStart(2,"0");
+
+    const seconds =
+        (timeLeft % 60)
+        .toString()
+        .padStart(2,"0");
+
+    timer.textContent =
+        minutes + ":" + seconds;
+
+    timer.classList.remove("warning","danger");
+
+    if(timeLeft <= 300){
+
+        timer.classList.add("danger");
+
+    }else if(timeLeft <= 600){
+
+        timer.classList.add("warning");
+
+    }
+
+}
+
+/* =========================================================
+   SUBMIT TEST
+   ========================================================= */
+
+function submitTest(autoSubmit=false){
+
+    if(submitted) return;
+
+    if(!autoSubmit){
+
+        const unanswered =
+            userAnswers.filter(a=>a===null).length;
+
+        if(unanswered > 0){
+
+            const confirmSubmit =
+                confirm(
+                    "आपने " +
+                    unanswered +
+                    " प्रश्न attempt नहीं किए हैं। क्या आप test submit करना चाहते हैं?"
+                );
+
+            if(!confirmSubmit){
+
+                return;
+
+            }
+
+        }
+
+    }
+
+    submitted = true;
+
+    clearInterval(timerInterval);
+
+    let correct = 0;
+    let wrong = 0;
+    let skipped = 0;
+
+    questions.forEach((q,index)=>{
+
+        if(userAnswers[index] === null){
+
+            skipped++;
+
+        }else if(userAnswers[index] === q.answer){
+
+            correct++;
+
+        }else{
+
+            wrong++;
+
+        }
+
+    });
+
+    const score =
+        correct - (wrong / 3);
+
+    document.getElementById("score").textContent =
+        score.toFixed(2);
+
+    document.getElementById("correctCount").textContent =
+        correct;
+
+    document.getElementById("wrongCount").textContent =
+        wrong;
+
+    document.getElementById("skippedCount").textContent =
+        skipped;
+
+    document.getElementById("resultBox")
+        .classList.add("show");
+
+    createAllSolutions();
+
+    document.getElementById("allSolutions")
+        .classList.add("show");
+
+    document.getElementById("submitBtn").disabled = true;
+
+    document.getElementById("submitBtn").textContent =
+        "Test Submitted";
+
+    renderQuestion();
+
+    document.getElementById("resultBox")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+/* =========================================================
+   ALL SOLUTIONS
+   ========================================================= */
+
+function createAllSolutions(){
+
+    const area =
+        document.getElementById("solutionsArea");
+
+    area.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const selected =
+            userAnswers[index];
+
+        let statusText = "";
+
+        if(selected === null){
+
+            statusText =
+                `<span style="color:#64748b;">
+                    Unattempted
+                </span>`;
+
+        }else if(selected === q.answer){
+
+            statusText =
+                `<span style="color:#15803d;">
+                    ✓ Correct
+                </span>`;
+
+        }else{
+
+            statusText =
+                `<span style="color:#b91c1c;">
+                    ✗ Wrong
+                </span>`;
+
+        }
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "solution-card";
+
+        card.innerHTML = `
+
+            <div class="solution-q">
+                Q${index+1}. ${q.q}
+            </div>
+
+            <div class="solution-answer">
+
+                Correct Answer:
+                ${String.fromCharCode(65+q.answer)}.
+                ${q.options[q.answer]}
+
+                &nbsp; ${statusText}
+
+            </div>
+
+            <div class="solution-exp">
+
+                <strong>Explanation:</strong>
+                ${q.exp}
+
+            </div>
+
+        `;
+
+        area.appendChild(card);
+
+    });
+
+}
+
+/* =========================================================
+   RESTART
+   ========================================================= */
+
+function restartTest(){
+
+    if(!confirm("क्या आप पूरा test फिर से शुरू करना चाहते हैं?")){
+
+        return;
+
+    }
+
+    location.reload();
+
+}
+
+/* =========================================================
+   PREVENT ACCIDENTAL LEAVING AFTER SUBMIT
+   ========================================================= */
+
+window.addEventListener("beforeunload",function(e){
+
+    if(!submitted){
+
+        e.preventDefault();
+
+        e.returnValue="";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
