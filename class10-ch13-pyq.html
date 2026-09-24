@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 10 Science | Our Environment | TCS Style Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+    background:#f3f6fa;
+    color:#202124;
+    min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:64px;
+    background:#ffffff;
+    border-bottom:1px solid #d9dee5;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:19px;
+    font-weight:700;
+    color:#17365d;
+}
+
+.logo span{
+    display:block;
+    font-size:12px;
+    color:#777;
+    font-weight:500;
+    margin-top:2px;
+}
+
+/* Palette Button */
+
+.palette-btn{
+    width:46px;
+    height:42px;
+    border:1px solid #cfd6df;
+    background:#fff;
+    border-radius:7px;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+}
+
+.palette-btn span{
+    width:22px;
+    height:2px;
+    background:#17365d;
+    display:block;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    max-width:900px;
+    margin:25px auto;
+    padding:0 15px;
+}
+
+.exam-title{
+    background:#17365d;
+    color:white;
+    padding:15px 18px;
+    border-radius:8px 8px 0 0;
+}
+
+.exam-title h1{
+    font-size:20px;
+    margin-bottom:4px;
+}
+
+.exam-title p{
+    font-size:13px;
+    opacity:.9;
+}
+
+/* Question Card */
+
+.question-card{
+    background:#fff;
+    border:1px solid #dce2e8;
+    border-top:none;
+    border-radius:0 0 8px 8px;
+    padding:25px;
+    min-height:480px;
+}
+
+.question-number{
+    font-size:16px;
+    font-weight:700;
+    color:#17365d;
+    margin-bottom:17px;
+}
+
+.question-text{
+    font-size:18px;
+    line-height:1.8;
+    font-weight:600;
+    margin-bottom:24px;
+}
+
+/* Options */
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.option{
+    border:1px solid #cfd6df;
+    background:#fff;
+    border-radius:7px;
+    padding:13px 15px;
+    cursor:pointer;
+    font-size:16px;
+    line-height:1.6;
+    transition:.15s;
+}
+
+.option:hover{
+    background:#f5f8fc;
+    border-color:#17365d;
+}
+
+.option.selected-correct{
+    background:#e9f8ee;
+    border:2px solid #1b8a45;
+    color:#11652f;
+}
+
+.option.selected-wrong{
+    background:#fdecec;
+    border:2px solid #d93025;
+    color:#a51d16;
+}
+
+.option.disabled{
+    cursor:default;
+}
+
+.option.disabled:hover{
+    background:inherit;
+}
+
+.option-label{
+    font-weight:700;
+    margin-right:7px;
+}
+
+/* Result message */
+
+.answer-status{
+    margin-top:20px;
+    display:none;
+    border-radius:7px;
+    padding:12px 15px;
+    font-weight:700;
+}
+
+.answer-status.correct{
+    display:block;
+    background:#e9f8ee;
+    color:#14733b;
+    border-left:5px solid #1b8a45;
+}
+
+.answer-status.wrong{
+    display:block;
+    background:#fdecec;
+    color:#b42318;
+    border-left:5px solid #d93025;
+}
+
+/* Explanation */
+
+.explanation{
+    display:none;
+    margin-top:12px;
+    padding:15px;
+    background:#f5f8fc;
+    border-left:4px solid #17365d;
+    border-radius:5px;
+    line-height:1.7;
+    font-size:15px;
+}
+
+.explanation strong{
+    color:#17365d;
+}
+
+/* Navigation */
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:20px;
+}
+
+.nav-btn{
+    border:none;
+    border-radius:6px;
+    padding:12px 24px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.prev{
+    background:#e8edf3;
+    color:#26384d;
+}
+
+.next{
+    background:#17365d;
+    color:#fff;
+}
+
+.nav-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.submit-btn{
+    background:#168542;
+    color:#fff;
+    display:none;
+}
+
+/* ================= PALETTE ================= */
+
+.palette-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    z-index:2000;
+    display:none;
+}
+
+.palette{
+    position:absolute;
+    top:0;
+    right:0;
+    width:360px;
+    max-width:92%;
+    height:100%;
+    background:#fff;
+    box-shadow:-4px 0 15px rgba(0,0,0,.15);
+    padding:18px;
+    overflow-y:auto;
+}
+
+.palette-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:15px;
+    border-bottom:1px solid #ddd;
+}
+
+.palette-header h2{
+    font-size:19px;
+    color:#17365d;
+}
+
+.close-palette{
+    border:none;
+    background:#f1f3f5;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:20px;
+}
+
+/* Status legend */
+
+.legend{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin:15px 0;
+}
+
+.legend-item{
+    padding:8px;
+    border-radius:5px;
+    font-size:12px;
+    text-align:center;
+    font-weight:700;
+}
+
+.legend-correct{
+    background:#dff4e6;
+    color:#137333;
+}
+
+.legend-wrong{
+    background:#fde2e0;
+    color:#b42318;
+}
+
+.legend-skip{
+    background:#eef1f4;
+    color:#555;
+}
+
+.legend-current{
+    background:#e0e8f5;
+    color:#17365d;
+}
+
+/* Palette grid */
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+}
+
+.palette-q{
+    height:40px;
+    border:1px solid #ccd3da;
+    border-radius:5px;
+    background:#f7f8fa;
+    cursor:pointer;
+    font-weight:700;
+    color:#444;
+}
+
+.palette-q:hover{
+    border-color:#17365d;
+}
+
+.palette-q.correct{
+    background:#28a745;
+    color:white;
+    border-color:#28a745;
+}
+
+.palette-q.wrong{
+    background:#dc3545;
+    color:white;
+    border-color:#dc3545;
+}
+
+.palette-q.current{
+    outline:3px solid #17365d;
+    outline-offset:1px;
+}
+
+.palette-q.correct.current{
+    outline:3px solid #17365d;
+}
+
+.palette-q.wrong.current{
+    outline:3px solid #17365d;
+}
+
+/* ================= FINAL RESULT ================= */
+
+.result-screen{
+    display:none;
+    background:#fff;
+    border:1px solid #dce2e8;
+    border-radius:8px;
+    padding:30px 20px;
+    text-align:center;
+}
+
+.result-screen h2{
+    color:#17365d;
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.result-score{
+    font-size:42px;
+    font-weight:800;
+    color:#17365d;
+    margin:15px 0;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    max-width:550px;
+    margin:25px auto;
+}
+
+.result-box{
+    padding:18px 10px;
+    border-radius:8px;
+}
+
+.result-box strong{
+    display:block;
+    font-size:25px;
+}
+
+.result-box span{
+    font-size:13px;
+}
+
+.correct-box{
+    background:#e8f7ed;
+    color:#137333;
+}
+
+.wrong-box{
+    background:#fde9e7;
+    color:#b42318;
+}
+
+.skipped-box{
+    background:#eef1f4;
+    color:#555;
+}
+
+.restart{
+    border:none;
+    background:#17365d;
+    color:white;
+    padding:12px 28px;
+    border-radius:6px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .header{
+        height:58px;
+        padding:0 12px;
+    }
+
+    .logo{
+        font-size:16px;
+    }
+
+    .logo span{
+        font-size:10px;
+    }
+
+    .main{
+        margin:12px auto;
+        padding:0 9px;
+    }
+
+    .exam-title{
+        padding:13px 14px;
+    }
+
+    .exam-title h1{
+        font-size:17px;
+    }
+
+    .question-card{
+        padding:17px 14px;
+        min-height:500px;
+    }
+
+    .question-number{
+        font-size:15px;
+    }
+
+    .question-text{
+        font-size:16px;
+        line-height:1.75;
+    }
+
+    .option{
+        font-size:15px;
+        padding:11px 12px;
+    }
+
+    .navigation{
+        position:sticky;
+        bottom:0;
+        background:#fff;
+        padding:10px 0;
+        border-top:1px solid #ddd;
+        z-index:500;
+    }
+
+    .nav-btn{
+        padding:11px 16px;
+        font-size:14px;
+        flex:1;
+    }
+
+    .palette{
+        width:330px;
+    }
+
+    .palette-grid{
+        grid-template-columns:repeat(5,1fr);
+    }
+
+    .palette-q{
+        height:38px;
+        font-size:13px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        CLASS 10 SCIENCE
+        <span>OUR ENVIRONMENT • TCS STYLE MOCK TEST</span>
+    </div>
+
+    <button class="palette-btn" onclick="openPalette()" aria-label="Open Palette">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <div id="examArea">
+
+        <div class="exam-title">
+            <h1>Chapter 13 — Our Environment</h1>
+            <p>45 Questions • No Timer • No Negative Marking</p>
+        </div>
+
+        <div class="question-card">
+
+            <div class="question-number" id="questionNumber"></div>
+
+            <div class="question-text" id="questionText"></div>
+
+            <div class="options" id="options"></div>
+
+            <div id="answerStatus" class="answer-status"></div>
+
+            <div id="explanation" class="explanation"></div>
+
+        </div>
+
+        <div class="navigation">
+
+            <button class="nav-btn prev" id="prevBtn" onclick="previousQuestion()">
+                ← Previous
+            </button>
+
+            <button class="nav-btn next" id="nextBtn" onclick="nextQuestion()">
+                Next →
+            </button>
+
+            <button class="nav-btn submit-btn" id="submitBtn" onclick="showResult()">
+                Submit Test
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= RESULT ================= -->
+
+    <div class="result-screen" id="resultScreen">
+
+        <h2>Test Completed</h2>
+
+        <p>Class 10 Science — Our Environment</p>
+
+        <div class="result-score" id="resultScore">
+            0 / 45
+        </div>
+
+        <div class="result-grid">
+
+            <div class="result-box correct-box">
+                <strong id="correctResult">0</strong>
+                <span>Correct</span>
+            </div>
+
+            <div class="result-box wrong-box">
+                <strong id="wrongResult">0</strong>
+                <span>Wrong</span>
+            </div>
+
+            <div class="result-box skipped-box">
+                <strong id="skippedResult">0</strong>
+                <span>Skipped</span>
+            </div>
+
+        </div>
+
+        <button class="restart" onclick="restartTest()">
+            Restart Test
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- ================= PALETTE ================= -->
+
+<div class="palette-overlay" id="paletteOverlay">
+
+    <aside class="palette">
+
+        <div class="palette-header">
+
+            <h2>Question Palette</h2>
+
+            <button class="close-palette" onclick="closePalette()">×</button>
+
+        </div>
+
+        <div class="legend">
+
+            <div class="legend-item legend-correct">
+                ✓ Correct
+            </div>
+
+            <div class="legend-item legend-wrong">
+                ✕ Wrong
+            </div>
+
+            <div class="legend-item legend-skip">
+                ○ Unattempted
+            </div>
+
+            <div class="legend-item legend-current">
+                ● Current
+            </div>
+
+        </div>
+
+        <div class="palette-grid" id="paletteGrid"></div>
+
+    </aside>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   QUESTION DATA
+========================================================= */
+
+const questions = [
+
+{
+q:"एक हाउसिंग सोसाइटी ने अपशिष्ट को दो डिब्बों में पृथक करना शुरू किया है - हरा रसोई अपशिष्ट के लिए और नीला प्लास्टिक, धातु और कांच के लिए। इस प्रक्रिया का मुख्य लाभ क्या है?",
+options:[
+"इससे अपशिष्ट संग्रहण शीघ्रता से होता है।",
+"इससे कचरे की दुर्गंध कम होती है।",
+"इससे अजैवनिम्नीकरणीय अपशिष्ट को जैवनिम्नीकरणीय अपशिष्ट से पृथक करने में सहायता प्राप्त होती है।",
+"इससे उत्पादित अपशिष्ट की मात्रा बढ़ जाती है।"
+],
+answer:2,
+exp:"अपशिष्ट को अलग-अलग डिब्बों में पृथक करने से जैवनिम्नीकरणीय और अजैवनिम्नीकरणीय कचरे को अलग रखना आसान होता है, जिससे उनका उचित प्रबंधन और पुनर्चक्रण किया जा सकता है।"
+},
+
+{
+q:"स्कूल कैम्पस की सफाई करते समय, विद्यार्थियों को जैव-निम्नीकरणीय अपशिष्ट को पृथक करने के लिए कहा जाता है। निम्नलिखित में से किसे जैव-निम्नीकरणीय बिन में डाला जाना चाहिए?",
+options:[
+"एक क्रश किया हुआ कोल्ड ड्रिंक कैन",
+"पॉलीथीन बैग",
+"लकड़ी की पेंसिल की छीलन",
+"कांच की बोतल"
+],
+answer:2,
+exp:"लकड़ी की पेंसिल की छीलन प्राकृतिक पदार्थ है और सूक्ष्मजीवों द्वारा विघटित हो सकती है, इसलिए यह जैव-निम्नीकरणीय है।"
+},
+
+{
+q:"पिछले 10 वर्षों में, शहर में प्लास्टिक कचरे में बहुत ज़्यादा वृद्धि हुई है। लोगों की कौन-सी आदत इसका सबसे बड़ा कारण है?",
+options:[
+"अधिक लोग बसों और रेलगाड़ियों का उपयोग कर रहे हैं।",
+"लोग लंबे समय तक चलने वाली वस्तुओं के स्थान पर डिस्पोजेबल वस्तुओं का अधिक उपयोग कर रहे हैं।",
+"प्लास्टिक बैग पर प्रतिबन्ध लगा दिया गया है।",
+"लोग पुनः उपयोग योग्य चीजें चुन रहे हैं।"
+],
+answer:1,
+exp:"डिस्पोजेबल प्लास्टिक वस्तुओं का बार-बार उपयोग और त्याग प्लास्टिक कचरे की मात्रा बढ़ाता है।"
+},
+
+{
+q:"वे पदार्थ जो जैविक प्रक्रियाओं द्वारा विघटित हो जाते हैं, उन्हें क्या कहा जाता है?",
+options:[
+"जैवनिम्नीकरणीय",
+"अजैवनिम्नीकरणीय",
+"सिंथेटिक",
+"धात्विक"
+],
+answer:0,
+exp:"जो पदार्थ सूक्ष्मजीवों या अन्य जैविक प्रक्रियाओं द्वारा प्राकृतिक रूप से विघटित हो जाते हैं, उन्हें जैवनिम्नीकरणीय पदार्थ कहते हैं।"
+},
+
+{
+q:"एक स्कूल 'शून्य अपशिष्ट' दिवस का आयोजन करता है। निम्नलिखित में से कौन-सी पद्धति इस पहल में सर्वोत्तम रूप से सहायक होगी?",
+options:[
+"एकल-उपयोग प्लास्टिक कटलरी का उपयोग",
+"खाद्य अपशिष्ट को नियमित कूड़ेदानों में डालना",
+"प्लास्टिक की पन्नी में स्नैक्स लपेटना",
+"केले के पत्तों या पुनः प्रयोज्य प्लेटों में भोजन परोसना"
+],
+answer:3,
+exp:"पुनः प्रयोज्य प्लेटों और प्राकृतिक पत्तों का उपयोग एकल-उपयोग प्लास्टिक कचरे को कम करता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा, जैवनिम्नीकरणीय पदार्थ का एक उदाहरण नहीं है?",
+options:[
+"अपशिष्ट कागज़",
+"सब्ज़ियों के छिलके",
+"प्लास्टिक की थैलियाँ",
+"खराब हुआ भोजन"
+],
+answer:2,
+exp:"प्लास्टिक की थैलियाँ सामान्य जैविक प्रक्रियाओं द्वारा आसानी से विघटित नहीं होतीं, इसलिए वे अजैवनिम्नीकरणीय हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा एक मानव निर्मित पदार्थ है और जो बैक्टीरिया की क्रिया द्वारा विघटित नहीं होगा?",
+options:[
+"रोटी",
+"प्लास्टिक",
+"मक्खन",
+"चावल"
+],
+answer:1,
+exp:"प्लास्टिक एक मानव निर्मित पदार्थ है और सामान्यतः बैक्टीरिया द्वारा आसानी से विघटित नहीं होता।"
+},
+
+{
+q:"मिट्टी में फेंके जाने पर निम्नलिखित में से कौन-सा पदार्थ पर्यावरण में लम्बे समय तक बना रहेगा?",
+options:[
+"सेब का छिलका",
+"रोटी के टुकड़े",
+"टूटे हुए कांच के टुकड़े",
+"आम का बीज"
+],
+answer:2,
+exp:"काँच जैव-निम्नीकरणीय नहीं है और पर्यावरण में बहुत लंबे समय तक बना रह सकता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी सामग्री लम्बे समय तक अपरिवर्तित रहती है?",
+options:[
+"प्लास्टिक का थैला",
+"सूती कपड़े का थैला",
+"रेशम के कपड़े का थैला",
+"जूट का थैला"
+],
+answer:0,
+exp:"प्लास्टिक लंबे समय तक प्राकृतिक रूप से विघटित नहीं होता, इसलिए यह पर्यावरण में लंबे समय तक बना रहता है।"
+},
+
+{
+q:"अजैवनिम्नीकरणीय अपशिष्ट उत्पादन को कम करने का प्राथमिक लक्ष्य क्या है?",
+options:[
+"औद्योगिक विकास को बढ़ावा देना",
+"भू-भरण में अधिक स्थान उपलब्ध कराना",
+"प्राकृतिक संसाधनों का संरक्षण और प्रदूषण को न्यूनीकृत करना",
+"अपशिष्ट का पुनर्चक्रण करना"
+],
+answer:2,
+exp:"अजैवनिम्नीकरणीय कचरे को कम करने का मुख्य उद्देश्य पर्यावरण और प्राकृतिक संसाधनों की रक्षा करना तथा प्रदूषण को कम करना है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी विधि, मानव निर्मित कचरे तथा अन्य अपशिष्टों के प्रबंधन में सहायक नहीं होगी?",
+options:[
+"अपशिष्टों को मुक्त करने से पहले उनका उपचार करना",
+"वर्मीकम्पोस्टिंग",
+"मिट्टी में प्लास्टिक को लैंडफिल करना",
+"3R (रिड्यूस, रियूज, रिसायकल) का पालन करना"
+],
+answer:2,
+exp:"प्लास्टिक को मिट्टी में दबाना उसके लंबे समय तक बने रहने के कारण उचित अपशिष्ट प्रबंधन नहीं है।"
+},
+
+{
+q:"छोटे पौधे उगाने के लिए टूटे हुए बर्तनों का उपयोग करना __________ का एक उदाहरण है।",
+options:[
+"रीपर्पज (Repurpose)",
+"रियूज (Reuse)",
+"रीसायकल (Recycle)",
+"रीफ्यूज (Refuse)"
+],
+answer:0,
+exp:"किसी पुरानी वस्तु को उसके मूल उद्देश्य से अलग किसी नए उद्देश्य के लिए उपयोग करना Repurpose कहलाता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा अजैवनिम्नीकरणीय पदार्थ है?",
+options:[
+"प्लास्टिक बैग",
+"सूती कपड़ा",
+"सब्जी का छिलका",
+"कागज"
+],
+answer:0,
+exp:"प्लास्टिक बैग आसानी से जैविक प्रक्रियाओं द्वारा विघटित नहीं होता, इसलिए यह अजैवनिम्नीकरणीय है।"
+},
+
+{
+q:"दिए गए विकल्पों में से सामान्य घरेलू अपशिष्ट से संबंधित सही कथन का चयन कीजिए।",
+options:[
+"अपशिष्ट में जैव-निम्नीकरणीय और अजैव-निम्नीकरणीय दोनों घटक होते हैं।",
+"संपूर्ण अपशिष्ट अजैव-निम्नीकरणीय होता है।",
+"अपशिष्ट का सुरक्षित निपटान अनिवार्य नहीं है।",
+"संपूर्ण अपशिष्ट जैव-निम्नीकरणीय होता है।"
+],
+answer:0,
+exp:"घरेलू कचरे में भोजन और सब्जियों के छिलकों जैसे जैव-निम्नीकरणीय तथा प्लास्टिक और काँच जैसे अजैव-निम्नीकरणीय पदार्थ दोनों हो सकते हैं।"
+},
+
+{
+q:"प्लास्टिक जैसे गैर-जैवनिम्नीकरणीय कचरे के प्रबंधन का सर्वोत्तम तरीका क्या है?",
+options:[
+"इसे मिट्टी में दबा (Bury) दें",
+"इसे रीसायकल करें और पुनः उपयोग करें",
+"इसे खाद (compost) में मिश्रित कर दें",
+"इसे खुली हवा में जला दें"
+],
+answer:1,
+exp:"प्लास्टिक के उपयोग को कम करना, उसका पुनः उपयोग करना और उचित पुनर्चक्रण करना पर्यावरण के लिए बेहतर तरीका है।"
+},
+
+{
+q:"जैविक आवर्धन की परिघटना के माध्यम से, निम्नलिखित में से किसमें पीड़कनाशी की सांद्रता सर्वाधिक है?",
+options:[
+"साँप (Snake)",
+"मेंढक (Frog)",
+"घास (Grass)",
+"टिड्ढा (Grasshopper)"
+],
+answer:0,
+exp:"खाद्य श्रृंखला में ऊपर जाने पर अजैवनिम्नीकरणीय प्रदूषकों की सांद्रता बढ़ती जाती है। दिए गए विकल्पों में साँप उच्च पोषी स्तर पर है।"
+},
+
+{
+q:"निम्नलिखित में से किस पदार्थ में जैविक आवर्धन की परिघटना में योगदान देने की उच्च संभावना होती है?",
+options:[
+"नीम की छाल",
+"संतरे का छिलका",
+"पीड़कनाशी",
+"गुलाब दल"
+],
+answer:2,
+exp:"कुछ अजैवनिम्नीकरणीय पीड़कनाशी खाद्य श्रृंखला में जमा होकर जैविक आवर्धन उत्पन्न कर सकते हैं।"
+},
+
+{
+q:"निम्नलिखित में से क्या, जैविक आवर्धन का कारण बन सकता है?",
+options:[
+"पीड़कनाशी (Pesticides)",
+"खराब होती सब्जियाँ (Degrading vegetable)",
+"केले का छिलका (Peel of banana)",
+"भूसा (Straw)"
+],
+answer:0,
+exp:"अजैवनिम्नीकरणीय पीड़कनाशी खाद्य श्रृंखला के विभिन्न पोषी स्तरों पर जमा होकर जैविक आवर्धन का कारण बन सकते हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा पदार्थ, प्रकृति में अक्रिय होता है और लंबी अवधि तक पर्यावरण में मौजूद रहता है तथा पारिस्थितिकी तंत्र के विभिन्न अवयवों को क्षति पहुंचाता है?",
+options:[
+"चाय पीने वाले मृत्तिका कुल्हड़ (Tea clay kulhads)",
+"डिस्पोजेबल प्लास्टिक कप (Disposable plastic cups)",
+"चाय पत्ती (Tea leaves)",
+"डिस्पोजेबल पेपर कप (Disposable paper cups)"
+],
+answer:1,
+exp:"प्लास्टिक के डिस्पोजेबल कप लंबे समय तक बने रहते हैं और आसानी से जैविक रूप से विघटित नहीं होते।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा जीव DDT की अधिकतम सांद्रता संचित करेगा?",
+options:[
+"बकरी",
+"मकड़ी",
+"घास",
+"मानव"
+],
+answer:3,
+exp:"DDT जैसे अजैवनिम्नीकरणीय पदार्थ खाद्य श्रृंखला के उच्च पोषी स्तरों पर अधिक मात्रा में जमा होते हैं। मानव उच्च पोषी स्तर पर होने के कारण अधिक सांद्रता प्राप्त कर सकता है।"
+},
+
+{
+q:"एक खाद्य श्रृंखला घास → टिड्ढा → मेंढक → साँप → बाज से शुरू होती है। बाज में अजैवनिम्नीकरणीय पीड़कनाशियों की कितनी सांद्रता अपेक्षित है?",
+options:[
+"पीड़कनाशियों की उच्चतम सांद्रता",
+"पीड़कनाशी अवशिष्ट की निम्नतम मात्रा",
+"मेंढक जितनी पीड़कनाशी की सांद्रता",
+"पीड़कनाशी का कोई अवशिष्ट नहीं"
+],
+answer:0,
+exp:"बाज इस खाद्य श्रृंखला में सबसे ऊँचे पोषी स्तर पर है। जैविक आवर्धन के कारण अजैवनिम्नीकरणीय पीड़कनाशियों की सांद्रता यहाँ सबसे अधिक होगी।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कथन जैविक आवर्धन का वर्णन करता है?",
+options:[
+"उच्च पोषण स्तर पर हानिकारक पदार्थों की सांद्रता में वृद्धि होती है।",
+"जैविक गतिविधियों में उत्तरोत्तर वृद्धि होती है।",
+"जैसे-जैसे ऊर्जा उत्पादकों से उपभोक्ताओं तक प्रवाहित होती है, उसकी मात्रा बढ़ती जाती है।",
+"पारिस्थितिकी तंत्र में अपघटकों द्वारा प्रदूषकों को पूरी तरह से विघटित कर दिया जाता है।"
+],
+answer:0,
+exp:"जैविक आवर्धन में अजैवनिम्नीकरणीय हानिकारक पदार्थों की सांद्रता उच्च पोषी स्तरों पर बढ़ती जाती है।"
+},
+
+{
+q:"गेहूं, चावल, सब्जियां, फल और मांस जैसे खाद्य पदार्थों में निम्नलिखित में से किस परिघटना के कारण उनमें अलग-अलग मात्रा में पीड़कनाशी अवशिष्ट पाए जाते हैं?",
+options:[
+"सुपोषन (Eutrophication)",
+"प्रकाश संश्लेषण (Photosynthesis)",
+"वाष्पोत्सर्जन (Transpiration)",
+"जैविक आवर्धन (Biological magnification)"
+],
+answer:3,
+exp:"पीड़कनाशी खाद्य श्रृंखला में प्रवेश कर सकते हैं और जैविक आवर्धन के कारण विभिन्न पोषी स्तरों पर अलग-अलग मात्रा में पाए जा सकते हैं।"
+},
+
+{
+q:"जैविक आवर्धन द्वारा पीड़कनाशियों की अधिकतम सांद्रता किस पोषण स्तर में पाई जाती है?",
+options:[
+"उत्पादक (Producer)",
+"द्वितीयक उपभोक्ता (Secondary Consumer)",
+"तृतीयक उपभोक्ता (Tertiary Consumer)",
+"प्राथमिक उपभोक्ता (Primary Consumer)"
+],
+answer:2,
+exp:"जैविक आवर्धन में प्रदूषक की सांद्रता खाद्य श्रृंखला में ऊपर जाने के साथ बढ़ती है। दिए गए विकल्पों में तृतीयक उपभोक्ता सबसे ऊँचे पोषी स्तर पर है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा, खाद्य श्रृंखला के प्रत्येक चरण से निर्मित होता है?",
+options:[
+"समताप मंडल स्तर (Stratosphere level)",
+"क्षोभमंडल स्तर (Troposphere level)",
+"पोषी स्तर (Trophic level)",
+"ओजोन परत (Ozone layer)"
+],
+answer:2,
+exp:"खाद्य श्रृंखला में प्रत्येक चरण को एक पोषी स्तर कहा जाता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा पोषण स्तर, तृतीयक उपभोक्ताओं द्वारा आच्छादित है?",
+options:[
+"चौथा पोषण स्तर",
+"दूसरा पोषण स्तर",
+"पहला पोषण स्तर",
+"तीसरा पोषण स्तर"
+],
+answer:0,
+exp:"उत्पादक प्रथम, प्राथमिक उपभोक्ता द्वितीय, द्वितीयक उपभोक्ता तृतीय और तृतीयक उपभोक्ता सामान्यतः चौथे पोषी स्तर पर होते हैं।"
+},
+
+{
+q:"स्वपोषी को खाद्य श्रृंखला में प्रथम पोषण स्तर पर क्यों रखा जाता है?",
+options:[
+"क्योंकि वे अकार्बनिक पदार्थों से भोजन बनाते हैं",
+"क्योंकि वे मृत जीवों को अपघटित करते हैं",
+"क्योंकि वे भोजन के लिए शाकाहारी जीवों पर निर्भर होते हैं",
+"क्योंकि वे जैविक अपशिष्ट पदार्थों का उपभोग करते हैं"
+],
+answer:0,
+exp:"स्वपोषी प्रकाश संश्लेषण या अन्य प्रक्रियाओं द्वारा अकार्बनिक पदार्थों से अपना भोजन बनाते हैं, इसलिए वे खाद्य श्रृंखला के प्रथम पोषी स्तर पर होते हैं।"
+},
+
+{
+q:"स्कूल के बगीचे में, तितलियाँ अक्सर फूलों पर आती हैं जबकि गिलहरियाँ काष्ठफल (nuts) खाती हैं। ये जीव किस प्रकार के उपभोक्ता हैं?",
+options:[
+"तितलियाँ - सर्वाहारी, गिलहरी - मांसाहारी",
+"तितलियाँ - परजीवी, गिलहरी - अपघटक",
+"तितलियाँ - शाकाहारी, गिलहरी - शाकाहारी",
+"तितलियाँ - मांसाहारी, गिलहरी - सर्वाहारी"
+],
+answer:2,
+exp:"तितलियाँ फूलों से प्राप्त पौधों के पदार्थों पर निर्भर करती हैं और गिलहरियाँ nuts जैसे पौधों के पदार्थ खाती हैं। इसलिए दोनों को यहाँ शाकाहारी उपभोक्ता माना गया है।"
+},
+
+{
+q:"निम्नलिखित में से क्या, वन में उगते (बढ़ते) पौधों में पोषक तत्वों की आपूर्ति बनाए रखने में सहायता करता है?",
+options:[
+"द्वितीयक उपभोक्ता",
+"प्राथमिक उपभोक्ता",
+"तृतीयक उपभोक्ता",
+"अपघटक"
+],
+answer:3,
+exp:"अपघटक मृत पौधों और जीवों के कार्बनिक पदार्थों को सरल पदार्थों में बदलते हैं और पोषक तत्वों को मिट्टी में वापस उपलब्ध कराते हैं।"
+},
+
+{
+q:"कृषि अपशिष्ट सामग्री को कार्बनिक पदार्थों और पोषक तत्वों से भरपूर अपघटित पदार्थ में बदलने की प्रक्रिया को क्या कहा जाता है?",
+options:[
+"पॉलिनेशन (Pollination)",
+"फर्टिलाइजेशन (Fertilization)",
+"कम्पोस्टिंग (Composting)",
+"ग्रीन मैन्योरिंग (Green Manuring)"
+],
+answer:2,
+exp:"कार्बनिक कृषि अपशिष्ट को सूक्ष्मजीवों की सहायता से पोषक तत्वों से भरपूर खाद में बदलने की प्रक्रिया कम्पोस्टिंग कहलाती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा मानवीय क्रियाकलाप ओजोन परत के क्षरण में योगदान देता है?",
+options:[
+"जल संरक्षण",
+"CFC-आधारित रेफ्रिजरेंट और स्प्रे कैन का उपयोग",
+"जैविक अपशिष्ट से कम्पोस्ट बनाना",
+"सौर ऊर्जा का उपयोग"
+],
+answer:1,
+exp:"CFCs से निकलने वाले क्लोरीन परमाणु समताप मंडल में ओजोन अणुओं को तोड़ने में योगदान करते हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कारक वायुमंडल में ओजोन परत को अधिक क्षति पहुंचाता है?",
+options:[
+"क्लोरोफ्लोरोकार्बन (CFCs)",
+"कार्बन डाइऑक्साइड",
+"मेथेन",
+"ऑक्सीजन"
+],
+answer:0,
+exp:"CFCs ओजोन क्षरण के प्रमुख मानव-निर्मित कारणों में शामिल हैं।"
+},
+
+{
+q:"कल्पना कीजिए कि कोई देश वैश्विक समझौतों के बावजूद CFC का उपयोग जारी रखता है। उस देश और विश्व के लिए इसके क्या परिणाम हो सकते हैं?",
+options:[
+"वर्षा में वृद्धि",
+"पर्यावरणीय क्षति और वैश्विक आलोचना",
+"कोई प्रभाव नहीं, क्योंकि अन्य देशों ने CFC का उपयोग बंद कर दिया है",
+"तीव्र औद्योगिक विकास"
+],
+answer:1,
+exp:"CFC का निरंतर उपयोग ओजोन परत के संरक्षण के वैश्विक प्रयासों को नुकसान पहुंचा सकता है और पर्यावरणीय समस्याएँ बढ़ा सकता है।"
+},
+
+{
+q:"वायुमंडल के उच्च स्तर पर, निम्नलिखित में से कौन पृथ्वी की सतह को पराबैंगनी विकिरण से परिरक्षित करता है?",
+options:[
+"हाइड्रोजन (Hydrogen)",
+"कार्बन (Carbon)",
+"ओजोन (Ozone)",
+"नाइट्रोजन (Nitrogen)"
+],
+answer:2,
+exp:"समताप मंडल में मौजूद ओजोन परत सूर्य के हानिकारक पराबैंगनी विकिरण के एक बड़े भाग को अवशोषित करती है।"
+},
+
+{
+q:"ओजोन पृथ्वी को सूर्य के __________ विकिरण से बचाता है।",
+options:[
+"गामा",
+"कॉस्मिक",
+"अल्ट्रावॉयलेट",
+"इन्फ्रारेड"
+],
+answer:2,
+exp:"ओजोन सूर्य के हानिकारक पराबैंगनी (Ultraviolet/UV) विकिरण को अवशोषित करने में महत्वपूर्ण भूमिका निभाता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा अणु, ओजोन के निर्माण के लिए उच्च ऊर्जा पराबैंगनी द्वारा विभक्त होता है?",
+options:[
+"सोडियम",
+"लोहा",
+"ऑक्सीजन",
+"जिंक"
+],
+answer:2,
+exp:"उच्च ऊर्जा वाली UV किरणें O₂ अणुओं को ऑक्सीजन परमाणुओं में विभाजित कर सकती हैं। ये परमाणु O₂ से मिलकर O₃ यानी ओजोन बनाते हैं।"
+},
+
+{
+q:"खाद्य श्रृंखला के उस संबंध को क्या कहा जाता है, जिन्हें शाखन रेखाओं की एक श्रृंखला के रूप में दर्शाया जा सकता है?",
+options:[
+"मकड़ी जाल (Spider web)",
+"खाद्य जाल (Food web)",
+"वर्ल्ड वाइड वेब (World wide web)",
+"पोषी स्तर (Trophic level)"
+],
+answer:1,
+exp:"जब कई खाद्य श्रृंखलाएँ आपस में जुड़ती हैं और शाखाओं जैसा नेटवर्क बनाती हैं, तो उसे खाद्य जाल कहते हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा परिदृश्य खाद्य जाल को सबसे अधिक प्रभावित कर सकता है?",
+options:[
+"एक प्रमुख प्रजाति का अचानक हटाया जाना",
+"धूप के घंटों में वृद्धि",
+"हवा की दिशा में बदलाव",
+"वर्षा में मौसमी परिवर्तन"
+],
+answer:0,
+exp:"किसी प्रमुख प्रजाति को अचानक हटाने से उसके साथ जुड़ी अनेक खाद्य श्रृंखलाएँ प्रभावित हो सकती हैं और खाद्य जाल में व्यापक परिवर्तन हो सकता है।"
+},
+
+{
+q:"खाद्य जाल (Food web) विभिन्न प्रकार के __________ से मिलकर बना होता है।",
+options:[
+"पारिस्थितिकी तंत्रों",
+"खाद्य पदार्थों",
+"पोषी स्तरों",
+"खाद्य श्रृंखलाओं"
+],
+answer:3,
+exp:"खाद्य जाल कई आपस में जुड़ी हुई खाद्य श्रृंखलाओं से मिलकर बना होता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा अजैविक कारक, कृषि उपज में भंडारण हानि के लिए जिम्मेदार है?",
+options:[
+"कृंतक (Rodents)",
+"कवक (Fungi)",
+"कीट (Insects)",
+"आर्द्रता (Moisture)"
+],
+answer:3,
+exp:"आर्द्रता एक अजैविक कारक है और अधिक नमी कृषि उपज के भंडारण के दौरान खराब होने तथा क्षति का कारण बन सकती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा, पारिस्थितिकी तंत्र का अजैव घटक नहीं है?",
+options:[
+"सूक्ष्मजीव",
+"पवन",
+"तापमान",
+"वर्षा"
+],
+answer:0,
+exp:"सूक्ष्मजीव जीवित घटक हैं, इसलिए वे जैविक घटक हैं। पवन, तापमान और वर्षा अजैविक घटक हैं।"
+},
+
+{
+q:"सामान्यतः किस पोषी स्तर पर जीवों की संख्या सबसे कम होती है?",
+options:[
+"प्राथमिक उपभोक्ता",
+"उत्पादक",
+"तृतीयक उपभोक्ता",
+"द्वितीयक उपभोक्ता"
+],
+answer:2,
+exp:"सामान्यतः खाद्य श्रृंखला के उच्चतम पोषी स्तर पर जीवों की संख्या कम होती है।"
+},
+
+{
+q:"एक पारिस्थितिकी तंत्र में एक पोषी स्तर से दूसरे पोषी स्तर तक लगभग कितने प्रतिशत ऊर्जा स्थानांतरित होती है?",
+options:[
+"50%",
+"10%",
+"1%",
+"90%"
+],
+answer:1,
+exp:"10% नियम के अनुसार एक पोषी स्तर की ऊर्जा का लगभग 10% ही अगले पोषी स्तर तक स्थानांतरित होता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा सिद्धांत पर्यावरण पर दबाव को कम करने और संधारणीय जीवन को बढ़ावा देने में सहायता करता है?",
+options:[
+"कम उपयोग, पुनःउपयोग और पुनःचक्रण (Reduce, Reuse, and Recycle)",
+"उपयोग करें और त्याग करें (Use and discard)",
+"अधिक उत्पादन करें और अधिक उपभोग करें (Produce more and consume more)",
+"जितना संभव हो उतना निष्कर्षित करें (Extract as much as possible)"
+],
+answer:0,
+exp:"3R — Reduce, Reuse और Recycle — संसाधनों के उपयोग तथा अपशिष्ट उत्पादन को कम करने में सहायता करते हैं।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा प्राकृतिक पारिस्थितिकी तंत्र का उदाहरण है?",
+options:[
+"फिश एक्वेरियम",
+"हाइड्रोपोनिक्स",
+"वन",
+"किचन गार्डन"
+],
+answer:2,
+exp:"वन एक प्राकृतिक पारिस्थितिकी तंत्र है, जबकि एक्वेरियम, हाइड्रोपोनिक्स और किचन गार्डन मानव द्वारा बनाए या नियंत्रित किए जाते हैं।"
+}
+
+];
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentQuestion = 0;
+
+/*
+ status:
+ null = unattempted
+ "correct" = correct
+ "wrong" = wrong
+*/
+
+let status = new Array(questions.length).fill(null);
+let selected = new Array(questions.length).fill(null);
+
+
+/* =========================================================
+   LOAD QUESTION
+========================================================= */
+
+function loadQuestion(){
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        "Question " + (currentQuestion + 1) + " of " + questions.length;
+
+    document.getElementById("questionText").textContent = q.q;
+
+    const optionsBox = document.getElementById("options");
+
+    optionsBox.innerHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        const div = document.createElement("div");
+
+        div.className = "option";
+
+        div.innerHTML =
+            '<span class="option-label">' +
+            String.fromCharCode(65 + index) +
+            '.</span>' +
+            option;
+
+        div.onclick = function(){
+            selectOption(index);
+        };
+
+        optionsBox.appendChild(div);
+
+    });
+
+    document.getElementById("answerStatus").style.display = "none";
+    document.getElementById("answerStatus").className = "answer-status";
+
+    document.getElementById("explanation").style.display = "none";
+
+    /*
+       If already answered, show previous state
+    */
+
+    if(selected[currentQuestion] !== null){
+        showSavedAnswer();
+    }
+
+    updateButtons();
+    updatePalette();
+
+}
+
+
+/* =========================================================
+   SELECT OPTION
+========================================================= */
+
+function selectOption(index){
+
+    /*
+       Prevent changing answer
+    */
+
+    if(selected[currentQuestion] !== null){
+        return;
+    }
+
+    selected[currentQuestion] = index;
+
+    const q = questions[currentQuestion];
+
+    const optionElements =
+        document.querySelectorAll(".option");
+
+    optionElements.forEach((el,i)=>{
+
+        el.classList.add("disabled");
+
+        if(i === q.answer){
+
+            el.classList.add("selected-correct");
+
+        }
+
+        if(i === index && index !== q.answer){
+
+            el.classList.add("selected-wrong");
+
+        }
+
+    });
+
+    const statusBox =
+        document.getElementById("answerStatus");
+
+    const explanation =
+        document.getElementById("explanation");
+
+    if(index === q.answer){
+
+        status[currentQuestion] = "correct";
+
+        statusBox.className =
+            "answer-status correct";
+
+        statusBox.innerHTML =
+            "✓ सही उत्तर";
+
+    }else{
+
+        status[currentQuestion] = "wrong";
+
+        statusBox.className =
+            "answer-status wrong";
+
+        statusBox.innerHTML =
+            "✕ गलत उत्तर — सही उत्तर: " +
+            String.fromCharCode(65 + q.answer);
+
+    }
+
+    statusBox.style.display = "block";
+
+    explanation.innerHTML =
+        "<strong>Explanation:</strong><br>" +
+        q.exp;
+
+    explanation.style.display = "block";
+
+    updatePalette();
+    updateButtons();
+
+}
+
+
+/* =========================================================
+   SHOW SAVED ANSWER
+========================================================= */
+
+function showSavedAnswer(){
+
+    const q = questions[currentQuestion];
+
+    const selectedAnswer =
+        selected[currentQuestion];
+
+    const optionElements =
+        document.querySelectorAll(".option");
+
+    optionElements.forEach((el,i)=>{
+
+        el.classList.add("disabled");
+
+        if(i === q.answer){
+            el.classList.add("selected-correct");
+        }
+
+        if(
+            i === selectedAnswer &&
+            selectedAnswer !== q.answer
+        ){
+            el.classList.add("selected-wrong");
+        }
+
+    });
+
+    const statusBox =
+        document.getElementById("answerStatus");
+
+    const explanation =
+        document.getElementById("explanation");
+
+    if(status[currentQuestion] === "correct"){
+
+        statusBox.className =
+            "answer-status correct";
+
+        statusBox.innerHTML =
+            "✓ सही उत्तर";
+
+    }else{
+
+        statusBox.className =
+            "answer-status wrong";
+
+        statusBox.innerHTML =
+            "✕ गलत उत्तर — सही उत्तर: " +
+            String.fromCharCode(65 + q.answer);
+
+    }
+
+    statusBox.style.display = "block";
+
+    explanation.innerHTML =
+        "<strong>Explanation:</strong><br>" +
+        q.exp;
+
+    explanation.style.display = "block";
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+
+        currentQuestion--;
+
+        loadQuestion();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+function nextQuestion(){
+
+    if(currentQuestion < questions.length - 1){
+
+        currentQuestion++;
+
+        loadQuestion();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   BUTTON UPDATE
+========================================================= */
+
+function updateButtons(){
+
+    const prev =
+        document.getElementById("prevBtn");
+
+    const next =
+        document.getElementById("nextBtn");
+
+    const submit =
+        document.getElementById("submitBtn");
+
+    prev.disabled =
+        currentQuestion === 0;
+
+    if(currentQuestion === questions.length - 1){
+
+        next.style.display = "none";
+        submit.style.display = "block";
+
+    }else{
+
+        next.style.display = "block";
+        submit.style.display = "none";
+
+    }
+
+}
+
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function updatePalette(){
+
+    const grid =
+        document.getElementById("paletteGrid");
+
+    grid.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className = "palette-q";
+
+        button.textContent = index + 1;
+
+        if(status[index] === "correct"){
+            button.classList.add("correct");
+        }
+
+        if(status[index] === "wrong"){
+            button.classList.add("wrong");
+        }
+
+        if(index === currentQuestion){
+            button.classList.add("current");
+        }
+
+        button.onclick = function(){
+
+            currentQuestion = index;
+
+            closePalette();
+
+            loadQuestion();
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        };
+
+        grid.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   OPEN / CLOSE PALETTE
+========================================================= */
+
+function openPalette(){
+
+    document.getElementById(
+        "paletteOverlay"
+    ).style.display = "block";
+
+}
+
+
+function closePalette(){
+
+    document.getElementById(
+        "paletteOverlay"
+    ).style.display = "none";
+
+}
+
+
+/* Close when clicking outside */
+
+document.getElementById(
+    "paletteOverlay"
+).addEventListener("click",function(e){
+
+    if(e.target === this){
+        closePalette();
+    }
+
+});
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function showResult(){
+
+    let correct = 0;
+    let wrong = 0;
+    let skipped = 0;
+
+    status.forEach(s=>{
+
+        if(s === "correct"){
+            correct++;
+        }
+        else if(s === "wrong"){
+            wrong++;
+        }
+        else{
+            skipped++;
+        }
+
+    });
+
+    document.getElementById("examArea")
+        .style.display = "none";
+
+    document.getElementById("resultScreen")
+        .style.display = "block";
+
+    document.getElementById("resultScore")
+        .textContent =
+        correct + " / " + questions.length;
+
+    document.getElementById("correctResult")
+        .textContent = correct;
+
+    document.getElementById("wrongResult")
+        .textContent = wrong;
+
+    document.getElementById("skippedResult")
+        .textContent = skipped;
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
+
+function restartTest(){
+
+    currentQuestion = 0;
+
+    status =
+        new Array(questions.length).fill(null);
+
+    selected =
+        new Array(questions.length).fill(null);
+
+    document.getElementById("resultScreen")
+        .style.display = "none";
+
+    document.getElementById("examArea")
+        .style.display = "block";
+
+    loadQuestion();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
