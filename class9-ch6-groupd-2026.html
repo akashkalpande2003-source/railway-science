@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Class 9 Science Chapter 8 Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --navy:#082b5c;
+    --blue:#0b5ed7;
+    --light-blue:#eef5ff;
+    --green:#198754;
+    --red:#dc3545;
+    --orange:#f59e0b;
+    --purple:#6f42c1;
+    --border:#d8e1ec;
+    --text:#172033;
+    --muted:#6b7280;
+    --white:#fff;
+    --bg:#f3f6fa;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#061d3f,#0b4387);
+    color:white;
+    padding:12px 18px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px rgba(0,0,0,.18);
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand-icon{
+    width:42px;
+    height:42px;
+    border-radius:10px;
+    background:white;
+    color:var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:900;
+}
+
+.brand-text h1{
+    font-size:20px;
+    line-height:1.1;
+}
+
+.brand-text p{
+    font-size:11px;
+    opacity:.85;
+    margin-top:3px;
+}
+
+.timer-box{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:10px;
+    padding:7px 12px;
+    text-align:center;
+    min-width:105px;
+}
+
+.timer-label{
+    font-size:10px;
+    opacity:.8;
+}
+
+#timer{
+    font-size:20px;
+    font-weight:900;
+    letter-spacing:1px;
+}
+
+/* INFO BAR */
+.info-bar{
+    max-width:1200px;
+    margin:12px auto 0;
+    padding:0 12px;
+}
+
+.test-info{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:10px 14px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+
+.test-title{
+    font-size:15px;
+    font-weight:800;
+    color:var(--navy);
+}
+
+.rules{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+}
+
+.rule{
+    background:#f6f8fb;
+    border:1px solid var(--border);
+    padding:4px 8px;
+    border-radius:6px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.rule.negative{
+    color:var(--red);
+    background:#fff2f3;
+    border-color:#ffd2d6;
+}
+
+/* LAYOUT */
+.container{
+    max-width:1200px;
+    margin:12px auto 40px;
+    padding:0 12px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 285px;
+    gap:14px;
+}
+
+/* QUESTION CARD */
+.question-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+    min-height:470px;
+}
+
+.question-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.q-number{
+    background:var(--navy);
+    color:white;
+    padding:6px 11px;
+    border-radius:7px;
+    font-size:13px;
+    font-weight:800;
+}
+
+.topic{
+    color:var(--blue);
+    background:var(--light-blue);
+    border:1px solid #cfe0ff;
+    border-radius:20px;
+    padding:5px 10px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.question-text{
+    font-size:18px;
+    line-height:1.75;
+    font-weight:700;
+    margin:12px 0 18px;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.option{
+    position:relative;
+    border:1px solid #d9e0e8;
+    border-radius:10px;
+    background:#fff;
+    cursor:pointer;
+    transition:.18s;
+    overflow:hidden;
+}
+
+.option:hover{
+    border-color:#7aa9e8;
+    background:#f7faff;
+}
+
+.option input{
+    position:absolute;
+    opacity:0;
+}
+
+.option label{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px 14px;
+    cursor:pointer;
+    font-size:15px;
+    line-height:1.55;
+}
+
+.option-letter{
+    flex:none;
+    width:28px;
+    height:28px;
+    border-radius:7px;
+    border:1px solid #ccd5df;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    color:#334155;
+    background:#f8fafc;
+}
+
+.option.selected{
+    border-color:var(--blue);
+    background:#eef5ff;
+}
+
+.option.selected .option-letter{
+    background:var(--blue);
+    color:white;
+    border-color:var(--blue);
+}
+
+/* NAVIGATION */
+.navigation{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    border-top:1px solid #e5e9ef;
+    padding-top:15px;
+}
+
+.nav-btn{
+    border:0;
+    border-radius:8px;
+    padding:10px 17px;
+    font-family:inherit;
+    font-weight:800;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.prev{
+    background:#eef1f5;
+    color:#334155;
+}
+
+.next{
+    background:var(--blue);
+    color:white;
+}
+
+.review{
+    background:#fff3cd;
+    color:#765900;
+}
+
+.nav-btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+/* SIDEBAR */
+.sidebar{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.side-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:14px;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.side-title{
+    font-size:14px;
+    font-weight:900;
+    color:var(--navy);
+    padding-bottom:10px;
+    border-bottom:1px solid #e8edf3;
+    margin-bottom:12px;
+}
+
+.palette{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:7px;
+}
+
+.palette-btn{
+    height:34px;
+    border-radius:7px;
+    border:1px solid #d5dce5;
+    background:#f7f9fb;
+    cursor:pointer;
+    font-weight:800;
+    font-size:12px;
+}
+
+.palette-btn:hover{
+    border-color:var(--blue);
+}
+
+.palette-btn.answered{
+    background:#d9f3e5;
+    color:#08733d;
+    border-color:#9bd9b7;
+}
+
+.palette-btn.reviewed{
+    background:#fff0bf;
+    color:#765900;
+    border-color:#efd277;
+}
+
+.palette-btn.current{
+    outline:3px solid #9ec5fe;
+}
+
+.palette-btn.answered.reviewed{
+    background:linear-gradient(135deg,#d9f3e5 50%,#fff0bf 50%);
+}
+
+/* LEGEND */
+.legend{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+    font-size:11px;
+}
+
+.legend-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.legend-box{
+    width:20px;
+    height:20px;
+    border-radius:5px;
+    border:1px solid #d5dce5;
+}
+
+.legend-box.green{
+    background:#d9f3e5;
+    border-color:#9bd9b7;
+}
+
+.legend-box.yellow{
+    background:#fff0bf;
+    border-color:#efd277;
+}
+
+.legend-box.gray{
+    background:#f7f9fb;
+}
+
+/* SUBMIT */
+.submit-btn{
+    width:100%;
+    border:0;
+    background:linear-gradient(135deg,#198754,#116c43);
+    color:white;
+    padding:12px;
+    border-radius:9px;
+    font-family:inherit;
+    font-weight:900;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.submit-btn:hover{
+    filter:brightness(.95);
+}
+
+/* PROGRESS */
+.progress-wrap{
+    margin-top:12px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:5px;
+}
+
+.progress{
+    height:7px;
+    background:#e8edf3;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    background:linear-gradient(90deg,#0b5ed7,#35a2ff);
+    transition:.25s;
+}
+
+/* RESULT */
+.result-screen{
+    display:none;
+    max-width:1000px;
+    margin:20px auto 50px;
+    padding:0 12px;
+}
+
+.result-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:22px;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.result-heading{
+    text-align:center;
+    color:var(--navy);
+    font-size:24px;
+    font-weight:900;
+    margin-bottom:16px;
+}
+
+.score-box{
+    background:linear-gradient(135deg,#082b5c,#0b5ed7);
+    color:white;
+    border-radius:14px;
+    padding:20px;
+    text-align:center;
+    margin-bottom:16px;
+}
+
+.score{
+    font-size:38px;
+    font-weight:900;
+}
+
+.score-label{
+    font-size:12px;
+    opacity:.85;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+    margin-bottom:22px;
+}
+
+.stat{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:12px 7px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:20px;
+}
+
+.stat span{
+    font-size:10px;
+    color:var(--muted);
+}
+
+.stat.correct strong{
+    color:var(--green);
+}
+
+.stat.wrong strong{
+    color:var(--red);
+}
+
+.stat.unattempted strong{
+    color:#64748b;
+}
+
+.solutions-title{
+    color:var(--navy);
+    font-size:18px;
+    font-weight:900;
+    margin:15px 0 12px;
+    border-bottom:2px solid #e7edf5;
+    padding-bottom:8px;
+}
+
+.solution{
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:13px;
+    margin-bottom:10px;
+}
+
+.solution.correct{
+    border-left:5px solid var(--green);
+}
+
+.solution.wrong{
+    border-left:5px solid var(--red);
+}
+
+.solution-head{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-weight:900;
+    margin-bottom:6px;
+}
+
+.solution-question{
+    font-size:14px;
+    line-height:1.55;
+}
+
+.answer-line{
+    font-size:13px;
+    margin-top:6px;
+}
+
+.explanation{
+    background:#f7f9fc;
+    border-radius:7px;
+    padding:8px;
+    margin-top:7px;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.restart{
+    display:block;
+    margin:20px auto 0;
+    border:0;
+    background:var(--blue);
+    color:white;
+    padding:11px 25px;
+    border-radius:8px;
+    font-family:inherit;
+    font-weight:800;
+    cursor:pointer;
+}
+
+/* PALETTE FLOAT BUTTON */
+.palette-toggle{
+    position:fixed;
+    right:18px;
+    top:88px;
+    z-index:1100;
+    width:46px;
+    height:46px;
+    border:0;
+    border-radius:50%;
+    background:var(--navy);
+    color:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+    cursor:pointer;
+    font-size:19px;
+    display:none;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    .header{
+        padding:9px 12px;
+    }
+
+    .brand-icon{
+        width:36px;
+        height:36px;
+        font-size:18px;
+    }
+
+    .brand-text h1{
+        font-size:16px;
+    }
+
+    .brand-text p{
+        font-size:9px;
+    }
+
+    .timer-box{
+        min-width:88px;
+        padding:5px 8px;
+    }
+
+    #timer{
+        font-size:17px;
+    }
+
+    .container{
+        display:block;
+        padding:0 8px;
+    }
+
+    .sidebar{
+        position:fixed;
+        top:0;
+        right:-310px;
+        width:300px;
+        height:100vh;
+        background:#f3f6fa;
+        z-index:1050;
+        padding:75px 10px 20px;
+        overflow-y:auto;
+        transition:.25s;
+        box-shadow:-5px 0 20px rgba(0,0,0,.2);
+    }
+
+    .sidebar.open{
+        right:0;
+    }
+
+    .palette-toggle{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .question-card{
+        padding:15px;
+        min-height:500px;
+    }
+
+    .question-text{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .option label{
+        font-size:14px;
+        padding:10px;
+    }
+
+    .navigation{
+        flex-wrap:wrap;
+    }
+
+    .nav-btn{
+        flex:1;
+        min-width:100px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .test-info{
+        align-items:flex-start;
+    }
+}
+
+/* VERY SMALL */
+@media(max-width:430px){
+
+    .header-inner{
+        align-items:center;
+    }
+
+    .brand-text p{
+        display:none;
+    }
+
+    .question-top{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .question-card{
+        min-height:540px;
+    }
+
+    .rules{
+        width:100%;
+    }
+
+    .rule{
+        font-size:10px;
+    }
+}
+
+/* RESULT PRINT */
+@media print{
+    .header,
+    .info-bar,
+    .container,
+    .palette-toggle{
+        display:none!important;
+    }
+
+    .result-screen{
+        display:block!important;
+        margin:0;
+    }
+
+    .result-card{
+        box-shadow:none;
+        border:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div class="brand">
+            <div class="brand-icon">🚆</div>
+            <div class="brand-text">
+                <h1>Railway Science</h1>
+                <p>Railway Exam Preparation</p>
+            </div>
+        </div>
+
+        <div class="timer-box">
+            <div class="timer-label">TIME LEFT</div>
+            <div id="timer">25:00</div>
+        </div>
+    </div>
+</header>
+
+<div class="info-bar">
+    <div class="test-info">
+        <div class="test-title">
+            Class 9 Science • How Forces Affect Motion
+        </div>
+
+        <div class="rules">
+            <div class="rule">36 Questions</div>
+            <div class="rule">25 मिनट</div>
+            <div class="rule">सही = +1</div>
+            <div class="rule negative">गलत = −1/3</div>
+            <div class="rule">Unattempted = 0</div>
+        </div>
+    </div>
+</div>
+
+<button class="palette-toggle" onclick="togglePalette()" aria-label="Question Palette">
+    ☷
+</button>
+
+<main class="container" id="testContainer">
+
+    <section class="question-card">
+
+        <div class="question-top">
+            <div class="q-number" id="questionNumber">Q1</div>
+            <div class="topic" id="topic">Balanced and Unbalanced Forces</div>
+        </div>
+
+        <div class="question-text" id="questionText"></div>
+
+        <div class="options" id="options"></div>
+
+        <div class="navigation">
+            <button class="nav-btn prev" id="prevBtn" onclick="previousQuestion()">
+                ← Previous
+            </button>
+
+            <button class="nav-btn review" id="reviewBtn" onclick="toggleReview()">
+                ⚑ Mark for Review
+            </button>
+
+            <button class="nav-btn next" id="nextBtn" onclick="nextQuestion()">
+                Next →
+            </button>
+        </div>
+
+        <div class="progress-wrap">
+            <div class="progress-info">
+                <span id="progressText">Question 1 of 36</span>
+                <span id="attemptText">0 Answered</span>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="side-card">
+            <div class="side-title">Question Palette</div>
+            <div class="palette" id="palette"></div>
+        </div>
+
+        <div class="side-card">
+            <div class="side-title">Question Status</div>
+
+            <div class="legend">
+                <div class="legend-row">
+                    <span class="legend-box green"></span>
+                    Answered
+                </div>
+
+                <div class="legend-row">
+                    <span class="legend-box yellow"></span>
+                    Mark for Review
+                </div>
+
+                <div class="legend-row">
+                    <span class="legend-box gray"></span>
+                    Unattempted
+                </div>
+            </div>
+        </div>
+
+        <div class="side-card">
+            <button class="submit-btn" onclick="submitTest()">
+                Submit Test
+            </button>
+        </div>
+
+    </aside>
+
+</main>
+
+<section class="result-screen" id="resultScreen">
+    <div class="result-card">
+
+        <div class="result-heading">
+            Test Result
+        </div>
+
+        <div class="score-box">
+            <div class="score" id="finalScore">0</div>
+            <div class="score-label">Final Score</div>
+        </div>
+
+        <div class="stats">
+            <div class="stat correct">
+                <strong id="correctCount">0</strong>
+                <span>सही</span>
+            </div>
+
+            <div class="stat wrong">
+                <strong id="wrongCount">0</strong>
+                <span>गलत</span>
+            </div>
+
+            <div class="stat unattempted">
+                <strong id="unattemptedCount">0</strong>
+                <span>छोड़े गए</span>
+            </div>
+
+            <div class="stat">
+                <strong id="accuracy">0%</strong>
+                <span>Accuracy</span>
+            </div>
+        </div>
+
+        <div class="solutions-title">
+            सभी 36 प्रश्नों के Systematic Solutions
+        </div>
+
+        <div id="solutions"></div>
+
+        <button class="restart" onclick="restartTest()">
+            ↻ Restart Test
+        </button>
+
+    </div>
+</section>
+
+<script>
+
+const questions = [
+
+{
+topic:"Balanced and unbalanced forces",
+q:"विरामावस्था में रखी किसी वस्तु पर असंतुलित बलों का क्या प्रभाव पड़ता है?",
+options:[
+"यह वस्तु के द्रव्यमान को सदैव बढ़ाता है",
+"इससे वस्तु गतिमान हो जाती है",
+"यह वस्तु का रंग परिवर्तित कर देता है",
+"यह वस्तु को विरामावस्था में रखता है"
+],
+answer:1,
+solution:"असंतुलित बल का अर्थ है कि वस्तु पर परिणामी (नेट) बल शून्य नहीं है। विरामावस्था में वस्तु पर असंतुलित बल लगने पर उसकी गति की अवस्था बदलती है और वह त्वरित होकर गतिमान हो सकती है।"
+},
+
+{
+topic:"Balanced and unbalanced forces",
+q:"निम्नलिखित में से कौन-सा परिदृश्य किसी वस्तु पर कार्यरत असंतुलित बल को सर्वोत्तम रूप से प्रदर्शित करता है?",
+options:[
+"किक मारने के पश्चात सॉकर बॉल का लुढ़कना प्रारंभ करना",
+"गैराज में विराम अवस्था में खड़ी एक कार",
+"डेस्क पर रखा हुआ स्थिर कप",
+"दीवार पर टंगी हुई स्थिर तस्वीर"
+],
+answer:0,
+solution:"सॉकर बॉल को किक करने पर उस पर परिणामी बल लगता है, जिससे उसकी विरामावस्था बदलकर गति शुरू हो जाती है। यह असंतुलित बल का उदाहरण है।"
+},
+
+{
+topic:"Balanced and unbalanced forces",
+q:"निम्नलिखित में से कौन-सा उदाहरण इंगित करता है कि किसी वस्तु पर कार्य करने वाले बल संतुलित हैं?",
+options:[
+"शेल्फ पर गतिहीन रखी एक पुस्तक",
+"भूमि पर गिरती हुई गेंद",
+"एक गेंद विरामावस्था से गति करना शुरू कर देती है",
+"सड़क पर नीचे की ओर त्वरित एक कार"
+],
+answer:0,
+solution:"शेल्फ पर स्थिर पुस्तक पर गुरुत्वाकर्षण बल नीचे की ओर और शेल्फ का अभिलंब बल ऊपर की ओर लगता है। दोनों संतुलित होने के कारण पुस्तक स्थिर रहती है।"
+},
+
+{
+topic:"Balanced and unbalanced forces",
+q:"यदि कोई वस्तु समान दिशा में समान चाल से निरंतर गति करती है, तो उस पर कार्य करने वाले बलों के संबंध में क्या अनुमान लगाया जा सकता है?",
+options:[
+"बल असंतुलित होते हैं",
+"सभी बल गति की दिशा के समान दिशा में होते हैं",
+"बल संतुलित होते हैं",
+"बल सदैव गुरुत्वाकर्षण को निरस्त करते हैं"
+],
+answer:2,
+solution:"समान चाल और समान दिशा में गति का अर्थ है कि त्वरण शून्य है। अतः परिणामी बल शून्य होगा और बल संतुलित होंगे।"
+},
+
+{
+topic:"Conservation of momentum",
+q:"दो आइस स्केटर घर्षणरहित पृष्ठ पर एक-दूसरे को धक्का देते हैं। उनकी गति के संदर्भ में क्या प्रेक्षित होगा?",
+options:[
+"एक स्केटर गति करता है, जबकि दूसरा स्केटर स्थिर रहता है।",
+"दोनों स्केटर समान एवं विपरीत बलों के साथ विपरीत दिशाओं में एक-दूसरे से दूर गति करते हैं।",
+"दोनों स्केटर एक-दूसरे के परितः वृत्तों में गति करते हैं।",
+"दोनों स्केटर एक साथ एक ही दिशा में गति करते हैं।"
+],
+answer:1,
+solution:"न्यूटन के तृतीय नियम के अनुसार दोनों स्केटर एक-दूसरे पर समान और विपरीत बल लगाते हैं। इसलिए वे विपरीत दिशाओं में अलग-अलग गति करते हैं।"
+},
+
+{
+topic:"Inertia in daily life",
+q:"जब कोई मोटरकार उच्च चाल से तीक्ष्ण मोड़ पर मुड़ती है, तो यात्री एक तरफ उछल जाते हैं। इसे निम्नलिखित में से किस नियम का उपयोग करके समझाया जा सकता है?",
+options:[
+"न्यूटन का गुरुत्वाकर्षण का नियम",
+"न्यूटन का गति का पहला नियम",
+"संवेग संरक्षण का नियम",
+"स्थैतिक घर्षण का नियम"
+],
+answer:1,
+solution:"यात्री अपने मूल गति-पथ को बनाए रखना चाहते हैं। यह जड़त्व के कारण होता है और न्यूटन के प्रथम गति नियम से समझाया जाता है।"
+},
+
+{
+topic:"Inertia in daily life",
+q:"किसी वस्तु की विराम अवस्था या एकसमान गति को बनाए रखने की उसकी प्रवृत्ति के संबंध में न्यूटन द्वारा प्रतिपादित गति के प्रथम नियम को कौन-सा परिदृश्य सर्वोत्तम रूप से प्रदर्शित करता है?",
+options:[
+"पहाड़ी से नीचे लुढ़कती हुई गेंद त्वरित होती है",
+"ड्राइवर द्वारा एक्सीलरेटर दबाते ही कार की स्पीड बढ़ जाना",
+"वायु में किसी पेड़ का हिलना",
+"किसी मेज पर रखी कोई पुस्तक तब तक स्थिर रहती है जब तक कोई उसे धक्का न दे"
+],
+answer:3,
+solution:"जड़त्व किसी वस्तु की अपनी वर्तमान अवस्था को बनाए रखने की प्रवृत्ति है। मेज पर रखी पुस्तक बाहरी असंतुलित बल लगने तक स्थिर रहती है।"
+},
+
+{
+topic:"Inertia in daily life",
+q:"कारों में सीट बेल्ट यात्रियों को अचानक ब्रेक लगाने या टक्कर होने पर ________ के कारण सुरक्षा प्रदान करने के लिए लगाई जाती हैं।",
+options:[
+"गति के जड़त्व",
+"घर्षण",
+"विरामावस्था के जड़त्व",
+"दिशा के जड़त्व"
+],
+answer:0,
+solution:"अचानक ब्रेक लगाने पर कार रुक जाती है, लेकिन यात्री गति के जड़त्व के कारण आगे की ओर गति करते रहना चाहते हैं। सीट बेल्ट इस आगे की गति को रोकती है।"
+},
+
+{
+topic:"Momentum and impulse",
+q:"यदि समान द्रव्यमान वाले दो पिंडों पर समान समय के लिए असमान बल आरोपित किया जाता है, तो जिस पिंड पर अधिक बल कार्यरत होगा, ________ होगा।",
+options:[
+"उसके संवेग में कम परिवर्तन",
+"उसके संवेग में अधिक परिवर्तन",
+"उसके संवेग में कोई परिवर्तन नहीं",
+"उसके संवेग में समान परिवर्तन"
+],
+answer:1,
+solution:"संवेग में परिवर्तन आवेग के बराबर होता है: Δp = F × Δt. समान समय में अधिक बल अधिक संवेग परिवर्तन उत्पन्न करता है।"
+},
+
+{
+topic:"Momentum and second law",
+q:"यदि किसी कार को धीरे से धकेल कर उसकी चाल 1 m/s तक कर दी जाती है, तो गति के द्वितीय नियम के अनुसार उसके संवेग में परिवर्तन क्या निर्धारित करता है?",
+options:[
+"परिवर्तन को निर्धारित करने के लिए केवल बल का परिमाण पर्याप्त है।",
+"बल का परिमाण और वह समय जब तक बल आरोपित किया जाता है, दोनों संवेग में परिवर्तन निर्धारित करते हैं।",
+"केवल गति की दिशा संवेग को परिवर्तित करती है।",
+"केवल कार का द्रव्यमान संवेग में परिवर्तन निर्धारित करता है।"
+],
+answer:1,
+solution:"न्यूटन के द्वितीय नियम के अनुसार संवेग परिवर्तन की दर बल के बराबर होती है। स्थिर बल के लिए Δp = FΔt, इसलिए बल और उसके लगाने का समय दोनों महत्वपूर्ण हैं।"
+},
+
+{
+topic:"Newton's first law and inertia",
+q:"गति के प्रथम नियम के अनुसार, यदि किसी चिकने, क्षैतिज पृष्ठ पर लुढ़कती हुई गेंद पर कोई बाह्य बल कार्य नहीं कर रहा है, तो उस पर क्या प्रभाव पड़ेगा?",
+options:[
+"गेंद समान दिशा में नियत गति पर लुढ़कती रहेगी।",
+"गेंद धीरे-धीरे धीमी हो जाएगी और अपने आप रुक जाएगी।",
+"गेंद अपने आप तेज हो जाएगी।",
+"गेंद स्वतः अपनी दिशा बदल लेगी।"
+],
+answer:0,
+solution:"न्यूटन के प्रथम नियम के अनुसार यदि बाह्य असंतुलित बल शून्य है, तो गतिमान वस्तु समान दिशा में समान वेग से गति करती रहती है।"
+},
+
+{
+topic:"Newton's first law and inertia",
+q:"गति के प्रथम नियम के अनुसार, किसी भारी बॉक्स को विराम से धकेलना क्यों कठिन होता है?",
+options:[
+"क्योंकि बॉक्स में लुड़कने के लिए कोई पहिया नहीं होता है",
+"क्योंकि बॉक्स को गुरुत्व द्वारा पीछे खींचा जाता है",
+"क्योंकि बॉक्स, जड़त्व के कारण अपनी स्थिति में परिवर्तन का विरोध करता है",
+"क्योंकि बॉक्स, फर्श पर चिपक जाता है"
+],
+answer:2,
+solution:"भारी वस्तु का द्रव्यमान अधिक होता है और इसलिए उसका जड़त्व अधिक होता है। वह अपनी विराम अवस्था में परिवर्तन का अधिक विरोध करती है।"
+},
+
+{
+topic:"Newton's first law and inertia",
+q:"गति का प्रथम नियम प्राथमिक रूप से वस्तु के किस गुणधर्म का वर्णन करता है?",
+options:[
+"त्वरण",
+"ऊर्जा",
+"जड़त्व",
+"संवेग"
+],
+answer:2,
+solution:"न्यूटन का प्रथम नियम जड़त्व का नियम कहलाता है। यह वस्तु की अपनी गति की अवस्था में परिवर्तन का विरोध करने की प्रवृत्ति बताता है।"
+},
+
+{
+topic:"Newton's second law",
+q:"जब किसी पिंड पर नेट बल कार्य करता है, तो न्यूटन का द्वितीय नियम, पिंड के साथ क्या होने का पूर्वानुमान करता है?",
+options:[
+"पिंड स्थिर रहेगा",
+"पिंड बल की दिशा में त्वरित होगा",
+"पिंड नियत चाल से गतिमान होगा",
+"पिंड सदैव विपरीत दिशा में गतिमान होगा"
+],
+answer:1,
+solution:"न्यूटन के द्वितीय नियम के अनुसार F = ma. यदि नेट बल शून्य नहीं है, तो पिंड में त्वरण उत्पन्न होता है और त्वरण की दिशा नेट बल की दिशा में होती है।"
+},
+
+{
+topic:"Newton's second law",
+q:"यदि किसी वस्तु का द्रव्यमान दोगुना कर दिया जाए और अनुप्रयुक्त बल नियत रहे, तो बल के सूत्र के अनुसार उसके त्वरण पर क्या प्रभाव पड़ेगा?",
+options:[
+"त्वरण शून्य हो जाएगा",
+"त्वरण अपरिवर्तित रहेगा",
+"त्वरण आधा हो जाएगा",
+"त्वरण दोगुना हो जाएगा"
+],
+answer:2,
+solution:"F = ma से a = F/m. बल नियत रहने पर द्रव्यमान दोगुना करने से त्वरण आधा हो जाता है।"
+},
+
+{
+topic:"Newton's second law",
+q:"2000 kg द्रव्यमान की एक कार 4 m/s² की दर से त्वरित होती है। न्यूटन के द्वितीय नियम के अनुसार, कार पर आरोपित बल का परिमाण ज्ञात कीजिए।",
+options:[
+"1000 N",
+"500 N",
+"2500 N",
+"8000 N"
+],
+answer:3,
+solution:"F = ma = 2000 × 4 = 8000 N."
+},
+
+{
+topic:"Newton's second law",
+q:"यदि किसी पिंड का द्रव्यमान दोगुना कर दिया जाए और त्वरण नियत रहे, तो बल क्या होगा?",
+options:[
+"आधा हो जाएगा",
+"दोगुना हो जाएगा",
+"चार गुना हो जाएगा",
+"समान रहेगा"
+],
+answer:1,
+solution:"F = ma. यदि a नियत है और m दोगुना किया जाता है, तो F भी दोगुना होगा।"
+},
+
+{
+topic:"Newton's second law",
+q:"यदि भिन्न द्रव्यमान वाली दो वस्तुओं पर समान बल लगाया जाए, तो उनके त्वरण पर क्या प्रभाव पड़ेगा?",
+options:[
+"त्वरण केवल बल पर निर्भर करता है, द्रव्यमान पर नहीं",
+"दोनों वस्तुओं का त्वरण समान होगा",
+"अधिक द्रव्यमान वाली वस्तु का त्वरण अधिक होगा",
+"कम द्रव्यमान वाली वस्तु का त्वरण अधिक होगा"
+],
+answer:3,
+solution:"a = F/m. समान बल में कम द्रव्यमान वाली वस्तु का त्वरण अधिक होगा।"
+},
+
+{
+topic:"Newton's second law",
+q:"1000 kg द्रव्यमान वाली एक कार 5 सेकंड में अपना वेग 10 m/s से बढ़ाकर 20 m/s कर लेती है। कार पर लगने वाला बल ज्ञात कीजिए।",
+options:[
+"1000 N",
+"1500 N",
+"2500 N",
+"2000 N"
+],
+answer:3,
+solution:"a = (v-u)/t = (20-10)/5 = 2 m/s². इसलिए F = ma = 1000 × 2 = 2000 N."
+},
+
+{
+topic:"Newton's second law",
+q:"कोई विद्यार्थी एक भारी और एक हल्की गाड़ी को समान बल के साथ धक्का देता है। न्यूटन के द्वितीय नियम के अनुसार, उनके त्वरणों पर क्या प्रभाव पड़ेगा?",
+options:[
+"दोनों गाड़ियां समान रूप से त्वरित होंगी",
+"भारी गाड़ी शून्य त्वरण के साथ गति करेगी",
+"भारी गाड़ी की तुलना में हल्की गाड़ी अधिक त्वरित होगी",
+"हल्की गाड़ी की तुलना में भारी गाड़ी अधिक त्वरित होगी"
+],
+answer:2,
+solution:"समान बल में a = F/m. हल्की गाड़ी का द्रव्यमान कम होने के कारण उसका त्वरण अधिक होगा।"
+},
+
+{
+topic:"Newton's second law",
+q:"0.6 kg की सॉकर बॉल और 1.0 kg की बास्केटबॉल को समान त्वरण के साथ किक किया जाता है। न्यूटन के द्वितीय नियम के अनुसार, कौन अधिक बल का अनुभव करेगी?",
+options:[
+"दोनों समान बल का अनुभव करती हैं",
+"बास्केटबॉल, क्योंकि इसका द्रव्यमान अधिक है",
+"द्रव्यमान के असापेक्ष उच्चतर त्वरण वाली बॉल",
+"सॉकर बॉल, क्योंकि यह हल्की है"
+],
+answer:1,
+solution:"F = ma. दोनों का त्वरण समान है, इसलिए अधिक द्रव्यमान वाली बास्केटबॉल पर अधिक बल लगेगा।"
+},
+
+{
+topic:"Newton's second law",
+q:"निम्नलिखित में से कौन-सी स्थिति न्यूटन के गति के द्वितीय नियम को निरूपित करती है?",
+options:[
+"एक भारी ट्रक को छोटी कार की तुलना में त्वरित करने के लिए अधिक बल की आवश्यकता होती है",
+"एक समतल पृष्ठ पर नियत चाल से लुढ़कती हुई गेंद",
+"मेज पर विराम में रखी स्थिर वस्तु",
+"एक तैराक पानी को पीछे की ओर धकेलता है और आगे बढ़ता है"
+],
+answer:0,
+solution:"F = ma के अनुसार समान त्वरण उत्पन्न करने के लिए अधिक द्रव्यमान वाले ट्रक को अधिक बल चाहिए।"
+},
+
+{
+topic:"Newton's second law",
+q:"यदि एक कार और एक ट्रक को समान बल से धकेला जाए, तो न्यूटन के गति के दूसरे नियम के अनुसार कौन अधिक त्वरण प्रदर्शित करेगा?",
+options:[
+"कार अधिक त्वरित होगी",
+"दोनों समान रूप से त्वरित होंगे",
+"दोनों में से कोई भी त्वरित नहीं होगा",
+"ट्रक अधिक त्वरित होगा"
+],
+answer:0,
+solution:"समान बल के लिए a = F/m. कार का द्रव्यमान सामान्यतः ट्रक से कम होता है, इसलिए कार का त्वरण अधिक होगा।"
+},
+
+{
+topic:"Newton's second law",
+q:"6 kg के एक पिंड पर एक बल लगाया जाता है जो उसे 3 sec में विराम से 18 m/s के वेग तक ले आता है। बल का मान कितना है?",
+options:[
+"18 N",
+"12 N",
+"54 N",
+"36 N"
+],
+answer:3,
+solution:"a = (18-0)/3 = 6 m/s². इसलिए F = ma = 6 × 6 = 36 N."
+},
+
+{
+topic:"Newton's second law",
+q:"यदि 2 kg की एक गेंद, जो प्रारंभ में विरामावस्था में है, को 8 N के बल से 5 सेकंड के लिए धकेला (पुश) जाता है, तो 5 सेकंड के अंत में उसका वेग कितना होगा?",
+options:[
+"5 m/s",
+"10 m/s",
+"20 m/s",
+"8 m/s"
+],
+answer:2,
+solution:"a = F/m = 8/2 = 4 m/s². प्रारंभिक वेग u = 0. इसलिए v = u + at = 0 + 4×5 = 20 m/s."
+},
+
+{
+topic:"Newton's second law",
+q:"5 kg की एक वस्तु पर 4 सेकंड के लिए अपरिवर्ती बल लगाया जाता है, जिससे उसका वेग 2 m/s से बढ़कर 10 m/s हो जाता है। इस बल का परिमाण कितना है?",
+options:[
+"20 N",
+"10 N",
+"2 N",
+"5 N"
+],
+answer:1,
+solution:"a = (10-2)/4 = 2 m/s². इसलिए F = ma = 5 × 2 = 10 N."
+},
+
+{
+topic:"Newton's second law numericals",
+q:"60 N के बल का उपयोग करके एक बॉक्स को धकेला जाता है जिससे यह 3 m/s² पर त्वरित होता है। बॉक्स का द्रव्यमान कितना है?",
+options:[
+"20 kg",
+"180 kg",
+"15 kg",
+"18 kg"
+],
+answer:0,
+solution:"F = ma से m = F/a = 60/3 = 20 kg."
+},
+
+{
+topic:"Newton's second law numericals",
+q:"निम्नलिखित में से कौन-सी स्थिति बल के सूत्र के सही अनुप्रयोग को निरूपित करती है?",
+options:[
+"10 kg की वस्तु 1 m/s² की दर से त्वरित होती है और उस पर 5 N का बल अनुप्रयुक्त किया जाता है।",
+"2 kg की एक वस्तु 5 m/s² की दर से त्वरित होती है और उस पर 15 N का बल अनुप्रयुक्त किया जाता है।",
+"5 kg की एक वस्तु 2 m/s² की दर से त्वरित होती है और उस पर 10 N का बल अनुप्रयुक्त किया जाता है।",
+"4 kg की एक वस्तु 3 m/s² की दर से त्वरित होती है और उस पर 20 N का बल अनुप्रयुक्त किया जाता है।"
+],
+answer:2,
+solution:"F = ma. विकल्प C में F = 5 × 2 = 10 N, जो दिए गए बल के बराबर है। इसलिए यही सही अनुप्रयोग है।"
+},
+
+{
+topic:"Newton's third law",
+q:"न्यूटन के तृतीय नियम के अनुसार, निम्नलिखित में से कौन-सा परिदृश्य क्रिया-प्रतिक्रिया युग्म को सही से निरूपित नहीं करता है?",
+options:[
+"बल्ले से गेंद को मारना और गेंद का बल्ले पर वापस धक्का लगाना",
+"चलते समय पैरों द्वारा धरातल को धकेलना और धरातल द्वारा वापस पैरों को धकेलना",
+"रॉकेट की निकास गैसों का पीछे की ओर धकेलना और वायु का रॉकेट को आगे की ओर धकेलना",
+"टेबल पर नीचे की ओर दाब लगाने वाली पुस्तक और पुस्तक को नीचे खींचने वाला गुरुत्व"
+],
+answer:3,
+solution:"पुस्तक द्वारा टेबल पर लगाया गया बल और टेबल द्वारा पुस्तक पर लगाया गया अभिलंब बल क्रिया-प्रतिक्रिया युग्म हैं। पुस्तक का भार और टेबल पर पुस्तक का बल अलग-अलग युग्म नहीं हैं।"
+},
+
+{
+topic:"Newton's third law",
+q:"बंदूक से गोली चलाने पर गोली आगे बढ़ती है जबकि बंदूक पीछे की ओर झटका खाती है। इस स्थिति में क्रिया और उसकी प्रतिक्रिया को सटीक रूप से कौन-सा विकल्प दर्शाता है?",
+options:[
+"बंदूक गोली पर अग्रगामी बल प्रयुक्त करती है; गोली बंदूक पर समान पश्चगामी बल प्रयुक्त करती है।",
+"गोली केवल बारूद के कारण अग्रगामी होती है, और बंदूक अपने वजन के कारण पश्चगामी होती है।",
+"बंदूक और गोली दोनों स्थानांतरित होती हैं क्योंकि ट्रिगर खींचा जाता है, न कि क्रिया-प्रतिक्रिया बलों के कारण।",
+"गोली बंदूक को आगे धकेलती है, और बंदूक गोली को पीछे की ओर धकेलती है।"
+],
+answer:0,
+solution:"बंदूक गोली पर आगे की ओर बल लगाती है और गोली बंदूक पर समान परिमाण का विपरीत दिशा में बल लगाती है। यही न्यूटन के तृतीय नियम का उदाहरण है।"
+},
+
+{
+topic:"Newton's third law",
+q:"एक रस्साकशी में, टीम A, टीम B को 300 N के बल से खींचती है। न्यूटन के तृतीय नियम के अनुसार, टीम B, टीम A पर कितना बल लगाती है?",
+options:[
+"समान दिशा में 300 N",
+"विपरीत दिशा में 300 N",
+"समान दिशा में 150 N",
+"विपरीत दिशा में 600 N"
+],
+answer:1,
+solution:"न्यूटन के तृतीय नियम के अनुसार क्रिया और प्रतिक्रिया बल परिमाण में समान तथा दिशा में विपरीत होते हैं। इसलिए B, A पर 300 N विपरीत दिशा में बल लगाएगी।"
+},
+
+{
+topic:"Newton's third law",
+q:"न्यूटन के गति के तीसरे नियम के अनुसार जब कोई नाविक, चप्पू नौका से आगे की ओर कूदता है, तो स्थिर चप्पू नौका (stationary rowing boat) पर क्या प्रभाव पड़ता है?",
+options:[
+"जल प्रतिरोध के कारण नौका अप्रत्याशित रूप से गति करती है।",
+"नौका, समान और विपरीत प्रतिक्रिया बल के कारण पीछे की ओर गति करती है।",
+"नौका, नाविक के अनुदिश आगे की ओर गति करती है।",
+"नौका स्थिर बनी रहती है क्योंकि केवल नाविक ही गति करता है।"
+],
+answer:1,
+solution:"नाविक आगे की ओर बल लगाकर कूदता है। प्रतिक्रिया में नाविक/नौका पर विपरीत दिशा में बल लगता है, जिससे नौका पीछे की ओर गति कर सकती है।"
+},
+
+{
+topic:"Newton's third law",
+q:"न्यूटन के गति के तृतीय नियम के अनुसार, कौन-सी स्थिति एक क्रिया-प्रतिक्रिया युग्म (action-reaction pair) को सही रूप से प्रदर्शित नहीं करती है?",
+options:[
+"एक पैर गेंद को किक मारता है, गेंद पैर को वापस पीछे धकेलती है",
+"एक कार अपने इंजन के कारण त्वरित हो जाती है",
+"एक हथौड़ा, कील पर प्रहार करता है, कील, हथौड़े को वापस पीछे धकेलती है",
+"एक हाथ दीवार पर धक्का लगाता है, दीवार हाथ को वापस पीछे धकेलती है"
+],
+answer:1,
+solution:"'कार इंजन के कारण त्वरित होती है' अकेले किसी क्रिया-प्रतिक्रिया युग्म को नहीं बताता। अन्य विकल्पों में दो अलग-अलग वस्तुओं के बीच परस्पर बल स्पष्ट है।"
+},
+
+{
+topic:"Newton's third law",
+q:"गोली चलाने पर बंदूक पीछे की ओर धक्का क्यों मारती है?",
+options:[
+"बंदूक भारी होती है और स्वाभाविक रूप से पीछे की ओर जाती है",
+"ट्रिगर बंदूक को पीछे की ओर ले जाने का कारण बनता है",
+"वायु प्रतिरोध बंदूक को पीछे की ओर धकेलता है",
+"गोली आगे की ओर बढ़ती है और बंदूक एक समान और विपरीत पश्च बल का अनुभव करती है"
+],
+answer:3,
+solution:"गोली पर बंदूक द्वारा आगे की ओर बल लगाया जाता है। प्रतिक्रिया में गोली बंदूक पर समान परिमाण का विपरीत दिशा में बल लगाती है, जिससे recoil होता है।"
+},
+
+{
+topic:"Newton's third law",
+q:"एक घोड़ा 500 N के बल के साथ एक गाड़ी खींचता है। गाड़ी के कारण घोड़े पर लगने वाला बल कितना होगा?",
+options:[
+"1000 N",
+"2500 N",
+"500 N गति के बराबर और विपरीत",
+"0 N"
+],
+answer:2,
+solution:"न्यूटन के तृतीय नियम के अनुसार गाड़ी घोड़े पर 500 N का बल विपरीत दिशा में लगाएगी।"
+},
+
+{
+topic:"Newton's third law",
+q:"न्यूटन के गति के नियमों में क्रिया और प्रतिक्रिया बलों के परिमाण पर क्या प्रभाव पड़ता है?",
+options:[
+"ये मिलकर एक अधिक प्रबल बल का निर्माण करते हैं",
+"ये एक-दूसरे को पूरी तरह से निरस्त कर देते हैं",
+"ये इस बात पर निर्भर करते हैं कि कौन-सी वस्तु अधिक भारी है",
+"ये परिमाण में सदैव बराबर और दिशा में विपरीत होते हैं"
+],
+answer:3,
+solution:"न्यूटन के तृतीय नियम के अनुसार प्रत्येक क्रिया के लिए समान परिमाण की और विपरीत दिशा की प्रतिक्रिया होती है।"
+}
+
+];
+
+let current = 0;
+let answers = new Array(questions.length).fill(null);
+let review = new Array(questions.length).fill(false);
+let submitted = false;
+
+let timeLeft = 25 * 60;
+let timerInterval;
+
+function startTimer(){
+    clearInterval(timerInterval);
+
+    timerInterval = setInterval(()=>{
+        if(submitted) return;
+
+        timeLeft--;
+
+        if(timeLeft <= 0){
+            timeLeft = 0;
+            updateTimer();
+            clearInterval(timerInterval);
+
+            alert("समय समाप्त हो गया है। आपका Test Submit किया जा रहा है।");
+            submitTest(true);
+            return;
+        }
+
+        updateTimer();
+    },1000);
+
+    updateTimer();
+}
+
+function updateTimer(){
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+
+    document.getElementById("timer").textContent =
+        String(minutes).padStart(2,"0") + ":" +
+        String(seconds).padStart(2,"0");
+
+    if(timeLeft <= 300){
+        document.getElementById("timer").style.color = "#ffdddd";
+    }
+}
+
+function renderQuestion(){
+
+    const item = questions[current];
+
+    document.getElementById("questionNumber").textContent =
+        "Q" + (current + 1);
+
+    document.getElementById("topic").textContent =
+        item.topic;
+
+    document.getElementById("questionText").innerHTML =
+        formatText(item.q);
+
+    const options = document.getElementById("options");
+    options.innerHTML = "";
+
+    item.options.forEach((option,index)=>{
+
+        const wrapper = document.createElement("div");
+
+        wrapper.className =
+            "option" +
+            (answers[current] === index ? " selected" : "");
+
+        wrapper.onclick = () => selectAnswer(index);
+
+        const label = document.createElement("label");
+
+        label.innerHTML = `
+            <span class="option-letter">${String.fromCharCode(65+index)}</span>
+            <span>${formatText(option)}</span>
+        `;
+
+        wrapper.appendChild(label);
+        options.appendChild(wrapper);
+    });
+
+    document.getElementById("prevBtn").disabled =
+        current === 0;
+
+    document.getElementById("nextBtn").textContent =
+        current === questions.length - 1 ? "Finish →" : "Next →";
+
+    document.getElementById("reviewBtn").textContent =
+        review[current]
+        ? "⚑ Unmark Review"
+        : "⚑ Mark for Review";
+
+    updateProgress();
+    updatePalette();
+}
+
+function formatText(text){
+
+    return text
+        .replace(/\$(.*?)\$/g,"<span>$1</span>")
+        .replace(/\n/g,"<br>");
+}
+
+function selectAnswer(index){
+
+    answers[current] = index;
+    renderQuestion();
+}
+
+function previousQuestion(){
+
+    if(current > 0){
+        current--;
+        renderQuestion();
+    }
+}
+
+function nextQuestion(){
+
+    if(current < questions.length - 1){
+        current++;
+        renderQuestion();
+    }else{
+        submitTest();
+    }
+}
+
+function toggleReview(){
+
+    review[current] = !review[current];
+    updatePalette();
+
+    document.getElementById("reviewBtn").textContent =
+        review[current]
+        ? "⚑ Unmark Review"
+        : "⚑ Mark for Review";
+}
+
+function updateProgress(){
+
+    const answered =
+        answers.filter(x => x !== null).length;
+
+    const percentage =
+        ((current + 1) / questions.length) * 100;
+
+    document.getElementById("progressBar").style.width =
+        percentage + "%";
+
+    document.getElementById("progressText").textContent =
+        "Question " + (current + 1) +
+        " of " + questions.length;
+
+    document.getElementById("attemptText").textContent =
+        answered + " Answered";
+}
+
+function createPalette(){
+
+    const palette = document.getElementById("palette");
+    palette.innerHTML = "";
+
+    questions.forEach((_,index)=>{
+
+        const btn = document.createElement("button");
+
+        btn.className = "palette-btn";
+        btn.textContent = index + 1;
+
+        btn.onclick = ()=>{
+            current = index;
+            renderQuestion();
+
+            if(window.innerWidth <= 800){
+                document.getElementById("sidebar")
+                    .classList.remove("open");
+            }
+        };
+
+        palette.appendChild(btn);
+    });
+
+    updatePalette();
+}
+
+function updatePalette(){
+
+    const buttons =
+        document.querySelectorAll(".palette-btn");
+
+    buttons.forEach((btn,index)=>{
+
+        btn.className = "palette-btn";
+
+        if(answers[index] !== null){
+            btn.classList.add("answered");
+        }
+
+        if(review[index]){
+            btn.classList.add("reviewed");
+        }
+
+        if(index === current){
+            btn.classList.add("current");
+        }
+    });
+}
+
+function togglePalette(){
+
+    document.getElementById("sidebar")
+        .classList.toggle("open");
+}
+
+function submitTest(autoSubmit=false){
+
+    if(submitted) return;
+
+    const unanswered =
+        answers.filter(x => x === null).length;
+
+    if(!autoSubmit && unanswered > 0){
+
+        const confirmSubmit =
+            confirm(
+                "अभी " + unanswered +
+                " प्रश्न Unattempted हैं।\n\nक्या आप Test Submit करना चाहते हैं?"
+            );
+
+        if(!confirmSubmit){
+            return;
+        }
+    }
+
+    submitted = true;
+
+    clearInterval(timerInterval);
+
+    calculateResult();
+
+    document.getElementById("testContainer").style.display =
+        "none";
+
+    document.querySelector(".info-bar").style.display =
+        "none";
+
+    document.querySelector(".palette-toggle").style.display =
+        "none";
+
+    document.getElementById("resultScreen").style.display =
+        "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function calculateResult(){
+
+    let correct = 0;
+    let wrong = 0;
+    let unattempted = 0;
+
+    answers.forEach((answer,index)=>{
+
+        if(answer === null){
+            unattempted++;
+        }
+        else if(answer === questions[index].answer){
+            correct++;
+        }
+        else{
+            wrong++;
+        }
+    });
+
+    const score =
+        correct - (wrong / 3);
+
+    const accuracy =
+        answers.filter(x=>x!==null).length === 0
+        ? 0
+        : (correct / answers.filter(x=>x!==null).length) * 100;
+
+    document.getElementById("finalScore").textContent =
+        formatScore(score);
+
+    document.getElementById("correctCount").textContent =
+        correct;
+
+    document.getElementById("wrongCount").textContent =
+        wrong;
+
+    document.getElementById("unattemptedCount").textContent =
+        unattempted;
+
+    document.getElementById("accuracy").textContent =
+        accuracy.toFixed(1) + "%";
+
+    generateSolutions();
+}
+
+function formatScore(score){
+
+    if(Number.isInteger(score)){
+        return score;
+    }
+
+    return score.toFixed(2);
+}
+
+function generateSolutions(){
+
+    const container =
+        document.getElementById("solutions");
+
+    container.innerHTML = "";
+
+    questions.forEach((item,index)=>{
+
+        const userAnswer = answers[index];
+        const isCorrect =
+            userAnswer === item.answer;
+
+        const isUnattempted =
+            userAnswer === null;
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "solution " +
+            (
+                isUnattempted
+                ? ""
+                : isCorrect
+                    ? "correct"
+                    : "wrong"
+            );
+
+        let status;
+
+        if(isUnattempted){
+            status = "Not Attempted";
+        }
+        else if(isCorrect){
+            status = "✓ Correct";
+        }
+        else{
+            status = "✕ Wrong";
+        }
+
+        const correctLetter =
+            String.fromCharCode(65 + item.answer);
+
+        const userLine =
+            isUnattempted
+            ? "आपका उत्तर: Attempt नहीं किया"
+            : "आपका उत्तर: " +
+              String.fromCharCode(65 + userAnswer) +
+              ". " +
+              item.options[userAnswer];
+
+        div.innerHTML = `
+            <div class="solution-head">
+                <span>Q${index+1} • ${item.topic}</span>
+                <span>${status}</span>
+            </div>
+
+            <div class="solution-question">
+                ${formatText(item.q)}
+            </div>
+
+            <div class="answer-line">
+                <strong>सही उत्तर:</strong>
+                ${correctLetter}. ${item.options[item.answer]}
+            </div>
+
+            <div class="answer-line">
+                ${userLine}
+            </div>
+
+            <div class="explanation">
+                <strong>Solution:</strong>
+                ${item.solution}
+            </div>
+        `;
+
+        container.appendChild(div);
+    });
+}
+
+function restartTest(){
+
+    const confirmRestart =
+        confirm("क्या आप Test को फिर से शुरू करना चाहते हैं?");
+
+    if(!confirmRestart) return;
+
+    current = 0;
+    answers = new Array(questions.length).fill(null);
+    review = new Array(questions.length).fill(false);
+    submitted = false;
+
+    timeLeft = 25 * 60;
+
+    document.getElementById("resultScreen").style.display =
+        "none";
+
+    document.getElementById("testContainer").style.display =
+        "grid";
+
+    document.querySelector(".info-bar").style.display =
+        "block";
+
+    if(window.innerWidth <= 800){
+        document.getElementById("testContainer").style.display =
+            "block";
+    }
+
+    renderQuestion();
+    createPalette();
+    startTimer();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+/* INITIALIZE */
+createPalette();
+renderQuestion();
+startTimer();
+
+</script>
+
+</body>
+</html>
