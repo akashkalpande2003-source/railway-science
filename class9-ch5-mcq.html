@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Class 9 Science Chapter 5 Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    background:#f3f6fa;
+    font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+    color:#172033;
+}
+
+/* HEADER */
+.header{
+    background:linear-gradient(135deg,#071d49,#0b397c);
+    color:white;
+    padding:16px 15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
+}
+
+.header-inner{
+    max-width:1000px;
+    margin:auto;
+}
+
+.brand{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:.3px;
+}
+
+.chapter{
+    margin-top:5px;
+    font-size:14px;
+    opacity:.95;
+}
+
+.sub{
+    margin-top:7px;
+    font-size:12px;
+    opacity:.8;
+}
+
+/* PALETTE BUTTON */
+.palette-btn{
+    position:fixed;
+    right:15px;
+    top:105px;
+    z-index:1000;
+    width:50px;
+    height:50px;
+    border:0;
+    border-radius:50%;
+    background:#ff8a00;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 5px 16px rgba(0,0,0,.25);
+}
+
+/* MAIN */
+.container{
+    max-width:900px;
+    margin:20px auto;
+    padding:0 14px 40px;
+}
+
+/* QUESTION CARD */
+.question-card{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    border:1px solid #e0e6ef;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.question-number{
+    display:inline-block;
+    background:#073d82;
+    color:white;
+    padding:5px 11px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.question{
+    font-size:18px;
+    line-height:1.8;
+    font-weight:800;
+    margin-bottom:17px;
+}
+
+/* OPTIONS */
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.option{
+    border:2px solid #dce3ec;
+    background:#fff;
+    border-radius:11px;
+    padding:12px 13px;
+    cursor:pointer;
+    font-size:15px;
+    line-height:1.55;
+    transition:.2s;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.option:hover{
+    border-color:#3276c4;
+    background:#f5f9ff;
+}
+
+.option-letter{
+    min-width:29px;
+    height:29px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:#edf2f8;
+    color:#17385e;
+    font-weight:900;
+}
+
+.option.correct{
+    border-color:#1d9b55;
+    background:#eaf9f0;
+    color:#075b2d;
+}
+
+.option.correct .option-letter{
+    background:#1d9b55;
+    color:white;
+}
+
+.option.wrong{
+    border-color:#df3c3c;
+    background:#fff0f0;
+    color:#9d1515;
+}
+
+.option.wrong .option-letter{
+    background:#df3c3c;
+    color:white;
+}
+
+.option.disabled{
+    cursor:default;
+}
+
+/* EXPLANATION */
+.explanation{
+    display:none;
+    margin-top:18px;
+    border-radius:13px;
+    overflow:hidden;
+    border:1px solid #cbd8e8;
+}
+
+.explanation.show{
+    display:block;
+}
+
+.exp-head{
+    background:#073d82;
+    color:white;
+    padding:10px 13px;
+    font-weight:900;
+}
+
+.exp-body{
+    background:#f8fbff;
+    padding:14px;
+    line-height:1.75;
+    font-size:14px;
+}
+
+.exam-box{
+    margin-top:12px;
+    padding:11px;
+    background:#fff7df;
+    border-left:4px solid #f0a400;
+    border-radius:7px;
+}
+
+.exam-title{
+    font-weight:900;
+    color:#8a5a00;
+    margin-bottom:4px;
+}
+
+/* NAVIGATION */
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:18px;
+}
+
+.nav-btn{
+    flex:1;
+    border:0;
+    padding:13px;
+    border-radius:10px;
+    background:#073d82;
+    color:white;
+    font-weight:800;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.nav-btn:hover{
+    background:#0a4e9f;
+}
+
+.nav-btn:disabled{
+    background:#b9c3cf;
+    cursor:not-allowed;
+}
+
+.submit-btn{
+    width:100%;
+    margin-top:13px;
+    padding:14px;
+    border:0;
+    border-radius:11px;
+    background:#149447;
+    color:white;
+    font-size:16px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+/* PALETTE */
+.palette-panel{
+    position:fixed;
+    right:-330px;
+    top:0;
+    width:310px;
+    max-width:90%;
+    height:100vh;
+    background:white;
+    z-index:2000;
+    box-shadow:-5px 0 20px rgba(0,0,0,.25);
+    transition:.3s;
+    overflow-y:auto;
+}
+
+.palette-panel.open{
+    right:0;
+}
+
+.palette-header{
+    background:#073d82;
+    color:white;
+    padding:17px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.close-btn{
+    border:0;
+    background:transparent;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.palette-content{
+    padding:15px;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:8px;
+}
+
+.p-btn{
+    height:42px;
+    border:0;
+    border-radius:8px;
+    background:#e9eef4;
+    color:#25364b;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.p-btn.correct{
+    background:#22a65a;
+    color:white;
+}
+
+.p-btn.wrong{
+    background:#df4141;
+    color:white;
+}
+
+.p-btn.current{
+    outline:3px solid #ff8a00;
+    outline-offset:2px;
+}
+
+.legend{
+    margin-top:17px;
+    display:grid;
+    gap:8px;
+    font-size:13px;
+}
+
+.legend span{
+    padding:7px 9px;
+    border-radius:7px;
+}
+
+.legend-correct{
+    background:#e5f7ec;
+    color:#087536;
+}
+
+.legend-wrong{
+    background:#ffe9e9;
+    color:#a71919;
+}
+
+.legend-skip{
+    background:#edf1f5;
+}
+
+/* RESULT */
+.result{
+    display:none;
+    background:white;
+    border-radius:16px;
+    padding:22px;
+    margin-top:18px;
+    border:1px solid #dce4ed;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
+
+.result.show{
+    display:block;
+}
+
+.result-title{
+    text-align:center;
+    font-size:22px;
+    font-weight:900;
+    color:#073d82;
+}
+
+.result-score{
+    text-align:center;
+    font-size:38px;
+    font-weight:900;
+    margin:12px 0;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.result-box{
+    text-align:center;
+    padding:13px;
+    border-radius:10px;
+    background:#f3f6fa;
+}
+
+.result-box strong{
+    display:block;
+    font-size:23px;
+}
+
+.correct-text{
+    color:#159447;
+}
+
+.wrong-text{
+    color:#d73535;
+}
+
+.skip-text{
+    color:#6b7280;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+
+    .header{
+        padding:13px 12px;
+    }
+
+    .brand{
+        font-size:19px;
+    }
+
+    .chapter{
+        font-size:12px;
+    }
+
+    .container{
+        margin:13px auto;
+        padding:0 9px 30px;
+    }
+
+    .question-card{
+        padding:15px;
+        border-radius:13px;
+    }
+
+    .question{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .option{
+        font-size:14px;
+        padding:10px;
+    }
+
+    .palette-btn{
+        top:88px;
+        right:10px;
+        width:46px;
+        height:46px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div class="brand">🚆 Railway Science</div>
+
+        <div class="chapter">
+            Class 9 Science — Chapter 5
+        </div>
+
+        <div class="sub">
+            मिश्रण एवं उनके पृथक्करण का अन्वेषण • Practice Mock Test
+        </div>
+    </div>
+</header>
+
+<button class="palette-btn" onclick="togglePalette()">☷</button>
+
+<div class="palette-panel" id="palettePanel">
+
+    <div class="palette-header">
+        <strong>Question Palette</strong>
+
+        <button class="close-btn" onclick="togglePalette()">×</button>
+    </div>
+
+    <div class="palette-content">
+
+        <div class="palette-grid" id="paletteGrid"></div>
+
+        <div class="legend">
+            <span class="legend-correct">🟢 Correct</span>
+            <span class="legend-wrong">🔴 Wrong</span>
+            <span class="legend-skip">⚪ Unattempted</span>
+        </div>
+
+    </div>
+</div>
+
+<main class="container">
+
+    <!-- ऊपर वाला INFO BOX पूरी तरह हटा दिया गया है -->
+
+    <section class="question-card">
+
+        <div id="questionNumber" class="question-number"></div>
+
+        <div id="questionText" class="question"></div>
+
+        <div id="options" class="options"></div>
+
+        <div id="explanation" class="explanation">
+
+            <div class="exp-head">
+                📘 Explanation
+            </div>
+
+            <div id="explanationBody" class="exp-body"></div>
+
+        </div>
+
+        <div class="navigation">
+
+            <button id="prevBtn"
+                    class="nav-btn"
+                    onclick="previousQuestion()">
+                ← Previous
+            </button>
+
+            <button id="nextBtn"
+                    class="nav-btn"
+                    onclick="nextQuestion()">
+                Next →
+            </button>
+
+        </div>
+
+        <button class="submit-btn" onclick="showResult()">
+            ✓ Submit Test
+        </button>
+
+    </section>
+
+    <section id="result" class="result">
+
+        <div class="result-title">
+            🎯 Test Result
+        </div>
+
+        <div id="score" class="result-score">
+            0 / 50
+        </div>
+
+        <div class="result-grid">
+
+            <div class="result-box">
+                <strong id="correctCount" class="correct-text">0</strong>
+                Correct
+            </div>
+
+            <div class="result-box">
+                <strong id="wrongCount" class="wrong-text">0</strong>
+                Wrong
+            </div>
+
+            <div class="result-box">
+                <strong id="skipCount" class="skip-text">0</strong>
+                Skipped
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+
+const questions = [
+
+{
+q:"चीनी और जल का मिश्रण किस प्रकार का मिश्रण है?",
+options:["विषमांगी मिश्रण","समांगी मिश्रण","निलंबन","कोलॉइड"],
+answer:1,
+exp:"चीनी जल में घुलकर पूरे मिश्रण में समान रूप से फैल जाती है। इसलिए चीनी + जल एक समांगी मिश्रण अर्थात विलयन है।",
+extra:"Exam Point: विलयन सदैव समांगी मिश्रण होता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा समांगी मिश्रण है?",
+options:["रेत + जल","तेल + जल","नमक + जल","चॉक पाउडर + जल"],
+answer:2,
+exp:"नमक जल में घुलकर पूरे विलयन में समान रूप से वितरित होता है। इसलिए नमक + जल समांगी मिश्रण है।",
+extra:"Exam Point: रेत + जल और चॉक + जल विषमांगी मिश्रण के उदाहरण हैं।"
+},
+
+{
+q:"विलयन सदैव कैसा मिश्रण होता है?",
+options:["विषमांगी","समांगी","निलंबन","कोलॉइडी"],
+answer:1,
+exp:"NCERT के अनुसार विलयन की संरचना पूरे मिश्रण में समान होती है, इसलिए विलयन सदैव समांगी होता है।",
+extra:"याद रखें: Solution → Homogeneous mixture."
+},
+
+{
+q:"चीनी के विलयन में विलेय कौन है?",
+options:["जल","चीनी","दोनों","कोई नहीं"],
+answer:1,
+exp:"जो पदार्थ विलायक में घुलता है उसे विलेय कहते हैं। चीनी जल में घुलती है, इसलिए चीनी विलेय है।",
+extra:"Solute = जो घुलता है।"
+},
+
+{
+q:"चीनी के विलयन में विलायक कौन है?",
+options:["चीनी","जल","दोनों","वायु"],
+answer:1,
+exp:"जिस पदार्थ में विलेय घुलता है उसे विलायक कहते हैं। यहाँ चीनी जल में घुलती है, इसलिए जल विलायक है।",
+extra:"Solvent = जिसमें विलेय घुलता है।"
+},
+
+{
+q:"जल और रेत का मिश्रण किस प्रकार का है?",
+options:["समांगी","विषमांगी","विलयन","शुद्ध पदार्थ"],
+answer:1,
+exp:"रेत के कण जल में स्पष्ट दिखाई देते हैं और कुछ समय बाद नीचे बैठ जाते हैं। इसलिए यह विषमांगी मिश्रण है।",
+extra:"Exam Point: जल + रेत → विषमांगी मिश्रण/निलंबन।"
+},
+
+{
+q:"विषमांगी मिश्रण की प्रमुख विशेषता क्या है?",
+options:["संघटन हर स्थान पर समान होता है","संघटन एकसमान नहीं होता","इसमें केवल एक पदार्थ होता है","इसमें कोई कण नहीं होते"],
+answer:1,
+exp:"विषमांगी मिश्रण में विभिन्न भागों का संघटन समान नहीं होता।",
+extra:"Heterogeneous → Non-uniform composition."
+},
+
+{
+q:"किसी विलयन में घुलने वाले पदार्थ को क्या कहते हैं?",
+options:["विलायक","विलेय","अवक्षेप","निस्यंद"],
+answer:1,
+exp:"विलायक में घुलने वाले पदार्थ को विलेय कहते हैं।",
+extra:"उदाहरण: चीनी + जल → चीनी = विलेय, जल = विलायक।"
+},
+
+{
+q:"किसी विलयन में विलेय की मात्रा को किस रूप में व्यक्त किया जा सकता है?",
+options:["केवल तापमान में","केवल आयतन में","सांद्रता के रूप में","केवल दाब में"],
+answer:2,
+exp:"विलयन में उपस्थित विलेय की मात्रा को सांद्रता द्वारा व्यक्त किया जाता है।",
+extra:"NCERT में m/m, m/v और v/v प्रतिशत सांद्रता दी गई है।"
+},
+
+{
+q:"90 g जल में 10 g नमक मिलाने पर विलयन का द्रव्यमान कितना होगा?",
+options:["90 g","100 g","110 g","80 g"],
+answer:1,
+exp:"विलयन का कुल द्रव्यमान = जल का द्रव्यमान + नमक का द्रव्यमान = 90 + 10 = 100 g।",
+extra:"Numerical Trick: कुल विलयन = विलेय + विलायक।"
+},
+
+{
+q:"90 g जल और 10 g नमक के विलयन की द्रव्यमान-द्रव्यमान प्रतिशत सांद्रता कितनी होगी?",
+options:["5%","10%","20%","90%"],
+answer:1,
+exp:"% m/m = (विलेय का द्रव्यमान / विलयन का द्रव्यमान) × 100 = (10/100) × 100 = 10%。",
+extra:"Formula: % m/m = mass of solute ÷ mass of solution × 100."
+},
+
+{
+q:"द्रव्यमान-द्रव्यमान प्रतिशत का सही सूत्र कौन-सा है?",
+options:[
+"विलेय का द्रव्यमान / विलयन का द्रव्यमान × 100",
+"विलायक का द्रव्यमान / विलेय का द्रव्यमान × 100",
+"विलेय का आयतन / विलयन का आयतन × 100",
+"विलयन का द्रव्यमान / विलेय का द्रव्यमान × 100"
+],
+answer:0,
+exp:"द्रव्यमान-द्रव्यमान प्रतिशत में विलेय के द्रव्यमान को पूरे विलयन के द्रव्यमान से भाग देकर 100 से गुणा किया जाता है।",
+extra:"% m/m = mass of solute / mass of solution × 100."
+},
+
+{
+q:"100 mL विलयन में 5 g ग्लूकोस है। इसकी सांद्रता होगी—",
+options:["2% m/v","5% m/v","10% m/v","50% m/v"],
+answer:1,
+exp:"% m/v = (विलेय का द्रव्यमान / विलयन का आयतन) × 100 = 5/100 × 100 = 5% m/v।",
+extra:"5% glucose means 100 mL solution में 5 g glucose."
+},
+
+{
+q:"द्रव्यमान-आयतन प्रतिशत में 100 mL विलयन में किसकी मात्रा व्यक्त की जाती है?",
+options:["विलेय के ग्राम","विलायक के ग्राम","विलेय के mL","विलयन के ग्राम"],
+answer:0,
+exp:"% m/v बताता है कि 100 mL विलयन में विलेय के कितने ग्राम मौजूद हैं।",
+extra:"% m/v → grams of solute per 100 mL solution."
+},
+
+{
+q:"0.9% m/v लवणीय विलयन के 100 mL में नमक की मात्रा कितनी होती है?",
+options:["0.09 g","0.9 g","9 g","90 g"],
+answer:1,
+exp:"0.9% m/v का अर्थ है 100 mL विलयन में 0.9 g नमक।",
+extra:"NCERT example: 0.9% saline."
+},
+
+{
+q:"आयतन-आयतन प्रतिशत मुख्यतः किस प्रकार के मिश्रण में उपयोगी है?",
+options:["दो मिश्रणीय द्रवों में","ठोस-ठोस मिश्रण में","ठोस-अमिश्रणीय द्रव में","केवल गैसों में"],
+answer:0,
+exp:"% v/v दो मिश्रणीय द्रवों को मिलाते समय उपयोग किया जाता है।",
+extra:"% v/v = volume of solute / volume of solution × 100."
+},
+
+{
+q:"100 mL विलयन में 1 mL कीटनाशक है। उसका % v/v कितना होगा?",
+options:["0.1%","1%","10%","100%"],
+answer:1,
+exp:"% v/v = 1/100 × 100 = 1%।",
+extra:"1 mL solute in 100 mL solution = 1% v/v."
+},
+
+{
+q:"किसी निश्चित तापमान पर 100 mL या 100 g विलायक में घुलने वाले विलेय की अधिकतम मात्रा कहलाती है—",
+options:["सांद्रता","विलेयता","घनत्व","शुद्धता"],
+answer:1,
+exp:"किसी निश्चित तापमान पर विलायक की निश्चित मात्रा में घुलने वाले विलेय की अधिकतम मात्रा को विलेयता कहते हैं।",
+extra:"Solubility temperature पर निर्भर करती है।"
+},
+
+{
+q:"ऐसा विलयन जो दिए गए तापमान पर और अधिक विलेय नहीं घोल सकता, कहलाता है—",
+options:["तनु विलयन","असंतृप्त विलयन","संतृप्त विलयन","कोलॉइड"],
+answer:2,
+exp:"जब दिए गए तापमान पर विलयन में और विलेय नहीं घुल सकता, तब वह संतृप्त विलयन कहलाता है।",
+extra:"Saturated = उस तापमान पर maximum dissolved solute."
+},
+
+{
+q:"सामान्यतः ठोस विलेयों की द्रव विलायक में विलेयता तापमान बढ़ने पर—",
+options:["घटती है","बढ़ती है","हमेशा समान रहती है","शून्य हो जाती है"],
+answer:1,
+exp:"NCERT के अनुसार ठोस विलेयों की द्रवों में विलेयता सामान्यतः तापमान बढ़ने पर बढ़ती है।",
+extra:"यह सामान्य प्रवृत्ति है; हर पदार्थ के लिए अनिवार्य नियम नहीं।"
+},
+
+{
+q:"सामान्यतः गैसों की द्रवों में विलेयता तापमान बढ़ने पर—",
+options:["बढ़ती है","घटती है","समान रहती है","पहले बढ़ती फिर शून्य हो जाती है"],
+answer:1,
+exp:"गैसों की द्रवों में विलेयता सामान्यतः तापमान बढ़ने पर घटती है।",
+extra:"उदाहरण: गर्म पेय में घुली गैस अपेक्षाकृत आसानी से बाहर निकलती है।"
+},
+
+{
+q:"संतृप्त विलयन को धीरे-धीरे ठंडा करने पर अतिरिक्त विलेय किस रूप में अलग हो सकता है?",
+options:["गैस","क्रिस्टल","प्लाज्मा","वाष्प"],
+answer:1,
+exp:"तापमान कम होने पर विलेयता कम हो सकती है। अतिरिक्त विलेय क्रिस्टल के रूप में अलग हो सकता है।",
+extra:"इसी सिद्धांत का उपयोग क्रिस्टलीकरण में किया जाता है।"
+},
+
+{
+q:"संतृप्त विलयन से शुद्ध ठोस क्रिस्टल प्राप्त करने की प्रक्रिया कहलाती है—",
+options:["निस्यंदन","आसवन","क्रिस्टलीकरण","अपकेंद्रण"],
+answer:2,
+exp:"संतृप्त विलयन से ठोस क्रिस्टल प्राप्त करने की प्रक्रिया क्रिस्टलीकरण कहलाती है।",
+extra:"Crystallisation → dissolved solid को crystals के रूप में प्राप्त करना।"
+},
+
+{
+q:"क्रिस्टलीकरण किस सिद्धांत पर आधारित है?",
+options:["घनत्व में अंतर","विभिन्न तापमानों पर विलेयता में अंतर","रंग में अंतर","दाब में अंतर"],
+answer:1,
+exp:"क्रिस्टलीकरण में तापमान बदलने पर पदार्थों की विलेयता में अंतर का उपयोग किया जाता है।",
+extra:"NCERT में कॉपर सल्फेट के क्रिस्टल का उदाहरण दिया गया है।"
+},
+
+{
+q:"समुद्री जल से नमक प्राप्त करने में मुख्यतः किस प्रक्रिया का उपयोग किया जाता है?",
+options:["अपकेंद्रण","वाष्पीकरण","ऊर्ध्वपातन","क्रोमैटोग्राफी"],
+answer:1,
+exp:"समुद्री जल को वाष्पित करने पर जल हटता जाता है और नमक के क्रिस्टल प्राप्त होते हैं।",
+extra:"Sea water → evaporation → salt crystals."
+},
+
+{
+q:"किसी विलयन से विलायक को वाष्पित करने पर सामान्यतः क्या शेष रहता है?",
+options:["विलायक","विलेय","दोनों गायब हो जाते हैं","केवल गैस"],
+answer:1,
+exp:"विलायक वाष्प के रूप में निकल जाता है और गैर-वाष्पशील विलेय पीछे रह जाता है।",
+extra:"Evaporation का उपयोग घुले हुए ठोस को प्राप्त करने में किया जा सकता है।"
+},
+
+{
+q:"यदि विलायक को भी पुनः प्राप्त करना हो तो किस विधि का उपयोग किया जा सकता है?",
+options:["आसवन","निस्यंदन","अवसादन","ऊर्ध्वपातन"],
+answer:0,
+exp:"आसवन में द्रव को वाष्पित करके फिर संघनित किया जाता है, इसलिए विलायक को पुनः प्राप्त किया जा सकता है।",
+extra:"Evaporation में solvent खो जाता है; distillation में recover किया जा सकता है।"
+},
+
+{
+q:"आसवन में सबसे पहले कौन-सा द्रव अधिक आसानी से वाष्पित होता है?",
+options:["अधिक क्वथनांक वाला","कम क्वथनांक वाला","अधिक घनत्व वाला","अधिक द्रव्यमान वाला"],
+answer:1,
+exp:"कम क्वथनांक वाला घटक अपेक्षाकृत कम तापमान पर उबलकर पहले वाष्पित होता है।",
+extra:"Lower boiling point → preferentially vaporises first."
+},
+
+{
+q:"अध्याय के अनुसार आसवन द्वारा ऐसे मिश्रणीय द्रवों को अलग किया जा सकता है जिनके क्वथनांकों में कम-से-कम कितना अंतर हो?",
+options:["5°C","10°C","25°C","50°C"],
+answer:2,
+exp:"इस अध्याय में साधारण आसवन के लिए क्वथनांकों में पर्याप्त अंतर, उदाहरणतः लगभग 25°C या अधिक, होने पर पृथक्करण बताया गया है।",
+extra:"जब क्वथनांक बहुत पास हों, प्रभाजी आसवन अधिक उपयुक्त होता है।"
+},
+
+{
+q:"ऐसीटोन का क्वथनांक लगभग कितना है?",
+options:["25°C","56°C","90°C","100°C"],
+answer:1,
+exp:"ऐसीटोन का क्वथनांक लगभग 56°C है।",
+extra:"Acetone ≈ 56°C; Water ≈ 100°C."
+},
+
+{
+q:"जल का क्वथनांक लगभग कितना है?",
+options:["56°C","75°C","90°C","100°C"],
+answer:3,
+exp:"सामान्य वायुमंडलीय दाब पर जल का क्वथनांक लगभग 100°C है।",
+extra:"Boiling point of water ≈ 100°C at normal atmospheric pressure."
+},
+
+{
+q:"ऐसीटोन और जल को अलग करने के लिए कौन-सी विधि उपयुक्त है?",
+options:["निस्यंदन","आसवन","ऊर्ध्वपातन","चुंबकीय पृथक्करण"],
+answer:1,
+exp:"ऐसीटोन और जल मिश्रणीय द्रव हैं और उनके क्वथनांकों में पर्याप्त अंतर है, इसलिए आसवन द्वारा अलग किया जा सकता है।",
+extra:"Acetone 56°C और water 100°C → boiling point difference ≈ 44°C."
+},
+
+{
+q:"आसवन में वाष्प को ठंडा करके द्रव में बदलने वाला उपकरण कहलाता है—",
+options:["निस्यंदक","संघनित्र","पृथक्कारी कीप","अपकेंद्रित्र"],
+answer:1,
+exp:"संघनित्र में वाष्प ठंडी होकर पुनः द्रव में परिवर्तित होती है।",
+extra:"Condenser → vapour to liquid."
+},
+
+{
+q:"पेट्रोलियम के विभिन्न घटकों को अलग करने के लिए किस विधि का उपयोग किया जाता है?",
+options:["साधारण निस्यंदन","प्रभाजी आसवन","क्रिस्टलीकरण","ऊर्ध्वपातन"],
+answer:1,
+exp:"पेट्रोलियम में विभिन्न हाइड्रोकार्बन होते हैं जिन्हें उनके अलग-अलग क्वथनांक के आधार पर प्रभाजी आसवन द्वारा अलग किया जाता है।",
+extra:"Petroleum → fractional distillation."
+},
+
+{
+q:"प्रभाजी आसवन का उपयोग मुख्यतः ऐसे घटकों को अलग करने के लिए किया जाता है जिनके क्वथनांकों में—",
+options:["बहुत अधिक अंतर हो","अपेक्षाकृत कम अंतर हो","कोई अंतर न हो","केवल 100°C का अंतर हो"],
+answer:1,
+exp:"जिन मिश्रणीय द्रवों के क्वथनांक अपेक्षाकृत पास होते हैं, उन्हें प्रभाजी आसवन द्वारा अलग किया जा सकता है।",
+extra:"Close boiling points → fractional distillation."
+},
+
+{
+q:"कागज वर्णलेखिकी में काली स्याही के विभिन्न रंग अलग क्यों हो जाते हैं?",
+options:[
+"सभी रंग समान गति से चलते हैं",
+"उनकी विलायक और कागज के साथ अंतःक्रिया अलग होती है",
+"कागज रंगों को जला देता है",
+"पानी रंगों को नष्ट कर देता है"
+],
+answer:1,
+exp:"विभिन्न रंगीन घटक कागज और विलायक के साथ अलग-अलग प्रकार से अंतःक्रिया करते हैं, इसलिए उनकी गति अलग होती है और वे अलग-अलग स्थानों पर पहुँचते हैं।",
+extra:"Chromatography → components move at different rates."
+},
+
+{
+q:"कागज वर्णलेखिकी में विलायक का मुख्य कार्य क्या है?",
+options:["कागज को सुखाना","घटकों को कागज पर ऊपर ले जाना","रंगों को जलाना","कागज को काटना"],
+answer:1,
+exp:"विलायक रंगीन घटकों को घोलकर कागज के साथ आगे ले जाता है। अलग-अलग घटक अलग गति से चलते हैं।",
+extra:"NCERT Activity 5.5 में कागज/फिल्टर पेपर का प्रयोग किया गया है।"
+},
+
+{
+q:"कागज वर्णलेखिकी का उपयोग किसे अलग करने में किया जा सकता है?",
+options:["स्याही के विभिन्न रंगों को","लोहे और लकड़ी को","तेल और जल को","रेत और जल को"],
+answer:0,
+exp:"कागज वर्णलेखिकी मिश्रण में उपस्थित विभिन्न रंगीन घटकों को अलग करने की उपयोगी विधि है।",
+extra:"Ink pigments/dyes → paper chromatography."
+},
+
+{
+q:"तेल और जल किस प्रकार के द्रव हैं?",
+options:["मिश्रणीय","अमिश्रणीय","गैसीय","संतृप्त"],
+answer:1,
+exp:"तेल और जल आपस में नहीं घुलते और अलग-अलग परत बनाते हैं, इसलिए ये अमिश्रणीय द्रव हैं।",
+extra:"Immiscible liquids form separate layers."
+},
+
+{
+q:"तेल और जल को अलग करने के लिए किस उपकरण का उपयोग किया जाता है?",
+options:["आसवन फ्लास्क","पृथक्कारी कीप","अपकेंद्रित्र","बर्नर"],
+answer:1,
+exp:"अमिश्रणीय द्रवों को उनकी अलग-अलग परतों के आधार पर पृथक्कारी कीप से अलग किया जाता है।",
+extra:"Separating funnel → immiscible liquids."
+},
+
+{
+q:"तेल और जल की पृथक्कारी कीप में कौन-सी परत नीचे होती है?",
+options:["तेल","जल","दोनों समान स्तर पर","वाष्प"],
+answer:1,
+exp:"NCERT के प्रयोग में सरसों का तेल ऊपरी परत और जल निचली परत बनाता है।",
+extra:"इस विशेष उदाहरण में water is denser than mustard oil."
+},
+
+{
+q:"कपूर और रेत के मिश्रण को अलग करने के लिए कौन-सी विधि उपयुक्त है?",
+options:["ऊर्ध्वपातन","आसवन","निस्यंदन","क्रिस्टलीकरण"],
+answer:0,
+exp:"कपूर गर्म करने पर ऊर्ध्वपातित होता है, जबकि रेत ऊर्ध्वपातित नहीं होती। इसलिए दोनों को अलग किया जा सकता है।",
+extra:"Camphor + sand → sublimation."
+},
+
+{
+q:"ऊर्ध्वपातन में ऐसा पदार्थ अलग किया जाता है जो—",
+options:["सीधे ठोस से गैस में बदल सकता है","केवल द्रव से ठोस बनता है","पानी में घुलता नहीं है","केवल गैस से द्रव बनता है"],
+answer:0,
+exp:"ऊर्ध्वपातन में कुछ ठोस पदार्थ गर्म करने पर द्रव अवस्था में आए बिना सीधे वाष्प में बदल जाते हैं।",
+extra:"Examples in chapter: camphor, naphthalene."
+},
+
+{
+q:"अपकेंद्रण में मिश्रण को किस प्रकार घुमाया जाता है?",
+options:["बहुत धीमी गति से","तीव्र गति से","बिल्कुल नहीं","केवल ऊपर-नीचे"],
+answer:1,
+exp:"अपकेंद्रण में मिश्रण को तीव्र गति से घुमाया जाता है, जिससे भारी कण बाहर/नीचे की ओर अलग होने लगते हैं।",
+extra:"Centrifugation → rapid spinning."
+},
+
+{
+q:"अपकेंद्रण में भारी कण सामान्यतः कहाँ एकत्रित होते हैं?",
+options:["ऊपर","बीच में","नली की तली की ओर","हवा में"],
+answer:2,
+exp:"अपकेंद्रण के दौरान भारी कण बाहर की ओर गति करते हैं और उपयुक्त व्यवस्था में नली की तली की ओर जमा होते हैं।",
+extra:"Centrifugation is useful for separating suspended particles."
+},
+
+{
+q:"दूध से पनीर बनाने में अम्ल का उपयोग किस रूप में किया जाता है?",
+options:["विलायक","विलेय","स्कंदक","सूचक"],
+answer:2,
+exp:"दूध में अम्ल मिलाने से दूध के प्रोटीन का स्कंदन होता है और ठोस भाग अलग होने लगता है।",
+extra:"Coagulation is a separation process used in daily life."
+},
+
+{
+q:"रक्त किस प्रकार का मिश्रण है?",
+options:["विलयन","वास्तविक निलंबन","कोलॉइड","शुद्ध पदार्थ"],
+answer:2,
+exp:"NCERT के अनुसार रक्त कोलॉइड का उदाहरण है। इसे केवल वास्तविक विलयन या निलंबन नहीं माना जाता।",
+extra:"NCERT examples of colloids include blood, milk, tomato sauce and ice cream."
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कोलॉइड का उदाहरण है?",
+options:["नमक का विलयन","चीनी का विलयन","दूध","आसुत जल"],
+answer:2,
+exp:"दूध एक कोलॉइड है। इसके कण विलयन के कणों से बड़े होते हैं, लेकिन निलंबन के समान आसानी से नीचे नहीं बैठते।",
+extra:"Milk → colloid."
+},
+
+{
+q:"कोलॉइड के कणों द्वारा प्रकाश के प्रकीर्णन की घटना कहलाती है—",
+options:["अपवर्तन","परावर्तन","टिंडल प्रभाव","विसरण"],
+answer:2,
+exp:"कोलॉइड के कण प्रकाश को प्रकीर्णित करते हैं और प्रकाश की किरण का पथ दिखाई देने लगता है। इसे टिंडल प्रभाव कहते हैं।",
+extra:"Tyndall effect → scattering of light by colloidal particles."
+},
+
+{
+q:"विलयन, कोलॉइड और निलंबन में कणों का आकार क्रमशः किस प्रकार बढ़ता है?",
+options:[
+"विलयन < कोलॉइड < निलंबन",
+"निलंबन < कोलॉइड < विलयन",
+"कोलॉइड < विलयन < निलंबन",
+"सभी में समान"
+],
+answer:0,
+exp:"NCERT के अनुसार विलयन में कणों का आकार सबसे छोटा (<1 nm), कोलॉइड में लगभग 1–1000 nm और निलंबन में 1000 nm से अधिक होता है।",
+extra:"Exam Order: Solution < Colloid < Suspension."
+}
+
+];
+
+let current = 0;
+let selected = new Array(questions.length).fill(null);
+
+const qNo = document.getElementById("questionNumber");
+const qText = document.getElementById("questionText");
+const optionsBox = document.getElementById("options");
+const explanation = document.getElementById("explanation");
+const explanationBody = document.getElementById("explanationBody");
+
+function loadQuestion(){
+
+    const q = questions[current];
+
+    qNo.textContent = "Question " + (current + 1) + " / " + questions.length;
+    qText.textContent = q.q;
+
+    optionsBox.innerHTML = "";
+
+    q.options.forEach((opt,index)=>{
+
+        const div = document.createElement("div");
+
+        div.className = "option";
+
+        div.innerHTML = `
+            <span class="option-letter">${String.fromCharCode(65+index)}</span>
+            <span>${opt}</span>
+        `;
+
+        if(selected[current] !== null){
+
+            div.classList.add("disabled");
+
+            if(index === q.answer){
+                div.classList.add("correct");
+            }
+
+            if(index === selected[current] &&
+               selected[current] !== q.answer){
+                div.classList.add("wrong");
+            }
+
+        }else{
+
+            div.onclick = ()=>selectAnswer(index);
+
+        }
+
+        optionsBox.appendChild(div);
+
+    });
+
+    if(selected[current] !== null){
+
+        explanation.classList.add("show");
+
+        explanationBody.innerHTML = `
+            <strong>सही उत्तर: ${String.fromCharCode(65+q.answer)}. ${q.options[q.answer]}</strong>
+            <br><br>
+            ${q.exp}
+
+            <div class="exam-box">
+                <div class="exam-title">⭐ Exam-Oriented Extra Information</div>
+                ${q.extra}
+            </div>
+        `;
+
+    }else{
+
+        explanation.classList.remove("show");
+        explanationBody.innerHTML = "";
+
+    }
+
+    document.getElementById("prevBtn").disabled = current === 0;
+    document.getElementById("nextBtn").disabled = current === questions.length-1;
+
+    updatePalette();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function selectAnswer(index){
+
+    if(selected[current] !== null) return;
+
+    selected[current] = index;
+
+    loadQuestion();
+}
+
+function nextQuestion(){
+
+    if(current < questions.length-1){
+        current++;
+        loadQuestion();
+    }
+
+}
+
+function previousQuestion(){
+
+    if(current > 0){
+        current--;
+        loadQuestion();
+    }
+
+}
+
+function togglePalette(){
+
+    document
+        .getElementById("palettePanel")
+        .classList.toggle("open");
+
+}
+
+function updatePalette(){
+
+    const grid = document.getElementById("paletteGrid");
+
+    grid.innerHTML = "";
+
+    questions.forEach((q,index)=>{
+
+        const btn = document.createElement("button");
+
+        btn.className = "p-btn";
+
+        btn.textContent = index + 1;
+
+        if(selected[index] !== null){
+
+            if(selected[index] === q.answer){
+                btn.classList.add("correct");
+            }else{
+                btn.classList.add("wrong");
+            }
+
+        }
+
+        if(index === current){
+            btn.classList.add("current");
+        }
+
+        btn.onclick = ()=>{
+
+            current = index;
+            loadQuestion();
+
+            document
+                .getElementById("palettePanel")
+                .classList.remove("open");
+
+        };
+
+        grid.appendChild(btn);
+
+    });
+
+}
+
+function showResult(){
+
+    let correct = 0;
+    let wrong = 0;
+    let skipped = 0;
+
+    questions.forEach((q,index)=>{
+
+        if(selected[index] === null){
+            skipped++;
+        }
+        else if(selected[index] === q.answer){
+            correct++;
+        }
+        else{
+            wrong++;
+        }
+
+    });
+
+    document.getElementById("correctCount").textContent = correct;
+    document.getElementById("wrongCount").textContent = wrong;
+    document.getElementById("skipCount").textContent = skipped;
+
+    document.getElementById("score").textContent =
+        correct + " / " + questions.length;
+
+    const result = document.getElementById("result");
+
+    result.classList.add("show");
+
+    result.scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
