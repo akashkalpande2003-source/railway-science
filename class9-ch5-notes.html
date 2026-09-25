@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Class 9th Science | Exploring Mixtures And Their Separation</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Mangal","Arial",sans-serif;
+    background:
+        radial-gradient(circle at top left,#dbeafe 0,#f8fbff 28%,transparent 55%),
+        linear-gradient(135deg,#f4f8ff,#ffffff);
+    color:#182235;
+    line-height:1.8;
+    padding:18px;
+}
+
+.container{
+    width:100%;
+    max-width:1050px;
+    margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#082f6b,#0756b8 55%,#0b82d9);
+    color:#fff;
+    padding:30px 28px;
+    border-radius:25px;
+    margin-bottom:22px;
+    box-shadow:0 14px 35px rgba(7,65,135,.25);
+}
+
+.header:before,
+.header:after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.09);
+}
+
+.header:before{
+    width:230px;
+    height:230px;
+    right:-70px;
+    top:-100px;
+}
+
+.header:after{
+    width:140px;
+    height:140px;
+    left:-60px;
+    bottom:-70px;
+}
+
+.chapter-no{
+    position:relative;
+    z-index:2;
+    display:inline-block;
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.25);
+    padding:4px 13px;
+    border-radius:30px;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.header h1{
+    position:relative;
+    z-index:2;
+    font-size:31px;
+    line-height:1.35;
+    font-weight:900;
+}
+
+.header p{
+    position:relative;
+    z-index:2;
+    color:#dcecff;
+    font-size:16px;
+    margin-top:7px;
+}
+
+/* ================= CARDS ================= */
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    margin:20px 0;
+    padding:22px;
+    box-shadow:0 7px 25px rgba(30,70,120,.10);
+    border:1px solid #e2ebf6;
+    overflow:hidden;
+}
+
+.card.blue{border-top:6px solid #1677ff;}
+.card.green{border-top:6px solid #0c9b68;}
+.card.orange{border-top:6px solid #ef8a00;}
+.card.purple{border-top:6px solid #7954d8;}
+.card.red{border-top:6px solid #e64b4b;}
+
+/* ================= HEADINGS ================= */
+
+.heading{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:24px;
+    font-weight:900;
+    color:#064b9b;
+    margin-bottom:18px;
+}
+
+.heading .icon{
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#e9f3ff;
+    border-radius:12px;
+    flex-shrink:0;
+}
+
+.subheading{
+    font-size:20px;
+    font-weight:900;
+    color:#08774f;
+    margin:22px 0 12px;
+    padding:9px 13px;
+    background:linear-gradient(90deg,#e8faf3,#f8fffc);
+    border-left:5px solid #0c9b68;
+    border-radius:10px;
+}
+
+/* ================= NORMAL POINT ================= */
+
+.point{
+    position:relative;
+    background:#f8fbff;
+    border:1px solid #e0ebf7;
+    border-radius:13px;
+    padding:12px 15px 12px 38px;
+    margin:11px 0;
+}
+
+.point:before{
+    content:"";
+    position:absolute;
+    left:16px;
+    top:22px;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#1677ff;
+}
+
+.point b{
+    color:#0755a5;
+}
+
+/* ================= SPECIAL ================= */
+
+.important{
+    background:linear-gradient(135deg,#fff7d9,#fffdf5);
+    border:1px solid #f1d27a;
+    border-left:6px solid #e4a600;
+    border-radius:15px;
+    padding:15px 17px;
+    margin:13px 0;
+}
+
+.important b{
+    color:#a16b00;
+}
+
+.note{
+    background:linear-gradient(135deg,#fff8ec,#fffdf8);
+    border-left:5px solid #f09a00;
+    border-radius:12px;
+    padding:13px 16px;
+    margin:14px 0;
+}
+
+.note b{
+    color:#a56400;
+}
+
+.example{
+    background:linear-gradient(135deg,#ecfbf5,#f8fffc);
+    border-left:5px solid #0c9b68;
+    border-radius:12px;
+    padding:13px 16px;
+    margin:13px 0;
+}
+
+.example b{
+    color:#08744e;
+}
+
+.star{
+    background:linear-gradient(135deg,#fff8d9,#fffef6);
+    border:1px solid #f0d26a;
+    border-left:6px solid #e1a900;
+    border-radius:15px;
+    padding:15px 17px;
+    margin:14px 0;
+}
+
+.star:before{
+    content:"★ ";
+    color:#d89d00;
+    font-size:19px;
+}
+
+/* ================= FORMULA AREA ================= */
+
+.formula-card{
+    background:linear-gradient(135deg,#eef6ff,#fafdff);
+    border:2px solid #b9d7fa;
+    border-radius:18px;
+    padding:18px;
+    margin:17px 0;
+    box-shadow:0 5px 18px rgba(30,100,180,.08);
+}
+
+.formula-title{
+    color:#064d9f;
+    font-size:19px;
+    font-weight:900;
+    margin-bottom:13px;
+}
+
+.formula{
+    background:#fff;
+    border-radius:14px;
+    border:1px solid #d8e6f5;
+    padding:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    font-size:20px;
+    font-weight:800;
+    color:#172033;
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
+}
+
+.formula-name{
+    color:#0a57a7;
+}
+
+.equals{
+    color:#e05d00;
+    font-size:24px;
+    font-weight:900;
+}
+
+.multiply{
+    color:#8b42c8;
+    font-size:24px;
+    font-weight:900;
+}
+
+.arrow{
+    color:#e45e00;
+    font-weight:900;
+    font-size:22px;
+}
+
+.fraction{
+    display:inline-flex;
+    flex-direction:column;
+    vertical-align:middle;
+    text-align:center;
+    line-height:1.25;
+    min-width:145px;
+}
+
+.fraction .top{
+    border-bottom:2px solid #172033;
+    padding:0 8px 4px;
+}
+
+.fraction .bottom{
+    padding:4px 8px 0;
+}
+
+/* ================= FLOW ================= */
+
+.flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:9px;
+    margin:18px 0;
+}
+
+.flow-box{
+    background:#eaf4ff;
+    border:2px solid #63a5ed;
+    color:#0755a5;
+    font-weight:900;
+    padding:9px 14px;
+    border-radius:12px;
+}
+
+.flow-arrow{
+    color:#e26500;
+    font-size:25px;
+    font-weight:900;
+}
+
+/* ================= TABLE ================= */
+
+.table-wrap{
+    overflow-x:auto;
+    margin:15px 0;
+}
+
+table{
+    width:100%;
+    min-width:600px;
+    border-collapse:collapse;
+    border-radius:15px;
+    overflow:hidden;
+}
+
+th{
+    background:linear-gradient(135deg,#0753a5,#087bd0);
+    color:white;
+    padding:12px;
+    font-size:17px;
+}
+
+td{
+    padding:12px;
+    border:1px solid #dce6f1;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#f4f8fd;
+}
+
+.size-big{
+    color:#d24c1d;
+    font-weight:900;
+}
+
+.size-mid{
+    color:#7650bd;
+    font-weight:900;
+}
+
+.size-small{
+    color:#087b56;
+    font-weight:900;
+}
+
+/* ================= QUICK REVISION ================= */
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:13px;
+}
+
+.quick{
+    padding:17px;
+    border-radius:16px;
+    text-align:center;
+    border:1px solid #dce7f3;
+    background:#f8fbff;
+}
+
+.quick h3{
+    color:#0755a5;
+    margin-bottom:5px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    text-align:center;
+    background:linear-gradient(135deg,#082f6b,#0756b8);
+    color:white;
+    padding:20px;
+    border-radius:20px;
+    margin-top:25px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    body{
+        padding:8px;
+        font-size:15px;
+    }
+
+    .header{
+        padding:23px 18px;
+        border-radius:19px;
+    }
+
+    .header h1{
+        font-size:23px;
+    }
+
+    .header p{
+        font-size:14px;
+    }
+
+    .card{
+        padding:15px;
+        border-radius:16px;
+    }
+
+    .heading{
+        font-size:20px;
+    }
+
+    .heading .icon{
+        width:35px;
+        height:35px;
+    }
+
+    .subheading{
+        font-size:17px;
+    }
+
+    .point{
+        padding-left:32px;
+    }
+
+    .formula{
+        font-size:16px;
+        gap:6px;
+        padding:13px 8px;
+    }
+
+    .formula-title{
+        font-size:17px;
+    }
+
+    .fraction{
+        min-width:125px;
+    }
+
+    .flow{
+        flex-direction:column;
+    }
+
+    .flow-arrow{
+        transform:rotate(90deg);
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="chapter-no">CLASS 9th • CHAPTER 05 • SCIENCE</div>
+
+    <h1>Exploring Mixtures And Their Separation</h1>
+
+    <p>मिश्रण एवं उनके पृथक्करण की विधियाँ</p>
+
+</header>
+
+
+<!-- =========================================================
+     BASIC CONCEPTS
+========================================================= -->
+
+<section class="card blue">
+
+<h2 class="heading">
+    <span class="icon">🧪</span>
+    मिश्रण एवं विलयन
+</h2>
+
+<div class="point">
+    <b>समांगी मिश्रण :-</b> समान संघटन
+    <br>
+    Eg. चीनी + जल, सोडा जल, वातित पेय
+</div>
+
+<div class="point">
+    <b>विषमांगी मिश्रण :-</b> असमान संघटन
+    <br>
+    Eg. बालू + रेत, तेल + जल,
+</div>
+
+<div class="point">
+    <b>विलयन सदैव समांगी मिश्रण होता है</b>
+</div>
+
+<div class="formula-card">
+
+    <div class="formula-title">विलयन का संघटन</div>
+
+    <div class="formula">
+        <span class="formula-name">विलयन</span>
+        <span class="equals">=</span>
+        <span>विलायक ↑</span>
+        <span class="plus">+</span>
+        <span>विलेय ↓</span>
+        <span>Eg. चीनी + जल</span>
+        <span>[चीनी - विलेय, जल - विलायक]</span>
+    </div>
+
+</div>
+
+<div class="important">
+    <b>विलयन की सांद्रता :-</b>
+    विलेय की वह मात्रा जो किसी विलायक या विलयन में घुली हो उसे विलयन की सांद्रता कहते हैं।
+</div>
+
+<div class="note">
+    <b>Note :-</b> दिलीप महालनोबिस ने ORS का सूत्रीकरण किया
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     THREE FORMULAS
+========================================================= -->
+
+<section class="card purple">
+
+<h2 class="heading">
+    <span class="icon">📐</span>
+    विलयन की सांद्रता के 3 सूत्र
+</h2>
+
+
+<!-- FORMULA 1 -->
+
+<div class="formula-card">
+
+    <div class="formula-title">
+        1. द्रव्यमान - द्रव्यमान %
+    </div>
+
+    <div class="formula">
+
+        <span class="formula-name">द्रव्यमान - द्रव्यमान %</span>
+
+        <span class="equals">=</span>
+
+        <span class="fraction">
+            <span class="top">विलेय का द्रव्यमान</span>
+            <span class="bottom">विलयन का द्रव्यमान</span>
+        </span>
+
+        <span class="multiply">× 100</span>
+
+    </div>
+
+    <div class="example">
+        <span class="arrow">→</span>
+        समांगी मिश्रणों की सांद्रता व्यक्त करने हेतु उपयोग।
+        दूध पाउडर, मसाला
+    </div>
+
+</div>
+
+
+<!-- FORMULA 2 -->
+
+<div class="formula-card">
+
+    <div class="formula-title">
+        2. द्रव्यमान - आयतन %
+    </div>
+
+    <div class="formula">
+
+        <span class="formula-name">द्रव्यमान - आयतन %</span>
+
+        <span class="equals">=</span>
+
+        <span class="fraction">
+            <span class="top">विलेय का द्रव्यमान</span>
+            <span class="bottom">विलयन का आयतन</span>
+        </span>
+
+        <span class="multiply">× 100</span>
+
+    </div>
+
+    <div class="example">
+        <span class="arrow">→</span>
+        द्रव्य को तौलने की तुलना में उसका आयतन मापना सुगम हो उपयोग।
+        दवाई, प्रयोगशाला
+    </div>
+
+</div>
+
+
+<!-- FORMULA 3 -->
+
+<div class="formula-card">
+
+    <div class="formula-title">
+        3. आयतन - आयतन %
+    </div>
+
+    <div class="formula">
+
+        <span class="formula-name">आयतन - आयतन %</span>
+
+        <span class="equals">=</span>
+
+        <span class="fraction">
+            <span class="top">विलेय का आयतन</span>
+            <span class="bottom">विलयन का आयतन</span>
+        </span>
+
+        <span class="multiply">× 100</span>
+
+    </div>
+
+    <div class="example">
+        <span class="arrow">→</span>
+        दो मिश्रणीय द्रवों को मिश्रित करते समय प्रयुक्त उपयोग।
+        इत्र, सौंदर्य प्रसाधन, सिरका
+    </div>
+
+</div>
+
+<div class="note">
+    <b>Note :-</b> उद्योगों में भार-भार % उपयोग किया जाता है
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SOLUBILITY
+========================================================= -->
+
+<section class="card green">
+
+<h2 class="heading">
+    <span class="icon">💧</span>
+    पदार्थ की विलेयता
+</h2>
+
+<div class="point">
+    विलेय की निश्चित मात्रा जो निश्चित तापमान पर विलायक में घुलती है उसकी विलेयता कहलाती है !
+</div>
+
+<div class="point">
+    विलयन जो अधिक विलेय नहीं घोल सकता संतृप्त विलयन कहलाता है।
+</div>
+
+<div class="point">
+    ठोस विलेयों की द्रव विलायक में विलेयता तापमान में वृद्धि के साथ बढ़ती है
+</div>
+
+<div class="point">
+    द्रव और गैस में घोलने पर विलेयता तापमान में वृद्धि के साथ घटती है
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CRYSTALLIZATION
+========================================================= -->
+
+<section class="card blue">
+
+<h2 class="heading">
+    <span class="icon">💎</span>
+    समांगी मिश्रणों के पृथक्करण की विधियाँ :-
+</h2>
+
+<h3 class="subheading">1. क्रिस्टलीकरण :-</h3>
+
+<div class="point">
+    क्रिस्टल एक ठोस पदार्थ है जो कणों की एक नियमित ज्यामितीय प्रतिरूप से निर्मित होता है
+    <br>
+    Eg. सेंधा नमक के क्रिस्टल, चीनी के क्रिस्टल, हिमकण, तुषार (पाला)
+</div>
+
+<div class="point">
+    किसी संतृप्त विलयन से क्रिस्टल बनाने की प्रक्रिया क्रिस्टलीकरण कहलाती है।
+</div>
+
+<div class="point">
+    यह विधि घुलनशील ठोस पदार्थों के पृथक्करण के लिए की जाती है जिनमें एक पदार्थ की विलेयता निश्चित तापमान पर दूसरे पदार्थ की विलेयता से कम होती है
+</div>
+
+<div class="point">
+    यह विधि ठोस पदार्थ के शुद्धीकरण के लिए भी की जाती है
+</div>
+
+<div class="point">
+    क्रिस्टलीकरण समांगी मिश्रणों से शुद्ध पदार्थ (crystal) को पृथक करने की सामान्य विधि है
+</div>
+
+<div class="point">
+    यह विधि वांछित शुद्ध पदार्थ को अवांछित अशुद्धियों से पृथक करने में सहायता करती है
+</div>
+
+<div class="note">
+    <b>Note :- Copper Sulphate (नीला थोथा) – CuSO₄ · 5H₂O</b>
+</div>
+
+<div class="star">
+    <b>नमक का उत्पादन :-</b>
+
+    <div class="flow">
+
+        <div class="flow-box">समुद्री जल</div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-box">संतृप्त विलयन</div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-box">नमक के क्रिस्टल</div>
+
+    </div>
+</div>
+
+<div class="note">
+
+    <b>Note :-</b>
+
+    <div class="point">
+        पांगा नमक समुद्री जल को उबालकर प्राप्त होता था — प्राचीन विधि
+    </div>
+
+    <div class="point">
+        करकच नमक समुद्री जल को वाष्पीकृत कर प्राप्त होता था — प्राचीन विधि
+    </div>
+
+</div>
+
+<div class="example">
+
+    <b>Note :- प्राकृतिक क्रिस्टल</b>
+
+    <br><br>
+
+    सोहरा (चेरापूंजी) में स्थित मावसाई गुफा के क्रिस्टल
+
+    <br>
+
+    स्फटिक (Quartz) प्रकृति में पाया जाने वाला सुंदर क्रिस्टल
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     DISTILLATION
+========================================================= -->
+
+<section class="card orange">
+
+<h3 class="subheading">2. आसवन :- दो द्रवों के समांगी मिश्रण को पृथक किया जा सकता है</h3>
+
+<div class="point">
+    गर्म करने पर कम क्वथनांक वाला द्रव वाष्पीकृत हो जाता है उत्पन्न वाष्प को ठंडा किया जाता है जिसे पुनः द्रव में बदला जाता है इसे आसवन कहते हैं
+</div>
+
+<div class="flow">
+
+    <div class="flow-box">मिश्रण</div>
+    <div class="flow-arrow">→</div>
+
+    <div class="flow-box">गर्म करना</div>
+    <div class="flow-arrow">→</div>
+
+    <div class="flow-box">वाष्प</div>
+    <div class="flow-arrow">→</div>
+
+    <div class="flow-box">ठंडा करना</div>
+    <div class="flow-arrow">→</div>
+
+    <div class="flow-box">द्रव</div>
+
+</div>
+
+<div class="point">
+    इस विधि से विलायक पुनः प्राप्त किया जा सकता है
+</div>
+
+<div class="point">
+
+    ऐसे द्रवों को प्राप्त किया जा सकता है जिनके तापमान में कम से कम 25°C का अंतर हो
+
+    <br><br>
+
+    Ex. एसीटोन और जल के मिश्रण
+
+    <br>
+
+    (एसीटोन का क्वथनांक = 56°C, जल का क्वथनांक = 100°C)
+
+</div>
+
+<div class="note">
+
+    <b>Note :- वैज्ञानिक योगदान :-</b>
+
+    आसवन विधि का उपयोग पुष्पों से इत्र बनाने में होता है
+
+    <br><br>
+
+    • उत्तर प्रदेश के कन्नौज शहर जिसे इत्र राजधानी कहा जाता है यहाँ इत्र बनाने की विधि को 'देगा भपका विधि' कहते हैं
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FRACTIONAL DISTILLATION
+========================================================= -->
+
+<section class="card orange">
+
+<h2 class="heading">
+    <span class="icon">⛽</span>
+    प्रभाजी आसवन
+</h2>
+
+<div class="important">
+
+    <b>प्रभाजी आसवन :-</b>
+    इस विधि से कच्चे तेल से पेट्रोलियम उत्पाद प्राप्त किए जाते हैं
+
+</div>
+
+<div class="point">
+
+    प्रभाजी आसवन ऐसी प्रक्रिया है जिसके द्वारा मिश्रण के ऐसे घटकों को पृथक किया जाता है जिनके क्वथनांकों में 25°C से कम का अंतर हो
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CHROMATOGRAPHY
+========================================================= -->
+
+<section class="card purple">
+
+<h3 class="subheading">3. कागज वर्णलेखिका :-</h3>
+
+<div class="point">
+    यह विधि गति के अंतर के आधार पर पृथक करती है!
+</div>
+
+<div class="example">
+
+    Ex. पेपर पर एक sketch pen से कुछ बनाने पर और ऊपर पानी की बूंद डालने पर रंग फैल जाता है। इसी को कागज वर्णलेखिका विधि कहते हैं।
+
+</div>
+
+<div class="note">
+
+    <b>Note :- वर्णलेखिका (chromatography)</b>
+
+    <br>
+
+    → {Croma (रंग) + graphy (लिखना)} (Greek words)
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     HETEROGENEOUS MIXTURES
+========================================================= -->
+
+<section class="card red">
+
+<h2 class="heading">
+    <span class="icon">🧩</span>
+    4. विषमांगी मिश्रणों का पृथक्करण :-
+</h2>
+
+<h3 class="subheading">
+    4.1) दो अमिश्रणीय द्रव का पृथक्करण :-
+</h3>
+
+<div class="example">
+
+    Ex. तेल + जल, रेत + जल, लोहे की छिलन + गंधक
+
+</div>
+
+<div class="point">
+    गैसों के कण सभी दिशा में स्वतंत्र गति कर अन्य गैसों के साथ मिल जाते हैं।
+</div>
+
+<div class="point">
+
+    गैसों के अधिकांश मिश्रण समांगी होते हैं।
+
+    <br>
+
+    Ex. Hydrogen + Oxygen (रॉकेट में ईंधन के रूप में उपयोग)
+
+</div>
+
+<div class="point">
+
+    गैसीय विषमांगी मिश्रण
+
+    <br>
+
+    <span class="arrow">→</span> Ex. वायु, कोहरा, धुआँ
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SUBLIMATION
+========================================================= -->
+
+<section class="card orange">
+
+<h3 class="subheading">4.2) ऊर्ध्वपातन :-</h3>
+
+<div class="point">
+
+    सीधे ठोस अवस्था से वाष्प अवस्था में परिवर्तन को ऊर्ध्वपातन कहते हैं
+
+    <br>
+
+    Ex. कपूर, नेफ्थलीन, dry ice
+
+</div>
+
+<div class="point">
+
+    शीतलन पर वाष्प बिना द्रव बने ठोस में संघनित हो जाती है इसे निक्षेपण कहते हैं
+
+</div>
+
+<div class="important">
+
+    <b>मिश्रधातु :-</b>
+
+    दो (धातु + धातु) या (धातु + अधातु) का समांगी मिश्रण मिश्रधातु है
+
+    <br>
+
+    <span class="arrow">→</span>
+    भौतिक विधि द्वारा घटकों को पृथक नहीं किया जा सकता
+
+</div>
+
+<div class="example">
+
+    Ex. पीतल → 80% copper + 20% zinc
+
+    <br>
+
+    कांसा → 80% copper + 20% tin
+
+    <br>
+
+    स्टेनलेस स्टील → Carbon + chromium + nickel + मोलिब्डेनम
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     SUSPENSION
+========================================================= -->
+
+<section class="card blue">
+
+<h3 class="subheading">4.3) निलंबन :-</h3>
+
+<div class="point">
+
+    विषमांगी मिश्रण जिनके ठोस कण (रेत) घुलते नहीं पर संपूर्ण माध्यम (जल) में निलंबित रहते हैं निलंबन कहलाता है
+  
+    <br><br>
+    निस्यंदन द्वारा उन्हें पृथक किया जा सकता है
+
+    <br><br>
+
+    Ex. जल में निलंबित लकड़ी का बुरादा, जल में चाय की पत्तियाँ, कीचड़ (पंकिल जल)
+
+</div>
+
+<div class="important">
+
+    <b>कणों का आकार :-</b>
+
+    निलंबन &gt; विलयन
+
+</div>
+
+<div class="point">
+    नग्न आँखों से दिखाई देते हैं
+</div>
+
+<div class="point">
+
+    कीचड़ (पंकिल जल) → पानी में घुले हुए मिट्टी को कुछ देर छोड़ने पर मिट्टी नीचे बैठ जाती है पर अभी भी पानी धुंधला दिखाई देता है इसे पूर्ण साफ करने में अपकेंद्रण अथवा स्कंदन का उपयोग करते हैं
+
+</div>
+
+
+<h3 class="subheading">→ अपकेंद्रण :-</h3>
+
+<div class="point">
+
+    द्रव को गोल-गोल घुमाने पर बल नलिका में रखे मिश्रण को पृथक करने में सहायता करता है जिसे अपकेंद्रण कहते हैं
+
+</div>
+
+<div class="point">
+
+    भारी कणों को बाहर की ओर खींचता है वहां वे नलिका में तली पर बैठ जाता है जबकि हल्का द्रव ऊपर आ जाता है
+
+</div>
+
+<div class="note">
+
+    <b>विज्ञान तथा समझ :-</b>
+
+    पेपरफ्यूज रक्त के प्रतिदर्श को अति तीव्र गति से घुमाकर भारी घटकों से हल्के घटकों को किसी प्रयोगशाला में अपकेंद्रित की भांति पृथक कर देता है इसका उपयोग दूरस्थ क्षेत्रों में मलेरिया और एनीमिया की जाँच में होता है
+
+</div>
+
+
+<h3 class="subheading">→ स्कंदन :-</h3>
+
+<div class="point">
+
+    फिटकरी एक श्वेत क्रिस्टलीय रासायनिक पदार्थ है जिसका उपयोग जल शुद्धीकरण में किया जाता है
+
+</div>
+
+<div class="point">
+
+    फिटकरी सूक्ष्म निलंबित कणों को एकत्रित (गुच्छों के रूप) में कर देती है इसे स्कंदन कहते हैं और फिटकरी स्कंदन के जैसा व्यवहार करती है
+
+    <br><br>
+
+    Ex. दूध से पनीर बनाना
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     COLLOID
+========================================================= -->
+
+<section class="card purple">
+
+<h3 class="subheading">4.4) कोलाइड :-</h3>
+
+<div class="important">
+
+    रक्त ना तो विलयन है और न ही निलंबन यह कोलाइड है।
+
+    <br><br>
+
+    Ex. रक्त, दूध, टमाटर सॉस, आइसक्रीम
+
+</div>
+
+
+<h3 class="subheading">📏 कणों का आकार :-</h3>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+    <th>मिश्रण</th>
+    <th>कणों का आकार</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+    <td class="size-big">निलंबन</td>
+    <td class="size-big">1000 nm से अधिक</td>
+</tr>
+
+<tr>
+    <td class="size-mid">कोलाइड</td>
+    <td class="size-mid">1 से 1000 nm</td>
+</tr>
+
+<tr>
+    <td class="size-small">विलयन</td>
+    <td class="size-small">1 nm से कम</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="important">
+
+    <b>कणों का आकार :-</b>
+
+    निलंबन (1000 nm से अधिक)
+    &gt;
+    कोलाइड (1 से 1000 nm)
+    &gt;
+    विलयन (1 nm से कम)
+
+</div>
+
+<div class="point">
+    कोलाइड के कण समय के साथ नीचे नहीं बैठते
+</div>
+
+
+<div class="star">
+
+    <b>टिंडल प्रभाव :-</b>
+
+    कणों द्वारा प्रकाश के प्रकीर्णन की घटना को टिंडल प्रभाव कहते हैं
+
+    <br><br>
+
+    Ex. अंधेरे कमरे के एक छोटे छिद्र से प्रकाश का संकीर्ण किरणपुंज प्रवेश करना
+
+</div>
+
+<div class="point">
+
+    जब प्रकाश किसी कोलाइड अथवा निलंबन से प्रसारित होता है तो उसका प्रकीर्णन होता है परंतु जब वह पारदर्शी विलयन से प्रसारित होता है तो ऐसा नहीं होता
+
+</div>
+
+<div class="point">
+
+    कोलाइड के घटकों को परिक्षेपण प्रावस्था और परिक्षेपण माध्यम कहा जाता है
+
+    <br><br>
+
+    <b>परिक्षिप्त प्रावस्था :-</b>
+    विलेय के ठोस घटक अथवा परिक्षिप्त कण परिक्षिप्त प्रावस्था कहलाते हैं
+
+    <br><br>
+
+    <b>परिक्षेपण माध्यम :-</b>
+    जिस माध्यम में परिक्षिप्त कण निलंबित रहते  है उसे परिक्षेपण माध्यम कहते हैं
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     EMULSION
+========================================================= -->
+
+<section class="card green">
+
+<h2 class="heading">
+    <span class="icon">🥛</span>
+    पायस (Emulsion)
+</h2>
+
+<div class="note">
+
+    <b>Note :-</b>
+
+    सामान्य दैनिक जीवन में कोलाइड के उदाहरण को पायस (Emulsion) कहते हैं
+
+</div>
+
+<div class="important">
+
+    <b>जल और तेल वाली पायस:</b>
+
+    <br><br>
+
+    <b>जल में तेल :-</b>
+    दूध, वैनीशिंग क्रीम, बॉडी लोशन
+
+    <br><br>
+
+    <b>तेल में जल :-</b>
+    मक्खन, कोल्ड क्रीम
+
+</div>
+
+<div class="point">
+
+    पायसीकारक की उपस्थिति पायस को स्थिर करती है
+
+</div>
+
+<div class="star">
+
+    दूध और मक्खन में प्रोटीन पायसी कारक का काम करता है
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     QUICK REVISION
+========================================================= -->
+
+<section class="card blue">
+
+<h2 class="heading">
+    <span class="icon">⚡</span>
+    Quick Revision
+</h2>
+
+<div class="quick-grid">
+
+    <div class="quick">
+        <h3>विलयन</h3>
+        <b>1 nm से कम</b>
+        <p>समांगी मिश्रण</p>
+    </div>
+
+    <div class="quick">
+        <h3>कोलाइड</h3>
+        <b>1 से 1000 nm</b>
+        <p>टिंडल प्रभाव</p>
+    </div>
+
+    <div class="quick">
+        <h3>निलंबन</h3>
+        <b>1000 nm से अधिक</b>
+        <p>कण दिखाई देते हैं</p>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+    <b>Class 9th Science</b>
+    <br>
+    Exploring Mixtures And Their Separation
+    <br>
+    <span>Chapter 05 • Complete Notes</span>
+
+</footer>
+
+</div>
+
+</body>
+</html>
