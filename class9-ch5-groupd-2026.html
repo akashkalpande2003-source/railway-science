@@ -1,0 +1,2323 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Railway Science | Class 9 | Exploring Mixtures And Their Separation | TCS CBT Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Mangal","Segoe UI",Arial,sans-serif;
+    background:#eef1f5;
+    color:#202124;
+}
+
+/* ================= HEADER ================= */
+
+.top-header{
+    height:72px;
+    background:#102a43;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 22px;
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    min-width:0;
+}
+
+.logo{
+    width:44px;
+    height:44px;
+    border:2px solid #fff;
+    border-radius:5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:900;
+    font-size:17px;
+    margin-right:12px;
+    background:#173b5e;
+    flex-shrink:0;
+}
+
+.brand-text{
+    min-width:0;
+}
+
+.brand-name{
+    font-size:19px;
+    font-weight:800;
+    line-height:1.15;
+}
+
+.exam-title{
+    font-size:12px;
+    color:#d8e5f0;
+    margin-top:3px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.timer-box{
+    min-width:118px;
+    text-align:center;
+    background:#fff;
+    color:#102a43;
+    border-radius:4px;
+    padding:7px 12px;
+    border:2px solid #dce5ed;
+}
+
+.timer-label{
+    font-size:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.6px;
+}
+
+#timer{
+    font-size:22px;
+    font-weight:900;
+    line-height:1.05;
+    font-variant-numeric:tabular-nums;
+}
+
+.timer-box.warning{
+    background:#fff1f1;
+    border-color:#e53935;
+    color:#c62828;
+}
+
+/* ================= INFO BAR ================= */
+
+.info-bar{
+    min-height:48px;
+    background:#fff;
+    border-bottom:1px solid #d5dbe1;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:7px 20px;
+    gap:10px;
+}
+
+.info-left{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.info-chip{
+    border:1px solid #d7dde3;
+    background:#f8fafc;
+    padding:6px 10px;
+    border-radius:3px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.info-chip strong{
+    color:#102a43;
+}
+
+.palette-open-btn{
+    border:1px solid #102a43;
+    background:#102a43;
+    color:#fff;
+    padding:9px 13px;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.palette-open-btn:hover{
+    background:#173b5e;
+}
+
+/* ================= MAIN ================= */
+
+.exam-layout{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 290px;
+    gap:14px;
+    max-width:1400px;
+    margin:14px auto;
+    padding:0 14px 90px;
+}
+
+.question-area{
+    min-width:0;
+}
+
+.question-card{
+    background:#fff;
+    border:1px solid #d5dbe1;
+    min-height:530px;
+    box-shadow:0 1px 3px rgba(0,0,0,.07);
+}
+
+.question-head{
+    border-bottom:1px solid #d9dee3;
+    padding:12px 16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+.question-number{
+    font-size:16px;
+    font-weight:900;
+    color:#102a43;
+}
+
+.question-type{
+    font-size:11px;
+    font-weight:800;
+    background:#edf2f7;
+    color:#40566d;
+    padding:5px 9px;
+    border-radius:3px;
+    white-space:nowrap;
+}
+
+.question-body{
+    padding:20px 20px 30px;
+}
+
+.question-text{
+    font-size:18px;
+    font-weight:700;
+    line-height:1.7;
+    margin-bottom:20px;
+    word-break:break-word;
+}
+
+.option-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.option{
+    display:flex;
+    align-items:flex-start;
+    border:1px solid #cfd6dd;
+    background:#fff;
+    min-height:54px;
+    padding:12px 14px;
+    cursor:pointer;
+    transition:.12s;
+    border-radius:3px;
+}
+
+.option:hover{
+    border-color:#7c93a8;
+    background:#f7fafc;
+}
+
+.option.selected{
+    border:2px solid #168447;
+    background:#edf9f2;
+}
+
+.option input{
+    width:19px;
+    height:19px;
+    margin:1px 12px 0 0;
+    accent-color:#168447;
+    flex-shrink:0;
+}
+
+.option-letter{
+    width:27px;
+    font-weight:900;
+    flex-shrink:0;
+}
+
+.option-text{
+    line-height:1.55;
+    font-size:15px;
+    word-break:break-word;
+}
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:sticky;
+    bottom:0;
+    z-index:500;
+    background:#fff;
+    border:1px solid #cfd6dd;
+    box-shadow:0 -3px 12px rgba(0,0,0,.10);
+    padding:10px;
+    margin-top:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.nav-group{
+    display:flex;
+    gap:7px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    min-height:40px;
+    padding:8px 14px;
+    border-radius:3px;
+    border:1px solid #9daab6;
+    background:#fff;
+    color:#263746;
+    font-weight:800;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#f1f4f7;
+}
+
+.btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+.btn-review{
+    background:#7046a5;
+    color:#fff;
+    border-color:#7046a5;
+}
+
+.btn-review:hover{
+    background:#603a91;
+}
+
+.btn-next{
+    background:#1769aa;
+    color:#fff;
+    border-color:#1769aa;
+}
+
+.btn-submit{
+    background:#168447;
+    color:#fff;
+    border-color:#168447;
+    min-width:125px;
+}
+
+.btn-submit:hover{
+    background:#116b38;
+}
+
+.btn-danger{
+    background:#fff;
+    color:#c62828;
+    border-color:#c62828;
+}
+
+/* ================= PALETTE ================= */
+
+.palette-panel{
+    background:#fff;
+    border:1px solid #d5dbe1;
+    height:max-content;
+    position:sticky;
+    top:86px;
+    box-shadow:0 1px 3px rgba(0,0,0,.07);
+}
+
+.palette-header{
+    background:#102a43;
+    color:#fff;
+    padding:12px 14px;
+    font-size:15px;
+    font-weight:900;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.palette-close{
+    display:none;
+    cursor:pointer;
+}
+
+.palette-content{
+    padding:13px;
+}
+
+.legend{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:7px;
+    margin-bottom:13px;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    font-weight:700;
+}
+
+.legend-box{
+    width:19px;
+    height:19px;
+    border:1px solid #aab3bc;
+    display:inline-block;
+    border-radius:2px;
+}
+
+.legend-answered{
+    background:#bfe8cc;
+    border-color:#168447;
+}
+
+.legend-review{
+    background:#d9c7ef;
+    border-color:#7046a5;
+}
+
+.legend-unanswered{
+    background:#fff;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:7px;
+    max-height:480px;
+    overflow-y:auto;
+    padding-right:2px;
+}
+
+.palette-btn{
+    min-width:0;
+    height:37px;
+    border:1px solid #adb7c1;
+    background:#fff;
+    color:#263746;
+    border-radius:2px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.palette-btn.answered{
+    background:#bfe8cc;
+    border-color:#168447;
+    color:#075d2e;
+}
+
+.palette-btn.review{
+    background:#d9c7ef;
+    border-color:#7046a5;
+    color:#512b7e;
+}
+
+.palette-btn.review-answered{
+    background:linear-gradient(135deg,#bfe8cc 0 50%,#d9c7ef 50% 100%);
+    border-color:#7046a5;
+    color:#263746;
+}
+
+.palette-btn.current{
+    outline:3px solid #102a43;
+    outline-offset:1px;
+}
+
+.palette-submit{
+    width:100%;
+    margin-top:15px;
+}
+
+/* ================= DRAWER ================= */
+
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:1200;
+}
+
+.overlay.show{
+    display:block;
+}
+
+/* ================= MODAL ================= */
+
+.modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.52);
+    z-index:2000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+
+.modal-overlay.show{
+    display:flex;
+}
+
+.modal{
+    width:min(430px,100%);
+    background:#fff;
+    border-radius:4px;
+    box-shadow:0 10px 35px rgba(0,0,0,.3);
+    overflow:hidden;
+}
+
+.modal-header{
+    background:#102a43;
+    color:#fff;
+    padding:15px 18px;
+    font-size:18px;
+    font-weight:900;
+}
+
+.modal-body{
+    padding:20px;
+}
+
+.modal-question{
+    font-size:16px;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.submit-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.stat{
+    border:1px solid #d5dbe1;
+    background:#f7f9fb;
+    padding:13px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:22px;
+    color:#102a43;
+}
+
+.warning-text{
+    color:#b71c1c;
+    background:#fff4f4;
+    border-left:3px solid #d32f2f;
+    padding:10px;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.modal-footer{
+    border-top:1px solid #d9dee3;
+    padding:12px 18px;
+    display:flex;
+    justify-content:flex-end;
+    gap:8px;
+}
+
+/* ================= RESULT ================= */
+
+.result-section{
+    display:none;
+    max-width:1400px;
+    margin:18px auto;
+    padding:0 14px 40px;
+}
+
+.result-card{
+    background:#fff;
+    border:1px solid #d5dbe1;
+    padding:25px;
+}
+
+.result-title{
+    text-align:center;
+    color:#168447;
+    font-size:23px;
+    font-weight:900;
+    border-bottom:1px solid #d5dbe1;
+    padding-bottom:15px;
+}
+
+.final-score{
+    text-align:center;
+    margin:22px 0;
+}
+
+.final-score-label{
+    font-size:14px;
+    font-weight:700;
+    color:#64748b;
+}
+
+.final-score-value{
+    font-size:44px;
+    font-weight:900;
+    color:#102a43;
+}
+
+.score-formula{
+    font-size:13px;
+    color:#536273;
+}
+
+.result-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin:20px 0 30px;
+}
+
+.result-box{
+    border:1px solid #d5dbe1;
+    text-align:center;
+    padding:17px 10px;
+    background:#f9fafb;
+}
+
+.result-box-title{
+    font-size:12px;
+    font-weight:800;
+    color:#667585;
+}
+
+.result-box-value{
+    font-size:28px;
+    font-weight:900;
+    margin-top:4px;
+    color:#102a43;
+}
+
+.solutions-title{
+    background:#102a43;
+    color:#fff;
+    padding:14px;
+    font-size:18px;
+    font-weight:900;
+}
+
+.solution{
+    border:1px solid #d5dbe1;
+    border-top:0;
+    padding:17px;
+    background:#fff;
+}
+
+.solution.correct{
+    border-left:5px solid #168447;
+}
+
+.solution.wrong{
+    border-left:5px solid #d32f2f;
+}
+
+.solution.unanswered{
+    border-left:5px solid #8a929b;
+}
+
+.solution-q{
+    font-size:16px;
+    font-weight:900;
+    color:#102a43;
+    margin-bottom:8px;
+}
+
+.solution-question{
+    font-size:14px;
+    line-height:1.65;
+    margin-bottom:10px;
+}
+
+.user-status{
+    display:inline-block;
+    padding:5px 8px;
+    font-size:12px;
+    font-weight:900;
+    border-radius:3px;
+    margin-bottom:10px;
+}
+
+.status-correct{
+    color:#075d2e;
+    background:#d9f3e2;
+}
+
+.status-wrong{
+    color:#a61b1b;
+    background:#ffe0e0;
+}
+
+.status-unanswered{
+    color:#56616c;
+    background:#edf0f2;
+}
+
+.correct-answer{
+    background:#f0f8f3;
+    border:1px solid #b7ddc3;
+    padding:10px;
+    margin-bottom:11px;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.solution-explanation{
+    line-height:1.7;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.exam-point{
+    background:#fff8df;
+    border-left:4px solid #e0a800;
+    padding:11px 13px;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.exam-point strong{
+    color:#8a5c00;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+    .top-header{
+        height:auto;
+        min-height:65px;
+        padding:9px 12px;
+    }
+
+    .brand-name{
+        font-size:16px;
+    }
+
+    .exam-title{
+        font-size:10px;
+    }
+
+    .logo{
+        width:39px;
+        height:39px;
+        margin-right:9px;
+        font-size:14px;
+    }
+
+    .timer-box{
+        min-width:82px;
+        padding:5px 7px;
+    }
+
+    #timer{
+        font-size:18px;
+    }
+
+    .exam-layout{
+        display:block;
+        margin:10px auto;
+        padding:0 8px 85px;
+    }
+
+    .palette-panel{
+        position:fixed;
+        top:0;
+        right:-330px;
+        width:320px;
+        max-width:88vw;
+        height:100dvh;
+        z-index:1300;
+        transition:right .2s ease;
+        overflow-y:auto;
+    }
+
+    .palette-panel.open{
+        right:0;
+    }
+
+    .palette-close{
+        display:block;
+        font-size:20px;
+        padding:0 4px;
+    }
+
+    .palette-content{
+        padding-bottom:25px;
+    }
+
+    .palette-grid{
+        max-height:none;
+    }
+
+    .question-card{
+        min-height:0;
+    }
+
+    .question-body{
+        padding:15px 12px 22px;
+    }
+
+    .question-text{
+        font-size:16px;
+        line-height:1.65;
+    }
+
+    .option{
+        padding:12px 10px;
+    }
+
+    .option-text{
+        font-size:14px;
+    }
+
+    .bottom-nav{
+        margin-top:8px;
+        padding:7px;
+        gap:6px;
+    }
+
+    .nav-group{
+        width:100%;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .nav-group:first-child{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .nav-group:last-child{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .btn{
+        width:100%;
+        min-height:42px;
+        padding:7px 6px;
+        font-size:12px;
+    }
+
+    .btn-submit{
+        width:100%;
+    }
+
+    .result-section{
+        padding:0 8px 25px;
+    }
+
+    .result-card{
+        padding:14px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:480px){
+    .info-bar{
+        padding:7px 8px;
+    }
+
+    .info-left{
+        gap:5px;
+    }
+
+    .info-chip{
+        font-size:10px;
+        padding:5px 7px;
+    }
+
+    .palette-open-btn{
+        font-size:11px;
+        padding:8px 9px;
+    }
+
+    .brand-name{
+        font-size:14px;
+    }
+
+    .exam-title{
+        max-width:180px;
+    }
+
+    .timer-label{
+        font-size:8px;
+    }
+
+    #timer{
+        font-size:16px;
+    }
+
+    .question-head{
+        padding:10px 11px;
+    }
+
+    .question-number{
+        font-size:14px;
+    }
+
+    .question-type{
+        font-size:9px;
+    }
+
+    .question-text{
+        font-size:15px;
+    }
+
+    .option{
+        min-height:52px;
+    }
+
+    .option input{
+        width:18px;
+        height:18px;
+    }
+
+    .result-grid{
+        grid-template-columns:1fr 1fr;
+        gap:7px;
+    }
+
+    .result-box{
+        padding:12px 5px;
+    }
+
+    .result-box-value{
+        font-size:24px;
+    }
+}
+
+/* prevent accidental horizontal overflow */
+img,table,pre{
+    max-width:100%;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="top-header">
+    <div class="brand">
+        <div class="logo">RS</div>
+        <div class="brand-text">
+            <div class="brand-name">Railway Science</div>
+            <div class="exam-title">
+                Class 9 • Science • Exploring Mixtures And Their Separation • TCS Style Mock Test
+            </div>
+        </div>
+    </div>
+
+    <div class="timer-box" id="timerBox">
+        <div class="timer-label">Time Left</div>
+        <div id="timer">30:00</div>
+    </div>
+</header>
+
+<!-- ================= INFO BAR ================= -->
+
+<div class="info-bar">
+    <div class="info-left">
+        <div class="info-chip">प्रश्न: <strong>42</strong></div>
+        <div class="info-chip">सही: <strong>+1</strong></div>
+        <div class="info-chip">गलत: <strong>−1/3</strong></div>
+        <div class="info-chip">अध्याय: <strong>Exploring Mixtures</strong></div>
+    </div>
+
+    <button class="palette-open-btn" onclick="openPalette()">☰ Question Palette</button>
+</div>
+
+<!-- ================= EXAM AREA ================= -->
+
+<main class="exam-layout">
+
+    <section class="question-area">
+
+        <div class="question-card">
+
+            <div class="question-head">
+                <div class="question-number" id="questionNumber">Question No. 1</div>
+                <div class="question-type">MCQ • एक सही उत्तर</div>
+            </div>
+
+            <div class="question-body">
+                <div class="question-text" id="questionText"></div>
+                <div class="option-list" id="optionList"></div>
+            </div>
+
+        </div>
+
+        <!-- NAVIGATION -->
+        <div class="bottom-nav">
+
+            <div class="nav-group">
+                <button class="btn" id="previousBtn" onclick="previousQuestion()">Previous</button>
+                <button class="btn btn-danger" onclick="clearResponse()">Clear Response</button>
+            </div>
+
+            <div class="nav-group">
+                <button class="btn btn-review" onclick="markReviewNext()">Mark for Review &amp; Next</button>
+                <button class="btn btn-next" onclick="saveAndNext()">Save &amp; Next</button>
+            </div>
+
+            <div class="nav-group">
+                <button class="btn btn-submit" onclick="openSubmitModal()">✓ Submit Test</button>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= PALETTE ================= -->
+
+    <aside class="palette-panel" id="palettePanel">
+
+        <div class="palette-header">
+            <span>Question Palette</span>
+            <span class="palette-close" onclick="closePalette()">×</span>
+        </div>
+
+        <div class="palette-content">
+
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="legend-box legend-answered"></span>
+                    Answered
+                </div>
+
+                <div class="legend-item">
+                    <span class="legend-box legend-review"></span>
+                    Marked for Review
+                </div>
+
+                <div class="legend-item">
+                    <span class="legend-box legend-unanswered"></span>
+                    Not Answered
+                </div>
+            </div>
+
+            <div class="palette-grid" id="paletteGrid"></div>
+
+            <button class="btn btn-submit palette-submit" onclick="openSubmitModal()">
+                ✓ Submit Test
+            </button>
+
+        </div>
+    </aside>
+
+</main>
+
+<div class="overlay" id="paletteOverlay" onclick="closePalette()"></div>
+
+<!-- ================= SUBMIT MODAL ================= -->
+
+<div class="modal-overlay" id="submitModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+            Submit Test
+        </div>
+
+        <div class="modal-body">
+
+            <div class="modal-question">
+                क्या आप टेस्ट submit करना चाहते हैं?
+            </div>
+
+            <div class="submit-stats">
+                <div class="stat">
+                    <strong id="modalAnswered">0</strong>
+                    Answered
+                </div>
+
+                <div class="stat">
+                    <strong id="modalUnanswered">42</strong>
+                    Not Answered
+                </div>
+            </div>
+
+            <div class="warning-text">
+                Submit करने के बाद आप अपने answers बदल नहीं सकेंगे।
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn" onclick="closeSubmitModal()">Cancel</button>
+            <button class="btn btn-submit" onclick="submitTest()">Submit Test</button>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= RESULT ================= -->
+
+<section class="result-section" id="resultSection">
+
+    <div class="result-card">
+
+        <div class="result-title">
+            TEST SUBMITTED
+        </div>
+
+        <div class="final-score">
+            <div class="final-score-label">Final Score</div>
+            <div class="final-score-value" id="finalScore">0</div>
+            <div class="score-formula">
+                Score = Correct − (Wrong ÷ 3)
+            </div>
+        </div>
+
+        <div class="result-grid">
+
+            <div class="result-box">
+                <div class="result-box-title">सही</div>
+                <div class="result-box-value" id="correctCount">0</div>
+            </div>
+
+            <div class="result-box">
+                <div class="result-box-title">गलत</div>
+                <div class="result-box-value" id="wrongCount">0</div>
+            </div>
+
+            <div class="result-box">
+                <div class="result-box-title">अनुत्तरित</div>
+                <div class="result-box-value" id="unansweredCount">0</div>
+            </div>
+
+            <div class="result-box">
+                <div class="result-box-title">Accuracy</div>
+                <div class="result-box-value" id="accuracy">0%</div>
+            </div>
+
+        </div>
+
+        <div class="solutions-title">
+            📚 सभी 42 प्रश्नों के Systematic Solutions
+        </div>
+
+        <div id="solutionsContainer"></div>
+
+    </div>
+
+</section>
+
+<script>
+
+/* =========================================================
+   QUESTION DATA
+========================================================= */
+
+const questions = [
+
+{
+q:`निम्नलिखित में से कौन-सा, दैनिक जीवन में स्कंदन (coagulation) का एक उदाहरण है?`,
+options:[
+`क्रोमैटोग्राफी का उपयोग करके वर्णकों को पृथक करना`,
+`पनीर बनाने के लिए दूध में सिरका मिलाना`,
+`समुद्री जल से नमक निष्क्रषित करना`,
+`जल और बालू के मिश्रण से बालू का निस्यंदन करना`
+],
+answer:1,
+explanation:`दूध में सिरका मिलाने पर अम्ल के कारण दूध के प्रोटीन, विशेषकर केसिन, जमकर ठोस दही जैसे पदार्थ का निर्माण करते हैं। इस प्रक्रिया को स्कंदन (coagulation) कहते हैं। इसलिए पनीर/छेना बनाने में दूध में अम्ल मिलाना स्कंदन का दैनिक जीवन का उदाहरण है।`,
+exam:`स्कंदन में कोलॉइडी कण आपस में एकत्र होकर बड़े कण या फ्लॉक्स बनाते हैं और अलग होने लगते हैं। फिटकरी द्वारा जल में अशुद्धियों का स्कंदन भी एक महत्वपूर्ण उदाहरण है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कोलॉइडी विलयन का एक सही गुणधर्म है?`,
+options:[
+`विलेय कुछ समय बाद तल पर बैठ जाता है।`,
+`कण प्रकाश की किरण को प्रकीर्णित करते हैं।`,
+`विलेय के कण सूक्ष्मदर्शी से दिखाई नहीं देते हैं।`,
+`विलेय को निस्यंदन विधि द्वारा पृथक किया जा सकता है।`
+],
+answer:1,
+explanation:`कोलॉइड के कणों का आकार वास्तविक विलयन के कणों से बड़ा होता है और वे प्रकाश का प्रकीर्णन करते हैं। प्रकाश के इस प्रकीर्णन के कारण टिंडल प्रभाव दिखाई देता है।`,
+exam:`टिंडल प्रभाव कोलॉइड की पहचान का महत्वपूर्ण गुण है। कोलॉइडी कण सामान्य गुरुत्वीय परिस्थितियों में नीचे नहीं बैठते और साधारण निस्यंदन से अलग नहीं होते।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, कोलॉइडी विलयन का अभिलक्षण है?`,
+options:[
+`विलेय के कणों को नग्न आंखों से देखा जा सकता है।`,
+`विलेय के कण प्रकाश किरण-पुंज को प्रकीर्णित नहीं करते हैं।`,
+`विलेय के कण प्रकाश किरण-पुंज को प्रकीर्णित करते हैं लेकिन नीचे नहीं बैठते हैं।`,
+`स्थायी रहने पर विलेय के कण नीचे बैठ जाते हैं।`
+],
+answer:2,
+explanation:`कोलॉइडी कण प्रकाश को प्रकीर्णित करते हैं, इसलिए टिंडल प्रभाव दिखाई देता है। साथ ही ये इतने छोटे होते हैं कि सामान्य परिस्थितियों में गुरुत्वाकर्षण के कारण नीचे नहीं बैठते।`,
+exam:`विलयन में टिंडल प्रभाव नहीं होता, निलंबन में कण स्थिर होने पर बैठ सकते हैं, जबकि कोलॉइड में टिंडल प्रभाव होता है और कण स्थायी रूप से नीचे नहीं बैठते।`
+},
+
+{
+q:`कोलॉइडी विलयन एक प्रकार का __________ होता है।`,
+options:[
+`विषमांगी मिश्रण`,
+`समांगी मिश्रण`,
+`शुद्ध पदार्थ`,
+`वास्तविक विलयन`
+],
+answer:0,
+explanation:`कोलॉइड वास्तव में विषमांगी मिश्रण होता है, हालांकि इसके कण बहुत छोटे होने के कारण यह देखने में समांगी जैसा लग सकता है। इसमें परिक्षिप्त प्रावस्था और परिक्षेपण माध्यम होते हैं।`,
+exam:`मिश्रणों को सामान्यतः समांगी और विषमांगी में बाँटा जाता है। कोलॉइड विषमांगी मिश्रण है, जबकि वास्तविक विलयन समांगी मिश्रण होता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, कोलॉइड का एक उदाहरण नहीं है?`,
+options:[
+`दूध`,
+`शर्करा विलयन`,
+`रक्त`,
+`आइसक्रीम`
+],
+answer:1,
+explanation:`शर्करा जल में घुलकर वास्तविक विलयन बनाती है। इसके कण अत्यंत छोटे होते हैं और टिंडल प्रभाव नहीं दिखाते। दूध, रक्त और आइसक्रीम कोलॉइडी प्रणालियों के उदाहरण हैं।`,
+exam:`वास्तविक विलयन के उदाहरण: नमक जल, चीनी जल। कोलॉइड के उदाहरण: दूध, धुंध, धुआँ, जेली, रक्त और आइसक्रीम।`
+},
+
+{
+q:`एक विलयन में 80 ग्राम जल में 20 ग्राम लवण विलीन है। द्रव्यमान प्रतिशत के संदर्भ में विलयन की सांद्रता कितनी है?`,
+options:[
+`45%`,
+`20%`,
+`25%`,
+`30%`
+],
+answer:1,
+explanation:`द्रव्यमान प्रतिशत = (विलेय का द्रव्यमान / विलयन का कुल द्रव्यमान) × 100। यहाँ विलेय = 20 g और विलायक = 80 g, इसलिए विलयन का कुल द्रव्यमान = 100 g। अतः प्रतिशत = (20/100) × 100 = 20%।`,
+exam:`Formula: Mass % = (Mass of solute / Mass of solution) × 100. ध्यान रखें कि denominator में केवल विलायक का नहीं, बल्कि पूरे विलयन का द्रव्यमान लिया जाता है।`
+},
+
+{
+q:`यदि 25 g लवण को 175 g जल में विलीन किया जाता है, तो द्रव्यमान प्रतिशत में विलयन की सांद्रता क्या होगी?`,
+options:[
+`18%`,
+`12.5%`,
+`15%`,
+`10%`
+],
+answer:1,
+explanation:`कुल विलयन का द्रव्यमान = 25 + 175 = 200 g। द्रव्यमान प्रतिशत = (25/200) × 100 = 12.5%।`,
+exam:`Formula → Values → Calculation: Mass % = (25/200) × 100 = 12.5%. ऐसी गणना में विलेय और विलायक का द्रव्यमान पहले जोड़ना आवश्यक है।`
+},
+
+{
+q:`यदि आपको एक पारदर्शी द्रव पदार्थ दिया जाए जो विद्युत का संचालन कर सकता है और जिसमें केवल एक ही प्रकार के परमाणु हों, तो आप क्या निष्कर्ष निकाल सकते हैं?`,
+options:[
+`यह एक यौगिक है`,
+`यह एक तत्व है`,
+`यह एक विलयन है`,
+`यह एक विषमांगी मिश्रण है`
+],
+answer:1,
+explanation:`किसी तत्व में केवल एक ही प्रकार के परमाणु पाए जाते हैं। यदि दिए गए पदार्थ में केवल एक प्रकार के परमाणु हैं, तो वह तत्व है। पारदर्शिता या विद्युत चालकता अकेले पदार्थ को तत्व सिद्ध नहीं करती, लेकिन एक ही प्रकार के परमाणु होना तत्व की निर्णायक पहचान है।`,
+exam:`तत्व रासायनिक विधियों द्वारा सरल पदार्थों में नहीं तोड़े जा सकते। यौगिकों में दो या अधिक तत्व निश्चित अनुपात में रासायनिक रूप से जुड़े होते हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा मिश्रण, स्थूलदर्शी स्तर पर विषमांगी मिश्रण को सर्वोत्तम रूप में प्रदर्शित करता है?`,
+options:[
+`चीनी और जल`,
+`लवण और जल`,
+`रेत और जल`,
+`नाइट्रोजन और ऑक्सीजन`
+],
+answer:2,
+explanation:`रेत जल में नहीं घुलती और मिश्रण में अलग-अलग चरण या कण दिखाई दे सकते हैं। इसलिए रेत और जल विषमांगी मिश्रण है। चीनी-जल, लवण-जल और वायु जैसे गैसीय मिश्रण सामान्यतः समांगी होते हैं।`,
+exam:`विषमांगी मिश्रण में संघटन पूरे मिश्रण में समान नहीं होता। रेत-जल और तेल-जल इसके सामान्य उदाहरण हैं।`
+},
+
+{
+q:`एक विद्यार्थी बीकर में तेल और जल मिलाता है और दो पृथक परतें देखता है। इस अवलोकन के लिए कौन-सी व्याख्या सबसे उपयुक्त है?`,
+options:[
+`तेल और जल रासायनिक रूप से अभिक्रिया करके एक नया यौगिक बनाते हैं।`,
+`तेल और जल एक विषमांगी मिश्रण बनाते हैं क्योंकि उनके घटक समान रूप से वितरित नहीं होते हैं।`,
+`तेल, जल में पूरी तरह घुल जाता है और एक समान विलयन बनाता है।`,
+`तेल और जल एक ही अवस्था वाला समांगी मिश्रण बनाते हैं।`
+],
+answer:1,
+explanation:`तेल और जल अमिश्रणीय द्रव हैं। वे आपस में समान रूप से वितरित नहीं होते और अलग-अलग परतें बनाते हैं। इसलिए उनका मिश्रण विषमांगी होता है।`,
+exam:`दो अमिश्रणीय द्रवों को पृथक्कारी कीप द्वारा अलग किया जा सकता है। तेल-जल मिश्रण इसका महत्वपूर्ण उदाहरण है।`
+},
+
+{
+q:`एक रसायन विज्ञान शिक्षक, कॉपर सल्फेट को जल में विलीन करके एक मिश्रण तब तक तैयार करता है जब तक कि विलयन, स्पष्ट रूप से नीला न हो जाए। इसे समांगी मिश्रण क्यों माना जाता है?`,
+options:[
+`क्योंकि मिश्रण, विलोडन करने के बाद दो भिन्न-भिन्न परतें बनाता है`,
+`क्योंकि मिश्रण बिना किसी दृश्य पृथक्करण के एकल प्रावस्था के रूप में दिखाई देता है`,
+`कॉपर सल्फेट को निस्यंदन द्वारा आसानी से पृथक किया जा सकता है`,
+`क्योंकि कॉपर सल्फेट क्रिस्टल जल की सतह पर तैरते हैं`
+],
+answer:1,
+explanation:`जब कॉपर सल्फेट जल में पूरी तरह घुल जाता है, तो उसका संघटन पूरे विलयन में समान रहता है और कोई दृश्य अलग परत नहीं होती। इसलिए यह समांगी मिश्रण है।`,
+exam:`समांगी मिश्रण में प्रत्येक भाग का संघटन समान होता है। वास्तविक विलयन सामान्यतः एकल प्रावस्था का दिखाई देता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, समांगी मिश्रण का एक उदाहरण है?`,
+options:[
+`लोहे का बुरादा और सल्फर`,
+`रेत और जल`,
+`जल में विलीन शर्करा`,
+`तेल और जल`
+],
+answer:2,
+explanation:`शर्करा जल में घुलकर पूरे जल में समान रूप से वितरित हो जाती है और वास्तविक विलयन बनाती है। इसलिए यह समांगी मिश्रण है।`,
+exam:`समांगी मिश्रण के उदाहरण: नमक जल, चीनी जल, वायु और कई मिश्रधातुएँ।`
+},
+
+{
+q:`निम्नलिखित में से कौन-से विषमांगी मिश्रण का उदाहरण हैं? a) कोलॉइडी विलयन b) निलंबन c) विलयन`,
+options:[
+`केवल (b)`,
+`केवल (a)`,
+`(a) और (b)`,
+`केवल (c)`
+],
+answer:2,
+explanation:`कोलॉइड और निलंबन दोनों विषमांगी मिश्रण हैं। वास्तविक विलयन समांगी मिश्रण होता है। इसलिए (a) और (b) सही हैं।`,
+exam:`मिश्रणों की तुलना: वास्तविक विलयन = समांगी; कोलॉइड = विषमांगी; निलंबन = विषमांगी।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा संयोजन, जल में मिलाने पर एक समांगी मिश्रण बनाता है?`,
+options:[
+`लौह रेत और सल्फर`,
+`चीनी और रेत`,
+`तेल और जल`,
+`लवण और जल`
+],
+answer:3,
+explanation:`लवण जल में घुलकर एक वास्तविक विलयन बनाता है। लवण के कण पूरे जल में समान रूप से वितरित होते हैं, इसलिए मिश्रण समांगी होता है।`,
+exam:`किसी पदार्थ के जल में घुलने के बाद यदि मिश्रण एकल प्रावस्था और समान संघटन वाला हो, तो उसे समांगी विलयन कहा जाता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा मिश्रण समांगी नहीं है?`,
+options:[
+`सिरका`,
+`तेल और जल`,
+`वायु`,
+`लवण-जल`
+],
+answer:1,
+explanation:`तेल और जल अमिश्रणीय हैं और अलग-अलग परतें बनाते हैं। इसलिए यह समांगी नहीं बल्कि विषमांगी मिश्रण है।`,
+exam:`सिरका सामान्यतः जल में ऐसिटिक अम्ल का समांगी मिश्रण है। वायु भी विभिन्न गैसों का समांगी मिश्रण मानी जाती है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, विषमांगी मिश्रण है?`,
+options:[
+`रेत और लौह रेत`,
+`सिरका`,
+`वायु`,
+`लवण विलयन`
+],
+answer:0,
+explanation:`रेत और लौह रेत के कण अलग-अलग दिखाई दे सकते हैं और पूरे मिश्रण में संघटन समान नहीं होता। इसलिए यह विषमांगी मिश्रण है।`,
+exam:`विषमांगी मिश्रणों के उदाहरणों में रेत-जल, तेल-जल, मिट्टी तथा विभिन्न ठोस पदार्थों के असमान मिश्रण शामिल हैं।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, विषमांगी मिश्रण नहीं है?`,
+options:[
+`मृदा`,
+`नींबू पानी (पल्प सहित)`,
+`लौह रेत और सल्फर`,
+`ऐल्कोहॉल और जल`
+],
+answer:3,
+explanation:`ऐल्कोहॉल और जल आपस में मिलकर समांगी मिश्रण बनाते हैं। मृदा, पल्प सहित नींबू पानी और लौह रेत-सल्फर मिश्रण विषमांगी होते हैं।`,
+exam:`जल और ऐल्कोहॉल मिश्रण में दोनों द्रव आपस में मिश्रणीय हैं। ऐसे मिश्रणों को उपयुक्त परिस्थितियों में आसवन द्वारा अलग किया जा सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा विकल्प, विषमांगी मिश्रण को सबसे सटीक रूप से दर्शाता है?`,
+options:[
+`बालू और जल का विलयन`,
+`शर्करा और जल का विलयन`,
+`सोडियम क्लोराइड और जल`,
+`ऐसिटिक अम्ल और जल का विलयन`
+],
+answer:0,
+explanation:`बालू जल में नहीं घुलती और उसके कण अलग-अलग रहते हैं। इसलिए बालू और जल का मिश्रण विषमांगी है। अन्य विकल्प वास्तविक विलयन के उदाहरण हैं।`,
+exam:`सही शब्दावली: बालू + जल = निलंबन; शर्करा + जल = वास्तविक विलयन; NaCl + जल = वास्तविक विलयन।`
+},
+
+{
+q:`समांगी मिश्रणों के लिए निम्नलिखित में से कौन-सा कथन सत्य है?`,
+options:[
+`मिश्रण के घटकों को निस्यंदन द्वारा पृथककृत किया जा सकता है।`,
+`वे टिंडल प्रभाव को दर्शाते हैं।`,
+`जब विलेय को अविक्षुब्ध छोड़ दिया जाता है तो उसके कण नीचे बैठ जाते हैं।`,
+`विलयन के कण लघुतर होते हैं और उन्हें नग्न आंखों से नहीं देखा जा सकता है।`
+],
+answer:3,
+explanation:`वास्तविक विलयन समांगी होते हैं। उनके कण अत्यंत छोटे होते हैं और नग्न आंखों से दिखाई नहीं देते। वे निस्यंदन से अलग नहीं होते और सामान्यतः नीचे नहीं बैठते।`,
+exam:`वास्तविक विलयन के कणों का आकार सामान्यतः 1 nm से कम माना जाता है और वे टिंडल प्रभाव नहीं दिखाते।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, विलयन का गुण नहीं है?`,
+options:[
+`समान संघटन`,
+`पारदर्शी रूप`,
+`निस्यंदन द्वारा घटकों का पृथक्करण`,
+`विलेय का निःसादन न होना`
+],
+answer:2,
+explanation:`वास्तविक विलयन के विलेय कण बहुत छोटे होते हैं, इसलिए उन्हें साधारण निस्यंदन द्वारा पृथक नहीं किया जा सकता। इसलिए निस्यंदन द्वारा घटकों का पृथक्करण विलयन का गुण नहीं है।`,
+exam:`वास्तविक विलयन: समांगी, पारदर्शी, स्थायी, टिंडल प्रभाव नहीं, निस्यंदन से पृथक्करण नहीं।`
+},
+
+{
+q:`निम्नलिखित में से किसे, साधारण निस्यंदन द्वारा पृथक नहीं किया जा सकता है?`,
+options:[
+`रेत और जल का मिश्रण`,
+`निलंबन`,
+`कोलॉइडी विलयन`,
+`वास्तविक विलयन`
+],
+answer:2,
+explanation:`कोलॉइडी कण साधारण फिल्टर के छिद्रों से गुजर सकते हैं, इसलिए साधारण निस्यंदन द्वारा कोलॉइड को उसके घटकों में अलग नहीं किया जा सकता। रेत-जल तथा सामान्य निलंबन को निस्यंदन से अलग किया जा सकता है। वास्तविक विलयन के कण भी साधारण निस्यंदन से अलग नहीं होते।`,
+exam:`ध्यान दें: वास्तविक विलयन भी साधारण निस्यंदन से पृथक नहीं होता। इस प्रश्न में दिए गए विकल्पों में कोलॉइड को इच्छित उत्तर माना गया है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा एक शुद्ध पदार्थ है?`,
+options:[
+`केवल मिश्रण`,
+`यौगिक और तत्व दोनों`,
+`केवल तत्व`,
+`केवल यौगिक`
+],
+answer:1,
+explanation:`शुद्ध पदार्थों में तत्व और यौगिक दोनों शामिल होते हैं। तत्व एक ही प्रकार के परमाणुओं से बने होते हैं, जबकि यौगिक दो या अधिक तत्वों के रासायनिक संयोजन से बने शुद्ध पदार्थ होते हैं।`,
+exam:`Pure substance → Element + Compound. Mixture → दो या अधिक पदार्थों का भौतिक मिश्रण।`
+},
+
+{
+q:`एक विद्यार्थी जल में तब तक लवण मिलाता है जब तक कि और लवण विलीन होना बंद न हो जाए तथा कुछ लवण बिना विलीन हुए नीचे बैठ जाए। यह क्या दर्शाता है?`,
+options:[
+`जल में लवण की विलेयता बहुत कम होती है`,
+`निर्मित विलयन संतृप्त लवण विलयन है`,
+`निर्मित विलयन एक कोलॉइडी विलयन है`,
+`लवण, जल में पूर्णतः अविलेय है`
+],
+answer:1,
+explanation:`जब निश्चित तापमान पर जल और अधिक लवण नहीं घोल सकता और अतिरिक्त लवण नीचे बचा रहता है, तो घोल संतृप्त हो गया है।`,
+exam:`संतृप्त विलयन में दिए गए तापमान पर और अधिक विलेय घोलने की क्षमता नहीं होती। तापमान बदलने पर विलेयता बदल सकती है।`
+},
+
+{
+q:`द्रवों में ठोसों और गैसों की विलेयता के संबंध में निम्नलिखित में से कौन-सा कथन सामान्यतः सही है?`,
+options:[
+`तापमान में वृद्धि के साथ द्रवों में ठोसों की विलेयता में वृद्धि हो जाती है, जबकि द्रवों में गैसों की विलेयता में कमी हो जाती है`,
+`तापमान में वृद्धि के साथ द्रवों में ठोसों और गैसों दोनों की विलेयता में वृद्धि हो जाती है`,
+`तापमान में वृद्धि के साथ द्रवों में ठोसों और गैसों दोनों की विलेयता में कमी हो जाती है`,
+`तापमान में वृद्धि के साथ द्रवों में ठोसों की विलेयता में कमी हो जाती है, जबकि द्रवों में गैसों की विलेयता में वृद्धि हो जाती है`
+],
+answer:0,
+explanation:`अधिकांश ठोस पदार्थों की द्रवों में विलेयता तापमान बढ़ाने पर बढ़ती है, जबकि गैसों की द्रवों में विलेयता सामान्यतः तापमान बढ़ाने पर घटती है। इसलिए A सामान्य प्रवृत्ति को दर्शाता है।`,
+exam:`गैसों की विलेयता पर दाब का भी प्रभाव पड़ता है। दाब बढ़ाने पर सामान्यतः द्रव में गैस की विलेयता बढ़ती है।`
+},
+
+{
+q:`एक वैज्ञानिक, रेत और आयोडीन के मिश्रण से शुद्ध ठोस आयोडीन प्राप्त करना चाहता है। इसके लिए उसे तापमान परिवर्तन की किस प्रक्रिया का उपयोग करना होगा?`,
+options:[
+`गलन`,
+`ऊर्ध्वपातन`,
+`संघनन`,
+`हिमीकरण`
+],
+answer:1,
+explanation:`आयोडीन ऊर्ध्वपातित हो सकता है। गर्म करने पर आयोडीन ठोस से सीधे वाष्प में बदलता है और ठंडा करने पर पुनः ठोस आयोडीन प्राप्त किया जा सकता है। रेत पीछे रह जाती है।`,
+exam:`ऊर्ध्वपातन: ठोस → सीधे गैस और गैस → सीधे ठोस। कपूर, आयोडीन, अमोनियम क्लोराइड आदि इसके उदाहरण हैं।`
+},
+
+{
+q:`दो द्रवों के लिए पृथक्कारी कीप (separating funnel) का उपयोग करने से पूर्व किस कारक पर विचार किया जाना चाहिए?`,
+options:[
+`द्रवों के रंग भिन्न होने चाहिए`,
+`द्रवों की गंध तेज होनी चाहिए`,
+`द्रव अमिश्रणीय होने चाहिए`,
+`दोनों द्रवों का क्वथनांक उच्च होना चाहिए`
+],
+answer:2,
+explanation:`पृथक्कारी कीप का उपयोग दो अमिश्रणीय द्रवों को उनकी अलग-अलग परतों के आधार पर अलग करने के लिए किया जाता है। उदाहरण: तेल और जल।`,
+exam:`Separating funnel → immiscible liquids. Distillation → सामान्यतः अलग क्वथनांकों वाले मिश्रणीय द्रवों को अलग करने में उपयोगी।`
+},
+
+{
+q:`अपकेंद्रण के संदर्भ में, निम्नलिखित में से कौन-सा कथन गलत है?`,
+options:[
+`प्रयोगशाला में रक्त के घटकों को पृथक करने के लिए अपकेंद्रण अनुप्रयोग किया जा सकता है।`,
+`केवल समान कण आकार वाले ठोस मिश्रणों को अपकेंद्रण के माध्यम से पृथक किया जा सकता है।`,
+`मिश्रण में भिन्न घनत्व वाले घटकों को पृथक करने के लिए अपकेंद्रण का उपयोग किया जाता है।`,
+`अपकेंद्रण में मिश्रण के घटकों को पृथक करने के लिए उसे तीव्र गति से घुमाना शामिल है।`
+],
+answer:1,
+explanation:`अपकेंद्रण में मिश्रण को तेजी से घुमाया जाता है। विभिन्न घनत्व वाले घटक अलग-अलग व्यवहार करते हैं और अलग किए जा सकते हैं। इसलिए केवल समान कण आकार वाले ठोस मिश्रणों तक इसे सीमित करना गलत है।`,
+exam:`अपकेंद्रण का उपयोग दूध से क्रीम अलग करने, रक्त के घटकों को अलग करने और प्रयोगशाला में सूक्ष्म कणों को अलग करने में किया जाता है।`
+},
+
+{
+q:`एक औद्योगिक प्रक्रिया में, जब एक हाइड्रोकार्बन का हैलोजनीकरण किया जाता है, तो उत्पादों का मिश्रण प्राप्त होता है। एकल-प्रतिस्थापी उत्पाद को अलग करने के लिए किस विधि का उपयोग किया जा सकता है?`,
+options:[
+`दहन`,
+`आसवन`,
+`निस्यंदन`,
+`अवक्षेपण`
+],
+answer:1,
+explanation:`हैलोजनीकरण से प्राप्त कार्बनिक उत्पादों के मिश्रण में अलग-अलग यौगिकों के भौतिक गुण, जैसे क्वथनांक, अलग हो सकते हैं। उपयुक्त क्वथनांक अंतर होने पर आसवन द्वारा उन्हें अलग किया जा सकता है।`,
+exam:`आसवन का आधार मुख्यतः द्रवों के क्वथनांक में अंतर है। मिश्रण को गर्म करके वाष्पित और फिर संघनित किया जाता है।`
+},
+
+{
+q:`एक शिक्षक तीन मिश्रण तैयार करता है। 1. जल में विलीन शर्करा 2. जल में विलीन लवण 3. जल और बालू का मिश्रण निम्नलिखित में से कौन-सा, निलंबन (suspension) है?`,
+options:[
+`केवल शर्करा और जल का मिश्रण`,
+`लवण और जल का मिश्रण`,
+`शर्करा-जल का मिश्रण और बालू-जल का मिश्रण दोनों`,
+`केवल बालू और जल का मिश्रण`
+],
+answer:3,
+explanation:`शर्करा-जल और लवण-जल वास्तविक विलयन हैं क्योंकि शर्करा तथा लवण घुल जाते हैं। बालू जल में नहीं घुलती और बड़े कणों के रूप में रहती है, इसलिए बालू-जल निलंबन है।`,
+exam:`निलंबन के कण बड़े होते हैं, स्थिर रखने पर नीचे बैठते हैं और सामान्य निस्यंदन द्वारा अलग किए जा सकते हैं।`
+},
+
+{
+q:`कौन-सा कथन, निलंबन और विलयन में कणों के आकार की सही तुलना करता है?`,
+options:[
+`निलंबन के कणों का आकार आणविक होता है जबकि विलयन के कणों का आकार परमाण्विक होता है।`,
+`निलंबन के कण, विलयन के कणों से बड़े होते हैं।`,
+`दोनों के कणों का आकार बराबर होता है।`,
+`निलंबन के कण, विलयन के कणों से छोटे होते हैं।`
+],
+answer:1,
+explanation:`निलंबन के कण वास्तविक विलयन के कणों की तुलना में काफी बड़े होते हैं। यही कारण है कि निलंबन के कण दिखाई दे सकते हैं, नीचे बैठ सकते हैं और निस्यंदन द्वारा अलग किए जा सकते हैं।`,
+exam:`कण आकार का सामान्य क्रम: निलंबन > कोलॉइड > वास्तविक विलयन।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, निलंबन का एक विशिष्ट अभिलक्षण है?`,
+options:[
+`कण इतने छोटे होते हैं कि स्थिर होने पर नीचे नहीं बैठते हैं।`,
+`यह एक समांगी मिश्रण है जिसमें विलेय एकसमान रूप से विलीन हो जाता है।`,
+`निलंबन टिंडल प्रभाव दिखाता है लेकिन पारदर्शी होता है।`,
+`कणों को नग्न नेत्रों से देखा जा सकता है और स्थिर होने पर वे नीचे बैठ जाते हैं।`
+],
+answer:3,
+explanation:`निलंबन विषमांगी मिश्रण है। इसके कण अपेक्षाकृत बड़े होते हैं, नग्न आंखों से दिखाई दे सकते हैं और मिश्रण को स्थिर छोड़ने पर गुरुत्वाकर्षण के कारण नीचे बैठ जाते हैं।`,
+exam:`निलंबन को निस्यंदन द्वारा अलग किया जा सकता है। पंकिल जल निलंबन का सामान्य उदाहरण है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कोलॉइडी विलयन का गुण है?`,
+options:[
+`कण वास्तविक विलयनों से छोटे होते हैं`,
+`कण स्थिर रहने पर नीचे नहीं बैठते हैं`,
+`कणों को नग्न आंखों से देखा जा सकता है`,
+`घटकों को निस्यंदन द्वारा पृथक किया जा सकता है`
+],
+answer:1,
+explanation:`कोलॉइडी कण वास्तविक विलयन के कणों से बड़े, लेकिन निलंबन के कणों से छोटे होते हैं। वे सामान्य परिस्थितियों में नीचे नहीं बैठते और टिंडल प्रभाव दिखाते हैं।`,
+exam:`कोलॉइड के कण साधारण निस्यंदन से अलग नहीं होते। उदाहरण: दूध, धुंध, धुआँ।`
+},
+
+{
+q:`जब हम निलंबन (suspension) को विलोडित करते हैं, तो उसके कणों में क्या घटित होता है?`,
+options:[
+`वे अस्थायी रूप से मिश्रित होते हैं और फिर नीचे बैठ जाते हैं`,
+`वे तल में ही रहते हैं`,
+`वे एक नया पदार्थ बनाते हैं`,
+`वे स्थायी रूप से विलीन हो जाते हैं`
+],
+answer:0,
+explanation:`विलोडित करने पर निलंबन के कण पूरे माध्यम में अस्थायी रूप से फैल जाते हैं। विलोडन बंद करने के बाद वे गुरुत्वाकर्षण के कारण धीरे-धीरे नीचे बैठ जाते हैं।`,
+exam:`निलंबन स्थायी रूप से घुला हुआ नहीं होता। settling इसका महत्वपूर्ण पहचान-गुण है।`
+},
+
+{
+q:`तीन मिश्रण दिए गए हैं: पंकिल जल, शर्करा विलयन और दूध। इनमें से कौन-सा एक निलंबन है?`,
+options:[
+`शर्करा विलयन`,
+`दूध`,
+`पंकिल शर्करा`,
+`पंकिल जल`
+],
+answer:3,
+explanation:`पंकिल जल में मिट्टी या अन्य ठोस कण जल में निलंबित रहते हैं और कुछ समय बाद नीचे बैठ जाते हैं। इसलिए यह निलंबन है। शर्करा जल वास्तविक विलयन और दूध कोलॉइड है।`,
+exam:`तीन प्रमुख प्रणालियाँ: शर्करा-जल = वास्तविक विलयन; दूध = कोलॉइड; पंकिल जल = निलंबन।`
+},
+
+{
+q:`निलंबन, विलयन और कोलॉइड में कणों के आमाप का सही घटता क्रम क्या है?`,
+options:[
+`निलंबन > विलयन > कोलॉइड`,
+`निलंबन > कोलॉइड > विलयन`,
+`कोलॉइड > निलंबन > विलयन`,
+`विलयन > कोलॉइड > निलंबन`
+],
+answer:1,
+explanation:`कणों का आकार सबसे बड़ा निलंबन में, उसके बाद कोलॉइड में और सबसे छोटा वास्तविक विलयन में होता है। इसलिए सही घटता क्रम Suspension > Colloid > Solution है।`,
+exam:`याद रखने का क्रम: Suspension → Colloid → True Solution = बड़े से छोटे कण।`
+},
+
+{
+q:`कोलॉइडी विलयन के दो मुख्य घटक क्या हैं?`,
+options:[
+`विलेय प्रावस्था और विलायक माध्यम`,
+`परिक्षिप्त प्रावस्था और परिक्षेपण माध्यम`,
+`धातु प्रावस्था और अधातु माध्यम`,
+`अभिकारक प्रावस्था और उत्पाद माध्यम`
+],
+answer:1,
+explanation:`कोलॉइड में एक घटक सूक्ष्म कणों के रूप में फैला होता है, जिसे परिक्षिप्त प्रावस्था कहते हैं। जिस माध्यम में ये कण फैले होते हैं उसे परिक्षेपण माध्यम कहते हैं।`,
+exam:`उदाहरण: दूध में वसा की बूंदें परिक्षिप्त प्रावस्था और जल परिक्षेपण माध्यम के रूप में माना जा सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, निलंबन (suspension) का एक अभिलाक्षणिक गुण है?`,
+options:[
+`यह एक वास्तविक विलयन है`,
+`इसके घटकों को पृथक नहीं किया जा सकता है`,
+`यह केवल नीली ज्वाला के साथ जलता है`,
+`इसके कणों को नग्न आंखों से देखा जा सकता है`
+],
+answer:3,
+explanation:`निलंबन में कण अपेक्षाकृत बड़े होते हैं और कई परिस्थितियों में उन्हें नग्न आंखों से देखा जा सकता है। ये स्थिर होने पर नीचे बैठते हैं और निस्यंदन द्वारा अलग किए जा सकते हैं।`,
+exam:`निलंबन = विषमांगी मिश्रण + बड़े कण + settling + filtration द्वारा separation।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, दैनिक जीवन में पाए जाने वाले निलंबन का एक सामान्य उदाहरण है?`,
+options:[
+`पंकिल जल`,
+`दूध`,
+`स्टार्च विलयन`,
+`लवण जल`
+],
+answer:0,
+explanation:`पंकिल जल में मिट्टी के ठोस कण जल में फैले होते हैं। कुछ समय बाद ये कण नीचे बैठ जाते हैं, इसलिए पंकिल जल निलंबन है।`,
+exam:`दूध को सामान्यतः कोलॉइड माना जाता है, जबकि लवण जल वास्तविक विलयन है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा मिश्रण टिंडल प्रभाव प्रदर्शित करता है, परंतु स्थिर रखने पर इसके कण नीचे बैठ जाते हैं?`,
+options:[
+`यौगिक (Compound)`,
+`विलयन (Solution)`,
+`निलंबन (Suspension)`,
+`कोलॉइड (Colloid)`
+],
+answer:2,
+explanation:`निलंबन के बड़े कण प्रकाश को प्रकीर्णित कर सकते हैं और स्थिर रखने पर गुरुत्वाकर्षण के कारण नीचे बैठ जाते हैं। इसलिए दिए गए विकल्पों में निलंबन सही है।`,
+exam:`कोलॉइड में टिंडल प्रभाव होता है लेकिन सामान्य परिस्थितियों में कण नीचे नहीं बैठते। वास्तविक विलयन टिंडल प्रभाव नहीं दिखाता।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा कथन, निलंबन (suspensions) के संदर्भ में सत्य है?`,
+options:[
+`विलेय के कण स्थिर रहने पर नीचे बैठ जाते हैं।`,
+`ये पारदर्शी होते हैं।`,
+`ये प्रकाश का प्रकीर्णन नहीं करते हैं।`,
+`विलेय पूर्णतया घुल जाता है।`
+],
+answer:0,
+explanation:`निलंबन के कण बड़े होते हैं और गुरुत्वाकर्षण के प्रभाव से मिश्रण को स्थिर छोड़ने पर नीचे बैठ जाते हैं। यही suspension की प्रमुख विशेषता है।`,
+exam:`निलंबन पारदर्शी नहीं होता, इसके कण प्रकाश को प्रकीर्णित कर सकते हैं और ये पूर्ण रूप से घुले हुए नहीं होते।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा निलंबन का एक गुणधर्म है?`,
+options:[
+`कण 1 nm से छोटे होते हैं`,
+`समांगी मिश्रण होता है`,
+`निस्यंदन द्वारा उन्हें पृथक किया जा सकता है`,
+`कण नीचे नहीं बैठते हैं`
+],
+answer:2,
+explanation:`निलंबन के कण बड़े होते हैं और सामान्य निस्यंदन द्वारा उन्हें द्रव माध्यम से अलग किया जा सकता है। इसलिए विकल्प C सही है।`,
+exam:`वास्तविक विलयन → निस्यंदन से पृथक नहीं; कोलॉइड → साधारण निस्यंदन से पृथक नहीं; निलंबन → निस्यंदन से पृथक किया जा सकता है।`
+},
+
+{
+q:`निम्नलिखित में से कौन-सा, वास्तविक विलयन का एक अभिलक्षण है?`,
+options:[
+`विलेय कण तेजी से नीचे बैठ जाते हैं`,
+`विलेय कणों को निस्यंदन द्वारा आसानी से पृथक किया जा सकता है`,
+`विलेय कणों को नग्न आंखों से देखा जा सकता है`,
+`विलेय कण, विलयन में समान रूप से वितरित होते हैं`
+],
+answer:3,
+explanation:`वास्तविक विलयन समांगी होता है और विलेय के अत्यंत छोटे कण पूरे विलायक में समान रूप से वितरित रहते हैं। वे नीचे नहीं बैठते और सामान्य निस्यंदन से अलग नहीं होते।`,
+exam:`True solution के कण सामान्यतः 1 nm से छोटे होते हैं। वे पारदर्शी होते हैं और टिंडल प्रभाव नहीं दिखाते।`
+}
+
+];
+
+/* =========================================================
+   STATE
+========================================================= */
+
+const totalQuestions = questions.length;
+
+let answers = new Array(totalQuestions).fill(null);
+let review = new Array(totalQuestions).fill(false);
+
+let currentQuestion = 0;
+let submitted = false;
+
+let timeLeft = 30 * 60;
+let timerInterval = null;
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const questionNumberEl = document.getElementById("questionNumber");
+const questionTextEl = document.getElementById("questionText");
+const optionListEl = document.getElementById("optionList");
+const paletteGridEl = document.getElementById("paletteGrid");
+const previousBtn = document.getElementById("previousBtn");
+
+const palettePanel = document.getElementById("palettePanel");
+const paletteOverlay = document.getElementById("paletteOverlay");
+
+const submitModal = document.getElementById("submitModal");
+
+const resultSection = document.getElementById("resultSection");
+const solutionsContainer = document.getElementById("solutionsContainer");
+
+/* =========================================================
+   INIT
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll(".info-chip strong")[0].textContent = totalQuestions;
+
+    document.querySelector(".solutions-title").textContent =
+        `📚 सभी ${totalQuestions} प्रश्नों के Systematic Solutions`;
+
+    document.getElementById("modalUnanswered").textContent = totalQuestions;
+
+    renderPalette();
+    renderQuestion();
+    startTimer();
+
+});
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion(){
+
+    const q = questions[currentQuestion];
+
+    questionNumberEl.textContent =
+        `Question No. ${currentQuestion + 1}`;
+
+    questionTextEl.textContent = q.q;
+
+    optionListEl.innerHTML = "";
+
+    q.options.forEach((option,index) => {
+
+        const label = document.createElement("label");
+
+        label.className = "option";
+
+        if(answers[currentQuestion] === index){
+            label.classList.add("selected");
+        }
+
+        label.innerHTML = `
+            <input
+                type="radio"
+                name="questionOption"
+                value="${index}"
+                ${answers[currentQuestion] === index ? "checked" : ""}
+            >
+            <span class="option-letter">${String.fromCharCode(65 + index)}.</span>
+            <span class="option-text">${escapeHTML(option)}</span>
+        `;
+
+        label.addEventListener("click", () => {
+            selectAnswer(index);
+        });
+
+        optionListEl.appendChild(label);
+
+    });
+
+    previousBtn.disabled = currentQuestion === 0;
+
+    renderPalette();
+}
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+function selectAnswer(index){
+
+    if(submitted) return;
+
+    answers[currentQuestion] = index;
+
+    /*
+      Selecting an answer clears Review status.
+      This matches the requested state behavior.
+    */
+    review[currentQuestion] = false;
+
+    renderQuestion();
+}
+
+/* =========================================================
+   CLEAR
+========================================================= */
+
+function clearResponse(){
+
+    if(submitted) return;
+
+    answers[currentQuestion] = null;
+    review[currentQuestion] = false;
+
+    renderQuestion();
+}
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+function previousQuestion(){
+
+    if(submitted) return;
+
+    if(currentQuestion > 0){
+        currentQuestion--;
+        renderQuestion();
+    }
+}
+
+/* =========================================================
+   SAVE & NEXT
+========================================================= */
+
+function saveAndNext(){
+
+    if(submitted) return;
+
+    review[currentQuestion] = false;
+
+    if(currentQuestion < totalQuestions - 1){
+        currentQuestion++;
+        renderQuestion();
+    }else{
+        renderQuestion();
+    }
+}
+
+/* =========================================================
+   MARK FOR REVIEW & NEXT
+========================================================= */
+
+function markReviewNext(){
+
+    if(submitted) return;
+
+    review[currentQuestion] = true;
+
+    if(currentQuestion < totalQuestions - 1){
+        currentQuestion++;
+    }
+
+    renderQuestion();
+}
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function renderPalette(){
+
+    paletteGridEl.innerHTML = "";
+
+    for(let i=0;i<totalQuestions;i++){
+
+        const button = document.createElement("button");
+
+        button.className = "palette-btn";
+
+        button.textContent = i + 1;
+
+        const isAnswered = answers[i] !== null;
+        const isReview = review[i];
+
+        if(isAnswered && isReview){
+            button.classList.add("review-answered");
+        }else if(isAnswered){
+            button.classList.add("answered");
+        }else if(isReview){
+            button.classList.add("review");
+        }
+
+        if(i === currentQuestion){
+            button.classList.add("current");
+        }
+
+        button.onclick = () => {
+            currentQuestion = i;
+            renderQuestion();
+            closePalette();
+        };
+
+        paletteGridEl.appendChild(button);
+    }
+}
+
+/* =========================================================
+   PALETTE DRAWER
+========================================================= */
+
+function openPalette(){
+
+    palettePanel.classList.add("open");
+
+    if(window.innerWidth <= 900){
+        paletteOverlay.classList.add("show");
+    }
+}
+
+function closePalette(){
+
+    palettePanel.classList.remove("open");
+    paletteOverlay.classList.remove("show");
+}
+
+/* =========================================================
+   SUBMIT MODAL
+========================================================= */
+
+function openSubmitModal(){
+
+    if(submitted) return;
+
+    const answered = answers.filter(a => a !== null).length;
+    const unanswered = totalQuestions - answered;
+
+    document.getElementById("modalAnswered").textContent = answered;
+    document.getElementById("modalUnanswered").textContent = unanswered;
+
+    submitModal.classList.add("show");
+}
+
+function closeSubmitModal(){
+    submitModal.classList.remove("show");
+}
+
+/* =========================================================
+   SUBMIT TEST
+========================================================= */
+
+function submitTest(){
+
+    if(submitted) return;
+
+    submitted = true;
+
+    stopTimer();
+    closeSubmitModal();
+    closePalette();
+
+    calculateResult();
+
+    document.querySelector(".exam-layout").style.display = "none";
+    document.querySelector(".info-bar").style.display = "none";
+
+    resultSection.style.display = "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+function calculateResult(){
+
+    let correct = 0;
+    let wrong = 0;
+    let unanswered = 0;
+
+    answers.forEach((answer,index) => {
+
+        if(answer === null){
+            unanswered++;
+        }else if(answer === questions[index].answer){
+            correct++;
+        }else{
+            wrong++;
+        }
+
+    });
+
+    const score = correct - (wrong / 3);
+
+    const attempted = correct + wrong;
+
+    const accuracy = attempted === 0
+        ? 0
+        : (correct / attempted) * 100;
+
+    document.getElementById("finalScore").textContent =
+        formatScore(score);
+
+    document.getElementById("correctCount").textContent = correct;
+
+    document.getElementById("wrongCount").textContent = wrong;
+
+    document.getElementById("unansweredCount").textContent =
+        unanswered;
+
+    document.getElementById("accuracy").textContent =
+        accuracy.toFixed(2) + "%";
+
+    generateSolutions();
+}
+
+function formatScore(score){
+
+    if(Number.isInteger(score)){
+        return score.toString();
+    }
+
+    return score.toFixed(2);
+}
+
+/* =========================================================
+   SOLUTIONS
+========================================================= */
+
+function generateSolutions(){
+
+    solutionsContainer.innerHTML = "";
+
+    questions.forEach((q,index) => {
+
+        const userAnswer = answers[index];
+
+        let statusClass = "unanswered";
+        let statusText = "अनुत्तरित";
+
+        if(userAnswer !== null){
+
+            if(userAnswer === q.answer){
+                statusClass = "correct";
+                statusText = "✓ सही उत्तर";
+            }else{
+                statusClass = "wrong";
+                statusText = "✗ गलत उत्तर";
+            }
+
+        }
+
+        const correctLetter =
+            String.fromCharCode(65 + q.answer);
+
+        const correctOption =
+            `${correctLetter}. ${q.options[q.answer]}`;
+
+        let userText = "";
+
+        if(userAnswer === null){
+            userText = "कोई उत्तर चयन नहीं किया गया";
+        }else{
+            const userLetter =
+                String.fromCharCode(65 + userAnswer);
+
+            userText =
+                `${userLetter}. ${q.options[userAnswer]}`;
+        }
+
+        const div = document.createElement("div");
+
+        div.className = `solution ${statusClass}`;
+
+        div.innerHTML = `
+            <div class="solution-q">
+                प्रश्न ${index + 1}
+            </div>
+
+            <div class="solution-question">
+                <strong>Question:</strong><br>
+                ${escapeHTML(q.q)}
+            </div>
+
+            <div class="user-status ${getStatusClass(statusClass)}">
+                ${statusText}
+            </div>
+
+            <div class="solution-question">
+                <strong>आपका उत्तर:</strong>
+                ${escapeHTML(userText)}
+            </div>
+
+            <div class="correct-answer">
+                <strong>सही उत्तर:</strong><br>
+                ${escapeHTML(correctOption)}
+            </div>
+
+            <div class="solution-explanation">
+                <strong>समाधान:</strong><br>
+                ${escapeHTML(q.explanation)}
+            </div>
+
+            <div class="exam-point">
+                <strong>💡 Exam Point:</strong><br>
+                ${escapeHTML(q.exam)}
+            </div>
+        `;
+
+        solutionsContainer.appendChild(div);
+
+    });
+}
+
+function getStatusClass(status){
+
+    if(status === "correct"){
+        return "status-correct";
+    }
+
+    if(status === "wrong"){
+        return "status-wrong";
+    }
+
+    return "status-unanswered";
+}
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function startTimer(){
+
+    updateTimer();
+
+    timerInterval = setInterval(() => {
+
+        if(submitted){
+            stopTimer();
+            return;
+        }
+
+        timeLeft--;
+
+        updateTimer();
+
+        if(timeLeft <= 0){
+
+            timeLeft = 0;
+
+            updateTimer();
+
+            stopTimer();
+
+            autoSubmit();
+
+        }
+
+    },1000);
+}
+
+function stopTimer(){
+
+    if(timerInterval !== null){
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+}
+
+function updateTimer(){
+
+    const minutes =
+        Math.floor(timeLeft / 60)
+        .toString()
+        .padStart(2,"0");
+
+    const seconds =
+        (timeLeft % 60)
+        .toString()
+        .padStart(2,"0");
+
+    document.getElementById("timer").textContent =
+        `${minutes}:${seconds}`;
+
+    const timerBox =
+        document.getElementById("timerBox");
+
+    if(timeLeft <= 300){
+        timerBox.classList.add("warning");
+    }else{
+        timerBox.classList.remove("warning");
+    }
+}
+
+function autoSubmit(){
+
+    if(submitted) return;
+
+    submitted = true;
+
+    calculateResult();
+
+    document.querySelector(".exam-layout").style.display = "none";
+    document.querySelector(".info-bar").style.display = "none";
+
+    resultSection.style.display = "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+/* =========================================================
+   KEYBOARD SUPPORT
+========================================================= */
+
+document.addEventListener("keydown",(event)=>{
+
+    if(submitted) return;
+
+    /*
+      Do not interfere while typing in a form field.
+    */
+    const tag = document.activeElement?.tagName;
+
+    if(tag === "INPUT" ||
+       tag === "TEXTAREA" ||
+       tag === "SELECT"){
+        return;
+    }
+
+    if(event.key === "ArrowRight"){
+
+        event.preventDefault();
+
+        saveAndNext();
+    }
+
+    else if(event.key === "ArrowLeft"){
+
+        event.preventDefault();
+
+        previousQuestion();
+    }
+
+    else if(event.key === "Escape"){
+
+        if(submitModal.classList.contains("show")){
+            closeSubmitModal();
+        }else{
+            closePalette();
+        }
+
+    }
+
+});
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+/* =========================================================
+   MODAL OUTSIDE CLICK
+========================================================= */
+
+submitModal.addEventListener("click",(event)=>{
+
+    if(event.target === submitModal){
+        closeSubmitModal();
+    }
+
+});
+
+/* =========================================================
+   BACK BUTTON / MOBILE SAFETY
+========================================================= */
+
+window.addEventListener("resize",()=>{
+
+    if(window.innerWidth > 900){
+        paletteOverlay.classList.remove("show");
+        palettePanel.classList.remove("open");
+    }
+
+});
+
+</script>
+
+</body>
+</html>
