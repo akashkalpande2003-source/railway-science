@@ -1,0 +1,3730 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Railway Science | Class 9 Science Chapter 7 | कार्य, ऊर्जा एवं सरल मशीनें
+</title>
+
+
+<style>
+
+/* =========================================================
+   BASIC RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root{
+
+    --navy:#082b5c;
+    --blue:#0d6efd;
+    --light-blue:#eaf4ff;
+
+    --orange:#f59e0b;
+    --light-orange:#fff5df;
+
+    --green:#16834b;
+    --light-green:#eaf8f0;
+
+    --red:#c62828;
+    --light-red:#fff0f0;
+
+    --purple:#6840a5;
+
+    --bg:#f3f6fb;
+    --white:#ffffff;
+
+    --text:#182235;
+    --muted:#657184;
+
+    --border:#dce4ef;
+
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:
+        "Noto Sans Devanagari",
+        "Nirmala UI",
+        "Mangal",
+        Arial,
+        sans-serif;
+
+    line-height:1.75;
+
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container{
+
+    width:min(1120px,100%);
+
+    margin:auto;
+
+    padding:18px;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+
+    background:
+        linear-gradient(
+            135deg,
+            #082b5c,
+            #0d6efd
+        );
+
+    color:white;
+
+    border-radius:24px;
+
+    padding:30px 25px;
+
+    margin-bottom:18px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(8,43,92,.18);
+
+}
+
+.hero-tag{
+
+    display:inline-block;
+
+    background:
+        rgba(255,255,255,.15);
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    padding:
+        5px 13px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:9px;
+
+}
+
+.hero h1{
+
+    font-size:
+        clamp(25px,4vw,39px);
+
+    line-height:1.3;
+
+    margin-bottom:8px;
+
+}
+
+.hero p{
+
+    font-size:15px;
+
+    opacity:.92;
+
+}
+
+
+/* =========================================================
+   TABLE OF CONTENTS
+========================================================= */
+
+.toc{
+
+    position:sticky;
+
+    top:8px;
+
+    z-index:100;
+
+    background:white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:16px;
+
+    padding:11px 14px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(20,40,70,.07);
+
+}
+
+.toc a{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    color:var(--navy);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    margin:
+        2px 8px
+        2px 0;
+
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+
+    margin:25px 0;
+
+}
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--navy);
+
+    font-size:25px;
+
+    margin:
+        28px 0
+        14px;
+
+}
+
+.section-title-bar{
+
+    width:8px;
+
+    height:31px;
+
+    background:var(--orange);
+
+    border-radius:10px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+
+    background:white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin:15px 0;
+
+    box-shadow:
+        0 7px 23px
+        rgba(20,40,70,.055);
+
+}
+
+.card h3{
+
+    color:var(--navy);
+
+    font-size:19px;
+
+    margin-bottom:8px;
+
+}
+
+.card h4{
+
+    color:var(--purple);
+
+    font-size:17px;
+
+    margin:
+        15px 0
+        6px;
+
+}
+
+.card p{
+
+    margin:
+        5px 0;
+
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+ul,
+ol{
+
+    padding-left:25px;
+
+}
+
+li{
+
+    margin:5px 0;
+
+}
+
+
+/* =========================================================
+   HIGHLIGHT BOX
+========================================================= */
+
+.highlight{
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff8e7,
+            #fffdf8
+        );
+
+    border-left:
+        5px solid
+        var(--orange);
+
+    padding:
+        13px 16px;
+
+    border-radius:10px;
+
+    margin:
+        12px 0;
+
+}
+
+
+/* =========================================================
+   BLUE BOX
+========================================================= */
+
+.blue-box{
+
+    background:
+        var(--light-blue);
+
+    border-left:
+        5px solid
+        var(--blue);
+
+    padding:
+        13px 16px;
+
+    border-radius:10px;
+
+    margin:
+        12px 0;
+
+}
+
+
+/* =========================================================
+   GREEN BOX
+========================================================= */
+
+.green-box{
+
+    background:
+        var(--light-green);
+
+    border-left:
+        5px solid
+        var(--green);
+
+    padding:
+        13px 16px;
+
+    border-radius:10px;
+
+    margin:
+        12px 0;
+
+}
+
+
+/* =========================================================
+   RED BOX
+========================================================= */
+
+.red-box{
+
+    background:
+        var(--light-red);
+
+    border-left:
+        5px solid
+        var(--red);
+
+    padding:
+        13px 16px;
+
+    border-radius:10px;
+
+    margin:
+        12px 0;
+
+}
+
+
+/* =========================================================
+   FORMULA BOX
+========================================================= */
+
+.formula{
+
+    background:#0e2342;
+
+    color:white;
+
+    border-radius:14px;
+
+    padding:
+        14px 16px;
+
+    margin:
+        13px 0;
+
+    text-align:center;
+
+    font-size:19px;
+
+    font-weight:700;
+
+    overflow-x:auto;
+
+}
+
+
+/* =========================================================
+   FORMULA TITLE
+========================================================= */
+
+.formula-title{
+
+    display:block;
+
+    color:#cfe2ff;
+
+    font-size:12px;
+
+    margin-bottom:4px;
+
+    font-weight:600;
+
+}
+
+
+/* =========================================================
+   LIGHT FORMULA
+========================================================= */
+
+.formula-light{
+
+    background:#eef5ff;
+
+    color:var(--navy);
+
+    border:
+        1px solid
+        #cbdff8;
+
+}
+
+
+/* =========================================================
+   HINDI FORMULA
+   IMPORTANT:
+   Hindi text is NOT placed inside MathJax
+========================================================= */
+
+.hindi-formula{
+
+    font-family:
+        "Noto Sans Devanagari",
+        "Nirmala UI",
+        "Mangal",
+        Arial,
+        sans-serif;
+
+    font-size:20px;
+
+    font-weight:800;
+
+    line-height:1.9;
+
+    color:white;
+
+    white-space:normal;
+
+}
+
+
+/* LIGHT FORMULA HINDI */
+
+.formula-light .hindi-formula{
+
+    color:var(--navy);
+
+}
+
+
+/* =========================================================
+   MIXED FORMULA
+========================================================= */
+
+.mixed-formula{
+
+    font-family:
+        "Noto Sans Devanagari",
+        "Nirmala UI",
+        "Mangal",
+        Arial,
+        sans-serif;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    line-height:2;
+
+    text-align:center;
+
+}
+
+
+/* =========================================================
+   GRID 2
+========================================================= */
+
+.grid-2{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+
+/* =========================================================
+   GRID 3
+========================================================= */
+
+.grid-3{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+}
+
+
+/* =========================================================
+   MINI CARD
+========================================================= */
+
+.mini-card{
+
+    background:#f8fafc;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:14px;
+
+    padding:14px;
+
+}
+
+.mini-card b{
+
+    color:var(--navy);
+
+}
+
+
+/* =========================================================
+   ENERGY FLOW
+========================================================= */
+
+.energy-flow{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin:12px 0;
+
+}
+
+.energy-node{
+
+    background:#eef5ff;
+
+    border:
+        1px solid
+        #cbdff8;
+
+    color:var(--navy);
+
+    padding:
+        9px 13px;
+
+    border-radius:12px;
+
+    font-weight:800;
+
+}
+
+.energy-arrow{
+
+    font-size:25px;
+
+    color:var(--orange);
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+   IMAGE CARD
+========================================================= */
+
+.image-card{
+
+    background:white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:18px;
+
+    padding:10px;
+
+    margin:17px 0;
+
+}
+
+.image-card img{
+
+    display:block;
+
+    width:100%;
+
+    max-height:650px;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    background:#fafafa;
+
+}
+
+.caption{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    font-weight:700;
+
+    padding:
+        9px 5px
+        3px;
+
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-wrap{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    margin:15px 0;
+
+}
+
+table{
+
+    width:100%;
+
+    min-width:700px;
+
+    border-collapse:collapse;
+
+    background:white;
+
+}
+
+th,
+td{
+
+    border:
+        1px solid
+        var(--border);
+
+    padding:11px;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+}
+
+th{
+
+    background:#eaf2ff;
+
+    color:var(--navy);
+
+    font-size:15px;
+
+}
+
+tr:nth-child(even) td{
+
+    background:#fbfcfe;
+
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.badge{
+
+    display:inline-block;
+
+    padding:
+        3px 10px;
+
+    border-radius:20px;
+
+    background:#eaf2ff;
+
+    color:var(--navy);
+
+    font-size:12px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   QUICK FORMULAS
+========================================================= */
+
+.quick-formulas{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:13px;
+
+}
+
+.quick{
+
+    background:white;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:14px;
+
+    padding:14px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(20,40,70,.04);
+
+}
+
+.quick strong{
+
+    color:var(--navy);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    padding:
+        25px 10px
+        45px;
+
+}
+
+
+/* =========================================================
+   TOP BUTTON
+========================================================= */
+
+.top-button{
+
+    position:fixed;
+
+    right:16px;
+
+    bottom:16px;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:var(--navy);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:21px;
+
+    font-weight:900;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.2);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:760px){
+
+    .container{
+
+        padding:10px;
+
+    }
+
+    .hero{
+
+        padding:
+            23px 17px;
+
+        border-radius:18px;
+
+    }
+
+    .hero h1{
+
+        font-size:26px;
+
+    }
+
+    .card{
+
+        padding:15px;
+
+        border-radius:15px;
+
+    }
+
+    .section-title{
+
+        font-size:21px;
+
+    }
+
+    .grid-2,
+    .grid-3,
+    .quick-formulas{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .formula{
+
+        font-size:16px;
+
+    }
+
+    .hindi-formula{
+
+        font-size:17px;
+
+    }
+
+    .mixed-formula{
+
+        font-size:17px;
+
+    }
+
+    body{
+
+        font-size:15px;
+
+    }
+
+    .toc{
+
+        top:5px;
+
+    }
+
+}
+
+</style>
+
+
+<!-- =========================================================
+     MATHJAX
+     केवल English / Mathematical formulas के लिए
+========================================================= -->
+
+<script>
+
+window.MathJax = {
+
+    tex:{
+
+        inlineMath:[
+            ['\\(','\\)']
+        ],
+
+        displayMath:[
+            ['\\[','\\]']
+        ]
+
+    },
+
+    svg:{
+        fontCache:'global'
+    }
+
+};
+
+</script>
+
+
+<script
+async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container" id="top">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero">
+
+    <div class="hero-tag">
+
+        RAILWAY SCIENCE • CLASS 9 SCIENCE
+
+    </div>
+
+
+    <h1>
+
+        अध्याय 7 — कार्य, ऊर्जा एवं सरल मशीनें
+
+    </h1>
+
+
+    <p>
+
+        NCERT आधारित सम्पूर्ण हिन्दी नोट्स • Railway Exam Revision
+
+    </p>
+
+</header>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav class="toc">
+
+    <a href="#work">कार्य</a>
+
+    <a href="#zero-work">शून्य कार्य</a>
+
+    <a href="#positive-negative">
+        धनात्मक/ऋणात्मक
+    </a>
+
+    <a href="#theorem">
+        कार्य-ऊर्जा प्रमेय
+    </a>
+
+    <a href="#energy">
+        ऊर्जा
+    </a>
+
+    <a href="#ke">
+        गतिज ऊर्जा
+    </a>
+
+    <a href="#pe">
+        स्थितिज ऊर्जा
+    </a>
+
+    <a href="#conservation">
+        ऊर्जा संरक्षण
+    </a>
+
+    <a href="#power">
+        शक्ति
+    </a>
+
+    <a href="#machines">
+        सरल मशीनें
+    </a>
+
+    <a href="#pulley">
+        घिरनी
+    </a>
+
+    <a href="#inclined">
+        आनत तल
+    </a>
+
+    <a href="#lever">
+        उत्तोलक
+    </a>
+
+</nav>
+
+
+<!-- =========================================================
+     1. WORK
+========================================================= -->
+
+<section class="section" id="work">
+
+
+<div class="section-title">
+
+    <span class="section-title-bar"></span>
+
+    <h2>
+        1. नियत बल द्वारा किया गया कार्य
+    </h2>
+
+</div>
+
+
+<div class="card">
+
+
+<h3>
+कार्य किन बातों पर निर्भर करता है?
+</h3>
+
+
+<ul>
+
+<li>
+समान विस्थापन के लिए अधिक बल लगाने से
+आनुपातिक रूप से अधिक कार्य संपन्न होता है।
+</li>
+
+<li>
+बल के अंतर्गत अधिक विस्थापन किया जाए तो
+किए गए कार्य का परिमाण भी उसी अनुपात में अधिक होगा।
+</li>
+
+</ul>
+
+
+<div class="formula">
+
+<span class="formula-title">
+
+नियत बल द्वारा किया गया कार्य
+
+</span>
+
+
+\[
+W=F\times s
+\]
+
+</div>
+
+
+<div class="highlight">
+
+<b>
+नियत बल द्वारा किया गया कार्य
+</b>
+
+=
+
+लगाया गया बल × बल की दिशा में विस्थापन
+
+</div>
+
+
+<div class="blue-box">
+
+<b>
+कार्य का SI मात्रक:
+</b>
+
+जूल (J)
+
+<br>
+
+\[
+1J=1kg\,m^2s^{-2}
+\]
+
+</div>
+
+
+</div>
+
+
+<!-- NON CONSTANT FORCE -->
+
+<div class="card">
+
+
+<h3>
+
+यदि बल नियत नहीं है
+
+</h3>
+
+
+<p>
+
+यदि बल नियत नहीं है तब भी किया गया कार्य
+बल-विस्थापन ग्राफ में प्रारंभिक और अंतिम स्थिति के बीच
+घिरे क्षेत्रफल (Area) द्वारा ज्ञात किया जा सकता है।
+
+</p>
+
+
+<div class="highlight">
+
+<b>
+महत्वपूर्ण:
+</b>
+
+बल-विस्थापन ग्राफ के नीचे का क्षेत्रफल
+किए गए कार्य को दर्शाता है।
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     2. ZERO WORK
+========================================================= -->
+
+<section class="section" id="zero-work">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+2. कार्य कब शून्य होगा?
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<ul>
+
+<li>
+
+यदि लगने वाला बल शून्य हो
+तो कार्य शून्य होगा।
+
+</li>
+
+
+<li>
+
+यदि विस्थापन न हो
+तो कार्य शून्य होगा।
+
+</li>
+
+
+<li>
+
+वस्तु पर लगाया गया बल,
+विस्थापन के लंबवत हो तो
+उस बल द्वारा वस्तु पर किया गया कार्य
+शून्य होता है।
+
+</li>
+
+</ul>
+
+
+<!-- IMAGE 1 -->
+
+<div class="image-card">
+
+<img
+src="1000244016.jpg"
+alt="एक बॉक्स को लेकर चलती लड़की"
+>
+
+
+<div class="caption">
+
+चित्र 7.6 — एक बॉक्स को लेकर जाना
+
+</div>
+
+
+</div>
+
+
+<div class="blue-box">
+
+इस चित्र में लड़की बॉक्स पर
+ऊपर की दिशा में बल लगाती है,
+जबकि बॉक्स का विस्थापन
+क्षैतिज दिशा में है।
+
+<br><br>
+
+इसलिए बल और विस्थापन
+परस्पर लंबवत हैं।
+
+<br><br>
+
+<b>
+इस बल द्वारा किया गया कार्य = शून्य
+</b>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     3. POSITIVE NEGATIVE
+========================================================= -->
+
+<section class="section" id="positive-negative">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+3. कार्य धनात्मक एवं ऋणात्मक
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+कार्य धनात्मक या ऋणात्मक होना
+बल तथा विस्थापन की सापेक्ष दिशाओं
+पर निर्भर करता है।
+
+</p>
+
+
+<div class="grid-2">
+
+
+<div class="mini-card">
+
+
+<span class="badge">
+
+धनात्मक कार्य
+
+</span>
+
+
+<h4>
+
+बल की दिशा में विस्थापन
+
+</h4>
+
+
+<p>
+
+बल की दिशा में विस्थापन होने पर
+कार्य धनात्मक होता है।
+
+</p>
+
+
+<p>
+
+<b>
+उदाहरण:
+</b>
+
+लड़के द्वारा पहियेदार कुर्सी पर
+किया गया कार्य।
+
+</p>
+
+
+</div>
+
+
+<div class="mini-card">
+
+
+<span class="badge">
+
+ऋणात्मक कार्य
+
+</span>
+
+
+<h4>
+
+विस्थापन के विपरीत बल
+
+</h4>
+
+
+<p>
+
+बल की दिशा विस्थापन की दिशा के
+विपरीत होने पर कार्य ऋणात्मक होता है।
+
+</p>
+
+
+<p>
+
+<b>
+उदाहरण:
+</b>
+
+गोलकीपर द्वारा गेंद रोकने पर
+किया गया कार्य।
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<div class="red-box">
+
+
+<b>
+नोट:
+</b>
+
+फुटबॉल और गोलरक्षक दोनों
+विपरीत और बराबर बल लगाते हैं।
+फुटबॉल गोलरक्षक पर धनात्मक कार्य करता है
+और गोलरक्षक फुटबॉल पर धनात्मक कार्य करता है।
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     4. WORK ENERGY THEOREM
+========================================================= -->
+
+<section class="section" id="theorem">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+4. कार्य-ऊर्जा प्रमेय
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+किसी वस्तु पर धनात्मक कार्य करते हैं
+तो उसमें ऊर्जा प्राप्त होती है।
+
+</p>
+
+
+<div class="highlight">
+
+<b>
+उदाहरण:
+</b>
+
+क्रिकेट की गेंद विकेट से टकराती है
+तो विकेट को ऊर्जा स्थानांतरित करके
+विस्थापित करती है और गिरा देती है।
+
+</div>
+
+
+<div class="formula formula-light">
+
+<div class="hindi-formula">
+
+वस्तु पर किया गया कार्य
+=
+वस्तु की गतिज ऊर्जा में परिवर्तन
+
+</div>
+
+</div>
+
+
+<div class="blue-box">
+
+<b>
+ऊर्जा का SI मात्रक:
+</b>
+
+जूल (J)
+
+<br>
+
+\[
+1J=1kg\,m^2s^{-2}
+\]
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     5. ENERGY
+========================================================= -->
+
+<section class="section" id="energy">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+5. ऊर्जा
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<h3>
+
+ऊर्जा का स्थानांतरण
+
+</h3>
+
+
+<ul>
+
+<li>
+
+ऊर्जा का स्थानांतरण ऊष्मा से भी होता है।
+
+</li>
+
+
+<li>
+
+ऊर्जा का प्रवाह बिना संपर्क में आए भी हो सकता है;
+जैसे सूर्य की ऊर्जा पृथ्वी तक
+विकिरण द्वारा पहुँचती है।
+
+</li>
+
+
+<li>
+
+ऊर्जा का स्थानांतरण विद्युत तथा ध्वनि तरंगों
+के माध्यम से भी होता है।
+
+</li>
+
+</ul>
+
+
+</div>
+
+
+<div class="card">
+
+
+<h3>
+
+ऊर्जा के रूप
+
+</h3>
+
+
+<div class="grid-3">
+
+
+<div class="mini-card">
+यांत्रिक ऊर्जा
+</div>
+
+
+<div class="mini-card">
+तापीय ऊर्जा
+</div>
+
+
+<div class="mini-card">
+प्रकाश ऊर्जा
+</div>
+
+
+<div class="mini-card">
+ध्वनि ऊर्जा
+</div>
+
+
+<div class="mini-card">
+विद्युत ऊर्जा
+</div>
+
+
+<div class="mini-card">
+नाभिकीय ऊर्जा
+</div>
+
+
+<div class="mini-card">
+रासायनिक ऊर्जा
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- ENERGY CONVERSION -->
+
+<div class="card">
+
+
+<h3>
+
+ऊर्जा के रूपांतरण
+
+</h3>
+
+
+<div class="energy-flow">
+
+
+<div class="energy-node">
+
+विद्युत ऊर्जा
+
+</div>
+
+
+<div class="energy-arrow">
+→
+</div>
+
+
+<div class="energy-node">
+
+प्रकाश ऊर्जा
+
+</div>
+
+
+<span class="badge">
+
+विद्युत बल्ब
+
+</span>
+
+
+</div>
+
+
+<div class="energy-flow">
+
+
+<div class="energy-node">
+
+विद्युत ऊर्जा
+
+</div>
+
+
+<div class="energy-arrow">
+→
+</div>
+
+
+<div class="energy-node">
+
+तापीय ऊर्जा
+
+</div>
+
+
+<span class="badge">
+
+Electric Water Heater
+
+</span>
+
+
+</div>
+
+
+<div class="energy-flow">
+
+
+<div class="energy-node">
+
+रासायनिक ऊर्जा
+
+</div>
+
+
+<div class="energy-arrow">
+→
+</div>
+
+
+<div class="energy-node">
+
+तापीय एवं प्रकाश ऊर्जा
+
+</div>
+
+
+<span class="badge">
+
+माचिस
+
+</span>
+
+
+</div>
+
+
+<div class="energy-flow">
+
+
+<div class="energy-node">
+
+यांत्रिक ऊर्जा
+
+</div>
+
+
+<div class="energy-arrow">
+→
+</div>
+
+
+<div class="energy-node">
+
+ध्वनि ऊर्जा
+
+</div>
+
+
+<span class="badge">
+
+बजती हुई घंटी
+
+</span>
+
+
+</div>
+
+
+</div>
+
+
+<!-- MECHANICAL ENERGY -->
+
+<div class="card">
+
+
+<h3>
+
+यांत्रिक ऊर्जा
+
+</h3>
+
+
+<p>
+
+वह ऊर्जा जो वस्तु में उसकी
+<b>गति अथवा स्थिति</b> के कारण होती है,
+यांत्रिक ऊर्जा कहलाती है।
+
+</p>
+
+
+<div class="formula formula-light">
+
+
+<div class="hindi-formula">
+
+यांत्रिक ऊर्जा
+=
+गतिज ऊर्जा + स्थितिज ऊर्जा
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     6. KINETIC ENERGY
+========================================================= -->
+
+<section class="section" id="ke">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+6. गतिज ऊर्जा
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+गति के कारण निहित ऊर्जा को
+<b>गतिज ऊर्जा</b> कहते हैं।
+
+</p>
+
+
+<div class="highlight">
+
+<b>
+उदाहरण:
+</b>
+
+चलती हुई साइकिल,
+लुढ़कती हुई गेंद।
+
+</div>
+
+
+<div class="formula">
+
+
+<span class="formula-title">
+
+गति का समीकरण
+
+</span>
+
+
+\[
+v^2=u^2+2aS
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+\[
+S=
+\frac{v^2-u^2}{2a}
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+\[
+W=ma\times S
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+\[
+W=
+ma\times
+\frac{v^2-u^2}{2a}
+\]
+
+</div>
+
+
+<div class="formula">
+
+\[
+W=
+\frac12m(v^2-u^2)
+\]
+
+</div>
+
+
+<div class="formula">
+
+
+<span class="formula-title">
+
+जब प्रारंभिक वेग शून्य हो
+
+</span>
+
+
+\[
+KE=\frac12mv^2
+\]
+
+</div>
+
+
+<div class="blue-box">
+
+<b>
+गतिज ऊर्जा का SI मात्रक:
+</b>
+
+जूल (J)
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     7. POTENTIAL ENERGY
+========================================================= -->
+
+<section class="section" id="pe">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+7. स्थितिज ऊर्जा
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+किसी वस्तु में <b>विकृति</b> के कारण अथवा
+वस्तुओं के एक निकाय में उनकी
+<b>सापेक्ष स्थितियों</b> के कारण जो ऊर्जा
+संचित होती है, उसे स्थितिज ऊर्जा कहते हैं।
+
+</p>
+
+
+<div class="grid-2">
+
+
+<div class="mini-card">
+
+
+<h4>
+
+विकृति के कारण
+
+</h4>
+
+
+<ul>
+
+<li>
+खिंचा हुआ रबर बैंड
+</li>
+
+<li>
+तनी हुई कमान और तीर
+</li>
+
+<li>
+दबी या खींची हुई स्प्रिंग
+</li>
+
+</ul>
+
+
+</div>
+
+
+<div class="mini-card">
+
+
+<h4>
+
+सापेक्ष स्थिति के कारण
+
+</h4>
+
+
+<ul>
+
+<li>
+कंचे या सिक्के का निकाय
+</li>
+
+<li>
+दो विद्युत आवेशों का निकाय
+</li>
+
+<li>
+पृथ्वी और गेंद का निकाय
+</li>
+
+</ul>
+
+
+</div>
+
+
+</div>
+
+
+<div class="blue-box">
+
+<b>
+मात्रक:
+</b>
+
+जूल (J)
+
+<br>
+
+<b>
+राशि:
+</b>
+
+अदिश
+
+</div>
+
+
+</div>
+
+
+<!-- GRAVITATIONAL PE -->
+
+<div class="card">
+
+
+<h3>
+
+गुरुत्वीय स्थितिज ऊर्जा
+
+</h3>
+
+
+<p>
+
+पृथ्वी और गेंद का निकाय
+गुरुत्वीय स्थितिज ऊर्जा का उदाहरण है।
+
+</p>
+
+
+<div class="formula">
+
+
+<span class="formula-title">
+
+कार्य
+
+</span>
+
+
+\[
+W=F\times s
+\]
+
+</div>
+
+
+<div class="formula">
+
+
+\[
+W=mg\times h=mgh
+\]
+
+</div>
+
+
+<div class="formula">
+
+
+<span class="formula-title">
+
+गुरुत्वीय स्थितिज ऊर्जा
+
+</span>
+
+
+\[
+U=mgh
+\]
+
+</div>
+
+
+<div class="blue-box">
+
+<b>
+मात्रक:
+</b>
+
+जूल (J)
+
+<br>
+
+<b>
+राशि:
+</b>
+
+अदिश
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     8. CONSERVATION
+========================================================= -->
+
+<section class="section" id="conservation">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+8. यांत्रिक ऊर्जा संरक्षण
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<div class="formula formula-light">
+
+
+<div class="hindi-formula">
+
+यांत्रिक ऊर्जा
+=
+स्थितिज ऊर्जा + गतिज ऊर्जा
+
+</div>
+
+
+</div>
+
+
+<p>
+
+गुरुत्वीय बल क्षेत्र में स्वतंत्रतापूर्वक
+गिरती हुई किसी वस्तु के लिए विभिन्न बिंदुओं पर
+स्थितिज एवं गतिज ऊर्जा में परिवर्तन होता रहता है,
+लेकिन कुल यांत्रिक ऊर्जा संरक्षित रहती है।
+
+</p>
+
+
+<!-- FREE FALL IMAGE -->
+
+<div class="image-card">
+
+
+<img
+src="1000244021.jpg"
+alt="गुरुत्व के अधीन मुक्त रूप से गिरती हुई वस्तु"
+>
+
+
+<div class="caption">
+
+चित्र 7.19 — गुरुत्व के अधीन मुक्त रूप से गिरती हुई वस्तु
+
+</div>
+
+
+</div>
+
+
+<h3>
+
+बिंदु A पर
+
+</h3>
+
+
+<ul>
+
+<li>
+प्रारंभिक वेग = 0
+</li>
+
+<li>
+गतिज ऊर्जा = 0
+</li>
+
+<li>
+स्थितिज ऊर्जा = \(mgh\)
+</li>
+
+<li>
+यांत्रिक ऊर्जा = \(0+mgh=mgh\)
+</li>
+
+</ul>
+
+
+<h3>
+
+बिंदु B पर
+
+</h3>
+
+
+<div class="formula formula-light">
+
+\[
+h'=h-\frac12gt^2
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+\[
+(h-h')=\frac12gt^2
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+\[
+KE=\frac12mgt^2
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+\[
+v=u+gt
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+\[
+u=0
+\]
+
+होने पर
+
+\[
+v=gt
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+\[
+S=ut+\frac12gt^2
+\]
+
+</div>
+
+
+<div class="green-box">
+
+
+<b>
+यांत्रिक ऊर्जा संरक्षण नियम:
+</b>
+
+
+<br><br>
+
+
+कोई वस्तु गुरुत्वीय बल के कारण गतिशील होती है
+और उस पर कोई बाह्य बल कार्य नहीं करता तो
+उसकी यांत्रिक ऊर्जा सुरक्षित बनी रहती है,
+अर्थात यांत्रिक ऊर्जा संरक्षित रहती है।
+
+</div>
+
+
+<!-- PENDULUM -->
+
+<div class="image-card">
+
+
+<img
+src="1000244023.jpg"
+alt="सरल लोलक के दोलन की विभिन्न स्थितियाँ"
+>
+
+
+<div class="caption">
+
+चित्र 7.20 — सरल लोलक के दोलन की विभिन्न स्थितियों में
+गतिज एवं स्थितिज ऊर्जा
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     9. POWER
+========================================================= -->
+
+<section class="section" id="power">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+9. शक्ति
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+<b>
+कार्य करने की दर
+</b>
+
+को शक्ति कहते हैं।
+
+</p>
+
+
+<div class="formula">
+
+
+<span class="formula-title">
+
+शक्ति का सूत्र
+
+</span>
+
+
+\[
+P=\frac{W}{t}
+\]
+
+</div>
+
+
+<div class="blue-box">
+
+
+<b>
+SI मात्रक:
+</b>
+
+वाट (W)
+
+
+<br>
+
+
+\[
+1W=1J\,s^{-1}
+\]
+
+</div>
+
+
+<div class="blue-box">
+
+
+<b>
+राशि:
+</b>
+
+अदिश
+
+</div>
+
+
+<div class="highlight">
+
+
+<b>
+1 अश्वशक्ति = 746 W
+</b>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     10. SIMPLE MACHINES
+========================================================= -->
+
+<section class="section" id="machines">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+10. सरल मशीनें
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+सरल मशीनें
+<b>
+कार्य को सरल बनाने
+</b>
+में सहायता करती हैं।
+
+</p>
+
+
+<ul>
+
+<li>
+
+मशीन पर हम जो बल लगाते हैं उसे
+<b>
+आयाम
+</b>
+कहते हैं।
+
+</li>
+
+
+<li>
+
+वह बल जिसके विरुद्ध मशीन कार्य करती है उसे
+<b>
+भार
+</b>
+कहते हैं।
+
+</li>
+
+</ul>
+
+
+<div class="formula">
+
+
+<span class="formula-title">
+
+यांत्रिक लाभ
+
+</span>
+
+
+<div class="hindi-formula">
+
+यांत्रिक लाभ = भार ÷ आयाम
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     11. PULLEY
+========================================================= -->
+
+<section class="section" id="pulley">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+11. घिरनी
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+घिरनी एक
+<b>
+पहियेदार चक्र (Grooved wheel)
+</b>
+है जिसमें धागा या रस्सी का सहारा दिया जाता है।
+
+</p>
+
+
+<!-- PULLEY IMAGE -->
+
+<div class="image-card">
+
+
+<img
+src="1000244025.jpg"
+alt="चल घिरनी और स्थिर घिरनी"
+>
+
+
+<div class="caption">
+
+चित्र 7.25 — घिरनियों का निकाय
+
+</div>
+
+
+</div>
+
+
+<div class="green-box">
+
+इसमें कम आयाम से बहुत अधिक भार उठा सकते हैं।
+
+</div>
+
+
+<h3>
+
+घिरनी के उपयोग
+
+</h3>
+
+
+<ul>
+
+<li>
+उद्वाहक (Elevator)
+</li>
+
+<li>
+Crane
+</li>
+
+</ul>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     12. INCLINED PLANE
+========================================================= -->
+
+<section class="section" id="inclined">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+12. आनत तल
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+आप वस्तु को आनत तल पर रखकर
+ऊपर उठा सकते हैं।
+
+</p>
+
+
+<p>
+
+यह एक ऐसी मशीन है जो भारी वस्तु को
+ऊपर चढ़ाने या उतारने में सहायता करती है।
+
+</p>
+
+
+<div class="highlight">
+
+
+<b>
+
+आनत तल का झुकाव जितना कम होगा,
+उतना ही बल कम लगेगा।
+
+</b>
+
+
+</div>
+
+
+<div class="formula formula-light">
+
+
+<div class="hindi-formula">
+
+द्रव्यमान = m
+
+&nbsp;&nbsp; | &nbsp;&nbsp;
+
+भार = mg
+
+&nbsp;&nbsp; | &nbsp;&nbsp;
+
+ऊँचाई = h
+
+&nbsp;&nbsp; | &nbsp;&nbsp;
+
+विस्थापन = L
+
+</div>
+
+
+</div>
+
+
+<div class="formula formula-light">
+
+
+<div class="hindi-formula">
+
+वस्तु द्वारा किया गया कार्य = F' × L
+
+</div>
+
+
+</div>
+
+
+<div class="formula">
+
+
+\[
+mgh=F'\times L
+\]
+
+</div>
+
+
+<div class="formula">
+
+
+\[
+mg=F'\frac{L}{h}
+\]
+
+</div>
+
+
+<div class="formula">
+
+
+\[
+\frac{mg}{F'}=
+\frac{L}{h}
+\]
+
+</div>
+
+
+<div class="formula">
+
+
+<span class="formula-title">
+
+आनत तल का यांत्रिक लाभ
+
+</span>
+
+
+<div class="hindi-formula">
+
+यांत्रिक लाभ = भार ÷ आयाम
+
+</div>
+
+
+<br>
+
+
+\[
+MA=
+\frac{mg}{F'}
+=
+\frac{L}{h}
+\]
+
+</div>
+
+
+<div class="blue-box">
+
+
+आनत तल के झुकाव कोण को कम करके यदि हम इसकी
+लम्बाई को बढ़ा लें तो हम वस्तु को चलाने के लिए
+आवश्यक आयाम 'F' का मान और कम कर सकते हैं।
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     13. LEVER
+========================================================= -->
+
+<section class="section" id="lever">
+
+
+<div class="section-title">
+
+<span class="section-title-bar"></span>
+
+<h2>
+
+13. उत्तोलक
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+
+<p>
+
+उत्तोलक किसी कार्य को करने में
+बल को कम करता है।
+
+</p>
+
+
+<!-- LEVER IMAGE -->
+
+<div class="image-card">
+
+
+<img
+src="1000244033.jpg"
+alt="उत्तोलक की तीन श्रेणियाँ"
+>
+
+
+<div class="caption">
+
+तालिका 7.2 — उत्तोलकों का वर्गीकरण
+
+</div>
+
+
+</div>
+
+
+<h3>
+
+उत्तोलक के भाग
+
+</h3>
+
+
+<div class="grid-3">
+
+
+<div class="mini-card">
+
+
+<h4>
+
+आलंब
+
+</h4>
+
+
+<p>
+
+एक स्थिर बिंदु जिसके परितः
+उत्तोलक घूमता है।
+
+</p>
+
+
+</div>
+
+
+<div class="mini-card">
+
+
+<h4>
+
+भार
+
+</h4>
+
+
+<p>
+
+वह बल जिसके विरुद्ध
+उत्तोलक कार्य करता है।
+
+</p>
+
+
+</div>
+
+
+<div class="mini-card">
+
+
+<h4>
+
+आयाम
+
+</h4>
+
+
+<p>
+
+भार उठाने में लगाया गया बल।
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<h3>
+
+आयाम भुजा एवं भार भुजा
+
+</h3>
+
+
+<div class="blue-box">
+
+
+<b>
+आयाम भुजा:
+</b>
+
+आलंब से आयाम की दूरी।
+
+<br><br>
+
+
+<b>
+भार भुजा:
+</b>
+
+आलंब से भार की दूरी।
+
+</div>
+
+
+<div class="formula">
+
+
+\[
+F_1\times d_1
+=
+F_2\times d_2
+\]
+
+</div>
+
+
+<div class="formula formula-light">
+
+
+<div class="hindi-formula">
+
+यदि F₂ > F₁, तो d₁ > d₂
+
+</div>
+
+
+</div>
+
+
+<div class="formula formula-light">
+
+
+<div class="hindi-formula">
+
+आयाम × आयाम भुजा
+=
+भार × भार भुजा
+
+</div>
+
+
+</div>
+
+
+<div class="formula">
+
+
+\[
+F\times d_1
+=
+W\times d_2
+\]
+
+</div>
+
+
+<div class="formula">
+
+
+<span class="formula-title">
+
+उत्तोलक का यांत्रिक लाभ
+
+</span>
+
+
+<div class="hindi-formula">
+
+यांत्रिक लाभ
+=
+आयाम भुजा ÷ भार भुजा
+
+</div>
+
+
+<br>
+
+
+\[
+MA=
+\frac{d_1}{d_2}
+\]
+
+</div>
+
+
+<div class="green-box">
+
+उत्तोलक के उपयोग से आवश्यक आयाम
+सामान्यतः कम होता है।
+
+</div>
+
+
+</div>
+
+
+<!-- LEVER TABLE -->
+
+<div class="card">
+
+
+<h3>
+
+उत्तोलक की तीन श्रेणियाँ
+
+</h3>
+
+
+<div class="table-wrap">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+श्रेणी
+</th>
+
+<th>
+बीच में क्या होता है?
+</th>
+
+<th>
+उदाहरण
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+
+<td>
+
+<b>
+प्रथम श्रेणी
+</b>
+
+</td>
+
+
+<td>
+
+आलंब बीच में
+
+</td>
+
+
+<td>
+
+सँडासी, कैंची, सब्बल,
+प्लास, दंड-तुला, सी-सॉ
+
+</td>
+
+
+</tr>
+
+
+<tr>
+
+<td>
+
+<b>
+द्वितीय श्रेणी
+</b>
+
+</td>
+
+
+<td>
+
+भार बीच में
+
+</td>
+
+
+<td>
+
+नींबू निचोड़ने की मशीन,
+एक पहिया ठेला,
+बोतल खोलने की मशीन
+
+</td>
+
+
+</tr>
+
+
+<tr>
+
+<td>
+
+<b>
+तृतीय श्रेणी
+</b>
+
+</td>
+
+
+<td>
+
+आयाम बीच में
+
+</td>
+
+
+<td>
+
+चिमटा, हथौड़ा,
+झाड़ू, चिमटी, चम्पू
+
+</td>
+
+
+</tr>
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     14. GHARAT
+========================================================= -->
+
+<section class="section">
+
+
+<div class="section-title">
+
+
+<span class="section-title-bar"></span>
+
+
+<h2>
+
+14. विशेष तथ्य — घराट
+
+</h2>
+
+
+</div>
+
+
+<div class="card">
+
+
+<div class="highlight">
+
+
+हिमालय क्षेत्र में ढलान से नीचे बहने वाले जल की
+स्थितिज ऊर्जा गतिज ऊर्जा में परिवर्तित हो जाती है।
+
+परंपरागत रूप से इस ऊर्जा का उपयोग
+<b>
+पनचक्की या घराट
+</b>
+जैसे उपकरणों में किया जाता है।
+
+</div>
+
+
+<div class="blue-box">
+
+
+<b>
+घराट:
+</b>
+
+अनाज पीसने वाली पनचक्की।
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     QUICK REVISION
+========================================================= -->
+
+<section class="section">
+
+
+<div class="section-title">
+
+
+<span class="section-title-bar"></span>
+
+
+<h2>
+
+⚡ त्वरित पुनरावृत्ति — महत्वपूर्ण सूत्र
+
+</h2>
+
+
+</div>
+
+
+<div class="quick-formulas">
+
+
+<div class="quick">
+
+<strong>
+कार्य
+</strong>
+
+<br>
+
+\[
+W=F\times s
+\]
+
+</div>
+
+
+<div class="quick">
+
+<strong>
+गतिज ऊर्जा
+</strong>
+
+<br>
+
+\[
+KE=\frac12mv^2
+\]
+
+</div>
+
+
+<div class="quick">
+
+<strong>
+स्थितिज ऊर्जा
+</strong>
+
+<br>
+
+\[
+U=mgh
+\]
+
+</div>
+
+
+<div class="quick">
+
+<strong>
+यांत्रिक ऊर्जा
+</strong>
+
+<br>
+
+<div class="hindi-formula"
+     style="color:#082b5c;font-size:18px;">
+
+यांत्रिक ऊर्जा
+=
+गतिज ऊर्जा + स्थितिज ऊर्जा
+
+</div>
+
+</div>
+
+
+<div class="quick">
+
+<strong>
+शक्ति
+</strong>
+
+<br>
+
+\[
+P=\frac{W}{t}
+\]
+
+</div>
+
+
+<div class="quick">
+
+<strong>
+यांत्रिक लाभ
+</strong>
+
+<br>
+
+<div class="hindi-formula"
+     style="color:#082b5c;font-size:18px;">
+
+यांत्रिक लाभ = भार ÷ आयाम
+
+</div>
+
+</div>
+
+
+<div class="quick">
+
+<strong>
+आनत तल
+</strong>
+
+<br>
+
+\[
+MA=\frac{L}{h}
+\]
+
+</div>
+
+
+<div class="quick">
+
+<strong>
+उत्तोलक
+</strong>
+
+<br>
+
+\[
+F\times d_1=W\times d_2
+\]
+
+</div>
+
+
+<div class="quick">
+
+<strong>
+उत्तोलक का यांत्रिक लाभ
+</strong>
+
+<br>
+
+<div class="hindi-formula"
+     style="color:#082b5c;font-size:18px;">
+
+यांत्रिक लाभ
+=
+आयाम भुजा ÷ भार भुजा
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     EXAM POINTS
+========================================================= -->
+
+<section class="section">
+
+
+<div class="section-title">
+
+
+<span class="section-title-bar"></span>
+
+
+<h2>
+
+🎯 परीक्षा के लिए महत्वपूर्ण
+
+</h2>
+
+
+</div>
+
+
+<div class="card">
+
+
+<div class="grid-2">
+
+
+<div class="mini-card">
+
+<b>
+कार्य का SI मात्रक
+</b>
+
+<p>
+जूल (J)
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+ऊर्जा का SI मात्रक
+</b>
+
+<p>
+जूल (J)
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+शक्ति का SI मात्रक
+</b>
+
+<p>
+वाट (W)
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+1 अश्वशक्ति
+</b>
+
+<p>
+746 W
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+धनात्मक कार्य
+</b>
+
+<p>
+बल की दिशा में विस्थापन
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+ऋणात्मक कार्य
+</b>
+
+<p>
+विस्थापन के विपरीत बल
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+शून्य कार्य
+</b>
+
+<p>
+बल शून्य / विस्थापन शून्य /
+बल और विस्थापन लंबवत
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+प्रथम श्रेणी उत्तोलक
+</b>
+
+<p>
+आलंब बीच में
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+द्वितीय श्रेणी उत्तोलक
+</b>
+
+<p>
+भार बीच में
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+तृतीय श्रेणी उत्तोलक
+</b>
+
+<p>
+आयाम बीच में
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+आनत तल
+</b>
+
+<p>
+झुकाव कम → आवश्यक बल कम
+</p>
+
+</div>
+
+
+<div class="mini-card">
+
+<b>
+यांत्रिक ऊर्जा संरक्षण
+</b>
+
+<p>
+स्थितिज ऊर्जा + गतिज ऊर्जा
+= कुल यांत्रिक ऊर्जा
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer">
+
+
+Railway Science
+
+<br>
+
+
+<b>
+Class 9 Science — Chapter 7
+</b>
+
+<br>
+
+
+कार्य, ऊर्जा एवं सरल मशीनें
+
+
+</footer>
+
+
+</div>
+
+
+<!-- TOP BUTTON -->
+
+<a
+href="#top"
+class="top-button"
+title="ऊपर जाएँ">
+
+↑
+
+</a>
+
+
+</body>
+
+</html>
