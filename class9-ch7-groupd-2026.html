@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Railway Science | Class 9 Science Chapter 7 Mock Test</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --navy:#082b5c;
+    --blue:#0d6efd;
+    --green:#198754;
+    --red:#dc3545;
+    --orange:#f59f00;
+    --purple:#6f42c1;
+    --bg:#f2f5f9;
+    --card:#ffffff;
+    --border:#d9e1eb;
+    --text:#17212b;
+    --muted:#6c757d;
+}
+
+body{
+    font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:linear-gradient(135deg,var(--navy),#0b4b91);
+    color:#fff;
+    padding:10px 15px;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.header-inner{
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.brand{
+    font-size:20px;
+    font-weight:800;
+}
+
+.subtitle{
+    font-size:12px;
+    opacity:.9;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.timer{
+    background:#fff;
+    color:#b00020;
+    font-weight:800;
+    padding:6px 12px;
+    border-radius:7px;
+    min-width:105px;
+    text-align:center;
+    box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+
+.palette-btn{
+    border:0;
+    background:var(--orange);
+    color:#fff;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.container{
+    max-width:1250px;
+    margin:15px auto;
+    padding:0 12px;
+}
+
+.instructions{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:12px 15px;
+    margin-bottom:15px;
+}
+
+.instructions h2{
+    color:var(--navy);
+    font-size:19px;
+    margin-bottom:5px;
+}
+
+.rules{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.rule{
+    background:#eef4fb;
+    border-radius:6px;
+    padding:4px 9px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.layout{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 285px;
+    gap:15px;
+}
+
+.question-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:18px;
+    min-height:500px;
+}
+
+.part-title{
+    color:var(--navy);
+    border-left:5px solid var(--blue);
+    background:#eef5ff;
+    padding:8px 12px;
+    border-radius:5px;
+    margin-bottom:15px;
+    font-size:18px;
+    font-weight:800;
+}
+
+.question-number{
+    display:inline-block;
+    background:var(--navy);
+    color:#fff;
+    padding:4px 10px;
+    border-radius:5px;
+    font-size:14px;
+    margin-bottom:10px;
+}
+
+.question-text{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:14px;
+}
+
+.options{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.option{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    border:1px solid #d7dee8;
+    background:#fff;
+    border-radius:8px;
+    padding:11px 12px;
+    transition:.15s;
+}
+
+.option:hover{
+    border-color:var(--blue);
+    background:#f7fbff;
+}
+
+.option input{
+    margin-top:5px;
+    accent-color:var(--blue);
+    transform:scale(1.15);
+}
+
+.option label{
+    flex:1;
+    cursor:pointer;
+}
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+    margin-top:22px;
+    flex-wrap:wrap;
+}
+
+.nav-btn{
+    border:0;
+    padding:10px 18px;
+    border-radius:7px;
+    color:#fff;
+    font-weight:700;
+    font-size:14px;
+}
+
+.prev{
+    background:#6c757d;
+}
+
+.next{
+    background:var(--blue);
+}
+
+.review{
+    background:var(--orange);
+}
+
+.palette{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:14px;
+    height:max-content;
+    position:sticky;
+    top:78px;
+}
+
+.palette h3{
+    color:var(--navy);
+    margin-bottom:8px;
+}
+
+.palette-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5px;
+    font-size:12px;
+    margin-bottom:12px;
+}
+
+.status-key{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.dot{
+    width:13px;
+    height:13px;
+    border-radius:3px;
+    display:inline-block;
+}
+
+.dot.answered{
+    background:var(--green);
+}
+
+.dot.reviewed{
+    background:var(--orange);
+}
+
+.dot.unattempted{
+    background:#e9ecef;
+    border:1px solid #adb5bd;
+}
+
+.palette-grid{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:6px;
+    max-height:490px;
+    overflow-y:auto;
+    padding-right:2px;
+}
+
+.pal-btn{
+    height:36px;
+    border:1px solid #bfc7d2;
+    border-radius:5px;
+    background:#e9ecef;
+    font-weight:700;
+    color:#333;
+}
+
+.pal-btn.answered{
+    background:var(--green);
+    color:#fff;
+    border-color:var(--green);
+}
+
+.pal-btn.reviewed{
+    background:var(--orange);
+    color:#fff;
+    border-color:var(--orange);
+}
+
+.pal-btn.answered.reviewed{
+    background:linear-gradient(135deg,var(--green) 0 50%,var(--orange) 50% 100%);
+    color:#fff;
+}
+
+.submit-btn{
+    width:100%;
+    border:0;
+    background:var(--red);
+    color:#fff;
+    padding:12px;
+    border-radius:7px;
+    font-weight:800;
+    margin-top:14px;
+    font-size:15px;
+}
+
+.part-badge{
+    display:inline-block;
+    background:#e8f0ff;
+    color:var(--navy);
+    padding:3px 8px;
+    border-radius:4px;
+    font-size:12px;
+    margin-bottom:8px;
+}
+
+/* RESULT */
+
+#resultScreen{
+    display:none;
+}
+
+.result-header{
+    background:linear-gradient(135deg,var(--navy),#0b4b91);
+    color:#fff;
+    border-radius:10px;
+    padding:20px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+.score{
+    font-size:42px;
+    font-weight:900;
+}
+
+.result-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:18px;
+}
+
+.stat{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:12px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    font-size:25px;
+}
+
+.correct-stat strong{
+    color:var(--green);
+}
+
+.wrong-stat strong{
+    color:var(--red);
+}
+
+.skip-stat strong{
+    color:#6c757d;
+}
+
+.review-stat strong{
+    color:var(--orange);
+}
+
+.solution-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:9px;
+    padding:15px;
+    margin-bottom:12px;
+}
+
+.solution-card.correct{
+    border-left:5px solid var(--green);
+}
+
+.solution-card.wrong{
+    border-left:5px solid var(--red);
+}
+
+.solution-card.unattempted{
+    border-left:5px solid #6c757d;
+}
+
+.solution-q{
+    font-weight:800;
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.answer-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin:8px 0;
+}
+
+.answer-box{
+    padding:7px 10px;
+    border-radius:5px;
+    background:#f5f6f8;
+    font-size:14px;
+}
+
+.answer-box.correct-answer{
+    background:#e8f7ee;
+    color:#146c36;
+}
+
+.answer-box.user-wrong{
+    background:#fdebec;
+    color:#b02a37;
+}
+
+.formula{
+    background:#f0f4f8;
+    border-left:4px solid var(--blue);
+    padding:9px 12px;
+    margin:8px 0;
+    font-family:Arial,sans-serif;
+    font-weight:700;
+}
+
+.explanation{
+    background:#fff8e6;
+    border-left:4px solid var(--orange);
+    padding:9px 12px;
+    font-size:14px;
+}
+
+.restart{
+    background:var(--navy);
+    color:#fff;
+    border:0;
+    padding:12px 25px;
+    border-radius:7px;
+    font-weight:800;
+    margin:10px 0 20px;
+}
+
+/* PALETTE MODAL */
+
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.55);
+    z-index:2000;
+    padding:20px;
+}
+
+.palette-modal{
+    max-width:500px;
+    max-height:85vh;
+    overflow:auto;
+    margin:30px auto;
+    background:#fff;
+    border-radius:12px;
+    padding:18px;
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.close-btn{
+    border:0;
+    background:#eee;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    font-size:18px;
+}
+
+/* SUBMIT MODAL */
+
+.confirm-box{
+    max-width:420px;
+    margin:100px auto;
+    background:#fff;
+    border-radius:12px;
+    padding:22px;
+    text-align:center;
+}
+
+.confirm-buttons{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.confirm-buttons button{
+    flex:1;
+    border:0;
+    padding:10px;
+    border-radius:6px;
+    font-weight:700;
+}
+
+.confirm-submit{
+    background:var(--red);
+    color:#fff;
+}
+
+.confirm-cancel{
+    background:#6c757d;
+    color:#fff;
+}
+
+.hidden{
+    display:none!important;
+}
+
+@media(max-width:800px){
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .palette{
+        display:none;
+    }
+
+    .header{
+        position:sticky;
+    }
+
+    .brand{
+        font-size:16px;
+    }
+
+    .subtitle{
+        display:none;
+    }
+
+    .question-card{
+        padding:13px;
+    }
+
+    .question-text{
+        font-size:16px;
+    }
+
+    .result-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .answer-row{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:450px){
+    .header-inner{
+        align-items:center;
+    }
+
+    .timer{
+        min-width:88px;
+        font-size:13px;
+        padding:5px 7px;
+    }
+
+    .palette-btn{
+        width:38px;
+        height:38px;
+    }
+
+    .rules{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+
+    .navigation .nav-btn{
+        flex:1;
+        min-width:100px;
+        padding:9px 7px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-inner">
+        <div>
+            <div class="brand">Railway Science</div>
+            <div class="subtitle">Class 9 Science | Work, Energy & Simple Machines</div>
+        </div>
+
+        <div class="header-right">
+            <div class="timer" id="timer">60:00</div>
+            <button class="palette-btn" onclick="openPalette()" title="Question Palette">☷</button>
+        </div>
+    </div>
+</header>
+
+<div class="container" id="testScreen">
+
+    <div class="instructions">
+        <h2>Class 9 Science — TCS Style Mock Test</h2>
+        <div class="rules">
+            <div class="rule">कुल प्रश्न: 92</div>
+            <div class="rule">समय: 60 मिनट</div>
+            <div class="rule">सही: +1</div>
+            <div class="rule">गलत: −1/3</div>
+            <div class="rule">छोड़ा: 0</div>
+            <div class="rule">Mark for Review उपलब्ध</div>
+        </div>
+    </div>
+
+    <div class="layout">
+
+        <main class="question-card">
+
+            <div id="questionArea"></div>
+
+            <div class="navigation">
+                <button class="nav-btn prev" onclick="previousQuestion()">← Previous</button>
+                <button class="nav-btn review" onclick="toggleReview()">⚑ Mark for Review</button>
+                <button class="nav-btn next" onclick="nextQuestion()">Next →</button>
+            </div>
+
+        </main>
+
+        <aside class="palette">
+            <h3>Question Palette</h3>
+
+            <div class="palette-info">
+                <div class="status-key">
+                    <span class="dot answered"></span> Answered
+                </div>
+
+                <div class="status-key">
+                    <span class="dot reviewed"></span> Review
+                </div>
+
+                <div class="status-key">
+                    <span class="dot unattempted"></span> Unattempted
+                </div>
+            </div>
+
+            <div class="palette-grid" id="paletteGrid"></div>
+
+            <button class="submit-btn" onclick="openSubmitConfirm()">
+                Submit Test
+            </button>
+        </aside>
+
+    </div>
+</div>
+
+<!-- MOBILE PALETTE -->
+<div class="overlay" id="paletteOverlay">
+    <div class="palette-modal">
+        <div class="modal-head">
+            <h3>Question Palette</h3>
+            <button class="close-btn" onclick="closePalette()">×</button>
+        </div>
+
+        <div class="palette-info">
+            <div class="status-key">
+                <span class="dot answered"></span> Answered
+            </div>
+
+            <div class="status-key">
+                <span class="dot reviewed"></span> Review
+            </div>
+
+            <div class="status-key">
+                <span class="dot unattempted"></span> Unattempted
+            </div>
+        </div>
+
+        <div class="palette-grid" id="mobilePaletteGrid"></div>
+
+        <button class="submit-btn" onclick="closePalette();openSubmitConfirm()">
+            Submit Test
+        </button>
+    </div>
+</div>
+
+<!-- SUBMIT CONFIRM -->
+<div class="overlay" id="submitOverlay">
+    <div class="confirm-box">
+        <h2>Submit Test?</h2>
+        <p id="submitMessage"></p>
+
+        <div class="confirm-buttons">
+            <button class="confirm-cancel" onclick="closeSubmitConfirm()">Cancel</button>
+            <button class="confirm-submit" onclick="submitTest()">Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- RESULT -->
+<div class="container" id="resultScreen">
+
+    <div class="result-header">
+        <h1>Test Result</h1>
+        <div class="score" id="finalScore">0</div>
+        <div>Maximum Marks: 92</div>
+    </div>
+
+    <div class="result-stats">
+        <div class="stat correct-stat">
+            <strong id="correctCount">0</strong>
+            सही
+        </div>
+
+        <div class="stat wrong-stat">
+            <strong id="wrongCount">0</strong>
+            गलत
+        </div>
+
+        <div class="stat skip-stat">
+            <strong id="skipCount">0</strong>
+            Unattempted
+        </div>
+
+        <div class="stat review-stat">
+            <strong id="reviewCount">0</strong>
+            Review
+        </div>
+    </div>
+
+    <button class="restart" onclick="location.reload()">
+        ↻ Restart Test
+    </button>
+
+    <div id="solutions"></div>
+</div>
+
+<script>
+
+/* =========================================================
+   QUESTION DATA
+========================================================= */
+
+const questions = [
+
+{
+q:"किए जाने वाले कार्य के लिए निम्नलिखित में से क्या आवश्यक नहीं है?",
+options:[
+"ऊर्जा संग्रहीत होनी चाहिए",
+"बल कार्य करना चाहिए",
+"बल और विस्थापन दोनों उपस्थित होने चाहिए",
+"विस्थापन होना चाहिए"
+],
+answer:0,
+formula:"कार्य के लिए बल तथा विस्थापन आवश्यक हैं।",
+explanation:"वैज्ञानिक दृष्टि से कार्य होने के लिए वस्तु पर बल लगना और बल की दिशा में विस्थापन होना आवश्यक है। पहले से ऊर्जा का संग्रहीत होना आवश्यक शर्त नहीं है।"
+},
+
+{
+q:"एक विद्यार्थी बिना गति किए बस का इंतज़ार करते हुए भारी स्कूल बैग पकड़े हुए है। निम्नलिखित में से कौन-से कथन सही हैं? (1) विद्यार्थी द्वारा बल अनुप्रयुक्त होता है। (2) बैग विस्थापित हो जाता है। (3) बैग पर कार्य किया जाता है। (4) वैज्ञानिक दृष्टि से कोई कार्य नहीं किया जाता है।",
+options:[
+"केवल (1) और (3)",
+"(1), (2), (3)",
+"केवल (1) और (4)",
+"केवल (2) और (3)"
+],
+answer:2,
+formula:"W = F × s × cosθ",
+explanation:"विद्यार्थी बैग पर ऊपर की ओर बल लगाता है, लेकिन बैग का विस्थापन नहीं होता। इसलिए वैज्ञानिक अर्थ में बैग पर यांत्रिक कार्य शून्य है।"
+},
+
+{
+q:"किसी वस्तु पर कार्य किया गया यह माना जाने के लिए, किन दो शर्तों का पूर्ण होना आवश्यक है?",
+options:[
+"वस्तु को तेज़ गति करनी चाहिए, और बल नियत होना चाहिए।",
+"किसी वस्तु पर बल लगना चाहिए जिसके परिणामस्वरूप वस्तु का स्थानांतरण होना चाहिए।",
+"बल को लंबे समय तक लगाया जाना चाहिए, और वस्तु विरामावस्था में होनी चाहिए।",
+"वस्तु भारी होनी चाहिए, और बल अधिक होना चाहिए।"
+],
+answer:1,
+formula:"Work = Force × Displacement",
+explanation:"कार्य के लिए बल और उसके कारण विस्थापन दोनों आवश्यक हैं।"
+},
+
+{
+q:"एक बच्चा झूले पर झूल रहा है। ऊर्जा संरक्षण नियम के आधार पर, किस बिंदु पर बच्चे की गतिज ऊर्जा सबसे अधिक होती है?",
+options:[
+"झूले के उच्चतम बिंदु पर",
+"गतिज ऊर्जा सभी बिंदुओं पर बराबर होती है",
+"उच्चतम और निम्नतम बिंदुओं के बीच में",
+"झूले के निम्नतम बिंदु पर"
+],
+answer:3,
+formula:"KE अधिकतम ⇔ वेग अधिकतम",
+explanation:"उच्चतम बिंदु पर स्थितिज ऊर्जा अधिकतम और गतिज ऊर्जा न्यूनतम होती है। नीचे आते समय स्थितिज ऊर्जा गतिज ऊर्जा में बदलती है। निम्नतम बिंदु पर गतिज ऊर्जा अधिकतम होती है।"
+},
+
+{
+q:"एक रोलर कोस्टर कार किसी ट्रैक के अनुदिश यात्रा करने के लिए केवल गुरुत्वीय स्थितिज ऊर्जा पर निर्भर है। कौन-सा अभियांत्रिकी संशोधन कार की इसके निम्नतम बिंदु पर अधिकतम चाल को सर्वाधिक प्रभावी रूप से अधिकतम करेगा?",
+options:[
+"अंतर्निहित ट्रैक को अधिक चौड़ी पटरियों से प्रतिस्थापित करना",
+"लोडित कार के संरचनात्मक द्रव्यमान को कम करना",
+"प्रथम शीर्ष (hill) की प्रारंभिक ऊँचाई में वृद्धि करना",
+"समान ऊँचाई का एक द्वितीयक शीर्ष बनाना"
+],
+answer:2,
+formula:"mgh = ½mv²",
+explanation:"प्रारंभिक ऊँचाई बढ़ाने से गुरुत्वीय स्थितिज ऊर्जा बढ़ती है और वह नीचे आकर अधिक गतिज ऊर्जा में बदलती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा कथन ऊर्जा संरक्षण के नियम का सर्वोत्तम वर्णन करता है?",
+options:[
+"ऊर्जा को नष्ट किया जा सकता है, लेकिन उत्पन्न नहीं किया जा सकता है।",
+"ऊर्जा भौतिक प्रक्रियाओं के दौरान उपयोग की जाती है और लुप्त हो जाती है।",
+"ऊर्जा को न तो उत्पन्न किया जा सकता है और न ही नष्ट; यह केवल अपना रूप परिवर्तित करती है।",
+"किसी संवृत्त निकाय में ऊर्जा सदैव बढ़ती है।"
+],
+answer:2,
+formula:"कुल ऊर्जा = नियत",
+explanation:"ऊर्जा न तो उत्पन्न की जा सकती है और न नष्ट; यह एक रूप से दूसरे रूप में परिवर्तित होती है।"
+},
+
+{
+q:"500 kg द्रव्यमान वाली एक रोलर कोस्टर कार निम्नतम बिंदु पर 20 m/s की गति से चल रही है। यदि घर्षण के कारण 30,000 J ऊर्जा का ह्रास होता है, तो इसकी नई चाल कितनी होगी?",
+options:[
+"≈ 18 m/s",
+"≈ 20 m/s",
+"≈ 10 m/s",
+"≈ 15 m/s"
+],
+answer:0,
+formula:"KE = ½mv²; नई KE = पुरानी KE − 30000",
+explanation:"प्रारंभिक KE = ½×500×20² = 100000 J. नई KE = 70000 J. इसलिए v = √(2×70000/500) ≈ 16.7 m/s. दिए गए विकल्पों में लगभग 18 m/s सबसे निकट है।"
+},
+
+{
+q:"एक गोताखोर एक डाइविंग बोर्ड से एक पूल में कूदता है। जल में प्रवेश करने से ठीक पहले ऊर्जा संरक्षण के नियम के अनुसार कौन-सा कथन सर्वोत्तम लागू होता है?",
+options:[
+"गोताखोर की स्थितिज ऊर्जा में ह्रास, उसकी गतिज ऊर्जा में लब्धि के बराबर होता है",
+"गिरने के दौरान गोताखोर की कुल ऊर्जा बढ़ जाती है",
+"गोताखोर के गिरने के दौरान परिवेश में ऊर्जा का ह्रास होता है",
+"गोताखोर की स्थितिज ऊर्जा पूरे समय समान रहती है"
+],
+answer:0,
+formula:"PE का ह्रास = KE की वृद्धि",
+explanation:"वायु प्रतिरोध नगण्य मानने पर गिरते समय गुरुत्वीय स्थितिज ऊर्जा गतिज ऊर्जा में परिवर्तित होती है।"
+},
+
+{
+q:"एक गेंद बिना किसी घर्षण के पहाड़ी से नीचे लुढ़कती है और नीचे पहुँचती है। गेंद की गति पर ऊर्जा कैसे परिवर्तित होती है?",
+options:[
+"गेंद की स्थितिज ऊर्जा कम होती है, जबकि उसकी गतिज ऊर्जा में वृद्धि होती है",
+"जैसे-जैसे गेंद गति करती है, स्थितिज और गतिज ऊर्जा दोनों में वृद्धि होती है",
+"जैसे-जैसे गेंद नीचे की ओर गति करती है, उसकी गतिज ऊर्जा कम होती जाती है",
+"जैसे-जैसे गेंद लुढ़कती है, उसकी कुल ऊर्जा में वृद्धि होती है"
+],
+answer:0,
+formula:"PE ↓ → KE ↑",
+explanation:"घर्षण न होने पर कुल यांत्रिक ऊर्जा स्थिर रहती है। नीचे आने पर PE घटती है और KE बढ़ती है।"
+},
+
+{
+q:"एक कारखाना प्रबंधक दो मशीनों की तुलना कर रहा है जो समान कार्य करती हैं। मशीन A को कार्य पूर्ण करने में मशीन B से अधिक समय लगता है। शक्ति की परिभाषा के आधार पर किस कारक पर विचार करना चाहिए?",
+options:[
+"प्रत्येक मशीन द्वारा किया गया कुल कार्य",
+"प्रत्येक मशीन का द्रव्यमान",
+"प्रत्येक मशीन द्वारा उपयोग की जाने वाली ऊर्जा की मात्रा",
+"वह दर जिस पर प्रत्येक मशीन कार्य करती है"
+],
+answer:3,
+formula:"P = W/t",
+explanation:"शक्ति कार्य करने की दर है। समान कार्य में कम समय लेने वाली मशीन की शक्ति अधिक होती है।"
+},
+
+{
+q:"जब एक टॉर्च चालू की जाती है, तो ऊर्जा में क्या परिवर्तन होता है?",
+options:[
+"प्रकाश ऊर्जा, ध्वनि ऊर्जा में परिवर्तित हो जाती है",
+"रासायनिक ऊर्जा, ध्वनि ऊर्जा में परिवर्तित हो जाती है",
+"प्रकाश ऊर्जा, रासायनिक ऊर्जा में परिवर्तित हो जाती है",
+"रासायनिक ऊर्जा, प्रकाश ऊर्जा में परिवर्तित हो जाती है"
+],
+answer:3,
+formula:"Chemical → Electrical → Light",
+explanation:"टॉर्च की बैटरी में रासायनिक ऊर्जा विद्युत ऊर्जा में और फिर प्रकाश ऊर्जा में परिवर्तित होती है।"
+},
+
+{
+q:"कोई प्रज्वलित बल्ब किस प्रकार की ऊर्जा उत्सर्जित करता है?",
+options:[
+"रासायनिक ऊर्जा",
+"गुरुत्वीय ऊर्जा",
+"ध्वनि ऊर्जा",
+"प्रकाश ऊर्जा"
+],
+answer:3,
+formula:"Electrical energy → Light energy",
+explanation:"जलता हुआ बल्ब मुख्य रूप से प्रकाश ऊर्जा उत्सर्जित करता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा रासायनिक ऊर्जा का एक उदाहरण है?",
+options:[
+"भोजन में संग्रहीत ऊर्जा",
+"गतिशील वस्तुओं से प्राप्त ऊर्जा",
+"किसी खिंचे हुए रबर बैंड से उत्पन्न ऊर्जा",
+"घूर्णी पहिए से प्राप्त ऊर्जा"
+],
+answer:0,
+formula:"Chemical energy → bonds में stored energy",
+explanation:"भोजन में रासायनिक बंधों में ऊर्जा संग्रहीत होती है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा विकल्प गतिज ऊर्जा का सर्वोत्तम वर्णन करता है?",
+options:[
+"किसी वस्तु में उसकी गति के कारण निहित ऊर्जा",
+"तापमान परिवर्तनों से संबंधित ऊर्जा",
+"किसी वस्तु द्वारा अपनी स्थिति में संग्रहीत ऊर्जा",
+"रासायनिक आबंधों में निहित ऊर्जा"
+],
+answer:0,
+formula:"KE = ½mv²",
+explanation:"गतिज ऊर्जा वस्तु की गति के कारण प्राप्त ऊर्जा है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सा गतिज ऊर्जा का एक उदाहरण है?",
+options:[
+"एक खड़ी हुई साइकिल",
+"शेल्फ पर रखी एक पुस्तक",
+"आकाश में उड़ता हुआ एक पक्षी",
+"वृक्ष से लटकता हुआ एक सेब"
+],
+answer:2,
+formula:"गतिमान वस्तु → गतिज ऊर्जा",
+explanation:"उड़ता हुआ पक्षी गति में है, इसलिए उसमें गतिज ऊर्जा है।"
+},
+
+{
+q:"यदि दो वस्तुओं का वेग समान हो, तो किस वस्तु की गतिज ऊर्जा अधिक होगी?",
+options:[
+"हल्के रंग वाली",
+"बड़े आकार वाली",
+"अधिक द्रव्यमान वाली",
+"भिन्न आकृति वाली"
+],
+answer:2,
+formula:"KE = ½mv²",
+explanation:"समान वेग पर गतिज ऊर्जा द्रव्यमान के समानुपाती होती है।"
+},
+
+{
+q:"जब एक गतिमान कार रुक जाती है, तो उसकी गतिज ऊर्जा का क्या होता है?",
+options:[
+"यह शून्य हो जाती है",
+"यह ऋणात्मक हो जाती है",
+"यह समान रहती है",
+"यह दोगुनी हो जाती है"
+],
+answer:0,
+formula:"KE = ½mv²; v = 0 ⇒ KE = 0",
+explanation:"कार रुकने पर उसका वेग शून्य हो जाता है, इसलिए उसकी गतिज ऊर्जा शून्य हो जाती है।"
+},
+
+{
+q:"M द्रव्यमान का एक वाहन V वेग से यात्रा करता है। यदि इसकी गतिज ऊर्जा 9 गुना बढ़ जाती है, तो इसके वेग में कितना परिवर्तन होगा?",
+options:[
+"वेग तीन गुना हो जाता है",
+"वेग दोगुना हो जाता है",
+"वेग चार गुना हो जाता है",
+"वेग नौ गुना बढ़ जाता है"
+],
+answer:0,
+formula:"KE ∝ v²; 9KE ⇒ v' = 3v",
+explanation:"गतिज ऊर्जा वेग के वर्ग के समानुपाती है। इसलिए KE को 9 गुना करने पर वेग 3 गुना होगा।"
+},
+
+{
+q:"3 kg के पत्थर को 8 m/s की चाल से ऊर्ध्वाधर ऊपर की ओर फेंका जाता है। हाथ से छूटते समय उसकी गतिज ऊर्जा कितनी होगी?",
+options:[
+"96 J",
+"24 J",
+"72 J",
+"48 J"
+],
+answer:0,
+formula:"KE = ½mv² = ½×3×8² = 96 J",
+explanation:"दिए गए m = 3 kg और v = 8 m/s को सूत्र में रखने पर 96 J मिलता है।"
+},
+
+{
+q:"किसी गतिशील वस्तु की गतिज ऊर्जा की गणना करने के लिए किस भौतिक राशि का ज्ञात होना आवश्यक है?",
+options:[
+"द्रव्यमान और वेग",
+"केवल वेग",
+"केवल द्रव्यमान",
+"द्रव्यमान और समय"
+],
+answer:0,
+formula:"KE = ½mv²",
+explanation:"गतिज ऊर्जा निकालने के लिए द्रव्यमान और वेग दोनों चाहिए।"
+},
+
+{
+q:"0.5 kg द्रव्यमान का एक पत्थर 8 m/s की चाल से गतिमान है। इसकी गतिज ऊर्जा होगी।",
+options:[
+"32 J",
+"64 J",
+"128 J",
+"16 J"
+],
+answer:0,
+formula:"KE = ½×0.5×8² = 16 J",
+explanation:"सही गणना 16 J है। दिए गए विकल्पों में D सही है।",
+correctOption:3
+},
+
+{
+q:"जब m द्रव्यमान की कोई वस्तु v वेग से गतिमान है, तो उसकी गतिज ऊर्जा K है। यदि उसका वेग दोगुना कर दिया जाए, तो उसकी गतिज ऊर्जा कितनी होगी?",
+options:[
+"K",
+"2K",
+"4K",
+"3K"
+],
+answer:2,
+formula:"K = ½mv²; v' = 2v ⇒ K' = 4K",
+explanation:"गतिज ऊर्जा वेग के वर्ग पर निर्भर करती है। वेग दोगुना करने पर KE चार गुना हो जाती है।"
+},
+
+{
+q:"यदि 4 kg की एक वस्तु 3 m/s पर गति कर रही है और 2 kg की दूसरी वस्तु 6 m/s पर गति कर रही है, तो किस वस्तु में गतिज ऊर्जा अधिक है?",
+options:[
+"दोनों वस्तुओं की गतिज ऊर्जा समान है",
+"4 kg की वस्तु जो 3 m/s पर गति कर रही है",
+"2 kg की वस्तु जो 6 m/s पर गति कर रही है",
+"किसी भी वस्तु में गतिज ऊर्जा नहीं है"
+],
+answer:2,
+formula:"KE₁ = ½×4×3² = 18 J; KE₂ = ½×2×6² = 36 J",
+explanation:"दूसरी वस्तु की गतिज ऊर्जा 36 J है, इसलिए वह अधिक है।"
+},
+
+{
+q:"वस्तु A (3 kg), 4 m/s की चाल से गतिमान है, और वस्तु B (6 kg), 2 m/s की चाल से गतिमान है। किस वस्तु की गतिज ऊर्जा अधिक है?",
+options:[
+"वस्तु B",
+"निर्धारित नहीं किया जा सकता है",
+"दोनों में समान गतिज ऊर्जा होती है।",
+"वस्तु A"
+],
+answer:2,
+formula:"KE_A = ½×3×16 = 24 J; KE_B = ½×6×4 = 12 J",
+explanation:"वस्तु A की गतिज ऊर्जा 24 J और B की 12 J है। अतः A अधिक है।",
+correctOption:3
+},
+
+{
+q:"0.5 kg द्रव्यमान वाली एक खिलौना कार 2 m/s की चाल से गतिमान है। इसकी गतिज ऊर्जा कितनी होगी?",
+options:[
+"1 J",
+"0.5 J",
+"2.5 J",
+"2 J"
+],
+answer:0,
+formula:"KE = ½×0.5×2² = 1 J",
+explanation:"सूत्र में मान रखने पर KE = 1 J मिलता है।"
+},
+
+{
+q:"एक विद्यार्थी का यह दावा है कि एक स्थिर वस्तु में गतिज ऊर्जा इसलिए होती है क्योंकि उसका द्रव्यमान होता है। इस कथन का मूल्यांकन कीजिए।",
+options:[
+"यह कथन गलत है क्योंकि केवल गति में ऊर्जा को स्थितिज ऊर्जा के रूप में गिना जाता है",
+"कथन गलत है क्योंकि गतिज ऊर्जा के लिए गति की आवश्यकता होती है",
+"यह कथन केवल पृथ्वी पर स्थित वस्तुओं के लिए सही है",
+"कथन सही है क्योंकि द्रव्यमान वाली सभी वस्तुओं में गतिज ऊर्जा होती है"
+],
+answer:1,
+formula:"KE = ½mv²; v = 0 ⇒ KE = 0",
+explanation:"स्थिर वस्तु का वेग शून्य होता है, इसलिए उसकी गतिज ऊर्जा शून्य होती है।"
+},
+
+{
+q:"एक गोली और एक गेंद की गतिज ऊर्जा समान है, लेकिन गोली का द्रव्यमान गेंद की तुलना में बहुत कम है। उनकी चाल के संबंध में कौन-सा कथन सही है?",
+options:[
+"दोनों समान चाल पर गति करते हैं।",
+"गोली, गेंद की तुलना में बहुत तीव्र गति से चलती है।",
+"गेंद, गोली की तुलना में बहुत तीव्र गति से चलती है।",
+"गोली और गेंद दोनों विराम अवस्था में रहते हैं।"
+],
+answer:1,
+formula:"v = √(2KE/m)",
+explanation:"समान KE में कम द्रव्यमान वाली वस्तु का वेग अधिक होगा।"
+},
+
+{
+q:"1000 kg द्रव्यमान वाली एक कार 25 m/s की चाल से गतिमान है। चालक कार को रोक देता है। कितनी गतिज ऊर्जा नष्ट होती है?",
+options:[
+"12500 J",
+"625000 J",
+"25000 J",
+"312500 J"
+],
+answer:1,
+formula:"KE = ½×1000×25² = 312500 J",
+explanation:"कार रुकने पर पूरी प्रारंभिक गतिज ऊर्जा नष्ट/अन्य रूप में परिवर्तित होती है। सही उत्तर 312500 J है।",
+correctOption:3
+},
+
+{
+q:"60 kg द्रव्यमान का एक एथलीट 5 m/s की चाल से दौड़ता है। स्थिर खड़े रहने की तुलना में प्राप्त की गई गतिज ऊर्जा कितनी है?",
+options:[
+"300 J",
+"375 J",
+"750 J",
+"1500 J"
+],
+answer:1,
+formula:"KE = ½×60×5² = 750 J",
+explanation:"सही मान 750 J है। इसलिए विकल्प C सही है।",
+correctOption:2
+},
+
+{
+q:"एक फुटबॉल खिलाड़ी गेंद को आगे की ओर किक करता है। बाद में गोलकीपर गेंद को कैच करता है और विराम अवस्था में लाता है। कौन-सा कथन सही है? 1. खिलाड़ी गेंद पर धनात्मक कार्य करता है। 2. गोलकीपर गेंद पर ऋणात्मक कार्य करता है। 3. किक के दौरान बल और विस्थापन एक ही दिशा में होते हैं। 4. कैच के दौरान बल और विस्थापन विपरीत दिशाओं में होते हैं।",
+options:[
+"केवल 1, 2 और 4",
+"केवल 1 और 2",
+"1, 2, 3 और 4",
+"केवल 2 और 3"
+],
+answer:2,
+formula:"W = Fs cosθ",
+explanation:"किक के दौरान बल और विस्थापन समान दिशा में होते हैं, इसलिए धनात्मक कार्य होता है। कैच में गेंद को रोकने वाला बल विस्थापन के विपरीत होता है, इसलिए ऋणात्मक कार्य होता है।"
+},
+
+{
+q:"जब किसी वस्तु को ऊपर की ओर उठाया जाता है, तो गुरुत्व बल द्वारा किया गया कार्य ऋणात्मक माना जाता है क्योंकि ________।",
+options:[
+"गिरती हुई वस्तु पर गुरुत्व बल केवल धनात्मक कार्य करता है",
+"वस्तु, गुरुत्व बल के विपरीत ऊपर की ओर विस्थापित होती है",
+"वस्तु पर लगने वाला कुल बल शून्य होता है",
+"गुरुत्व बल नियत रहता है"
+],
+answer:1,
+formula:"W = Fs cos180° = −Fs",
+explanation:"गुरुत्व बल नीचे और विस्थापन ऊपर की ओर होता है। दोनों दिशाएँ विपरीत हैं, इसलिए कार्य ऋणात्मक है।"
+},
+
+{
+q:"20 N का एक बल, 5 m के विस्थापन के विपरीत कार्य करता है। बल द्वारा किया गया कार्य कितना होगा?",
+options:[
+"+25 J",
+"0 J",
+"−100 J",
+"+100 J"
+],
+answer:2,
+formula:"W = Fs cos180° = 20×5×(−1) = −100 J",
+explanation:"बल और विस्थापन विपरीत दिशाओं में हैं, इसलिए कार्य −100 J है।"
+},
+
+{
+q:"एक साइकिल चालक गतिमान साइकिल को रोकने के लिए ब्रेक लगाता है। ब्रेक बल द्वारा साइकिल पर किया गया कार्य ________ होता है।",
+options:[
+"केवल ऋणात्मक",
+"केवल धनात्मक",
+"शून्य",
+"धनात्मक और ऋणात्मक दोनों"
+],
+answer:0,
+formula:"W = ΔKE",
+explanation:"ब्रेक बल गति के विपरीत दिशा में होता है, इसलिए वह गतिज ऊर्जा घटाता है और ऋणात्मक कार्य करता है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी स्थिति भौतिकी में कार्य की वैज्ञानिक परिभाषा को सर्वोत्तम रूप से दर्शाती है?",
+options:[
+"वह व्यक्ति, जो फर्श से किसी बॉक्स को उठाकर मेज पर रखता है",
+"वह व्यक्ति, जो दीवार को धक्का देता है लेकिन दीवार हिलती नहीं है",
+"वह व्यक्ति, जो किसी बैकपैक के साथ नियत चाल से चलता है",
+"वह व्यक्ति, जो अपने सिर पर किसी किताब को स्थिर रूप से पकड़े हुए है"
+],
+answer:0,
+formula:"W = Fs",
+explanation:"बॉक्स पर बल लगाने से उसका स्थान बदलता है। इसलिए वैज्ञानिक अर्थ में कार्य किया जाता है।"
+},
+
+{
+q:"एक वस्तु पूर्व की ओर गतिमान है। निम्नलिखित में से कौन-सा बल निश्चित रूप से उस पर ऋणात्मक कार्य करेगा?",
+options:[
+"पश्चिम की ओर आरोपित बल",
+"पूर्व की ओर आरोपित बल",
+"उपरिमुखी आरोपित बल",
+"अधोमुखी आरोपित बल"
+],
+answer:0,
+formula:"W = Fs cosθ; θ = 180° ⇒ W < 0",
+explanation:"पूर्व की ओर विस्थापन के विपरीत पश्चिम दिशा का बल ऋणात्मक कार्य करता है।"
+},
+
+{
+q:"m द्रव्यमान की वस्तु को पृथ्वी की सतह के समीप h ऊँचाई तक ऊर्ध्वाधर उठाया जाता है। इसकी गुरुत्वीय स्थितिज ऊर्जा क्या है?",
+options:[
+"hg/m",
+"mh/g",
+"mg/h",
+"mgh"
+],
+answer:3,
+formula:"PE = mgh",
+explanation:"गुरुत्वीय स्थितिज ऊर्जा का सूत्र mgh है।"
+},
+
+{
+q:"500 kg द्रव्यमान की पानी की टंकी 20 m ऊँचाई पर है। g = 10 m/s² है। यदि इसे दूसरी छत पर ले जाया जाता है जिसकी ऊँचाई पहली की दोगुनी है, तो नई स्थितिज ऊर्जा कितनी होगी?",
+options:[
+"200,000 J",
+"100,000 J",
+"50,000 J",
+"400,000 J"
+],
+answer:3,
+formula:"PE = mgh = 500×10×40 = 200000 J",
+explanation:"पहली ऊँचाई 20 m थी, दूसरी 40 m। इसलिए नई PE = 200000 J है।",
+correctOption:0
+},
+
+{
+q:"निम्नलिखित में से कौन-सी भौतिक राशियां गुरुत्वीय स्थितिज ऊर्जा को प्रभावित करती हैं?",
+options:[
+"तापमान और रंग",
+"चाल और दूरी",
+"आयतन और आकृति",
+"द्रव्यमान और ऊँचाई"
+],
+answer:3,
+formula:"PE = mgh",
+explanation:"गुरुत्वीय स्थितिज ऊर्जा द्रव्यमान, गुरुत्वीय त्वरण और ऊँचाई पर निर्भर करती है।"
+},
+
+{
+q:"एक रोलर कोस्टर कार के शीर्ष पर ऊँचाई और गुरुत्व नियत रखते हुए कार और यात्रियों का द्रव्यमान दोगुना कर दिया जाए, तो शीर्ष पर गुरुत्वीय स्थितिज ऊर्जा क्या होगी?",
+options:[
+"गुरुत्वीय स्थितिज ऊर्जा दोगुनी हो जाएगी",
+"गुरुत्वीय स्थितिज ऊर्जा आधी हो जाएगी",
+"गुरुत्वीय स्थितिज ऊर्जा अपरिवर्तित रहेगी",
+"गुरुत्वीय स्थितिज ऊर्जा चार गुनी हो जाएगी"
+],
+answer:0,
+formula:"PE = mgh",
+explanation:"m दोगुना होने पर PE भी दोगुनी हो जाती है।"
+},
+
+{
+q:"एक गेंद को किसी मेज के किनारे पर और फिर केंद्र में रखा जाता है। मेज की ऊँचाई अपरिवर्तित रहती है। दोनों स्थितियों में गेंद की गुरुत्वीय स्थितिज ऊर्जा में क्या अंतर होगा?",
+options:[
+"केंद्र की तुलना में किनारे पर स्थितिज ऊर्जा उच्चतर होती है",
+"गेंद की गति के साथ उसकी स्थितिज ऊर्जा में लगातार परिवर्तन होता रहता है",
+"केंद्र की तुलना में किनारे पर स्थितिज ऊर्जा निम्नतर होती है",
+"स्थितिज ऊर्जा दोनों स्थितियों में समान होती है"
+],
+answer:3,
+formula:"PE = mgh",
+explanation:"ऊँचाई समान है और m तथा g भी समान हैं। इसलिए PE समान होगी।"
+},
+
+{
+q:"निम्नलिखित में से किसमें (भूमि के सापेक्ष) स्थितिज ऊर्जा नहीं है?",
+options:[
+"छत पर रखा एक पत्थर",
+"संपीडित स्प्रिंग",
+"बांध में भंडारित जल",
+"भूमितल पर स्वतंत्र रूप से गिरता हुआ एक पिंड"
+],
+answer:3,
+formula:"PE = mgh",
+explanation:"भूमि को reference level मानने पर भूमितल पर h = 0 होता है, इसलिए गुरुत्वीय PE शून्य होती है।"
+},
+
+{
+q:"एक पर्वतारोही परिवर्ती ढलानों वाले पहाड़ पर बैग लेकर चढ़ रहा है। चढ़ाई के दौरान किस बिंदु पर बैग की ऊर्जा अधिकतम होगी, द्रव्यमान नियत मानते हुए?",
+options:[
+"चढ़ाई की सबसे खड़ी ढलान पर",
+"पहाड़ पर चढ़ते हुए आधे रास्ते पर",
+"पहाड़ के आधार पर प्रारंभिक स्थिति पर",
+"चढ़ाई के दौरान उच्चतम ऊँचाई पर"
+],
+answer:3,
+formula:"PE = mgh",
+explanation:"ऊँचाई जितनी अधिक होगी, गुरुत्वीय स्थितिज ऊर्जा उतनी अधिक होगी।"
+},
+
+{
+q:"यदि आप किसी पुस्तक को उठाकर शेल्फ पर रख देते हैं, तो उसकी ऊर्जा का क्या प्रभाव पड़ता है?",
+options:[
+"इसकी स्थितिज ऊर्जा में वृद्धि होती है",
+"इसकी ऊष्मीय ऊर्जा में वृद्धि होती है",
+"यह गतिज ऊर्जा प्राप्त करती है",
+"इसमें सभी ऊर्जा की हानि होती है"
+],
+answer:0,
+formula:"PE = mgh",
+explanation:"पुस्तक को अधिक ऊँचाई पर रखने से उसकी गुरुत्वीय स्थितिज ऊर्जा बढ़ती है।"
+},
+
+{
+q:"एक वस्तु को भूमि से एक निश्चित ऊँचाई पर रखा जाता है। अपनी स्थिति के कारण इसमें किस प्रकार की ऊर्जा निहित होती है?",
+options:[
+"स्थितिज ऊर्जा",
+"ऊष्मीय ऊर्जा",
+"गतिज ऊर्जा",
+"रासायनिक ऊर्जा"
+],
+answer:0,
+formula:"Position → Potential Energy",
+explanation:"स्थिति या ऊँचाई के कारण वस्तु में स्थितिज ऊर्जा होती है।"
+},
+
+{
+q:"12.5 kg द्रव्यमान की एक वस्तु को 8 m की ऊँचाई तक उठाया जाता है। g = 10 m/s² लें। इसकी स्थितिज ऊर्जा कितनी है?",
+options:[
+"1250 J",
+"1000 J",
+"800 J",
+"100 J"
+],
+answer:1,
+formula:"PE = mgh = 12.5×10×8 = 1000 J",
+explanation:"दिए गए मानों को mgh में रखने पर 1000 J मिलता है।"
+},
+
+{
+q:"एक कर्मकार कोई कार्य करता है। शक्ति के संबंध में निम्नलिखित में से कौन-से कथन सही हैं? 1. यदि कार्य नियत रहता है और समय बढ़ता है, तो शक्ति घट जाती है। 2. यदि समय नियत रहता है और कार्य बढ़ता है, तो शक्ति बढ़ जाती है। 3. शक्ति, किए गए कार्य के अनुक्रमानुपाती होती है। 4. शक्ति, लिए गए समय के व्युत्क्रमानुपाती होती है।",
+options:[
+"केवल 2 और 4",
+"1, 2, 3 और 4",
+"केवल 1, 3 और 4",
+"केवल 1, 2 और 3"
+],
+answer:1,
+formula:"P = W/t",
+explanation:"P कार्य के समानुपाती और समय के व्युत्क्रमानुपाती है। इसलिए चारों कथन सही हैं।"
+},
+
+{
+q:"शक्ति (power) के बारे में कौन-सा कथन सही है?",
+options:[
+"शक्ति केवल बल पर निर्भर करती है।",
+"शक्ति समय से स्वतंत्र है।",
+"शक्ति और कार्य का SI मात्रक समान होता है।",
+"शक्ति यह मापती है कि कार्य कितनी तेज़ी से किया जाता है।"
+],
+answer:3,
+formula:"P = W/t",
+explanation:"शक्ति कार्य करने की दर को मापती है।"
+},
+
+{
+q:"समान कार्य को करने में मशीन A द्वारा लिया गया समय मशीन B द्वारा लिए गए समय का आधा है। मशीन A और मशीन B की शक्ति का अनुपात कितना होगा?",
+options:[
+"1:1",
+"2:1",
+"4:1",
+"1:2"
+],
+answer:1,
+formula:"P = W/t; t_A = t_B/2 ⇒ P_A = 2P_B",
+explanation:"समान कार्य के लिए कम समय लेने वाली A की शक्ति दोगुनी है।"
+},
+
+{
+q:"समान कार्य को करने में विद्यार्थी A को 20 सेकंड और B को 40 सेकंड लगते हैं। कौन-सा कथन सही है?",
+options:[
+"विद्यार्थी A की शक्ति विद्यार्थी B की शक्ति से दोगुनी है।",
+"विद्यार्थी B ने अधिक कार्य किया है।",
+"दोनों विद्यार्थियों के पास समान शक्ति है।",
+"विद्यार्थी B की शक्ति विद्यार्थी A की शक्ति से दोगुनी है।"
+],
+answer:0,
+formula:"P = W/t",
+explanation:"समान कार्य के लिए A आधा समय लेता है, इसलिए A की शक्ति दोगुनी है।"
+},
+
+{
+q:"यदि समय को नियत रखते हुए किसी engine की शक्ति को दोगुना कर दिया जाए, तो किए गए कार्य पर क्या प्रभाव पड़ेगा?",
+options:[
+"समान रहेगा",
+"दोगुना हो जाएगा",
+"चार गुना हो जाएगा",
+"आधा हो जाएगा"
+],
+answer:1,
+formula:"W = Pt",
+explanation:"समय नियत है। शक्ति दोगुनी करने पर कार्य भी दोगुना होगा।"
+},
+
+{
+q:"एक मोटर 30 s के लिए 85 W की शक्ति विकसित करती है। मोटर द्वारा किया गया कार्य कितना होगा?",
+options:[
+"255 J",
+"250 J",
+"2550 J",
+"2500 J"
+],
+answer:2,
+formula:"W = Pt = 85×30 = 2550 J",
+explanation:"कार्य = शक्ति × समय।"
+},
+
+{
+q:"एक मशीन किसी कार्य को पूरा करती है जिसके लिए आधे मिनट में 3000 J कार्य की आवश्यकता होती है। मशीन द्वारा प्रदत्त औसत शक्ति कितनी है?",
+options:[
+"100 W",
+"30 W",
+"300 W",
+"10 W"
+],
+answer:0,
+formula:"P = W/t = 3000/30 = 100 W",
+explanation:"आधा मिनट = 30 सेकंड। इसलिए शक्ति 100 W है।"
+},
+
+{
+q:"मशीन M, 20 s में 600 J कार्य करती है। मशीन N, 15 s में 900 J कार्य करती है। कौन-सा कथन सही है?",
+options:[
+"मशीन M अधिक शक्ति उत्पन्न करती है।",
+"मशीन N, मशीन M से दोगुनी शक्ति उत्पन्न करती है।",
+"मशीन N, मशीन M की 1.5 गुना अधिक शक्ति उत्पन्न करती है।",
+"दोनों मशीनें समान शक्ति उत्पन्न करती हैं।"
+],
+answer:1,
+formula:"P_M=600/20=30 W; P_N=900/15=60 W",
+explanation:"N की शक्ति 60 W और M की 30 W है, इसलिए N की शक्ति दोगुनी है।"
+},
+
+{
+q:"एक मशीन 10 W की शक्ति उत्पन्न करती है। इसका क्या अर्थ है?",
+options:[
+"यह 10 N का बल अनुप्रयुक्त करती है",
+"यह प्रत्येक सेकंड में 10 J कार्य करती है",
+"यह प्रत्येक मिनट में 10 J कार्य करती है",
+"यह 10 J ऊर्जा संग्रहीत करती है"
+],
+answer:1,
+formula:"1 W = 1 J/s",
+explanation:"10 W का अर्थ है प्रत्येक सेकंड में 10 J कार्य।"
+},
+
+{
+q:"एक motor 3 सेकंड में 1875 J का कार्य करती है। इसका power output क्या होगा?",
+options:[
+"210 W",
+"2810 W",
+"5625 W",
+"625 W"
+],
+answer:3,
+formula:"P = W/t = 1875/3 = 625 W",
+explanation:"कार्य को समय से भाग देने पर 625 W मिलता है।"
+},
+
+{
+q:"एक वस्तु पर 300 N का बल कार्य करता है। यदि बल को नियत रखते हुए विस्थापन को तीन गुना कर दिया जाए, तो किया गया कार्य ________।",
+options:[
+"तीन गुना हो जाता है",
+"समान रहता है",
+"1/3 हो जाता है",
+"नौ गुना हो जाता है"
+],
+answer:0,
+formula:"W = Fs",
+explanation:"बल नियत है और विस्थापन तीन गुना है, इसलिए कार्य तीन गुना होगा।"
+},
+
+{
+q:"45 N के बल से कोई वस्तु बल की दिशा में 3 m तक गति करती है। किए गए कार्य की गणना कीजिए।",
+options:[
+"125 J",
+"145 J",
+"155 J",
+"135 J"
+],
+answer:3,
+formula:"W = Fs = 45×3 = 135 J",
+explanation:"बल और विस्थापन समान दिशा में हैं।"
+},
+
+{
+q:"एक वस्तु पर 7 N का बल कार्य करता है, जो इसे बल की दिशा में 8 m विस्थापित करता है। किया गया कार्य ज्ञात कीजिए।",
+options:[
+"56 J",
+"15 J",
+"1 J",
+"27 J"
+],
+answer:0,
+formula:"W = Fs = 7×8 = 56 J",
+explanation:"समान दिशा होने के कारण W = Fs।"
+},
+
+{
+q:"एक नियत बल किसी वस्तु पर कार्य करता है और उसे बल की दिशा में गतिमान करता है। बल द्वारा किए गए कार्य की गणना किस प्रकार होगी?",
+options:[
+"कार्य की गणना (बल × विस्थापन) द्वारा होगी",
+"कार्य की गणना (बल ÷ विस्थापन) द्वारा होगी",
+"कार्य की गणना (बल × समय) द्वारा होगी",
+"कार्य की गणना (बल + विस्थापन) द्वारा होगी"
+],
+answer:0,
+formula:"W = F × s",
+explanation:"जब बल और विस्थापन समान दिशा में हों, कार्य = बल × विस्थापन।"
+},
+
+{
+q:"किसी वस्तु पर एक नियत बल कार्य करता है और उसे बल की दिशा में 25 m की दूरी तक ले जाने में 250 J कार्य करता है। बल का परिमाण ज्ञात कीजिए।",
+options:[
+"15 N",
+"25 N",
+"10 N",
+"20 N"
+],
+answer:2,
+formula:"F = W/s = 250/25 = 10 N",
+explanation:"बल = कार्य/विस्थापन।"
+},
+
+{
+q:"एक विद्यार्थी क्षैतिज से किसी कोण पर बॉक्स पर नियत बल लगाता है और बॉक्स क्षैतिज दिशा में चलता है। अनुप्रयुक्त बल द्वारा किए गए कार्य का सही वर्णन क्या है?",
+options:[
+"केवल ऊर्ध्वाधर घटक × ऊर्ध्वाधर दूरी",
+"क्षैतिज और ऊर्ध्वाधर घटकों का योग × दूरी",
+"केवल बल का क्षैतिज घटक × क्षैतिज विस्थापन",
+"पूरा बल × विस्थापित दूरी"
+],
+answer:2,
+formula:"W = Fs cosθ = F_horizontal × s",
+explanation:"विस्थापन क्षैतिज है, इसलिए बल का केवल क्षैतिज घटक कार्य करता है।"
+},
+
+{
+q:"यदि किसी वस्तु का विस्थापन दोगुना हो जाता है, जबकि नियत बल अपरिवर्तित रहता है, तो बल-विस्थापन ग्राफ के अंतर्गत क्षेत्रफल ________।",
+options:[
+"अपरिवर्तित रहता है",
+"मूल क्षेत्रफल का चार गुना हो जाता है",
+"मूल क्षेत्रफल का दोगुना हो जाता है",
+"मूल क्षेत्रफल का आधा हो जाता है"
+],
+answer:2,
+formula:"Graph area = Work = F×s",
+explanation:"बल नियत है और विस्थापन दोगुना है, इसलिए ग्राफ के नीचे का क्षेत्रफल अर्थात कार्य दोगुना होगा।"
+},
+
+{
+q:"किसी ट्रॉली को ऋजु पथ पर 40 N के नियत बल से खींचा जाता है। यदि ट्रॉली पर किया गया कार्य 240 J है, तो ट्रॉली कितनी दूरी तय करती है?",
+options:[
+"4 m",
+"12 m",
+"2 m",
+"6 m"
+],
+answer:3,
+formula:"s = W/F = 240/40 = 6 m",
+explanation:"विस्थापन = कार्य/बल।"
+},
+
+{
+q:"यदि 1 N के बल द्वारा किसी वस्तु को बल-रेखा के अनुदिश 1 m तक विस्थापित किया जाता है, तो किया गया कार्य क्या होगा?",
+options:[
+"10 J",
+"1 J",
+"0.5 J",
+"0.1 J"
+],
+answer:1,
+formula:"W = 1 N × 1 m = 1 J",
+explanation:"1 N बल द्वारा 1 m विस्थापन पर 1 J कार्य होता है।"
+},
+
+{
+q:"किसी पिंड की गतिज ऊर्जा 40 J से बढ़कर 140 J हो जाती है। पिंड पर किया गया नेट कार्य कितना है?",
+options:[
+"150 J",
+"100 J",
+"200 J",
+"50 J"
+],
+answer:1,
+formula:"W_net = ΔKE = 140−40 = 100 J",
+explanation:"कार्य-ऊर्जा प्रमेय के अनुसार नेट कार्य = गतिज ऊर्जा में परिवर्तन।"
+},
+
+{
+q:"कार्य-ऊर्जा प्रमेय के अनुसार, यदि किसी वस्तु पर किया गया नेट कार्य शून्य है, तो उसकी गतिज ऊर्जा _________।",
+options:[
+"निरंतर घटती है",
+"अपरिवर्तित रहती है",
+"शून्य हो जाती है",
+"निरंतर बढ़ती है"
+],
+answer:1,
+formula:"W_net = ΔKE; W_net = 0 ⇒ ΔKE = 0",
+explanation:"नेट कार्य शून्य होने पर गतिज ऊर्जा में कोई परिवर्तन नहीं होता।"
+},
+
+{
+q:"4 kg की वस्तु की गतिज ऊर्जा को 50 J से 98 J तक बढ़ाने में किया गया कार्य कितना है?",
+options:[
+"48 J",
+"24.5 J",
+"52 J",
+"148 J"
+],
+answer:0,
+formula:"W_net = ΔKE = 98−50 = 48 J",
+explanation:"कार्य-ऊर्जा प्रमेय से कार्य 48 J है।"
+},
+
+{
+q:"800 J की गतिज ऊर्जा वाली किसी गतिशील वस्तु पर −600 J का नेट कार्य किया जा रहा है। वस्तु पर क्या प्रभाव पड़ेगा?",
+options:[
+"वह गति करना बंद कर देगी",
+"इससे उसकी चाल दो गुनी हो जाएगी",
+"वह समान चाल से गति करती रहेगी",
+"वह आधी चाल से गति करेगी"
+],
+answer:3,
+formula:"KE_f = 800−600 = 200 J; KE ∝ v²",
+explanation:"नई KE 200 J है, जो प्रारंभिक 800 J की 1/4 है। इसलिए वेग आधा हो जाएगा।"
+},
+
+/* PART 2 */
+
+{
+q:"खेल के मैदान में उपयोग होने वाले सीसॉ के बारे में दिए गए कथनों पर विचार कीजिए: 1. केंद्रीय सहारा आलंब है। 2. एक तरफ बैठे बच्चे का भार लोड हो सकता है। 3. विपरीत दिशा में बच्चे द्वारा लगाया गया बल आयास हो सकता है। 4. सीसॉ प्रथम श्रेणी के उत्तोलक का उदाहरण है।",
+options:[
+"1, 2, 3 और 4",
+"केवल 1, 2 और 3",
+"केवल 1, 2 और 4",
+"केवल 1 और 2"
+],
+answer:0,
+formula:"First class lever: Effort — Fulcrum — Load",
+explanation:"सीसॉ में आलंब बीच में होता है और दोनों तरफ आयास व भार लगते हैं।"
+},
+
+{
+q:"सरल मशीनों के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए: 1. भारी भार उठाने में सहायता करती हैं। 2. आयास द्वारा तय दूरी बढ़ा सकती हैं। 3. बल की दिशा बदल सकती हैं। 4. ऊर्जा संरक्षण के नियम का उल्लंघन करती हैं।",
+options:[
+"केवल 1, 2 और 3",
+"केवल 1 और 4",
+"1, 2, 3 और 4",
+"केवल 2 और 3"
+],
+answer:0,
+formula:"Machine makes work easier, does not create energy",
+explanation:"सरल मशीनें बल का परिमाण/दिशा बदल सकती हैं और भार उठाना आसान बनाती हैं, लेकिन ऊर्जा उत्पन्न नहीं करतीं।"
+},
+
+{
+q:"सरल मशीनों के संबंध में निम्नलिखित में से कौन-सा सत्य नहीं है?",
+options:[
+"वे आवश्यक आयास को कम कर सकते हैं",
+"वे बल की दिशा बदल सकते हैं",
+"वे सभी स्थितियों में किए गए कुल कार्य को कम करते हैं",
+"वे कार्यों को अधिक सुविधाजनक बनाते हैं"
+],
+answer:2,
+formula:"Ideal machine: Input work = Output work",
+explanation:"सरल मशीन आदर्श स्थिति में कुल कार्य कम नहीं करती; वह बल और दूरी के बीच संबंध बदलती है।"
+},
+
+{
+q:"विद्यालय प्रवेश द्वार के लिए व्हीलचेयर रैंप डिजाइन किया जा रहा है। समान ऊँचाई तक धकेलना आसान बनाने के लिए कौन-सा संशोधन सही है?",
+options:[
+"रैंप की लंबाई कम करके उसे अतिप्रवण बनाना",
+"घर्षण पदार्थ जोड़ना",
+"रैंप की जगह सीढ़ियां जोड़ना",
+"रैंप की ऊँचाई नियत रखते हुए उसकी लंबाई बढ़ाना"
+],
+answer:3,
+formula:"MA(ideal inclined plane) = Length/Height",
+explanation:"रैंप की लंबाई बढ़ाने से समान ऊँचाई के लिए आवश्यक आयास कम होता है।"
+},
+
+{
+q:"एक बॉक्स को ऊर्ध्वाधर उठाकर या आदर्श आनत तल पर समान ऊँचाई तक उठाया जाता है। दोनों में कौन-सी राशि समान रहती है?",
+options:[
+"प्रयुक्त विधि का यांत्रिक लाभ",
+"बॉक्स द्वारा अर्जित स्थितिज ऊर्जा",
+"अनुप्रयुक्त आयास",
+"बॉक्स द्वारा तय की गई दूरी"
+],
+answer:1,
+formula:"PE = mgh",
+explanation:"समान m और h होने के कारण बॉक्स की अर्जित स्थितिज ऊर्जा समान होगी।"
+},
+
+{
+q:"एक विद्यार्थी खिलौना गाड़ी को समान ऊँचाई तक खींचते हुए आदर्श रैंप का कोण धीरे-धीरे कम करता है। क्या प्रेक्षण होगा?",
+options:[
+"गाड़ी को कम स्थितिज ऊर्जा प्राप्त होती है।",
+"आवश्यक बल कम हो जाता है।",
+"आवश्यक बल स्थिर रहता है।",
+"आवश्यक बल बढ़ता है।"
+],
+answer:1,
+formula:"F ∝ h/L",
+explanation:"रैंप अधिक लंबा/कम ढलान वाला होने पर समान ऊँचाई तक पहुँचने के लिए आवश्यक बल कम होता है।"
+},
+
+{
+q:"बॉटल ओपनर का उपयोग करके बोतल का ढक्कन खोलते समय ढक्कन द्वारा उत्पन्न प्रतिरोध ________ के रूप में कार्य करता है।",
+options:[
+"मशीन",
+"आयास",
+"ऊर्जा स्रोत",
+"भार"
+],
+answer:3,
+formula:"Resistance = Load",
+explanation:"सरल मशीन में जिस प्रतिरोध को हटाना/उठाना होता है, वह लोड कहलाता है।"
+},
+
+{
+q:"किसी सरल मशीन में ________ वह प्रतिरोध बल होता है, जिससे किसी वस्तु को उठाया या खिसकाया जाता है।",
+options:[
+"शक्ति",
+"ऊर्जा",
+"भार",
+"आयास"
+],
+answer:2,
+formula:"Load = Resistance",
+explanation:"भार वह प्रतिरोध है जिसे मशीन द्वारा उठाया या स्थानांतरित किया जाता है।"
+},
+
+{
+q:"प्रत्येक उत्तोलक में तीन आवश्यक भाग होते हैं। निम्नलिखित में से कौन-सा इन भागों में से एक नहीं है?",
+options:[
+"भार",
+"आलंब",
+"धुरी",
+"आयास"
+],
+answer:2,
+formula:"Lever parts: Fulcrum, Load, Effort",
+explanation:"उत्तोलक के तीन मुख्य भाग आलंब, भार और आयास हैं।"
+},
+
+{
+q:"लोड का सर्वोत्तम वर्णन क्या है?",
+options:[
+"स्थानांतरित या उठाई जाने वाली वस्तु",
+"अधोमुखी अनुप्रयुक्त बल",
+"उत्थापन कार्य के लिए प्रयुक्त मशीन",
+"किसी प्रणाली में संग्रहीत ऊर्जा"
+],
+answer:0,
+formula:"Load = Resistance to be overcome",
+explanation:"जिस वस्तु को उठाना या स्थानांतरित करना है, वह लोड है।"
+},
+
+{
+q:"एक मशीन 150 N के आयास का उपयोग करके 600 N का लोड उठाती है। मशीन का यांत्रिक लाभ कितना होगा?",
+options:[
+"3",
+"2",
+"4",
+"5"
+],
+answer:2,
+formula:"MA = Load/Effort = 600/150 = 4",
+explanation:"यांत्रिक लाभ 4 है।"
+},
+
+{
+q:"निम्नलिखित में से कौन-सी राशि उस कारक को इंगित करती है जिसके द्वारा सरल मशीन अनुप्रयुक्त बल को कई गुना बढ़ाती है?",
+options:[
+"दक्षता",
+"वेग अनुपात",
+"इनपुट कार्य",
+"यांत्रिक लाभ"
+],
+answer:3,
+formula:"MA = Load/Effort",
+explanation:"यांत्रिक लाभ बताता है कि मशीन आयास बल को कितनी गुना बढ़ाती है।"
+},
+
+{
+q:"भारी कंक्रीट ब्लॉक उठाने के लिए चार उत्तोलक उपलब्ध हैं। न्यूनतम आयास के लिए किसे चुनना चाहिए?",
+options:[
+"आयास भुजा = 20 cm, लोड भुजा = 20 cm",
+"आयास भुजा = 50 cm, लोड भुजा = 25 cm",
+"आयास भुजा = 30 cm, लोड भुजा = 15 cm",
+"आयास भुजा = 40 cm, लोड भुजा = 10 cm"
+],
+answer:3,
+formula:"MA = Effort arm/Load arm",
+explanation:"अधिकतम MA वाले lever में कम effort चाहिए। D में MA = 40/10 = 4, जो सबसे अधिक है।"
+},
+
+{
+q:"भारी कंक्रीट स्लैब को उठाने के लिए लंबी स्टील की छड़ का उपयोग किया जाता है। आवश्यक बल न्यूनतम करने के लिए आलंब कहाँ रखा जाना चाहिए?",
+options:[
+"बल के अनुप्रयुक्त बिंदु के निकट",
+"स्लैब और प्रयास के ठीक बीच में",
+"स्लैब और प्रयास दोनों से दूर",
+"स्लैब उठाए जाने के निकट"
+],
+answer:3,
+formula:"MA = Effort arm/Load arm",
+explanation:"लोड के पास fulcrum रखने से effort arm बढ़ता है और load arm कम होता है, इसलिए mechanical advantage बढ़ता है।"
+},
+
+{
+q:"दो मशीनें समान लोड उठाती हैं। P को 100 N और Q को 50 N आयास चाहिए। किस मशीन का यांत्रिक लाभ अधिक होगा?",
+options:[
+"मशीन Q",
+"निर्धारित नहीं किया जा सकता है",
+"मशीन P",
+"दोनों मशीनें समान रूप से दक्ष हैं"
+],
+answer:0,
+formula:"MA = L/E",
+explanation:"समान load के लिए कम effort वाली Q का mechanical advantage अधिक होगा।"
+},
+
+{
+q:"चार आदर्श मशीनों की MA हैं: P=0.5, Q=0.8, R=2, S=4. समान load को समान ऊँचाई तक उठाना है। कौन-सा कथन सही है?",
+options:[
+"मशीन S अन्य मशीनों की तुलना में कम कार्य करती है।",
+"मशीन P को न्यूनतम प्रयास चाहिए क्योंकि उसका MA न्यूनतम है।",
+"R और S को समान प्रयास चाहिए क्योंकि लोड समान है।",
+"मशीन S को न्यूनतम प्रयास चाहिए लेकिन प्रयास सर्वाधिक दूरी तक प्रयुक्त होता है।"
+],
+answer:3,
+formula:"MA = Load/Effort",
+explanation:"सबसे अधिक MA वाली S को सबसे कम effort चाहिए। आदर्श मशीन में effort द्वारा तय दूरी अधिक होगी।"
+},
+
+{
+q:"कौन-सा कथन एक साधारण मशीन के यांत्रिक लाभ का सर्वोत्तम वर्णन करता है?",
+options:[
+"उठाए गए लोड और अनुप्रयुक्त आयास का अनुपात",
+"मशीन को आपूर्ति की गई ऊर्जा",
+"मशीन द्वारा किए गए कार्य की मात्रा",
+"मशीन द्वारा कार्य करने की दर"
+],
+answer:0,
+formula:"MA = Load/Effort",
+explanation:"यांत्रिक लाभ = लोड / आयास।"
+},
+
+{
+q:"एक मशीन 250 N के प्रयास से 1500 N का लोड उठाती है। घर्षण के कारण बाद में उसी लोड के लिए 375 N प्रयास चाहिए। सही कथन क्या है?",
+options:[
+"प्रयास में 50% की वृद्धि हुई जबकि लोड अपरिवर्तित रहा",
+"प्रयास में 50% की कमी हुई",
+"लोड में 50% की वृद्धि हुई",
+"लोड और प्रयास दोनों में 50% की वृद्धि हुई"
+],
+answer:0,
+formula:"% increase = (375−250)/250 ×100 = 50%",
+explanation:"प्रयास 250 N से बढ़कर 375 N हुआ, अर्थात 50% वृद्धि।"
+},
+
+{
+q:"जब ________, तो एक उत्तोलक 1 से अधिक यांत्रिक लाभ प्रदान करता है।",
+options:[
+"भार भुजा, आयास-भुजा से लंबी होती है",
+"आयास-भुजा, भार भुजा से लंबी होती है",
+"आलंब अनुपस्थित होता है",
+"दोनों भुजाएं बराबर होती हैं"
+],
+answer:1,
+formula:"MA = Effort arm/Load arm",
+explanation:"Effort arm > Load arm होने पर MA > 1।"
+},
+
+{
+q:"किसी मशीन को संचालित करने के लिए व्यक्ति द्वारा लगाया गया बल ________ कहलाता है।",
+options:[
+"आलंब",
+"आयास",
+"प्रतिरोध",
+"भार"
+],
+answer:1,
+formula:"Effort = Applied force",
+explanation:"मशीन को चलाने के लिए लगाया गया बल आयास कहलाता है।"
+},
+
+{
+q:"उत्तोलक को प्रचालित करते समय कौन-सा भाग उस नियत बिंदु के रूप में कार्य करता है जिसके परितः उत्तोलक घूमता है?",
+options:[
+"आयास",
+"आयास-भुजा",
+"भार",
+"आलंब"
+],
+answer:3,
+formula:"Fulcrum = Fixed turning point",
+explanation:"उत्तोलक आलंब के चारों ओर घूमता है।"
+},
+
+{
+q:"कौन-सा अवलोकन इस बात का सबसे प्रबल साक्ष्य देगा कि कोई मशीन स्थिर घिरनी है?",
+options:[
+"मशीन ऊर्जा संचित करती है।",
+"अनुप्रयुक्त बल लोड से कम है।",
+"आयास और लोड विपरीत दिशाओं में गति करते हैं।",
+"लोड को उठाने के दौरान वह हल्का हो जाता है।"
+],
+answer:2,
+formula:"Fixed pulley changes direction of effort",
+explanation:"स्थिर घिरनी का मुख्य लाभ बल की दिशा बदलना है; आदर्श fixed pulley में MA = 1।"
+},
+
+{
+q:"सरल मशीन का प्राथमिक प्रयोजन क्या है?",
+options:[
+"किसी कार्य में किए गए कुल कार्य को कम करना",
+"ऊर्जा उत्पन्न करना",
+"किसी वस्तु के भार में वृद्धि करना",
+"किसी बल के परिमाण या दिशा को परिवर्तित करके कार्य को आसान बनाना"
+],
+answer:3,
+formula:"Machine changes force magnitude/direction",
+explanation:"सरल मशीन कार्य को आसान बनाती है, ऊर्जा उत्पन्न नहीं करती।"
+},
+
+{
+q:"एक आदर्श आनत तल 20 m लंबा है और लोड को 4 m ऊर्ध्वाधर ऊँचाई तक उठाता है। सीधे ऊपर उठाने की तुलना में तल पर आवश्यक आयास कितना होगा?",
+options:[
+"लोड के बराबर",
+"लोड का एक-चौथाई",
+"लोड का आधा",
+"लोड का 1/5 वाँ भाग"
+],
+answer:3,
+formula:"MA = L/h = 20/4 = 5; Effort = Load/5",
+explanation:"आदर्श आनत तल का mechanical advantage 5 है, इसलिए effort load का 1/5 होगा।"
+}
+
+];
+
+
+/* =========================================================
+   FIX ANSWERS WHERE ORIGINAL OPTION INDEX DIFFERED
+========================================================= */
+
+questions.forEach(q=>{
+    if(q.correctOption !== undefined){
+        q.answer=q.correctOption;
+    }
+});
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let currentQuestion = 0;
+let answers = new Array(questions.length).fill(null);
+let review = new Array(questions.length).fill(false);
+
+let totalSeconds = 60 * 60;
+let timerInterval;
+let submitted = false;
+
+
+/* =========================================================
+   RENDER QUESTION
+========================================================= */
+
+function renderQuestion(){
+
+    const q = questions[currentQuestion];
+
+    let partHTML = "";
+
+    if(currentQuestion === 0){
+        partHTML = `
+            <div class="part-title">
+                भाग 1: कार्य, ऊर्जा और शक्ति
+                <span class="part-badge">Questions 1–68</span>
+            </div>
+        `;
+    }
+
+    if(currentQuestion === 68){
+        partHTML = `
+            <div class="part-title">
+                भाग 2: सरल मशीनें और उत्तोलक
+                <span class="part-badge">Questions 69–92</span>
+            </div>
+        `;
+    }
+
+    let html = partHTML;
+
+    html += `
+        <div class="question-number">
+            प्रश्न ${currentQuestion + 1} / ${questions.length}
+        </div>
+
+        <div class="question-text">
+            ${q.q}
+        </div>
+
+        <div class="options">
+    `;
+
+    q.options.forEach((option,index)=>{
+
+        const checked = answers[currentQuestion] === index ? "checked" : "";
+
+        html += `
+            <div class="option">
+                <input
+                    type="radio"
+                    id="q${currentQuestion}_${index}"
+                    name="question${currentQuestion}"
+                    value="${index}"
+                    ${checked}
+                    onchange="selectAnswer(${index})"
+                >
+
+                <label for="q${currentQuestion}_${index}">
+                    <strong>${String.fromCharCode(65+index)}.</strong>
+                    ${option}
+                </label>
+            </div>
+        `;
+    });
+
+    html += `</div>`;
+
+    document.getElementById("questionArea").innerHTML = html;
+
+    updatePalette();
+}
+
+
+/* =========================================================
+   ANSWER
+========================================================= */
+
+function selectAnswer(index){
+
+    answers[currentQuestion] = index;
+
+    updatePalette();
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function nextQuestion(){
+
+    if(currentQuestion < questions.length - 1){
+        currentQuestion++;
+        renderQuestion();
+        window.scrollTo({top:0,behavior:"smooth"});
+    }
+    else{
+        openSubmitConfirm();
+    }
+}
+
+
+function previousQuestion(){
+
+    if(currentQuestion > 0){
+        currentQuestion--;
+        renderQuestion();
+        window.scrollTo({top:0,behavior:"smooth"});
+    }
+}
+
+
+function goToQuestion(index){
+
+    currentQuestion = index;
+
+    closePalette();
+
+    renderQuestion();
+
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+
+function toggleReview(){
+
+    review[currentQuestion] = !review[currentQuestion];
+
+    updatePalette();
+}
+
+
+/* =========================================================
+   PALETTE
+========================================================= */
+
+function getButtonClass(index){
+
+    let cls = "pal-btn";
+
+    if(answers[index] !== null){
+        cls += " answered";
+    }
+
+    if(review[index]){
+        cls += " reviewed";
+    }
+
+    return cls;
+}
+
+
+function makePaletteHTML(){
+
+    let html = "";
+
+    for(let i=0;i<questions.length;i++){
+
+        html += `
+            <button
+                class="${getButtonClass(i)}"
+                onclick="goToQuestion(${i})"
+            >
+                ${i+1}
+            </button>
+        `;
+    }
+
+    return html;
+}
+
+
+function updatePalette(){
+
+    document.getElementById("paletteGrid").innerHTML =
+        makePaletteHTML();
+
+    document.getElementById("mobilePaletteGrid").innerHTML =
+        makePaletteHTML();
+}
+
+
+/* =========================================================
+   MOBILE PALETTE
+========================================================= */
+
+function openPalette(){
+
+    document.getElementById("paletteOverlay").style.display="block";
+
+}
+
+
+function closePalette(){
+
+    document.getElementById("paletteOverlay").style.display="none";
+
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+function openSubmitConfirm(){
+
+    const attempted =
+        answers.filter(a=>a!==null).length;
+
+    document.getElementById("submitMessage").innerHTML =
+        `आपने <strong>${attempted}</strong> / ${questions.length} प्रश्न attempt किए हैं।<br><br>
+         क्या आप test submit करना चाहते हैं?`;
+
+    document.getElementById("submitOverlay").style.display="block";
+}
+
+
+function closeSubmitConfirm(){
+
+    document.getElementById("submitOverlay").style.display="none";
+
+}
+
+
+/* =========================================================
+   CALCULATE RESULT
+========================================================= */
+
+function submitTest(){
+
+    if(submitted) return;
+
+    submitted = true;
+
+    clearInterval(timerInterval);
+
+    closeSubmitConfirm();
+
+    let correct = 0;
+    let wrong = 0;
+    let skipped = 0;
+
+    answers.forEach((ans,index)=>{
+
+        if(ans === null){
+            skipped++;
+        }
+        else if(ans === questions[index].answer){
+            correct++;
+        }
+        else{
+            wrong++;
+        }
+
+    });
+
+    const score =
+        correct - (wrong / 3);
+
+    document.getElementById("testScreen").style.display="none";
+
+    document.getElementById("resultScreen").style.display="block";
+
+    document.getElementById("finalScore").textContent =
+        score.toFixed(2);
+
+    document.getElementById("correctCount").textContent =
+        correct;
+
+    document.getElementById("wrongCount").textContent =
+        wrong;
+
+    document.getElementById("skipCount").textContent =
+        skipped;
+
+    document.getElementById("reviewCount").textContent =
+        review.filter(Boolean).length;
+
+    renderSolutions();
+
+    window.scrollTo({top:0,behavior:"smooth"});
+}
+
+
+/* =========================================================
+   SYSTEMATIC SOLUTIONS
+========================================================= */
+
+function renderSolutions(){
+
+    let html = "";
+
+    questions.forEach((q,index)=>{
+
+        const user = answers[index];
+
+        let status = "unattempted";
+
+        if(user !== null){
+            status =
+                user === q.answer
+                ? "correct"
+                : "wrong";
+        }
+
+        const correctLetter =
+            String.fromCharCode(65 + q.answer);
+
+        let userAnswer = "Unattempted";
+
+        if(user !== null){
+            userAnswer =
+                `${String.fromCharCode(65+user)}. ${q.options[user]}`;
+        }
+
+        html += `
+            <div class="solution-card ${status}">
+
+                <div class="solution-q">
+                    Q${index+1}. ${q.q}
+                </div>
+
+                <div class="answer-row">
+
+                    <div class="answer-box ${
+                        user !== null && user === q.answer
+                        ? "correct-answer"
+                        : user !== null
+                        ? "user-wrong"
+                        : ""
+                    }">
+                        <strong>आपका उत्तर:</strong><br>
+                        ${userAnswer}
+                    </div>
+
+                    <div class="answer-box correct-answer">
+                        <strong>सही उत्तर:</strong><br>
+                        ${correctLetter}. ${q.options[q.answer]}
+                    </div>
+
+                </div>
+
+                <div class="formula">
+                    📐 Formula / Concept:<br>
+                    ${q.formula}
+                </div>
+
+                <div class="explanation">
+                    <strong>समाधान / Explanation:</strong><br>
+                    ${q.explanation}
+                </div>
+
+            </div>
+        `;
+    });
+
+    document.getElementById("solutions").innerHTML = html;
+}
+
+
+/* =========================================================
+   TIMER
+========================================================= */
+
+function startTimer(){
+
+    timerInterval = setInterval(()=>{
+
+        if(submitted) return;
+
+        totalSeconds--;
+
+        if(totalSeconds <= 0){
+
+            totalSeconds = 0;
+
+            updateTimer();
+
+            clearInterval(timerInterval);
+
+            alert("समय समाप्त हो गया। Test automatically submit किया जा रहा है।");
+
+            submitTest();
+
+            return;
+        }
+
+        updateTimer();
+
+    },1000);
+
+}
+
+
+function updateTimer(){
+
+    const minutes =
+        Math.floor(totalSeconds/60);
+
+    const seconds =
+        totalSeconds%60;
+
+    document.getElementById("timer").textContent =
+        String(minutes).padStart(2,"0")
+        + ":"
+        + String(seconds).padStart(2,"0");
+
+    if(totalSeconds <= 300){
+
+        document.getElementById("timer").style.color =
+            "#dc3545";
+
+        document.getElementById("timer").style.background =
+            "#fff0f0";
+    }
+}
+
+
+/* =========================================================
+   KEYBOARD SHORTCUTS
+========================================================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(submitted) return;
+
+    if(e.key === "ArrowRight"){
+        nextQuestion();
+    }
+
+    if(e.key === "ArrowLeft"){
+        previousQuestion();
+    }
+
+});
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+renderQuestion();
+updatePalette();
+startTimer();
+
+</script>
+
+</body>
+</html>
