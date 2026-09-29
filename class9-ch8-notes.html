@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>कक्षा 9 विज्ञान | अध्याय 8 — परमाणु की संरचना</title>
+<title>कक्षा 9 विज्ञान | अध्याय 8 | परमाणु के अंदर की यात्रा</title>
 
 <style>
 *{
@@ -14,502 +14,512 @@
 }
 
 :root{
-    --navy:#082b5c;
-    --blue:#0d6efd;
-    --cyan:#00a8e8;
-    --green:#11998e;
-    --orange:#f57c00;
-    --red:#d62828;
-    --purple:#6f42c1;
-    --yellow:#ffc107;
-    --light:#f4f8fc;
-    --dark:#17202a;
-    --border:#d9e4ef;
+    --blue:#0757b5;
+    --dark:#08264d;
+    --cyan:#00a8d6;
+    --sky:#eaf7ff;
+    --red:#e53935;
+    --orange:#ff8c00;
+    --green:#159447;
+    --purple:#7048c6;
+    --yellow:#ffc928;
+    --white:#ffffff;
+    --text:#172033;
+    --muted:#5e6878;
+    --border:#d9e6f2;
+    --shadow:0 8px 25px rgba(8,38,77,.10);
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:"Noto Sans Devanagari","Nirmala UI","Mangal",Arial,sans-serif;
+    font-family:"Noto Sans Devanagari","Mangal","Segoe UI",Arial,sans-serif;
     background:
-      radial-gradient(circle at 10% 10%,rgba(13,110,253,.12),transparent 25%),
-      radial-gradient(circle at 90% 20%,rgba(0,168,232,.12),transparent 25%),
-      linear-gradient(135deg,#eef5fc,#ffffff 45%,#edf8ff);
-    color:var(--dark);
-    line-height:1.7;
+        radial-gradient(circle at top left,#dff5ff 0%,transparent 30%),
+        radial-gradient(circle at top right,#fff0d6 0%,transparent 28%),
+        linear-gradient(135deg,#f5fbff,#ffffff 50%,#f7f9ff);
+    color:var(--text);
+    line-height:1.75;
 }
 
 .container{
-    width:min(1180px,94%);
+    width:min(1150px,94%);
     margin:auto;
 }
 
 .hero{
-    margin:20px auto;
-    padding:30px 22px;
-    text-align:center;
-    color:white;
-    border-radius:24px;
     background:
-      linear-gradient(135deg,#082b5c,#0d6efd 55%,#00a8e8);
-    box-shadow:0 15px 40px rgba(8,43,92,.25);
+        linear-gradient(135deg,#061f42,#0757b5 55%,#00a8d6);
+    color:white;
+    padding:38px 20px;
+    border-radius:0 0 32px 32px;
+    box-shadow:0 12px 35px rgba(0,60,130,.22);
     position:relative;
     overflow:hidden;
 }
 
+.hero:before,
 .hero:after{
-    content:"⚛";
+    content:"";
     position:absolute;
-    font-size:180px;
-    right:-15px;
-    top:-55px;
-    opacity:.10;
+    border:1px solid rgba(255,255,255,.20);
+    border-radius:50%;
+}
+
+.hero:before{
+    width:320px;
+    height:320px;
+    right:-120px;
+    top:-150px;
+}
+
+.hero:after{
+    width:220px;
+    height:220px;
+    left:-100px;
+    bottom:-130px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.chapter-badge{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.35);
+    padding:5px 16px;
+    border-radius:50px;
+    font-size:14px;
+    margin-bottom:10px;
 }
 
 .hero h1{
-    font-size:clamp(27px,5vw,46px);
-    margin-bottom:6px;
-    font-weight:900;
+    font-size:clamp(28px,5vw,48px);
+    line-height:1.2;
+    margin-bottom:8px;
+    font-weight:800;
 }
 
 .hero p{
-    font-size:clamp(15px,2.5vw,20px);
-    opacity:.95;
+    font-size:17px;
+    opacity:.94;
 }
 
-.badge{
-    display:inline-block;
-    background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.35);
-    padding:5px 14px;
-    border-radius:30px;
-    margin-bottom:12px;
-    font-weight:bold;
+.nav{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.nav-inner{
+    width:min(1150px,94%);
+    margin:auto;
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:9px 0;
+    scrollbar-width:none;
+}
+
+.nav-inner::-webkit-scrollbar{
+    display:none;
+}
+
+.nav a{
+    flex:0 0 auto;
+    text-decoration:none;
+    color:var(--dark);
+    font-size:13px;
+    font-weight:700;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#eef6fc;
+}
+
+.nav a:hover{
+    background:#d8efff;
+    color:var(--blue);
 }
 
 .section{
-    margin:22px 0;
-    background:white;
-    border:1px solid var(--border);
-    border-radius:20px;
-    box-shadow:0 8px 25px rgba(20,55,90,.08);
-    overflow:hidden;
+    margin:28px auto;
 }
 
 .section-title{
-    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:16px;
+}
+
+.section-title .num{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
     color:white;
-    background:linear-gradient(90deg,var(--navy),var(--blue));
-    font-size:21px;
-    font-weight:900;
+    background:linear-gradient(135deg,var(--blue),var(--cyan));
+    font-weight:800;
 }
 
-.section-body{
+.section-title h2{
+    color:var(--dark);
+    font-size:clamp(22px,4vw,31px);
+    line-height:1.3;
+}
+
+.card{
+    background:rgba(255,255,255,.95);
+    border:1px solid var(--border);
+    border-radius:20px;
     padding:20px;
+    margin:15px 0;
+    box-shadow:var(--shadow);
 }
 
-.sub-title{
-    color:var(--navy);
-    font-size:19px;
-    font-weight:900;
-    margin:20px 0 10px;
-    border-left:5px solid var(--cyan);
-    padding-left:10px;
+.card h3{
+    color:var(--blue);
+    margin-bottom:10px;
+    font-size:21px;
 }
 
-.info-card{
-    padding:16px;
-    margin:12px 0;
-    border-radius:14px;
-    background:#f7fbff;
-    border:1px solid #dcebf7;
+.card p{
+    margin:7px 0;
 }
 
-.definition{
-    background:linear-gradient(135deg,#eaf5ff,#f8fcff);
-    border-left:6px solid var(--blue);
+.highlight{
+    background:linear-gradient(135deg,#edf8ff,#f8fcff);
+    border-left:5px solid var(--blue);
 }
 
-.warning{
-    background:#fff7e6;
-    border-left:6px solid var(--orange);
+.green{
+    background:linear-gradient(135deg,#effcf3,#ffffff);
+    border-left:5px solid var(--green);
 }
 
-.success{
-    background:#ecfff8;
-    border-left:6px solid var(--green);
-}
-
-.danger{
-    background:#fff1f1;
-    border-left:6px solid var(--red);
+.orange{
+    background:linear-gradient(135deg,#fff7e9,#ffffff);
+    border-left:5px solid var(--orange);
 }
 
 .purple{
-    background:#f5f0ff;
-    border-left:6px solid var(--purple);
+    background:linear-gradient(135deg,#f5f0ff,#ffffff);
+    border-left:5px solid var(--purple);
 }
 
-ul{
+.red{
+    background:linear-gradient(135deg,#fff0f0,#ffffff);
+    border-left:5px solid var(--red);
+}
+
+.yellow{
+    background:linear-gradient(135deg,#fffbe8,#ffffff);
+    border-left:5px solid var(--yellow);
+}
+
+ul,ol{
     padding-left:25px;
 }
 
 li{
-    margin:7px 0;
+    margin:5px 0;
 }
 
 strong{
-    color:var(--navy);
-}
-
-.highlight{
-    background:#fff3a6;
-    padding:2px 7px;
-    border-radius:5px;
-    font-weight:bold;
+    color:#092f64;
 }
 
 .formula{
-    background:#102a43;
+    background:#071f3d;
     color:#fff;
-    border-radius:15px;
-    padding:17px;
-    margin:13px 0;
+    border-radius:14px;
+    padding:14px;
     text-align:center;
-    font-size:19px;
-    font-weight:bold;
-    box-shadow:0 6px 15px rgba(0,0,0,.15);
+    margin:12px 0;
+    font-size:20px;
+    font-weight:700;
+    overflow-x:auto;
 }
 
 .formula small{
     display:block;
-    color:#cfe8ff;
-    margin-top:6px;
-    font-weight:normal;
+    color:#bfe9ff;
+    font-size:13px;
+    margin-top:4px;
+    font-weight:500;
+}
+
+.diagram{
+    background:linear-gradient(135deg,#f8fcff,#eef8ff);
+    border:1px solid #d8eaf7;
+    border-radius:20px;
+    padding:14px;
+    margin:18px 0;
+    overflow:hidden;
+}
+
+.diagram-title{
+    text-align:center;
+    font-weight:800;
+    color:var(--dark);
+    margin-bottom:8px;
+}
+
+.diagram svg{
+    display:block;
+    width:100%;
+    max-width:850px;
+    height:auto;
+    margin:auto;
+}
+
+.caption{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    margin-top:7px;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:15px;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
 }
 
-.model-card{
-    padding:18px;
-    border-radius:18px;
-    border:1px solid var(--border);
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.mini{
     background:#fff;
-    box-shadow:0 5px 15px rgba(0,0,0,.06);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
 }
 
-.model-card h3{
+.mini h4{
     color:var(--blue);
-    margin-bottom:8px;
+    margin-bottom:5px;
 }
 
 table{
     width:100%;
     border-collapse:collapse;
-    margin:15px 0;
-    min-width:700px;
-}
-
-.table-wrap{
-    overflow-x:auto;
-    border-radius:12px;
+    margin:12px 0;
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
 }
 
 th{
-    background:var(--navy);
-    color:white;
-    padding:10px;
+    background:linear-gradient(135deg,#08376e,#0b6bbd);
+    color:#fff;
+    padding:11px 8px;
+    text-align:center;
 }
 
 td{
-    padding:9px;
-    border:1px solid #dbe4ec;
+    padding:10px 8px;
+    border:1px solid #dbe6ef;
     text-align:center;
 }
 
 tr:nth-child(even){
-    background:#f5f9fd;
+    background:#f6fbff;
 }
 
-tr:hover{
-    background:#eaf4ff;
-}
-
-.atom-diagram{
-    width:min(360px,90vw);
-    height:min(360px,90vw);
-    margin:20px auto;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.nucleus{
-    width:105px;
-    height:105px;
-    border-radius:50%;
-    background:radial-gradient(circle,#ff6b6b,#c9184a);
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    font-weight:bold;
-    z-index:5;
-    box-shadow:0 0 25px rgba(201,24,74,.4);
-}
-
-.orbit{
-    position:absolute;
-    border:2px solid #55a7e8;
-    border-radius:50%;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-}
-
-.orbit.k{
-    width:155px;
-    height:155px;
-}
-
-.orbit.l{
-    width:245px;
-    height:245px;
-}
-
-.orbit.m{
-    width:330px;
-    height:330px;
-}
-
-.electron{
-    position:absolute;
-    width:17px;
-    height:17px;
-    border-radius:50%;
-    background:#0d6efd;
-    border:3px solid white;
-    box-shadow:0 0 10px rgba(13,110,253,.7);
-}
-
-.e1{top:8px;left:50%;transform:translateX(-50%);}
-.e2{bottom:8px;left:50%;transform:translateX(-50%);}
-.e3{top:18px;left:50%;transform:translateX(-50%);}
-.e4{bottom:18px;left:50%;transform:translateX(-50%);}
-.e5{left:18px;top:50%;transform:translateY(-50%);}
-.e6{right:18px;top:50%;transform:translateY(-50%);}
-
-.arrow{
-    text-align:center;
-    font-size:28px;
-    color:var(--blue);
-    font-weight:bold;
-    margin:8px;
-}
-
-.experiment{
-    background:linear-gradient(135deg,#fffaf0,#fff);
-    border:2px solid #ffd166;
-    border-radius:18px;
-    padding:18px;
-}
-
-.rutherford{
-    width:100%;
-    max-width:760px;
-    height:260px;
-    margin:20px auto;
-    position:relative;
-    background:#f8fbff;
-    border:1px solid #dbe7f3;
-    border-radius:15px;
-    overflow:hidden;
-}
-
-.gold{
-    position:absolute;
-    left:50%;
-    top:25px;
-    width:5px;
-    height:210px;
-    background:#e0a100;
-    transform:translateX(-50%);
-}
-
-.source{
-    position:absolute;
-    left:30px;
-    top:105px;
-    width:65px;
-    height:55px;
-    background:#8b5e3c;
-    color:white;
-    border-radius:10px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.tag{
+    display:inline-block;
+    padding:3px 10px;
+    border-radius:20px;
     font-size:12px;
+    font-weight:800;
+    margin:2px;
 }
 
-.path{
-    position:absolute;
-    height:3px;
-    background:#ef476f;
-    transform-origin:left center;
-}
+.tag-blue{background:#dff1ff;color:#0757b5;}
+.tag-red{background:#ffe1e1;color:#b51e1e;}
+.tag-green{background:#dcf8e5;color:#087832;}
+.tag-orange{background:#fff0d2;color:#a45c00;}
+.tag-purple{background:#eee4ff;color:#6132a5;}
 
-.p1{left:95px;top:132px;width:180px;}
-.p2{left:95px;top:125px;width:180px;transform:rotate(-9deg);}
-.p3{left:95px;top:139px;width:180px;transform:rotate(9deg);}
-.p4{left:505px;top:132px;width:210px;transform:rotate(180deg);}
-
-.screen{
-    position:absolute;
-    right:20px;
-    top:50px;
-    width:105px;
-    height:165px;
-    border:5px solid #72b01d;
-    border-radius:50%;
-}
-
-.center-dot{
-    position:absolute;
-    left:50%;
-    top:50%;
-    width:15px;
-    height:15px;
-    background:#d62828;
-    border-radius:50%;
-    transform:translate(-50%,-50%);
-}
-
-.atom-small{
-    width:160px;
-    height:160px;
-    border:2px solid #55a7e8;
-    border-radius:50%;
-    margin:10px auto;
+.timeline{
     position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    padding-left:25px;
 }
 
-.atom-small:before{
-    content:"नाभिक";
-    background:#d62828;
-    color:white;
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:11px;
-    font-weight:bold;
-}
-
-.e-dot{
+.timeline:before{
+    content:"";
     position:absolute;
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    background:#0d6efd;
+    left:7px;
+    top:5px;
+    bottom:5px;
+    width:3px;
+    background:linear-gradient(var(--blue),var(--cyan));
+    border-radius:10px;
 }
 
-.e-dot:nth-child(1){top:7px;left:50%;}
-.e-dot:nth-child(2){bottom:7px;left:50%;}
-
-.compare{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:15px;
-}
-
-.compare .box{
-    padding:18px;
-    border-radius:15px;
-    background:#f7faff;
-    border:1px solid var(--border);
-}
-
-.application{
+.timeline-item{
+    position:relative;
+    margin:15px 0;
     padding:15px;
-    border-radius:13px;
-    margin:10px 0;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:15px;
+}
+
+.timeline-item:before{
+    content:"";
+    position:absolute;
+    left:-25px;
+    top:21px;
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:var(--blue);
+    border:3px solid #fff;
+    box-shadow:0 0 0 2px var(--blue);
+}
+
+.symbol-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:15px;
+}
+
+.symbol-card{
+    background:#fff;
+    border:1px solid #d8e5ef;
+    border-radius:16px;
+    padding:12px;
+    text-align:center;
+    box-shadow:0 5px 14px rgba(0,0,0,.06);
+}
+
+.symbol-card svg{
+    width:100%;
+    max-width:110px;
+    height:100px;
+}
+
+.symbol-name{
+    font-weight:800;
+    color:var(--dark);
+}
+
+.symbol-note{
+    font-size:11px;
+    color:#6b7280;
+}
+
+.fact{
     display:flex;
     gap:12px;
     align-items:flex-start;
+    padding:12px;
+    margin:8px 0;
+    background:#f8fbff;
+    border-radius:12px;
 }
 
-.number{
+.fact-icon{
     min-width:32px;
     height:32px;
-    border-radius:50%;
-    background:var(--blue);
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:bold;
+    display:grid;
+    place-items:center;
+    border-radius:10px;
+    background:#dff2ff;
+    color:var(--blue);
+    font-weight:800;
+}
+
+.compare{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.compare > div{
+    border-radius:16px;
+    padding:15px;
+}
+
+.old{
+    background:#fff0f0;
+    border:1px solid #ffd0d0;
+}
+
+.new{
+    background:#effbf2;
+    border:1px solid #ccefd5;
 }
 
 .footer{
-    margin:25px 0;
-    padding:20px;
-    text-align:center;
-    background:var(--navy);
+    margin-top:40px;
+    padding:30px 15px;
+    background:#071f3d;
     color:white;
-    border-radius:18px;
+    text-align:center;
 }
 
-@media(max-width:700px){
-    .section-body{
-        padding:14px;
-    }
-
-    .section-title{
-        font-size:18px;
-    }
-
-    .rutherford{
-        height:220px;
-    }
-
-    .path{
-        transform:scale(.75);
-        transform-origin:left center;
-    }
-
-    .atom-diagram{
-        transform:scale(.82);
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    td,th{
-        font-size:13px;
-        padding:7px;
-    }
+.footer strong{
+    color:white;
 }
 
-@media print{
-    body{
-        background:white;
+@media(max-width:800px){
+    .grid,
+    .compare{
+        grid-template-columns:1fr;
     }
 
-    .section{
-        box-shadow:none;
-        break-inside:avoid;
+    .grid-3{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .symbol-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .card{
+        padding:16px;
+        border-radius:17px;
     }
 
     .hero{
-        box-shadow:none;
+        padding:30px 14px;
+    }
+}
+
+@media(max-width:520px){
+    .grid-3{
+        grid-template-columns:1fr;
+    }
+
+    .symbol-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    td,th{
+        font-size:12px;
+        padding:8px 5px;
+    }
+
+    .formula{
+        font-size:17px;
     }
 }
 </style>
@@ -517,401 +527,1132 @@ tr:hover{
 
 <body>
 
-<div class="container">
+<!-- ================= HERO ================= -->
 
 <header class="hero">
-    <div class="badge">कक्षा 9वीं • विज्ञान</div>
-    <h1>⚛ परमाणु की संरचना</h1>
-    <p>अध्याय 8 — Structure of the Atom</p>
+    <div class="hero-content">
+        <span class="chapter-badge">कक्षा 9 • विज्ञान • अध्याय 8</span>
+        <h1>परमाणु के अंदर की यात्रा</h1>
+        <p>Journey Inside the Atom</p>
+        <p style="margin-top:8px;font-size:14px;">
+            परमाणु की खोज से लेकर इलेक्ट्रॉन, प्रोटॉन, न्यूट्रॉन और परमाणु मॉडलों तक
+        </p>
+    </div>
 </header>
 
-<!-- 1 -->
-<section class="section">
-<div class="section-title">1. 📚 मूलभूत परिभाषा</div>
-<div class="section-body">
+<!-- ================= NAVIGATION ================= -->
 
-<div class="info-card definition">
-<strong>परमाणु (Atom):</strong><br>
-द्रव्य की अत्यंत सूक्ष्म इकाई को परमाणु कहते हैं। आधुनिक विज्ञान के अनुसार परमाणु
-इलेक्ट्रॉन, प्रोटॉन और न्यूट्रॉन जैसे उप-परमाणुक कणों से बना होता है।
-</div>
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="#roots">परमाणु का इतिहास</a>
+        <a href="#electron">इलेक्ट्रॉन</a>
+        <a href="#thomson">थॉमसन</a>
+        <a href="#rutherford">रदरफोर्ड</a>
+        <a href="#bohr">बोर</a>
+        <a href="#neutron">न्यूट्रॉन</a>
+        <a href="#dalton">डाल्टन प्रतीक</a>
+        <a href="#numbers">परमाणु संख्या</a>
+        <a href="#isotopes">समस्थानिक</a>
+        <a href="#isobars">समभारिक</a>
+        <a href="#revision">Quick Revision</a>
+    </div>
+</nav>
 
-<div class="grid">
-<div class="model-card">
-<h3>🔵 नाभिक</h3>
-<p>परमाणु के केंद्र में स्थित भाग। इसमें प्रोटॉन और न्यूट्रॉन पाए जाते हैं।</p>
-</div>
+<main class="container">
 
-<div class="model-card">
-<h3>🟢 इलेक्ट्रॉन</h3>
-<p>ऋणावेशित कण जो नाभिक के चारों ओर ऊर्जा स्तरों में पाए जाते हैं।</p>
-</div>
-</div>
+<!-- ================= 1 ================= -->
 
-</div>
+<section class="section" id="roots">
+
+    <div class="section-title">
+        <div class="num">1</div>
+        <h2>परमाणु की अवधारणा का इतिहास</h2>
+    </div>
+
+    <div class="card highlight">
+        <h3>द्रव्य और परमाणु</h3>
+        <p>
+            हमारे चारों ओर दिखाई देने वाली तथा महसूस होने वाली प्रत्येक वस्तु
+            <strong>द्रव्य (Matter)</strong> है। द्रव्य सूक्ष्म कणों से बना है जिन्हें
+            <strong>परमाणु (Atom)</strong> कहा जाता है।
+        </p>
+        <p>
+            परमाणु अत्यंत छोटे होते हैं और इन्हें सामान्य आँखों से नहीं देखा जा सकता।
+        </p>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <strong>आचार्य कणाद</strong>
+            <p>
+                प्राचीन भारत में आचार्य कणाद ने विचार दिया कि पदार्थ को बार-बार
+                विभाजित करने पर एक अत्यंत सूक्ष्म कण प्राप्त होगा, जिसे उन्होंने
+                <strong>परमाणु (Parmanu)</strong> कहा।
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <strong>ल्यूकीपस और डेमोक्रिटस</strong>
+            <p>
+                प्राचीन यूनानी दार्शनिकों ने अविभाज्य कण की अवधारणा दी और उसे
+                <strong>Atomos</strong> कहा। यूनानी भाषा में Atomos का अर्थ
+                <strong>अविभाज्य</strong> है।
+            </p>
+        </div>
+
+        <div class="timeline-item">
+            <strong>जॉन डाल्टन — 1808</strong>
+            <p>
+                जॉन डाल्टन ने वैज्ञानिक प्रयोगों के आधार पर परमाणु सिद्धांत प्रस्तुत किया।
+                उस समय उन्होंने परमाणु को अविभाज्य मूलभूत कण माना।
+            </p>
+        </div>
+
+    </div>
+
 </section>
 
-<!-- 2 -->
-<section class="section">
-<div class="section-title">2. 🕰 परमाणु सिद्धांत का इतिहास</div>
-<div class="section-body">
+<!-- ================= 2 ELECTRON ================= -->
 
-<div class="grid">
+<section class="section" id="electron">
 
-<div class="model-card">
-<h3>🇮🇳 आचार्य कणाद</h3>
-<p>
-भारतीय महर्षि आचार्य कणाद ने विचार दिया कि पदार्थ को लगातार विभाजित करने पर
-अंत में एक अत्यंत सूक्ष्म अविभाज्य कण प्राप्त होगा।
-</p>
-<p><strong>नाम:</strong> परमाणु</p>
-</div>
+    <div class="section-title">
+        <div class="num">2</div>
+        <h2>इलेक्ट्रॉन की खोज</h2>
+    </div>
 
-<div class="model-card">
-<h3>🇬🇷 लियुसिपस व डेमोक्रिटस</h3>
-<p>
-ग्रीक दार्शनिकों ने ऐसे अविभाज्य कण की कल्पना की और उसे
-<strong>Atomos</strong> कहा।
-</p>
-<p><strong>Atomos का अर्थ:</strong> ना काटा जाने वाला</p>
-</div>
+    <div class="card">
+        <h3>जे. जे. थॉमसन — 1897</h3>
+        <p>
+            जे. जे. थॉमसन ने बहुत कम दाब वाली गैसों में विद्युत धारा के प्रवाह का
+            अध्ययन किया। उन्होंने एक विशेष नली में दो इलेक्ट्रोड लगाकर उच्च वोल्टेज
+            लगाया।
+        </p>
 
-<div class="model-card">
-<h3>⚗ जॉन डाल्टन — 1808</h3>
-<p>
-इन्होंने पहला वैज्ञानिक/आधिकारिक परमाणु सिद्धांत प्रस्तुत किया।
-</p>
-<p>उनके अनुसार द्रव्य परमाणुओं से बना है और परमाणु को उस समय अविभाज्य माना गया।</p>
-</div>
+        <p>
+            ऋणात्मक इलेक्ट्रोड अर्थात <strong>कैथोड</strong> से धनात्मक इलेक्ट्रोड
+            अर्थात <strong>एनोड</strong> की ओर जाने वाली किरणों को
+            <strong>कैथोड किरणें</strong> कहा गया।
+        </p>
+    </div>
 
-</div>
+    <!-- CATHODE RAY SVG -->
 
-<div class="arrow">↓ वैज्ञानिक खोजों के साथ परमाणु की आंतरिक संरचना स्पष्ट हुई ↓</div>
+    <div class="diagram">
+        <div class="diagram-title">कैथोड किरण नली — HTML/SVG Diagram</div>
 
-</div>
+        <svg viewBox="0 0 900 330" role="img">
+
+            <defs>
+                <linearGradient id="tubeGrad" x1="0" x2="1">
+                    <stop offset="0" stop-color="#d9f3ff"/>
+                    <stop offset="1" stop-color="#ffffff"/>
+                </linearGradient>
+
+                <marker id="arrowBlue" markerWidth="10" markerHeight="10"
+                        refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#0757b5"/>
+                </marker>
+            </defs>
+
+            <rect x="90" y="90" width="700" height="150"
+                  rx="75" fill="url(#tubeGrad)"
+                  stroke="#43708f" stroke-width="4"/>
+
+            <rect x="145" y="115" width="45" height="100"
+                  rx="7" fill="#303b46"/>
+
+            <rect x="710" y="115" width="45" height="100"
+                  rx="7" fill="#b9bfc6"/>
+
+            <text x="168" y="275" text-anchor="middle"
+                  font-size="22" font-weight="bold">Cathode (−)</text>
+
+            <text x="733" y="275" text-anchor="middle"
+                  font-size="22" font-weight="bold">Anode (+)</text>
+
+            <line x1="205" y1="165" x2="685" y2="165"
+                  stroke="#0757b5" stroke-width="6"
+                  marker-end="url(#arrowBlue)"/>
+
+            <circle cx="280" cy="165" r="7" fill="#0757b5"/>
+            <circle cx="380" cy="165" r="7" fill="#0757b5"/>
+            <circle cx="480" cy="165" r="7" fill="#0757b5"/>
+            <circle cx="580" cy="165" r="7" fill="#0757b5"/>
+
+            <text x="450" y="125" text-anchor="middle"
+                  font-size="24" font-weight="bold"
+                  fill="#0757b5">
+                कैथोड किरणें / इलेक्ट्रॉनों की धारा
+            </text>
+
+            <rect x="25" y="40" width="110" height="35"
+                  rx="8" fill="#ffe4e4"/>
+            <text x="80" y="64" text-anchor="middle"
+                  font-size="17">उच्च वोल्टेज</text>
+
+            <line x1="135" y1="58" x2="160" y2="95"
+                  stroke="#d33" stroke-width="3"/>
+
+        </svg>
+
+        <div class="caption">
+            कैथोड किरणें कैथोड से एनोड की ओर जाती हैं।
+        </div>
+    </div>
+
+    <div class="card green">
+        <h3>थॉमसन के निष्कर्ष</h3>
+        <ul>
+            <li>कैथोड किरणें ऋणात्मक आवेशित कणों की धारा हैं।</li>
+            <li>इन कणों को बाद में <strong>इलेक्ट्रॉन</strong> कहा गया।</li>
+            <li>इलेक्ट्रॉन का आवेश ऋणात्मक होता है।</li>
+            <li>इलेक्ट्रॉन का द्रव्यमान परमाणु की तुलना में बहुत कम होता है।</li>
+            <li>कैथोड किरणों का स्वभाव कैथोड के पदार्थ और नली में उपस्थित गैस पर निर्भर नहीं पाया गया।</li>
+        </ul>
+    </div>
+
+    <div class="formula">
+        इलेक्ट्रॉन का आवेश ≈ −1.602 × 10⁻¹⁹ C
+        <small>सापेक्ष आवेश = −1</small>
+    </div>
+
 </section>
 
-<!-- 3 -->
-<section class="section">
-<div class="section-title">3. 🔬 उप-परमाणुक कणों की खोज</div>
-<div class="section-body">
+<!-- ================= THOMSON ================= -->
 
-<div class="table-wrap">
-<table>
-<tr>
-<th>कण</th>
-<th>प्रतीक</th>
-<th>खोजकर्ता</th>
-<th>खोज / प्रयोग</th>
-<th>आवेश</th>
-<th>स्थिति</th>
-</tr>
+<section class="section" id="thomson">
 
-<tr>
-<td><strong>इलेक्ट्रॉन</strong></td>
-<td>e⁻</td>
-<td>जे. जे. थॉमसन</td>
-<td>1897 — कैथोड किरण प्रयोग</td>
-<td>−1.602 × 10⁻¹⁹ C</td>
-<td>नाभिक के बाहर</td>
-</tr>
+    <div class="section-title">
+        <div class="num">3</div>
+        <h2>थॉमसन का परमाणु मॉडल</h2>
+    </div>
 
-<tr>
-<td><strong>प्रोटॉन</strong></td>
-<td>p⁺</td>
-<td>ई. गोल्डस्टीन</td>
-<td>1886 — कैनाल किरणें</td>
-<td>+1.602 × 10⁻¹⁹ C</td>
-<td>नाभिक में</td>
-</tr>
+    <div class="card purple">
+        <h3>Plum Pudding Model</h3>
 
-<tr>
-<td><strong>न्यूट्रॉन</strong></td>
-<td>n⁰</td>
-<td>जेम्स चैडविक</td>
-<td>1932</td>
-<td>0</td>
-<td>नाभिक में</td>
-</tr>
-</table>
-</div>
+        <p>
+            इलेक्ट्रॉन की खोज के बाद यह प्रश्न उठा कि परमाणु में धनात्मक आवेश
+            कहाँ उपस्थित है।
+        </p>
 
-<div class="grid">
-<div class="info-card danger">
-<strong>इलेक्ट्रॉन:</strong><br>
-ऋणावेशित कण। इसका द्रव्यमान प्रोटॉन की तुलना में बहुत कम होता है।
-</div>
+        <p>
+            थॉमसन ने प्रस्तावित किया कि परमाणु एक
+            <strong>धनात्मक आवेश वाले गोले</strong> के समान है और उसके अंदर
+            इलेक्ट्रॉन फैले हुए हैं।
+        </p>
 
-<div class="info-card success">
-<strong>प्रोटॉन:</strong><br>
-धनावेशित कण। यह नाभिक में स्थित होता है।
-</div>
+        <p>
+            इस मॉडल की तुलना <strong>Plum Pudding Model</strong> से की गई।
+            इसे समझने के लिए तरबूज की उपमा भी दी जा सकती है—गूदा धनात्मक भाग
+            और बीज इलेक्ट्रॉनों को दर्शाते हैं।
+        </p>
+    </div>
 
-<div class="info-card definition">
-<strong>न्यूट्रॉन:</strong><br>
-इस पर कोई विद्युत आवेश नहीं होता। हाइड्रोजन-1 को छोड़कर सामान्यतः परमाणुओं के
-नाभिक में न्यूट्रॉन पाए जाते हैं।
-</div>
-</div>
+    <!-- THOMSON SVG -->
 
-</div>
+    <div class="diagram">
+        <div class="diagram-title">थॉमसन का परमाणु मॉडल</div>
+
+        <svg viewBox="0 0 700 430">
+
+            <circle cx="350" cy="210" r="145"
+                    fill="#ffe4e4"
+                    stroke="#d94b4b"
+                    stroke-width="5"/>
+
+            <circle cx="285" cy="145" r="12" fill="#0757b5"/>
+            <circle cx="390" cy="135" r="12" fill="#0757b5"/>
+            <circle cx="440" cy="220" r="12" fill="#0757b5"/>
+            <circle cx="300" cy="250" r="12" fill="#0757b5"/>
+            <circle cx="365" cy="285" r="12" fill="#0757b5"/>
+            <circle cx="250" cy="205" r="12" fill="#0757b5"/>
+            <circle cx="405" cy="175" r="12" fill="#0757b5"/>
+
+            <text x="350" y="70"
+                  text-anchor="middle"
+                  font-size="26"
+                  font-weight="bold"
+                  fill="#a52a2a">
+                धनात्मक आवेश का गोला
+            </text>
+
+            <text x="350" y="390"
+                  text-anchor="middle"
+                  font-size="24"
+                  font-weight="bold"
+                  fill="#0757b5">
+                नीले बिंदु = इलेक्ट्रॉन
+            </text>
+
+        </svg>
+
+        <div class="caption">
+            इलेक्ट्रॉन धनात्मक आवेश वाले गोले में वितरित माने गए।
+        </div>
+    </div>
+
+    <div class="card red">
+        <h3>थॉमसन मॉडल की सीमा</h3>
+        <p>
+            बाद में रदरफोर्ड के स्वर्ण-पत्र प्रयोग के परिणामों को थॉमसन का मॉडल
+            समझा नहीं सका। इसलिए एक नए परमाणु मॉडल की आवश्यकता हुई।
+        </p>
+    </div>
+
 </section>
 
-<!-- 4 Thomson -->
-<section class="section">
-<div class="section-title">4(A). 🥧 थॉमसन का परमाणु मॉडल — Plum Pudding Model</div>
-<div class="section-body">
+<!-- ================= RUTHERFORD ================= -->
 
-<div class="atom-small">
-<div class="e-dot"></div>
-<div class="e-dot"></div>
-</div>
+<section class="section" id="rutherford">
 
-<div class="info-card definition">
-थॉमसन के अनुसार परमाणु एक समान रूप से धनावेशित गोले जैसा है जिसमें इलेक्ट्रॉन
-उसके अंदर धँसे हुए हैं।
-</div>
+    <div class="section-title">
+        <div class="num">4</div>
+        <h2>रदरफोर्ड का स्वर्ण-पत्र प्रयोग</h2>
+    </div>
 
-<div class="grid">
-<div class="info-card">
-<strong>🍉 उदाहरण:</strong>
-तरबूज के अंदर बीजों की स्थिति या पुडिंग में प्लम की स्थिति जैसी कल्पना की गई।
-</div>
+    <div class="card">
+        <h3>Geiger–Marsden और Rutherford — 1911</h3>
 
-<div class="info-card success">
-<strong>⚖ विद्युत उदासीनता:</strong>
-परमाणु में धनावेश और ऋणावेश का कुल परिमाण समान होने से परमाणु विद्युत रूप से
-उदासीन होता है।
-</div>
-</div>
+        <p>
+            एक अत्यंत पतली सोने की पन्नी पर
+            <strong>अल्फा (α) कणों</strong> की संकीर्ण किरण डाली गई।
+        </p>
 
-<div class="info-card warning">
-<strong>सीमा:</strong> बाद में रदरफोर्ड के α-कण प्रकीर्णन प्रयोग ने इस मॉडल को अस्वीकार कर दिया।
-</div>
+        <p>
+            अल्फा कण धनात्मक आवेशित कण हैं। बाद में यह ज्ञात हुआ कि
+            α-कण हीलियम के नाभिक के समान होते हैं, जिनमें दो प्रोटॉन और
+            दो न्यूट्रॉन होते हैं।
+        </p>
+    </div>
 
-</div>
+    <!-- RUTHERFORD SVG -->
+
+    <div class="diagram">
+        <div class="diagram-title">रदरफोर्ड का स्वर्ण-पत्र प्रयोग</div>
+
+        <svg viewBox="0 0 900 500">
+
+            <defs>
+                <marker id="arrowRed" markerWidth="10" markerHeight="10"
+                        refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#e53935"/>
+                </marker>
+
+                <marker id="arrowGreen" markerWidth="10" markerHeight="10"
+                        refX="8" refY="3" orient="auto">
+                    <path d="M0,0 L9,3 L0,6 Z" fill="#159447"/>
+                </marker>
+            </defs>
+
+            <!-- alpha source -->
+            <rect x="40" y="180" width="110" height="120"
+                  rx="18" fill="#ffe0e0"
+                  stroke="#d33" stroke-width="4"/>
+
+            <text x="95" y="230" text-anchor="middle"
+                  font-size="19" font-weight="bold">α-कण</text>
+
+            <text x="95" y="255" text-anchor="middle"
+                  font-size="16">स्रोत</text>
+
+            <!-- gold foil -->
+            <rect x="445" y="85" width="20" height="330"
+                  fill="#e8b92e"
+                  stroke="#a87900"
+                  stroke-width="3"/>
+
+            <text x="455" y="60" text-anchor="middle"
+                  font-size="20" font-weight="bold">पतली सोने की पन्नी</text>
+
+            <!-- straight -->
+            <line x1="150" y1="240" x2="760" y2="240"
+                  stroke="#159447" stroke-width="5"
+                  marker-end="url(#arrowGreen)"/>
+
+            <!-- slight -->
+            <path d="M150 225 Q450 225 600 135"
+                  fill="none"
+                  stroke="#f39c12"
+                  stroke-width="4"
+                  marker-end="url(#arrowGreen)"/>
+
+            <!-- sharp deflection -->
+            <path d="M150 250 Q400 250 445 300 Q420 375 315 405"
+                  fill="none"
+                  stroke="#e53935"
+                  stroke-width="5"
+                  marker-end="url(#arrowRed)"/>
+
+            <!-- back scattering -->
+            <path d="M150 265 Q370 265 445 230 Q350 170 235 155"
+                  fill="none"
+                  stroke="#9b51e0"
+                  stroke-width="5"
+                  marker-end="url(#arrowRed)"/>
+
+            <text x="675" y="220"
+                  font-size="18"
+                  font-weight="bold"
+                  fill="#159447">
+                अधिकांश सीधे निकलते हैं
+            </text>
+
+            <text x="585" y="125"
+                  font-size="17"
+                  fill="#a35a00">
+                कुछ थोड़ा मुड़ते हैं
+            </text>
+
+            <text x="290" y="430"
+                  font-size="17"
+                  fill="#c52b2b">
+                कुछ बड़े कोण से विक्षेपित
+            </text>
+
+            <text x="210" y="135"
+                  font-size="17"
+                  fill="#7137a3">
+                बहुत कम वापस लौटते हैं
+            </text>
+
+        </svg>
+
+        <div class="caption">
+            अधिकांश α-कण सीधे निकल गए, कुछ विक्षेपित हुए और बहुत कम कण वापस लौटे।
+        </div>
+    </div>
+
+    <div class="card green">
+        <h3>प्रयोग के मुख्य अवलोकन</h3>
+        <ol>
+            <li><strong>अधिकांश α-कण</strong> बिना विक्षेपित हुए सीधे निकल गए।</li>
+            <li><strong>कुछ α-कण</strong> छोटे या बड़े कोण से विक्षेपित हुए।</li>
+            <li><strong>बहुत कम α-कण</strong> लगभग वापस लौट गए।</li>
+        </ol>
+    </div>
+
+    <div class="card highlight">
+        <h3>रदरफोर्ड के निष्कर्ष</h3>
+
+        <ul>
+            <li>
+                परमाणु का अधिकांश भाग <strong>रिक्त स्थान</strong> है।
+            </li>
+
+            <li>
+                परमाणु का धनात्मक आवेश एक अत्यंत छोटे क्षेत्र में केंद्रित है,
+                जिसे <strong>नाभिक (Nucleus)</strong> कहा जाता है।
+            </li>
+
+            <li>
+                नाभिक बहुत घना होता है और परमाणु का अधिकांश द्रव्यमान
+                नाभिक में केंद्रित होता है।
+            </li>
+
+            <li>
+                इलेक्ट्रॉन नाभिक के चारों ओर घूमते हैं।
+            </li>
+        </ul>
+    </div>
+
+    <div class="diagram">
+        <div class="diagram-title">रदरफोर्ड का परमाणु मॉडल</div>
+
+        <svg viewBox="0 0 700 520">
+
+            <ellipse cx="350" cy="260" rx="250" ry="110"
+                     fill="none" stroke="#9bc5e6"
+                     stroke-width="4"/>
+
+            <ellipse cx="350" cy="260" rx="170" ry="75"
+                     fill="none" stroke="#7db3dd"
+                     stroke-width="4"/>
+
+            <circle cx="350" cy="260" r="43"
+                    fill="#e53935"
+                    stroke="#9d1616"
+                    stroke-width="5"/>
+
+            <text x="350" y="267"
+                  text-anchor="middle"
+                  font-size="18"
+                  font-weight="bold"
+                  fill="white">
+                नाभिक
+            </text>
+
+            <circle cx="120" cy="260" r="11" fill="#0757b5"/>
+            <circle cx="580" cy="260" r="11" fill="#0757b5"/>
+            <circle cx="350" cy="150" r="11" fill="#0757b5"/>
+            <circle cx="350" cy="370" r="11" fill="#0757b5"/>
+
+            <text x="350" y="45"
+                  text-anchor="middle"
+                  font-size="24"
+                  font-weight="bold"
+                  fill="#08264d">
+                रदरफोर्ड का Planetary Model
+            </text>
+
+            <text x="350" y="465"
+                  text-anchor="middle"
+                  font-size="20"
+                  fill="#0757b5">
+                नीले बिंदु = इलेक्ट्रॉन
+            </text>
+
+        </svg>
+    </div>
+
+    <div class="formula">
+        परमाणु का व्यास ≈ 10⁻¹⁰ m
+        <br>
+        नाभिक का व्यास ≈ 10⁻¹⁵ m
+    </div>
+
+    <div class="card red">
+        <h3>रदरफोर्ड मॉडल की सीमा</h3>
+        <p>
+            रदरफोर्ड का मॉडल यह नहीं समझा सका कि इलेक्ट्रॉन नाभिक में गिरने से
+            बचते हुए परमाणु को स्थिर कैसे रखते हैं।
+        </p>
+
+        <p>
+            यदि घूमता हुआ आवेशित इलेक्ट्रॉन लगातार ऊर्जा खोता, तो वह धीरे-धीरे
+            नाभिक की ओर सर्पिल पथ में जाता और अंततः नाभिक में गिर जाता।
+        </p>
+    </div>
+
 </section>
 
-<!-- Rutherford -->
+<!-- ================= PROTON ================= -->
+
 <section class="section">
-<div class="section-title">4(B). 🧪 रदरफोर्ड का स्वर्ण-पत्र प्रयोग</div>
-<div class="section-body">
 
-<div class="experiment">
-<h3 class="sub-title">α-कण प्रकीर्णन प्रयोग</h3>
+    <div class="section-title">
+        <div class="num">5</div>
+        <h2>प्रोटॉन की खोज</h2>
+    </div>
 
-<p>
-रदरफोर्ड ने एक बहुत पतली सोने की पन्नी पर तीव्र गति से चलने वाले
-धनावेशित <strong>α-कणों (He²⁺)</strong> की बौछार की।
-</p>
+    <div class="card">
+        <h3>रदरफोर्ड और धनात्मक आवेश</h3>
 
-<div class="rutherford">
+        <p>
+            रदरफोर्ड ने दिखाया कि परमाणु का धनात्मक आवेश नाभिक में केंद्रित है।
+            यह धनात्मक आवेश <strong>प्रोटॉन</strong> नामक कणों के कारण होता है।
+        </p>
 
-<div class="source">α-कण<br>स्रोत</div>
-<div class="gold"></div>
+        <p>
+            प्रोटॉन का आवेश इलेक्ट्रॉन के आवेश के बराबर परंतु विपरीत होता है।
+        </p>
+    </div>
 
-<div class="path p1"></div>
-<div class="path p2"></div>
-<div class="path p3"></div>
-<div class="path p4"></div>
+    <div class="formula">
+        उदासीन परमाणु में
+        <br>
+        प्रोटॉनों की संख्या = इलेक्ट्रॉनों की संख्या
+    </div>
 
-<div class="screen"></div>
-<div class="center-dot"></div>
-
-</div>
-
-<p style="text-align:center;">
-🔴 लाल रेखाएँ = α-कणों के संभावित मार्ग &nbsp; | &nbsp;
-🟡 सोने की पन्नी &nbsp; | &nbsp;
-🟢 स्क्रीन
-</p>
-</div>
-
-<h3 class="sub-title">प्रमुख अवलोकन</h3>
-
-<div class="grid">
-
-<div class="info-card success">
-<strong>1️⃣ अधिकांश α-कण सीधे निकल गए</strong>
-<p>इससे पता चला कि परमाणु का अधिकांश भाग <strong>खाली स्थान</strong> है।</p>
-</div>
-
-<div class="info-card warning">
-<strong>2️⃣ कुछ α-कण छोटे कोण से मुड़े</strong>
-<p>इससे पता चला कि परमाणु के अंदर धनावेशित क्षेत्र मौजूद है।</p>
-</div>
-
-<div class="info-card danger">
-<strong>3️⃣ बहुत कम α-कण वापस लौटे</strong>
-<p>
-लगभग <strong>12,000 में से 1</strong> α-कण अपने मार्ग की ओर वापस आया।
-इससे केंद्र में बहुत छोटे, सघन भाग की जानकारी मिली।
-</p>
-</div>
-
-</div>
-
-<h3 class="sub-title">रदरफोर्ड के निष्कर्ष</h3>
-
-<ul>
-<li>परमाणु के केंद्र में एक छोटा, सघन और धनावेशित <strong>नाभिक</strong> होता है।</li>
-<li>परमाणु का अधिकांश द्रव्यमान नाभिक में केंद्रित होता है।</li>
-<li>इलेक्ट्रॉन नाभिक के चारों ओर गति करते हैं।</li>
-<li>नाभिक का आकार परमाणु के आकार की तुलना में बहुत छोटा होता है।</li>
-</ul>
-
-<div class="compare">
-<div class="box">
-<strong>परमाणु का व्यास</strong>
-<h2>≈ 10⁻¹⁰ m</h2>
-</div>
-
-<div class="box">
-<strong>नाभिक का व्यास</strong>
-<h2>≈ 10⁻¹⁵ m</h2>
-</div>
-</div>
-
-<h3 class="sub-title">⚠ रदरफोर्ड मॉडल की सीमा</h3>
-
-<div class="info-card danger">
-घूमता हुआ आवेशित इलेक्ट्रॉन लगातार ऊर्जा विकीर्ण करेगा और अंततः नाभिक में गिर जाना चाहिए।
-इससे परमाणु अस्थिर होना चाहिए था, जबकि वास्तविक परमाणु स्थिर होते हैं।
-रदरफोर्ड मॉडल इस स्थायित्व को स्पष्ट नहीं कर सका।
-</div>
-
-</div>
 </section>
 
-<!-- Bohr -->
-<section class="section">
-<div class="section-title">4(C). 🪐 बोर का परमाणु मॉडल — 1913</div>
-<div class="section-body">
+<!-- ================= BOHR ================= -->
 
-<div class="atom-diagram">
+<section class="section" id="bohr">
 
-<div class="orbit k">
-<div class="electron e1"></div>
-<div class="electron e2"></div>
-</div>
+    <div class="section-title">
+        <div class="num">6</div>
+        <h2>बोर का परमाणु मॉडल</h2>
+    </div>
 
-<div class="orbit l">
-<div class="electron e3"></div>
-<div class="electron e4"></div>
-</div>
+    <div class="card purple">
+        <h3>नील्स बोर — 1913</h3>
 
-<div class="orbit m">
-<div class="electron e5"></div>
-<div class="electron e6"></div>
-</div>
+        <p>
+            परमाणु की स्थिरता को समझाने के लिए नील्स बोर ने 1913 में
+            नया परमाणु मॉडल प्रस्तुत किया।
+        </p>
 
-<div class="nucleus">
-नाभिक
-<small>p⁺ + n⁰</small>
-</div>
+        <ul>
+            <li>इलेक्ट्रॉन नाभिक के चारों ओर निश्चित कक्षाओं में घूमते हैं।</li>
+            <li>इन निश्चित कक्षाओं को <strong>कक्षा / शेल / ऊर्जा स्तर</strong> कहा जाता है।</li>
+            <li>इन शेलों को K, L, M, N ... से दर्शाया जाता है।</li>
+            <li>इन्हें n = 1, 2, 3, 4 ... से भी दर्शाया जाता है।</li>
+            <li>नाभिक से दूर जाने पर ऊर्जा स्तर की ऊर्जा बढ़ती है।</li>
+            <li>एक निश्चित शेल में घूमते समय इलेक्ट्रॉन ऊर्जा का विकिरण नहीं करता।</li>
+            <li>इलेक्ट्रॉन ऊर्जा ग्रहण या उत्सर्जित करके एक शेल से दूसरे शेल में जा सकता है।</li>
+        </ul>
+    </div>
 
-</div>
+    <!-- BOHR SVG -->
 
-<div class="info-card definition">
-<strong>मुख्य विचार:</strong>
-इलेक्ट्रॉन नाभिक के चारों ओर केवल कुछ निश्चित कक्षाओं में ही घूम सकते हैं।
-इन निश्चित कक्षाओं को <strong>ऊर्जा स्तर / विविक्त कक्षा</strong> कहा जाता है।
-</div>
+    <div class="diagram">
+        <div class="diagram-title">बोर का परमाणु मॉडल — K, L, M, N शेल</div>
 
-<div class="grid">
-<div class="model-card">
-<h3>K कोश</h3>
-<p>n = 1</p>
-</div>
+        <svg viewBox="0 0 700 700">
 
-<div class="model-card">
-<h3>L कोश</h3>
-<p>n = 2</p>
-</div>
+            <circle cx="350" cy="350" r="75"
+                    fill="#e53935"
+                    stroke="#a91717"
+                    stroke-width="5"/>
 
-<div class="model-card">
-<h3>M कोश</h3>
-<p>n = 3</p>
-</div>
+            <text x="350" y="358"
+                  text-anchor="middle"
+                  font-size="21"
+                  font-weight="bold"
+                  fill="white">
+                नाभिक
+            </text>
 
-<div class="model-card">
-<h3>N कोश</h3>
-<p>n = 4</p>
-</div>
-</div>
+            <circle cx="350" cy="350" r="130"
+                    fill="none" stroke="#2c8ac9" stroke-width="4"/>
 
-<div class="info-card success">
-इन निश्चित कक्षाओं में रहते समय इलेक्ट्रॉन ऊर्जा का विकिरण नहीं करते।
-इसलिए बोर मॉडल परमाणु की स्थिरता को समझाने में सफल रहा।
-</div>
+            <circle cx="350" cy="350" r="200"
+                    fill="none" stroke="#2aa876" stroke-width="4"/>
 
-</div>
+            <circle cx="350" cy="350" r="270"
+                    fill="none" stroke="#e39a21" stroke-width="4"/>
+
+            <circle cx="350" cy="350" r="330"
+                    fill="none" stroke="#8a5bc7" stroke-width="4"/>
+
+            <!-- K electrons -->
+            <circle cx="350" cy="220" r="10" fill="#0757b5"/>
+            <circle cx="350" cy="480" r="10" fill="#0757b5"/>
+
+            <!-- L electrons -->
+            <circle cx="150" cy="350" r="10" fill="#159447"/>
+            <circle cx="550" cy="350" r="10" fill="#159447"/>
+
+            <circle cx="350" cy="150" r="10" fill="#159447"/>
+            <circle cx="350" cy="550" r="10" fill="#159447"/>
+
+            <!-- M electrons -->
+            <circle cx="80" cy="350" r="10" fill="#e39a21"/>
+            <circle cx="620" cy="350" r="10" fill="#e39a21"/>
+            <circle cx="350" cy="80" r="10" fill="#e39a21"/>
+            <circle cx="350" cy="620" r="10" fill="#e39a21"/>
+
+            <!-- labels -->
+            <text x="350" y="105"
+                  text-anchor="middle"
+                  font-size="21"
+                  font-weight="bold"
+                  fill="#0757b5">K-shell (n=1)</text>
+
+            <text x="350" y="175"
+                  text-anchor="middle"
+                  font-size="21"
+                  font-weight="bold"
+                  fill="#159447">L-shell (n=2)</text>
+
+            <text x="350" y="610"
+                  text-anchor="middle"
+                  font-size="21"
+                  font-weight="bold"
+                  fill="#a35c00">M-shell (n=3)</text>
+
+            <text x="350" y="680"
+                  text-anchor="middle"
+                  font-size="21"
+                  font-weight="bold"
+                  fill="#7048c6">N-shell (n=4)</text>
+
+        </svg>
+
+        <div class="caption">
+            शेल नाभिक से जितना दूर होता है, उसका ऊर्जा स्तर उतना अधिक होता है।
+        </div>
+    </div>
+
+    <div class="formula">
+        K → n = 1 &nbsp;&nbsp; L → n = 2 &nbsp;&nbsp; M → n = 3 &nbsp;&nbsp; N → n = 4
+    </div>
+
 </section>
 
-<!-- Bury -->
-<section class="section">
-<div class="section-title">5. 🧮 इलेक्ट्रॉनों का वितरण — Bohr-Bury Scheme</div>
-<div class="section-body">
+<!-- ================= NEUTRON ================= -->
 
-<div class="formula">
-अधिकतम इलेक्ट्रॉन = 2n²
-<small>जहाँ n = कोश / कक्षा की संख्या</small>
-</div>
+<section class="section" id="neutron">
 
-<div class="table-wrap">
-<table>
-<tr>
-<th>कोश</th>
-<th>n</th>
-<th>गणना</th>
-<th>अधिकतम इलेक्ट्रॉन</th>
-</tr>
+    <div class="section-title">
+        <div class="num">7</div>
+        <h2>न्यूट्रॉन की खोज</h2>
+    </div>
 
-<tr>
-<td>K</td>
-<td>1</td>
-<td>2 × 1²</td>
-<td><strong>2</strong></td>
-</tr>
+    <div class="card yellow">
+        <h3>जेम्स चैडविक — 1932</h3>
 
-<tr>
-<td>L</td>
-<td>2</td>
-<td>2 × 2²</td>
-<td><strong>8</strong></td>
-</tr>
+        <p>
+            रदरफोर्ड के मॉडल के बाद यह प्रश्न उठा कि नाभिक का द्रव्यमान केवल
+            प्रोटॉनों से अधिक क्यों होता है।
+        </p>
 
-<tr>
-<td>M</td>
-<td>3</td>
-<td>2 × 3²</td>
-<td><strong>18</strong></td>
-</tr>
+        <p>
+            1932 में <strong>जेम्स चैडविक</strong> ने एक नए उदासीन कण की खोज की,
+            जिसका द्रव्यमान लगभग प्रोटॉन के बराबर था लेकिन उस पर कोई विद्युत
+            आवेश नहीं था। इसे <strong>न्यूट्रॉन</strong> कहा गया।
+        </p>
+    </div>
 
-<tr>
-<td>N</td>
-<td>4</td>
-<td>2 × 4²</td>
-<td><strong>32</strong></td>
-</tr>
-</table>
-</div>
+    <table>
+        <tr>
+            <th>उपपरमाण्विक कण</th>
+            <th>प्रतीक</th>
+            <th>सापेक्ष आवेश</th>
+            <th>स्थिति</th>
+        </tr>
 
-<div class="info-card warning">
-<strong>⭐ परीक्षा तथ्य:</strong><br>
-सबसे बाहरी कोश में सामान्यतः अधिकतम <strong>8 इलेक्ट्रॉन</strong> हो सकते हैं।
-</div>
+        <tr>
+            <td>इलेक्ट्रॉन</td>
+            <td>e⁻</td>
+            <td>−1</td>
+            <td>नाभिक के बाहर</td>
+        </tr>
 
-</div>
+        <tr>
+            <td>प्रोटॉन</td>
+            <td>p⁺</td>
+            <td>+1</td>
+            <td>नाभिक में</td>
+        </tr>
+
+        <tr>
+            <td>न्यूट्रॉन</td>
+            <td>n⁰</td>
+            <td>0</td>
+            <td>नाभिक में</td>
+        </tr>
+    </table>
+
+    <div class="card green">
+        <h3>याद रखें</h3>
+        <p>
+            सामान्य हाइड्रोजन के <strong>प्रोटियम</strong> नाभिक में न्यूट्रॉन नहीं होता।
+            अन्य अधिकांश परमाणु नाभिकों में न्यूट्रॉन पाए जाते हैं।
+        </p>
+    </div>
+
+    <div class="formula">
+        द्रव्यमान संख्या (A) = प्रोटॉन + न्यूट्रॉन
+    </div>
+
 </section>
 
+<!-- ================= ATOMIC STRUCTURE ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="num">8</div>
+        <h2>परमाणु की संरचना</h2>
+    </div>
+
+    <div class="diagram">
+        <div class="diagram-title">परमाणु के मुख्य भाग</div>
+
+        <svg viewBox="0 0 850 480">
+
+            <!-- nucleus -->
+            <circle cx="425" cy="240" r="95"
+                    fill="#ffe3e3"
+                    stroke="#d73737"
+                    stroke-width="5"/>
+
+            <circle cx="385" cy="205" r="22" fill="#e53935"/>
+            <circle cx="445" cy="205" r="22" fill="#159447"/>
+            <circle cx="385" cy="265" r="22" fill="#159447"/>
+            <circle cx="445" cy="265" r="22" fill="#e53935"/>
+
+            <text x="425" y="335"
+                  text-anchor="middle"
+                  font-size="20"
+                  font-weight="bold">
+                नाभिक
+            </text>
+
+            <!-- electron shells -->
+            <ellipse cx="425" cy="240"
+                     rx="240" ry="145"
+                     fill="none"
+                     stroke="#76aeda"
+                     stroke-width="4"/>
+
+            <ellipse cx="425" cy="240"
+                     rx="310" ry="190"
+                     fill="none"
+                     stroke="#9bc6e7"
+                     stroke-width="3"/>
+
+            <!-- electrons -->
+            <circle cx="185" cy="240" r="12" fill="#0757b5"/>
+            <circle cx="665" cy="240" r="12" fill="#0757b5"/>
+            <circle cx="425" cy="95" r="12" fill="#0757b5"/>
+            <circle cx="425" cy="385" r="12" fill="#0757b5"/>
+
+            <text x="65" y="70"
+                  font-size="20"
+                  font-weight="bold"
+                  fill="#0757b5">
+                इलेक्ट्रॉन
+            </text>
+
+            <line x1="120" y1="78" x2="175" y2="130"
+                  stroke="#0757b5" stroke-width="3"/>
+
+            <text x="610" y="75"
+                  font-size="20"
+                  font-weight="bold"
+                  fill="#d33">
+                नाभिक
+            </text>
+
+            <line x1="650" y1="85" x2="480" y2="180"
+                  stroke="#d33" stroke-width="3"/>
+
+            <text x="350" y="445"
+                  text-anchor="middle"
+                  font-size="19">
+                नाभिक में प्रोटॉन और न्यूट्रॉन • नाभिक के बाहर इलेक्ट्रॉन
+            </text>
+
+        </svg>
+    </div>
+
+</section>
+
+<!-- ================= DALTON SYMBOLS ================= -->
+
+<section class="section" id="dalton">
+
+    <div class="section-title">
+        <div class="num">9</div>
+        <h2>डाल्टन द्वारा सुझाए गए प्रतीक</h2>
+    </div>
+
+    <div class="card highlight">
+        <h3>Dalton के Pictorial Symbols — 1803</h3>
+
+        <p>
+            जॉन डाल्टन ने तत्वों और यौगिकों को सरल तरीके से दर्शाने के लिए
+            1803 में पहली बार <strong>चित्रात्मक प्रतीकों (Pictorial Symbols)</strong>
+            का प्रयोग किया।
+        </p>
+
+    </div>
+
+    <!-- DALTON SYMBOL GRID -->
+
+    <div class="symbol-grid">
+
+        <!-- Hydrogen -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <circle cx="60" cy="50" r="8" fill="#111"/>
+            </svg>
+            <div class="symbol-name">Hydrogen</div>
+            <div class="symbol-note">वृत्त के अंदर बिंदु</div>
+        </div>
+
+        <!-- Carbon -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="#777" stroke="#111" stroke-width="3"/>
+            </svg>
+            <div class="symbol-name">Carbon</div>
+            <div class="symbol-note">भरा हुआ वृत्त</div>
+        </div>
+
+        <!-- Oxygen -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+            </svg>
+            <div class="symbol-name">Oxygen</div>
+            <div class="symbol-note">खाली वृत्त</div>
+        </div>
+
+        <!-- Phosphorus -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <line x1="60" y1="72" x2="60" y2="40"
+                      stroke="#111" stroke-width="4"/>
+                <line x1="60" y1="40" x2="42" y2="27"
+                      stroke="#111" stroke-width="4"/>
+                <line x1="60" y1="40" x2="78" y2="27"
+                      stroke="#111" stroke-width="4"/>
+            </svg>
+            <div class="symbol-name">Phosphorus</div>
+            <div class="symbol-note">तीन-शाखीय चिन्ह</div>
+        </div>
+
+        <!-- Sulphur -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <line x1="60" y1="17" x2="60" y2="83"
+                      stroke="#111" stroke-width="4"/>
+                <line x1="27" y1="50" x2="93" y2="50"
+                      stroke="#111" stroke-width="4"/>
+            </svg>
+            <div class="symbol-name">Sulphur</div>
+            <div class="symbol-note">क्रॉस वाला वृत्त</div>
+        </div>
+
+        <!-- Iron -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <line x1="60" y1="30" x2="60" y2="70"
+                      stroke="#111" stroke-width="5"/>
+            </svg>
+            <div class="symbol-name">Iron</div>
+            <div class="symbol-note">I चिन्ह वाला वृत्त</div>
+        </div>
+
+        <!-- Copper -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <text x="60" y="62"
+                      text-anchor="middle"
+                      font-size="39"
+                      font-family="Arial"
+                      font-weight="bold">C</text>
+            </svg>
+            <div class="symbol-name">Copper</div>
+            <div class="symbol-note">C वाला वृत्त</div>
+        </div>
+
+        <!-- Lead -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <text x="60" y="62"
+                      text-anchor="middle"
+                      font-size="39"
+                      font-family="Arial"
+                      font-weight="bold">L</text>
+            </svg>
+            <div class="symbol-name">Lead</div>
+            <div class="symbol-note">L वाला वृत्त</div>
+        </div>
+
+        <!-- Silver -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <text x="60" y="62"
+                      text-anchor="middle"
+                      font-size="38"
+                      font-family="Arial"
+                      font-weight="bold">S</text>
+            </svg>
+            <div class="symbol-name">Silver</div>
+            <div class="symbol-note">S वाला वृत्त</div>
+        </div>
+
+        <!-- Gold -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <text x="60" y="62"
+                      text-anchor="middle"
+                      font-size="36"
+                      font-family="Arial"
+                      font-weight="bold">G</text>
+
+                <circle cx="36" cy="29" r="3" fill="#111"/>
+                <circle cx="82" cy="29" r="3" fill="#111"/>
+                <circle cx="30" cy="50" r="3" fill="#111"/>
+                <circle cx="90" cy="50" r="3" fill="#111"/>
+                <circle cx="36" cy="71" r="3" fill="#111"/>
+                <circle cx="84" cy="71" r="3" fill="#111"/>
+            </svg>
+            <div class="symbol-name">Gold</div>
+            <div class="symbol-note">G व बिंदुओं वाला चिन्ह</div>
+        </div>
+
+        <!-- Platina -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+                <circle cx="60" cy="50" r="35"
+                        fill="white" stroke="#111" stroke-width="3"/>
+                <text x="60" y="62"
+                      text-anchor="middle"
+                      font-size="38"
+                      font-family="Arial"
+                      font-weight="bold">P</text>
+            </svg>
+            <div class="symbol-name">Platina</div>
+            <div class="symbol-note">P वाला वृत्त</div>
+        </div>
+
+        <!-- Mercury -->
+        <div class="symbol-card">
+            <svg viewBox="0 0 120 110">
+
+                <circle cx="60" cy="50" r="35"
+                        fill="white"
+                        stroke="#111"
+                        stroke-width="3"/>
+
+                <circle cx="60" cy="50" r="27"
+                        fill="none"
+                        stroke="#111"
+                        stroke-width="2"
+                        stroke-dasharray="2 5"/>
+
+                <circle cx="60" cy="50" r="5"
+                        fill="#111"/>
+            </svg>
+            <div class="symbol-name">Mercury</div>
+            <div class="symbol-note">बिंदुयुक्त वृत्त</div>
+        </div>
+
+    </div>
+
+    <div class="card orange">
+        <h3>महत्वपूर्ण</h3>
+
+        <p>
+            Dalton के ये pictorial symbols ऐतिहासिक प्रतीक हैं। बाद में
+            <strong>Berzelius (1813)</strong> ने तत्वों के symbols को
+            alphabetic letters से लिखने का सुझाव दिया।
+        </p>
+
+        <p>
+            आज तत्वों के chemical symbols को
+            <strong>IUPAC</strong> द्वारा मानकीकृत किया जाता है।
+        </p>
+    </div>
+
+</section>
+
+<!-- ================= ATOMIC NUMBER ================= -->
+
+<section class="section" id="numbers">
+
+    <div class="section-title">
+        <div class="num">10</div>
+        <h2>परमाणु संख्या और द्रव्यमान संख्या</h2>
+    </div>
+
+    <div class="card">
+        <h3>परमाणु संख्या — Atomic Number (Z)</h3>
+
+        <p>
+            किसी परमाणु के नाभिक में उपस्थित
+            <strong>प्रोटॉनों की संख्या</strong> को उसकी परमाणु संख्या कहते हैं।
+        </p>
+    </div>
+
+    <div class="formula">
+        Z = प्रोटॉनों की संख्या
+        <br>
+        उदासीन परमाणु के लिए Z = प्रोटॉन = इलेक्ट्रॉन
+    </div>
+
+    <div class="card">
+        <h3>द्रव्यमान संख्या — Mass Number (A)</h3>
+
+        <p>
+            नाभिक में उपस्थित प्रोटॉन और न्यूट्रॉन की कुल संख्या को
+            <strong>द्रव्यमान संख्या</strong> कहते हैं।
+        </p>
+    </div>
+
+    <div class="formula">
+        A = P + N
+        <small>P = प्रोटॉन, N = न्यूट्रॉन</small>
+    </div>
+
+    <div class="card purple">
+        <h3>न्यूट्रॉन की संख्या</h3>
+
+        <div class="formula">
+            N = A − Z
+        </div>
+    </div>
+
+    <!-- Nuclide notation -->
+
+    <div class="card highlight">
+        <h3>परमाणु का संकेतात्मक निरूपण</h3>
+
+        <div class="formula">
+            ᴬZX
+        </div>
+
+        <p style="text-align:center;">
+            उदाहरण:
+        </p>
+
+        <div class="formula">
+            ¹²₆C
+        </div>
+
+        <p>
+            यहाँ Carbon की परमाणु संख्या = 6 और द्रव्यमान संख्या = 12 है।
+        </p>
+
+        <p>
+            अतः:
+            <strong>प्रोटॉन = 6</strong>,
+            <strong>इलेक्ट्रॉन = 6</strong>,
+            <strong>न्यूट्रॉन = 12 − 6 = 6</strong>
+        </p>
+    </div>
+
+</section>
+
+<!-- ================= ELECTRON DISTRIBUTION ================= -->
+
+<section class="section">
+
+    <div class="section-title">
+        <div class="num">11</div>
+        <h2>इलेक्ट्रॉनों का वितरण</h2>
+    </div>
+
+    <div class="card">
+        <h3>2n² नियम</h3>
+
+        <p>
+            किसी shell में इलेक्ट्रॉनों की अधिकतम संख्या निम्न सूत्र से निकाली जाती है:
+        </p>
+
+        <div class="formula">
+            अधिकतम इलेक्ट्रॉन = 2n²
+        </div>
+    </div>
 <!-- Elements -->
+
 <section class="section">
-<div class="section-title">6. 🧾 तत्व 1–18 : परमाणु क्रमांक, इलेक्ट्रॉन वितरण और संयोजकता</div>
+
+<div class="section-title">
+🧪 तत्व 1-18 : परमाणु क्रमांक, इलेक्ट्रॉन वितरण और संयोजकता
+</div>
+
 <div class="section-body">
 
 <div class="table-wrap">
+
 <table>
+
 <tr>
 <th>तत्व</th>
 <th>प्रतीक</th>
@@ -920,293 +1661,614 @@ tr:hover{
 <th>संयोजकता</th>
 </tr>
 
-<tr><td>हाइड्रोजन</td><td>H</td><td>1</td><td>1</td><td>1</td></tr>
-<tr><td>हीलियम</td><td>He</td><td>2</td><td>2</td><td>0</td></tr>
-<tr><td>लिथियम</td><td>Li</td><td>3</td><td>2, 1</td><td>1</td></tr>
-<tr><td>बेरिलियम</td><td>Be</td><td>4</td><td>2, 2</td><td>2</td></tr>
-<tr><td>बोरॉन</td><td>B</td><td>5</td><td>2, 3</td><td>3</td></tr>
-<tr><td>कार्बन</td><td>C</td><td>6</td><td>2, 4</td><td>4</td></tr>
-<tr><td>नाइट्रोजन</td><td>N</td><td>7</td><td>2, 5</td><td>3</td></tr>
-<tr><td>ऑक्सीजन</td><td>O</td><td>8</td><td>2, 6</td><td>2</td></tr>
-<tr><td>फ्लोरीन</td><td>F</td><td>9</td><td>2, 7</td><td>1</td></tr>
-<tr><td>नियॉन</td><td>Ne</td><td>10</td><td>2, 8</td><td>0</td></tr>
-<tr><td>सोडियम</td><td>Na</td><td>11</td><td>2, 8, 1</td><td>1</td></tr>
-<tr><td>मैग्नीशियम</td><td>Mg</td><td>12</td><td>2, 8, 2</td><td>2</td></tr>
-<tr><td>एल्युमिनियम</td><td>Al</td><td>13</td><td>2, 8, 3</td><td>3</td></tr>
-<tr><td>सिलिकॉन</td><td>Si</td><td>14</td><td>2, 8, 4</td><td>4</td></tr>
-<tr><td>फॉस्फोरस</td><td>P</td><td>15</td><td>2, 8, 5</td><td>3</td></tr>
-<tr><td>सल्फर</td><td>S</td><td>16</td><td>2, 8, 6</td><td>2</td></tr>
-<tr><td>क्लोरीन</td><td>Cl</td><td>17</td><td>2, 8, 7</td><td>1</td></tr>
-<tr><td>आर्गन</td><td>Ar</td><td>18</td><td>2, 8, 8</td><td>0</td></tr>
+<tr>
+<td>हाइड्रोजन</td>
+<td>H</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>हीलियम</td>
+<td>He</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>लिथियम</td>
+<td>Li</td>
+<td>3</td>
+<td>2, 1</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>बेरिलियम</td>
+<td>Be</td>
+<td>4</td>
+<td>2, 2</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>बोरॉन</td>
+<td>B</td>
+<td>5</td>
+<td>2, 3</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>कार्बन</td>
+<td>C</td>
+<td>6</td>
+<td>2, 4</td>
+<td>4</td>
+</tr>
+
+<tr>
+<td>नाइट्रोजन</td>
+<td>N</td>
+<td>7</td>
+<td>2, 5</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>ऑक्सीजन</td>
+<td>O</td>
+<td>8</td>
+<td>2, 6</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>फ्लोरीन</td>
+<td>F</td>
+<td>9</td>
+<td>2, 7</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>नियॉन</td>
+<td>Ne</td>
+<td>10</td>
+<td>2, 8</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>सोडियम</td>
+<td>Na</td>
+<td>11</td>
+<td>2, 8, 1</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>मैग्नीशियम</td>
+<td>Mg</td>
+<td>12</td>
+<td>2, 8, 2</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>एल्युमिनियम</td>
+<td>Al</td>
+<td>13</td>
+<td>2, 8, 3</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>सिलिकॉन</td>
+<td>Si</td>
+<td>14</td>
+<td>2, 8, 4</td>
+<td>4</td>
+</tr>
+
+<tr>
+<td>फॉस्फोरस</td>
+<td>P</td>
+<td>15</td>
+<td>2, 8, 5</td>
+<td>3</td>
+</tr>
+
+<tr>
+<td>सल्फर</td>
+<td>S</td>
+<td>16</td>
+<td>2, 8, 6</td>
+<td>2</td>
+</tr>
+
+<tr>
+<td>क्लोरीन</td>
+<td>Cl</td>
+<td>17</td>
+<td>2, 8, 7</td>
+<td>1</td>
+</tr>
+
+<tr>
+<td>आर्गन</td>
+<td>Ar</td>
+<td>18</td>
+<td>2, 8, 8</td>
+<td>0</td>
+</tr>
 
 </table>
+
 </div>
 
 <div class="info-card purple">
+
 <strong>संयोजकता याद रखने का तरीका:</strong><br>
+
 यदि बाहरी कोश में इलेक्ट्रॉन 1, 2, 3, 4 हैं → संयोजकता सामान्यतः 1, 2, 3, 4।<br>
+
 यदि बाहरी कोश में 5, 6, 7 इलेक्ट्रॉन हैं → संयोजकता = 8 − बाहरी इलेक्ट्रॉन।<br>
+
 पूर्ण बाहरी कोश → संयोजकता 0।
+
 </div>
 
 </div>
+
 </section>
 
-<!-- Formula -->
+    <div class="card yellow">
+        <h3>उदाहरण</h3>
+
+        <div class="grid-3">
+
+            <div class="mini">
+                <h4>Na</h4>
+                <p>2, 8, 1</p>
+                <strong>संयोजकता = 1</strong>
+            </div>
+
+            <div class="mini">
+                <h4>Mg</h4>
+                <p>2, 8, 2</p>
+                <strong>संयोजकता = 2</strong>
+            </div>
+
+            <div class="mini">
+                <h4>Cl</h4>
+                <p>2, 8, 7</p>
+                <strong>संयोजकता = 1</strong>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- ================= ISOTOPES ================= -->
+
+<section class="section" id="isotopes">
+
+    <div class="section-title">
+        <div class="num">13</div>
+        <h2>समस्थानिक (Isotopes)</h2>
+    </div>
+
+    <div class="card purple">
+
+        <h3>परिभाषा</h3>
+
+        <p>
+            एक ही तत्व के वे परमाणु जिनकी
+            <strong>परमाणु संख्या समान</strong> लेकिन
+            <strong>द्रव्यमान संख्या अलग</strong> होती है,
+            उन्हें <strong>समस्थानिक</strong> कहते हैं।
+        </p>
+    </div>
+
+    <div class="formula">
+        समस्थानिक → समान Z, अलग A
+    </div>
+
+    <div class="grid">
+
+        <div class="mini">
+            <h4>Hydrogen के समस्थानिक</h4>
+
+            <p><strong>¹₁H</strong> — Protium</p>
+            <p><strong>²₁H</strong> — Deuterium</p>
+            <p><strong>³₁H</strong> — Tritium</p>
+        </div>
+
+        <div class="mini">
+            <h4>Carbon के समस्थानिक</h4>
+
+            <p><strong>¹²₆C</strong></p>
+            <p><strong>¹³₆C</strong></p>
+            <p><strong>¹⁴₆C</strong></p>
+        </div>
+
+    </div>
+
+    <div class="card green">
+
+        <h3>समस्थानिकों के उपयोग</h3>
+
+        <ul>
+            <li>
+                <strong>कोबाल्ट-60</strong> का उपयोग कैंसर उपचार में किया जाता है।
+            </li>
+
+            <li>
+                <strong>आयोडीन-131</strong> का उपयोग थायरॉइड से संबंधित चिकित्सा
+                कार्यों में किया जाता है।
+            </li>
+
+            <li>
+                <strong>कार्बन-14</strong> का उपयोग पुरातात्त्विक वस्तुओं की आयु
+                निर्धारित करने में किया जाता है।
+            </li>
+        </ul>
+
+    </div>
+
+</section>
+
+<!-- ================= CHLORINE ================= -->
+
 <section class="section">
-<div class="section-title">7. 📐 महत्वपूर्ण सूत्र और परिभाषाएँ</div>
-<div class="section-body">
 
-<h3 class="sub-title">परमाणु क्रमांक — Z</h3>
+    <div class="section-title">
+        <div class="num">14</div>
+        <h2>औसत परमाणु द्रव्यमान — Chlorine उदाहरण</h2>
+    </div>
 
-<div class="formula">
-Z = प्रोटॉनों की संख्या
-<br>
-Z = इलेक्ट्रॉनों की संख्या
-<small>उदासीन परमाणु में</small>
-</div>
+    <div class="card">
 
-<div class="info-card definition">
-<strong>परमाणु क्रमांक:</strong>
-नाभिक में उपस्थित प्रोटॉनों की कुल संख्या को परमाणु क्रमांक कहते हैं।
-</div>
+        <p>
+            क्लोरीन प्रकृति में मुख्यतः दो समस्थानिकों के मिश्रण के रूप में पाया जाता है:
+        </p>
 
-<h3 class="sub-title">द्रव्यमान संख्या — A</h3>
+        <ul>
+            <li>Cl-35</li>
+            <li>Cl-37</li>
+        </ul>
 
-<div class="formula">
-A = P + N
-<small>P = प्रोटॉन, N = न्यूट्रॉन</small>
-</div>
+        <p>
+            यदि इनका अनुपात लगभग <strong>3 : 1</strong> माना जाए, तो औसत परमाणु
+            द्रव्यमान लगभग 35.5 u प्राप्त होता है।
+        </p>
 
-<div class="info-card definition">
-<strong>द्रव्यमान संख्या:</strong>
-नाभिक में उपस्थित प्रोटॉन और न्यूट्रॉन की संख्याओं का योग द्रव्यमान संख्या कहलाता है।
-</div>
+    </div>
 
-<h3 class="sub-title">तत्व का निरूपण</h3>
+    <div class="formula">
+        औसत परमाणु द्रव्यमान
+        =
+        (35 × 3 + 37 × 1) / 4
+        =
+        35.5 u
+    </div>
 
-<div class="formula">
-<sup>A</sup><sub>Z</sub>X
-<small>A = द्रव्यमान संख्या &nbsp; | &nbsp; Z = परमाणु क्रमांक &nbsp; | &nbsp; X = तत्व का प्रतीक</small>
-</div>
-
-<div class="info-card success">
-<strong>उदाहरण:</strong> <sup>12</sup><sub>6</sub>C
-<br>
-C = कार्बन, Z = 6, A = 12
-<br>
-न्यूट्रॉन = A − Z = 12 − 6 = <strong>6</strong>
-</div>
-
-</div>
 </section>
 
-<!-- Isotopes -->
+<!-- ================= ISOBARS ================= -->
+
+<section class="section" id="isobars">
+
+    <div class="section-title">
+        <div class="num">15</div>
+        <h2>समभारिक (Isobars)</h2>
+    </div>
+
+    <div class="card orange">
+
+        <h3>परिभाषा</h3>
+
+        <p>
+            अलग-अलग तत्वों के वे परमाणु जिनकी
+            <strong>द्रव्यमान संख्या समान</strong> लेकिन
+            <strong>परमाणु संख्या अलग</strong> होती है,
+            उन्हें <strong>समभारिक</strong> कहते हैं।
+        </p>
+
+    </div>
+
+    <div class="formula">
+        समभारिक → समान A, अलग Z
+    </div>
+
+    <div class="grid">
+
+        <div class="mini">
+            <h4>Argon</h4>
+            <div class="formula">⁴⁰₁₈Ar</div>
+            <p>परमाणु संख्या = 18</p>
+            <p>द्रव्यमान संख्या = 40</p>
+        </div>
+
+        <div class="mini">
+            <h4>Calcium</h4>
+            <div class="formula">⁴⁰₂₀Ca</div>
+            <p>परमाणु संख्या = 20</p>
+            <p>द्रव्यमान संख्या = 40</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= COMPARISON ================= -->
+
 <section class="section">
-<div class="section-title">8. 🧬 समस्थानिक — Isotopes</div>
-<div class="section-body">
 
-<div class="info-card definition">
-एक ही तत्व के वे परमाणु जिनकी <strong>परमाणु संख्या समान</strong> लेकिन
-<strong>द्रव्यमान संख्या भिन्न</strong> होती है, समस्थानिक कहलाते हैं।
-</div>
+    <div class="section-title">
+        <div class="num">16</div>
+        <h2>समस्थानिक और समभारिक में अंतर</h2>
+    </div>
 
-<div class="compare">
+    <div class="compare">
 
-<div class="box">
-<h3>¹₁H — प्रोटियम</h3>
-<p>प्रोटॉन = 1</p>
-<p>न्यूट्रॉन = 0</p>
-</div>
+        <div class="old">
 
-<div class="box">
-<h3>²₁H — ड्यूटीरियम</h3>
-<p>प्रोटॉन = 1</p>
-<p>न्यूट्रॉन = 1</p>
-</div>
+            <h3>समस्थानिक</h3>
 
-<div class="box">
-<h3>³₁H — ट्राइटीरियम</h3>
-<p>प्रोटॉन = 1</p>
-<p>न्यूट्रॉन = 2</p>
-</div>
+            <ul>
+                <li>एक ही तत्व के परमाणु</li>
+                <li>परमाणु संख्या समान</li>
+                <li>द्रव्यमान संख्या अलग</li>
+            </ul>
 
-</div>
+            <div class="formula">
+                समान Z
+                <br>
+                अलग A
+            </div>
 
-<div class="info-card warning">
-<strong>याद रखें:</strong><br>
-समस्थानिकों में → <strong>Z समान</strong>, <strong>A अलग</strong>
-</div>
+        </div>
 
-<h3 class="sub-title">⚖ क्लोरीन का औसत परमाणु द्रव्यमान</h3>
+        <div class="new">
 
-<p>क्लोरीन प्रकृति में ³⁵Cl और ³⁷Cl के रूप में लगभग 3 : 1 अनुपात में पाया जाता है।</p>
+            <h3>समभारिक</h3>
 
-<div class="formula">
-औसत द्रव्यमान =
-[(35 × 3) + (37 × 1)] ÷ 4
-<br>
-= 142 ÷ 4
-<br>
-= <strong>35.5 u</strong>
-</div>
+            <ul>
+                <li>अलग-अलग तत्वों के परमाणु</li>
+                <li>परमाणु संख्या अलग</li>
+                <li>द्रव्यमान संख्या समान</li>
+            </ul>
 
-</div>
+            <div class="formula">
+                अलग Z
+                <br>
+                समान A
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<!-- Applications -->
+<!-- ================= SUBATOMIC SUMMARY ================= -->
+
 <section class="section">
-<div class="section-title">9. 🏥 समस्थानिकों के अनुप्रयोग — Exam Hotspots</div>
-<div class="section-body">
 
-<div class="application definition">
-<div class="number">1</div>
-<div>
-<strong>युरेनियम-235 (²³⁵U)</strong><br>
-परमाणु भट्टी / परमाणु रिएक्टर में ईंधन के रूप में उपयोग।
-</div>
-</div>
+    <div class="section-title">
+        <div class="num">17</div>
+        <h2>तीनों उपपरमाण्विक कण — एक नजर में</h2>
+    </div>
 
-<div class="application success">
-<div class="number">2</div>
-<div>
-<strong>कोबाल्ट-60 (⁶⁰Co)</strong><br>
-कैंसर के उपचार में विकिरण स्रोत के रूप में उपयोग।
-</div>
-</div>
+    <table>
 
-<div class="application warning">
-<div class="number">3</div>
-<div>
-<strong>आयोडीन-131 (¹³¹I)</strong><br>
-थायरॉयड संबंधी रोगों, जैसे घेंघा, के निदान/उपचार में उपयोग।
-</div>
-</div>
+        <tr>
+            <th>कण</th>
+            <th>प्रतीक</th>
+            <th>आवेश</th>
+            <th>स्थान</th>
+            <th>महत्त्व</th>
+        </tr>
 
-<div class="application purple">
-<div class="number">4</div>
-<div>
-<strong>कार्बन-14 (¹⁴C)</strong><br>
-जीवाश्म/पुरातात्त्विक अवशेषों की आयु निर्धारित करने के लिए
-कार्बन डेटिंग में उपयोग।
-</div>
-</div>
+        <tr>
+            <td>Electron</td>
+            <td>e⁻</td>
+            <td>−1</td>
+            <td>नाभिक के बाहर</td>
+            <td>रासायनिक व्यवहार में महत्त्वपूर्ण</td>
+        </tr>
 
-</div>
+        <tr>
+            <td>Proton</td>
+            <td>p⁺</td>
+            <td>+1</td>
+            <td>नाभिक में</td>
+            <td>परमाणु संख्या निर्धारित करता है</td>
+        </tr>
+
+        <tr>
+            <td>Neutron</td>
+            <td>n⁰</td>
+            <td>0</td>
+            <td>नाभिक में</td>
+            <td>द्रव्यमान संख्या में योगदान</td>
+        </tr>
+
+    </table>
+
 </section>
 
-<!-- Isobars -->
+<!-- ================= QUICK REVISION ================= -->
+
+<section class="section" id="revision">
+
+    <div class="section-title">
+        <div class="num">18</div>
+        <h2>Quick Revision — परीक्षा के लिए महत्वपूर्ण तथ्य</h2>
+    </div>
+
+    <div class="card highlight">
+
+        <div class="fact">
+            <div class="fact-icon">1</div>
+            <div>
+                <strong>1808</strong> — जॉन डाल्टन ने परमाणु सिद्धांत प्रस्तुत किया।
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">2</div>
+            <div>
+                <strong>1897</strong> — जे. जे. थॉमसन ने इलेक्ट्रॉन की खोज की।
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">3</div>
+            <div>
+                <strong>1911</strong> — रदरफोर्ड का स्वर्ण-पत्र प्रयोग।
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">4</div>
+            <div>
+                रदरफोर्ड ने <strong>नाभिक</strong> की अवधारणा दी।
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">5</div>
+            <div>
+                <strong>1913</strong> — नील्स बोर ने परमाणु मॉडल प्रस्तुत किया।
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">6</div>
+            <div>
+                बोर मॉडल में K, L, M, N ऊर्जा स्तर होते हैं।
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">7</div>
+            <div>
+                <strong>1932</strong> — जेम्स चैडविक ने न्यूट्रॉन की खोज की।
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">8</div>
+            <div>
+                <strong>Z = प्रोटॉनों की संख्या</strong>
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">9</div>
+            <div>
+                <strong>A = प्रोटॉन + न्यूट्रॉन</strong>
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">10</div>
+            <div>
+                <strong>न्यूट्रॉन = A − Z</strong>
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">11</div>
+            <div>
+                <strong>समस्थानिक:</strong> समान Z, अलग A
+            </div>
+        </div>
+
+        <div class="fact">
+            <div class="fact-icon">12</div>
+            <div>
+                <strong>समभारिक:</strong> समान A, अलग Z
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FORMULA BOX ================= -->
+
 <section class="section">
-<div class="section-title">10. ⚖ समभारिक — Isobars</div>
-<div class="section-body">
 
-<div class="info-card definition">
-अलग-अलग तत्वों के वे परमाणु जिनकी <strong>परमाणु संख्या अलग</strong> लेकिन
-<strong>द्रव्यमान संख्या समान</strong> होती है, समभारिक कहलाते हैं।
-</div>
+    <div class="section-title">
+        <div class="num">19</div>
+        <h2>Important Formula Box</h2>
+    </div>
 
-<div class="compare">
+    <div class="grid">
 
-<div class="box">
-<h3>⁴⁰₁₈Ar</h3>
-<p>आर्गन</p>
-<p>Z = 18</p>
-<p>A = 40</p>
-</div>
+        <div class="mini">
+            <h4>Atomic Number</h4>
+            <div class="formula">Z = P</div>
+            <p>उदासीन परमाणु में Z = P = E</p>
+        </div>
 
-<div class="box">
-<h3>⁴⁰₂₀Ca</h3>
-<p>कैल्शियम</p>
-<p>Z = 20</p>
-<p>A = 40</p>
-</div>
+        <div class="mini">
+            <h4>Mass Number</h4>
+            <div class="formula">A = P + N</div>
+        </div>
 
-</div>
+        <div class="mini">
+            <h4>Neutrons</h4>
+            <div class="formula">N = A − Z</div>
+        </div>
 
-<div class="formula">
-समभारिक → A समान, Z अलग
-</div>
+        <div class="mini">
+            <h4>Shell Capacity</h4>
+            <div class="formula">2n²</div>
+        </div>
 
-<div class="info-card warning">
-<strong>⭐ परीक्षा में अंतर:</strong><br>
-समस्थानिक → समान तत्व, Z समान, A अलग।<br>
-समभारिक → अलग तत्व, Z अलग, A समान।
-</div>
+    </div>
 
-</div>
 </section>
 
-<!-- Quick Revision -->
+<!-- ================= FINAL ================= -->
+
 <section class="section">
-<div class="section-title">🚀 अंतिम त्वरित पुनरावृत्ति — Quick Revision</div>
-<div class="section-body">
 
-<div class="grid">
+    <div class="card green">
 
-<div class="info-card">
-<strong>Electron</strong><br>
-J. J. Thomson<br>
-ऋणावेशित<br>
-e⁻
-</div>
+        <h3>एक लाइन में पूरा अध्याय</h3>
 
-<div class="info-card">
-<strong>Proton</strong><br>
-Goldstein<br>
-धनावेशित<br>
-p⁺
-</div>
+        <p style="font-size:19px;font-weight:700;text-align:center;">
+            Dalton → Electron → Thomson Model → Rutherford Experiment →
+            Nucleus → Proton → Bohr Model → Energy Levels → Neutron →
+            Atomic Number → Mass Number → Isotopes → Isobars
+        </p>
 
-<div class="info-card">
-<strong>Neutron</strong><br>
-Chadwick<br>
-आवेश = 0<br>
-n⁰
-</div>
+    </div>
 
-<div class="info-card">
-<strong>Atomic Number</strong><br>
-Z = Proton संख्या
-</div>
-
-<div class="info-card">
-<strong>Mass Number</strong><br>
-A = Proton + Neutron
-</div>
-
-<div class="info-card">
-<strong>Electron Capacity</strong><br>
-2n²
-</div>
-
-<div class="info-card">
-<strong>Isotopes</strong><br>
-Z समान, A अलग
-</div>
-
-<div class="info-card">
-<strong>Isobars</strong><br>
-A समान, Z अलग
-</div>
-
-</div>
-
-<div class="formula">
-K = 2 &nbsp;&nbsp; | &nbsp;&nbsp;
-L = 8 &nbsp;&nbsp; | &nbsp;&nbsp;
-M = 18 &nbsp;&nbsp; | &nbsp;&nbsp;
-N = 32
-</div>
-
-</div>
 </section>
+
+</main>
 
 <footer class="footer">
-<h2>⚛ कक्षा 9वीं विज्ञान — परमाणु की संरचना</h2>
-<p>Structure of the Atom • Revision Notes</p>
-</footer>
 
-</div>
+    <p>
+        <strong>कक्षा 9 विज्ञान • अध्याय 8 — परमाणु के अंदर की यात्रा</strong>
+    </p>
+
+    <p style="font-size:13px;margin-top:6px;opacity:.8;">
+        NCERT आधारित अध्ययन नोट्स • Diagrams HTML/SVG द्वारा निर्मित
+    </p>
+
+</footer>
 
 </body>
 </html>
